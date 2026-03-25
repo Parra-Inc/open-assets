@@ -477,7 +477,7 @@ font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, san
 **Full screenshot set:**
 ```
 Now we want to make beautiful screenshots for this app. Install the open-assets skill
-from https://github.com/ianmaccallum/open-assets. Look at the marketing doc and
+from https://github.com/parra-inc/open-assets. Look at the marketing doc and
 demographics. Design 8 high-converting App Store screenshots that catch your eye as
 you scroll. Use bold headlines with highlighted keywords, phone mockups with real app
 screenshots, and close with reviews + a CTA. Export for iPhone 6.7" and 6.9".
