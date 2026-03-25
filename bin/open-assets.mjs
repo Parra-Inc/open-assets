@@ -11,6 +11,13 @@ function env(name, fallback) {
   return process.env[name] ?? fallback;
 }
 
+/**
+ * Get all export sizes from a collection, flattened.
+ */
+function flatSizes(col) {
+  return (col.exportSizes || []).flatMap((group) => group.sizes || []);
+}
+
 const program = new Command();
 
 const pkg = JSON.parse(
@@ -19,7 +26,7 @@ const pkg = JSON.parse(
 
 program
   .name("open-assets")
-  .description("Dev server and export tool for app screenshots, icons, and logos")
+  .description("Dev server and export tool for app marketing assets")
   .version(pkg.version);
 
 // ── dev ──────────────────────────────────────────────────────────────────────
@@ -82,13 +89,14 @@ program
   .command("render")
   .description("Render assets headlessly via CLI")
   .argument("[dir]", "Project directory containing manifest.json", ".")
-  .option("--tab <id>", "Render only the tab with this ID")
-  .option("--width <px>", "Output width in pixels")
-  .option("--height <px>", "Output height in pixels")
-  .option("--preset <name>", "Use a named export preset from manifest")
-  .option("--variant <name>", "Export a specific variant (alias for --preset)")
-  .option("--item <name>", "Render only the item with this name")
-  .option("--all-presets", "Export at every preset size defined in the manifest")
+  .option("--collection <id>", "Render only the collection with this ID")
+  .option("--tag <tag>", "Render only collections with this tag")
+  .option("--template <name>", "Render only the template with this name")
+  .option("--size <name>", "Use a named export size from manifest")
+  .option("--platform <name>", "Render only sizes for this platform")
+  .option("--width <px>", "Output width in pixels (custom size)")
+  .option("--height <px>", "Output height in pixels (custom size)")
+  .option("--all", "Export at every size defined in the manifest")
   .option("--force", "Re-render all assets even if unchanged")
   .option("-o, --output <dir>", "Output directory (env: OPEN_ASSETS_OUTPUT)", env("OPEN_ASSETS_OUTPUT", "./exports"))
   .option("--manifest <path>", "Path to manifest file (env: OPEN_ASSETS_MANIFEST)", env("OPEN_ASSETS_MANIFEST", "manifest.json"))
@@ -105,27 +113,30 @@ program
       process.exit(1);
     }
 
-    // Normalize --variant to --preset
-    opts.preset = opts.preset || opts.variant;
-
     const manifest = JSON.parse(readFileSync(manifestPath, "utf-8"));
-    const { renderScreenshot, renderAndSaveIcon, closeBrowser } = await import(
+
+    const { renderScreenshot, runXcodeOutput, closeBrowser } = await import(
       "../lib/renderer.mjs"
     );
     const { readLockfile, writeLockfile, computeChecksum, isUpToDate, recordExport } = await import(
       "../lib/lockfile.mjs"
     );
-    const { mkdirSync, writeFileSync } = await import("fs");
+    const { mkdirSync, writeFileSync, copyFileSync } = await import("fs");
 
     const outputDir = resolve(opts.output);
     mkdirSync(outputDir, { recursive: true });
 
-    const tabs = opts.tab
-      ? manifest.tabs.filter((t) => t.id === opts.tab)
-      : manifest.tabs;
+    let collections = manifest.collections;
+    if (opts.collection) {
+      collections = collections.filter((c) => c.id === opts.collection);
+    }
+    if (opts.tag) {
+      collections = collections.filter((c) => (c.tags || []).includes(opts.tag));
+    }
 
-    if (tabs.length === 0) {
-      console.error(`Error: tab "${opts.tab}" not found in manifest`);
+    if (collections.length === 0) {
+      const filter = opts.collection ? `collection "${opts.collection}"` : `tag "${opts.tag}"`;
+      console.error(`Error: no collections matched ${filter} in manifest`);
       process.exit(1);
     }
 
@@ -134,150 +145,145 @@ program
     let skipped = 0;
     const startTime = Date.now();
 
-    // Helper: render all items in a gallery at a given size into a subdirectory
-    async function renderGalleryAtSize(tab, w, h, subDir) {
-      const dir = subDir ? join(outputDir, subDir) : outputDir;
-      mkdirSync(dir, { recursive: true });
-      const variantKey = subDir || `${w}x${h}`;
-      const allItems = tab.items || [];
-      const items = opts.item
-        ? allItems.filter(i => i.name === opts.item || i.label === opts.item)
-        : allItems;
-      for (const item of items) {
-        const name = item.name || item.label || "screenshot";
-        const outPath = join(dir, `${name}.png`);
-        const assetKey = `${tab.id}/${name}`;
-        const srcPath = resolve(projectDir, item.src);
-        const checksum = computeChecksum(srcPath);
+    for (const col of collections) {
+      const sourceW = col.sourceSize.width;
+      const sourceH = col.sourceSize.height;
 
-        // Skip if unchanged
-        if (!opts.force && checksum && isUpToDate(lockData, assetKey, variantKey, checksum, outPath)) {
-          if (!opts.quiet) console.log(`  Skipping ${name} at ${w}x${h} (unchanged)`);
-          skipped++;
+      // Filter templates
+      const templates = opts.template
+        ? col.templates.filter((t) => t.name === opts.template || t.label === opts.template)
+        : col.templates;
+
+      // Determine which sizes to render
+      let sizesToRender = [];
+
+      if (opts.width && opts.height) {
+        // Custom size from CLI
+        sizesToRender = [{
+          name: `${opts.width}x${opts.height}`,
+          label: `${opts.width}x${opts.height}`,
+          width: parseInt(opts.width),
+          height: parseInt(opts.height),
+        }];
+      } else if (opts.size) {
+        // Specific named size
+        const found = flatSizes(col).find((s) => s.name === opts.size || s.label === opts.size);
+        if (found) {
+          sizesToRender = [found];
+        } else {
+          if (!opts.quiet) console.log(`  Warning: size "${opts.size}" not found in collection "${col.id}", skipping`);
           continue;
         }
-
-        if (!opts.quiet) console.log(`Rendering ${name} at ${w}x${h}...`);
-        const buffer = await renderScreenshot(
-          projectDir,
-          item.src,
-          w,
-          h,
-          tab.sourceWidth,
-          tab.sourceHeight
-        );
-        writeFileSync(outPath, buffer);
-        results.push({ tab: tab.id, type: "screenshot", name, path: outPath, width: w, height: h, size: buffer.length });
-        if (checksum) recordExport(lockData, assetKey, variantKey, checksum, outPath);
-        if (!opts.quiet) console.log(`  → ${outPath}`);
+      } else if (opts.all) {
+        // All sizes
+        sizesToRender = flatSizes(col);
+        // Filter by platform if specified
+        if (opts.platform) {
+          sizesToRender = (col.exportSizes || [])
+            .filter((g) => g.platform && g.platform.toLowerCase().includes(opts.platform.toLowerCase()))
+            .flatMap((g) => g.sizes || []);
+        }
+      } else {
+        // Default: render at source size
+        sizesToRender = [{
+          name: `${sourceW}x${sourceH}`,
+          label: `${sourceW}x${sourceH}`,
+          width: sourceW,
+          height: sourceH,
+        }];
       }
-    }
 
-    for (const tab of tabs) {
-      if (tab.type === "icon") {
-        // Export to Xcode if configured
-        if (tab.xcodeOutputDir) {
-          if (!opts.quiet) console.log(`Rendering icon to Xcode...`);
-          const path = await renderAndSaveIcon(projectDir, manifest);
-          results.push({ tab: tab.id, type: "xcode", path });
-        }
-        // Export PNG at requested size (or source size)
-        const w = parseInt(opts.width) || tab.sourceWidth || 1024;
-        const h = parseInt(opts.height) || tab.sourceHeight || 1024;
-        const variantKey = `${w}x${h}`;
-        const outPath = join(outputDir, `icon-${w}x${h}.png`);
-        const srcPath = resolve(projectDir, tab.sourceFile);
-        const checksum = computeChecksum(srcPath);
+      if (sizesToRender.length === 0) {
+        if (!opts.quiet) console.log(`  No export sizes found for collection "${col.id}"`);
+        continue;
+      }
 
-        if (!opts.force && checksum && isUpToDate(lockData, tab.id, variantKey, checksum, outPath)) {
-          if (!opts.quiet) console.log(`  Skipping icon at ${w}x${h} (unchanged)`);
-          skipped++;
-        } else {
-          if (!opts.quiet) console.log(`Rendering icon at ${w}x${h}...`);
-          const buffer = await renderScreenshot(
-            projectDir,
-            tab.sourceFile,
-            w,
-            h,
-            tab.sourceWidth || w,
-            tab.sourceHeight || h
-          );
-          writeFileSync(outPath, buffer);
-          results.push({ tab: tab.id, type: "icon", path: outPath, width: w, height: h, size: buffer.length });
-          if (checksum) recordExport(lockData, tab.id, variantKey, checksum, outPath);
-          if (!opts.quiet) console.log(`  → ${outPath}`);
+      // Determine if we need subdirectories (multiple sizes = subdirs)
+      const useSubDirs = sizesToRender.length > 1 || opts.all;
+
+      for (const size of sizesToRender) {
+        const sizeDir = useSubDirs
+          ? join(outputDir, col.id, size.name)
+          : join(outputDir, col.id);
+        mkdirSync(sizeDir, { recursive: true });
+
+        if (!opts.quiet && sizesToRender.length > 1) {
+          const platformInfo = (col.exportSizes || [])
+            .find((g) => (g.sizes || []).some((s) => s.name === size.name));
+          const platform = platformInfo?.platform ? `[${platformInfo.platform}] ` : '';
+          console.log(`\n  ${platform}${size.label} (${size.width}x${size.height})`);
         }
 
-      } else if (tab.type === "iframe-gallery") {
+        for (const template of templates) {
+          const outPath = join(sizeDir, `${template.name}.png`);
+          const assetKey = `${col.id}/${template.name}`;
+          const variantKey = size.name;
+          const srcPath = resolve(projectDir, template.src);
+          const checksum = computeChecksum(srcPath);
 
-        if (opts.allPresets && tab.exportPresets) {
-          // --all-presets: export at every preset size, organized into subdirectories
-          for (const group of tab.exportPresets) {
-            for (const preset of group.presets) {
-              const subDir = preset.zipName || `${tab.id}-${preset.width}x${preset.height}`;
-              if (!opts.quiet) console.log(`\n  [${group.section}] ${preset.label} (${preset.width}x${preset.height})`);
-              await renderGalleryAtSize(tab, preset.width, preset.height, subDir);
-            }
-          }
-        } else {
-          // Single size: --preset > --width/--height > source defaults
-          let w, h;
-          if (opts.preset && tab.exportPresets) {
-            const preset = tab.exportPresets
-              .flatMap((g) => g.presets)
-              .find((p) => p.label === opts.preset || p.zipName === opts.preset);
-            if (preset) {
-              w = preset.width;
-              h = preset.height;
-            }
-          }
-          w = w || parseInt(opts.width) || tab.sourceWidth;
-          h = h || parseInt(opts.height) || tab.sourceHeight;
-          await renderGalleryAtSize(tab, w, h, null);
-        }
-
-      } else if (tab.type === "logo") {
-        const prefix = tab.downloadPrefix || "logo";
-        const srcPath = resolve(projectDir, tab.sourceFile);
-        const checksum = computeChecksum(srcPath);
-
-        // Export SVG (copy source file)
-        if (existsSync(srcPath)) {
-          const svgOutPath = join(outputDir, `${prefix}.svg`);
-          const { copyFileSync } = await import("fs");
-          copyFileSync(srcPath, svgOutPath);
-          results.push({ tab: tab.id, type: "logo-svg", path: svgOutPath });
-          if (!opts.quiet) console.log(`  → ${svgOutPath}`);
-        }
-
-        // Export PNG at requested size or standard sizes
-        const sizes = opts.width
-          ? [parseInt(opts.width)]
-          : [512, 1024, 2048];
-
-        for (const size of sizes) {
-          const variantKey = `${size}x${size}`;
-          const outPath = join(outputDir, `${prefix}-${size}x${size}.png`);
-
-          if (!opts.force && checksum && isUpToDate(lockData, tab.id, variantKey, checksum, outPath)) {
-            if (!opts.quiet) console.log(`  Skipping logo at ${size}x${size} (unchanged)`);
+          // Skip if unchanged
+          if (!opts.force && checksum && isUpToDate(lockData, assetKey, variantKey, checksum, outPath)) {
+            if (!opts.quiet) console.log(`  Skipping ${template.name} at ${size.width}x${size.height} (unchanged)`);
             skipped++;
             continue;
           }
 
-          if (!opts.quiet) console.log(`Rendering logo at ${size}x${size}...`);
+          if (!opts.quiet) console.log(`  Rendering ${template.name} at ${size.width}x${size.height}...`);
+
+          // Detect SVG source → use copy-source approach for SVG outputs
+          const isSvg = template.src.endsWith(".svg");
+
+          if (isSvg && size.width === sourceW && size.height === sourceH) {
+            // For SVGs at source size, just copy the source
+            copyFileSync(srcPath, outPath.replace(".png", ".svg"));
+          }
+
           const buffer = await renderScreenshot(
             projectDir,
-            tab.sourceFile,
-            size,
-            size,
-            tab.displayWidth || size,
-            tab.displayHeight || size
+            template.src,
+            size.width,
+            size.height,
+            sourceW,
+            sourceH
           );
           writeFileSync(outPath, buffer);
-          results.push({ tab: tab.id, type: "logo-png", path: outPath, width: size, height: size, size: buffer.length });
-          if (checksum) recordExport(lockData, tab.id, variantKey, checksum, outPath);
-          if (!opts.quiet) console.log(`  → ${outPath}`);
+          results.push({
+            collection: col.id,
+            template: template.name,
+            path: outPath,
+            width: size.width,
+            height: size.height,
+            size: buffer.length,
+          });
+          if (checksum) recordExport(lockData, assetKey, variantKey, checksum, outPath);
+          if (!opts.quiet) console.log(`    → ${outPath}`);
+        }
+      }
+
+      // Handle outputs (xcode, copy-source, etc.)
+      if (col.outputs && opts.all) {
+        for (const output of col.outputs) {
+          if (output.type === "xcode") {
+            if (!opts.quiet) console.log(`\n  Exporting to Xcode: ${output.path}`);
+            const path = await runXcodeOutput(projectDir, col, output);
+            results.push({ collection: col.id, type: "xcode", path });
+          } else if (output.type === "copy-source") {
+            // Copy source files (e.g., SVG originals)
+            const format = output.format || "svg";
+            const copyDir = join(outputDir, col.id, format);
+            mkdirSync(copyDir, { recursive: true });
+            for (const template of templates) {
+              if (template.src.endsWith(`.${format}`)) {
+                const srcPath = resolve(projectDir, template.src);
+                const destPath = join(copyDir, `${template.name}.${format}`);
+                if (existsSync(srcPath)) {
+                  copyFileSync(srcPath, destPath);
+                  results.push({ collection: col.id, template: template.name, type: `copy-${format}`, path: destPath });
+                  if (!opts.quiet) console.log(`    → ${destPath}`);
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -302,9 +308,10 @@ program
 
 program
   .command("list")
-  .description("List all tabs and assets defined in the manifest")
+  .description("List all collections and templates defined in the manifest")
   .argument("[dir]", "Project directory containing manifest.json", ".")
   .option("--manifest <path>", "Path to manifest file", env("OPEN_ASSETS_MANIFEST", "manifest.json"))
+  .option("--tag <tag>", "List only collections with this tag")
   .option("--json", "Output as JSON")
   .action(async (dir, opts) => {
     const projectDir = resolve(dir);
@@ -322,26 +329,43 @@ program
       return;
     }
 
+    // Show available tags if defined
+    if (manifest.tags && manifest.tags.length > 0 && !opts.tag) {
+      console.log(`\n  Tags: ${manifest.tags.map((t) => t.id).join(", ")}`);
+    }
+
+    let cols = manifest.collections;
+    if (opts.tag) {
+      cols = cols.filter((c) => (c.tags || []).includes(opts.tag));
+      if (cols.length === 0) {
+        console.error(`\n  No collections found with tag "${opts.tag}"\n`);
+        process.exit(1);
+      }
+    }
+
     console.log(`\n  ${manifest.name}\n`);
-    for (const tab of manifest.tabs) {
-      const badge = { "iframe-gallery": "gallery", icon: "icon", logo: "logo" }[tab.type] || tab.type;
-      console.log(`  [${badge}] ${tab.label} (${tab.id})`);
-      if (tab.type === "iframe-gallery" && tab.items) {
-        for (const item of tab.items) {
-          console.log(`    • ${item.label || item.name} → ${item.src}`);
+    for (const col of cols) {
+      const templateCount = col.templates.length;
+      const sizeCount = flatSizes(col).length;
+      const tagStr = (col.tags && col.tags.length > 0) ? ` [${col.tags.join(", ")}]` : "";
+      console.log(`  ${col.label} (${col.id})${tagStr} — ${templateCount} template(s), ${sizeCount} size(s)`);
+
+      for (const template of col.templates) {
+        console.log(`    • ${template.label || template.name} → ${template.src}`);
+      }
+
+      for (const group of col.exportSizes || []) {
+        for (const size of group.sizes || []) {
+          const platform = group.platform ? `${group.platform}: ` : '';
+          console.log(`    ↳ ${platform}${size.label} (${size.width}×${size.height})`);
         }
-        if (tab.exportPresets) {
-          for (const group of tab.exportPresets) {
-            for (const preset of group.presets) {
-              console.log(`    ↳ ${group.section}: ${preset.label} (${preset.width}×${preset.height})`);
-            }
-          }
+      }
+
+      if (col.outputs) {
+        for (const output of col.outputs) {
+          if (output.type === "xcode") console.log(`    ↳ Xcode: ${output.path}`);
+          else if (output.type === "copy-source") console.log(`    ↳ Copy source: ${output.format}`);
         }
-      } else if (tab.type === "icon") {
-        console.log(`    • ${tab.sourceFile} (${tab.sourceWidth}×${tab.sourceHeight})`);
-        if (tab.xcodeOutputDir) console.log(`    ↳ Xcode: ${tab.xcodeOutputDir}`);
-      } else if (tab.type === "logo") {
-        console.log(`    • ${tab.sourceFile} (${tab.displayWidth}×${tab.displayHeight})`);
       }
     }
     console.log();
@@ -381,40 +405,51 @@ program
     if (manifest.name) ok(`name: "${manifest.name}"`);
     else fail("Missing top-level 'name' field");
 
-    if (Array.isArray(manifest.tabs) && manifest.tabs.length > 0) {
-      ok(`${manifest.tabs.length} tab(s) defined`);
+    if (Array.isArray(manifest.collections) && manifest.collections.length > 0) {
+      ok(`${manifest.collections.length} collection(s) defined`);
     } else {
-      fail("Missing or empty 'tabs' array");
+      fail("Missing or empty 'collections' array");
       process.exit(1);
     }
 
-    // Check each tab
+    // Check each collection
     const ids = new Set();
-    for (const tab of manifest.tabs) {
-      if (!tab.id) { fail(`Tab missing 'id' field`); continue; }
-      if (ids.has(tab.id)) { fail(`Duplicate tab id: "${tab.id}"`); }
-      ids.add(tab.id);
+    for (const col of manifest.collections) {
+      if (!col.id) { fail(`Collection missing 'id' field`); continue; }
+      if (ids.has(col.id)) { fail(`Duplicate collection id: "${col.id}"`); }
+      ids.add(col.id);
 
-      if (!tab.type) { fail(`Tab "${tab.id}" missing 'type' field`); continue; }
-      if (!["iframe-gallery", "icon", "logo"].includes(tab.type)) {
-        fail(`Tab "${tab.id}" has unknown type: "${tab.type}"`);
-        continue;
+      if (!col.sourceSize || !col.sourceSize.width || !col.sourceSize.height) {
+        fail(`Collection "${col.id}" missing or invalid 'sourceSize'`);
+      } else {
+        ok(`Collection "${col.id}" sourceSize: ${col.sourceSize.width}×${col.sourceSize.height}`);
       }
 
-      if (tab.type === "iframe-gallery") {
-        if (!tab.items || tab.items.length === 0) {
-          fail(`Tab "${tab.id}" has no items`);
-        } else {
-          for (const item of tab.items) {
-            const filePath = resolve(projectDir, item.src);
-            if (existsSync(filePath)) ok(`${item.src} exists`);
-            else fail(`${item.src} not found`);
+      if (!col.templates || col.templates.length === 0) {
+        fail(`Collection "${col.id}" has no templates`);
+      } else {
+        for (const template of col.templates) {
+          if (!template.src) {
+            fail(`Collection "${col.id}" has a template without 'src'`);
+            continue;
           }
+          const filePath = resolve(projectDir, template.src);
+          if (existsSync(filePath)) ok(`${template.src} exists`);
+          else fail(`${template.src} not found`);
         }
-      } else if (tab.type === "icon" || tab.type === "logo") {
-        const filePath = resolve(projectDir, tab.sourceFile);
-        if (existsSync(filePath)) ok(`${tab.sourceFile} exists`);
-        else fail(`${tab.sourceFile} not found`);
+      }
+
+      const sizes = flatSizes(col);
+      if (sizes.length > 0) {
+        ok(`Collection "${col.id}" has ${sizes.length} export size(s)`);
+      }
+
+      // Validate outputs
+      if (col.outputs) {
+        for (const output of col.outputs) {
+          if (!output.type) fail(`Collection "${col.id}" has an output without 'type'`);
+          else ok(`Output: ${output.type}`);
+        }
       }
     }
 

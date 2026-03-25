@@ -30,7 +30,7 @@
       .export-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
 
       /* Export dropdown */
-      .export-dropdown { display: none; position: absolute; top: 40px; right: 0; background: #1a1a1a; border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 6px; min-width: 260px; box-shadow: 0 12px 40px rgba(0,0,0,0.6); z-index: 200; }
+      .export-dropdown { display: none; position: absolute; top: 40px; right: 0; background: #1a1a1a; border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 6px; min-width: 260px; box-shadow: 0 12px 40px rgba(0,0,0,0.6); z-index: 200; max-height: 70vh; overflow-y: auto; }
       .export-dropdown.open { display: block; }
       .export-dropdown .section-label { font-size: 10px; font-weight: 600; color: #555; text-transform: uppercase; letter-spacing: 0.08em; padding: 8px 10px 4px; }
       .export-dropdown button { width: 100%; padding: 8px 10px; border: none; background: transparent; color: #ccc; font-size: 13px; font-family: inherit; text-align: left; border-radius: 6px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
@@ -56,7 +56,7 @@
       .screenshot-border { overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.08); }
       .screenshot-border iframe { border: none; display: block; pointer-events: none; }
 
-      /* Logo-specific styles */
+      /* SVG/logo container with checkerboard background */
       .logo-container {
         border: 1px solid rgba(255,255,255,0.08);
         border-radius: 24px;
@@ -113,7 +113,7 @@
     <script>
       // ---- State ----
       let manifest = null;
-      let activeTab = null;
+      let activeCollection = null;
 
       // ---- DOM refs ----
       const canvas = document.getElementById('canvas');
@@ -168,281 +168,224 @@
         return await res.blob();
       }
 
-      // ---- Build tab bar ----
+      // ---- Helpers ----
+      function isSvgTemplate(template) {
+        return template.src.endsWith('.svg');
+      }
+
+      function flatSizes(col) {
+        return (col.exportSizes || []).flatMap(g => g.sizes || []);
+      }
+
+      // ---- Build collection tab bar ----
       function buildTabBar() {
         tabBar.innerHTML = '';
-        for (const tab of manifest.tabs) {
+        for (const col of manifest.collections) {
           const a = document.createElement('a');
-          a.className = 'seg-btn' + (tab.id === activeTab.id ? ' active' : '');
-          a.href = '?tab=' + tab.id;
-          a.textContent = tab.label;
+          a.className = 'seg-btn' + (col.id === activeCollection.id ? ' active' : '');
+          a.href = '?collection=' + col.id;
+          a.textContent = col.label;
           tabBar.appendChild(a);
         }
       }
 
-      // ---- Build canvas content ----
+      // ---- Build canvas content (unified) ----
       function buildCanvas() {
         inner.innerHTML = '';
-        if (activeTab.type === 'iframe-gallery') buildGallery();
-        else if (activeTab.type === 'icon') buildIcon();
-        else if (activeTab.type === 'logo') buildLogo();
-      }
+        const col = activeCollection;
+        const sw = col.sourceSize.width;
+        const sh = col.sourceSize.height;
+        const br = col.borderRadius || 0;
 
-      function buildGallery() {
-        const br = activeTab.borderRadius || 4;
-        for (const item of activeTab.items) {
+        for (const template of col.templates) {
           const slot = document.createElement('div');
           slot.className = 'screenshot-slot';
 
-          const border = document.createElement('div');
-          border.className = 'screenshot-border';
-          border.style.borderRadius = br + 'px';
+          if (isSvgTemplate(template)) {
+            // SVG template: render as image with checkerboard background
+            const container = document.createElement('div');
+            container.className = 'logo-container';
+            container.style.width = sw + 'px';
+            container.style.height = sh + 'px';
+            if (br) container.style.borderRadius = br + 'px';
 
-          const iframe = document.createElement('iframe');
-          iframe.src = item.src;
-          iframe.dataset.name = item.name;
-          iframe.dataset.file = item.src;
-          iframe.style.width = activeTab.sourceWidth + 'px';
-          iframe.style.height = activeTab.sourceHeight + 'px';
+            const img = document.createElement('img');
+            img.src = template.src;
+            img.style.width = sw + 'px';
+            img.style.height = sh + 'px';
 
-          border.appendChild(iframe);
-          slot.appendChild(border);
+            container.appendChild(img);
+            slot.appendChild(container);
+          } else {
+            // HTML template: render as iframe
+            const border = document.createElement('div');
+            border.className = 'screenshot-border';
+            border.style.borderRadius = br + 'px';
+
+            const iframe = document.createElement('iframe');
+            iframe.src = template.src;
+            iframe.dataset.name = template.name;
+            iframe.dataset.file = template.src;
+            iframe.style.width = sw + 'px';
+            iframe.style.height = sh + 'px';
+
+            border.appendChild(iframe);
+            slot.appendChild(border);
+          }
 
           const label = document.createElement('span');
           label.className = 'screenshot-label';
-          label.textContent = item.label;
+          label.textContent = template.label || template.name;
           slot.appendChild(label);
 
           inner.appendChild(slot);
         }
       }
 
-      function buildIcon() {
-        const slot = document.createElement('div');
-        slot.className = 'screenshot-slot';
-
-        const border = document.createElement('div');
-        border.className = 'screenshot-border';
-        border.style.borderRadius = (activeTab.borderRadius || 180) + 'px';
-
-        const iframe = document.createElement('iframe');
-        iframe.src = activeTab.sourceFile;
-        iframe.id = 'icon-iframe';
-        iframe.style.width = activeTab.sourceWidth + 'px';
-        iframe.style.height = activeTab.sourceHeight + 'px';
-
-        border.appendChild(iframe);
-        slot.appendChild(border);
-
-        const label = document.createElement('span');
-        label.className = 'screenshot-label';
-        label.innerHTML = `App Icon &mdash; ${activeTab.sourceWidth} &times; ${activeTab.sourceHeight}`;
-        slot.appendChild(label);
-
-        inner.appendChild(slot);
-      }
-
-      function buildLogo() {
-        const slot = document.createElement('div');
-        slot.className = 'screenshot-slot';
-
-        const container = document.createElement('div');
-        container.className = 'logo-container';
-        container.style.width = activeTab.displayWidth + 'px';
-        container.style.height = activeTab.displayHeight + 'px';
-
-        const img = document.createElement('img');
-        img.src = activeTab.sourceFile;
-        img.id = 'logo-img';
-        img.style.width = activeTab.displayWidth + 'px';
-        img.style.height = activeTab.displayHeight + 'px';
-
-        container.appendChild(img);
-        slot.appendChild(container);
-
-        const label = document.createElement('span');
-        label.className = 'screenshot-label';
-        label.innerHTML = `Logo &mdash; ${activeTab.displayWidth} &times; ${activeTab.displayHeight} (vector)`;
-        slot.appendChild(label);
-
-        inner.appendChild(slot);
-      }
-
-      // ---- Build export dropdown ----
+      // ---- Build export dropdown (unified) ----
       function buildExportDropdown() {
         exportDropdown.innerHTML = '';
-        if (activeTab.type === 'iframe-gallery') buildGalleryExport();
-        else if (activeTab.type === 'icon') buildIconExport();
-        else if (activeTab.type === 'logo') buildLogoExport();
-      }
+        const col = activeCollection;
+        const sw = col.sourceSize.width;
+        const sh = col.sourceSize.height;
+        const hasMultipleTemplates = col.templates.length > 1;
 
-      function buildGalleryExport() {
-        for (const group of (activeTab.exportPresets || [])) {
-          const sectionLabel = document.createElement('div');
-          sectionLabel.className = 'section-label';
-          sectionLabel.textContent = group.section;
-          exportDropdown.appendChild(sectionLabel);
+        // Outputs (e.g., Xcode)
+        if (col.outputs) {
+          for (let i = 0; i < col.outputs.length; i++) {
+            const output = col.outputs[i];
+            if (output.type === 'xcode') {
+              const sectionLabel = document.createElement('div');
+              sectionLabel.className = 'section-label';
+              sectionLabel.textContent = 'Xcode';
+              exportDropdown.appendChild(sectionLabel);
 
-          for (const preset of group.presets) {
+              const btn = document.createElement('button');
+              btn.innerHTML = 'Export to Xcode <span class="dim">.appiconset</span>';
+              btn.addEventListener('click', () => runOutput(col.id, i));
+              exportDropdown.appendChild(btn);
+
+              exportDropdown.appendChild(document.createElement('hr'));
+            } else if (output.type === 'copy-source') {
+              const sectionLabel = document.createElement('div');
+              sectionLabel.className = 'section-label';
+              sectionLabel.textContent = output.format.toUpperCase();
+              exportDropdown.appendChild(sectionLabel);
+
+              // SVG download for each template
+              for (const template of col.templates) {
+                if (template.src.endsWith('.' + output.format)) {
+                  const btn = document.createElement('button');
+                  const displayName = hasMultipleTemplates ? template.label : `Download ${output.format.toUpperCase()}`;
+                  btn.innerHTML = `${displayName} <span class="dim">${output.format}</span>`;
+                  btn.addEventListener('click', () => downloadSource(template));
+                  exportDropdown.appendChild(btn);
+                }
+              }
+
+              exportDropdown.appendChild(document.createElement('hr'));
+            }
+          }
+        }
+
+        // Export sizes grouped by platform
+        for (const group of col.exportSizes || []) {
+          if (group.platform) {
+            const sectionLabel = document.createElement('div');
+            sectionLabel.className = 'section-label';
+            sectionLabel.textContent = group.platform;
+            exportDropdown.appendChild(sectionLabel);
+          }
+
+          for (const size of group.sizes || []) {
             const btn = document.createElement('button');
-            btn.innerHTML = `${preset.label} <span class="dim">${preset.width} &times; ${preset.height}</span>`;
-            btn.addEventListener('click', () => exportGalleryZip(preset.width, preset.height, preset.zipName));
+            btn.innerHTML = `${size.label} <span class="dim">${size.width} &times; ${size.height}</span>`;
+            btn.addEventListener('click', () => {
+              if (hasMultipleTemplates) {
+                exportZip(size.width, size.height, sw, sh, size.name);
+              } else {
+                exportSinglePNG(col.templates[0], size.width, size.height, sw, sh, size.name);
+              }
+            });
             exportDropdown.appendChild(btn);
           }
         }
 
-        if (activeTab.customExport) {
-          const hr = document.createElement('hr');
-          exportDropdown.appendChild(hr);
+        // Custom size
+        if (col.exportSizes && flatSizes(col).length > 0 || col.customExport) {
+          exportDropdown.appendChild(document.createElement('hr'));
 
-          const sectionLabel = document.createElement('div');
-          sectionLabel.className = 'section-label';
-          sectionLabel.textContent = 'Custom Size';
-          exportDropdown.appendChild(sectionLabel);
+          const customLabel = document.createElement('div');
+          customLabel.className = 'section-label';
+          customLabel.textContent = 'Custom Size';
+          exportDropdown.appendChild(customLabel);
+
+          const defaultW = col.customExport?.defaultWidth || flatSizes(col)[0]?.width || sw;
+          const defaultH = col.customExport?.defaultHeight || flatSizes(col)[0]?.height || sh;
+
+          // Check if square (icon-like) for simplified input
+          const isSquare = sw === sh;
 
           const row = document.createElement('div');
           row.className = 'custom-row';
-          row.innerHTML = `
-            <input type="number" id="custom-w" value="${activeTab.customExport.defaultWidth}" min="1">
-            <span>&times;</span>
-            <input type="number" id="custom-h" value="${activeTab.customExport.defaultHeight}" min="1">
-            <button id="custom-export-btn">Export</button>
-          `;
+
+          if (isSquare) {
+            row.innerHTML = `
+              <input type="number" id="custom-size" value="${defaultW}" min="1" style="width: 72px;">
+              <span>&times; same</span>
+              <button id="custom-export-btn">Export</button>
+            `;
+          } else {
+            row.innerHTML = `
+              <input type="number" id="custom-w" value="${defaultW}" min="1">
+              <span>&times;</span>
+              <input type="number" id="custom-h" value="${defaultH}" min="1">
+              <button id="custom-export-btn">Export</button>
+            `;
+          }
           exportDropdown.appendChild(row);
 
-          // Wire up after DOM insertion
           requestAnimationFrame(() => {
             const btn = document.getElementById('custom-export-btn');
             if (btn) btn.addEventListener('click', () => {
-              const w = parseInt(document.getElementById('custom-w').value);
-              const h = parseInt(document.getElementById('custom-h').value);
-              if (!w || !h || w < 1 || h < 1) return;
-              exportGalleryZip(w, h, `${activeTab.id}-${w}x${h}`);
+              let w, h;
+              if (isSquare) {
+                const size = parseInt(document.getElementById('custom-size').value);
+                if (!size || size < 1) return;
+                w = h = size;
+              } else {
+                w = parseInt(document.getElementById('custom-w').value);
+                h = parseInt(document.getElementById('custom-h').value);
+                if (!w || !h || w < 1 || h < 1) return;
+              }
+              const name = `${col.id}-${w}x${h}`;
+              if (hasMultipleTemplates) {
+                exportZip(w, h, sw, sh, name);
+              } else {
+                exportSinglePNG(col.templates[0], w, h, sw, sh, name);
+              }
             });
           });
         }
       }
 
-      function buildIconExport() {
-        // Xcode export
-        if (activeTab.xcodeOutputDir) {
-          const sectionLabel = document.createElement('div');
-          sectionLabel.className = 'section-label';
-          sectionLabel.textContent = 'Xcode';
-          exportDropdown.appendChild(sectionLabel);
-
-          const xcodeBtn = document.createElement('button');
-          xcodeBtn.innerHTML = 'Export to Xcode <span class="dim">.appiconset</span>';
-          xcodeBtn.addEventListener('click', exportXcode);
-          exportDropdown.appendChild(xcodeBtn);
-
-          exportDropdown.appendChild(document.createElement('hr'));
-        }
-
-        // PNG download
-        const dlLabel = document.createElement('div');
-        dlLabel.className = 'section-label';
-        dlLabel.textContent = 'Download';
-        exportDropdown.appendChild(dlLabel);
-
-        const pngBtn = document.createElement('button');
-        pngBtn.innerHTML = `Download PNG <span class="dim">${activeTab.sourceWidth} &times; ${activeTab.sourceHeight}</span>`;
-        pngBtn.addEventListener('click', () => exportIconPNG(activeTab.sourceWidth));
-        exportDropdown.appendChild(pngBtn);
-
-        exportDropdown.appendChild(document.createElement('hr'));
-
-        // Custom size
-        const customLabel = document.createElement('div');
-        customLabel.className = 'section-label';
-        customLabel.textContent = 'Custom Size';
-        exportDropdown.appendChild(customLabel);
-
-        const row = document.createElement('div');
-        row.className = 'custom-row';
-        row.innerHTML = `
-          <input type="number" id="custom-size" value="${activeTab.sourceWidth}" min="1" style="width: 72px;">
-          <span>&times; same</span>
-          <button id="custom-icon-btn">Export</button>
-        `;
-        exportDropdown.appendChild(row);
-
-        requestAnimationFrame(() => {
-          const btn = document.getElementById('custom-icon-btn');
-          if (btn) btn.addEventListener('click', () => {
-            const size = parseInt(document.getElementById('custom-size').value);
-            if (!size || size < 1) return;
-            exportIconPNG(size);
-          });
-        });
-      }
-
-      function buildLogoExport() {
-        // SVG
-        const svgLabel = document.createElement('div');
-        svgLabel.className = 'section-label';
-        svgLabel.textContent = 'SVG';
-        exportDropdown.appendChild(svgLabel);
-
-        const svgBtn = document.createElement('button');
-        svgBtn.innerHTML = 'Download SVG <span class="dim">vector</span>';
-        svgBtn.addEventListener('click', exportLogoSVG);
-        exportDropdown.appendChild(svgBtn);
-
-        exportDropdown.appendChild(document.createElement('hr'));
-
-        // PNG sizes
-        const pngLabel = document.createElement('div');
-        pngLabel.className = 'section-label';
-        pngLabel.textContent = 'PNG';
-        exportDropdown.appendChild(pngLabel);
-
-        for (const size of [512, 1024, 2048]) {
-          const btn = document.createElement('button');
-          btn.innerHTML = `Download PNG <span class="dim">${size} &times; ${size}</span>`;
-          btn.addEventListener('click', () => exportLogoPNG(size));
-          exportDropdown.appendChild(btn);
-        }
-
-        exportDropdown.appendChild(document.createElement('hr'));
-
-        // Custom
-        const customLabel = document.createElement('div');
-        customLabel.className = 'section-label';
-        customLabel.textContent = 'Custom Size';
-        exportDropdown.appendChild(customLabel);
-
-        const row = document.createElement('div');
-        row.className = 'custom-row';
-        row.innerHTML = `
-          <input type="number" id="custom-size" value="1024" min="1" style="width: 72px;">
-          <span>&times; same</span>
-          <button id="custom-logo-btn">Export</button>
-        `;
-        exportDropdown.appendChild(row);
-
-        requestAnimationFrame(() => {
-          const btn = document.getElementById('custom-logo-btn');
-          if (btn) btn.addEventListener('click', () => {
-            const size = parseInt(document.getElementById('custom-size').value);
-            if (!size || size < 1) return;
-            exportLogoPNG(size);
-          });
-        });
-      }
-
       // ---- Export actions ----
 
-      async function exportGalleryZip(w, h, zipName) {
+      async function exportZip(w, h, sourceW, sourceH, zipName) {
         exportDropdown.classList.remove('open');
-        const iframes = document.querySelectorAll('.screenshot-border iframe');
+        const templates = activeCollection.templates;
         const zip = new JSZip();
-        for (let i = 0; i < iframes.length; i++) {
-          showToast(`Rendering ${i + 1} / ${iframes.length}...`);
-          const file = iframes[i].dataset.file;
-          const blob = await renderScreenshot(file, w, h, activeTab.sourceWidth, activeTab.sourceHeight);
-          const name = iframes[i].dataset.name || `image-${i + 1}`;
-          zip.file(`${name}.png`, blob);
+        for (let i = 0; i < templates.length; i++) {
+          showToast(`Rendering ${i + 1} / ${templates.length}...`);
+          const t = templates[i];
+          if (isSvgTemplate(t)) {
+            // For SVG templates, render via Puppeteer at target size
+            const blob = await renderScreenshot(t.src, w, h, sourceW, sourceH);
+            zip.file(`${t.name}.png`, blob);
+          } else {
+            const blob = await renderScreenshot(t.src, w, h, sourceW, sourceH);
+            zip.file(`${t.name}.png`, blob);
+          }
         }
         showToast('Creating zip...');
         const zipBlob = await zip.generateAsync({ type: 'blob' });
@@ -450,29 +393,12 @@
         hideToast();
       }
 
-      async function exportXcode() {
+      async function exportSinglePNG(template, w, h, sourceW, sourceH, name) {
         exportDropdown.classList.remove('open');
-        showToast('Updating Xcode icon...');
+        showToast(`Rendering ${template.label || template.name} at ${w} × ${h}...`);
         try {
-          const res = await fetch('/api/update-icon', { method: 'POST' });
-          const data = await res.json();
-          if (data.ok) {
-            showToast('Icon updated in Xcode project');
-          } else {
-            showToast('Error: ' + (data.error || 'Unknown error'));
-          }
-        } catch (err) {
-          showToast('Failed — is dev server running?');
-        }
-        setTimeout(hideToast, 3000);
-      }
-
-      async function exportIconPNG(size) {
-        exportDropdown.classList.remove('open');
-        showToast(`Rendering icon at ${size} × ${size}...`);
-        try {
-          const blob = await renderScreenshot(activeTab.sourceFile, size, size, activeTab.sourceWidth, activeTab.sourceHeight);
-          saveAs(blob, `AppIcon-${size}x${size}.png`);
+          const blob = await renderScreenshot(template.src, w, h, sourceW, sourceH);
+          saveAs(blob, `${template.name}-${w}x${h}.png`);
           hideToast();
         } catch (err) {
           showToast('Failed — is dev server running?');
@@ -480,45 +406,42 @@
         }
       }
 
-      async function exportLogoSVG() {
+      async function downloadSource(template) {
         exportDropdown.classList.remove('open');
-        showToast('Downloading SVG...');
-        const res = await fetch(activeTab.sourceFile);
-        const svgText = await res.text();
-        const blob = new Blob([svgText], { type: 'image/svg+xml' });
-        saveAs(blob, `${activeTab.downloadPrefix || 'logo'}.svg`);
-        hideToast();
+        showToast('Downloading...');
+        try {
+          const res = await fetch(template.src);
+          const text = await res.text();
+          const ext = template.src.split('.').pop();
+          const mimeMap = { svg: 'image/svg+xml', html: 'text/html' };
+          const blob = new Blob([text], { type: mimeMap[ext] || 'application/octet-stream' });
+          saveAs(blob, `${template.name}.${ext}`);
+          hideToast();
+        } catch (err) {
+          showToast('Failed to download');
+          setTimeout(hideToast, 3000);
+        }
       }
 
-      async function exportLogoPNG(size) {
+      async function runOutput(collectionId, outputIndex) {
         exportDropdown.classList.remove('open');
-        showToast(`Rendering logo at ${size} × ${size}...`);
-        const prefix = activeTab.downloadPrefix || 'logo';
-
-        const img = new Image();
-        img.crossOrigin = 'anonymous';
-
-        img.onload = () => {
-          const c = document.createElement('canvas');
-          c.width = size;
-          c.height = size;
-          const ctx = c.getContext('2d');
-          ctx.drawImage(img, 0, 0, size, size);
-          c.toBlob((blob) => {
-            saveAs(blob, `${prefix}-${size}x${size}.png`);
-            hideToast();
-          }, 'image/png');
-        };
-
-        img.onerror = () => {
-          showToast('Failed to load SVG');
-          setTimeout(hideToast, 3000);
-        };
-
-        const res = await fetch(activeTab.sourceFile);
-        const svgText = await res.text();
-        const svgBlob = new Blob([svgText], { type: 'image/svg+xml' });
-        img.src = URL.createObjectURL(svgBlob);
+        showToast('Running output...');
+        try {
+          const res = await fetch('/api/run-output', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ collectionId, outputIndex }),
+          });
+          const data = await res.json();
+          if (data.ok) {
+            showToast('Output completed: ' + (data.path || 'success'));
+          } else {
+            showToast('Error: ' + (data.error || 'Unknown error'));
+          }
+        } catch (err) {
+          showToast('Failed — is dev server running?');
+        }
+        setTimeout(hideToast, 3000);
       }
 
       // ---- Init ----
@@ -530,10 +453,10 @@
         document.title = manifest.name;
         document.getElementById('app-title').textContent = manifest.name;
 
-        // Determine active tab from ?tab= param
+        // Determine active collection from ?collection= param
         const params = new URLSearchParams(window.location.search);
-        const tabId = params.get('tab') || manifest.tabs[0].id;
-        activeTab = manifest.tabs.find((t) => t.id === tabId) || manifest.tabs[0];
+        const colId = params.get('collection') || manifest.collections[0].id;
+        activeCollection = manifest.collections.find((c) => c.id === colId) || manifest.collections[0];
 
         buildTabBar();
         buildCanvas();
@@ -542,6 +465,54 @@
       }
 
       init();
+
+      // ---- Live reload ----
+      function connectLiveReload() {
+        const es = new EventSource('/api/live-reload');
+        es.onmessage = (event) => {
+          try {
+            const { file } = JSON.parse(event.data);
+            reloadChanged(file);
+          } catch {}
+        };
+        es.onerror = () => {
+          es.close();
+          setTimeout(connectLiveReload, 2000);
+        };
+      }
+
+      function reloadChanged(changedFile) {
+        const bust = '?_r=' + Date.now();
+
+        // Reload iframes whose src matches the changed file
+        const iframes = inner.querySelectorAll('iframe');
+        for (const iframe of iframes) {
+          const src = iframe.dataset.file || iframe.getAttribute('src')?.split('?')[0];
+          if (src && changedFile.endsWith(src.replace(/^\//, ''))) {
+            iframe.src = src + bust;
+          }
+        }
+
+        // Reload images whose src matches the changed file
+        const imgs = inner.querySelectorAll('img');
+        for (const img of imgs) {
+          const src = img.getAttribute('src')?.split('?')[0];
+          if (src && changedFile.endsWith(src.replace(/^\//, ''))) {
+            img.src = src + bust;
+          }
+        }
+
+        // For public dir assets (CSS, JS, etc.) used inside iframes, reload all iframes
+        const ext = changedFile.split('.').pop()?.toLowerCase();
+        if (['css', 'js', 'mjs', 'json', 'woff', 'woff2', 'ttf'].includes(ext)) {
+          for (const iframe of iframes) {
+            const src = iframe.dataset.file || iframe.getAttribute('src')?.split('?')[0];
+            if (src) iframe.src = src + bust;
+          }
+        }
+      }
+
+      connectLiveReload();
     </script>
   </body>
 </html>
