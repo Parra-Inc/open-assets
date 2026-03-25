@@ -473,4 +473,24 @@ program
     await scaffoldProject(resolve(dir));
   });
 
+// ── skills ──────────────────────────────────────────────────────────────────
+
+program
+  .command("skills")
+  .description("Install Claude Code skills for open-assets into the current project")
+  .argument("[dir]", "Target project directory", ".")
+  .action(async (dir) => {
+    const { cpSync, mkdirSync } = await import("fs");
+    const targetDir = resolve(dir);
+    const skillsSrc = new URL("../skills", import.meta.url).pathname;
+    const skillsDest = join(targetDir, ".claude", "skills");
+
+    mkdirSync(skillsDest, { recursive: true });
+    cpSync(skillsSrc, skillsDest, { recursive: true });
+
+    console.log(`\n  Installed open-assets skills to ${join(targetDir, ".claude", "skills", "open-assets")}\n`);
+    console.log(`  Claude Code will now use the open-assets skill when you use /open-assets or`);
+    console.log(`  ask it to create marketing assets.\n`);
+  });
+
 program.parse();

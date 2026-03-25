@@ -10,6 +10,7 @@
     "bin/",
     "lib/",
     "public/",
+    "skills/",
     "README.md",
     "LICENSE"
   ],

@@ -4,12 +4,25 @@ Dev server and export tool for app marketing assets. Like Storybook, but for mar
 
 Design your App Store screenshots, app icons, logos, OG images, favicons, and more in HTML/CSS/SVG, preview them live in the browser, and export pixel-perfect PNGs at any size — including directly into your Xcode project.
 
+## Installation
+
+```bash
+# npm
+npm install --save-dev @open-assets/open-assets
+
+# yarn
+yarn add --dev @open-assets/open-assets
+
+# pnpm
+pnpm add --save-dev @open-assets/open-assets
+
+# bun
+bun add --dev @open-assets/open-assets
+```
+
 ## Quick Start
 
 ```bash
-# Install
-npm install --save-dev open-assets
-
 # Scaffold a new project
 npx open-assets init
 
@@ -42,11 +55,20 @@ Creates a `manifest.json`, sample HTML templates, and a `public/` directory for 
 
 ### 2. Design with Claude Code
 
-Install the open-assets Claude skill, then prompt:
+Install the open-assets Claude Code skill into your project:
+
+```bash
+# Using the built-in command
+npx open-assets skills
+
+# Or using the Skills CLI
+npx skills add https://github.com/Parra-Inc/open-assets --skill open-assets
+```
+
+This copies the skill into `.claude/skills/open-assets/` so Claude Code can use it. Then prompt:
 
 ```
-Now we want to make beautiful screenshots for this app. Install the open-assets
-skill from https://github.com/parra-inc/open-assets. Look at the marketing
+Now we want to make beautiful screenshots for this app. Look at the marketing
 doc and demographics. Design 8 high-converting App Store screenshots that catch
 your eye as you scroll. Use bold headlines with highlighted keywords, phone
 mockups with real app screenshots, and close with reviews + a CTA.
@@ -226,6 +248,18 @@ open-assets validate ./assets # Check specific directory
 ```
 
 Returns exit code 1 if any errors are found — useful in CI pipelines.
+
+### `open-assets skills [dir]`
+
+Install Claude Code skills into your project. Copies skill files to `.claude/skills/` so Claude Code can generate and manage marketing assets.
+
+```bash
+open-assets skills            # Install to current project
+open-assets skills ./my-app   # Install to a specific project
+
+# Or using the Skills CLI
+npx skills add https://github.com/Parra-Inc/open-assets --skill open-assets
+```
 
 ### `open-assets init [dir]`
 
