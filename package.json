@@ -1,5 +1,5 @@
 {
-  "name": "open-assets",
+  "name": "@open-assets/open-assets",
   "version": "0.1.2",
   "description": "Dev server and export tool for app screenshots, icons, and logos. Like Storybook for marketing assets.",
   "type": "module",
@@ -32,7 +32,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ianmaccallum/open-assets"
+    "url": "https://github.com/parra-inc/open-assets"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "homepage": "https://openassets.dev",
   "dependencies": {
