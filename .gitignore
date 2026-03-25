@@ -28,6 +28,12 @@ yarn-error.log*
 .env*.local
 .env
 
+# exports and packages
+node_modules/
+exports/
+*.tgz
+manifest.lock
+
 # vercel
 .vercel
 

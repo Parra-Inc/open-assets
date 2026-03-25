@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Open Assets</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { background: #0a0a0a; color: #e5e5e5; font-family: -apple-system, system-ui, sans-serif; height: 100vh; overflow: hidden; user-select: none; }
+
+      .toolbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 48px; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; background: rgba(10,10,10,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06); }
+      .toolbar-left { display: flex; align-items: center; gap: 12px; }
+      .toolbar-left h1 { font-size: 14px; font-weight: 700; color: #fff; }
+      .segmented { display: flex; background: rgba(255,255,255,0.06); border-radius: 6px; padding: 2px; gap: 1px; }
+      .seg-btn { padding: 4px 14px; border-radius: 5px; border: none; background: transparent; color: #888; font-size: 12px; font-weight: 600; cursor: pointer; transition: background 0.15s, color 0.15s; font-family: inherit; text-decoration: none; }
+      .seg-btn:hover { color: #bbb; }
+      .seg-btn.active { background: rgba(255,255,255,0.12); color: #fff; }
+      .toolbar-right { display: flex; align-items: center; gap: 4px; }
+      .toolbar-btn { width: 32px; height: 32px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: #ccc; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.15s, border-color 0.15s; line-height: 1; }
+      .toolbar-btn:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: #fff; }
+      .toolbar-btn:active { background: rgba(255,255,255,0.15); }
+      .zoom-label { font-size: 11px; color: #888; min-width: 40px; text-align: center; font-variant-numeric: tabular-nums; }
+      .toolbar-divider { width: 1px; height: 20px; background: rgba(255,255,255,0.08); margin: 0 4px; }
+
+      /* Export button */
+      .export-wrap { position: relative; }
+      .export-btn { padding: 4px 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: #ccc; font-size: 12px; font-weight: 600; cursor: pointer; font-family: inherit; transition: background 0.15s; display: flex; align-items: center; gap: 5px; }
+      .export-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
+
+      /* Export dropdown */
+      .export-dropdown { display: none; position: absolute; top: 40px; right: 0; background: #1a1a1a; border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 6px; min-width: 260px; box-shadow: 0 12px 40px rgba(0,0,0,0.6); z-index: 200; }
+      .export-dropdown.open { display: block; }
+      .export-dropdown .section-label { font-size: 10px; font-weight: 600; color: #555; text-transform: uppercase; letter-spacing: 0.08em; padding: 8px 10px 4px; }
+      .export-dropdown button { width: 100%; padding: 8px 10px; border: none; background: transparent; color: #ccc; font-size: 13px; font-family: inherit; text-align: left; border-radius: 6px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+      .export-dropdown button:hover { background: rgba(255,255,255,0.08); color: #fff; }
+      .export-dropdown button .dim { font-size: 11px; color: #666; font-variant-numeric: tabular-nums; }
+      .export-dropdown button:disabled { opacity: 0.4; cursor: default; }
+      .export-dropdown button:disabled:hover { background: transparent; color: #ccc; }
+      .export-dropdown hr { border: none; border-top: 1px solid rgba(255,255,255,0.06); margin: 4px 0; }
+      .export-dropdown .custom-row { display: flex; align-items: center; gap: 6px; padding: 6px 10px; }
+      .export-dropdown .custom-row input { width: 64px; padding: 4px 8px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.06); color: #fff; font-size: 12px; font-family: inherit; text-align: center; }
+      .export-dropdown .custom-row span { color: #555; font-size: 12px; }
+      .export-dropdown .custom-row button { width: auto; padding: 4px 12px; background: rgba(255,255,255,0.08); border-radius: 5px; font-size: 12px; }
+
+      /* Progress toast */
+      .toast { display: none; position: fixed; bottom: 48px; left: 50%; transform: translateX(-50%); background: #1a1a1a; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 20px; font-size: 13px; color: #ccc; z-index: 300; box-shadow: 0 8px 30px rgba(0,0,0,0.5); }
+      .toast.show { display: block; }
+
+      .canvas { position: absolute; top: 48px; left: 0; right: 0; bottom: 0; overflow: hidden; cursor: grab; }
+      .canvas:active { cursor: grabbing; }
+      .canvas-inner { position: absolute; transform-origin: 0 0; display: flex; gap: 24px; padding: 40px; align-items: flex-start; }
+      .screenshot-slot { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+      .screenshot-label { font-size: 13px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
+      .screenshot-border { overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.08); }
+      .screenshot-border iframe { border: none; display: block; pointer-events: none; }
+
+      /* Logo-specific styles */
+      .logo-container {
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        background-image:
+          linear-gradient(45deg, #1a1a1a 25%, transparent 25%),
+          linear-gradient(-45deg, #1a1a1a 25%, transparent 25%),
+          linear-gradient(45deg, transparent 75%, #1a1a1a 75%),
+          linear-gradient(-45deg, transparent 75%, #1a1a1a 75%);
+        background-size: 40px 40px;
+        background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+        background-color: #111;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hint { position: fixed; bottom: 12px; left: 50%; transform: translateX(-50%); font-size: 11px; color: #555; z-index: 100; pointer-events: none; }
+      .hint kbd { display: inline-block; padding: 1px 5px; border: 1px solid #444; border-radius: 3px; background: #1a1a1a; font-family: inherit; font-size: 10px; color: #888; }
+    </style>
+  </head>
+  <body>
+    <div class="toolbar">
+      <div class="toolbar-left">
+        <h1 id="app-title">Loading...</h1>
+        <div class="segmented" id="tab-bar"></div>
+      </div>
+      <div class="toolbar-right">
+        <button class="toolbar-btn" id="zoom-out" title="Zoom out">−</button>
+        <span class="zoom-label" id="zoom-label">100%</span>
+        <button class="toolbar-btn" id="zoom-in" title="Zoom in">+</button>
+        <div class="toolbar-divider"></div>
+        <button class="toolbar-btn" id="fit-all" title="Fit all" style="font-size: 13px;">⊞</button>
+        <button class="toolbar-btn" id="reset" title="Reset to 100%" style="font-size: 12px;">1:1</button>
+        <div class="toolbar-divider"></div>
+        <div class="export-wrap">
+          <button class="export-btn" id="export-toggle">Export ▾</button>
+          <div class="export-dropdown" id="export-dropdown"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="canvas" id="canvas">
+      <div class="canvas-inner" id="canvas-inner"></div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <div class="hint">
+      <kbd>Scroll</kbd> zoom &nbsp; <kbd>Click + Drag</kbd> pan &nbsp; <kbd>+</kbd> <kbd>−</kbd> zoom &nbsp; <kbd>0</kbd> fit all &nbsp; <kbd>1</kbd> reset 1:1
+    </div>
+
+    <script>
+      // ---- State ----
+      let manifest = null;
+      let activeTab = null;
+
+      // ---- DOM refs ----
+      const canvas = document.getElementById('canvas');
+      const inner = document.getElementById('canvas-inner');
+      const zoomLabel = document.getElementById('zoom-label');
+      const tabBar = document.getElementById('tab-bar');
+      const exportDropdown = document.getElementById('export-dropdown');
+      const exportToggle = document.getElementById('export-toggle');
+      const toast = document.getElementById('toast');
+
+      // ---- Zoom / Pan ----
+      let scale = 1, panX = 0, panY = 0, isPanning = false, startX = 0, startY = 0, startPanX = 0, startPanY = 0;
+      const MIN_SCALE = 0.05, MAX_SCALE = 2, ZOOM_STEP = 0.15;
+
+      function applyTransform() { inner.style.transform = `translate(${panX}px, ${panY}px) scale(${scale})`; zoomLabel.textContent = Math.round(scale * 100) + '%'; }
+      function zoomTo(s, cx, cy) { s = Math.max(MIN_SCALE, Math.min(MAX_SCALE, s)); const r = s / scale; panX = cx - r * (cx - panX); panY = cy - r * (cy - panY); scale = s; applyTransform(); }
+      function fitAll() { const r = canvas.getBoundingClientRect(); const w = inner.scrollWidth, h = inner.scrollHeight; scale = Math.min(r.width / w, r.height / h) * 0.95; scale = Math.max(MIN_SCALE, Math.min(MAX_SCALE, scale)); panX = (r.width - w * scale) / 2; panY = (r.height - h * scale) / 2; applyTransform(); }
+      function resetZoom() { scale = 1; panX = 0; panY = 0; applyTransform(); }
+
+      canvas.addEventListener('wheel', (e) => { e.preventDefault(); const r = canvas.getBoundingClientRect(); zoomTo(scale + (-Math.sign(e.deltaY) * ZOOM_STEP * scale), e.clientX - r.left, e.clientY - r.top); }, { passive: false });
+      canvas.addEventListener('mousedown', (e) => { isPanning = true; startX = e.clientX; startY = e.clientY; startPanX = panX; startPanY = panY; });
+      window.addEventListener('mousemove', (e) => { if (!isPanning) return; panX = startPanX + (e.clientX - startX); panY = startPanY + (e.clientY - startY); applyTransform(); });
+      window.addEventListener('mouseup', () => { isPanning = false; });
+      document.getElementById('zoom-in').addEventListener('click', () => { const r = canvas.getBoundingClientRect(); zoomTo(scale + ZOOM_STEP * scale, r.width / 2, r.height / 2); });
+      document.getElementById('zoom-out').addEventListener('click', () => { const r = canvas.getBoundingClientRect(); zoomTo(scale - ZOOM_STEP * scale, r.width / 2, r.height / 2); });
+      document.getElementById('fit-all').addEventListener('click', fitAll);
+      document.getElementById('reset').addEventListener('click', resetZoom);
+      window.addEventListener('keydown', (e) => {
+        if (e.key === '=' || e.key === '+') { e.preventDefault(); const r = canvas.getBoundingClientRect(); zoomTo(scale + ZOOM_STEP * scale, r.width / 2, r.height / 2); }
+        else if (e.key === '-') { e.preventDefault(); const r = canvas.getBoundingClientRect(); zoomTo(scale - ZOOM_STEP * scale, r.width / 2, r.height / 2); }
+        else if (e.key === '0') { e.preventDefault(); fitAll(); }
+        else if (e.key === '1') { e.preventDefault(); resetZoom(); }
+      });
+
+      // ---- Export dropdown toggle ----
+      exportToggle.addEventListener('click', (e) => { e.stopPropagation(); exportDropdown.classList.toggle('open'); });
+      document.addEventListener('click', () => exportDropdown.classList.remove('open'));
+      exportDropdown.addEventListener('click', (e) => e.stopPropagation());
+
+      // ---- Toast ----
+      function showToast(msg) { toast.textContent = msg; toast.classList.add('show'); }
+      function hideToast() { toast.classList.remove('show'); }
+
+      // ---- Render screenshot via Puppeteer server ----
+      async function renderScreenshot(file, width, height, sourceW, sourceH) {
+        const res = await fetch('/api/render-screenshot', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ file, width, height, sourceW, sourceH }),
+        });
+        if (!res.ok) throw new Error(`Server error: ${res.status}`);
+        return await res.blob();
+      }
+
+      // ---- Build tab bar ----
+      function buildTabBar() {
+        tabBar.innerHTML = '';
+        for (const tab of manifest.tabs) {
+          const a = document.createElement('a');
+          a.className = 'seg-btn' + (tab.id === activeTab.id ? ' active' : '');
+          a.href = '?tab=' + tab.id;
+          a.textContent = tab.label;
+          tabBar.appendChild(a);
+        }
+      }
+
+      // ---- Build canvas content ----
+      function buildCanvas() {
+        inner.innerHTML = '';
+        if (activeTab.type === 'iframe-gallery') buildGallery();
+        else if (activeTab.type === 'icon') buildIcon();
+        else if (activeTab.type === 'logo') buildLogo();
+      }
+
+      function buildGallery() {
+        const br = activeTab.borderRadius || 4;
+        for (const item of activeTab.items) {
+          const slot = document.createElement('div');
+          slot.className = 'screenshot-slot';
+
+          const border = document.createElement('div');
+          border.className = 'screenshot-border';
+          border.style.borderRadius = br + 'px';
+
+          const iframe = document.createElement('iframe');
+          iframe.src = item.src;
+          iframe.dataset.name = item.name;
+          iframe.dataset.file = item.src;
+          iframe.style.width = activeTab.sourceWidth + 'px';
+          iframe.style.height = activeTab.sourceHeight + 'px';
+
+          border.appendChild(iframe);
+          slot.appendChild(border);
+
+          const label = document.createElement('span');
+          label.className = 'screenshot-label';
+          label.textContent = item.label;
+          slot.appendChild(label);
+
+          inner.appendChild(slot);
+        }
+      }
+
+      function buildIcon() {
+        const slot = document.createElement('div');
+        slot.className = 'screenshot-slot';
+
+        const border = document.createElement('div');
+        border.className = 'screenshot-border';
+        border.style.borderRadius = (activeTab.borderRadius || 180) + 'px';
+
+        const iframe = document.createElement('iframe');
+        iframe.src = activeTab.sourceFile;
+        iframe.id = 'icon-iframe';
+        iframe.style.width = activeTab.sourceWidth + 'px';
+        iframe.style.height = activeTab.sourceHeight + 'px';
+
+        border.appendChild(iframe);
+        slot.appendChild(border);
+
+        const label = document.createElement('span');
+        label.className = 'screenshot-label';
+        label.innerHTML = `App Icon &mdash; ${activeTab.sourceWidth} &times; ${activeTab.sourceHeight}`;
+        slot.appendChild(label);
+
+        inner.appendChild(slot);
+      }
+
+      function buildLogo() {
+        const slot = document.createElement('div');
+        slot.className = 'screenshot-slot';
+
+        const container = document.createElement('div');
+        container.className = 'logo-container';
+        container.style.width = activeTab.displayWidth + 'px';
+        container.style.height = activeTab.displayHeight + 'px';
+
+        const img = document.createElement('img');
+        img.src = activeTab.sourceFile;
+        img.id = 'logo-img';
+        img.style.width = activeTab.displayWidth + 'px';
+        img.style.height = activeTab.displayHeight + 'px';
+
+        container.appendChild(img);
+        slot.appendChild(container);
+
+        const label = document.createElement('span');
+        label.className = 'screenshot-label';
+        label.innerHTML = `Logo &mdash; ${activeTab.displayWidth} &times; ${activeTab.displayHeight} (vector)`;
+        slot.appendChild(label);
+
+        inner.appendChild(slot);
+      }
+
+      // ---- Build export dropdown ----
+      function buildExportDropdown() {
+        exportDropdown.innerHTML = '';
+        if (activeTab.type === 'iframe-gallery') buildGalleryExport();
+        else if (activeTab.type === 'icon') buildIconExport();
+        else if (activeTab.type === 'logo') buildLogoExport();
+      }
+
+      function buildGalleryExport() {
+        for (const group of (activeTab.exportPresets || [])) {
+          const sectionLabel = document.createElement('div');
+          sectionLabel.className = 'section-label';
+          sectionLabel.textContent = group.section;
+          exportDropdown.appendChild(sectionLabel);
+
+          for (const preset of group.presets) {
+            const btn = document.createElement('button');
+            btn.innerHTML = `${preset.label} <span class="dim">${preset.width} &times; ${preset.height}</span>`;
+            btn.addEventListener('click', () => exportGalleryZip(preset.width, preset.height, preset.zipName));
+            exportDropdown.appendChild(btn);
+          }
+        }
+
+        if (activeTab.customExport) {
+          const hr = document.createElement('hr');
+          exportDropdown.appendChild(hr);
+
+          const sectionLabel = document.createElement('div');
+          sectionLabel.className = 'section-label';
+          sectionLabel.textContent = 'Custom Size';
+          exportDropdown.appendChild(sectionLabel);
+
+          const row = document.createElement('div');
+          row.className = 'custom-row';
+          row.innerHTML = `
+            <input type="number" id="custom-w" value="${activeTab.customExport.defaultWidth}" min="1">
+            <span>&times;</span>
+            <input type="number" id="custom-h" value="${activeTab.customExport.defaultHeight}" min="1">
+            <button id="custom-export-btn">Export</button>
+          `;
+          exportDropdown.appendChild(row);
+
+          // Wire up after DOM insertion
+          requestAnimationFrame(() => {
+            const btn = document.getElementById('custom-export-btn');
+            if (btn) btn.addEventListener('click', () => {
+              const w = parseInt(document.getElementById('custom-w').value);
+              const h = parseInt(document.getElementById('custom-h').value);
+              if (!w || !h || w < 1 || h < 1) return;
+              exportGalleryZip(w, h, `${activeTab.id}-${w}x${h}`);
+            });
+          });
+        }
+      }
+
+      function buildIconExport() {
+        // Xcode export
+        if (activeTab.xcodeOutputDir) {
+          const sectionLabel = document.createElement('div');
+          sectionLabel.className = 'section-label';
+          sectionLabel.textContent = 'Xcode';
+          exportDropdown.appendChild(sectionLabel);
+
+          const xcodeBtn = document.createElement('button');
+          xcodeBtn.innerHTML = 'Export to Xcode <span class="dim">.appiconset</span>';
+          xcodeBtn.addEventListener('click', exportXcode);
+          exportDropdown.appendChild(xcodeBtn);
+
+          exportDropdown.appendChild(document.createElement('hr'));
+        }
+
+        // PNG download
+        const dlLabel = document.createElement('div');
+        dlLabel.className = 'section-label';
+        dlLabel.textContent = 'Download';
+        exportDropdown.appendChild(dlLabel);
+
+        const pngBtn = document.createElement('button');
+        pngBtn.innerHTML = `Download PNG <span class="dim">${activeTab.sourceWidth} &times; ${activeTab.sourceHeight}</span>`;
+        pngBtn.addEventListener('click', () => exportIconPNG(activeTab.sourceWidth));
+        exportDropdown.appendChild(pngBtn);
+
+        exportDropdown.appendChild(document.createElement('hr'));
+
+        // Custom size
+        const customLabel = document.createElement('div');
+        customLabel.className = 'section-label';
+        customLabel.textContent = 'Custom Size';
+        exportDropdown.appendChild(customLabel);
+
+        const row = document.createElement('div');
+        row.className = 'custom-row';
+        row.innerHTML = `
+          <input type="number" id="custom-size" value="${activeTab.sourceWidth}" min="1" style="width: 72px;">
+          <span>&times; same</span>
+          <button id="custom-icon-btn">Export</button>
+        `;
+        exportDropdown.appendChild(row);
+
+        requestAnimationFrame(() => {
+          const btn = document.getElementById('custom-icon-btn');
+          if (btn) btn.addEventListener('click', () => {
+            const size = parseInt(document.getElementById('custom-size').value);
+            if (!size || size < 1) return;
+            exportIconPNG(size);
+          });
+        });
+      }
+
+      function buildLogoExport() {
+        // SVG
+        const svgLabel = document.createElement('div');
+        svgLabel.className = 'section-label';
+        svgLabel.textContent = 'SVG';
+        exportDropdown.appendChild(svgLabel);
+
+        const svgBtn = document.createElement('button');
+        svgBtn.innerHTML = 'Download SVG <span class="dim">vector</span>';
+        svgBtn.addEventListener('click', exportLogoSVG);
+        exportDropdown.appendChild(svgBtn);
+
+        exportDropdown.appendChild(document.createElement('hr'));
+
+        // PNG sizes
+        const pngLabel = document.createElement('div');
+        pngLabel.className = 'section-label';
+        pngLabel.textContent = 'PNG';
+        exportDropdown.appendChild(pngLabel);
+
+        for (const size of [512, 1024, 2048]) {
+          const btn = document.createElement('button');
+          btn.innerHTML = `Download PNG <span class="dim">${size} &times; ${size}</span>`;
+          btn.addEventListener('click', () => exportLogoPNG(size));
+          exportDropdown.appendChild(btn);
+        }
+
+        exportDropdown.appendChild(document.createElement('hr'));
+
+        // Custom
+        const customLabel = document.createElement('div');
+        customLabel.className = 'section-label';
+        customLabel.textContent = 'Custom Size';
+        exportDropdown.appendChild(customLabel);
+
+        const row = document.createElement('div');
+        row.className = 'custom-row';
+        row.innerHTML = `
+          <input type="number" id="custom-size" value="1024" min="1" style="width: 72px;">
+          <span>&times; same</span>
+          <button id="custom-logo-btn">Export</button>
+        `;
+        exportDropdown.appendChild(row);
+
+        requestAnimationFrame(() => {
+          const btn = document.getElementById('custom-logo-btn');
+          if (btn) btn.addEventListener('click', () => {
+            const size = parseInt(document.getElementById('custom-size').value);
+            if (!size || size < 1) return;
+            exportLogoPNG(size);
+          });
+        });
+      }
+
+      // ---- Export actions ----
+
+      async function exportGalleryZip(w, h, zipName) {
+        exportDropdown.classList.remove('open');
+        const iframes = document.querySelectorAll('.screenshot-border iframe');
+        const zip = new JSZip();
+        for (let i = 0; i < iframes.length; i++) {
+          showToast(`Rendering ${i + 1} / ${iframes.length}...`);
+          const file = iframes[i].dataset.file;
+          const blob = await renderScreenshot(file, w, h, activeTab.sourceWidth, activeTab.sourceHeight);
+          const name = iframes[i].dataset.name || `image-${i + 1}`;
+          zip.file(`${name}.png`, blob);
+        }
+        showToast('Creating zip...');
+        const zipBlob = await zip.generateAsync({ type: 'blob' });
+        saveAs(zipBlob, `${zipName}.zip`);
+        hideToast();
+      }
+
+      async function exportXcode() {
+        exportDropdown.classList.remove('open');
+        showToast('Updating Xcode icon...');
+        try {
+          const res = await fetch('/api/update-icon', { method: 'POST' });
+          const data = await res.json();
+          if (data.ok) {
+            showToast('Icon updated in Xcode project');
+          } else {
+            showToast('Error: ' + (data.error || 'Unknown error'));
+          }
+        } catch (err) {
+          showToast('Failed — is dev server running?');
+        }
+        setTimeout(hideToast, 3000);
+      }
+
+      async function exportIconPNG(size) {
+        exportDropdown.classList.remove('open');
+        showToast(`Rendering icon at ${size} × ${size}...`);
+        try {
+          const blob = await renderScreenshot(activeTab.sourceFile, size, size, activeTab.sourceWidth, activeTab.sourceHeight);
+          saveAs(blob, `AppIcon-${size}x${size}.png`);
+          hideToast();
+        } catch (err) {
+          showToast('Failed — is dev server running?');
+          setTimeout(hideToast, 3000);
+        }
+      }
+
+      async function exportLogoSVG() {
+        exportDropdown.classList.remove('open');
+        showToast('Downloading SVG...');
+        const res = await fetch(activeTab.sourceFile);
+        const svgText = await res.text();
+        const blob = new Blob([svgText], { type: 'image/svg+xml' });
+        saveAs(blob, `${activeTab.downloadPrefix || 'logo'}.svg`);
+        hideToast();
+      }
+
+      async function exportLogoPNG(size) {
+        exportDropdown.classList.remove('open');
+        showToast(`Rendering logo at ${size} × ${size}...`);
+        const prefix = activeTab.downloadPrefix || 'logo';
+
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+
+        img.onload = () => {
+          const c = document.createElement('canvas');
+          c.width = size;
+          c.height = size;
+          const ctx = c.getContext('2d');
+          ctx.drawImage(img, 0, 0, size, size);
+          c.toBlob((blob) => {
+            saveAs(blob, `${prefix}-${size}x${size}.png`);
+            hideToast();
+          }, 'image/png');
+        };
+
+        img.onerror = () => {
+          showToast('Failed to load SVG');
+          setTimeout(hideToast, 3000);
+        };
+
+        const res = await fetch(activeTab.sourceFile);
+        const svgText = await res.text();
+        const svgBlob = new Blob([svgText], { type: 'image/svg+xml' });
+        img.src = URL.createObjectURL(svgBlob);
+      }
+
+      // ---- Init ----
+      async function init() {
+        const res = await fetch('manifest.json');
+        manifest = await res.json();
+
+        // Set title
+        document.title = manifest.name;
+        document.getElementById('app-title').textContent = manifest.name;
+
+        // Determine active tab from ?tab= param
+        const params = new URLSearchParams(window.location.search);
+        const tabId = params.get('tab') || manifest.tabs[0].id;
+        activeTab = manifest.tabs.find((t) => t.id === tabId) || manifest.tabs[0];
+
+        buildTabBar();
+        buildCanvas();
+        buildExportDropdown();
+        requestAnimationFrame(fitAll);
+      }
+
+      init();
+    </script>
+  </body>
+</html>

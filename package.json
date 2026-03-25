@@ -1,0 +1,43 @@
+{
+  "name": "open-assets",
+  "version": "0.1.0",
+  "description": "Dev server and export tool for app screenshots, icons, and logos. Like Storybook for marketing assets.",
+  "type": "module",
+  "bin": {
+    "open-assets": "./bin/open-assets.mjs"
+  },
+  "files": [
+    "bin/",
+    "lib/",
+    "public/",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "screenshots",
+    "app-store",
+    "assets",
+    "icons",
+    "logos",
+    "marketing",
+    "storybook",
+    "puppeteer",
+    "open",
+    "export",
+    "xcode"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ianmaccallum/open-assets"
+  },
+  "homepage": "https://openassets.dev",
+  "dependencies": {
+    "commander": "^13.0.0",
+    "open": "^10.0.0",
+    "puppeteer": "^24.37.5"
+  }
+}
