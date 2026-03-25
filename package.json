@@ -32,7 +32,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/parra-inc/open-assets.git"
+    "url": "git+https://github.com/Parra-Inc/open-assets.git"
   },
   "publishConfig": {
     "access": "public"
