@@ -1,6 +1,6 @@
 {
   "name": "open-assets",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Dev server and export tool for app screenshots, icons, and logos. Like Storybook for marketing assets.",
   "type": "module",
   "bin": {
