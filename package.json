@@ -4,7 +4,7 @@
   "description": "Dev server and export tool for app screenshots, icons, and logos. Like Storybook for marketing assets.",
   "type": "module",
   "bin": {
-    "open-assets": "./bin/open-assets.mjs"
+    "open-assets": "bin/open-assets.mjs"
   },
   "files": [
     "bin/",
@@ -32,7 +32,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/parra-inc/open-assets"
+    "url": "git+https://github.com/parra-inc/open-assets.git"
   },
   "publishConfig": {
     "access": "public"
