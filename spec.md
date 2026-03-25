@@ -31,7 +31,7 @@ It is meant to be installed in monorepos
 - Feature launch templates
 
 ### Domains
-- openassets.com
+- openassets.sh
 
 ### Asset Catalogs
 - Xcode project

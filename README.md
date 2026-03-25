@@ -1,8 +1,8 @@
 # open-assets
 
-Dev server and export tool for app screenshots, icons, and logos. Like Storybook, but for marketing assets.
+Dev server and export tool for app marketing assets. Like Storybook, but for marketing assets.
 
-Design your App Store screenshots, app icons, and logos in HTML/CSS, preview them live in the browser, and export pixel-perfect PNGs at any size — including directly into your Xcode project.
+Design your App Store screenshots, app icons, logos, OG images, favicons, and more in HTML/CSS/SVG, preview them live in the browser, and export pixel-perfect PNGs at any size — including directly into your Xcode project.
 
 ## Quick Start
 
@@ -17,22 +17,20 @@ npx open-assets init
 npx open-assets dev
 ```
 
-## Installation
+## Concepts
 
-```bash
-# Per-project (recommended)
-npm install --save-dev open-assets
+open-assets uses a simple, unified data model. Every asset type follows the same structure: **N templates × M export sizes**.
 
-# Global
-npm install -g open-assets
-
-# One-off with npx
-npx open-assets dev
-```
+| Term | Definition |
+|------|-----------|
+| **Collection** | A named group of related assets sharing the same source size and export sizes. One tab in the dev UI. |
+| **Template** | A single source file (HTML or SVG) that produces one image per export size. |
+| **Export Size** | A named output dimension that templates are rendered at (e.g., "iPhone 6.9" → 1320×2868). |
+| **Platform** | Optional grouping label for related export sizes (e.g., "App Store", "Play Store"). |
+| **Source Size** | The dimensions the HTML template is authored at. Puppeteer scales from source → export size. |
+| **Output** | An optional post-render action (e.g., write to Xcode `.appiconset`, copy SVG source). |
 
 ## End-to-End Screenshot Pipeline
-
-open-assets supports a full pipeline from design to App Store, automated with Claude Code.
 
 ### 1. Initialize
 
@@ -71,14 +69,14 @@ Opens a live preview UI at `http://localhost:3200` with zoom/pan controls and ex
 ### 4. Export
 
 ```bash
-npx open-assets render --all-presets
+npx open-assets render --all
 ```
 
-Exports every screenshot at every configured device size into `./exports/`, organized by variant subdirectories (e.g. `exports/appstore-6.7/01-hero.png`).
+Exports every template at every configured export size into `./exports/`, organized as `exports/{collection}/{size}/{template}.png`.
 
 ### 5. Upload to App Store Connect / Google Play
 
-Upload the exported PNGs to App Store Connect or Google Play Console. Each variant subdirectory maps to a device size required by the store.
+Upload the exported PNGs to App Store Connect or Google Play Console. Each size subdirectory maps to a device size required by the store.
 
 ## Generating Screenshots from UI Tests
 
@@ -89,7 +87,7 @@ Capture real app screenshots via Playwright or XCTest, then use them inside your
 npx playwright test --project=screenshots
 
 # 2. Export marketing screenshots with those captures embedded
-npx open-assets render --all-presets
+npx open-assets render --all
 ```
 
 Reference captured screenshots in your HTML templates:
@@ -100,7 +98,7 @@ Reference captured screenshots in your HTML templates:
 The `manifest.json` `command` field stores the export command so automation tools know what to run:
 ```json
 {
-  "command": "npx open-assets render --all-presets"
+  "command": "npx open-assets render --all"
 }
 ```
 
@@ -134,41 +132,35 @@ Options:
 | `--static-dir <dirs...>` | — | — | Additional static directories to serve |
 | `--render-timeout <ms>` | `OPEN_ASSETS_RENDER_TIMEOUT` | `30000` | Puppeteer render timeout |
 
-The dev server:
-- Serves the visual preview UI at `http://localhost:3200`
-- Serves your HTML/CSS/SVG asset files from the project directory
-- Auto-serves the `publicDir` defined in your manifest (no `--static-dir` needed)
-- Runs a Puppeteer-based render server for PNG exports
-- Provides export controls for all configured presets
-- Shows a clear error if the port is already in use
-
 ### `open-assets render [dir]`
 
 Render assets headlessly via the command line, without opening a browser.
 
 ```bash
-open-assets render                          # Render all tabs at their default sizes
-open-assets render --tab icon               # Render a specific tab
-open-assets render --tab screenshots --width 1320 --height 2868
-open-assets render --preset "iPhone 6.7\""  # Use a named export preset
-open-assets render --variant appstore-6.7   # Same as --preset, using variant terminology
-open-assets render --item 01-hero           # Render a single item
-open-assets render --all-presets            # Export at EVERY preset size (like the UI)
-open-assets render --force                  # Re-render everything, ignore cache
-open-assets render -o ./build               # Custom output directory
-open-assets render --json                   # Output results as JSON (for CI)
-open-assets render --quiet                  # Suppress progress logs
+open-assets render                              # Render all collections at source size
+open-assets render --all                        # Export at EVERY configured size
+open-assets render --collection screenshots     # Render a specific collection
+open-assets render --template 01-hero           # Render a single template
+open-assets render --size iphone-6.9            # Use a named export size
+open-assets render --platform "App Store"       # Render all sizes for a platform
+open-assets render --width 1320 --height 2868   # Custom size
+open-assets render --force                      # Re-render everything, ignore cache
+open-assets render -o ./build                   # Custom output directory
+open-assets render --json                       # Output results as JSON (for CI)
+open-assets render --quiet                      # Suppress progress logs
 ```
 
 Options:
 | Flag | Env Var | Default | Description |
 |------|---------|---------|-------------|
-| `--tab <id>` | — | all tabs | Render only the tab with this ID |
-| `--item <name>` | — | all items | Render only the item with this name (by `name` or `label`) |
-| `--preset <name>` | — | — | Use a named export preset (by label or zipName) |
-| `--variant <name>` | — | — | Alias for `--preset` — export a specific variant |
-| `--all-presets` | — | — | Export at every preset size defined in the manifest |
-| `--force` | — | — | Re-render all assets even if unchanged (ignore manifest.lock) |
+| `--collection <id>` | — | all | Render only the collection with this ID |
+| `--template <name>` | — | all | Render only the template with this name |
+| `--size <name>` | — | — | Use a named export size from manifest |
+| `--platform <name>` | — | — | Render only sizes for this platform |
+| `--width <px>` | — | — | Custom output width |
+| `--height <px>` | — | — | Custom output height |
+| `--all` | — | — | Export at every size defined in the manifest |
+| `--force` | — | — | Re-render all assets even if unchanged |
 | `-o, --output <dir>` | `OPEN_ASSETS_OUTPUT` | `./exports` | Output directory |
 | `--manifest <path>` | `OPEN_ASSETS_MANIFEST` | `manifest.json` | Path to manifest file |
 | `--parallel <count>` | `OPEN_ASSETS_PARALLEL` | `1` | Number of parallel renders |
@@ -178,25 +170,46 @@ Options:
 
 **Selective export** — flags compose naturally:
 ```bash
-# Single item at a single device size
-open-assets render --tab screenshots --item 01-hero --variant appstore-6.7
+# Single template at a single device size
+open-assets render --collection screenshots --template 01-hero --size iphone-6.9
 
-# One item at all device sizes
-open-assets render --tab screenshots --item 01-hero --all-presets
+# One template at all device sizes
+open-assets render --collection screenshots --template 01-hero --all
 
-# All items at one device size
-open-assets render --tab screenshots --variant appstore-6.7
+# All templates at one device size
+open-assets render --collection screenshots --size iphone-6.9
+
+# All templates for a specific platform
+open-assets render --collection screenshots --platform "App Store"
 ```
 
-What each tab type exports:
-
-- **icon** — PNG at the requested size (or source size). If `xcodeOutputDir` is configured, also writes `AppIcon.png` to your Xcode project.
-- **iframe-gallery** — PNG for each item. With `--all-presets`, exports at every preset size into subdirectories (e.g. `exports/appstore-6.7/01-hero.png`).
-- **logo** — SVG (copied from source) + PNG at 512, 1024, and 2048 (or a custom `--width`).
+**Output structure**: `exports/{collection}/{size}/{template}.png`
+```
+exports/
+  screenshots/
+    iphone-6.9/
+      01-hero.png
+      02-features.png
+    iphone-6.7/
+      01-hero.png
+      02-features.png
+  icon/
+    1024/
+      icon.png
+    180/
+      icon.png
+  logo/
+    svg/
+      logo.svg
+      logo-dark.svg
+    1024/
+      logo.png
+      logo-dark.png
+```
 
 ### `open-assets list [dir]`
 
-List all tabs and assets defined in the manifest.
+List all collections and templates defined in the manifest.
 
 ```bash
 open-assets list              # Pretty-print asset tree
@@ -223,24 +236,17 @@ open-assets init              # Current directory
 open-assets init ./my-assets  # Specific directory
 ```
 
-Creates:
-- `manifest.json` — asset configuration with `publicDir` and `command`
-- `public/` — directory for shared assets (images, logos, icons)
-- `src/screenshots/01-hero.html` — sample screenshot template
-- `src/icon.html` — sample app icon template
-- `.gitignore` — ignores `dist/`, `exports/`, `manifest.lock`, `node_modules/`
-
 ## Manifest Format
 
-Your project needs a `manifest.json` at its root. This file defines the tabs shown in the viewer and all export options.
+Your project needs a `manifest.json` at its root. This file defines the collections shown in the viewer and all export options.
 
 ```json
 {
   "version": 1,
   "name": "My App",
   "publicDir": "public",
-  "command": "npx open-assets render --all-presets",
-  "tabs": [ ... ]
+  "command": "npx open-assets render --all",
+  "collections": [ ... ]
 }
 ```
 
@@ -248,101 +254,207 @@ Your project needs a `manifest.json` at its root. This file defines the tabs sho
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `version` | number | yes | Manifest schema version (currently `1`) |
+| `version` | number | yes | Manifest schema version (`1`) |
 | `name` | string | yes | App display name |
 | `publicDir` | string | no | Directory for shared assets (auto-served by dev server) |
 | `command` | string | no | Export command for automation tools and CI |
-| `tabs` | array | yes | Asset tab definitions |
+| `collections` | array | yes | Asset collection definitions |
 
-### Tab Types
+### Collection Schema (Unified)
 
-#### `iframe-gallery` — Screenshots & Marketing Images
-
-For App Store screenshots, Product Hunt images, social cards, etc.
+All collections follow the same structure. No `type` field needed.
 
 ```json
 {
   "id": "screenshots",
-  "label": "Screenshots",
-  "type": "iframe-gallery",
-  "sourceWidth": 440,
-  "sourceHeight": 956,
+  "label": "App Store Screenshots",
+  "sourceSize": { "width": 440, "height": 956 },
   "borderRadius": 4,
-  "items": [
+  "templates": [
     { "src": "src/screenshots/01-hero.html", "name": "01-hero", "label": "Hero" },
     { "src": "src/screenshots/02-features.html", "name": "02-features", "label": "Features" }
   ],
-  "exportPresets": [
+  "exportSizes": [
     {
-      "section": "App Store",
-      "presets": [
-        { "label": "iPhone 6.9\"", "width": 1320, "height": 2868, "zipName": "appstore-6.9" },
-        { "label": "iPhone 6.7\"", "width": 1290, "height": 2796, "zipName": "appstore-6.7" },
-        { "label": "iPhone 6.5\"", "width": 1284, "height": 2778, "zipName": "appstore-6.5" }
-      ]
-    },
-    {
-      "section": "Play Store",
-      "presets": [
-        { "label": "Phone", "width": 1080, "height": 1920, "zipName": "playstore-phone" }
+      "platform": "App Store",
+      "sizes": [
+        { "name": "iphone-6.9", "label": "iPhone 6.9\"", "width": 1320, "height": 2868 },
+        { "name": "iphone-6.7", "label": "iPhone 6.7\"", "width": 1290, "height": 2796 }
       ]
     }
   ],
-  "customExport": {
-    "defaultWidth": 1320,
-    "defaultHeight": 2868
-  }
+  "outputs": [
+    { "type": "xcode", "path": "../MyApp/Assets.xcassets/AppIcon.appiconset" }
+  ]
 }
 ```
 
-Each preset in `exportPresets` is a **variant** — a device size the screenshots get exported at. The `zipName` serves as the variant identifier, used as the output subdirectory name and for selective export with `--variant`.
-
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | string | Unique tab identifier (used in URLs and CLI `--tab`) |
-| `label` | string | Display name in the tab bar |
-| `type` | `"iframe-gallery"` | Tab type |
-| `sourceWidth` | number | Width of the HTML source files in pixels |
-| `sourceHeight` | number | Height of the HTML source files in pixels |
+| `id` | string | Unique collection identifier (used in CLI `--collection`) |
+| `label` | string | Display name in the collection selector |
+| `sourceSize` | object | `{ width, height }` — the dimensions templates are authored at |
 | `borderRadius` | number | Border radius for preview frames (px) |
-| `items` | array | List of HTML files to display |
-| `items[].src` | string | Path to the HTML file (relative to project root) |
-| `items[].name` | string | Filename for exports (used by `--item` flag) |
-| `items[].label` | string | Display label (also usable with `--item`) |
-| `exportPresets` | array | Grouped export size presets (variants) |
-| `exportPresets[].section` | string | Group name (e.g. "App Store") |
-| `exportPresets[].presets[]` | object | Variant definition |
-| `exportPresets[].presets[].label` | string | Display label |
-| `exportPresets[].presets[].width` | number | Export width in pixels |
-| `exportPresets[].presets[].height` | number | Export height in pixels |
-| `exportPresets[].presets[].zipName` | string | Variant ID / subdirectory name |
+| `templates` | array | Source files to render |
+| `templates[].src` | string | Path to HTML/SVG file (relative to project root) |
+| `templates[].name` | string | Filename for exports (used by `--template` flag) |
+| `templates[].label` | string | Display label |
+| `exportSizes` | array | Grouped export size definitions |
+| `exportSizes[].platform` | string | Optional grouping label |
+| `exportSizes[].sizes[]` | object | `{ name, label, width, height }` |
+| `outputs` | array | Optional post-render actions |
+| `customExport` | object | Optional `{ defaultWidth, defaultHeight }` for custom size UI |
 
-#### `icon` — App Icon
+### Output Types
 
+| Type | Config | Description |
+|------|--------|-------------|
+| `xcode` | `{ "type": "xcode", "path": "..." }` | Render icon and write to Xcode asset catalog |
+| `copy-source` | `{ "type": "copy-source", "format": "svg" }` | Copy source files to export directory |
+
+### Example Collections
+
+**Screenshots** (8 templates × 4 iPhone sizes):
+```json
+{
+  "id": "screenshots",
+  "label": "App Store Screenshots",
+  "sourceSize": { "width": 440, "height": 956 },
+  "borderRadius": 4,
+  "templates": [
+    { "src": "src/screenshots/01-hero.html", "name": "01-hero", "label": "Hero" },
+    { "src": "src/screenshots/02-import.html", "name": "02-import", "label": "Import" }
+  ],
+  "exportSizes": [
+    {
+      "platform": "App Store",
+      "sizes": [
+        { "name": "iphone-6.9", "label": "iPhone 6.9\"", "width": 1320, "height": 2868 },
+        { "name": "iphone-6.7", "label": "iPhone 6.7\"", "width": 1290, "height": 2796 },
+        { "name": "iphone-6.5", "label": "iPhone 6.5\"", "width": 1284, "height": 2778 },
+        { "name": "iphone-6.1", "label": "iPhone 6.1\"", "width": 1179, "height": 2556 }
+      ]
+    }
+  ]
+}
+```
+
+**App Icon** (1 template × many Apple sizes + Xcode output):
 ```json
 {
   "id": "icon",
   "label": "App Icon",
-  "type": "icon",
-  "sourceFile": "src/icon.html",
-  "sourceWidth": 1024,
-  "sourceHeight": 1024,
-  "borderRadius": 180,
-  "xcodeOutputDir": "../MyApp/Assets.xcassets/AppIcon.appiconset"
+  "sourceSize": { "width": 1024, "height": 1024 },
+  "borderRadius": 224,
+  "templates": [
+    { "src": "src/icon.html", "name": "icon", "label": "App Icon" }
+  ],
+  "exportSizes": [
+    {
+      "platform": "Apple",
+      "sizes": [
+        { "name": "1024", "label": "1024px", "width": 1024, "height": 1024 },
+        { "name": "180", "label": "180px", "width": 180, "height": 180 },
+        { "name": "120", "label": "120px", "width": 120, "height": 120 }
+      ]
+    }
+  ],
+  "outputs": [
+    { "type": "xcode", "path": "../MyApp/Assets.xcassets/AppIcon.appiconset" }
+  ]
 }
 ```
 
-#### `logo` — Vector Logo
+**Icon Explorations** (3 concept variants × preview sizes):
+```json
+{
+  "id": "icon-explorations",
+  "label": "Icon Explorations",
+  "sourceSize": { "width": 1024, "height": 1024 },
+  "borderRadius": 224,
+  "templates": [
+    { "src": "src/icons/concept-a.html", "name": "concept-a", "label": "Concept A" },
+    { "src": "src/icons/concept-b.html", "name": "concept-b", "label": "Concept B" },
+    { "src": "src/icons/seasonal-winter.html", "name": "seasonal-winter", "label": "Winter" }
+  ],
+  "exportSizes": [
+    {
+      "sizes": [
+        { "name": "1024", "label": "1024px", "width": 1024, "height": 1024 },
+        { "name": "512", "label": "512px", "width": 512, "height": 512 }
+      ]
+    }
+  ]
+}
+```
 
+**Logo** (3 variants + SVG source copy):
 ```json
 {
   "id": "logo",
   "label": "Logo",
-  "type": "logo",
-  "sourceFile": "src/logo.svg",
-  "displayWidth": 940,
-  "displayHeight": 940,
-  "downloadPrefix": "myapp-logo"
+  "sourceSize": { "width": 940, "height": 940 },
+  "templates": [
+    { "src": "src/logo.svg", "name": "logo", "label": "Logo" },
+    { "src": "src/logo-dark.svg", "name": "logo-dark", "label": "Dark" },
+    { "src": "src/wordmark.svg", "name": "wordmark", "label": "Wordmark" }
+  ],
+  "exportSizes": [
+    {
+      "sizes": [
+        { "name": "2048", "label": "2048px", "width": 2048, "height": 2048 },
+        { "name": "1024", "label": "1024px", "width": 1024, "height": 1024 },
+        { "name": "512", "label": "512px", "width": 512, "height": 512 }
+      ]
+    }
+  ],
+  "outputs": [
+    { "type": "copy-source", "format": "svg" }
+  ]
+}
+```
+
+**OG Images** (social cards):
+```json
+{
+  "id": "og-images",
+  "label": "Social Cards",
+  "sourceSize": { "width": 1200, "height": 630 },
+  "templates": [
+    { "src": "src/og/default.html", "name": "default", "label": "Default OG" }
+  ],
+  "exportSizes": [
+    { "sizes": [{ "name": "og", "label": "OG Image", "width": 1200, "height": 630 }] }
+  ]
+}
+```
+
+**Favicons** (1 template × many sizes):
+```json
+{
+  "id": "favicon",
+  "label": "Favicons",
+  "sourceSize": { "width": 512, "height": 512 },
+  "templates": [
+    { "src": "src/favicon.html", "name": "favicon", "label": "Favicon" }
+  ],
+  "exportSizes": [
+    {
+      "platform": "Web",
+      "sizes": [
+        { "name": "512", "label": "512px", "width": 512, "height": 512 },
+        { "name": "192", "label": "192px", "width": 192, "height": 192 },
+        { "name": "32", "label": "32px", "width": 32, "height": 32 },
+        { "name": "16", "label": "16px", "width": 16, "height": 16 }
+      ]
+    },
+    {
+      "platform": "Apple",
+      "sizes": [
+        { "name": "apple-touch", "label": "Apple Touch Icon", "width": 180, "height": 180 }
+      ]
+    }
+  ]
 }
 ```
 
@@ -351,13 +463,12 @@ Each preset in `exportPresets` is a **variant** — a device size the screenshot
 The `render` command maintains a `manifest.lock` file that stores SHA256 checksums of each source HTML/SVG file. On subsequent renders, unchanged assets are skipped automatically:
 
 ```
-$ open-assets render --all-presets
+$ open-assets render --all
   Skipping 01-hero at 1320x2868 (unchanged)
-  Skipping 02-features at 1320x2868 (unchanged)
   Rendering 03-new-screen at 1320x2868...
-    → exports/appstore-6.9/03-new-screen.png
+    → exports/screenshots/iphone-6.9/03-new-screen.png
 
-Done. 1 asset(s) rendered, 2 skipped (unchanged) in 1.2s.
+Done. 1 asset(s) rendered, 1 skipped (unchanged) in 1.2s.
 ```
 
 Use `--force` to re-render everything regardless of the cache.
@@ -387,96 +498,14 @@ jobs:
           node-version: 20
       - run: npm ci
       - run: npx open-assets validate
-      - run: npx open-assets render --all-presets --json --quiet
+      - run: npx open-assets render --all --json --quiet
       - uses: actions/upload-artifact@v4
         with:
           name: screenshots
           path: exports/
 ```
 
-Environment variables for CI:
-```yaml
-env:
-  CI: true                    # Enables CI mode
-  OPEN_ASSETS_QUIET: true     # Suppress logs
-  OPEN_ASSETS_OUTPUT: ./dist  # Custom output dir
-```
-
-## Real-World Examples
-
-### Only Recipes — iOS + Android Screenshots
-
-8 iOS screenshots (440x956) + 8 Android screenshots (440x978) with variants for iPhone 6.9", 6.7", 6.5", 6.1" and Android 1080x2400.
-
-**Design patterns used:**
-- **Hero** (screenshot 1): 86px `font-black` headline "Got Recipes?" with colored background on keyword, app logo + star rating, large food illustration bleeding off bottom-right edge
-- **Dual-phone comparison** (screenshot 2): messy website vs clean recipe side-by-side with arrow between
-- **Orbital integrations** (screenshot 3): "Save recipes from anywhere" with YouTube, Instagram, TikTok, Pinterest logos on concentric orbital rings around the app icon
-- **Feature showcases** (screenshots 4-7): bold headline with highlighted keyword + phone mockup showing the actual app screen
-- **CTA with reviews** (screenshot 8): "Time to cook, chef" headline with decorative arrow, staggered review cards with 5-star ratings, glass-morphism badge pills ("No Ads", "No Popups", "No Life Stories"), lifestyle kitchen photo fading at bottom
-
-**Manifest structure:**
-```json
-{
-  "version": 1,
-  "name": "Only Recipes",
-  "publicDir": "public",
-  "command": "npx open-assets render --all-presets",
-  "tabs": [
-    {
-      "id": "screenshots-ios",
-      "type": "iframe-gallery",
-      "sourceWidth": 440,
-      "sourceHeight": 956,
-      "items": [
-        { "src": "src/screenshots/01-hero.html", "name": "01-hero", "label": "Hero" },
-        { "src": "src/screenshots/02-import.html", "name": "02-import", "label": "Import" },
-        { "src": "src/screenshots/03-save-from-anywhere.html", "name": "03-save", "label": "Save" }
-      ],
-      "exportPresets": [
-        {
-          "section": "App Store",
-          "presets": [
-            { "label": "iPhone 6.9\"", "width": 1320, "height": 2868, "zipName": "appstore-6.9" },
-            { "label": "iPhone 6.7\"", "width": 1290, "height": 2796, "zipName": "appstore-6.7" },
-            { "label": "iPhone 6.5\"", "width": 1284, "height": 2778, "zipName": "appstore-6.5" },
-            { "label": "iPhone 6.1\"", "width": 1179, "height": 2556, "zipName": "appstore-6.1" }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "screenshots-android",
-      "type": "iframe-gallery",
-      "sourceWidth": 440,
-      "sourceHeight": 978,
-      "items": [ "..." ],
-      "exportPresets": [
-        {
-          "section": "Play Store",
-          "presets": [
-            { "label": "Phone", "width": 1080, "height": 2400, "zipName": "playstore-phone" }
-          ]
-        }
-      ]
-    }
-  ]
-}
-```
-
-### Thoughtful — App Store Listing + Icon Concepts
-
-6 screenshot frames with captions, 10+ icon concept SVGs, and a comprehensive brand guide with color tokens. Target demographic: gift-givers aged 25-45.
-
-**Screenshot frames:**
-1. Gift suggestion with occasion context
-2. Contact integration showing relationship details
-3. Gift tracking calendar view
-4. Budget management
-5. Wish list collaboration
-6. CTA with app rating
-
-## Common Export Preset Sizes
+## Common Export Sizes
 
 | Platform | Label | Width | Height |
 |----------|-------|-------|--------|
@@ -488,6 +517,8 @@ env:
 | Play Store | Phone | 1080 | 1920 |
 | Play Store | Phone (tall) | 1080 | 2400 |
 | Product Hunt | Gallery | 1270 | 760 |
+| Web | OG Image | 1200 | 630 |
+| Mac App Store | Retina | 2880 | 1800 |
 
 ## File Structure Convention
 
@@ -497,33 +528,35 @@ project/
   manifest.lock              # Auto-generated cache (gitignored)
   public/                    # Shared assets (configured via publicDir)
     logo-round.png
-    rating.svg
-    arrow.svg
-    kitchen-light.jpg
     social/
       youtube.svg
-      instagram.svg
     screenshots/             # Real app screenshots from UI tests
       01-home.png
-      02-detail.png
   src/
     styles.css               # Tailwind input
-    icon.html                # App icon
-    logo.svg                 # Vector logo
+    icon.html                # App icon template
+    logo.svg                 # Vector logo template
+    icons/                   # Icon concept explorations
+      concept-a.html
+      concept-b.html
     screenshots/
       01-hero.html
       02-features.html
-      03-save-from-anywhere.html
-    screenshots-android/     # Separate set for Android dimensions
-      01-hero.html
+    og/                      # OG image templates
+      default.html
   dist/
     styles.css               # Compiled Tailwind
   exports/                   # Rendered output (gitignored)
-    appstore-6.9/
-      01-hero.png
-      02-features.png
-    appstore-6.7/
-    playstore-phone/
+    screenshots/
+      iphone-6.9/
+        01-hero.png
+      iphone-6.7/
+    icon/
+      1024/
+        icon.png
+    logo/
+      svg/
+        logo.svg
 ```
 
 ## License
