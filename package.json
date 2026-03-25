@@ -43,5 +43,8 @@
     "commander": "^13.0.0",
     "open": "^10.0.0",
     "puppeteer": "^24.37.5"
+  },
+  "devDependencies": {
+    "@open-assets/open-assets": "^0.1.10"
   }
 }
