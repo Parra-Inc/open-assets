@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "open-assets": {
+      "source": "Parra-Inc/open-assets",
+      "sourceType": "github",
+      "computedHash": "f4dbc947874800aadb396f8631d104894482c85b5f409307ed98c001dc1c7606"
+    }
+  }
+}
