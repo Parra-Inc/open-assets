@@ -22,7 +22,6 @@ open-assets render --collection screenshots --size iphone-6.9
 open-assets render --collection icon --all
 open-assets render --all
 open-assets render --template 01-hero --all
-open-assets render --platform "App Store"
 open-assets render --force  # ignore cache, re-render everything
 ```
 
@@ -33,13 +32,12 @@ open-assets render --force  # ignore cache, re-render everything
 | **Collection** | A named group of related assets sharing the same source size and export sizes. One tab in the dev UI. |
 | **Template** | A single source file (HTML or SVG) that produces one image per export size. |
 | **Export Size** | A named output dimension that templates are rendered at (e.g., "iPhone 6.9" → 1320×2868). |
-| **Platform** | Optional grouping label for related export sizes (e.g., "App Store", "Play Store"). |
 | **Source Size** | The dimensions the HTML template is authored at. Puppeteer scales from source → export size. |
 | **Output** | An optional post-render action (e.g., write to Xcode `.appiconset`, copy SVG source). |
 
-## manifest.json
+## assets.json
 
-The `manifest.json` at the project root defines all asset collections. All collections follow the same unified schema — no `type` field needed.
+The `assets.json` at the project root defines all asset collections. All collections follow the same unified schema — no `type` field needed.
 
 ```json
 {
@@ -56,13 +54,8 @@ The `manifest.json` at the project root defines all asset collections. All colle
       "templates": [
         { "src": "src/screenshots/01-hero.html", "name": "01-hero", "label": "Hero" }
       ],
-      "exportSizes": [
-        {
-          "platform": "App Store",
-          "sizes": [
-            { "name": "iphone-6.9", "label": "iPhone 6.9\"", "width": 1320, "height": 2868 }
-          ]
-        }
+      "export": [
+        { "name": "iphone-6.9", "label": "iPhone 6.9\"", "size": { "width": 1320, "height": 2868 } }
       ],
       "outputs": [],
       "customExport": { "defaultWidth": 1320, "defaultHeight": 2868 }
@@ -80,7 +73,7 @@ The `manifest.json` at the project root defines all asset collections. All colle
 | `sourceSize` | object | `{ width, height }` — dimensions templates are authored at |
 | `borderRadius` | number | Border radius for preview frames (px) |
 | `templates` | array | Source files: `{ src, name, label }` |
-| `exportSizes` | array | Size groups: `{ platform?, sizes: [{ name, label, width, height }] }` |
+| `export` | array | Export sizes: `[{ name, label, size: { width, height }, outFile? }]` |
 | `outputs` | array | Post-render actions (optional) |
 | `customExport` | object | Custom size defaults for UI (optional) |
 
@@ -104,14 +97,9 @@ The `manifest.json` at the project root defines all asset collections. All colle
     { "src": "src/screenshots/01-hero.html", "name": "01-hero", "label": "Hero" },
     { "src": "src/screenshots/02-features.html", "name": "02-features", "label": "Features" }
   ],
-  "exportSizes": [
-    {
-      "platform": "App Store",
-      "sizes": [
-        { "name": "iphone-6.9", "label": "iPhone 6.9\"", "width": 1320, "height": 2868 },
-        { "name": "iphone-6.7", "label": "iPhone 6.7\"", "width": 1290, "height": 2796 }
-      ]
-    }
+  "export": [
+    { "name": "iphone-6.9", "label": "iPhone 6.9\"", "size": { "width": 1320, "height": 2868 } },
+    { "name": "iphone-6.7", "label": "iPhone 6.7\"", "size": { "width": 1290, "height": 2796 } }
   ]
 }
 ```
@@ -126,14 +114,9 @@ The `manifest.json` at the project root defines all asset collections. All colle
   "templates": [
     { "src": "src/icon.html", "name": "icon", "label": "App Icon" }
   ],
-  "exportSizes": [
-    {
-      "platform": "Apple",
-      "sizes": [
-        { "name": "1024", "label": "1024px", "width": 1024, "height": 1024 },
-        { "name": "180", "label": "180px", "width": 180, "height": 180 }
-      ]
-    }
+  "export": [
+    { "name": "1024", "label": "1024px", "size": { "width": 1024, "height": 1024 } },
+    { "name": "180", "label": "180px", "size": { "width": 180, "height": 180 } }
   ],
   "outputs": [{ "type": "xcode", "path": "../MyApp/Assets.xcassets/AppIcon.appiconset" }]
 }
@@ -150,8 +133,8 @@ The `manifest.json` at the project root defines all asset collections. All colle
     { "src": "src/icons/concept-a.html", "name": "concept-a", "label": "Concept A" },
     { "src": "src/icons/concept-b.html", "name": "concept-b", "label": "Concept B" }
   ],
-  "exportSizes": [
-    { "sizes": [{ "name": "1024", "label": "1024px", "width": 1024, "height": 1024 }] }
+  "export": [
+    { "name": "1024", "label": "1024px", "size": { "width": 1024, "height": 1024 } }
   ]
 }
 ```
@@ -166,11 +149,9 @@ The `manifest.json` at the project root defines all asset collections. All colle
     { "src": "src/logo.svg", "name": "logo", "label": "Logo" },
     { "src": "src/logo-dark.svg", "name": "logo-dark", "label": "Dark" }
   ],
-  "exportSizes": [
-    { "sizes": [
-      { "name": "1024", "label": "1024px", "width": 1024, "height": 1024 },
-      { "name": "512", "label": "512px", "width": 512, "height": 512 }
-    ] }
+  "export": [
+    { "name": "1024", "label": "1024px", "size": { "width": 1024, "height": 1024 } },
+    { "name": "512", "label": "512px", "size": { "width": 512, "height": 512 } }
   ],
   "outputs": [{ "type": "copy-source", "format": "svg" }]
 }
@@ -185,13 +166,27 @@ The `manifest.json` at the project root defines all asset collections. All colle
   "templates": [
     { "src": "src/og/default.html", "name": "default", "label": "Default OG" }
   ],
-  "exportSizes": [
-    { "sizes": [{ "name": "og", "label": "OG Image", "width": 1200, "height": 630 }] }
+  "export": [
+    { "name": "og", "label": "OG Image", "size": { "width": 1200, "height": 630 } }
   ]
 }
 ```
 
 ## CLI Reference
+
+### All commands
+
+| Command | Description |
+|---------|-------------|
+| `open-assets dev [dir]` | Start dev server with live preview and export UI |
+| `open-assets render [dir]` | Render assets headlessly via CLI |
+| `open-assets list [dir]` | List all collections and templates in the config |
+| `open-assets validate [dir]` | Validate assets.json and check referenced files exist |
+| `open-assets init [dir]` | Scaffold a new assets.json and example assets |
+| `open-assets add collection [dir]` | Add a new collection (from presets or custom) |
+| `open-assets add template [dir]` | Add a new template to an existing collection |
+| `open-assets add size [dir]` | Add an export size to a collection |
+| `open-assets skills [dir]` | Install Claude Code skills into a project |
 
 ### render command flags
 
@@ -199,9 +194,8 @@ The `manifest.json` at the project root defines all asset collections. All colle
 |------|-------------|
 | `--collection <id>` | Render only the collection with this ID |
 | `--template <name>` | Render only the template with this name |
-| `--size <name>` | Use a named export size from manifest |
-| `--platform <name>` | Render only sizes for this platform |
-| `--all` | Export at every size defined in the manifest |
+| `--size <name>` | Use a named export size from config |
+| `--all` | Export at every size defined in the config |
 | `--force` | Re-render all assets even if unchanged |
 | `-o, --output <dir>` | Output directory (default: `./exports`) |
 | `--json` | Output results as JSON |
@@ -211,7 +205,56 @@ Flags compose naturally:
 - `--collection screenshots --template 01-hero --size iphone-6.9` → single template, single size
 - `--collection screenshots --template 01-hero --all` → one template, all sizes
 - `--collection screenshots --size iphone-6.9` → all templates, one size
-- `--collection screenshots --platform "App Store"` → all templates, all App Store sizes
+
+### add commands
+
+Interactive commands for managing the config without editing JSON by hand. All support `--config <path>` for custom config filenames.
+
+#### `open-assets add collection`
+
+Add a new asset collection. Choose from presets or configure custom dimensions and format.
+
+**Presets:**
+| Preset | Source Size | Format |
+|--------|-----------|--------|
+| App Store Screenshots | 440x956 | HTML |
+| App Icon | 1024x1024 | HTML |
+| Logo | 800x800 | SVG |
+| Wordmark | 1200x400 | SVG |
+| Feature Graphic (Google Play) | 1024x500 | HTML |
+| OG Image / Social | 1200x630 | HTML |
+| Custom | user-defined | HTML or SVG |
+
+Creates a starter template file and adds the collection to `assets.json` with appropriate export sizes.
+
+```bash
+open-assets add collection              # interactive preset picker
+open-assets add collection ./my-assets  # in a specific directory
+```
+
+#### `open-assets add template`
+
+Add a new template (HTML or SVG) to an existing collection. Prompts for which collection, template name/label, and format. Creates the source file in the same directory as the collection's existing templates.
+
+```bash
+open-assets add template                # interactive
+```
+
+#### `open-assets add size`
+
+Add an export size to a collection. Choose from common device/platform presets or enter custom dimensions.
+
+**Size presets include:**
+- iPhone 6.9", 6.7", 6.5", 6.1"
+- iPad 13", 12.9"
+- Google Play Phone, 7" Tablet
+- Mac App Store Retina
+- OG Image, Twitter Card, Product Hunt Gallery
+- Custom dimensions
+
+```bash
+open-assets add size                    # interactive
+```
 
 ### Output structure
 
@@ -237,9 +280,11 @@ exports/
 
 ## Creating New Screenshot HTML Files
 
-Each screenshot is a standalone HTML file at fixed dimensions. Key rules:
+Each screenshot is a standalone HTML file at fixed dimensions. You can create them manually or use `open-assets add template` to scaffold one.
 
-1. Set `width` and `height` on the body to match `sourceSize` in the manifest
+Key rules:
+
+1. Set `width` and `height` on the body to match `sourceSize` in the config
 2. Set `overflow: hidden` on the body
 3. Reference compiled Tailwind CSS via `<link rel="stylesheet" href="../dist/styles.css" />`
 4. All paths are relative to the project root
@@ -263,11 +308,13 @@ Example template:
 </html>
 ```
 
-After creating the file, add it to the `templates` array in the relevant collection in `manifest.json`.
+After creating the file manually, add it to the `templates` array in the relevant collection in `assets.json`. Or use `open-assets add template` to do both steps at once.
 
 ## Adding a New Collection
 
-Add a new object to the `collections` array in `manifest.json`. Each collection needs a unique `id`, a `sourceSize`, `templates`, and `exportSizes`.
+Use `open-assets add collection` to interactively add a collection from presets or with custom dimensions and format (HTML/SVG). This creates the starter template file and updates `assets.json` automatically.
+
+Alternatively, add a new object to the `collections` array in `assets.json` manually. Each collection needs a unique `id`, a `sourceSize`, `templates`, and `export`.
 
 ## Common Export Sizes
 
@@ -284,9 +331,9 @@ Add a new object to the `collections` array in `manifest.json`. Each collection 
 | Web | OG Image | 1200 | 630 |
 | Mac App Store | Retina | 2880 | 1800 |
 
-## Incremental Builds (manifest.lock)
+## Incremental Builds (assets.lock)
 
-The `render` command maintains a `manifest.lock` file with SHA256 checksums of source files. On subsequent renders, unchanged assets are skipped automatically. Use `--force` to re-render everything.
+The `render` command maintains a `assets.lock` file with SHA256 checksums of source files. On subsequent renders, unchanged assets are skipped automatically. Use `--force` to re-render everything.
 
 Note: only source HTML/SVG files are checksummed. Changes to referenced assets (images in publicDir, compiled CSS) will not trigger re-renders — use `--force` when those change.
 
@@ -294,8 +341,8 @@ Note: only source HTML/SVG files are checksummed. Changes to referenced assets (
 
 ```
 project/
-  manifest.json
-  manifest.lock          # Auto-generated, add to .gitignore
+  assets.json
+  assets.lock          # Auto-generated, add to .gitignore
   public/                # Shared assets (images, logos, icons, photos)
     logo-round.png
     social/
@@ -490,8 +537,8 @@ colored background on the key word. Add the app rating below the logo. Make the
 background food photo bleed off the bottom-right edge for visual impact.
 ```
 
-**Adding a new platform:**
+**Adding a new export size:**
 ```
-Add Play Store screenshot sizes to the manifest. Use 1080x2400 as the export size
-under a "Play Store" platform group. The screenshots can share the same templates.
+Add Play Store screenshot sizes to the config. Use 1080x2400 as the export size.
+The screenshots can share the same templates.
 ```

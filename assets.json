@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "name": "Open Assets",
+  "publicDir": "public",
+  "command": "npx open-assets render --all",
+  "tags": [
+    {
+      "id": "icon",
+      "label": "Icon"
+    },
+    {
+      "id": "web",
+      "label": "Web"
+    }
+  ],
+  "collections": [
+    {
+      "id": "icon",
+      "label": "App Icon",
+      "tags": [
+        "icon",
+        "web"
+      ],
+      "sourceSize": {
+        "width": 1024,
+        "height": 1024
+      },
+      "borderRadius": 224,
+      "templates": [
+        {
+          "src": "assets/icon.html",
+          "name": "icon",
+          "label": "App Icon"
+        }
+      ],
+      "export": [
+        {
+          "name": "512",
+          "label": "512px",
+          "size": { "width": 512, "height": 512 }
+        },
+        {
+          "name": "192",
+          "label": "192px",
+          "size": { "width": 192, "height": 192 }
+        },
+        {
+          "name": "180",
+          "label": "Apple Touch",
+          "size": { "width": 180, "height": 180 }
+        },
+        {
+          "name": "32",
+          "label": "Favicon 32",
+          "size": { "width": 32, "height": 32 }
+        },
+        {
+          "name": "16",
+          "label": "Favicon 16",
+          "size": { "width": 16, "height": 16 }
+        }
+      ]
+    },
+    {
+      "id": "banner",
+      "label": "GitHub Banner",
+      "tags": [
+        "web"
+      ],
+      "sourceSize": {
+        "width": 1280,
+        "height": 640
+      },
+      "templates": [
+        {
+          "src": "assets/banner.html",
+          "name": "banner",
+          "label": "GitHub Banner"
+        }
+      ],
+      "export": [
+        {
+          "name": "1280",
+          "label": "1280x640",
+          "size": { "width": 1280, "height": 640 }
+        }
+      ]
+    }
+  ]
+}

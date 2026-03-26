@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 1280px;
+      height: 640px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(145deg, #0f0a24 0%, #1a1040 40%, #130d30 100%);
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      position: relative;
+    }
+
+    /* Grid background */
+    .grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    /* Radial glow behind content */
+    .glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 900px;
+      height: 500px;
+      background: radial-gradient(ellipse at center, rgba(93, 63, 211, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 52px;
+    }
+
+    /* Icon (scaled-down version of the app icon) */
+    .icon-wrapper {
+      flex-shrink: 0;
+      width: 220px;
+      height: 220px;
+      position: relative;
+    }
+
+    .icon-frame-back {
+      position: absolute;
+      top: 0;
+      left: 12px;
+      width: 195px;
+      height: 195px;
+      border-radius: 44px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      transform: rotate(6deg);
+    }
+
+    .icon-frame {
+      position: absolute;
+      top: 16px;
+      left: 0;
+      width: 200px;
+      height: 200px;
+      border-radius: 48px;
+      background: linear-gradient(160deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.04) 100%);
+      border: 2px solid rgba(255, 255, 255, 0.18);
+      overflow: hidden;
+      box-shadow:
+        0 16px 60px rgba(0, 0, 0, 0.4),
+        0 6px 24px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .icon-inner {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg,
+        #2a1f5e 0%,
+        #3d2b7a 30%,
+        #5b3f9e 60%,
+        #7c5cbf 100%
+      );
+    }
+
+    .icon-sun {
+      position: absolute;
+      top: 42px;
+      left: 45px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 40%, #ffd86e, #f5a623 60%, #e8832a);
+      box-shadow:
+        0 0 30px rgba(255, 200, 60, 0.5),
+        0 0 60px rgba(255, 170, 40, 0.25);
+    }
+
+    .icon-mountain-back {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 110px;
+      background: rgba(255, 255, 255, 0.18);
+      clip-path: polygon(40% 0%, 0% 100%, 80% 100%);
+    }
+
+    .icon-snow-back {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 110px;
+      background: rgba(255, 255, 255, 0.35);
+      clip-path: polygon(40% 0%, 34% 15%, 46% 15%);
+    }
+
+    .icon-mountain-front {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 90px;
+      background: rgba(255, 255, 255, 0.3);
+      clip-path: polygon(70% 0%, 30% 100%, 110% 100%);
+    }
+
+    .icon-snow-front {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 90px;
+      background: rgba(255, 255, 255, 0.5);
+      clip-path: polygon(70% 0%, 63.2% 17%, 76.8% 17%);
+    }
+
+    /* Text */
+    .text {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .title {
+      font-size: 72px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -2px;
+      line-height: 1;
+    }
+
+    .subtitle {
+      font-size: 22px;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.5);
+      letter-spacing: -0.3px;
+      line-height: 1.4;
+      max-width: 520px;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="glow"></div>
+
+  <div class="content">
+    <!-- Icon -->
+    <div class="icon-wrapper">
+      <div class="icon-frame-back"></div>
+      <div class="icon-frame">
+        <div class="icon-inner">
+          <div class="icon-sun"></div>
+          <div class="icon-mountain-back"></div>
+          <div class="icon-snow-back"></div>
+          <div class="icon-mountain-front"></div>
+          <div class="icon-snow-front"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Text -->
+    <div class="text">
+      <div class="title">Open Assets</div>
+      <div class="subtitle">Automate your App Store screenshots end-to-end — design, preview, and export from your git repo using Claude Code.</div>
+    </div>
+  </div>
+</body>
+</html>

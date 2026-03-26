@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 1024px;
+      height: 1024px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(145deg, #1a1040 0%, #2d1b69 40%, #1e1145 100%);
+      font-family: -apple-system, system-ui, sans-serif;
+    }
+
+    .scene {
+      position: relative;
+      width: 680px;
+      height: 680px;
+    }
+
+    /* Back frame (offset behind) */
+    .frame-back {
+      position: absolute;
+      top: 0;
+      left: 60px;
+      width: 580px;
+      height: 580px;
+      border-radius: 64px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 3px solid rgba(255, 255, 255, 0.1);
+      transform: rotate(6deg);
+    }
+
+    /* Main image frame */
+    .frame {
+      position: absolute;
+      top: 50px;
+      left: 0;
+      width: 620px;
+      height: 620px;
+      border-radius: 72px;
+      background: linear-gradient(160deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.04) 100%);
+      border: 3px solid rgba(255, 255, 255, 0.18);
+      overflow: hidden;
+      box-shadow:
+        0 24px 80px rgba(0, 0, 0, 0.4),
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    /* Sky gradient inside frame */
+    .frame-inner {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg,
+        #2a1f5e 0%,
+        #3d2b7a 30%,
+        #5b3f9e 60%,
+        #7c5cbf 100%
+      );
+    }
+
+    /* Sun */
+    .sun {
+      position: absolute;
+      top: 130px;
+      left: 140px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 40%, #ffd86e, #f5a623 60%, #e8832a);
+      box-shadow:
+        0 0 60px rgba(255, 200, 60, 0.5),
+        0 0 120px rgba(255, 170, 40, 0.25);
+    }
+
+    /* Mountain (back, larger) */
+    .mountain-back {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 340px;
+      background: rgba(255, 255, 255, 0.18);
+      clip-path: polygon(40% 0%, 0% 100%, 80% 100%);
+    }
+
+    /* Snow cap back mountain */
+    .snow-back {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 340px;
+      background: rgba(255, 255, 255, 0.35);
+      clip-path: polygon(40% 0%, 34% 15%, 46% 15%);
+    }
+
+    /* Mountain (front, smaller) */
+    .mountain-front {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 280px;
+      background: rgba(255, 255, 255, 0.3);
+      clip-path: polygon(70% 0%, 30% 100%, 110% 100%);
+    }
+
+    /* Snow cap front mountain */
+    .snow-front {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 280px;
+      background: rgba(255, 255, 255, 0.5);
+      clip-path: polygon(70% 0%, 63.2% 17%, 76.8% 17%);
+    }
+  </style>
+</head>
+<body>
+  <div class="scene">
+    <div class="frame-back"></div>
+    <div class="frame">
+      <div class="frame-inner">
+        <div class="sun"></div>
+        <div class="mountain-back"></div>
+        <div class="snow-back"></div>
+        <div class="mountain-front"></div>
+        <div class="snow-front"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
