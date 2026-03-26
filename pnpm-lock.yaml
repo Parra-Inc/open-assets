@@ -17,10 +17,6 @@ importers:
       puppeteer:
         specifier: ^24.37.5
         version: 24.37.5
-    devDependencies:
-      '@open-assets/open-assets':
-        specifier: ^0.1.10
-        version: 0.1.10
 
 packages:
 
@@ -31,11 +27,6 @@ packages:
   '@babel/helper-validator-identifier@7.28.5':
     resolution: {integrity: sha512-qSs4ifwzKJSV39ucNjsvc6WVHs6b7S03sOh2OcHF9UHfVPqWWALUsNUVzhSBiItjRZoLHx7nIarVjqKVusUZ1Q==}
     engines: {node: '>=6.9.0'}
-
-  '@open-assets/open-assets@0.1.10':
-    resolution: {integrity: sha512-p5JMstifeUOIZ7bKbSer6plsRjRlAIqW63DqVIo273y7ghNlBSgp+jdGQRQh0MWNo6m058/X9mECaa1+2yQXdQ==}
-    engines: {node: '>=18.0.0'}
-    hasBin: true
 
   '@puppeteer/browsers@2.13.0':
     resolution: {integrity: sha512-46BZJYJjc/WwmKjsvDFykHtXrtomsCIrwYQPOP7VfMJoZY2bsDF9oROBABR3paDjDcmkUye1Pb1BqdcdiipaWA==}
@@ -487,20 +478,6 @@ snapshots:
       picocolors: 1.1.1
 
   '@babel/helper-validator-identifier@7.28.5': {}
-
-  '@open-assets/open-assets@0.1.10':
-    dependencies:
-      commander: 13.1.0
-      open: 10.2.0
-      puppeteer: 24.37.5
-    transitivePeerDependencies:
-      - bare-abort-controller
-      - bare-buffer
-      - bufferutil
-      - react-native-b4a
-      - supports-color
-      - typescript
-      - utf-8-validate
 
   '@puppeteer/browsers@2.13.0':
     dependencies:

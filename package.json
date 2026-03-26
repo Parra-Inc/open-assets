@@ -38,6 +38,11 @@
   "publishConfig": {
     "access": "public"
   },
+  "scripts": {
+    "assets": "node bin/open-assets.mjs render --all -o ./public/img",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest",
+    "release": "./scripts/release.sh"
+  },
   "homepage": "https://openassets.dev",
   "dependencies": {
     "commander": "^13.0.0",
@@ -45,6 +50,6 @@
     "puppeteer": "^24.37.5"
   },
   "devDependencies": {
-    "@open-assets/open-assets": "^0.1.10"
+    "jest": "^30.3.0"
   }
 }

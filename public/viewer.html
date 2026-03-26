@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Open Assets</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/icon/32/icon.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/icon/16/icon.png" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
     <style>
@@ -12,6 +14,7 @@
 
       .toolbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 48px; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; background: rgba(10,10,10,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06); }
       .toolbar-left { display: flex; align-items: center; gap: 12px; }
+      .toolbar-left img.toolbar-icon { width: 20px; height: 20px; border-radius: 4px; }
       .toolbar-left h1 { font-size: 14px; font-weight: 700; color: #fff; }
       .segmented { display: flex; background: rgba(255,255,255,0.06); border-radius: 6px; padding: 2px; gap: 1px; }
       .seg-btn { padding: 4px 14px; border-radius: 5px; border: none; background: transparent; color: #888; font-size: 12px; font-weight: 600; cursor: pointer; transition: background 0.15s, color 0.15s; font-family: inherit; text-decoration: none; }
@@ -82,6 +85,7 @@
   <body>
     <div class="toolbar">
       <div class="toolbar-left">
+        <img class="toolbar-icon" src="/img/icon/32/icon.png" alt="" />
         <h1 id="app-title">Loading...</h1>
         <div class="segmented" id="tab-bar"></div>
       </div>
@@ -174,7 +178,7 @@
       }
 
       function flatSizes(col) {
-        return (col.exportSizes || []).flatMap(g => g.sizes || []);
+        return col.export || [];
       }
 
       // ---- Build collection tab bar ----
@@ -288,31 +292,30 @@
           }
         }
 
-        // Export sizes grouped by platform
-        for (const group of col.exportSizes || []) {
-          if (group.platform) {
-            const sectionLabel = document.createElement('div');
-            sectionLabel.className = 'section-label';
-            sectionLabel.textContent = group.platform;
-            exportDropdown.appendChild(sectionLabel);
-          }
+        // Export sizes
+        const sizes = col.export || [];
+        if (sizes.length > 0) {
+          const sectionLabel = document.createElement('div');
+          sectionLabel.className = 'section-label';
+          sectionLabel.textContent = 'Sizes';
+          exportDropdown.appendChild(sectionLabel);
+        }
 
-          for (const size of group.sizes || []) {
-            const btn = document.createElement('button');
-            btn.innerHTML = `${size.label} <span class="dim">${size.width} &times; ${size.height}</span>`;
-            btn.addEventListener('click', () => {
-              if (hasMultipleTemplates) {
-                exportZip(size.width, size.height, sw, sh, size.name);
-              } else {
-                exportSinglePNG(col.templates[0], size.width, size.height, sw, sh, size.name);
-              }
-            });
-            exportDropdown.appendChild(btn);
-          }
+        for (const entry of sizes) {
+          const btn = document.createElement('button');
+          btn.innerHTML = `${entry.label} <span class="dim">${entry.size.width} &times; ${entry.size.height}</span>`;
+          btn.addEventListener('click', () => {
+            if (hasMultipleTemplates) {
+              exportZip(entry.size.width, entry.size.height, sw, sh, entry.name);
+            } else {
+              exportSinglePNG(col.templates[0], entry.size.width, entry.size.height, sw, sh, entry.name);
+            }
+          });
+          exportDropdown.appendChild(btn);
         }
 
         // Custom size
-        if (col.exportSizes && flatSizes(col).length > 0 || col.customExport) {
+        if (col.export && col.export.length > 0 || col.customExport) {
           exportDropdown.appendChild(document.createElement('hr'));
 
           const customLabel = document.createElement('div');
@@ -320,8 +323,8 @@
           customLabel.textContent = 'Custom Size';
           exportDropdown.appendChild(customLabel);
 
-          const defaultW = col.customExport?.defaultWidth || flatSizes(col)[0]?.width || sw;
-          const defaultH = col.customExport?.defaultHeight || flatSizes(col)[0]?.height || sh;
+          const defaultW = col.customExport?.defaultWidth || flatSizes(col)[0]?.size?.width || sw;
+          const defaultH = col.customExport?.defaultHeight || flatSizes(col)[0]?.size?.height || sh;
 
           // Check if square (icon-like) for simplified input
           const isSquare = sw === sh;
@@ -446,7 +449,7 @@
 
       // ---- Init ----
       async function init() {
-        const res = await fetch('manifest.json');
+        const res = await fetch('assets.json');
         manifest = await res.json();
 
         // Set title
