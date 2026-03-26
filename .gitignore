@@ -2,3 +2,5 @@ dist/
 exports/
 assets.lock
 node_modules/
+
+.DS_Store
