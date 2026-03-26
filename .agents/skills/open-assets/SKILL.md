@@ -181,7 +181,7 @@ The `assets.json` at the project root defines all asset collections. All collect
 | `open-assets dev [dir]` | Start dev server with live preview and export UI |
 | `open-assets render [dir]` | Render assets headlessly via CLI |
 | `open-assets list [dir]` | List all collections and templates in the config |
-| `open-assets validate [dir]` | Validate assets.json and check referenced files exist |
+| `open-assets validate [dir]` | Validate assets.json and check referenced files exist. Use `--fix` to interactively remove missing templates |
 | `open-assets init [dir]` | Scaffold a new assets.json and example assets |
 | `open-assets add collection [dir]` | Add a new collection (from presets or custom) |
 | `open-assets add template [dir]` | Add a new template to an existing collection |

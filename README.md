@@ -112,7 +112,7 @@ Claude reads your `assets.json` and `publicDir` to understand the project struct
 
 ```bash
 # With Tailwind
-concurrently "npx @tailwindcss/cli -i src/styles.css -o dist/styles.css --watch" "npx open-assets dev"
+concurrently "npx @tailwindcss/cli -i assets/styles.css -o dist/styles.css --watch" "npx open-assets dev"
 
 # Without Tailwind
 npx open-assets dev
@@ -332,8 +332,8 @@ All collections follow the same structure. No `type` field needed.
   "sourceSize": { "width": 440, "height": 956 },
   "borderRadius": 4,
   "templates": [
-    { "src": "src/screenshots/01-hero.html", "name": "01-hero", "label": "Hero" },
-    { "src": "src/screenshots/02-features.html", "name": "02-features", "label": "Features" }
+    { "src": "assets/screenshots/01-hero.html", "name": "01-hero", "label": "Hero" },
+    { "src": "assets/screenshots/02-features.html", "name": "02-features", "label": "Features" }
   ],
   "export": [
     { "name": "iphone-6.9", "label": "iPhone 6.9\"", "size": { "width": 1320, "height": 2868 } },
@@ -380,8 +380,8 @@ All collections follow the same structure. No `type` field needed.
   "sourceSize": { "width": 440, "height": 956 },
   "borderRadius": 4,
   "templates": [
-    { "src": "src/screenshots/01-hero.html", "name": "01-hero", "label": "Hero" },
-    { "src": "src/screenshots/02-import.html", "name": "02-import", "label": "Import" }
+    { "src": "assets/screenshots/01-hero.html", "name": "01-hero", "label": "Hero" },
+    { "src": "assets/screenshots/02-import.html", "name": "02-import", "label": "Import" }
   ],
   "export": [
     { "name": "iphone-6.9", "label": "iPhone 6.9\"", "size": { "width": 1320, "height": 2868 } },
@@ -400,7 +400,7 @@ All collections follow the same structure. No `type` field needed.
   "sourceSize": { "width": 1024, "height": 1024 },
   "borderRadius": 224,
   "templates": [
-    { "src": "src/icon.html", "name": "icon", "label": "App Icon" }
+    { "src": "assets/icon.html", "name": "icon", "label": "App Icon" }
   ],
   "export": [
     { "name": "1024", "label": "1024px", "size": { "width": 1024, "height": 1024 } },
@@ -421,9 +421,9 @@ All collections follow the same structure. No `type` field needed.
   "sourceSize": { "width": 1024, "height": 1024 },
   "borderRadius": 224,
   "templates": [
-    { "src": "src/icons/concept-a.html", "name": "concept-a", "label": "Concept A" },
-    { "src": "src/icons/concept-b.html", "name": "concept-b", "label": "Concept B" },
-    { "src": "src/icons/seasonal-winter.html", "name": "seasonal-winter", "label": "Winter" }
+    { "src": "assets/icons/concept-a.html", "name": "concept-a", "label": "Concept A" },
+    { "src": "assets/icons/concept-b.html", "name": "concept-b", "label": "Concept B" },
+    { "src": "assets/icons/seasonal-winter.html", "name": "seasonal-winter", "label": "Winter" }
   ],
   "export": [
     { "name": "1024", "label": "1024px", "size": { "width": 1024, "height": 1024 } },
@@ -439,9 +439,9 @@ All collections follow the same structure. No `type` field needed.
   "label": "Logo",
   "sourceSize": { "width": 940, "height": 940 },
   "templates": [
-    { "src": "src/logo.svg", "name": "logo", "label": "Logo" },
-    { "src": "src/logo-dark.svg", "name": "logo-dark", "label": "Dark" },
-    { "src": "src/wordmark.svg", "name": "wordmark", "label": "Wordmark" }
+    { "src": "assets/logo.svg", "name": "logo", "label": "Logo" },
+    { "src": "assets/logo-dark.svg", "name": "logo-dark", "label": "Dark" },
+    { "src": "assets/wordmark.svg", "name": "wordmark", "label": "Wordmark" }
   ],
   "export": [
     { "name": "2048", "label": "2048px", "size": { "width": 2048, "height": 2048 } },
@@ -461,7 +461,7 @@ All collections follow the same structure. No `type` field needed.
   "label": "Social Cards",
   "sourceSize": { "width": 1200, "height": 630 },
   "templates": [
-    { "src": "src/og/default.html", "name": "default", "label": "Default OG" }
+    { "src": "assets/og/default.html", "name": "default", "label": "Default OG" }
   ],
   "export": [
     { "name": "og", "label": "OG Image", "size": { "width": 1200, "height": 630 } }
@@ -476,7 +476,7 @@ All collections follow the same structure. No `type` field needed.
   "label": "Favicons",
   "sourceSize": { "width": 512, "height": 512 },
   "templates": [
-    { "src": "src/favicon.html", "name": "favicon", "label": "Favicon" }
+    { "src": "assets/favicon.html", "name": "favicon", "label": "Favicon" }
   ],
   "export": [
     { "name": "512", "label": "512px", "size": { "width": 512, "height": 512 } },
@@ -505,7 +505,7 @@ Use `--force` to re-render everything regardless of the cache.
 
 **Limitation**: Only source HTML/SVG files are checksummed. Changes to referenced assets (images in `publicDir`, compiled Tailwind CSS) won't trigger re-renders — use `--force` when those change.
 
-Add `assets.lock` to your `.gitignore` (done automatically by `open-assets init`).
+Commit `assets.lock` to your repository so teammates and CI benefit from the cache.
 
 ## CI/CD with GitHub Actions
 
@@ -555,14 +555,14 @@ jobs:
 ```
 project/
   assets.json
-  assets.lock              # Auto-generated cache (gitignored)
+  assets.lock              # Auto-generated cache (commit this)
   public/                    # Shared assets (configured via publicDir)
     logo-round.png
     social/
       youtube.svg
     screenshots/             # Real app screenshots from UI tests
       01-home.png
-  src/
+  assets/
     styles.css               # Tailwind input
     icon.html                # App icon template
     logo.svg                 # Vector logo template

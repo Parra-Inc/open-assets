@@ -15,7 +15,7 @@ open-assets is a dev server and export tool for app marketing assets — screens
 open-assets dev
 
 # Or with Tailwind
-concurrently "npx @tailwindcss/cli -i src/styles.css -o dist/styles.css --watch" "open-assets dev"
+concurrently "npx @tailwindcss/cli -i assets/styles.css -o dist/styles.css --watch" "open-assets dev"
 
 # Headless render
 open-assets render --collection screenshots --size iphone-6.9
@@ -52,7 +52,7 @@ The `assets.json` at the project root defines all asset collections. All collect
       "sourceSize": { "width": 440, "height": 956 },
       "borderRadius": 4,
       "templates": [
-        { "src": "src/screenshots/01-hero.html", "name": "01-hero", "label": "Hero" }
+        { "src": "assets/screenshots/01-hero.html", "name": "01-hero", "label": "Hero" }
       ],
       "export": [
         { "name": "iphone-6.9", "label": "iPhone 6.9\"", "size": { "width": 1320, "height": 2868 } }
@@ -94,8 +94,8 @@ The `assets.json` at the project root defines all asset collections. All collect
   "sourceSize": { "width": 440, "height": 956 },
   "borderRadius": 4,
   "templates": [
-    { "src": "src/screenshots/01-hero.html", "name": "01-hero", "label": "Hero" },
-    { "src": "src/screenshots/02-features.html", "name": "02-features", "label": "Features" }
+    { "src": "assets/screenshots/01-hero.html", "name": "01-hero", "label": "Hero" },
+    { "src": "assets/screenshots/02-features.html", "name": "02-features", "label": "Features" }
   ],
   "export": [
     { "name": "iphone-6.9", "label": "iPhone 6.9\"", "size": { "width": 1320, "height": 2868 } },
@@ -112,7 +112,7 @@ The `assets.json` at the project root defines all asset collections. All collect
   "sourceSize": { "width": 1024, "height": 1024 },
   "borderRadius": 224,
   "templates": [
-    { "src": "src/icon.html", "name": "icon", "label": "App Icon" }
+    { "src": "assets/icon.html", "name": "icon", "label": "App Icon" }
   ],
   "export": [
     { "name": "1024", "label": "1024px", "size": { "width": 1024, "height": 1024 } },
@@ -130,8 +130,8 @@ The `assets.json` at the project root defines all asset collections. All collect
   "sourceSize": { "width": 1024, "height": 1024 },
   "borderRadius": 224,
   "templates": [
-    { "src": "src/icons/concept-a.html", "name": "concept-a", "label": "Concept A" },
-    { "src": "src/icons/concept-b.html", "name": "concept-b", "label": "Concept B" }
+    { "src": "assets/icons/concept-a.html", "name": "concept-a", "label": "Concept A" },
+    { "src": "assets/icons/concept-b.html", "name": "concept-b", "label": "Concept B" }
   ],
   "export": [
     { "name": "1024", "label": "1024px", "size": { "width": 1024, "height": 1024 } }
@@ -146,8 +146,8 @@ The `assets.json` at the project root defines all asset collections. All collect
   "label": "Logo",
   "sourceSize": { "width": 940, "height": 940 },
   "templates": [
-    { "src": "src/logo.svg", "name": "logo", "label": "Logo" },
-    { "src": "src/logo-dark.svg", "name": "logo-dark", "label": "Dark" }
+    { "src": "assets/logo.svg", "name": "logo", "label": "Logo" },
+    { "src": "assets/logo-dark.svg", "name": "logo-dark", "label": "Dark" }
   ],
   "export": [
     { "name": "1024", "label": "1024px", "size": { "width": 1024, "height": 1024 } },
@@ -164,7 +164,7 @@ The `assets.json` at the project root defines all asset collections. All collect
   "label": "Social Cards",
   "sourceSize": { "width": 1200, "height": 630 },
   "templates": [
-    { "src": "src/og/default.html", "name": "default", "label": "Default OG" }
+    { "src": "assets/og/default.html", "name": "default", "label": "Default OG" }
   ],
   "export": [
     { "name": "og", "label": "OG Image", "size": { "width": 1200, "height": 630 } }
@@ -181,7 +181,7 @@ The `assets.json` at the project root defines all asset collections. All collect
 | `open-assets dev [dir]` | Start dev server with live preview and export UI |
 | `open-assets render [dir]` | Render assets headlessly via CLI |
 | `open-assets list [dir]` | List all collections and templates in the config |
-| `open-assets validate [dir]` | Validate assets.json and check referenced files exist |
+| `open-assets validate [dir]` | Validate assets.json and check referenced files exist. Use `--fix` to interactively remove missing templates |
 | `open-assets init [dir]` | Scaffold a new assets.json and example assets |
 | `open-assets add collection [dir]` | Add a new collection (from presets or custom) |
 | `open-assets add template [dir]` | Add a new template to an existing collection |
@@ -342,14 +342,14 @@ Note: only source HTML/SVG files are checksummed. Changes to referenced assets (
 ```
 project/
   assets.json
-  assets.lock          # Auto-generated, add to .gitignore
+  assets.lock          # Auto-generated cache (commit this)
   public/                # Shared assets (images, logos, icons, photos)
     logo-round.png
     social/
       youtube.svg
     screenshots/         # Real app screenshots for use in templates
       01.png
-  src/
+  assets/
     styles.css           # Tailwind input
     icon.html            # App icon template
     icons/               # Icon concept explorations
