@@ -10,6 +10,33 @@ Dev server and export tool for app marketing assets. Like Storybook, but for mar
 
 Design your App Store screenshots, app icons, logos, OG images, favicons, and more in HTML/CSS/SVG, preview them live in the browser, and export pixel-perfect PNGs at any size — including directly into your Xcode project.
 
+## Examples
+
+<table>
+  <tr>
+    <td><img src="public/img/examples/only-recipes-icon.png" width="32" height="32" style="border-radius: 8px;" /></td>
+    <td><img src="public/img/examples/cat-iq-test-icon.png" width="32" height="32" style="border-radius: 8px;" /></td>
+    <td><img src="public/img/examples/no-context-icon.png" width="32" height="32" style="border-radius: 8px;" /></td>
+  </tr>
+  <tr>
+    <td><a href="https://onlyrecipes.app"><strong>Only Recipes</strong></a></td>
+    <td><a href="https://apps.apple.com/app/cat-iq-test/id6742048498"><strong>Cat IQ Test</strong></a></td>
+    <td><a href="https://nocontext.app"><strong>No Context</strong></a></td>
+  </tr>
+</table>
+
+<a href="https://onlyrecipes.app">
+  <img src="public/img/examples/only-recipes.png" alt="Only Recipes screenshots" width="100%" />
+</a>
+
+<a href="https://apps.apple.com/app/cat-iq-test/id6742048498">
+  <img src="public/img/examples/cat-iq-test.png" alt="Cat IQ Test screenshots" width="100%" />
+</a>
+
+<a href="https://nocontext.app">
+  <img src="public/img/examples/no-context.png" alt="No Context screenshots" width="100%" />
+</a>
+
 ## Installation
 
 ```bash
