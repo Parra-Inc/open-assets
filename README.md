@@ -12,13 +12,13 @@ Design your App Store screenshots, app icons, logos, OG images, favicons, and mo
 
 ## Examples
 
-<p><img src="public/img/examples/only-recipes-icon.png" width="32" height="32" /> <a href="https://onlyrecipes.app"><strong>Only Recipes</strong></a></p>
+<p><img src="public/img/examples/only-recipes-icon.png" width="20" height="20" /> <a href="https://onlyrecipes.app"><strong>Only Recipes</strong></a></p>
 <img src="public/img/examples/only-recipes.png" alt="Only Recipes screenshots" width="100%" />
 
-<p><img src="public/img/examples/cat-iq-test-icon.png" width="32" height="32" /> <a href="https://apps.apple.com/us/app/cat-iq-test/id6759520249"><strong>Cat IQ Test</strong></a></p>
+<p><img src="public/img/examples/cat-iq-test-icon.png" width="20" height="20" /> <a href="https://apps.apple.com/us/app/cat-iq-test/id6759520249"><strong>Cat IQ Test</strong></a></p>
 <img src="public/img/examples/cat-iq-test.png" alt="Cat IQ Test screenshots" width="100%" />
 
-<p><img src="public/img/examples/no-context-icon.png" width="32" height="32" /> <a href="https://nocontextbot.com"><strong>No Context Bot</strong></a></p>
+<p><img src="public/img/examples/no-context-icon.png" width="20" height="20" /> <a href="https://nocontextbot.com"><strong>No Context Bot</strong></a></p>
 <img src="public/img/examples/no-context.png" alt="No Context Bot screenshots" width="100%" />
 
 ## Installation
