@@ -1,0 +1,111 @@
+<svg width="940" height="940" viewBox="0 0 940 940" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0)">
+<!-- BRAIN MASK (preserved exactly) -->
+<mask id="mask0_7104_434" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="70" y="70" width="800" height="413">
+<path d="M870 70H70V336H870V70Z" fill="white"/>
+<path d="M365 369C355.47 310.15 336.962 294.659 278 301.505" stroke="black" stroke-width="16" stroke-linecap="round"/>
+<path d="M708.092 474.084C706.014 392.151 689.632 353.68 630.417 299.737" stroke="black" stroke-width="16" stroke-linecap="round"/>
+<path d="M554.793 272.539C520.068 237.959 433.921 252.102 413.716 306.978" stroke="black" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M589.531 229.952C567.951 170.021 464.932 145.192 415.239 203.267" stroke="black" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M321.08 259.184C257.207 240.318 232.124 252.33 206.288 303.67" stroke="black" stroke-width="16" stroke-linecap="round"/>
+<path d="M327 261C281.206 240.522 258.797 246.849 226.832 282.201" stroke="black" stroke-width="16" stroke-linecap="round"/>
+</mask>
+
+<!-- HEAD CIRCLE (masked top = brain) -->
+<g mask="url(#mask0_7104_434)">
+<path d="M470 760C635.685 760 770 630.163 770 470C770 309.837 635.685 180 470 180C304.315 180 170 309.837 170 470C170 630.163 304.315 760 470 760Z" fill="#DA3979"/>
+<ellipse cx="502.244" cy="240.154" rx="82.5" ry="61.5" transform="rotate(14.4615 502.244 240.154)" fill="#DA3979"/>
+</g>
+
+<!-- HEAD OUTLINE -->
+<path d="M470 800C657.777 800 810 652.254 810 470C810 287.746 657.777 140 470 140C282.223 140 130 287.746 130 470C130 652.254 282.223 800 470 800Z" stroke="url(#headOutline)" stroke-width="32"/>
+
+<!-- LOWER FACE FILL -->
+<mask id="mask1_7104_434" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="-130" y="360" width="1200" height="800">
+<path d="M1070 360H-130V1160H1070V360Z" fill="white"/>
+</mask>
+<g mask="url(#mask1_7104_434)">
+<path d="M470 800C657.777 800 810 652.254 810 470C810 287.746 657.777 140 470 140C282.223 140 130 287.746 130 470C130 652.254 282.223 800 470 800Z" fill="url(#faceFill)"/>
+</g>
+
+<!-- DIVIDING LINE -->
+<path d="M152 360H788" stroke="url(#divideLine)" stroke-width="5" stroke-linecap="round"/>
+
+<!-- EARS: Large floppy retriever ears, rendered above face -->
+<!-- Left ear outer -->
+<path d="M155 310C85 320 15 400 10 510C5 620 40 720 100 740C160 760 185 710 188 655C190 600 188 500 185 440C182 390 170 345 155 310Z" fill="url(#earOuterL)"/>
+<!-- Left ear inner -->
+<path opacity="0.6" d="M162 355C105 365 48 430 43 525C38 620 60 695 108 712C155 728 175 685 178 635C180 585 178 505 176 465C174 440 170 400 162 355Z" fill="url(#earInnerL)"/>
+<!-- Right ear outer -->
+<path d="M785 310C855 320 925 400 930 510C935 620 900 720 840 740C780 760 755 710 752 655C750 600 752 500 755 440C758 390 770 345 785 310Z" fill="url(#earOuterR)"/>
+<!-- Right ear inner -->
+<path opacity="0.6" d="M778 355C835 365 892 430 897 525C902 620 880 695 832 712C785 728 765 685 762 635C760 585 762 505 764 465C766 440 770 400 778 355Z" fill="url(#earInnerR)"/>
+
+<!-- RIGHT EYEBROW -->
+<path d="M545 392C560 383 592 380 615 390" stroke="#3D2D20" stroke-width="8" stroke-linecap="round"/>
+<!-- RIGHT EYE: bigger, closer together, more puppy-like -->
+<ellipse cx="580" cy="462" rx="74" ry="66" fill="#FFFBF0"/>
+<circle cx="580" cy="464" r="52" fill="#2D2D2D"/>
+<circle cx="580" cy="464" r="34" fill="#0D0D0D"/>
+<circle cx="562" cy="446" r="20" fill="white" opacity="0.95"/>
+<circle cx="596" cy="474" r="8" fill="white" opacity="0.45"/>
+<ellipse cx="580" cy="462" rx="74" ry="66" fill="none" stroke="#C4A870" stroke-width="2"/>
+
+<!-- LEFT EYEBROW -->
+<path d="M325 390C348 380 380 383 395 392" stroke="#3D2D20" stroke-width="8" stroke-linecap="round"/>
+<!-- LEFT EYE: bigger, closer together, more puppy-like -->
+<ellipse cx="360" cy="462" rx="74" ry="66" fill="#FFFBF0"/>
+<circle cx="360" cy="464" r="52" fill="#2D2D2D"/>
+<circle cx="360" cy="464" r="34" fill="#0D0D0D"/>
+<circle cx="342" cy="446" r="20" fill="white" opacity="0.95"/>
+<circle cx="376" cy="474" r="8" fill="white" opacity="0.45"/>
+<ellipse cx="360" cy="462" rx="74" ry="66" fill="none" stroke="#C4A870" stroke-width="2"/>
+
+<!-- Cheek blush -->
+<ellipse cx="355" cy="570" rx="45" ry="22" fill="#E8A060" opacity="0.15"/>
+<ellipse cx="585" cy="570" rx="45" ry="22" fill="#E8A060" opacity="0.15"/>
+
+<!-- NOSE: slightly smaller, rounder, cuter -->
+<path d="M410 580C410 550 433 528 470 528C507 528 530 550 530 580C530 605 520 618 505 625L470 640L435 625C420 618 410 605 410 580Z" fill="#2D2D2D"/>
+<ellipse cx="470" cy="548" rx="16" ry="9" fill="white" opacity="0.18"/>
+
+<!-- Mouth: smaller, gentler smile -->
+<path d="M470 642V670" stroke="#2D2D2D" stroke-width="6" stroke-linecap="round"/>
+<path d="M415 665C432 688 452 695 470 675C488 695 508 688 525 665" stroke="#2D2D2D" stroke-width="6" stroke-linecap="round" fill="none"/>
+</g>
+<defs>
+<!-- Ear gradients -->
+<linearGradient id="earOuterL" x1="100" y1="300" x2="100" y2="760" gradientUnits="userSpaceOnUse">
+<stop stop-color="#F5D48E"/>
+<stop offset="1" stop-color="#C08B30"/>
+</linearGradient>
+<linearGradient id="earInnerL" x1="120" y1="350" x2="120" y2="725" gradientUnits="userSpaceOnUse">
+<stop stop-color="#D4A043"/>
+<stop offset="1" stop-color="#9A7025"/>
+</linearGradient>
+<linearGradient id="earOuterR" x1="840" y1="300" x2="840" y2="760" gradientUnits="userSpaceOnUse">
+<stop stop-color="#F5D48E"/>
+<stop offset="1" stop-color="#C08B30"/>
+</linearGradient>
+<linearGradient id="earInnerR" x1="820" y1="350" x2="820" y2="725" gradientUnits="userSpaceOnUse">
+<stop stop-color="#D4A043"/>
+<stop offset="1" stop-color="#9A7025"/>
+</linearGradient>
+<!-- Head gradients -->
+<linearGradient id="headOutline" x1="130" y1="140" x2="130" y2="800" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FBE8B8"/>
+<stop offset="1" stop-color="#D4A043"/>
+</linearGradient>
+<linearGradient id="faceFill" x1="130" y1="140" x2="130" y2="800" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FBE8B8"/>
+<stop offset="1" stop-color="#F0D070"/>
+</linearGradient>
+<linearGradient id="divideLine" x1="470" y1="360" x2="470" y2="360" gradientUnits="userSpaceOnUse">
+<stop stop-color="#E8C870"/>
+<stop offset="1" stop-color="#D4A043"/>
+</linearGradient>
+<clipPath id="clip0">
+<rect width="940" height="940" fill="white"/>
+</clipPath>
+</defs>
+</svg>

@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "name": "Only Recipes",
+  "publicDir": "public",
+  "command": "npx open-assets render --all",
+  "collections": [
+    {
+      "id": "ios",
+      "label": "iOS",
+      "sourceSize": { "width": 440, "height": 956 },
+      "borderRadius": 4,
+      "templates": [
+        { "src": "assets/screenshots/01-hero.html", "name": "01-hero", "label": "Hero" },
+        { "src": "assets/screenshots/02-import.html", "name": "02-import", "label": "Import" },
+        { "src": "assets/screenshots/03-save-from-anywhere.html", "name": "03-save-from-anywhere", "label": "Save From Anywhere" },
+        { "src": "assets/screenshots/04-meal-planning.html", "name": "04-meal-planning", "label": "Meal Planning" },
+        { "src": "assets/screenshots/05-clean.html", "name": "05-clean", "label": "Clean View" },
+        { "src": "assets/screenshots/06-grocery-list.html", "name": "06-grocery-list", "label": "Collections" },
+        { "src": "assets/screenshots/07-collections.html", "name": "07-collections", "label": "Browser" },
+        { "src": "assets/screenshots/08-cta.html", "name": "08-cta", "label": "CTA" }
+      ],
+      "export": [
+        { "name": "iphone-6.9", "label": "iPhone 6.9\"", "size": { "width": 1320, "height": 2868 } },
+        { "name": "iphone-6.7", "label": "iPhone 6.7\"", "size": { "width": 1290, "height": 2796 } },
+        { "name": "iphone-6.5", "label": "iPhone 6.5\"", "size": { "width": 1284, "height": 2778 } },
+        { "name": "iphone-6.1", "label": "iPhone 6.1\"", "size": { "width": 1179, "height": 2556 } }
+      ],
+      "customExport": { "defaultWidth": 1320, "defaultHeight": 2868 }
+    },
+    {
+      "id": "android",
+      "label": "Android",
+      "sourceSize": { "width": 440, "height": 978 },
+      "borderRadius": 4,
+      "templates": [
+        { "src": "assets/screenshots-android/01-hero.html", "name": "01-hero", "label": "Hero" },
+        { "src": "assets/screenshots-android/02-import.html", "name": "02-import", "label": "Import" },
+        { "src": "assets/screenshots-android/03-save-from-anywhere.html", "name": "03-save-from-anywhere", "label": "Save From Anywhere" },
+        { "src": "assets/screenshots-android/04-meal-planning.html", "name": "04-meal-planning", "label": "Meal Planning" },
+        { "src": "assets/screenshots-android/05-clean.html", "name": "05-clean", "label": "Clean View" },
+        { "src": "assets/screenshots-android/06-grocery-list.html", "name": "06-grocery-list", "label": "Collections" },
+        { "src": "assets/screenshots-android/07-collections.html", "name": "07-collections", "label": "Browser" },
+        { "src": "assets/screenshots-android/08-cta.html", "name": "08-cta", "label": "CTA" }
+      ],
+      "export": [
+        { "name": "phone", "label": "Phone", "size": { "width": 1080, "height": 2400 } }
+      ],
+      "customExport": { "defaultWidth": 1080, "defaultHeight": 2400 }
+    }
+  ]
+}

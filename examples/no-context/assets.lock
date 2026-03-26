@@ -1,0 +1,145 @@
+{
+  "version": 1,
+  "assets": {
+    "icon/icon": {
+      "1024x1024": {
+        "sourceChecksum": "sha256:67e75dffb5d86e756ded0e4eefc21efefd7f903b30eec2c89e94eb9a41a4d047",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/no-context/exports/icon/icon.png",
+        "exportedAt": "2026-03-26T03:57:06.088Z"
+      }
+    },
+    "product-hunt/01-hero": {
+      "1270x760": {
+        "sourceChecksum": "sha256:5e5293c2b7758e7ce89a3e3d5ff8b3affd76a72ec498b81f8baa3943feb0e5bd",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/no-context/exports/product-hunt/01-hero.png",
+        "exportedAt": "2026-03-26T03:54:22.249Z"
+      }
+    },
+    "product-hunt/02-whats-a-no-context-channel": {
+      "1270x760": {
+        "sourceChecksum": "sha256:98a806559fda61abb3c9c6786028a961f81b5551f4b8217352bd74f221c99a4b",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/no-context/exports/product-hunt/02-whats-a-no-context-channel.png",
+        "exportedAt": "2026-03-26T03:54:23.929Z"
+      }
+    },
+    "product-hunt/03-how-it-works": {
+      "1270x760": {
+        "sourceChecksum": "sha256:4a0717a1d0d49261bfbe11b49bd6ffd93b44d0811f2121aa4b57876251936648",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/no-context/exports/product-hunt/03-how-it-works.png",
+        "exportedAt": "2026-03-26T03:54:25.574Z"
+      }
+    },
+    "product-hunt/04-art-styles": {
+      "1270x760": {
+        "sourceChecksum": "sha256:d04a28bce0664b7748aba9f182d2d68a6f3af0d8a326602ac705e4a5ca3f76fc",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/no-context/exports/product-hunt/04-art-styles.png",
+        "exportedAt": "2026-03-26T03:54:27.240Z"
+      }
+    },
+    "product-hunt/05-dashboard": {
+      "1270x760": {
+        "sourceChecksum": "sha256:e7a3aab5034621c276723c1858d2cea16fee91649b390e0d600bd15690617928",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/no-context/exports/product-hunt/05-dashboard.png",
+        "exportedAt": "2026-03-26T03:54:28.937Z"
+      }
+    },
+    "product-hunt/06-pricing": {
+      "1270x760": {
+        "sourceChecksum": "sha256:9a3ece09ea7a8e292c0e1ae6219a0d945c7ebbb6fc08a226fc1c2d4a2164d342",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/no-context/exports/product-hunt/06-pricing.png",
+        "exportedAt": "2026-03-26T03:54:30.549Z"
+      }
+    },
+    "product-hunt/07-cta": {
+      "1270x760": {
+        "sourceChecksum": "sha256:fa906eba29838fea08ebdc35d149a8e1e54397043cb36be199dc2bbd6b73c2c4",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/no-context/exports/product-hunt/07-cta.png",
+        "exportedAt": "2026-03-26T03:54:31.916Z"
+      }
+    },
+    "slack/01-hero": {
+      "1600x1000": {
+        "sourceChecksum": "sha256:52a19582a907dfa485d81d344a5ea14df1a8cc5eac920b1ba7c68c790d6c52a9",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/no-context/exports/slack/01-hero.png",
+        "exportedAt": "2026-03-26T03:54:33.574Z"
+      }
+    },
+    "slack/02-whats-a-no-context-channel": {
+      "1600x1000": {
+        "sourceChecksum": "sha256:33c0bf158e8d761e1aaa8aa4045766e3ec1696944685d0021ff71243695ed7a2",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/no-context/exports/slack/02-whats-a-no-context-channel.png",
+        "exportedAt": "2026-03-26T03:54:35.324Z"
+      }
+    },
+    "slack/03-how-it-works": {
+      "1600x1000": {
+        "sourceChecksum": "sha256:d0bb67593d157832af2fc480064c4208a8bf5afa8572235799430da50e74c1fb",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/no-context/exports/slack/03-how-it-works.png",
+        "exportedAt": "2026-03-26T03:54:36.958Z"
+      }
+    },
+    "slack/04-art-styles": {
+      "1600x1000": {
+        "sourceChecksum": "sha256:0823c4c5d2312ca66e2c10b5bd0589cb8745fa760493d7147bd807515d20625d",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/no-context/exports/slack/04-art-styles.png",
+        "exportedAt": "2026-03-26T03:54:38.681Z"
+      }
+    },
+    "slack/05-dashboard": {
+      "1600x1000": {
+        "sourceChecksum": "sha256:84eabe248a840a0dbd24d5d01e5fb529ae5c3729217b997e1a6578acc9300369",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/no-context/exports/slack/05-dashboard.png",
+        "exportedAt": "2026-03-26T03:54:40.402Z"
+      }
+    },
+    "slack/06-pricing": {
+      "1600x1000": {
+        "sourceChecksum": "sha256:be81d8f8235359b8cd8cb8069007f6c13c0f7b5a3d2b9c59dbc814236d16cfe9",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/no-context/exports/slack/06-pricing.png",
+        "exportedAt": "2026-03-26T03:54:42.018Z"
+      }
+    },
+    "linkedin-ads/01-make-slack-fun": {
+      "1200x628": {
+        "sourceChecksum": "sha256:ec061b064b028fc8a2d2c6b2d81bff1bc39ca046e1872bf23151af16e1364f5f",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/no-context/exports/linkedin-ads/01-make-slack-fun.png",
+        "exportedAt": "2026-03-26T03:54:43.674Z"
+      }
+    },
+    "linkedin-ads/02-quote-to-art": {
+      "1200x628": {
+        "sourceChecksum": "sha256:682fabe938fa09856b3860e46fad39907d581e7f3b5f3df4105052e046a20bc0",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/no-context/exports/linkedin-ads/02-quote-to-art.png",
+        "exportedAt": "2026-03-26T03:54:45.295Z"
+      }
+    },
+    "linkedin-ads/03-zero-effort": {
+      "1200x628": {
+        "sourceChecksum": "sha256:526e6fa2a77d3b04e2ca08ee134307d33b9e8d2d47c586e65081ff5010d32656",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/no-context/exports/linkedin-ads/03-zero-effort.png",
+        "exportedAt": "2026-03-26T03:54:46.916Z"
+      }
+    },
+    "linkedin-ads/04-morale-boost": {
+      "1200x628": {
+        "sourceChecksum": "sha256:67352aaedc8862c9d3177ae0543fa21099c7cf81a7bacc1b31470681bc780fac",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/no-context/exports/linkedin-ads/04-morale-boost.png",
+        "exportedAt": "2026-03-26T03:54:48.528Z"
+      }
+    },
+    "linkedin-ads/05-20-styles": {
+      "1200x628": {
+        "sourceChecksum": "sha256:3a1603c327e68bc4e913816fc45bb725d29732f64e4085aa9b5398b5a2ca1b4b",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/no-context/exports/linkedin-ads/05-20-styles.png",
+        "exportedAt": "2026-03-26T03:54:50.193Z"
+      }
+    },
+    "x-header/01-header": {
+      "1500x500": {
+        "sourceChecksum": "sha256:7241bd1672f6a12dc15e97d6baa7f301ba1ddd0cfc99e462c2414156ecca3c10",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/no-context/exports/x-header/01-header.png",
+        "exportedAt": "2026-03-26T03:54:51.856Z"
+      }
+    }
+  }
+}

@@ -1,0 +1,203 @@
+{
+  "version": 1,
+  "name": "No Context",
+  "publicDir": "public",
+  "command": "npx open-assets render --all",
+  "collections": [
+    {
+      "id": "icon",
+      "label": "App Icon",
+      "sourceSize": {
+        "width": 1024,
+        "height": 1024
+      },
+      "borderRadius": 224,
+      "templates": [
+        {
+          "src": "assets/icon/icon.html",
+          "name": "icon",
+          "label": "App Icon"
+        }
+      ],
+      "export": [
+        {
+          "name": "1024",
+          "label": "1024px",
+          "size": {
+            "width": 1024,
+            "height": 1024
+          }
+        },
+        {
+          "name": "512",
+          "label": "512px",
+          "size": {
+            "width": 512,
+            "height": 512
+          }
+        }
+      ]
+    },
+    {
+      "id": "product-hunt",
+      "label": "Product Hunt",
+      "sourceSize": {
+        "width": 1270,
+        "height": 760
+      },
+      "borderRadius": 8,
+      "templates": [
+        {
+          "src": "assets/launches/product-hunt/01-hero.html",
+          "name": "01-hero",
+          "label": "Hero"
+        },
+        {
+          "src": "assets/launches/product-hunt/02-whats-a-no-context-channel.html",
+          "name": "02-whats-a-no-context-channel",
+          "label": "What's a No Context Channel"
+        },
+        {
+          "src": "assets/launches/product-hunt/03-how-it-works.html",
+          "name": "03-how-it-works",
+          "label": "How It Works"
+        },
+        {
+          "src": "assets/launches/product-hunt/04-art-styles.html",
+          "name": "04-art-styles",
+          "label": "Art Styles"
+        },
+        {
+          "src": "assets/launches/product-hunt/05-dashboard.html",
+          "name": "05-dashboard",
+          "label": "Dashboard"
+        },
+        {
+          "src": "assets/launches/product-hunt/06-pricing.html",
+          "name": "06-pricing",
+          "label": "Pricing"
+        },
+        {
+          "src": "assets/launches/product-hunt/07-cta.html",
+          "name": "07-cta",
+          "label": "CTA"
+        }
+      ],
+      "export": [
+        {
+          "name": "1x",
+          "label": "1x",
+          "size": {
+            "width": 1270,
+            "height": 760
+          }
+        },
+        {
+          "name": "2x",
+          "label": "2x",
+          "size": {
+            "width": 2540,
+            "height": 1520
+          }
+        }
+      ],
+      "customExport": {
+        "defaultWidth": 1270,
+        "defaultHeight": 760
+      }
+    },
+    {
+      "id": "slack",
+      "label": "Slack App Listing",
+      "sourceSize": {
+        "width": 1600,
+        "height": 1000
+      },
+      "borderRadius": 8,
+      "templates": [
+        {
+          "src": "assets/apps/slack/01-hero.html",
+          "name": "01-hero",
+          "label": "Hero"
+        },
+        {
+          "src": "assets/apps/slack/02-whats-a-no-context-channel.html",
+          "name": "02-whats-a-no-context-channel",
+          "label": "What's a No Context Channel"
+        },
+        {
+          "src": "assets/apps/slack/03-how-it-works.html",
+          "name": "03-how-it-works",
+          "label": "How It Works"
+        },
+        {
+          "src": "assets/apps/slack/04-art-styles.html",
+          "name": "04-art-styles",
+          "label": "Art Styles"
+        },
+        {
+          "src": "assets/apps/slack/05-dashboard.html",
+          "name": "05-dashboard",
+          "label": "Dashboard"
+        },
+        {
+          "src": "assets/apps/slack/06-pricing.html",
+          "name": "06-pricing",
+          "label": "Pricing"
+        }
+      ],
+      "export": [
+        {
+          "name": "1x",
+          "label": "1x",
+          "size": {
+            "width": 1600,
+            "height": 1000
+          }
+        }
+      ],
+      "customExport": {
+        "defaultWidth": 1600,
+        "defaultHeight": 1000
+      }
+    },
+    {
+      "id": "x-header",
+      "label": "X Header",
+      "sourceSize": {
+        "width": 1500,
+        "height": 500
+      },
+      "borderRadius": 0,
+      "templates": [
+        {
+          "src": "assets/x-header/01-header.html",
+          "name": "01-header",
+          "label": "Header"
+        }
+      ],
+      "export": [
+        {
+          "name": "1x",
+          "label": "1x",
+          "size": {
+            "width": 1500,
+            "height": 500
+          }
+        },
+        {
+          "name": "2x",
+          "label": "2x",
+          "size": {
+            "width": 3000,
+            "height": 1000
+          }
+        }
+      ],
+      "customExport": {
+        "defaultWidth": 1500,
+        "defaultHeight": 500
+      }
+    }
+  ]
+}

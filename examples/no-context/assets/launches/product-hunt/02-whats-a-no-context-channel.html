@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1270, initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+              display: ["Inter", "system-ui", "sans-serif"],
+              quote: ["Georgia", "Times New Roman", "serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        margin: 0;
+        width: 1270px;
+        height: 760px;
+        overflow: hidden;
+      }
+      .font-quote {
+        font-family: Georgia, "Times New Roman", serif;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body class="bg-[#fafaf8]">
+    <div class="relative flex h-[760px] w-[1270px] overflow-hidden">
+      <!-- QR Code — bottom-left under text content -->
+      <div class="absolute bottom-6 left-16 z-50 flex items-center gap-3">
+        <img
+          src="../../../public/img/qr-install.png"
+          alt="QR: Add to Slack"
+          class="h-14 w-14"
+        />
+        <span
+          class="text-[10px] font-bold tracking-wide text-[#4A4A4A] uppercase"
+          >Scan to<br />Add to Slack</span
+        >
+      </div>
+
+      <!-- Left side: Question + Answer -->
+      <div
+        class="relative z-10 flex w-[50%] flex-col justify-center pr-12 pl-16"
+      >
+        <div class="max-w-[480px]">
+          <!-- Slack channel badge -->
+          <div
+            class="mb-6 inline-flex items-center gap-2 rounded-full border-2 border-[#1A1A1A] bg-white px-4 py-2 shadow-[3px_3px_0px_0px_#1A1A1A]"
+          >
+            <span class="text-sm font-bold text-[#4A4A4A]">#</span>
+            <span class="text-sm font-bold text-[#1A1A1A]">no-context</span>
+          </div>
+
+          <h2
+            class="font-display text-[44px] leading-[1.1] font-extrabold tracking-tight text-[#1A1A1A]"
+          >
+            What's a<br />
+            <span class="relative inline-block">
+              <span class="relative z-10">#no-context</span>
+              <span
+                class="absolute inset-0 -skew-x-2 rounded-lg bg-[#EDE9FE]"
+              ></span>
+            </span>
+            <br />channel?
+          </h2>
+
+          <p class="mt-6 text-lg leading-relaxed text-[#4A4A4A]">
+            It's a Slack channel where your team posts the
+            <span class="font-semibold text-[#1A1A1A]"
+              >funniest things people say at work</span
+            >
+            — completely out of context.
+          </p>
+
+          <p class="mt-4 text-lg leading-relaxed text-[#4A4A4A]">
+            No setup. No explanation. Just the quote, the person, and the chaos.
+          </p>
+
+          <p class="mt-4 text-lg leading-relaxed text-[#4A4A4A]">
+            Thousands of teams already have one.
+            <span class="font-semibold text-[#7C3AED]">No Context Bot</span>
+            turns those quotes into art.
+          </p>
+        </div>
+      </div>
+
+      <!-- Right side: Auth-style quote gallery with angled border -->
+      <div class="relative w-[50%] overflow-hidden bg-[#F5F0FF]">
+        <!-- Rotated grid of gallery cards -->
+        <div class="absolute -inset-20 -rotate-6">
+          <div class="grid grid-cols-2 gap-3 p-3">
+            <!-- Card 1 -->
+            <div
+              class="overflow-hidden rounded-md border-2 border-[#1A1A1A] bg-white shadow-[4px_4px_0px_0px_#1A1A1A]"
+            >
+              <div class="relative aspect-[4/3] border-b-2 border-[#1A1A1A]">
+                <img
+                  src="../../../public/img/landing/gallery/duck-ghibli.png"
+                  alt="Ghibli"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+              <div class="px-4 py-3">
+                <p class="text-sm leading-snug font-bold text-[#1A1A1A]">
+                  "This duck has seen things you wouldn't believe"
+                </p>
+                <div class="mt-1.5 flex items-center justify-between">
+                  <span class="text-xs font-medium text-[#4A4A4A]"
+                    >— Raj, Engineering</span
+                  >
+                  <span
+                    class="rounded-sm border border-[#7C3AED] bg-[#EDE9FE] px-2 py-0.5 text-[10px] font-bold text-[#7C3AED]"
+                    >Ghibli</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div
+              class="overflow-hidden rounded-md border-2 border-[#1A1A1A] bg-white shadow-[4px_4px_0px_0px_#1A1A1A]"
+            >
+              <div class="relative aspect-[4/3] border-b-2 border-[#1A1A1A]">
+                <img
+                  src="../../../public/img/landing/gallery/goat-cubism.png"
+                  alt="Cubism"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+              <div class="px-4 py-3">
+                <p class="text-sm leading-snug font-bold text-[#1A1A1A]">
+                  "That's not a bug, that's a goat"
+                </p>
+                <div class="mt-1.5 flex items-center justify-between">
+                  <span class="text-xs font-medium text-[#4A4A4A]"
+                    >— Priya, Product</span
+                  >
+                  <span
+                    class="rounded-sm border border-[#7C3AED] bg-[#EDE9FE] px-2 py-0.5 text-[10px] font-bold text-[#7C3AED]"
+                    >Cubism</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div
+              class="overflow-hidden rounded-md border-2 border-[#1A1A1A] bg-white shadow-[4px_4px_0px_0px_#1A1A1A]"
+            >
+              <div class="relative aspect-[4/3] border-b-2 border-[#1A1A1A]">
+                <img
+                  src="../../../public/img/landing/gallery/seagull-hokusai.png"
+                  alt="Ukiyo-e"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+              <div class="px-4 py-3">
+                <p class="text-sm leading-snug font-bold text-[#1A1A1A]">
+                  "Who let the seagull into standup again"
+                </p>
+                <div class="mt-1.5 flex items-center justify-between">
+                  <span class="text-xs font-medium text-[#4A4A4A]"
+                    >— Sam, Design</span
+                  >
+                  <span
+                    class="rounded-sm border border-[#7C3AED] bg-[#EDE9FE] px-2 py-0.5 text-[10px] font-bold text-[#7C3AED]"
+                    >Ukiyo-e</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div
+              class="overflow-hidden rounded-md border-2 border-[#1A1A1A] bg-white shadow-[4px_4px_0px_0px_#1A1A1A]"
+            >
+              <div class="relative aspect-[4/3] border-b-2 border-[#1A1A1A]">
+                <img
+                  src="../../../public/img/landing/gallery/throne-vangogh.png"
+                  alt="Van Gogh"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+              <div class="px-4 py-3">
+                <p class="text-sm leading-snug font-bold text-[#1A1A1A]">
+                  "The intern sits on the throne now"
+                </p>
+                <div class="mt-1.5 flex items-center justify-between">
+                  <span class="text-xs font-medium text-[#4A4A4A]"
+                    >— Mike, Engineering</span
+                  >
+                  <span
+                    class="rounded-sm border border-[#7C3AED] bg-[#EDE9FE] px-2 py-0.5 text-[10px] font-bold text-[#7C3AED]"
+                    >Van Gogh</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div
+              class="overflow-hidden rounded-md border-2 border-[#1A1A1A] bg-white shadow-[4px_4px_0px_0px_#1A1A1A]"
+            >
+              <div class="relative aspect-[4/3] border-b-2 border-[#1A1A1A]">
+                <img
+                  src="../../../public/img/landing/gallery/plants-watercolor.png"
+                  alt="Watercolor"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+              <div class="px-4 py-3">
+                <p class="text-sm leading-snug font-bold text-[#1A1A1A]">
+                  "The office plants are thriving more than our roadmap"
+                </p>
+                <div class="mt-1.5 flex items-center justify-between">
+                  <span class="text-xs font-medium text-[#4A4A4A]"
+                    >— Tina, Marketing</span
+                  >
+                  <span
+                    class="rounded-sm border border-[#7C3AED] bg-[#EDE9FE] px-2 py-0.5 text-[10px] font-bold text-[#7C3AED]"
+                    >Watercolor</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div
+              class="overflow-hidden rounded-md border-2 border-[#1A1A1A] bg-white shadow-[4px_4px_0px_0px_#1A1A1A]"
+            >
+              <div class="relative aspect-[4/3] border-b-2 border-[#1A1A1A]">
+                <img
+                  src="../../../public/img/landing/gallery/raccoon-pixel.png"
+                  alt="Pixel Art"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+              <div class="px-4 py-3">
+                <p class="text-sm leading-snug font-bold text-[#1A1A1A]">
+                  "There's a raccoon in the server room again"
+                </p>
+                <div class="mt-1.5 flex items-center justify-between">
+                  <span class="text-xs font-medium text-[#4A4A4A]"
+                    >— Alex, Ops</span
+                  >
+                  <span
+                    class="rounded-sm border border-[#7C3AED] bg-[#EDE9FE] px-2 py-0.5 text-[10px] font-bold text-[#7C3AED]"
+                    >Pixel Art</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comic-style angled clip between left and right -->
+        <svg
+          class="pointer-events-none absolute inset-y-0 left-0 z-10 h-full w-8"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+        >
+          <polygon points="0,0 100,0 0,100" fill="#fafaf8" />
+          <line
+            x1="100"
+            y1="0"
+            x2="0"
+            y2="100"
+            stroke="#1A1A1A"
+            stroke-width="6"
+            vector-effect="non-scaling-stroke"
+          />
+        </svg>
+      </div>
+    </div>
+  </body>
+</html>

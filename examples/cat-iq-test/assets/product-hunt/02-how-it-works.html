@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1270, initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'bg-dark': '#0F0328',
+              'bg-mid': '#1F0A47',
+              'bg-light': '#331066',
+              'bg-card': 'rgba(255, 255, 255, 0.06)',
+              'border-card': 'rgba(255, 255, 255, 0.1)',
+              'accent-purple': '#7C3AED',
+              'accent-pink': '#EC4899',
+              'accent-orange': '#F97316',
+              'iq-oblivious': '#3B82F6',
+              'iq-selective': '#14B8A6',
+              'iq-average': '#22C55E',
+              'iq-smart': '#F97316',
+              'iq-genius': '#8B5CF6',
+              'iq-mastermind': '#EF4444',
+              'cert-gold': '#F59E0B',
+              'cert-gold-light': '#FCD34D',
+            },
+            fontFamily: {
+              'sans': ['"SF Pro Rounded"', '"SF Pro Display"', '-apple-system', 'system-ui', 'sans-serif'],
+            },
+          },
+        },
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+              display: ["Inter", "system-ui", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        margin: 0;
+        width: 1270px;
+        height: 760px;
+        overflow: hidden;
+      }
+      .headline-gradient {
+        background: linear-gradient(180deg, #fff 30%, rgba(255, 255, 255, 0.7));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+      }
+      .glow-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.3;
+        pointer-events: none;
+      }
+      .phone {
+        position: relative;
+        background: #1a1a1a;
+        border-radius: 24px;
+        padding: 5px;
+        box-shadow:
+          0 20px 50px rgba(0, 0, 0, 0.5),
+          0 0 0 1px rgba(255, 255, 255, 0.08),
+          0 0 60px rgba(124, 58, 237, 0.12);
+      }
+      .phone::before {
+        content: "";
+        position: absolute;
+        top: 9px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 48px;
+        height: 15px;
+        background: #000;
+        border-radius: 9px;
+        z-index: 10;
+      }
+      .phone-screen {
+        border-radius: 19px;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="relative flex h-[760px] w-[1270px] flex-col items-center justify-center overflow-hidden"
+      style="
+        background: linear-gradient(
+          135deg,
+          #0f0328 0%,
+          #1f0a47 50%,
+          #331066 100%
+        );
+      "
+    >
+      <!-- Ambient glow orbs -->
+      <div
+        class="glow-orb"
+        style="
+          width: 300px;
+          height: 300px;
+          background: #ec4899;
+          top: -60px;
+          left: 100px;
+        "
+      ></div>
+      <div
+        class="glow-orb"
+        style="
+          width: 350px;
+          height: 350px;
+          background: #7c3aed;
+          bottom: -80px;
+          right: 50px;
+        "
+      ></div>
+      <div
+        class="glow-orb"
+        style="
+          width: 200px;
+          height: 200px;
+          background: #7c3aed;
+          top: 350px;
+          left: 550px;
+          opacity: 0.15;
+        "
+      ></div>
+
+      <!-- Header -->
+      <div class="relative z-10 mt-6 mb-10 text-center">
+        <h2
+          class="headline-gradient font-display text-[46px] font-extrabold tracking-tight"
+        >
+          How It Works
+        </h2>
+        <p class="mt-3 text-xl text-white/50">
+          Three simple steps. One very important result.
+        </p>
+      </div>
+
+      <!-- 3-step flow -->
+      <div
+        class="relative z-10 flex items-start justify-center gap-14 px-16"
+      >
+        <!-- Step 1: Take the Quiz -->
+        <div class="flex w-[320px] flex-col items-center">
+          <div
+            class="flex h-14 w-14 items-center justify-center rounded-full border-[3px] border-white/20 bg-[#7C3AED]"
+            style="
+              box-shadow:
+                0 0 30px rgba(124, 58, 237, 0.4),
+                0 4px 12px rgba(0, 0, 0, 0.3);
+            "
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="white"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
+              />
+            </svg>
+          </div>
+          <span
+            class="mt-4 text-xs font-bold tracking-[0.2em] text-[#7C3AED] uppercase"
+            >Step 1</span
+          >
+          <h3 class="mt-2 text-lg font-bold text-white">Take the Quiz</h3>
+          <p
+            class="mt-2 max-w-[260px] text-center text-sm leading-relaxed text-white/45"
+          >
+            Answer 20 fun questions about<br />your cat's everyday behavior
+          </p>
+
+          <!-- Mini phone mockup -->
+          <div class="mt-5">
+            <div class="phone">
+              <div
+                class="phone-screen"
+                style="width: 180px; height: 390px"
+              >
+                <img
+                  src="../../public/img/screenshots/02-quiz.png"
+                  alt="Quiz screen"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    display: block;
+                  "
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: Snap a Photo -->
+        <div class="flex w-[320px] flex-col items-center">
+          <div
+            class="flex h-14 w-14 items-center justify-center rounded-full border-[3px] border-white/20 bg-[#EC4899]"
+            style="
+              box-shadow:
+                0 0 30px rgba(236, 72, 153, 0.4),
+                0 4px 12px rgba(0, 0, 0, 0.3);
+            "
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="white"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"
+              />
+              <circle cx="12" cy="13" r="4" />
+            </svg>
+          </div>
+          <span
+            class="mt-4 text-xs font-bold tracking-[0.2em] text-[#EC4899] uppercase"
+            >Step 2</span
+          >
+          <h3 class="mt-2 text-lg font-bold text-white">Snap a Photo</h3>
+          <p
+            class="mt-2 max-w-[260px] text-center text-sm leading-relaxed text-white/45"
+          >
+            Add a photo of your cat for<br />a personalized IQ certificate
+          </p>
+
+          <!-- Mini phone mockup -->
+          <div class="mt-5">
+            <div class="phone">
+              <div
+                class="phone-screen"
+                style="width: 180px; height: 390px"
+              >
+                <img
+                  src="../../public/img/screenshots/03-photo.png"
+                  alt="Photo screen"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    display: block;
+                  "
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3: Get the Results -->
+        <div class="flex w-[320px] flex-col items-center">
+          <div
+            class="flex h-14 w-14 items-center justify-center rounded-full border-[3px] border-white/20 bg-[#7C3AED]"
+            style="
+              box-shadow:
+                0 0 30px rgba(124, 58, 237, 0.4),
+                0 4px 12px rgba(0, 0, 0, 0.3);
+            "
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="white"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M12 3l1.912 5.813a2 2 0 001.272 1.272L21 12l-5.816 1.912a2 2 0 00-1.272 1.272L12 21l-1.912-5.816a2 2 0 00-1.272-1.272L3 12l5.816-1.915a2 2 0 001.272-1.272z"
+              />
+            </svg>
+          </div>
+          <span
+            class="mt-4 text-xs font-bold tracking-[0.2em] text-[#7C3AED] uppercase"
+            >Step 3</span
+          >
+          <h3 class="mt-2 text-lg font-bold text-white">Get the Results</h3>
+          <p
+            class="mt-2 max-w-[260px] text-center text-sm leading-relaxed text-white/45"
+          >
+            Receive a beautiful IQ certificate<br />to share with friends
+          </p>
+
+          <!-- Mini phone mockup -->
+          <div class="mt-5">
+            <div class="phone">
+              <div
+                class="phone-screen"
+                style="width: 180px; height: 390px"
+              >
+                <img
+                  src="../../public/img/screenshots/01-hero.png"
+                  alt="Results screen"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    display: block;
+                  "
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

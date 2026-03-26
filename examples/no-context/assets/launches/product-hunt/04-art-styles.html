@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1270, initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+              display: ["Inter", "system-ui", "sans-serif"],
+              quote: ["Georgia", "Times New Roman", "serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        margin: 0;
+        width: 1270px;
+        height: 760px;
+        overflow: hidden;
+      }
+      .font-quote {
+        font-family: Georgia, "Times New Roman", serif;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body class="bg-[#fafaf8]">
+    <div
+      class="relative flex h-[760px] w-[1270px] flex-col items-center justify-center overflow-hidden"
+    >
+      <!-- QR Code — top-right -->
+      <div class="absolute top-4 right-5 z-50 flex items-center gap-2.5">
+        <span
+          class="text-right text-[10px] font-bold tracking-wide text-[#4A4A4A] uppercase"
+          >Scan to<br />Add to Slack</span
+        >
+        <img
+          src="../../../public/img/qr-install.png"
+          alt="QR: Add to Slack"
+          class="h-14 w-14"
+        />
+      </div>
+
+      <!-- Scattered background quotes -->
+      <div class="pointer-events-none absolute inset-0 overflow-hidden">
+        <div class="absolute top-4 right-16 w-44 rotate-[7deg] opacity-[0.04]">
+          <div
+            class="rounded-xl border-2 border-[#1A1A1A] bg-white p-3 shadow-[3px_3px_0px_0px_#1A1A1A]"
+          >
+            <p class="font-quote text-xs">
+              "The intern is running the company now"
+            </p>
+          </div>
+        </div>
+        <div
+          class="absolute bottom-8 left-8 w-48 rotate-[-5deg] opacity-[0.04]"
+        >
+          <div
+            class="rounded-xl border-2 border-[#1A1A1A] bg-white p-3 shadow-[3px_3px_0px_0px_#1A1A1A]"
+          >
+            <p class="font-quote text-xs">
+              "There's a sword in the supply closet"
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Header -->
+      <div class="relative z-10 mb-8 text-center">
+        <h2
+          class="font-display text-[44px] font-extrabold tracking-tight text-[#1A1A1A]"
+        >
+          20+ styles.
+          <span class="relative inline-block">
+            <span class="relative z-10">One quote.</span>
+            <span
+              class="absolute inset-0 -skew-x-2 rounded-lg bg-[#EDE9FE]"
+            ></span>
+          </span>
+        </h2>
+        <!-- The quote being rendered -->
+        <div
+          class="mt-5 inline-flex items-center gap-3 rounded-xl border-2 border-[#1A1A1A] bg-white px-6 py-3 shadow-[4px_4px_0px_0px_#1A1A1A]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#7C3AED"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"
+            />
+            <path
+              d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"
+            />
+          </svg>
+          <p class="font-quote text-[15px] text-[#1A1A1A]">
+            "The printer is on fire again and honestly I think it's personal"
+          </p>
+          <span class="text-sm text-[#4A4A4A]">— Jeff, Operations</span>
+        </div>
+      </div>
+
+      <!-- 8-style grid: 4x2 using real showcase images -->
+      <div class="relative z-10 grid grid-cols-4 gap-5 px-16">
+        <!-- Watercolor -->
+        <div class="group">
+          <div
+            class="rotate-[-1deg] overflow-hidden rounded-xl border-2 border-[#1A1A1A] shadow-[4px_4px_0px_0px_#1A1A1A]"
+          >
+            <div class="aspect-[4/3] overflow-hidden">
+              <img
+                src="../../../public/img/landing/showcase/watercolor.png"
+                alt="Watercolor style"
+                class="h-full w-full object-cover"
+              />
+            </div>
+          </div>
+          <div class="mt-2.5 text-center">
+            <span
+              class="inline-flex items-center rounded-full border-2 border-[#1A1A1A] bg-white px-3 py-1 text-xs font-bold shadow-[2px_2px_0px_0px_#1A1A1A]"
+              >Watercolor</span
+            >
+          </div>
+        </div>
+
+        <!-- Picasso / Cubism -->
+        <div class="group">
+          <div
+            class="rotate-[1deg] overflow-hidden rounded-xl border-2 border-[#1A1A1A] shadow-[4px_4px_0px_0px_#1A1A1A]"
+          >
+            <div class="aspect-[4/3] overflow-hidden">
+              <img
+                src="../../../public/img/landing/showcase/picasso.png"
+                alt="Picasso style"
+                class="h-full w-full object-cover"
+              />
+            </div>
+          </div>
+          <div class="mt-2.5 text-center">
+            <span
+              class="inline-flex items-center rounded-full border-2 border-[#1A1A1A] bg-white px-3 py-1 text-xs font-bold shadow-[2px_2px_0px_0px_#1A1A1A]"
+              >Picasso</span
+            >
+          </div>
+        </div>
+
+        <!-- Van Gogh -->
+        <div class="group">
+          <div
+            class="rotate-[-0.5deg] overflow-hidden rounded-xl border-2 border-[#1A1A1A] shadow-[4px_4px_0px_0px_#1A1A1A]"
+          >
+            <div class="aspect-[4/3] overflow-hidden">
+              <img
+                src="../../../public/img/landing/showcase/vangogh.png"
+                alt="Van Gogh style"
+                class="h-full w-full object-cover"
+              />
+            </div>
+          </div>
+          <div class="mt-2.5 text-center">
+            <span
+              class="inline-flex items-center rounded-full border-2 border-[#1A1A1A] bg-white px-3 py-1 text-xs font-bold shadow-[2px_2px_0px_0px_#1A1A1A]"
+              >Van Gogh</span
+            >
+          </div>
+        </div>
+
+        <!-- Pop Art (Warhol) -->
+        <div class="group">
+          <div
+            class="rotate-[1.5deg] overflow-hidden rounded-xl border-2 border-[#1A1A1A] shadow-[4px_4px_0px_0px_#1A1A1A]"
+          >
+            <div class="aspect-[4/3] overflow-hidden">
+              <img
+                src="../../../public/img/landing/showcase/warhol.png"
+                alt="Pop Art style"
+                class="h-full w-full object-cover"
+              />
+            </div>
+          </div>
+          <div class="mt-2.5 text-center">
+            <span
+              class="inline-flex items-center rounded-full border-2 border-[#1A1A1A] bg-white px-3 py-1 text-xs font-bold shadow-[2px_2px_0px_0px_#1A1A1A]"
+              >Pop Art</span
+            >
+          </div>
+        </div>
+
+        <!-- Pixel Art -->
+        <div class="group">
+          <div
+            class="rotate-[0.5deg] overflow-hidden rounded-xl border-2 border-[#1A1A1A] shadow-[4px_4px_0px_0px_#1A1A1A]"
+          >
+            <div class="aspect-[4/3] overflow-hidden">
+              <img
+                src="../../../public/img/landing/showcase/pixel.png"
+                alt="Pixel Art style"
+                class="h-full w-full object-cover"
+              />
+            </div>
+          </div>
+          <div class="mt-2.5 text-center">
+            <span
+              class="inline-flex items-center rounded-full border-2 border-[#1A1A1A] bg-white px-3 py-1 text-xs font-bold shadow-[2px_2px_0px_0px_#1A1A1A]"
+              >Pixel Art</span
+            >
+          </div>
+        </div>
+
+        <!-- Studio Ghibli (Miyazaki) -->
+        <div class="group">
+          <div
+            class="rotate-[-1.5deg] overflow-hidden rounded-xl border-2 border-[#1A1A1A] shadow-[4px_4px_0px_0px_#1A1A1A]"
+          >
+            <div class="aspect-[4/3] overflow-hidden">
+              <img
+                src="../../../public/img/landing/showcase/miyazaki.png"
+                alt="Studio Ghibli style"
+                class="h-full w-full object-cover"
+              />
+            </div>
+          </div>
+          <div class="mt-2.5 text-center">
+            <span
+              class="inline-flex items-center rounded-full border-2 border-[#1A1A1A] bg-white px-3 py-1 text-xs font-bold shadow-[2px_2px_0px_0px_#1A1A1A]"
+              >Studio Ghibli</span
+            >
+          </div>
+        </div>
+
+        <!-- Hokusai -->
+        <div class="group">
+          <div
+            class="rotate-[0.8deg] overflow-hidden rounded-xl border-2 border-[#1A1A1A] shadow-[4px_4px_0px_0px_#1A1A1A]"
+          >
+            <div class="aspect-[4/3] overflow-hidden">
+              <img
+                src="../../../public/img/landing/showcase/hokusai.png"
+                alt="Hokusai style"
+                class="h-full w-full object-cover"
+              />
+            </div>
+          </div>
+          <div class="mt-2.5 text-center">
+            <span
+              class="inline-flex items-center rounded-full border-2 border-[#1A1A1A] bg-white px-3 py-1 text-xs font-bold shadow-[2px_2px_0px_0px_#1A1A1A]"
+              >Hokusai</span
+            >
+          </div>
+        </div>
+
+        <!-- Comic Book -->
+        <div class="group">
+          <div
+            class="rotate-[-1deg] overflow-hidden rounded-xl border-2 border-[#1A1A1A] shadow-[4px_4px_0px_0px_#1A1A1A]"
+          >
+            <div class="aspect-[4/3] overflow-hidden">
+              <img
+                src="../../../public/img/landing/showcase/comic.png"
+                alt="Comic Book style"
+                class="h-full w-full object-cover"
+              />
+            </div>
+          </div>
+          <div class="mt-2.5 text-center">
+            <span
+              class="inline-flex items-center rounded-full border-2 border-[#1A1A1A] bg-white px-3 py-1 text-xs font-bold shadow-[2px_2px_0px_0px_#1A1A1A]"
+              >Comic Book</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

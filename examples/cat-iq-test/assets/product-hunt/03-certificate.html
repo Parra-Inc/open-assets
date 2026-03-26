@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1270, initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'bg-dark': '#0F0328',
+              'bg-mid': '#1F0A47',
+              'bg-light': '#331066',
+              'bg-card': 'rgba(255, 255, 255, 0.06)',
+              'border-card': 'rgba(255, 255, 255, 0.1)',
+              'accent-purple': '#7C3AED',
+              'accent-pink': '#EC4899',
+              'accent-orange': '#F97316',
+              'iq-oblivious': '#3B82F6',
+              'iq-selective': '#14B8A6',
+              'iq-average': '#22C55E',
+              'iq-smart': '#F97316',
+              'iq-genius': '#8B5CF6',
+              'iq-mastermind': '#EF4444',
+              'cert-gold': '#F59E0B',
+              'cert-gold-light': '#FCD34D',
+            },
+            fontFamily: {
+              'sans': ['"SF Pro Rounded"', '"SF Pro Display"', '-apple-system', 'system-ui', 'sans-serif'],
+            },
+          },
+        },
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+              display: ["Inter", "system-ui", "sans-serif"],
+              cert: ["Georgia", "Times New Roman", "serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        margin: 0;
+        width: 1270px;
+        height: 760px;
+        overflow: hidden;
+      }
+      .headline-gradient {
+        background: linear-gradient(180deg, #fff 30%, rgba(255, 255, 255, 0.7));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+      }
+      .glow-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.3;
+        pointer-events: none;
+      }
+      .cert-title {
+        font-family: Georgia, "Times New Roman", serif;
+        background: linear-gradient(180deg, #fcd34d, #f59e0b);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .skill-bar {
+        height: 8px;
+        border-radius: 9999px;
+        background: rgba(255, 255, 255, 0.08);
+        overflow: hidden;
+      }
+      .skill-bar-fill {
+        height: 100%;
+        border-radius: 9999px;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="relative flex h-[760px] w-[1270px] flex-col items-center justify-center overflow-hidden"
+      style="
+        background: linear-gradient(
+          135deg,
+          #0f0328 0%,
+          #1f0a47 50%,
+          #331066 100%
+        );
+      "
+    >
+      <!-- Ambient glow orbs -->
+      <div
+        class="glow-orb"
+        style="
+          width: 400px;
+          height: 400px;
+          background: #f59e0b;
+          top: 200px;
+          left: -100px;
+          opacity: 0.15;
+        "
+      ></div>
+      <div
+        class="glow-orb"
+        style="
+          width: 350px;
+          height: 350px;
+          background: #7c3aed;
+          bottom: -50px;
+          right: -50px;
+          opacity: 0.25;
+        "
+      ></div>
+      <div
+        class="glow-orb"
+        style="
+          width: 250px;
+          height: 250px;
+          background: #ec4899;
+          top: -40px;
+          right: 300px;
+          opacity: 0.2;
+        "
+      ></div>
+
+      <!-- Header -->
+      <div class="relative z-10 mb-5 text-center" style="margin-top: -20px;">
+        <h2
+          class="headline-gradient font-display text-[40px] font-extrabold tracking-tight"
+        >
+          A Beautiful, Shareable
+          <span class="relative inline-block">
+            <span
+              class="absolute inset-0 -skew-x-2 rounded-lg bg-[#7C3AED]/40"
+            ></span>
+            <span class="relative z-10" style="-webkit-text-fill-color: white;">IQ Certificate</span>
+          </span>
+        </h2>
+        <p class="mt-3 text-lg text-white/50">
+          Detailed skill breakdown. Fun classifications. Ready to share.
+        </p>
+      </div>
+
+      <!-- Certificate showcase area -->
+      <div class="relative z-10 flex items-center justify-center gap-8">
+        <!-- Left flanking card (smaller, tilted, dimmed) — Feline Genius -->
+        <div
+          class="glass-card w-[190px] rounded-2xl p-3.5 opacity-60"
+          style="transform: rotate(-6deg) translateY(20px);"
+        >
+          <!-- Corner accents -->
+          <div class="absolute top-2 left-2 h-3 w-3 border-t-2 border-l-2 border-amber-400/30 rounded-tl-sm"></div>
+          <div class="absolute top-2 right-2 h-3 w-3 border-t-2 border-r-2 border-amber-400/30 rounded-tr-sm"></div>
+
+          <div class="flex items-center justify-center gap-1.5 mb-2">
+            <span class="text-[7px] font-bold text-amber-400/50 tracking-[0.15em] uppercase">Official</span>
+            <span class="text-[9px]">🏅</span>
+            <span class="text-[7px] font-bold text-amber-400/50 tracking-[0.15em] uppercase">Certified</span>
+          </div>
+
+          <h3 class="cert-title text-center text-[13px] font-bold leading-tight mb-1">
+            Certificate of<br/>Feline Intelligence
+          </h3>
+
+          <div class="w-16 h-px bg-gradient-to-r from-transparent via-amber-400/30 to-transparent mx-auto my-2"></div>
+
+          <!-- Cat circle -->
+          <div class="mx-auto w-12 h-12 rounded-full bg-[#1F0A47] flex items-center justify-center mb-2 border border-purple-500/30">
+            <span class="text-xl">🐱</span>
+          </div>
+
+          <p class="text-center text-[13px] font-extrabold text-white mb-0.5">Luna</p>
+          <div class="mx-auto rounded-full bg-[#7C3AED]/25 border border-[#7C3AED]/40 px-2 py-0.5 text-center mb-2">
+            <span class="text-[8px] font-semibold text-purple-300">Siamese</span>
+          </div>
+
+          <!-- IQ Score -->
+          <div class="text-center text-[32px] font-black leading-none mb-0.5" style="background: linear-gradient(180deg, #C4B5FD, #8B5CF6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+            156
+          </div>
+          <div class="text-center text-[8px] text-white/35 font-medium mb-1.5">IQ Score</div>
+
+          <div class="flex items-center justify-center gap-1.5 bg-[#8B5CF6]/20 border border-[#8B5CF6]/30 rounded-full px-2 py-1 mb-2">
+            <span class="text-[11px]">🎓</span>
+            <span class="text-[10px] font-bold text-purple-300">Feline Genius</span>
+          </div>
+        </div>
+
+        <!-- CENTER CERTIFICATE — main showcase -->
+        <div
+          class="glass-card relative w-[360px] rounded-3xl p-5"
+          style="
+            box-shadow:
+              0 30px 80px rgba(0, 0, 0, 0.4),
+              0 0 120px rgba(124, 58, 237, 0.15);
+          "
+        >
+          <!-- Gold corner accents -->
+          <div class="absolute top-3 left-3 h-4 w-4 border-t-2 border-l-2 border-amber-400/40 rounded-tl-md"></div>
+          <div class="absolute top-3 right-3 h-4 w-4 border-t-2 border-r-2 border-amber-400/40 rounded-tr-md"></div>
+          <div class="absolute bottom-3 left-3 h-4 w-4 border-b-2 border-l-2 border-amber-400/40 rounded-bl-md"></div>
+          <div class="absolute bottom-3 right-3 h-4 w-4 border-b-2 border-r-2 border-amber-400/40 rounded-br-md"></div>
+
+          <!-- Official seal -->
+          <div class="flex items-center justify-center gap-2 mb-1">
+            <span class="text-[8px] font-bold text-amber-400/60 tracking-[0.2em] uppercase">Official</span>
+            <span class="text-[12px]">🏅</span>
+            <span class="text-[8px] font-bold text-amber-400/60 tracking-[0.2em] uppercase">Certified</span>
+          </div>
+
+          <!-- Certificate title -->
+          <h3 class="cert-title text-center text-[18px] font-bold leading-tight mb-0.5">
+            Certificate of<br/>Feline Intelligence
+          </h3>
+
+          <div class="mx-auto w-28 h-px bg-gradient-to-r from-transparent via-amber-400/40 to-transparent my-2"></div>
+
+          <!-- Cat photo -->
+          <div class="mx-auto w-16 h-16 rounded-full bg-[#1F0A47] flex items-center justify-center mb-1.5 border-2 border-purple-500/30 overflow-hidden" style="box-shadow: 0 0 40px rgba(124,58,237,0.3);">
+            <img
+              src="../../public/img/cats/cat-square.jpg"
+              alt="Whiskers"
+              style="width: 100%; height: 100%; object-fit: cover;"
+            />
+          </div>
+
+          <!-- Cat name + breed -->
+          <p class="text-center text-[18px] font-extrabold text-white mb-0.5">Whiskers</p>
+          <div class="mx-auto w-fit rounded-full bg-[#7C3AED]/25 border border-[#7C3AED]/40 px-2.5 py-0.5 text-center mb-2">
+            <span class="text-[10px] font-semibold text-purple-300">Domestic Shorthair</span>
+          </div>
+
+          <!-- IQ Score -->
+          <div class="text-center text-[42px] font-black leading-none mb-0" style="background: linear-gradient(180deg, #5EEAD4, #14B8A6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+            89
+          </div>
+          <div class="text-center text-[10px] text-white/35 font-medium mb-1.5">IQ Score</div>
+
+          <!-- Classification badge -->
+          <div class="flex items-center justify-center gap-1.5 bg-[#14B8A6]/20 border border-[#14B8A6]/30 rounded-full px-3 py-1 mx-auto w-fit mb-1">
+            <span class="text-[14px]">🤨</span>
+            <span class="text-[12px] font-bold text-teal-300">Selectively Intelligent</span>
+          </div>
+          <p class="text-center text-[10px] text-white/40 mb-2">Top 62% of cats tested</p>
+
+          <div class="w-full h-px bg-white/10 my-1.5"></div>
+
+          <!-- Skill breakdown -->
+          <div class="space-y-1.5">
+            <div>
+              <div class="flex justify-between text-[9px] mb-0.5">
+                <span class="text-white/55">🧠 Cognition</span>
+                <span class="text-white/35">41%</span>
+              </div>
+              <div class="skill-bar" style="height: 6px;">
+                <div class="skill-bar-fill bg-[#7C3AED]" style="width: 41%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-[9px] mb-0.5">
+                <span class="text-white/55">💬 Communication</span>
+                <span class="text-white/35">93%</span>
+              </div>
+              <div class="skill-bar" style="height: 6px;">
+                <div class="skill-bar-fill bg-[#EC4899]" style="width: 93%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-[9px] mb-0.5">
+                <span class="text-white/55">🧩 Problem Solving</span>
+                <span class="text-white/35">34%</span>
+              </div>
+              <div class="skill-bar" style="height: 6px;">
+                <div class="skill-bar-fill bg-blue-400" style="width: 34%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-[9px] mb-0.5">
+                <span class="text-white/55">🤝 Social Skills</span>
+                <span class="text-white/35">72%</span>
+              </div>
+              <div class="skill-bar" style="height: 6px;">
+                <div class="skill-bar-fill bg-green-400" style="width: 72%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-[9px] mb-0.5">
+                <span class="text-white/55">💾 Memory</span>
+                <span class="text-white/35">28%</span>
+              </div>
+              <div class="skill-bar" style="height: 6px;">
+                <div class="skill-bar-fill bg-amber-400" style="width: 28%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-full h-px bg-white/10 my-1.5"></div>
+          <p class="text-center text-[8px] text-white/25">
+            Issued Feb 28, 2026 &mdash; Bureau of Feline Intelligence
+          </p>
+        </div>
+
+        <!-- Right flanking card (smaller, tilted, dimmed) — Evil Mastermind -->
+        <div
+          class="glass-card w-[190px] rounded-2xl p-3.5 opacity-60"
+          style="transform: rotate(5deg) translateY(30px);"
+        >
+          <div class="absolute top-2 left-2 h-3 w-3 border-t-2 border-l-2 border-amber-400/30 rounded-tl-sm"></div>
+          <div class="absolute top-2 right-2 h-3 w-3 border-t-2 border-r-2 border-amber-400/30 rounded-tr-sm"></div>
+
+          <div class="flex items-center justify-center gap-1.5 mb-2">
+            <span class="text-[7px] font-bold text-amber-400/50 tracking-[0.15em] uppercase">Official</span>
+            <span class="text-[9px]">🏅</span>
+            <span class="text-[7px] font-bold text-amber-400/50 tracking-[0.15em] uppercase">Certified</span>
+          </div>
+
+          <h3 class="cert-title text-center text-[13px] font-bold leading-tight mb-1">
+            Certificate of<br/>Feline Intelligence
+          </h3>
+
+          <div class="w-16 h-px bg-gradient-to-r from-transparent via-amber-400/30 to-transparent mx-auto my-2"></div>
+
+          <div class="mx-auto w-12 h-12 rounded-full bg-[#1F0A47] flex items-center justify-center mb-2 border border-red-500/30">
+            <span class="text-xl">😼</span>
+          </div>
+
+          <p class="text-center text-[13px] font-extrabold text-white mb-0.5">Shadow</p>
+          <div class="mx-auto rounded-full bg-[#7C3AED]/25 border border-[#7C3AED]/40 px-2 py-0.5 text-center mb-2">
+            <span class="text-[8px] font-semibold text-purple-300">Bengal</span>
+          </div>
+
+          <div class="text-center text-[32px] font-black leading-none mb-0.5" style="background: linear-gradient(180deg, #FCA5A5, #EF4444); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+            185
+          </div>
+          <div class="text-center text-[8px] text-white/35 font-medium mb-1.5">IQ Score</div>
+
+          <div class="flex items-center justify-center gap-1.5 bg-[#EF4444]/20 border border-[#EF4444]/30 rounded-full px-2 py-1 mb-2">
+            <span class="text-[11px]">😈</span>
+            <span class="text-[10px] font-bold text-red-300">Evil Mastermind</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

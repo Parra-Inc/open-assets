@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=440" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-green': '#01A25E',
+              'brand-green-dark': '#017544',
+              'brand-black': '#171717',
+              'brand-white': '#FAFAFA',
+              'star': '#F2C94C',
+              'bg-white': '#FFFFFF',
+              'bg-light': '#F5F5F5',
+            },
+            fontFamily: {
+              'sans': ['"SF Pro Display"', '-apple-system', 'system-ui', 'sans-serif'],
+              'rounded': ['"SF Pro Rounded"', '"SF Pro Display"', '-apple-system', 'system-ui', 'sans-serif'],
+            },
+          },
+        },
+      }
+    </script>
+    <style type="text/tailwindcss">
+/* =============================================
+   SCREENSHOT FRAME - 440x956
+   ============================================= */
+.screenshot {
+  width: 440px;
+  height: 956px;
+  overflow: hidden;
+  position: relative;
+  font-family: "SF Pro Display", -apple-system, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =============================================
+   SCREENSHOT FRAME - ANDROID 440x978 (20:9 Pixel)
+   ============================================= */
+.screenshot-android {
+  width: 440px;
+  height: 978px;
+  overflow: hidden;
+  position: relative;
+  font-family: "SF Pro Display", -apple-system, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =============================================
+   GLASS BLUR BACKGROUND
+   ============================================= */
+.bg-glass {
+  background: linear-gradient(
+    160deg,
+    #f0faf4 0%,
+    #e8f5ee 20%,
+    #f5f7f6 40%,
+    #eef8f2 60%,
+    #f8faf9 80%,
+    #f0f5f2 100%
+  );
+}
+
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* =============================================
+   GREEN PILL BADGE
+   ============================================= */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #01A25E;
+  border-radius: 16px;
+  padding: 16px 28px;
+  font-weight: 800;
+  font-size: 18px;
+  color: #FAFAFA;
+  letter-spacing: -0.01em;
+}
+
+/* =============================================
+   MARKETING HEADLINE TEXT
+   ============================================= */
+.headline {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: #171717;
+}
+
+.subheadline {
+  font-weight: 500;
+  color: #6B7280;
+  line-height: 1.4;
+}
+
+/* =============================================
+   PHONE MOCKUP
+   ============================================= */
+.phone {
+  position: relative;
+  background: #000;
+  border-radius: 52px;
+  padding: 6px;
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(0, 0, 0, 0.08);
+  border: 3px solid #3B4C64;
+}
+
+.phone-screen {
+  border-radius: 46px;
+  overflow: hidden;
+  position: relative;
+  background: #fff;
+}
+
+.phone-content {
+  width: 440px;
+  height: 956px;
+  transform-origin: top left;
+  font-family: "SF Pro Display", -apple-system, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Dynamic Island */
+.phone::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 72px;
+  height: 22px;
+  background: #000;
+  border-radius: 12px;
+  z-index: 10;
+}
+
+/* Phone screen = 300px wide -> scale 300/440 = 0.6818 */
+.phone-300 .phone-screen {
+  width: 300px;
+  height: 652px;
+}
+.phone-300 .phone-content {
+  transform: scale(0.6818);
+}
+
+/* Phone screen = 260px wide -> scale 260/440 = 0.5909 */
+.phone-260 .phone-screen {
+  width: 260px;
+  height: 565px;
+}
+.phone-260 .phone-content {
+  transform: scale(0.5909);
+}
+
+/* Phone screen = 340px wide -> scale 340/440 = 0.7727 */
+.phone-340 .phone-screen {
+  width: 340px;
+  height: 739px;
+}
+.phone-340 .phone-content {
+  transform: scale(0.7727);
+}
+
+/* Phone screen = 220px wide -> scale 220/440 = 0.5 */
+.phone-220 .phone-screen {
+  width: 220px;
+  height: 478px;
+}
+.phone-220 .phone-content {
+  transform: scale(0.5);
+}
+
+/* =============================================
+   ANDROID PHONE MOCKUP
+   ============================================= */
+.phone-android {
+  border-radius: 44px;
+}
+
+.phone-android .phone-screen {
+  border-radius: 38px;
+}
+
+/* Punch-hole camera instead of Dynamic Island */
+.phone-android::before {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  top: 16px;
+}
+
+/* Android phone sizes (20:9 Pixel screen ratio) */
+.phone-android.phone-300 .phone-screen {
+  width: 300px;
+  height: 667px;
+}
+
+.phone-android.phone-260 .phone-screen {
+  width: 260px;
+  height: 578px;
+}
+
+.phone-android.phone-340 .phone-screen {
+  width: 340px;
+  height: 756px;
+}
+
+.phone-android.phone-220 .phone-screen {
+  width: 220px;
+  height: 489px;
+}
+
+/* =============================================
+   STAR RATING
+   ============================================= */
+.star {
+  color: #F2C94C;
+}
+
+/* =============================================
+   HERB / LEAF DECORATIVE
+   ============================================= */
+.herb-leaf {
+  fill: #017544;
+}
+
+/* =============================================
+   SOCIAL PLATFORM ICONS
+   ============================================= */
+.social-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =============================================
+   SCREENSHOT PLACEHOLDER
+   ============================================= */
+.screenshot-placeholder {
+  background: linear-gradient(135deg, #f0f0f0 0%, #e8e8e8 100%);
+  border: 2px dashed #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* =============================================
+   APP ICON
+   ============================================= */
+.app-icon {
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* =============================================
+   MAGNIFYING GLASS EFFECT
+   ============================================= */
+.magnifier-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.magnifier-lens {
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 3px solid #C0C0C0;
+  background: white;
+  overflow: hidden;
+  top: -14px;
+  right: -20px;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.15),
+    inset 0 0 8px rgba(255, 255, 255, 0.4);
+  z-index: 2;
+}
+
+.magnifier-zoom {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(2);
+  transform-origin: center;
+}
+
+.magnifier-handle {
+  position: absolute;
+  width: 4px;
+  height: 22px;
+  background: linear-gradient(to bottom, #C0C0C0, #999);
+  border-radius: 0 0 3px 3px;
+  top: 30px;
+  right: -28px;
+  transform: rotate(-45deg);
+  transform-origin: top center;
+  z-index: 1;
+}
+    </style>
+  </head>
+  <body class="m-0 p-0">
+    <div class="screenshot bg-white flex flex-col items-center">
+      <!-- Headline -->
+      <div class="relative z-10 pt-[28px] px-[24px] w-full">
+        <div class="text-[86px] font-black text-brand-black leading-[0.9] tracking-[-0.04em]">Got</div>
+        <div class="inline-block bg-brand-black text-white text-[86px] font-black leading-[1] tracking-[-0.04em] px-[16px] pt-[6px] pb-[12px] rounded-[16px] mt-[4px]">Recipes?</div>
+      </div>
+
+      <!-- Logo and rating centered -->
+      <div class="relative z-10 mt-[44px] flex flex-col items-center">
+        <img src="../../public/logo-round.png" width="64" height="64" alt="" />
+        <img src="../../public/rating.svg" width="365" height="191" alt="" class="mt-[8px]" />
+      </div>
+
+      <!-- Food photo — 1.8x width, right-aligned, centered on bottom edge -->
+      <div class="absolute z-0" style="bottom: -350px; right: -176px; width: 792px; height: 792px;">
+        <img src="../../public/meal.svg" class="w-full h-full object-contain" alt="" />
+      </div>
+    </div>
+  </body>
+</html>

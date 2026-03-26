@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1024" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      .icon {
+        width: 1024px;
+        height: 1024px;
+        overflow: hidden;
+        position: relative;
+        background: linear-gradient(
+          155deg,
+          #0c0020 0%,
+          #1a0540 30%,
+          #2d1066 55%,
+          #4c1d95 80%,
+          #5b21b6 100%
+        );
+      }
+
+      .glow-bg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -45%);
+        width: 850px;
+        height: 850px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(139, 92, 246, 0.3) 0%,
+          rgba(109, 40, 217, 0.15) 45%,
+          transparent 75%
+        );
+      }
+
+      .glow-white {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -40%);
+        width: 600px;
+        height: 600px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.08) 0%,
+          rgba(255, 255, 255, 0.03) 50%,
+          transparent 75%
+        );
+      }
+
+      .main-graphic {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body style="margin: 0; padding: 0;">
+    <div class="icon">
+      <div class="glow-bg"></div>
+      <div class="glow-white"></div>
+
+<img class="main-graphic" src="icon-cat.svg" width="940" height="940" />
+
+    </div>
+  </body>
+</html>

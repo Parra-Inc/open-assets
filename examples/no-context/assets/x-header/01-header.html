@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1500, initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+              display: ["Inter", "system-ui", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        margin: 0;
+        width: 1500px;
+        height: 500px;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body class="bg-[#fafaf8]">
+    <div class="relative flex h-[500px] w-[1500px] overflow-hidden">
+      <!-- Left side: Logo + headline + badges — kept in upper portion to clear profile pic -->
+      <div
+        class="relative z-10 flex w-[50%] flex-col justify-center pr-10 pb-6 pl-52"
+      >
+        <div class="max-w-[520px]">
+          <!-- Logo -->
+          <div class="mb-4">
+            <img
+              src="../../public/img/logo-with-bot.png"
+              alt="No Context Bot"
+              class="h-11"
+            />
+          </div>
+
+          <h1
+            class="font-display text-[40px] leading-[1.1] font-extrabold tracking-tight text-[#1A1A1A]"
+          >
+            Turn your team's most<br />
+            <span class="relative inline-block">
+              <span class="relative z-10">ridiculous quotes</span>
+              <span
+                class="absolute inset-0 -skew-x-2 rounded-lg bg-[#EDE9FE]"
+              ></span>
+            </span>
+            into<br />legendary art.
+          </h1>
+        </div>
+      </div>
+
+      <!-- Right side: Art gallery with angled border -->
+      <div class="relative w-[50%] overflow-hidden bg-[#F5F0FF]">
+        <!-- Rotated grid of gallery cards -->
+        <div class="absolute -inset-20 -rotate-6">
+          <div class="grid grid-cols-3 gap-2.5 p-2.5">
+            <!-- Card 1 -->
+            <div
+              class="overflow-hidden rounded-md border-2 border-[#1A1A1A] bg-white shadow-[3px_3px_0px_0px_#1A1A1A]"
+            >
+              <div class="relative aspect-[4/3] border-b-2 border-[#1A1A1A]">
+                <img
+                  src="../../public/img/landing/gallery/duck-ghibli.png"
+                  alt="Ghibli"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+              <div class="px-2.5 py-2">
+                <p class="text-[10px] leading-snug font-bold text-[#1A1A1A]">
+                  "This duck has seen things"
+                </p>
+                <div class="mt-1 flex items-center justify-between">
+                  <span class="text-[8px] font-medium text-[#4A4A4A]"
+                    >— Raj</span
+                  >
+                  <span
+                    class="rounded-sm border border-[#7C3AED] bg-[#EDE9FE] px-1.5 py-0.5 text-[7px] font-bold text-[#7C3AED]"
+                    >Ghibli</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div
+              class="overflow-hidden rounded-md border-2 border-[#1A1A1A] bg-white shadow-[3px_3px_0px_0px_#1A1A1A]"
+            >
+              <div class="relative aspect-[4/3] border-b-2 border-[#1A1A1A]">
+                <img
+                  src="../../public/img/landing/gallery/goat-cubism.png"
+                  alt="Cubism"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+              <div class="px-2.5 py-2">
+                <p class="text-[10px] leading-snug font-bold text-[#1A1A1A]">
+                  "That's not a bug, that's a goat"
+                </p>
+                <div class="mt-1 flex items-center justify-between">
+                  <span class="text-[8px] font-medium text-[#4A4A4A]"
+                    >— Priya</span
+                  >
+                  <span
+                    class="rounded-sm border border-[#7C3AED] bg-[#EDE9FE] px-1.5 py-0.5 text-[7px] font-bold text-[#7C3AED]"
+                    >Cubism</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div
+              class="overflow-hidden rounded-md border-2 border-[#1A1A1A] bg-white shadow-[3px_3px_0px_0px_#1A1A1A]"
+            >
+              <div class="relative aspect-[4/3] border-b-2 border-[#1A1A1A]">
+                <img
+                  src="../../public/img/landing/gallery/seagull-hokusai.png"
+                  alt="Ukiyo-e"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+              <div class="px-2.5 py-2">
+                <p class="text-[10px] leading-snug font-bold text-[#1A1A1A]">
+                  "Who let the seagull in"
+                </p>
+                <div class="mt-1 flex items-center justify-between">
+                  <span class="text-[8px] font-medium text-[#4A4A4A]"
+                    >— Sam</span
+                  >
+                  <span
+                    class="rounded-sm border border-[#7C3AED] bg-[#EDE9FE] px-1.5 py-0.5 text-[7px] font-bold text-[#7C3AED]"
+                    >Ukiyo-e</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div
+              class="overflow-hidden rounded-md border-2 border-[#1A1A1A] bg-white shadow-[3px_3px_0px_0px_#1A1A1A]"
+            >
+              <div class="relative aspect-[4/3] border-b-2 border-[#1A1A1A]">
+                <img
+                  src="../../public/img/landing/gallery/throne-vangogh.png"
+                  alt="Van Gogh"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+              <div class="px-2.5 py-2">
+                <p class="text-[10px] leading-snug font-bold text-[#1A1A1A]">
+                  "The intern sits on the throne"
+                </p>
+                <div class="mt-1 flex items-center justify-between">
+                  <span class="text-[8px] font-medium text-[#4A4A4A]"
+                    >— Mike</span
+                  >
+                  <span
+                    class="rounded-sm border border-[#7C3AED] bg-[#EDE9FE] px-1.5 py-0.5 text-[7px] font-bold text-[#7C3AED]"
+                    >Van Gogh</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div
+              class="overflow-hidden rounded-md border-2 border-[#1A1A1A] bg-white shadow-[3px_3px_0px_0px_#1A1A1A]"
+            >
+              <div class="relative aspect-[4/3] border-b-2 border-[#1A1A1A]">
+                <img
+                  src="../../public/img/landing/gallery/plants-watercolor.png"
+                  alt="Watercolor"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+              <div class="px-2.5 py-2">
+                <p class="text-[10px] leading-snug font-bold text-[#1A1A1A]">
+                  "Plants thriving more than roadmap"
+                </p>
+                <div class="mt-1 flex items-center justify-between">
+                  <span class="text-[8px] font-medium text-[#4A4A4A]"
+                    >— Tina</span
+                  >
+                  <span
+                    class="rounded-sm border border-[#7C3AED] bg-[#EDE9FE] px-1.5 py-0.5 text-[7px] font-bold text-[#7C3AED]"
+                    >Watercolor</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div
+              class="overflow-hidden rounded-md border-2 border-[#1A1A1A] bg-white shadow-[3px_3px_0px_0px_#1A1A1A]"
+            >
+              <div class="relative aspect-[4/3] border-b-2 border-[#1A1A1A]">
+                <img
+                  src="../../public/img/landing/gallery/raccoon-pixel.png"
+                  alt="Pixel Art"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+              <div class="px-2.5 py-2">
+                <p class="text-[10px] leading-snug font-bold text-[#1A1A1A]">
+                  "Raccoon in the server room"
+                </p>
+                <div class="mt-1 flex items-center justify-between">
+                  <span class="text-[8px] font-medium text-[#4A4A4A]"
+                    >— Alex</span
+                  >
+                  <span
+                    class="rounded-sm border border-[#7C3AED] bg-[#EDE9FE] px-1.5 py-0.5 text-[7px] font-bold text-[#7C3AED]"
+                    >Pixel Art</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div
+              class="overflow-hidden rounded-md border-2 border-[#1A1A1A] bg-white shadow-[3px_3px_0px_0px_#1A1A1A]"
+            >
+              <div class="relative aspect-[4/3] border-b-2 border-[#1A1A1A]">
+                <img
+                  src="../../public/img/landing/gallery/printer-dali.png"
+                  alt="Dali"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+              <div class="px-2.5 py-2">
+                <p class="text-[10px] leading-snug font-bold text-[#1A1A1A]">
+                  "The printer is haunted"
+                </p>
+                <div class="mt-1 flex items-center justify-between">
+                  <span class="text-[8px] font-medium text-[#4A4A4A]"
+                    >— Jordan</span
+                  >
+                  <span
+                    class="rounded-sm border border-[#7C3AED] bg-[#EDE9FE] px-1.5 py-0.5 text-[7px] font-bold text-[#7C3AED]"
+                    >Dali</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 8 -->
+            <div
+              class="overflow-hidden rounded-md border-2 border-[#1A1A1A] bg-white shadow-[3px_3px_0px_0px_#1A1A1A]"
+            >
+              <div class="relative aspect-[4/3] border-b-2 border-[#1A1A1A]">
+                <img
+                  src="../../public/img/landing/gallery/love-popart.png"
+                  alt="Pop Art"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+              <div class="px-2.5 py-2">
+                <p class="text-[10px] leading-snug font-bold text-[#1A1A1A]">
+                  "Love is a battlefield"
+                </p>
+                <div class="mt-1 flex items-center justify-between">
+                  <span class="text-[8px] font-medium text-[#4A4A4A]"
+                    >— Casey</span
+                  >
+                  <span
+                    class="rounded-sm border border-[#7C3AED] bg-[#EDE9FE] px-1.5 py-0.5 text-[7px] font-bold text-[#7C3AED]"
+                    >Pop Art</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 9 -->
+            <div
+              class="overflow-hidden rounded-md border-2 border-[#1A1A1A] bg-white shadow-[3px_3px_0px_0px_#1A1A1A]"
+            >
+              <div class="relative aspect-[4/3] border-b-2 border-[#1A1A1A]">
+                <img
+                  src="../../public/img/landing/gallery/horse-rockwell.png"
+                  alt="Rockwell"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+              <div class="px-2.5 py-2">
+                <p class="text-[10px] leading-snug font-bold text-[#1A1A1A]">
+                  "Who brought a horse"
+                </p>
+                <div class="mt-1 flex items-center justify-between">
+                  <span class="text-[8px] font-medium text-[#4A4A4A]"
+                    >— Dana</span
+                  >
+                  <span
+                    class="rounded-sm border border-[#7C3AED] bg-[#EDE9FE] px-1.5 py-0.5 text-[7px] font-bold text-[#7C3AED]"
+                    >Rockwell</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comic-style angled clip between left and right -->
+        <svg
+          class="pointer-events-none absolute inset-y-0 left-0 z-10 h-full w-8"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+        >
+          <polygon points="0,0 100,0 0,100" fill="#fafaf8" />
+          <line
+            x1="100"
+            y1="0"
+            x2="0"
+            y2="100"
+            stroke="#1A1A1A"
+            stroke-width="6"
+            vector-effect="non-scaling-stroke"
+          />
+        </svg>
+      </div>
+    </div>
+  </body>
+</html>

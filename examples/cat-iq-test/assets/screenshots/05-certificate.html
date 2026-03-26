@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=440" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'bg-dark': '#0F0328',
+              'bg-mid': '#1F0A47',
+              'bg-light': '#331066',
+              'bg-card': 'rgba(255, 255, 255, 0.06)',
+              'border-card': 'rgba(255, 255, 255, 0.1)',
+              'accent-purple': '#7C3AED',
+              'accent-pink': '#EC4899',
+              'accent-orange': '#F97316',
+              'iq-oblivious': '#3B82F6',
+              'iq-selective': '#14B8A6',
+              'iq-average': '#22C55E',
+              'iq-smart': '#F97316',
+              'iq-genius': '#8B5CF6',
+              'iq-mastermind': '#EF4444',
+              'cert-gold': '#F59E0B',
+              'cert-gold-light': '#FCD34D',
+            },
+            fontFamily: {
+              'sans': ['"SF Pro Rounded"', '"SF Pro Display"', '-apple-system', 'system-ui', 'sans-serif'],
+            },
+          },
+        },
+      }
+    </script>
+    <style type="text/tailwindcss">
+/* =============================================
+   SCREENSHOT FRAME - 440x956
+   ============================================= */
+.screenshot {
+  width: 440px;
+  height: 956px;
+  overflow: hidden;
+  position: relative;
+  font-family: "SF Pro Rounded", "SF Pro Display", -apple-system, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =============================================
+   BACKGROUNDS
+   ============================================= */
+.bg-app-gradient {
+  background: linear-gradient(
+    180deg,
+    #0F0328 0%,
+    #1F0A47 50%,
+    #331066 100%
+  );
+}
+
+/* =============================================
+   MARKETING HEADLINE TEXT
+   ============================================= */
+.headline {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: white;
+}
+
+.headline-gradient {
+  background: linear-gradient(180deg, #fff 30%, rgba(255, 255, 255, 0.7));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subheadline {
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.4;
+}
+
+/* =============================================
+   PHONE MOCKUP
+   ============================================= */
+.phone {
+  position: relative;
+  background: #1a1a1a;
+  border-radius: 32px;
+  padding: 8px;
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 0 80px rgba(124, 58, 237, 0.15);
+}
+
+/* Dynamic Island */
+.phone::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 72px;
+  height: 22px;
+  background: #000;
+  border-radius: 12px;
+  z-index: 10;
+}
+
+.phone-screen {
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  background: #0F0328;
+}
+
+/* Scale a 440x956 app UI into a smaller phone frame */
+.phone-content {
+  width: 440px;
+  height: 956px;
+  transform-origin: top left;
+  font-family: "SF Pro Rounded", "SF Pro Display", -apple-system, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Phone screen = 260px wide → scale 260/440 = 0.5909 */
+.phone-260 .phone-screen {
+  width: 260px;
+  height: 565px;
+}
+.phone-260 .phone-content {
+  transform: scale(0.5909);
+}
+
+/* Phone screen = 300px wide → scale 300/440 = 0.6818 */
+.phone-300 .phone-screen {
+  width: 300px;
+  height: 652px;
+}
+.phone-300 .phone-content {
+  transform: scale(0.6818);
+}
+
+/* Phone screen = 220px wide → scale 220/440 = 0.5 (for dual phone layouts) */
+.phone-220 .phone-screen {
+  width: 220px;
+  height: 478px;
+}
+.phone-220 .phone-content {
+  transform: scale(0.5);
+}
+
+/* =============================================
+   APP UI COMPONENTS (inside phone)
+   ============================================= */
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #7C3AED, #EC4899);
+  border-radius: 9999px;
+  padding: 16px 40px;
+  font-weight: 700;
+  font-size: 18px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.35);
+}
+
+.btn-orange {
+  background: linear-gradient(135deg, #F97316, #FB923C);
+  border-radius: 9999px;
+  padding: 16px 40px;
+  font-weight: 700;
+  font-size: 18px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(249, 115, 22, 0.35);
+}
+
+.progress-bar {
+  height: 8px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #7C3AED, #EC4899);
+}
+
+.glow-purple {
+  box-shadow: 0 0 40px rgba(124, 58, 237, 0.4), 0 0 80px rgba(124, 58, 237, 0.2);
+}
+
+.glow-gold {
+  box-shadow: 0 0 40px rgba(245, 158, 11, 0.4), 0 0 80px rgba(245, 158, 11, 0.2);
+}
+
+.status-bar { height: 54px; }
+.home-indicator { height: 34px; }
+
+.cert-title {
+  font-family: Georgia, "Times New Roman", serif;
+  background: linear-gradient(180deg, #FCD34D, #F59E0B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.answer-pill {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 14px 18px;
+  color: white;
+  font-size: 16px;
+  text-align: left;
+}
+
+.answer-pill-selected {
+  background: rgba(124, 58, 237, 0.3);
+  border-color: #7C3AED;
+}
+
+.category-badge {
+  background: rgba(124, 58, 237, 0.25);
+  border: 1px solid rgba(124, 58, 237, 0.4);
+  border-radius: 9999px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #C4B5FD;
+}
+
+.skill-bar {
+  height: 10px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  border-radius: 9999px;
+}
+
+/* =============================================
+   DECORATIVE ELEMENTS
+   ============================================= */
+
+/* Ambient glow orb (positioned absolutely) */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* Floating badge / callout */
+.callout {
+  background: rgba(15, 3, 40, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 12px 16px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(20px);
+}
+    </style>
+  </head>
+  <body class="m-0 p-0">
+    <!--
+      LAYOUT: Headline top, then a zoomed-in view of the certificate
+      (not in a phone, just the certificate card itself rendered large).
+      The IQ score and classification are the hero elements.
+    -->
+    <div class="screenshot bg-app-gradient flex flex-col items-center text-white">
+      <!-- Ambient glow -->
+      <div class="glow-orb w-[250px] h-[250px] bg-amber-500 top-[350px] left-[60px]"></div>
+      <div class="glow-orb w-[180px] h-[180px] bg-teal-500 top-[500px] right-[30px]"></div>
+
+      <!-- Marketing headline -->
+      <div class="relative z-10 pt-14 pb-4 px-8 text-center">
+        <h1 class="headline headline-gradient text-[34px] mb-4">
+          Get Their Official<br/>IQ Certificate
+        </h1>
+        <p class="subheadline text-[15px] px-2">
+          A beautiful, shareable certificate<br/>with detailed skill breakdown
+        </p>
+      </div>
+
+      <!-- Certificate card — rendered large, no phone frame -->
+      <div class="relative z-10 w-[80%] mt-2 glass-card p-5 flex flex-col items-center overflow-hidden">
+        <!-- Decorative corner accents -->
+        <div class="absolute top-3 left-3 w-5 h-5 border-t-2 border-l-2 border-amber-400/40 rounded-tl-md"></div>
+        <div class="absolute top-3 right-3 w-5 h-5 border-t-2 border-r-2 border-amber-400/40 rounded-tr-md"></div>
+        <div class="absolute bottom-3 left-3 w-5 h-5 border-b-2 border-l-2 border-amber-400/40 rounded-bl-md"></div>
+        <div class="absolute bottom-3 right-3 w-5 h-5 border-b-2 border-r-2 border-amber-400/40 rounded-br-md"></div>
+
+        <!-- Official seal -->
+        <div class="flex items-center gap-2 mb-2">
+          <div class="text-[9px] font-bold text-amber-400/60 tracking-[0.2em] uppercase">Official</div>
+          <div class="text-[12px]">🏅</div>
+          <div class="text-[9px] font-bold text-amber-400/60 tracking-[0.2em] uppercase">Certified</div>
+        </div>
+
+        <!-- Certificate title -->
+        <h2 class="cert-title text-[20px] font-bold text-center mb-1 leading-tight">
+          Certificate of<br/>Feline Intelligence
+        </h2>
+
+        <!-- Divider -->
+        <div class="w-28 h-px bg-gradient-to-r from-transparent via-amber-400/40 to-transparent my-2.5"></div>
+
+        <!-- Cat circle — replace with real cat photo -->
+        <div class="w-20 h-20 min-w-[80px] min-h-[80px] shrink-0 rounded-full bg-bg-mid flex items-center justify-center mb-2 glow-purple border-2 border-purple-500/30 overflow-hidden">
+          <img src="../../public/img/cats/cat-square.jpg" alt="Whiskers" style="width: 100%; height: 100%; object-fit: cover;" />
+        </div>
+
+        <!-- Cat name + breed -->
+        <h3 class="text-[22px] font-extrabold mb-1">Whiskers</h3>
+        <div class="category-badge mb-3">Domestic Shorthair</div>
+
+        <!-- IQ Score — hero element -->
+        <div class="text-[52px] font-black leading-none mb-0.5" style="background: linear-gradient(180deg, #5EEAD4, #14B8A6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+          89
+        </div>
+        <div class="text-[12px] text-white/40 font-medium mb-2">IQ Score</div>
+
+        <!-- Classification badge -->
+        <div class="flex items-center gap-2 bg-iq-selective/20 border border-iq-selective/30 rounded-full px-4 py-1.5 mb-2">
+          <span class="text-[16px]">🤨</span>
+          <span class="text-[14px] font-bold text-teal-300">Selectively Intelligent</span>
+        </div>
+        <div class="text-[12px] text-white/50 mb-3">Top 62% of cats tested</div>
+
+        <!-- Divider -->
+        <div class="w-full h-px bg-white/10 my-1.5"></div>
+
+        <!-- Skill breakdown -->
+        <div class="w-full space-y-2 mb-2">
+          <div>
+            <div class="flex justify-between text-[11px] mb-0.5">
+              <span class="text-white/60">🧠 Cognition</span>
+              <span class="text-white/40">41%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-fill bg-accent-purple" style="width: 41%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between text-[11px] mb-0.5">
+              <span class="text-white/60">💬 Communication</span>
+              <span class="text-white/40">93%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-fill bg-accent-pink" style="width: 93%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between text-[11px] mb-0.5">
+              <span class="text-white/60">🧩 Problem Solving</span>
+              <span class="text-white/40">34%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-fill bg-blue-400" style="width: 34%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between text-[11px] mb-0.5">
+              <span class="text-white/60">🤝 Social Skills</span>
+              <span class="text-white/40">72%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-fill bg-green-400" style="width: 72%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between text-[11px] mb-0.5">
+              <span class="text-white/60">🗄️ Memory</span>
+              <span class="text-white/40">28%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-bar-fill bg-amber-400" style="width: 28%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="w-full h-px bg-white/10 my-1.5"></div>
+        <div class="text-[9px] text-white/30 text-center">
+          Issued Feb 21, 2026 &mdash; Bureau of Feline Intelligence
+        </div>
+      </div>
+
+      <!-- Share callout -->
+      <div class="relative z-10 mt-6 mb-10">
+        <div class="btn-primary text-[16px] flex items-center gap-2">
+          <span>📤</span>
+          <span>Share with Friends</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

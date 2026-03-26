@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "name": "Cat IQ Test",
+  "publicDir": "public",
+  "command": "npx open-assets render --all",
+  "collections": [
+    {
+      "id": "screenshots",
+      "label": "Screenshots",
+      "sourceSize": { "width": 440, "height": 956 },
+      "borderRadius": 4,
+      "templates": [
+        { "src": "assets/screenshots/01-hero.html", "name": "01-hero", "label": "Hero" },
+        { "src": "assets/screenshots/02-quiz.html", "name": "02-quiz", "label": "Quiz" },
+        { "src": "assets/screenshots/03-photo.html", "name": "03-photo", "label": "Photo" },
+        { "src": "assets/screenshots/04-processing.html", "name": "04-processing", "label": "Processing" },
+        { "src": "assets/screenshots/05-certificate.html", "name": "05-certificate", "label": "Certificate" },
+        { "src": "assets/screenshots/06-history.html", "name": "06-history", "label": "History" }
+      ],
+      "export": [
+        { "name": "iphone-6.9", "label": "iPhone 6.9\"", "size": { "width": 1320, "height": 2868 } },
+        { "name": "iphone-6.7", "label": "iPhone 6.7\"", "size": { "width": 1290, "height": 2796 } },
+        { "name": "iphone-6.5", "label": "iPhone 6.5\"", "size": { "width": 1284, "height": 2778 } },
+        { "name": "iphone-6.1", "label": "iPhone 6.1\"", "size": { "width": 1179, "height": 2556 } }
+      ],
+      "customExport": { "defaultWidth": 1320, "defaultHeight": 2868 }
+    },
+    {
+      "id": "product-hunt",
+      "label": "Product Hunt",
+      "sourceSize": { "width": 1270, "height": 760 },
+      "borderRadius": 8,
+      "templates": [
+        { "src": "assets/product-hunt/01-hero.html", "name": "ph-01-hero", "label": "Hero" },
+        { "src": "assets/product-hunt/02-how-it-works.html", "name": "ph-02-how-it-works", "label": "How It Works" },
+        { "src": "assets/product-hunt/03-certificate.html", "name": "ph-03-certificate", "label": "Certificate" },
+        { "src": "assets/product-hunt/04-classifications.html", "name": "ph-04-classifications", "label": "Classifications" },
+        { "src": "assets/product-hunt/05-cta.html", "name": "ph-05-cta", "label": "CTA" }
+      ],
+      "export": [
+        { "name": "1x", "label": "1x", "size": { "width": 1270, "height": 760 } },
+        { "name": "2x", "label": "2x", "size": { "width": 2540, "height": 1520 } }
+      ],
+      "customExport": { "defaultWidth": 1270, "defaultHeight": 760 }
+    },
+    {
+      "id": "icon",
+      "label": "App Icon",
+      "sourceSize": { "width": 1024, "height": 1024 },
+      "borderRadius": 224,
+      "templates": [
+        { "src": "assets/screenshots/app-icon.html", "name": "icon", "label": "App Icon" }
+      ],
+      "export": [
+        { "name": "1024", "label": "1024px", "size": { "width": 1024, "height": 1024 } },
+        { "name": "512", "label": "512px", "size": { "width": 512, "height": 512 } }
+      ],
+      "outputs": [{ "type": "xcode", "path": "../CatIQTest/Resources/Assets.xcassets/AppIcon.appiconset" }]
+    },
+    {
+      "id": "logo",
+      "label": "Logo",
+      "sourceSize": { "width": 940, "height": 940 },
+      "templates": [
+        { "src": "assets/screenshots/icon-cat.svg", "name": "logo", "label": "Logo" }
+      ],
+      "export": [
+        { "name": "1024", "label": "1024px", "size": { "width": 1024, "height": 1024 } },
+        { "name": "512", "label": "512px", "size": { "width": 512, "height": 512 } }
+      ],
+      "outputs": [{ "type": "copy-source", "format": "svg" }]
+    }
+  ]
+}

@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=440" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-green': '#01A25E',
+              'brand-green-dark': '#017544',
+              'brand-black': '#171717',
+              'brand-white': '#FAFAFA',
+              'star': '#F2C94C',
+              'bg-white': '#FFFFFF',
+              'bg-light': '#F5F5F5',
+            },
+            fontFamily: {
+              'sans': ['"SF Pro Display"', '-apple-system', 'system-ui', 'sans-serif'],
+              'rounded': ['"SF Pro Rounded"', '"SF Pro Display"', '-apple-system', 'system-ui', 'sans-serif'],
+            },
+          },
+        },
+      }
+    </script>
+    <style type="text/tailwindcss">
+/* =============================================
+   SCREENSHOT FRAME - 440x956
+   ============================================= */
+.screenshot {
+  width: 440px;
+  height: 956px;
+  overflow: hidden;
+  position: relative;
+  font-family: "SF Pro Display", -apple-system, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =============================================
+   SCREENSHOT FRAME - ANDROID 440x978 (20:9 Pixel)
+   ============================================= */
+.screenshot-android {
+  width: 440px;
+  height: 978px;
+  overflow: hidden;
+  position: relative;
+  font-family: "SF Pro Display", -apple-system, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =============================================
+   GLASS BLUR BACKGROUND
+   ============================================= */
+.bg-glass {
+  background: linear-gradient(
+    160deg,
+    #f0faf4 0%,
+    #e8f5ee 20%,
+    #f5f7f6 40%,
+    #eef8f2 60%,
+    #f8faf9 80%,
+    #f0f5f2 100%
+  );
+}
+
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* =============================================
+   GREEN PILL BADGE
+   ============================================= */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #01A25E;
+  border-radius: 16px;
+  padding: 16px 28px;
+  font-weight: 800;
+  font-size: 18px;
+  color: #FAFAFA;
+  letter-spacing: -0.01em;
+}
+
+/* =============================================
+   MARKETING HEADLINE TEXT
+   ============================================= */
+.headline {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: #171717;
+}
+
+.subheadline {
+  font-weight: 500;
+  color: #6B7280;
+  line-height: 1.4;
+}
+
+/* =============================================
+   PHONE MOCKUP
+   ============================================= */
+.phone {
+  position: relative;
+  background: #000;
+  border-radius: 52px;
+  padding: 6px;
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(0, 0, 0, 0.08);
+  border: 3px solid #3B4C64;
+}
+
+.phone-screen {
+  border-radius: 46px;
+  overflow: hidden;
+  position: relative;
+  background: #fff;
+}
+
+.phone-content {
+  width: 440px;
+  height: 956px;
+  transform-origin: top left;
+  font-family: "SF Pro Display", -apple-system, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Dynamic Island */
+.phone::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 72px;
+  height: 22px;
+  background: #000;
+  border-radius: 12px;
+  z-index: 10;
+}
+
+/* Phone screen = 300px wide -> scale 300/440 = 0.6818 */
+.phone-300 .phone-screen {
+  width: 300px;
+  height: 652px;
+}
+.phone-300 .phone-content {
+  transform: scale(0.6818);
+}
+
+/* Phone screen = 260px wide -> scale 260/440 = 0.5909 */
+.phone-260 .phone-screen {
+  width: 260px;
+  height: 565px;
+}
+.phone-260 .phone-content {
+  transform: scale(0.5909);
+}
+
+/* Phone screen = 340px wide -> scale 340/440 = 0.7727 */
+.phone-340 .phone-screen {
+  width: 340px;
+  height: 739px;
+}
+.phone-340 .phone-content {
+  transform: scale(0.7727);
+}
+
+/* Phone screen = 220px wide -> scale 220/440 = 0.5 */
+.phone-220 .phone-screen {
+  width: 220px;
+  height: 478px;
+}
+.phone-220 .phone-content {
+  transform: scale(0.5);
+}
+
+/* =============================================
+   ANDROID PHONE MOCKUP
+   ============================================= */
+.phone-android {
+  border-radius: 44px;
+}
+
+.phone-android .phone-screen {
+  border-radius: 38px;
+}
+
+/* Punch-hole camera instead of Dynamic Island */
+.phone-android::before {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  top: 16px;
+}
+
+/* Android phone sizes (20:9 Pixel screen ratio) */
+.phone-android.phone-300 .phone-screen {
+  width: 300px;
+  height: 667px;
+}
+
+.phone-android.phone-260 .phone-screen {
+  width: 260px;
+  height: 578px;
+}
+
+.phone-android.phone-340 .phone-screen {
+  width: 340px;
+  height: 756px;
+}
+
+.phone-android.phone-220 .phone-screen {
+  width: 220px;
+  height: 489px;
+}
+
+/* =============================================
+   STAR RATING
+   ============================================= */
+.star {
+  color: #F2C94C;
+}
+
+/* =============================================
+   HERB / LEAF DECORATIVE
+   ============================================= */
+.herb-leaf {
+  fill: #017544;
+}
+
+/* =============================================
+   SOCIAL PLATFORM ICONS
+   ============================================= */
+.social-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =============================================
+   SCREENSHOT PLACEHOLDER
+   ============================================= */
+.screenshot-placeholder {
+  background: linear-gradient(135deg, #f0f0f0 0%, #e8e8e8 100%);
+  border: 2px dashed #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* =============================================
+   APP ICON
+   ============================================= */
+.app-icon {
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* =============================================
+   MAGNIFYING GLASS EFFECT
+   ============================================= */
+.magnifier-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.magnifier-lens {
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 3px solid #C0C0C0;
+  background: white;
+  overflow: hidden;
+  top: -14px;
+  right: -20px;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.15),
+    inset 0 0 8px rgba(255, 255, 255, 0.4);
+  z-index: 2;
+}
+
+.magnifier-zoom {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(2);
+  transform-origin: center;
+}
+
+.magnifier-handle {
+  position: absolute;
+  width: 4px;
+  height: 22px;
+  background: linear-gradient(to bottom, #C0C0C0, #999);
+  border-radius: 0 0 3px 3px;
+  top: 30px;
+  right: -28px;
+  transform: rotate(-45deg);
+  transform-origin: top center;
+  z-index: 1;
+}
+    </style>
+    <style>
+      .review-card {
+        background: white;
+        border-radius: 18px;
+        padding: 14px 18px;
+        box-shadow:
+          0 4px 24px rgba(0,0,0,0.08),
+          0 1px 3px rgba(0,0,0,0.06);
+      }
+      .review-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 4px;
+      }
+      .review-author {
+        font-size: 16px;
+        font-weight: 800;
+        color: #1F2937;
+        letter-spacing: -0.01em;
+      }
+      .review-stars {
+        display: flex;
+        gap: 1px;
+      }
+      .review-stars svg {
+        width: 16px;
+        height: 16px;
+      }
+      .review-text {
+        font-size: 16px;
+        color: #4B5563;
+        line-height: 1.5;
+        font-weight: 500;
+        margin: 0;
+      }
+      .badge-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(255,255,255,0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1.5px solid rgba(0,0,0,0.06);
+        border-radius: 100px;
+        padding: 10px 20px 10px 14px;
+        box-shadow:
+          0 2px 12px rgba(0,0,0,0.06),
+          0 0 0 0.5px rgba(0,0,0,0.03);
+      }
+      .badge-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .badge-label {
+        font-size: 16px;
+        font-weight: 700;
+        color: #1F2937;
+        letter-spacing: -0.01em;
+      }
+      .kitchen-section {
+        position: absolute;
+        bottom: -80px;
+        left: 0;
+        right: 0;
+        height: 320px;
+        z-index: 0;
+      }
+      .kitchen-section img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+      }
+      .kitchen-fade {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 180px;
+        background: linear-gradient(180deg, #FFFFFF 0%, rgba(255,255,255,0.85) 40%, rgba(255,255,255,0) 100%);
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body class="m-0 p-0">
+    <div class="screenshot bg-white flex flex-col overflow-hidden">
+
+      <!-- Kitchen image at bottom -->
+      <div class="kitchen-section">
+        <div class="kitchen-fade"></div>
+        <img src="../../public/kitchen-light.jpg" alt="" />
+      </div>
+
+      <!-- Title -->
+      <div class="relative z-10 pl-[24px] pt-[36px]">
+        <h1 class="text-[42px] font-extrabold text-brand-black leading-[1.18] tracking-[-0.03em]">
+          Time to cook, <span class="inline-block bg-brand-green text-white px-[10px] pt-[3px] pb-[5px] rounded-[10px]">chef</span>
+        </h1>
+        <img src="../../public/arrow.svg" alt="" style="position: absolute; z-index: 20; right: -2px; top: -18px; width: 100px; transform: scaleY(-1) rotate(8deg); opacity: 0.9;" />
+      </div>
+
+      <!-- Subtitle -->
+      <div class="relative z-10 pl-[28px] mt-3">
+        <p class="text-[16px] font-medium text-gray-500 leading-[1.4]">Trusted and loved by thousands of home chefs.</p>
+      </div>
+
+      <!-- Staggered review cards -->
+      <div class="relative z-10 mt-4">
+        <!-- Review 1 - shifted left -->
+        <div class="pl-5 pr-12">
+          <div class="review-card">
+            <div class="review-header">
+              <p class="review-author">DLS1950</p>
+              <div class="review-stars">
+                <svg viewBox="0 0 24 24" fill="#F2C94C"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="#F2C94C"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="#F2C94C"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="#F2C94C"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="#F2C94C"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
+            </div>
+            <p class="review-text">"It's my favorite app. It makes it so easy to save recipes — and I love that it strips out all the excess that makes recipe pages so annoying."</p>
+          </div>
+        </div>
+
+        <!-- Review 2 - shifted right -->
+        <div class="pl-12 pr-5 mt-2.5">
+          <div class="review-card">
+            <div class="review-header">
+              <p class="review-author">MikeMSD</p>
+              <div class="review-stars">
+                <svg viewBox="0 0 24 24" fill="#F2C94C"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="#F2C94C"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="#F2C94C"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="#F2C94C"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="#F2C94C"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
+            </div>
+            <p class="review-text">"This app is perfect. No more scrolling endlessly through someone's life story to get what I'm looking for."</p>
+          </div>
+        </div>
+
+        <!-- Review 3 - shifted left -->
+        <div class="pl-5 pr-12 mt-2.5">
+          <div class="review-card">
+            <div class="review-header">
+              <p class="review-author">GratefullT444</p>
+              <div class="review-stars">
+                <svg viewBox="0 0 24 24" fill="#F2C94C"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="#F2C94C"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="#F2C94C"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="#F2C94C"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="#F2C94C"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
+            </div>
+            <p class="review-text">"LOVE this app!! No more all the unnecessary stuff bloggers write surrounding a recipe."</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- "No more" badges - horizontal wrap -->
+      <div class="relative z-10 px-5 mt-5 flex flex-wrap gap-2.5 justify-center">
+        <div class="badge-pill">
+          <div class="badge-icon" style="background: linear-gradient(135deg, #D1FAE5, #A7F3D0);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <span class="badge-label">No Ads</span>
+        </div>
+        <div class="badge-pill">
+          <div class="badge-icon" style="background: linear-gradient(135deg, #D1FAE5, #A7F3D0);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <span class="badge-label">No Popups</span>
+        </div>
+        <div class="badge-pill">
+          <div class="badge-icon" style="background: linear-gradient(135deg, #D1FAE5, #A7F3D0);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <span class="badge-label">No Life Stories</span>
+        </div>
+      </div>
+
+
+      <!-- Logo at very bottom -->
+      <div class="relative z-10 mt-5 flex justify-center">
+        <img src="../../public/logo-inline-period.svg" alt="Only Recipes." style="height: 40px;" />
+      </div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1600, initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+              display: ["Inter", "system-ui", "sans-serif"],
+              quote: ["Georgia", "Times New Roman", "serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        margin: 0;
+        width: 1600px;
+        height: 1000px;
+        overflow: hidden;
+      }
+      .font-quote {
+        font-family: Georgia, "Times New Roman", serif;
+        font-style: italic;
+      }
+      .dashed-border {
+        background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='12' ry='12' stroke='%237C3AED' stroke-width='3' stroke-dasharray='8%2c 6' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
+      }
+    </style>
+  </head>
+  <body class="bg-[#fafaf8]">
+    <div
+      class="relative flex h-[1000px] w-[1600px] flex-col items-center justify-center overflow-hidden"
+    >
+      <!-- Scattered background art thumbnails -->
+      <div class="pointer-events-none absolute inset-0 overflow-hidden">
+        <div
+          class="absolute top-6 left-6 h-24 w-24 rotate-[-8deg] overflow-hidden rounded-xl border-2 border-[#1A1A1A] opacity-[0.08]"
+        >
+          <img
+            src="../../../public/img/landing/gallery/printer-dali.png"
+            alt=""
+            class="h-full w-full object-cover"
+          />
+        </div>
+        <div
+          class="absolute right-10 bottom-10 h-28 w-28 rotate-[10deg] overflow-hidden rounded-xl border-2 border-[#1A1A1A] opacity-[0.08]"
+        >
+          <img
+            src="../../../public/img/landing/gallery/love-popart.png"
+            alt=""
+            class="h-full w-full object-cover"
+          />
+        </div>
+        <div
+          class="absolute top-16 right-20 h-20 w-20 rotate-[-4deg] overflow-hidden rounded-xl border-2 border-[#1A1A1A] opacity-[0.06]"
+        >
+          <img
+            src="../../../public/img/landing/gallery/horse-rockwell.png"
+            alt=""
+            class="h-full w-full object-cover"
+          />
+        </div>
+        <div
+          class="absolute bottom-20 left-16 h-24 w-24 rotate-[6deg] overflow-hidden rounded-xl border-2 border-[#1A1A1A] opacity-[0.06]"
+        >
+          <img
+            src="../../../public/img/landing/gallery/dancebattle-kpop.png"
+            alt=""
+            class="h-full w-full object-cover"
+          />
+        </div>
+      </div>
+
+      <!-- Header -->
+      <div class="relative z-10 mb-8 text-center">
+        <h2
+          class="font-display text-[48px] font-extrabold tracking-tight text-[#1A1A1A]"
+        >
+          Simple pricing.
+          <span class="relative inline-block">
+            <span class="relative z-10">No per-seat fees.</span>
+            <span
+              class="absolute inset-0 -skew-x-2 rounded-lg bg-[#EDE9FE]"
+            ></span>
+          </span>
+        </h2>
+        <p class="mt-3 text-xl text-[#4A4A4A]">
+          One install covers your entire Slack workspace. Plans start free,
+          scale when you're ready.
+        </p>
+      </div>
+
+      <!-- 4-tier pricing grid -->
+      <div
+        class="relative z-10 grid w-full max-w-[1300px] grid-cols-4 gap-5 px-20"
+      >
+        <!-- Free -->
+        <div
+          class="relative flex flex-col rounded-xl border-2 border-[#1A1A1A] bg-white p-6 shadow-[4px_4px_0px_0px_#1A1A1A]"
+        >
+          <h3 class="text-lg font-bold text-[#1A1A1A]">Free</h3>
+          <div class="mt-3">
+            <span class="text-4xl font-extrabold text-[#1A1A1A]">$0</span>
+            <span class="text-[#4A4A4A]">/mo</span>
+          </div>
+          <p class="mt-2 text-sm font-bold text-[#7C3AED]">3 images/month</p>
+          <ul class="mt-4 space-y-2">
+            <li class="flex items-start gap-2 text-[13px] text-[#4A4A4A]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#7C3AED"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="mt-0.5 flex-shrink-0"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              1 connected channel
+            </li>
+            <li class="flex items-start gap-2 text-[13px] text-[#4A4A4A]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#7C3AED"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="mt-0.5 flex-shrink-0"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              5+ basic art styles
+            </li>
+            <li class="flex items-start gap-2 text-[13px] text-[#4A4A4A]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#7C3AED"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="mt-0.5 flex-shrink-0"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              7-day image history
+            </li>
+          </ul>
+        </div>
+
+        <!-- Starter -->
+        <div
+          class="relative flex flex-col rounded-xl border-2 border-[#1A1A1A] bg-white p-6 shadow-[4px_4px_0px_0px_#1A1A1A]"
+        >
+          <h3 class="text-lg font-bold text-[#1A1A1A]">Starter</h3>
+          <div class="mt-3">
+            <span class="text-4xl font-extrabold text-[#1A1A1A]">$8</span>
+            <span class="text-[#4A4A4A]">/mo</span>
+          </div>
+          <p class="mt-2 text-sm font-bold text-[#7C3AED]">25 images/month</p>
+          <p class="mt-0.5 text-xs text-[#4A4A4A]">$0.32 per image</p>
+          <ul class="mt-4 space-y-2">
+            <li class="flex items-start gap-2 text-[13px] text-[#4A4A4A]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#7C3AED"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="mt-0.5 flex-shrink-0"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              1 connected channel
+            </li>
+            <li class="flex items-start gap-2 text-[13px] text-[#4A4A4A]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#7C3AED"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="mt-0.5 flex-shrink-0"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              All 20+ art styles
+            </li>
+            <li class="flex items-start gap-2 text-[13px] text-[#4A4A4A]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#7C3AED"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="mt-0.5 flex-shrink-0"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              No watermark
+            </li>
+            <li class="flex items-start gap-2 text-[13px] text-[#4A4A4A]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#7C3AED"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="mt-0.5 flex-shrink-0"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              Full image history
+            </li>
+            <li class="flex items-start gap-2 text-[13px] text-[#4A4A4A]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#7C3AED"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="mt-0.5 flex-shrink-0"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              Download images
+            </li>
+          </ul>
+        </div>
+
+        <!-- Team -->
+        <div
+          class="relative flex flex-col rounded-xl border-2 border-[#1A1A1A] bg-white p-6 shadow-[4px_4px_0px_0px_#1A1A1A]"
+        >
+          <h3 class="text-lg font-bold text-[#1A1A1A]">Team</h3>
+          <div class="mt-3">
+            <span class="text-4xl font-extrabold text-[#1A1A1A]">$20</span>
+            <span class="text-[#4A4A4A]">/mo</span>
+          </div>
+          <p class="mt-2 text-sm font-bold text-[#7C3AED]">100 images/month</p>
+          <p class="mt-0.5 text-xs text-[#4A4A4A]">$0.20 per image</p>
+          <ul class="mt-4 space-y-2">
+            <li class="flex items-start gap-2 text-[13px] text-[#4A4A4A]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#7C3AED"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="mt-0.5 flex-shrink-0"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              3 connected channels
+            </li>
+            <li class="flex items-start gap-2 text-[13px] text-[#4A4A4A]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#7C3AED"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="mt-0.5 flex-shrink-0"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              All 20+ art styles
+            </li>
+            <li class="flex items-start gap-2 text-[13px] text-[#4A4A4A]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#7C3AED"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="mt-0.5 flex-shrink-0"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              Custom style prompts
+            </li>
+            <li class="flex items-start gap-2 text-[13px] text-[#4A4A4A]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#7C3AED"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="mt-0.5 flex-shrink-0"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              Full gallery with search
+            </li>
+            <li class="flex items-start gap-2 text-[13px] text-[#4A4A4A]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#7C3AED"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="mt-0.5 flex-shrink-0"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              Weekly digest
+            </li>
+            <li class="flex items-start gap-2 text-[13px] text-[#4A4A4A]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#7C3AED"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="mt-0.5 flex-shrink-0"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              Download images
+            </li>
+          </ul>
+        </div>
+
+        <!-- Business -->
+        <div
+          class="relative flex flex-col rounded-xl border-2 border-[#1A1A1A] bg-white p-6 shadow-[4px_4px_0px_0px_#1A1A1A]"
+        >
+          <h3 class="text-lg font-bold text-[#1A1A1A]">Business</h3>
+          <p class="mt-1 text-xs text-[#4A4A4A]">
+            For really big teams or excessively ridiculous small ones.
+          </p>
+          <div class="mt-3">
+            <span class="text-4xl font-extrabold text-[#1A1A1A]">$60</span>
+            <span class="text-[#4A4A4A]">/mo</span>
+          </div>
+          <p class="mt-2 text-sm font-bold text-[#7C3AED]">500 images/month</p>
+          <p class="mt-0.5 text-xs text-[#4A4A4A]">$0.12 per image</p>
+          <ul class="mt-4 space-y-2">
+            <li class="flex items-start gap-2 text-[13px] text-[#4A4A4A]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#7C3AED"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="mt-0.5 flex-shrink-0"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              Unlimited channels
+            </li>
+            <li class="flex items-start gap-2 text-[13px] text-[#4A4A4A]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#7C3AED"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="mt-0.5 flex-shrink-0"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              Everything in Team
+            </li>
+            <li class="flex items-start gap-2 text-[13px] text-[#4A4A4A]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#7C3AED"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="mt-0.5 flex-shrink-0"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              Priority generation queue
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom section: Image packs callout -->
+      <div
+        class="relative z-10 mt-8 flex w-full max-w-[1300px] items-stretch gap-5 px-20"
+      >
+        <!-- Image packs callout -->
+        <div
+          class="dashed-border flex flex-1 items-center gap-4 rounded-xl px-6 py-4"
+        >
+          <div
+            class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg border-2 border-[#1A1A1A] bg-[#EDE9FE] shadow-[2px_2px_0px_0px_#1A1A1A]"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#7C3AED"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+              <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
+            </svg>
+          </div>
+          <div>
+            <p class="text-sm font-bold text-[#1A1A1A]">
+              Need more images without a subscription?
+            </p>
+            <p class="mt-0.5 text-xs text-[#4A4A4A]">
+              One-time image packs available — buy extra credits anytime, no
+              commitment required.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

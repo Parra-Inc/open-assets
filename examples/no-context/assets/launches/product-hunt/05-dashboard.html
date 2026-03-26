@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1270, initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+              display: ["Inter", "system-ui", "sans-serif"],
+              quote: ["Georgia", "Times New Roman", "serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        margin: 0;
+        width: 1270px;
+        height: 760px;
+        overflow: hidden;
+      }
+      .font-quote {
+        font-family: Georgia, "Times New Roman", serif;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body class="bg-[#fafaf8]">
+    <div
+      class="relative flex h-[760px] w-[1270px] flex-col items-center overflow-hidden"
+    >
+      <!-- QR Code — top-right, clear of centered header -->
+      <div class="absolute top-4 right-5 z-50 flex items-center gap-2.5">
+        <span
+          class="text-right text-[10px] font-bold tracking-wide text-[#4A4A4A] uppercase"
+          >Scan to<br />Add to Slack</span
+        >
+        <img
+          src="../../../public/img/qr-install.png"
+          alt="QR: Add to Slack"
+          class="h-14 w-14"
+        />
+      </div>
+
+      <!-- Header area -->
+      <div class="relative z-10 pt-10 pb-5 text-center">
+        <h2
+          class="font-display text-[40px] font-extrabold tracking-tight text-[#1A1A1A]"
+        >
+          Every piece saved.
+          <span class="relative inline-block">
+            <span class="relative z-10">Searchable.</span>
+            <span
+              class="absolute inset-0 -skew-x-2 rounded-lg bg-[#EDE9FE]"
+            ></span>
+          </span>
+          Downloadable.
+        </h2>
+        <p class="mt-2 text-lg text-[#4A4A4A]">
+          Your team's entire art collection, organized and ready to share.
+        </p>
+      </div>
+
+      <!-- Real dashboard screenshot -->
+      <div class="relative z-10 mx-12 w-[1150px] flex-1">
+        <div
+          class="w-full overflow-hidden rounded-2xl border-2 border-[#1A1A1A] shadow-[8px_8px_0px_0px_#1A1A1A]"
+        >
+          <img
+            src="../../../public/img/dashboard/screenshots/screenshot-0.png"
+            alt="No Context dashboard showing gallery of AI-generated art"
+            class="h-auto w-full"
+          />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

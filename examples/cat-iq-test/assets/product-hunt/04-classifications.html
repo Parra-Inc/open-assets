@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1270, initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'bg-dark': '#0F0328',
+              'bg-mid': '#1F0A47',
+              'bg-light': '#331066',
+              'bg-card': 'rgba(255, 255, 255, 0.06)',
+              'border-card': 'rgba(255, 255, 255, 0.1)',
+              'accent-purple': '#7C3AED',
+              'accent-pink': '#EC4899',
+              'accent-orange': '#F97316',
+              'iq-oblivious': '#3B82F6',
+              'iq-selective': '#14B8A6',
+              'iq-average': '#22C55E',
+              'iq-smart': '#F97316',
+              'iq-genius': '#8B5CF6',
+              'iq-mastermind': '#EF4444',
+              'cert-gold': '#F59E0B',
+              'cert-gold-light': '#FCD34D',
+            },
+            fontFamily: {
+              'sans': ['"SF Pro Rounded"', '"SF Pro Display"', '-apple-system', 'system-ui', 'sans-serif'],
+            },
+          },
+        },
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+              display: ["Inter", "system-ui", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        margin: 0;
+        width: 1270px;
+        height: 760px;
+        overflow: hidden;
+      }
+      .headline-gradient {
+        background: linear-gradient(180deg, #fff 30%, rgba(255, 255, 255, 0.7));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+      }
+      .glow-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.25;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="relative flex h-[760px] w-[1270px] flex-col items-center justify-center overflow-hidden"
+      style="
+        background: linear-gradient(
+          135deg,
+          #0f0328 0%,
+          #1f0a47 50%,
+          #331066 100%
+        );
+      "
+    >
+      <!-- Ambient glow orbs -->
+      <div
+        class="glow-orb"
+        style="
+          width: 300px;
+          height: 300px;
+          background: #3b82f6;
+          top: 80px;
+          left: -60px;
+        "
+      ></div>
+      <div
+        class="glow-orb"
+        style="
+          width: 350px;
+          height: 350px;
+          background: #ef4444;
+          bottom: -40px;
+          right: -60px;
+        "
+      ></div>
+      <div
+        class="glow-orb"
+        style="
+          width: 200px;
+          height: 200px;
+          background: #22c55e;
+          top: 300px;
+          left: 500px;
+          opacity: 0.12;
+        "
+      ></div>
+
+      <!-- Header -->
+      <div class="relative z-10 mb-8 text-center">
+        <h2
+          class="headline-gradient font-display text-[46px] font-extrabold tracking-tight"
+        >
+          6 Classifications.
+          <span class="relative inline-block">
+            <span
+              class="absolute inset-0 -skew-x-2 rounded-lg bg-[#7C3AED]/40"
+            ></span>
+            <span class="relative z-10" style="-webkit-text-fill-color: white;">Which one is your cat?</span>
+          </span>
+        </h2>
+        <p class="mt-3 text-lg text-white/50">
+          From Blissfully Oblivious to Evil Mastermind. Every cat has a type.
+        </p>
+      </div>
+
+      <!-- 3x2 grid of classification cards -->
+      <div class="relative z-10 grid grid-cols-3 gap-5 px-24">
+        <!-- Blissfully Oblivious -->
+        <div
+          class="glass-card rounded-2xl p-5 text-center transition-transform"
+          style="transform: rotate(-1deg);"
+        >
+          <div class="text-[44px] mb-2">😴</div>
+          <h3 class="text-[16px] font-extrabold text-[#60A5FA] mb-1">Blissfully Oblivious</h3>
+          <div class="inline-flex items-center gap-1 rounded-full bg-[#3B82F6]/15 border border-[#3B82F6]/25 px-3 py-1 mb-2">
+            <span class="text-[11px] font-bold text-blue-300">IQ 42 — 79</span>
+          </div>
+          <p class="text-[12px] text-white/40 leading-snug">
+            Your cat stares at walls for fun<br/>and that's perfectly okay
+          </p>
+        </div>
+
+        <!-- Selectively Intelligent -->
+        <div
+          class="glass-card rounded-2xl p-5 text-center"
+          style="transform: rotate(0.5deg);"
+        >
+          <div class="text-[44px] mb-2">🤨</div>
+          <h3 class="text-[16px] font-extrabold text-[#2DD4BF] mb-1">Selectively Intelligent</h3>
+          <div class="inline-flex items-center gap-1 rounded-full bg-[#14B8A6]/15 border border-[#14B8A6]/25 px-3 py-1 mb-2">
+            <span class="text-[11px] font-bold text-teal-300">IQ 80 — 103</span>
+          </div>
+          <p class="text-[12px] text-white/40 leading-snug">
+            Smart when it suits them.<br/>Dumb when it's convenient.
+          </p>
+        </div>
+
+        <!-- Cleverly Average -->
+        <div
+          class="glass-card rounded-2xl p-5 text-center"
+          style="transform: rotate(-0.5deg);"
+        >
+          <div class="text-[44px] mb-2">😺</div>
+          <h3 class="text-[16px] font-extrabold text-[#4ADE80] mb-1">Cleverly Average</h3>
+          <div class="inline-flex items-center gap-1 rounded-full bg-[#22C55E]/15 border border-[#22C55E]/25 px-3 py-1 mb-2">
+            <span class="text-[11px] font-bold text-green-300">IQ 104 — 127</span>
+          </div>
+          <p class="text-[12px] text-white/40 leading-snug">
+            A well-rounded feline citizen.<br/>Knows exactly enough.
+          </p>
+        </div>
+
+        <!-- Suspiciously Smart -->
+        <div
+          class="glass-card rounded-2xl p-5 text-center"
+          style="transform: rotate(1deg);"
+        >
+          <div class="text-[44px] mb-2">🧐</div>
+          <h3 class="text-[16px] font-extrabold text-[#FB923C] mb-1">Suspiciously Smart</h3>
+          <div class="inline-flex items-center gap-1 rounded-full bg-[#F97316]/15 border border-[#F97316]/25 px-3 py-1 mb-2">
+            <span class="text-[11px] font-bold text-orange-300">IQ 128 — 147</span>
+          </div>
+          <p class="text-[12px] text-white/40 leading-snug">
+            Opens doors. Learns your schedule.<br/>Probably reads your emails.
+          </p>
+        </div>
+
+        <!-- Feline Genius -->
+        <div
+          class="glass-card rounded-2xl p-5 text-center"
+          style="transform: rotate(-1.5deg);"
+        >
+          <div class="text-[44px] mb-2">🎓</div>
+          <h3 class="text-[16px] font-extrabold text-[#A78BFA] mb-1">Feline Genius</h3>
+          <div class="inline-flex items-center gap-1 rounded-full bg-[#8B5CF6]/15 border border-[#8B5CF6]/25 px-3 py-1 mb-2">
+            <span class="text-[11px] font-bold text-purple-300">IQ 148 — 167</span>
+          </div>
+          <p class="text-[12px] text-white/40 leading-snug">
+            Understands quantum physics.<br/>Still knocks things off tables.
+          </p>
+        </div>
+
+        <!-- Evil Mastermind -->
+        <div
+          class="glass-card rounded-2xl p-5 text-center"
+          style="transform: rotate(0.8deg);"
+        >
+          <div class="text-[44px] mb-2">😈</div>
+          <h3 class="text-[16px] font-extrabold text-[#F87171] mb-1">Evil Mastermind</h3>
+          <div class="inline-flex items-center gap-1 rounded-full bg-[#EF4444]/15 border border-[#EF4444]/25 px-3 py-1 mb-2">
+            <span class="text-[11px] font-bold text-red-300">IQ 168+</span>
+          </div>
+          <p class="text-[12px] text-white/40 leading-snug">
+            World domination is a hobby.<br/>You are merely a servant.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

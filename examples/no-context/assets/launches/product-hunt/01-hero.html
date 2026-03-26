@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1270, initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+              display: ["Inter", "system-ui", "sans-serif"],
+              quote: ["Georgia", "Times New Roman", "serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        margin: 0;
+        width: 1270px;
+        height: 760px;
+        overflow: hidden;
+      }
+      .font-quote {
+        font-family: Georgia, "Times New Roman", serif;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body class="bg-[#fafaf8]">
+    <div
+      class="relative flex h-[760px] w-[1270px] items-center overflow-hidden"
+    >
+      <!-- QR Code — bottom-left under CTA text -->
+      <div class="absolute bottom-5 left-16 z-50 flex items-center gap-3">
+        <img
+          src="../../../public/img/qr-install.png"
+          alt="QR: Add to Slack"
+          class="h-14 w-14"
+        />
+        <span
+          class="text-[10px] font-bold tracking-wide text-[#4A4A4A] uppercase"
+          >Scan to<br />Add to Slack</span
+        >
+      </div>
+
+      <!-- Scattered background quotes (layered, like auth screen) -->
+      <div class="pointer-events-none absolute inset-0 overflow-hidden">
+        <div class="absolute -top-4 -left-8 w-72 rotate-[-8deg] opacity-[0.07]">
+          <div
+            class="rounded-xl border-2 border-[#1A1A1A] bg-white p-4 shadow-[4px_4px_0px_0px_#1A1A1A]"
+          >
+            <p class="font-quote text-sm text-[#1A1A1A]">
+              "The printer is haunted and I have evidence"
+            </p>
+            <p class="mt-1 text-xs text-[#4A4A4A]">— Office Manager</p>
+          </div>
+        </div>
+        <div
+          class="absolute top-20 -right-12 w-64 rotate-[12deg] opacity-[0.07]"
+        >
+          <div
+            class="rounded-xl border-2 border-[#1A1A1A] bg-white p-4 shadow-[4px_4px_0px_0px_#1A1A1A]"
+          >
+            <p class="font-quote text-sm text-[#1A1A1A]">
+              "Why is there a duck in the server room?"
+            </p>
+            <p class="mt-1 text-xs text-[#4A4A4A]">— CEO</p>
+          </div>
+        </div>
+        <div
+          class="absolute bottom-32 -left-6 w-60 rotate-[6deg] opacity-[0.06]"
+        >
+          <div
+            class="rounded-xl border-2 border-[#1A1A1A] bg-white p-4 shadow-[4px_4px_0px_0px_#1A1A1A]"
+          >
+            <p class="font-quote text-sm text-[#1A1A1A]">
+              "A raccoon got into the server room"
+            </p>
+            <p class="mt-1 text-xs text-[#4A4A4A]">— DevOps</p>
+          </div>
+        </div>
+        <div
+          class="absolute right-24 -bottom-8 w-56 rotate-[-5deg] opacity-[0.05]"
+        >
+          <div
+            class="rounded-xl border-2 border-[#1A1A1A] bg-white p-4 shadow-[4px_4px_0px_0px_#1A1A1A]"
+          >
+            <p class="font-quote text-sm text-[#1A1A1A]">
+              "The plants in accounting have become sentient"
+            </p>
+            <p class="mt-1 text-xs text-[#4A4A4A]">— Facilities</p>
+          </div>
+        </div>
+        <div
+          class="absolute top-[55%] left-[15%] w-52 rotate-[10deg] opacity-[0.05]"
+        >
+          <div
+            class="rounded-xl border-2 border-[#1A1A1A] bg-white p-4 shadow-[4px_4px_0px_0px_#1A1A1A]"
+          >
+            <p class="font-quote text-xs text-[#1A1A1A]">
+              "Someone let a goat into the conference room again"
+            </p>
+            <p class="mt-1 text-xs text-[#4A4A4A]">— VP of Sales</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Left side: logo + headline -->
+      <div class="relative z-10 flex-1 pr-8 pl-16">
+        <div class="max-w-[500px]">
+          <!-- Full logo -->
+          <div class="mb-8">
+            <img
+              src="../../../public/img/logo-with-bot.png"
+              alt="No Context Bot"
+              class="h-16"
+            />
+          </div>
+
+          <h1
+            class="font-display text-[44px] leading-[1.1] font-extrabold tracking-tight text-[#1A1A1A]"
+          >
+            Turn your team's most<br />
+            <span class="relative inline-block">
+              <span class="relative z-10">ridiculous quotes</span>
+              <span
+                class="absolute inset-0 -skew-x-2 rounded-lg bg-[#EDE9FE]"
+              ></span>
+            </span>
+            into<br />legendary art.
+          </h1>
+
+          <p class="mt-5 text-lg leading-relaxed text-[#4A4A4A]">
+            Post a quote to your
+            <span class="font-semibold text-[#1A1A1A]">#no-context</span>
+            channel. No Context Bot generates a unique painting in seconds. 20+
+            styles.
+          </p>
+        </div>
+      </div>
+
+      <!-- Right side: Mock Slack UI -->
+      <div class="relative z-10 flex-shrink-0 pr-12">
+        <div
+          class="w-[480px] overflow-hidden rounded-2xl border-2 border-[#1A1A1A] bg-white shadow-[8px_8px_0px_0px_#1A1A1A]"
+        >
+          <!-- Slack header bar -->
+          <div
+            class="flex items-center gap-2 border-b-2 border-[#1A1A1A] bg-[#3F0E40] px-5 py-3"
+          >
+            <span class="text-sm font-bold text-white/60">#</span>
+            <span class="text-sm font-bold text-white">no-context</span>
+            <div class="ml-auto flex gap-1.5">
+              <div class="h-3 w-3 rounded-full bg-white/20"></div>
+              <div class="h-3 w-3 rounded-full bg-white/20"></div>
+              <div class="h-3 w-3 rounded-full bg-white/20"></div>
+            </div>
+          </div>
+
+          <!-- Message area -->
+          <div class="space-y-4 p-5">
+            <!-- User message -->
+            <div class="flex gap-3">
+              <img
+                src="../../../public/img/landing/avatar/sarah.jpg"
+                alt="Sarah Chen"
+                class="h-10 w-10 flex-shrink-0 rounded-lg object-cover"
+              />
+              <div class="min-w-0">
+                <div class="flex items-baseline gap-2">
+                  <span class="text-sm font-bold text-[#1A1A1A]"
+                    >Sarah Chen</span
+                  >
+                  <span class="text-xs text-[#4A4A4A]">2:34 PM</span>
+                </div>
+                <p class="font-quote mt-1 text-[15px] text-[#1A1A1A]">
+                  "I'm not saying it was aliens, but it was definitely the
+                  intern"
+                  <br />
+                  <span class="text-[#4A4A4A]">— Mike, Engineering</span>
+                </p>
+                <div class="mt-2 flex gap-1.5">
+                  <span
+                    class="rounded-full border border-[#E5E5E5] bg-[#F8F8F8] px-2.5 py-1 text-xs"
+                    >🎨 1</span
+                  >
+                  <span
+                    class="rounded-full border border-[#E5E5E5] bg-[#F8F8F8] px-2.5 py-1 text-xs"
+                    >😂 3</span
+                  >
+                  <span
+                    class="rounded-full border border-[#E5E5E5] bg-[#F8F8F8] px-2.5 py-1 text-xs"
+                    >💀 2</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Bot reply (threaded) -->
+            <div class="ml-[52px] border-l-[3px] border-[#7C3AED]/30 pl-5">
+              <div class="flex gap-3">
+                <img
+                  src="../../../public/img/landing/avatar/bot.svg"
+                  alt="No Context Bot"
+                  class="h-10 w-10 flex-shrink-0 rounded-lg bg-[#EDE9FE] p-1"
+                />
+                <div class="min-w-0">
+                  <div class="flex items-baseline gap-2">
+                    <span class="text-sm font-bold text-[#1A1A1A]"
+                      >No Context Bot</span
+                    >
+                    <span
+                      class="rounded bg-[#EDE9FE] px-1.5 py-0.5 text-[10px] font-bold text-[#7C3AED]"
+                      >APP</span
+                    >
+                    <span class="text-xs text-[#4A4A4A]">2:34 PM</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Generated art — real hero image -->
+              <div
+                class="relative mt-2.5 aspect-[4/3] w-full overflow-hidden rounded-xl border-2 border-[#1A1A1A] shadow-[3px_3px_0px_0px_#1A1A1A]"
+              >
+                <img
+                  src="../../../public/img/landing/hero/vangogh.png"
+                  alt="Van Gogh style painting"
+                  class="h-full w-full object-cover"
+                />
+              </div>
+              <div class="mt-2 flex items-center gap-3">
+                <span class="text-xs text-[#4A4A4A]"
+                  >Style: Van Gogh / Post-Impressionist</span
+                >
+                <span class="cursor-pointer text-xs font-medium text-[#7C3AED]"
+                  >View in gallery →</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trust signals — centered bottom -->
+      <div
+        class="absolute right-0 bottom-5 left-0 z-50 flex items-center justify-center gap-3"
+      >
+        <div
+          class="flex items-center gap-2 rounded-full border border-[#E5E5E5] bg-white px-4 py-2 text-sm text-[#4A4A4A]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#7C3AED"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12 6 12 12 16 14" />
+          </svg>
+          Setup in 60 seconds
+        </div>
+        <div
+          class="flex items-center gap-2 rounded-full border border-[#E5E5E5] bg-white px-4 py-2 text-sm text-[#4A4A4A]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#7C3AED"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
+            <line x1="1" y1="10" x2="23" y2="10" />
+          </svg>
+          No credit card required
+        </div>
+        <div
+          class="flex items-center gap-2 rounded-full border border-[#E5E5E5] bg-white px-4 py-2 text-sm text-[#4A4A4A]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#7C3AED"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+          Cancel anytime
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

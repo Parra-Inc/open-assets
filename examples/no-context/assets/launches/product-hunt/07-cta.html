@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1270, initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+              display: ["Inter", "system-ui", "sans-serif"],
+              quote: ["Georgia", "Times New Roman", "serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        margin: 0;
+        width: 1270px;
+        height: 760px;
+        overflow: hidden;
+      }
+      .font-quote {
+        font-family: Georgia, "Times New Roman", serif;
+        font-style: italic;
+      }
+      .dashed-border {
+        background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='12' ry='12' stroke='%237C3AED' stroke-width='3' stroke-dasharray='8%2c 6' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
+      }
+      @keyframes float1 {
+        0%,
+        100% {
+          transform: translateY(0) rotate(-8deg);
+        }
+        50% {
+          transform: translateY(-6px) rotate(-6deg);
+        }
+      }
+      @keyframes float2 {
+        0%,
+        100% {
+          transform: translateY(0) rotate(10deg);
+        }
+        50% {
+          transform: translateY(-8px) rotate(12deg);
+        }
+      }
+      @keyframes float3 {
+        0%,
+        100% {
+          transform: translateY(0) rotate(-4deg);
+        }
+        50% {
+          transform: translateY(-5px) rotate(-2deg);
+        }
+      }
+      @keyframes float4 {
+        0%,
+        100% {
+          transform: translateY(0) rotate(6deg);
+        }
+        50% {
+          transform: translateY(-7px) rotate(8deg);
+        }
+      }
+      @keyframes float5 {
+        0%,
+        100% {
+          transform: translateY(0) rotate(3deg);
+        }
+        50% {
+          transform: translateY(-6px) rotate(5deg);
+        }
+      }
+      @keyframes float6 {
+        0%,
+        100% {
+          transform: translateY(0) rotate(-5deg);
+        }
+        50% {
+          transform: translateY(-8px) rotate(-3deg);
+        }
+      }
+      .float-1 {
+        animation: float1 4s ease-in-out infinite;
+      }
+      .float-2 {
+        animation: float2 5s ease-in-out infinite 0.5s;
+      }
+      .float-3 {
+        animation: float3 4.5s ease-in-out infinite 1s;
+      }
+      .float-4 {
+        animation: float4 5.5s ease-in-out infinite 0.3s;
+      }
+      .float-5 {
+        animation: float5 4.2s ease-in-out infinite 0.8s;
+      }
+      .float-6 {
+        animation: float6 5s ease-in-out infinite 1.2s;
+      }
+      @keyframes sparkle {
+        0%,
+        100% {
+          opacity: 0.3;
+          transform: scale(0.8);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.2);
+        }
+      }
+      .sparkle {
+        animation: sparkle 2s ease-in-out infinite;
+      }
+      .sparkle-delay {
+        animation: sparkle 2s ease-in-out infinite 0.7s;
+      }
+      .sparkle-delay-2 {
+        animation: sparkle 2s ease-in-out infinite 1.4s;
+      }
+    </style>
+  </head>
+  <body class="bg-[#fafaf8]">
+    <div
+      class="relative flex h-[760px] w-[1270px] flex-col items-center justify-center overflow-hidden"
+    >
+      <!-- QR Code — top-right -->
+      <div class="absolute top-4 right-5 z-50 flex items-center gap-2.5">
+        <span
+          class="text-right text-[10px] font-bold tracking-wide text-[#4A4A4A] uppercase"
+          >Scan to<br />Add to Slack</span
+        >
+        <img
+          src="../../../public/img/qr-install.png"
+          alt="QR: Add to Slack"
+          class="h-14 w-14"
+        />
+      </div>
+
+      <!-- Floating background art thumbnails — more visible here for fun -->
+      <div class="pointer-events-none absolute inset-0 overflow-hidden">
+        <div
+          class="float-1 absolute top-4 left-8 h-28 w-28 overflow-hidden rounded-xl border-2 border-[#1A1A1A] opacity-[0.12] shadow-[3px_3px_0px_0px_#1A1A1A]"
+        >
+          <img
+            src="../../../public/img/landing/gallery/printer-dali.png"
+            alt=""
+            class="h-full w-full object-cover"
+          />
+        </div>
+        <div
+          class="float-2 absolute right-6 bottom-6 h-32 w-32 overflow-hidden rounded-xl border-2 border-[#1A1A1A] opacity-[0.12] shadow-[3px_3px_0px_0px_#1A1A1A]"
+        >
+          <img
+            src="../../../public/img/landing/gallery/love-popart.png"
+            alt=""
+            class="h-full w-full object-cover"
+          />
+        </div>
+        <div
+          class="float-3 absolute top-20 right-48 h-24 w-24 overflow-hidden rounded-xl border-2 border-[#1A1A1A] opacity-[0.10] shadow-[3px_3px_0px_0px_#1A1A1A]"
+        >
+          <img
+            src="../../../public/img/landing/gallery/horse-rockwell.png"
+            alt=""
+            class="h-full w-full object-cover"
+          />
+        </div>
+        <div
+          class="float-4 absolute bottom-16 left-12 h-28 w-28 overflow-hidden rounded-xl border-2 border-[#1A1A1A] opacity-[0.10] shadow-[3px_3px_0px_0px_#1A1A1A]"
+        >
+          <img
+            src="../../../public/img/landing/gallery/dancebattle-kpop.png"
+            alt=""
+            class="h-full w-full object-cover"
+          />
+        </div>
+        <div
+          class="float-5 absolute top-2 left-[480px] h-20 w-20 overflow-hidden rounded-xl border-2 border-[#1A1A1A] opacity-[0.08]"
+        >
+          <img
+            src="../../../public/img/landing/gallery/printer-dali.png"
+            alt=""
+            class="h-full w-full object-cover"
+          />
+        </div>
+        <div
+          class="float-6 absolute bottom-4 left-[400px] h-22 w-22 overflow-hidden rounded-xl border-2 border-[#1A1A1A] opacity-[0.08]"
+        >
+          <img
+            src="../../../public/img/landing/gallery/love-popart.png"
+            alt=""
+            class="h-full w-full object-cover"
+          />
+        </div>
+
+        <!-- Sparkle decorations -->
+        <svg
+          class="sparkle absolute top-12 left-[200px]"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="#7C3AED"
+          opacity="0.3"
+        >
+          <path d="M12 0l3 9h9l-7.5 5.5L19.5 24 12 18l-7.5 6 3-9.5L0 9h9z" />
+        </svg>
+        <svg
+          class="sparkle-delay absolute top-32 right-[180px]"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="#ff6154"
+          opacity="0.25"
+        >
+          <path d="M12 0l3 9h9l-7.5 5.5L19.5 24 12 18l-7.5 6 3-9.5L0 9h9z" />
+        </svg>
+        <svg
+          class="sparkle-delay-2 absolute bottom-32 left-[180px]"
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="#7C3AED"
+          opacity="0.2"
+        >
+          <path d="M12 0l3 9h9l-7.5 5.5L19.5 24 12 18l-7.5 6 3-9.5L0 9h9z" />
+        </svg>
+        <svg
+          class="sparkle absolute right-[220px] bottom-40"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="#2EB67D"
+          opacity="0.2"
+        >
+          <path d="M12 0l3 9h9l-7.5 5.5L19.5 24 12 18l-7.5 6 3-9.5L0 9h9z" />
+        </svg>
+        <svg
+          class="sparkle-delay absolute top-48 left-[350px]"
+          width="12"
+          height="12"
+          viewBox="0 0 24 24"
+          fill="#ECB22E"
+          opacity="0.25"
+        >
+          <path d="M12 0l3 9h9l-7.5 5.5L19.5 24 12 18l-7.5 6 3-9.5L0 9h9z" />
+        </svg>
+      </div>
+
+      <!-- Main content -->
+      <div class="relative z-10 mb-6 text-center">
+        <!-- Logo -->
+        <div class="mb-3">
+          <img
+            src="../../../public/img/logo-with-bot.png"
+            alt="No Context Bot"
+            class="mx-auto h-14"
+          />
+        </div>
+
+        <h2
+          class="font-display text-[48px] leading-tight font-extrabold tracking-tight text-[#1A1A1A]"
+        >
+          Thanks for
+          <span class="relative inline-block">
+            <span class="relative z-10">checking us out!</span>
+            <span
+              class="absolute inset-0 -skew-x-2 rounded-lg bg-[#EDE9FE]"
+            ></span>
+          </span>
+          <span
+            class="inline-block"
+            style="
+              font-family:
+                &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;,
+                sans-serif;
+            "
+            >&#x1F389;</span
+          >
+        </h2>
+        <p class="mx-auto mt-3 max-w-[600px] text-lg text-[#4A4A4A]">
+          We'd love to bring No Context Bot to your workspace. Give us a try —
+          and don't forget your launch day discount.
+        </p>
+      </div>
+
+      <!-- Promo code (reiterated) -->
+      <div
+        class="relative z-10 mb-6 flex items-center gap-5 rounded-xl border-2 border-[#ff6154] bg-gradient-to-r from-[#fff5f4] to-[#fff0ee] px-7 py-4 shadow-[4px_4px_0px_0px_#ff6154]"
+      >
+        <div
+          class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-[#ff6154] shadow-[2px_2px_0px_0px_#1A1A1A]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="white"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="20 12 20 22 4 22 4 12" />
+            <rect x="2" y="7" width="20" height="5" />
+            <line x1="12" y1="22" x2="12" y2="7" />
+            <path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z" />
+            <path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z" />
+          </svg>
+        </div>
+        <div>
+          <p class="text-base font-bold text-[#1A1A1A]">
+            15% off your first purchase
+          </p>
+          <div class="mt-1.5 flex items-center gap-3">
+            <span
+              class="inline-block rounded-md border-2 border-[#ff6154]/30 bg-white px-4 py-1 font-mono text-base font-bold tracking-wider text-[#ff6154]"
+              >PRODUCTHUNT26</span
+            >
+            <span class="text-sm text-[#4A4A4A]">any plan or image pack</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coming soon + Share row -->
+      <div
+        class="relative z-10 flex w-full max-w-[1000px] items-stretch gap-5 px-16"
+      >
+        <!-- Share in Slack -->
+        <div
+          class="flex flex-1 flex-col items-center justify-center rounded-xl border-2 border-[#1A1A1A] bg-white p-5 text-center shadow-[4px_4px_0px_0px_#1A1A1A]"
+        >
+          <div
+            class="mb-3 flex h-14 w-14 items-center justify-center rounded-xl border-2 border-[#1A1A1A] bg-white shadow-[3px_3px_0px_0px_#1A1A1A]"
+          >
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zm1.271 0a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313z"
+                fill="#E01E5A"
+              />
+              <path
+                d="M8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zm0 1.271a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312z"
+                fill="#36C5F0"
+              />
+              <path
+                d="M18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zm-1.27 0a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.163 0a2.528 2.528 0 0 1 2.523 2.522v6.312z"
+                fill="#2EB67D"
+              />
+              <path
+                d="M15.163 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.163 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zm0-1.27a2.527 2.527 0 0 1-2.52-2.523 2.527 2.527 0 0 1 2.52-2.52h6.315A2.528 2.528 0 0 1 24 15.163a2.528 2.528 0 0 1-2.522 2.523h-6.315z"
+                fill="#ECB22E"
+              />
+            </svg>
+          </div>
+          <p class="text-sm font-bold text-[#1A1A1A]">Share this with your</p>
+          <p class="text-sm font-bold text-[#1A1A1A]">Slack workspace</p>
+          <span class="mt-2 text-xs font-semibold text-[#7C3AED]"
+            >Tell your team about us →</span
+          >
+        </div>
+
+        <!-- Coming Soon: Microsoft Teams -->
+        <div
+          class="relative flex flex-1 flex-col items-center justify-center overflow-hidden rounded-xl border-2 border-[#1A1A1A] bg-white p-5 text-center shadow-[4px_4px_0px_0px_#1A1A1A]"
+        >
+          <!-- Coming Soon badge -->
+          <div
+            class="absolute top-3 right-3 rounded-full border border-[#7C3AED]/30 bg-[#EDE9FE] px-2.5 py-0.5"
+          >
+            <span
+              class="text-[10px] font-bold tracking-wide text-[#7C3AED] uppercase"
+              >Coming Soon</span
+            >
+          </div>
+          <div
+            class="mb-3 flex h-14 w-14 items-center justify-center rounded-xl border-2 border-[#1A1A1A] bg-white shadow-[3px_3px_0px_0px_#1A1A1A]"
+          >
+            <!-- Microsoft Teams logo -->
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20.625 6.547h-3.234v-.422c0-.93.754-1.688 1.687-1.688.934 0 1.688.758 1.688 1.688v.281a.14.14 0 0 1-.14.14z"
+                fill="#5059C9"
+              />
+              <circle cx="19.078" cy="3.375" r="1.5" fill="#5059C9" />
+              <path
+                d="M16.5 7.5h5.25a.75.75 0 0 1 .75.75v4.5a3 3 0 0 1-3 3h-.75a3 3 0 0 1-3-3V8.25a.75.75 0 0 1 .75-.75z"
+                fill="#5059C9"
+              />
+              <circle cx="13.5" cy="3" r="2.25" fill="#4B53BC" />
+              <path
+                d="M17.25 7.5H9.75a.75.75 0 0 0-.75.75v6a4.125 4.125 0 0 0 4.125 4.125h.75A4.125 4.125 0 0 0 18 14.25v-6a.75.75 0 0 0-.75-.75z"
+                fill="#4B53BC"
+              />
+              <rect
+                x="3"
+                y="6.75"
+                width="10.5"
+                height="10.5"
+                rx="1.125"
+                fill="#7B83EB"
+              />
+              <path
+                d="M10.125 10.125H6.375v1.125H8.25v3.375h1.125v-3.375h1.875v-1.125h-.001z"
+                fill="white"
+              />
+            </svg>
+          </div>
+          <p class="text-sm font-bold text-[#1A1A1A]">Microsoft Teams</p>
+          <p class="mt-1 text-xs text-[#4A4A4A]">
+            No Context Bot is coming to Teams
+          </p>
+        </div>
+
+        <!-- Coming Soon: Discord -->
+        <div
+          class="relative flex flex-1 flex-col items-center justify-center overflow-hidden rounded-xl border-2 border-[#1A1A1A] bg-white p-5 text-center shadow-[4px_4px_0px_0px_#1A1A1A]"
+        >
+          <!-- Coming Soon badge -->
+          <div
+            class="absolute top-3 right-3 rounded-full border border-[#7C3AED]/30 bg-[#EDE9FE] px-2.5 py-0.5"
+          >
+            <span
+              class="text-[10px] font-bold tracking-wide text-[#7C3AED] uppercase"
+              >Coming Soon</span
+            >
+          </div>
+          <div
+            class="mb-3 flex h-14 w-14 items-center justify-center rounded-xl border-2 border-[#1A1A1A] bg-white shadow-[3px_3px_0px_0px_#1A1A1A]"
+          >
+            <!-- Discord logo -->
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M19.27 5.33C17.94 4.71 16.5 4.26 15 4a.09.09 0 0 0-.07.03c-.18.33-.39.76-.53 1.09a16.09 16.09 0 0 0-4.8 0c-.14-.34-.35-.76-.54-1.09-.01-.02-.04-.03-.07-.03-1.5.26-2.93.71-4.27 1.33-.01 0-.02.01-.03.02-2.72 4.07-3.47 8.03-3.1 11.95 0 .02.01.04.03.05 1.8 1.32 3.53 2.12 5.24 2.65.03.01.06 0 .07-.02.4-.55.76-1.13 1.07-1.74.02-.04 0-.08-.04-.09-.57-.22-1.11-.48-1.64-.78-.04-.02-.04-.08-.01-.11.11-.08.22-.17.33-.25.02-.02.05-.02.07-.01 3.44 1.57 7.15 1.57 10.55 0 .02-.01.05-.01.07.01.11.09.22.17.33.26.04.03.04.09-.01.11-.52.31-1.07.56-1.64.78-.04.01-.05.06-.04.09.32.61.68 1.19 1.07 1.74.03.01.06.02.09.01 1.72-.53 3.45-1.33 5.25-2.65.02-.01.03-.03.03-.05.44-4.53-.73-8.46-3.1-11.95-.01-.01-.02-.02-.04-.02zM8.52 14.91c-1.03 0-1.89-.95-1.89-2.12s.84-2.12 1.89-2.12c1.06 0 1.9.96 1.89 2.12 0 1.17-.84 2.12-1.89 2.12zm6.97 0c-1.03 0-1.89-.95-1.89-2.12s.84-2.12 1.89-2.12c1.06 0 1.9.96 1.89 2.12 0 1.17-.83 2.12-1.89 2.12z"
+                fill="#5865F2"
+              />
+            </svg>
+          </div>
+          <p class="text-sm font-bold text-[#1A1A1A]">Discord</p>
+          <p class="mt-1 text-xs text-[#4A4A4A]">
+            No Context Bot is coming to Discord
+          </p>
+        </div>
+      </div>
+
+      <!-- Product Hunt upvote reminder -->
+      <div class="relative z-10 mt-6 flex items-center justify-center gap-3">
+        <div
+          class="inline-flex items-center gap-2.5 rounded-full border-2 border-[#ff6154] bg-[#fff5f4] px-5 py-2 shadow-[3px_3px_0px_0px_#ff6154]"
+        >
+          <svg width="18" height="18" viewBox="0 0 40 40" fill="none">
+            <circle cx="20" cy="20" r="20" fill="#ff6154" />
+            <path
+              d="M22.5 15H17v10h3v-3h2.5a3.5 3.5 0 100-7zm0 4H20v-1h2.5a1.5 1.5 0 110 1z"
+              fill="white"
+            />
+          </svg>
+          <span class="text-sm font-bold text-[#ff6154]"
+            >If you dig it, upvote us on Product Hunt!</span
+          >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#ff6154"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M12 19V5M5 12l7-7 7 7" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

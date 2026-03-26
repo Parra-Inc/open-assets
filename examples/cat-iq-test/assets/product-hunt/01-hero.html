@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1270, initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'bg-dark': '#0F0328',
+              'bg-mid': '#1F0A47',
+              'bg-light': '#331066',
+              'bg-card': 'rgba(255, 255, 255, 0.06)',
+              'border-card': 'rgba(255, 255, 255, 0.1)',
+              'accent-purple': '#7C3AED',
+              'accent-pink': '#EC4899',
+              'accent-orange': '#F97316',
+              'iq-oblivious': '#3B82F6',
+              'iq-selective': '#14B8A6',
+              'iq-average': '#22C55E',
+              'iq-smart': '#F97316',
+              'iq-genius': '#8B5CF6',
+              'iq-mastermind': '#EF4444',
+              'cert-gold': '#F59E0B',
+              'cert-gold-light': '#FCD34D',
+            },
+            fontFamily: {
+              'sans': ['"SF Pro Rounded"', '"SF Pro Display"', '-apple-system', 'system-ui', 'sans-serif'],
+            },
+          },
+        },
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+              display: ["Inter", "system-ui", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        margin: 0;
+        width: 1270px;
+        height: 760px;
+        overflow: hidden;
+      }
+      .headline-gradient {
+        background: linear-gradient(180deg, #fff 30%, rgba(255, 255, 255, 0.7));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+      }
+      .glow-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.35;
+        pointer-events: none;
+      }
+      .phone {
+        position: relative;
+        background: #1a1a1a;
+        border-radius: 36px;
+        padding: 8px;
+        box-shadow:
+          0 30px 70px rgba(0, 0, 0, 0.5),
+          0 0 0 1px rgba(255, 255, 255, 0.08),
+          0 0 100px rgba(124, 58, 237, 0.2);
+      }
+      .phone::before {
+        content: "";
+        position: absolute;
+        top: 14px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 24px;
+        background: #000;
+        border-radius: 14px;
+        z-index: 10;
+      }
+      .phone-screen {
+        border-radius: 28px;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="relative flex h-[760px] w-[1270px] items-center overflow-hidden"
+      style="
+        background: linear-gradient(
+          135deg,
+          #0f0328 0%,
+          #1f0a47 50%,
+          #331066 100%
+        );
+      "
+    >
+      <!-- Ambient glow orbs -->
+      <div
+        class="glow-orb"
+        style="
+          width: 400px;
+          height: 400px;
+          background: #7c3aed;
+          top: -80px;
+          left: -100px;
+        "
+      ></div>
+      <div
+        class="glow-orb"
+        style="
+          width: 350px;
+          height: 350px;
+          background: #ec4899;
+          bottom: -60px;
+          right: 200px;
+        "
+      ></div>
+      <div
+        class="glow-orb"
+        style="
+          width: 200px;
+          height: 200px;
+          background: #7c3aed;
+          top: 300px;
+          right: -40px;
+          opacity: 0.2;
+        "
+      ></div>
+
+      <!-- App icon top-left -->
+      <div class="absolute top-8 left-8 z-20" style="width: 72px; height: 72px; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.1);">
+        <div style="width: 72px; height: 72px; position: relative; background: linear-gradient(155deg, #0c0020 0%, #1a0540 30%, #2d1066 55%, #4c1d95 80%, #5b21b6 100%);">
+          <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -45%); width: 60px; height: 60px; border-radius: 50%; background: radial-gradient(circle, rgba(139,92,246,0.3) 0%, rgba(109,40,217,0.15) 45%, transparent 75%);"></div>
+          <img src="../../src/screenshots/icon-cat.svg" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 66px; height: 66px;" />
+        </div>
+      </div>
+
+      <!-- Subtle floating quiz question cards in background -->
+      <div class="pointer-events-none absolute inset-0 overflow-hidden">
+        <div
+          class="glass-card absolute -top-2 -left-4 w-56 rotate-[-8deg] rounded-2xl p-4 opacity-[0.08]"
+        >
+          <p class="text-sm text-white">
+            "You call Whiskers' name. They..."
+          </p>
+        </div>
+        <div
+          class="glass-card absolute top-24 -right-8 w-48 rotate-[10deg] rounded-2xl p-4 opacity-[0.06]"
+        >
+          <p class="text-sm text-white">
+            "Your cat encounters a closed door..."
+          </p>
+        </div>
+        <div
+          class="glass-card absolute bottom-24 -left-2 w-52 rotate-[5deg] rounded-2xl p-4 opacity-[0.06]"
+        >
+          <p class="text-xs text-white">
+            "You hide a treat under a cup..."
+          </p>
+        </div>
+        <div
+          class="glass-card absolute right-32 -bottom-4 w-44 rotate-[-4deg] rounded-2xl p-3 opacity-[0.05]"
+        >
+          <p class="text-xs text-white">
+            "When guests come over, your cat..."
+          </p>
+        </div>
+      </div>
+
+      <!-- Left side: logo + headline + QR -->
+      <div class="relative z-10 flex-1 pr-8 pl-16">
+        <!-- App name badge -->
+        <div class="mb-8 inline-flex items-center gap-2.5 rounded-full glass-card px-5 py-2.5">
+          <span class="text-xl">🐱</span>
+          <span class="text-sm font-bold text-white">Cat IQ Test</span>
+        </div>
+
+        <!-- Title + QR side by side -->
+        <div class="flex items-start gap-8">
+          <div>
+            <h1
+              class="headline-gradient font-display text-[48px] leading-[1.05] font-extrabold tracking-tight"
+            >
+              How Smart Is<br />
+              <span class="relative inline-block">
+                <span
+                  class="absolute inset-0 -skew-x-2 rounded-lg bg-[#7C3AED]/40"
+                ></span>
+                <span class="relative z-10" style="-webkit-text-fill-color: white;">Your Cat?</span>
+              </span>
+            </h1>
+
+            <p class="mt-6 max-w-[380px] text-[18px] leading-relaxed text-white/55">
+              20 fun questions about your cat's behavior.<br />
+              An official
+              <span class="font-semibold text-white/80">IQ certificate</span>
+              you can share.
+            </p>
+          </div>
+
+          <!-- QR code -->
+          <div class="flex flex-col items-center gap-2 flex-shrink-0 mt-1 ml-6">
+            <div class="rounded-2xl bg-white p-3" style="box-shadow: 0 8px 30px rgba(0,0,0,0.3), 0 0 40px rgba(124,58,237,0.15);">
+              <img src="../../public/img/qr-appstore.svg" alt="QR Code" style="width: 170px; height: 170px; display: block;" />
+            </div>
+            <span class="text-[12px] font-medium text-white/35 leading-snug text-center">Scan to download</span>
+          </div>
+        </div>
+
+        <!-- Trust signals -->
+        <div class="mt-8 flex gap-3">
+          <div
+            class="flex items-center gap-2 rounded-full glass-card px-4 py-2 text-sm text-white/60"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#7C3AED"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+            Free to try
+          </div>
+          <div
+            class="flex items-center gap-2 rounded-full glass-card px-4 py-2 text-sm text-white/60"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#EC4899"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M12 3l1.912 5.813a2 2 0 001.272 1.272L21 12l-5.816 1.912a2 2 0 00-1.272 1.272L12 21l-1.912-5.816a2 2 0 00-1.272-1.272L3 12l5.816-1.915a2 2 0 001.272-1.272z"
+              />
+            </svg>
+            20 questions
+          </div>
+          <div
+            class="flex items-center gap-2 rounded-full glass-card px-4 py-2 text-sm text-white/60"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#7C3AED"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8" />
+              <polyline points="16 6 12 2 8 6" />
+              <line x1="12" y1="2" x2="12" y2="15" />
+            </svg>
+            Shareable
+          </div>
+        </div>
+      </div>
+
+      <!-- Right side: Phone mockup -->
+      <div class="relative z-10 flex-shrink-0 pr-16">
+        <div
+          style="
+            transform: perspective(900px) rotateY(-3deg) rotateX(1deg);
+          "
+        >
+          <div class="phone">
+            <div class="phone-screen" style="width: 280px; height: 607px;">
+              <img
+                src="../../public/img/screenshots/01-hero.png"
+                alt="Cat IQ Test app"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,117 @@
+{
+  "version": 1,
+  "assets": {
+    "ios/01-hero": {
+      "440x956": {
+        "sourceChecksum": "sha256:d950506ea3b103e3cf23904f9fffdcc9199b4d77673d2c7090e3affcf31df484",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/only-recipes/exports/ios/01-hero.png",
+        "exportedAt": "2026-03-26T03:52:13.578Z"
+      }
+    },
+    "ios/02-import": {
+      "440x956": {
+        "sourceChecksum": "sha256:bad5dc76a07de4c8c40636ddf7d02757a2af3953038558bb874691fcedea5c11",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/only-recipes/exports/ios/02-import.png",
+        "exportedAt": "2026-03-26T03:52:44.598Z"
+      }
+    },
+    "ios/03-save-from-anywhere": {
+      "440x956": {
+        "sourceChecksum": "sha256:b63d19ab6382f8e7739a16c2e1ef32e0e343ef53d090f28fe5f59d7d6119ccd6",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/only-recipes/exports/ios/03-save-from-anywhere.png",
+        "exportedAt": "2026-03-26T03:52:46.201Z"
+      }
+    },
+    "ios/04-meal-planning": {
+      "440x956": {
+        "sourceChecksum": "sha256:2bc5c4843f6234084253a4d5725a4a94183165f7cc045c186aea6b082a163f0c",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/only-recipes/exports/ios/04-meal-planning.png",
+        "exportedAt": "2026-03-26T03:52:47.814Z"
+      }
+    },
+    "ios/05-clean": {
+      "440x956": {
+        "sourceChecksum": "sha256:f457135bb40e909103a14f9b9de7cff103a2cb08f52653f805a3f0941ea5a7cb",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/only-recipes/exports/ios/05-clean.png",
+        "exportedAt": "2026-03-26T03:52:02.052Z"
+      }
+    },
+    "ios/06-grocery-list": {
+      "440x956": {
+        "sourceChecksum": "sha256:3a424594c36b52604ff6340b3511538e4403115026a088d447194c58a5bc0ec6",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/only-recipes/exports/ios/06-grocery-list.png",
+        "exportedAt": "2026-03-26T03:52:49.429Z"
+      }
+    },
+    "ios/07-collections": {
+      "440x956": {
+        "sourceChecksum": "sha256:ebec9d0a36246f8d0f49ae2df40c249e72d801299c3218497a3194716869edfb",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/only-recipes/exports/ios/07-collections.png",
+        "exportedAt": "2026-03-26T03:52:51.043Z"
+      }
+    },
+    "ios/08-cta": {
+      "440x956": {
+        "sourceChecksum": "sha256:b953ca110c6530fae4703cff8d7b12d5a8dd13704b9e789cc97a6a17ac515cfd",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/only-recipes/exports/ios/08-cta.png",
+        "exportedAt": "2026-03-26T03:52:52.668Z"
+      }
+    },
+    "android/01-hero": {
+      "440x978": {
+        "sourceChecksum": "sha256:a369105da7628cedf99f38f829408c0f8da567e9179c8861cb751a81669e768b",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/only-recipes/exports/android/01-hero.png",
+        "exportedAt": "2026-03-26T03:52:53.981Z"
+      }
+    },
+    "android/02-import": {
+      "440x978": {
+        "sourceChecksum": "sha256:b4c42dfacc7f9cde9bc56639422724b4aeb833b6560103d6057e865eb011abec",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/only-recipes/exports/android/02-import.png",
+        "exportedAt": "2026-03-26T03:52:55.320Z"
+      }
+    },
+    "android/03-save-from-anywhere": {
+      "440x978": {
+        "sourceChecksum": "sha256:d1a7d6fafbd91f3335fdc0c9934ab854faeee8dc584c56d960d54d38530e4a77",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/only-recipes/exports/android/03-save-from-anywhere.png",
+        "exportedAt": "2026-03-26T03:52:56.568Z"
+      }
+    },
+    "android/04-meal-planning": {
+      "440x978": {
+        "sourceChecksum": "sha256:0aa9d14bc2103c96a52ec832c3887f1aaa8c19955cac40c56d926d44de744e58",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/only-recipes/exports/android/04-meal-planning.png",
+        "exportedAt": "2026-03-26T03:52:58.173Z"
+      }
+    },
+    "android/05-clean": {
+      "440x978": {
+        "sourceChecksum": "sha256:aaca84a1a0ee3d80aea5859410a32011539d954236ac50c5e797aa2819bca244",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/only-recipes/exports/android/05-clean.png",
+        "exportedAt": "2026-03-26T03:52:59.796Z"
+      }
+    },
+    "android/06-grocery-list": {
+      "440x978": {
+        "sourceChecksum": "sha256:695bd62fbc44e21d1a46cca5fec94fcd43c7721e467fdad8272b0f3b19f09a3b",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/only-recipes/exports/android/06-grocery-list.png",
+        "exportedAt": "2026-03-26T03:53:01.417Z"
+      }
+    },
+    "android/07-collections": {
+      "440x978": {
+        "sourceChecksum": "sha256:248a0714dc0131458a4cb90e985119a35dda911a48ac3694aed0d4c39a20ff06",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/only-recipes/exports/android/07-collections.png",
+        "exportedAt": "2026-03-26T03:53:03.028Z"
+      }
+    },
+    "android/08-cta": {
+      "440x978": {
+        "sourceChecksum": "sha256:165f357fe77938609a8bb6fd4e5fb01ba86e17db6aae3d528923b46e87c7dea0",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/only-recipes/exports/android/08-cta.png",
+        "exportedAt": "2026-03-26T03:53:04.656Z"
+      }
+    }
+  }
+}

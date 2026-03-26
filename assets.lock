@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "assets": {
+    "banner/banner": {
+      "1280": {
+        "sourceChecksum": "sha256:ed119b211acb24cc7e491a4c50d95dc1276884e139622eaa22d1ae4feeaab864",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/public/img/banner/1280/banner.png",
+        "exportedAt": "2026-03-26T00:22:48.904Z"
+      }
+    },
+    "icon/icon": {
+      "16": {
+        "sourceChecksum": "sha256:6ee6b520f2c0e5eea9b7efca53119250c48a40ba4c866cc9c373ad22404ade33",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/public/img/icon/16/icon.png",
+        "exportedAt": "2026-03-26T00:22:47.180Z"
+      },
+      "32": {
+        "sourceChecksum": "sha256:6ee6b520f2c0e5eea9b7efca53119250c48a40ba4c866cc9c373ad22404ade33",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/public/img/icon/32/icon.png",
+        "exportedAt": "2026-03-26T00:22:45.381Z"
+      },
+      "180": {
+        "sourceChecksum": "sha256:6ee6b520f2c0e5eea9b7efca53119250c48a40ba4c866cc9c373ad22404ade33",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/public/img/icon/180/icon.png",
+        "exportedAt": "2026-03-26T00:22:43.565Z"
+      },
+      "192": {
+        "sourceChecksum": "sha256:6ee6b520f2c0e5eea9b7efca53119250c48a40ba4c866cc9c373ad22404ade33",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/public/img/icon/192/icon.png",
+        "exportedAt": "2026-03-26T00:22:41.755Z"
+      },
+      "512": {
+        "sourceChecksum": "sha256:6ee6b520f2c0e5eea9b7efca53119250c48a40ba4c866cc9c373ad22404ade33",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/public/img/icon/512/icon.png",
+        "exportedAt": "2026-03-26T00:22:39.956Z"
+      }
+    }
+  }
+}
