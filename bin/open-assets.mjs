@@ -189,8 +189,9 @@ program
   .description("Validate the assets.json and check that all referenced files exist")
   .argument("[dir]", "Project directory containing assets.json", ".")
   .option("--config <path>", "Path to config file", env("OPEN_ASSETS_CONFIG", "assets.json"))
+  .option("--fix", "Interactively fix issues (e.g. remove missing templates)")
   .action(async (dir, opts) => {
-    const { loadConfig } = await import("../lib/manifest.mjs");
+    const { loadConfig, saveConfig } = await import("../lib/manifest.mjs");
     const { validateConfig } = await import("../lib/validate.mjs");
 
     const projectDir = resolve(dir);
@@ -204,7 +205,7 @@ program
 
     console.log(`\n  Validating ${opts.config}...\n`);
 
-    const { checks, errors } = validateConfig(manifest, projectDir);
+    const { checks, errors, missingTemplates, emptyCollections } = validateConfig(manifest, projectDir);
 
     for (const check of checks) {
       console.log(`  ${check.ok ? "\u2713" : "\u2717"} ${check.message}`);
@@ -215,6 +216,58 @@ program
       console.log("  All checks passed.\n");
     } else {
       console.log(`  ${errors} error(s) found.\n`);
+
+      const fixable = missingTemplates.length > 0 || emptyCollections.length > 0;
+
+      if (fixable && opts.fix) {
+        const { createInterface } = await import("readline");
+        const rl = createInterface({ input: process.stdin, output: process.stdout });
+        const ask = (question) =>
+          new Promise((resolve) => rl.question(question, (answer) => resolve(answer.trim().toLowerCase())));
+
+        let changes = 0;
+
+        for (const missing of missingTemplates) {
+          const answer = await ask(
+            `  Remove template "${missing.templateSrc}" from collection "${missing.collectionId}"? (y/N) `
+          );
+          if (answer === "y" || answer === "yes") {
+            const col = manifest.collections.find((c) => c.id === missing.collectionId);
+            if (col) {
+              col.templates = col.templates.filter((t) => t.src !== missing.templateSrc);
+              changes++;
+            }
+          }
+        }
+
+        // Include collections that were already empty plus ones emptied by template removal
+        const emptyIds = new Set(emptyCollections.map((e) => e.collectionId));
+        for (const col of manifest.collections) {
+          if (!col.templates || col.templates.length === 0) {
+            emptyIds.add(col.id);
+          }
+        }
+
+        for (const collectionId of emptyIds) {
+          const answer = await ask(
+            `  Remove empty collection "${collectionId}"? (y/N) `
+          );
+          if (answer === "y" || answer === "yes") {
+            manifest.collections = manifest.collections.filter((c) => c.id !== collectionId);
+            changes++;
+          }
+        }
+
+        rl.close();
+
+        if (changes > 0) {
+          saveConfig(projectDir, opts.config, manifest);
+          console.log(`\n  Updated ${opts.config} (${changes} fix(es) applied).\n`);
+        }
+      } else if (fixable) {
+        console.log(`  Run with --fix to remove missing templates and empty collections.\n`);
+      }
+
       process.exit(1);
     }
   });
