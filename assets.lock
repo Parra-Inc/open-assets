@@ -6,6 +6,11 @@
         "sourceChecksum": "sha256:ed119b211acb24cc7e491a4c50d95dc1276884e139622eaa22d1ae4feeaab864",
         "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/public/img/banner/1280/banner.png",
         "exportedAt": "2026-03-26T00:22:48.904Z"
+      },
+      "1280x640": {
+        "sourceChecksum": "sha256:ed119b211acb24cc7e491a4c50d95dc1276884e139622eaa22d1ae4feeaab864",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/exports/banner/banner.png",
+        "exportedAt": "2026-03-28T14:29:58.275Z"
       }
     },
     "icon/icon": {
@@ -33,6 +38,11 @@
         "sourceChecksum": "sha256:6ee6b520f2c0e5eea9b7efca53119250c48a40ba4c866cc9c373ad22404ade33",
         "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/public/img/icon/512/icon.png",
         "exportedAt": "2026-03-26T00:22:39.956Z"
+      },
+      "1024x1024": {
+        "sourceChecksum": "sha256:6ee6b520f2c0e5eea9b7efca53119250c48a40ba4c866cc9c373ad22404ade33",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/exports/icon/icon.png",
+        "exportedAt": "2026-03-28T14:29:56.562Z"
       }
     }
   }
