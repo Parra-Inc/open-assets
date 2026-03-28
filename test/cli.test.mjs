@@ -34,7 +34,6 @@ describe("CLI", () => {
     expect(result.stdout).toContain("--tag");
     expect(result.stdout).toContain("--template");
     expect(result.stdout).toContain("--size");
-    expect(result.stdout).toContain("--all");
     expect(result.stdout).toContain("--force");
     expect(result.stdout).toContain("--json");
     expect(result.exitCode).toBe(0);

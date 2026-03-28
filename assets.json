@@ -2,7 +2,7 @@
   "version": 1,
   "name": "Open Assets",
   "publicDir": "public",
-  "command": "npx open-assets render --all",
+  "command": "npx open-assets render --force",
   "tags": [
     {
       "id": "icon",

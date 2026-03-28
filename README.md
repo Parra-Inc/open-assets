@@ -59,7 +59,7 @@ Then use `oa` anywhere:
 
 ```bash
 oa dev
-oa render --all
+oa render --force
 oa init
 ```
 
@@ -123,7 +123,7 @@ Opens a live preview UI at `http://localhost:3200` with zoom/pan controls and ex
 ### 4. Export
 
 ```bash
-npx open-assets render --all
+npx open-assets render --force
 ```
 
 Exports every template at every configured export size into `./exports/`, organized as `exports/{collection}/{size}/{template}.png`.
@@ -141,7 +141,7 @@ Capture real app screenshots via Playwright or XCTest, then use them inside your
 npx playwright test --project=screenshots
 
 # 2. Export marketing screenshots with those captures embedded
-npx open-assets render --all
+npx open-assets render --force
 ```
 
 Reference captured screenshots in your HTML templates:
@@ -152,7 +152,7 @@ Reference captured screenshots in your HTML templates:
 The `assets.json` `command` field stores the export command so automation tools know what to run:
 ```json
 {
-  "command": "npx open-assets render --all"
+  "command": "npx open-assets render --force"
 }
 ```
 
@@ -192,12 +192,11 @@ Render assets headlessly via the command line, without opening a browser.
 
 ```bash
 open-assets render                              # Render all collections at source size
-open-assets render --all                        # Export at EVERY configured size
+open-assets render --force                      # Export at every size, ignore cache
 open-assets render --collection screenshots     # Render a specific collection
 open-assets render --template 01-hero           # Render a single template
 open-assets render --size iphone-6.9            # Use a named export size
 open-assets render --width 1320 --height 2868   # Custom size
-open-assets render --force                      # Re-render everything, ignore cache
 open-assets render -o ./build                   # Custom output directory
 open-assets render --json                       # Output results as JSON (for CI)
 open-assets render --quiet                      # Suppress progress logs
@@ -211,8 +210,7 @@ Options:
 | `--size <name>` | — | — | Use a named export size from config |
 | `--width <px>` | — | — | Custom output width |
 | `--height <px>` | — | — | Custom output height |
-| `--all` | — | — | Export at every size defined in the config |
-| `--force` | — | — | Re-render all assets even if unchanged |
+| `-f, --force` | — | — | Export at every size and re-render all (ignores cache) |
 | `-o, --output <dir>` | `OPEN_ASSETS_OUTPUT` | `./exports` | Output directory |
 | `--config <path>` | `OPEN_ASSETS_CONFIG` | `assets.json` | Path to config file |
 | `--parallel <count>` | `OPEN_ASSETS_PARALLEL` | `1` | Number of parallel renders |
@@ -226,7 +224,7 @@ Options:
 open-assets render --collection screenshots --template 01-hero --size iphone-6.9
 
 # One template at all device sizes
-open-assets render --collection screenshots --template 01-hero --all
+open-assets render --collection screenshots --template 01-hero --force
 
 # All templates at one device size
 open-assets render --collection screenshots --size iphone-6.9
@@ -306,7 +304,7 @@ Your project needs a `assets.json` at its root. This file defines the collection
   "version": 1,
   "name": "My App",
   "publicDir": "public",
-  "command": "npx open-assets render --all",
+  "command": "npx open-assets render --force",
   "collections": [ ... ]
 }
 ```
@@ -363,7 +361,7 @@ All collections follow the same structure. No `type` field needed.
 
 ### Output Types
 
-Export entries with a `type` field are post-render actions (run with `--all`):
+Export entries with a `type` field are post-render actions (run with `--force`):
 
 | Type | Config | Description |
 |------|--------|-------------|
@@ -489,7 +487,7 @@ Export entries with a `type` field are post-render actions (run with `--all`):
 The `render` command maintains a `assets.lock` file that stores SHA256 checksums of each source HTML/SVG file. On subsequent renders, unchanged assets are skipped automatically:
 
 ```
-$ open-assets render --all
+$ open-assets render --force
   Skipping 01-hero at 1320x2868 (unchanged)
   Rendering 03-new-screen at 1320x2868...
     → exports/screenshots/iphone-6.9/03-new-screen.png
@@ -524,7 +522,7 @@ jobs:
           node-version: 20
       - run: npm ci
       - run: npx open-assets validate
-      - run: npx open-assets render --all --json --quiet
+      - run: npx open-assets render --force --json --quiet
       - uses: actions/upload-artifact@v4
         with:
           name: screenshots

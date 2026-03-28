@@ -19,10 +19,9 @@ concurrently "npx @tailwindcss/cli -i assets/styles.css -o dist/styles.css --wat
 
 # Headless render
 open-assets render --collection screenshots --size iphone-6.9
-open-assets render --collection icon --all
-open-assets render --all
-open-assets render --template 01-hero --all
-open-assets render --force  # ignore cache, re-render everything
+open-assets render --collection icon --force
+open-assets render --force
+open-assets render --template 01-hero --force
 ```
 
 ## Concepts
@@ -44,7 +43,7 @@ The `assets.json` at the project root defines all asset collections. All collect
   "version": 1,
   "name": "App Display Name",
   "publicDir": "public",
-  "command": "npx open-assets render --all",
+  "command": "npx open-assets render --force",
   "collections": [
     {
       "id": "unique-id",
@@ -77,7 +76,7 @@ The `assets.json` at the project root defines all asset collections. All collect
 
 ### Output Types
 
-Export entries with a `type` field are post-render actions (run with `--all`):
+Export entries with a `type` field are post-render actions (run with `--force`):
 
 | Type | Config | Description |
 |------|--------|-------------|
@@ -195,15 +194,14 @@ Export entries with a `type` field are post-render actions (run with `--all`):
 | `--collection <id>` | Render only the collection with this ID |
 | `--template <name>` | Render only the template with this name |
 | `--size <name>` | Use a named export size from config |
-| `--all` | Export at every size defined in the config |
-| `--force` | Re-render all assets even if unchanged |
+| `-f, --force` | Export at every size and re-render all (ignores cache) |
 | `-o, --output <dir>` | Output directory (default: `./exports`) |
 | `--json` | Output results as JSON |
 | `-q, --quiet` | Suppress progress logs |
 
 Flags compose naturally:
 - `--collection screenshots --template 01-hero --size iphone-6.9` → single template, single size
-- `--collection screenshots --template 01-hero --all` → one template, all sizes
+- `--collection screenshots --template 01-hero --force` → one template, all sizes
 - `--collection screenshots --size iphone-6.9` → all templates, one size
 
 ### add commands

@@ -2,7 +2,7 @@
   "version": 1,
   "name": "Only Recipes",
   "publicDir": "public",
-  "command": "npx open-assets render --all",
+  "command": "npx open-assets render --force",
   "collections": [
     {
       "id": "ios",

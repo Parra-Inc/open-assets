@@ -63,7 +63,7 @@ program
 
     const { startServer } = await import("../lib/server.mjs");
     const port = parseInt(opts.port, 10);
-    startServer(projectDir, {
+    const { port: actualPort } = await startServer(projectDir, {
       port,
       host: opts.host,
       quiet: opts.quiet,
@@ -74,7 +74,8 @@ program
 
     if (opts.open) {
       const open = (await import("open")).default;
-      setTimeout(() => open(`http://${opts.host}:${port}`), 500);
+      const displayHost = opts.host === "0.0.0.0" ? "localhost" : opts.host;
+      setTimeout(() => open(`http://${displayHost}:${actualPort}`), 500);
     }
   });
 
@@ -90,8 +91,7 @@ program
   .option("--size <name>", "Use a named export size from config")
   .option("--width <px>", "Output width in pixels (custom size)")
   .option("--height <px>", "Output height in pixels (custom size)")
-  .option("--all", "Export at every size defined in the config")
-  .option("--force", "Re-render all assets even if unchanged")
+  .option("-f, --force", "Export at every size and re-render all assets (ignores cache)")
   .option("-o, --output <dir>", "Output directory (env: OPEN_ASSETS_OUTPUT)", env("OPEN_ASSETS_OUTPUT", "./exports"))
   .option("--config <path>", "Path to config file (env: OPEN_ASSETS_CONFIG)", env("OPEN_ASSETS_CONFIG", "assets.json"))
   .option("--parallel <count>", "Number of parallel renders (env: OPEN_ASSETS_PARALLEL)", env("OPEN_ASSETS_PARALLEL", "1"))

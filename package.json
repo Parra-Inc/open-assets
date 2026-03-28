@@ -39,7 +39,7 @@
     "access": "public"
   },
   "scripts": {
-    "assets": "node bin/open-assets.mjs render --all -o ./public/img",
+    "assets": "node bin/open-assets.mjs render --force -o ./public/img",
     "test": "node --experimental-vm-modules node_modules/.bin/jest",
     "release": "./scripts/release.sh"
   },

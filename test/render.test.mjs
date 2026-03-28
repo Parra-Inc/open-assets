@@ -112,40 +112,31 @@ describe("renderAssets", () => {
     }
   });
 
-  test("--all renders at every export size", async () => {
-    const deps = createMockDeps();
-    const outputDir = join(tmpDir, "exports");
-    const result = await renderAssets(tmpDir, validManifest, {
-      output: outputDir, collection: "icon", all: true,
-    }, deps);
-
-    // 4 sizes x 2 templates = 8 renders + 1 xcode output = 9 results
-    expect(deps.renderScreenshot).toHaveBeenCalledTimes(8);
-    expect(result.results).toHaveLength(9);
-  });
-
-  test("--force re-renders unchanged assets", async () => {
+  test("--force renders at every export size and ignores cache", async () => {
+    // Without force: renders at source size only, respects cache
     const deps = createMockDeps({
-      isUpToDate: jest.fn(() => true), // everything is up to date
+      isUpToDate: jest.fn(() => true),
     });
     const outputDir = join(tmpDir, "exports");
-
-    // Without force: everything skipped
     const resultNoForce = await renderAssets(tmpDir, validManifest, {
       output: outputDir, collection: "icon",
     }, deps);
     expect(resultNoForce.skipped).toBe(2);
     expect(resultNoForce.results).toHaveLength(0);
 
-    // With force: renders anyway
+    // With force: renders all sizes and ignores cache
     const deps2 = createMockDeps({
       isUpToDate: jest.fn(() => true),
     });
-    const resultForce = await renderAssets(tmpDir, validManifest, {
-      output: outputDir, collection: "icon", force: true,
+    const outputDir2 = join(tmpDir, "exports2");
+    const result = await renderAssets(tmpDir, validManifest, {
+      output: outputDir2, collection: "icon", force: true,
     }, deps2);
-    expect(resultForce.skipped).toBe(0);
-    expect(resultForce.results).toHaveLength(2);
+
+    // 4 sizes x 2 templates = 8 renders + 1 xcode output = 9 results
+    expect(deps2.renderScreenshot).toHaveBeenCalledTimes(8);
+    expect(result.skipped).toBe(0);
+    expect(result.results).toHaveLength(9);
   });
 
   test("skips unchanged assets via lockfile", async () => {
@@ -205,11 +196,11 @@ describe("renderAssets", () => {
     }, deps);
     expect(existsSync(join(outputDir, "icon", "icon.png"))).toBe(true);
 
-    // Multiple sizes (--all) → subdirs
+    // Multiple sizes (--force) → subdirs (multi-template collection)
     const deps2 = createMockDeps();
     const outputDir2 = join(tmpDir, "exports2");
     await renderAssets(tmpDir, validManifest, {
-      output: outputDir2, collection: "icon", all: true,
+      output: outputDir2, collection: "icon", force: true,
     }, deps2);
     expect(existsSync(join(outputDir2, "icon", "1024", "icon.png"))).toBe(true);
     expect(existsSync(join(outputDir2, "icon", "512", "icon.png"))).toBe(true);
@@ -240,11 +231,11 @@ describe("renderAssets", () => {
     expect(result.elapsed).toMatch(/^\d+\.\ds$/);
   });
 
-  test("--all triggers xcode output when collection has outputs", async () => {
+  test("--force triggers xcode output when collection has outputs", async () => {
     const deps = createMockDeps();
     const outputDir = join(tmpDir, "exports");
     await renderAssets(tmpDir, validManifest, {
-      output: outputDir, collection: "icon", all: true,
+      output: outputDir, collection: "icon", force: true,
     }, deps);
 
     expect(deps.runXcodeOutput).toHaveBeenCalledTimes(1);
@@ -254,7 +245,7 @@ describe("renderAssets", () => {
     });
   });
 
-  test("xcode output is not triggered without --all", async () => {
+  test("xcode output is not triggered without --force", async () => {
     const deps = createMockDeps();
     const outputDir = join(tmpDir, "exports");
     await renderAssets(tmpDir, validManifest, {
@@ -264,7 +255,7 @@ describe("renderAssets", () => {
     expect(deps.runXcodeOutput).not.toHaveBeenCalled();
   });
 
-  test("--all triggers copy-source output", async () => {
+  test("--force triggers copy-source output", async () => {
     const tmp = createTmpProject(multiPlatformManifest, {
       "src/icon.html": templateHtml,
       "src/logo.svg": templateSvg,
@@ -273,15 +264,15 @@ describe("renderAssets", () => {
       const deps = createMockDeps();
       const outputDir = join(tmp.dir, "exports");
       await renderAssets(tmp.dir, multiPlatformManifest, {
-        output: outputDir, collection: "logo", all: true,
+        output: outputDir, collection: "logo", force: true,
       }, deps);
 
       // Should have copy-source result
       const copySvg = deps.renderScreenshot.mock.calls.length; // render calls
       expect(copySvg).toBeGreaterThan(0);
 
-      // The copy-source output should copy the SVG
-      const svgCopyPath = join(outputDir, "logo", "svg", "logo.svg");
+      // The copy-source output should copy the SVG (flat in collection dir)
+      const svgCopyPath = join(outputDir, "logo", "logo.svg");
       expect(existsSync(svgCopyPath)).toBe(true);
     } finally {
       tmp.cleanup();

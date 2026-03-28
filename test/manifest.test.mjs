@@ -192,19 +192,19 @@ describe("resolveRenderSizes", () => {
     expect(result.warning).toMatch(/size "nonexistent" not found/);
   });
 
-  test("--all returns all export sizes", () => {
-    const result = resolveRenderSizes(iconCollection, { all: true });
+  test("--force returns all export sizes", () => {
+    const result = resolveRenderSizes(iconCollection, { force: true });
     expect(result.sizes).toHaveLength(4); // 2 iOS + 2 Web
   });
 
-  test("--all with no export sizes returns empty", () => {
+  test("--force with no export sizes returns empty", () => {
     const col = { sourceSize: { width: 100, height: 100 }, export: [] };
-    const result = resolveRenderSizes(col, { all: true });
+    const result = resolveRenderSizes(col, { force: true });
     expect(result.sizes).toHaveLength(0);
   });
 
-  test("custom width/height takes precedence over --all", () => {
-    const result = resolveRenderSizes(iconCollection, { width: 50, height: 50, all: true });
+  test("custom width/height takes precedence over --force", () => {
+    const result = resolveRenderSizes(iconCollection, { width: 50, height: 50, force: true });
     expect(result.sizes).toHaveLength(1);
     expect(result.sizes[0].size.width).toBe(50);
   });

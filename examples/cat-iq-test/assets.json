@@ -2,7 +2,7 @@
   "version": 1,
   "name": "Cat IQ Test",
   "publicDir": "public",
-  "command": "npx open-assets render --all",
+  "command": "npx open-assets render --force",
   "collections": [
     {
       "id": "screenshots",
@@ -53,8 +53,7 @@
       ],
       "export": [
         { "name": "1024", "label": "1024px", "size": { "width": 1024, "height": 1024 } },
-        { "name": "512", "label": "512px", "size": { "width": 512, "height": 512 } },
-        { "type": "xcode", "path": "../CatIQTest/Resources/Assets.xcassets/AppIcon.appiconset" }
+        { "name": "512", "label": "512px", "size": { "width": 512, "height": 512 } }
       ]
     },
     {
@@ -65,9 +64,9 @@
         { "src": "public/logo.svg", "name": "logo", "label": "Logo" }
       ],
       "export": [
-        { "name": "1024", "label": "1024px", "size": { "width": 1024, "height": 1024 } },
-        { "name": "512", "label": "512px", "size": { "width": 512, "height": 512 } },
-        { "type": "copy-source", "format": "svg" }
+        { "name": "logo-1024", "label": "1024px", "size": { "width": 1024, "height": 1024 } },
+        { "name": "logo-512", "label": "512px", "size": { "width": 512, "height": 512 } },
+        { "name": "logo", "type": "copy-source", "format": "svg" }
       ]
     }
   ]
