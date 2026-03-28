@@ -337,9 +337,7 @@ All collections follow the same structure. No `type` field needed.
   ],
   "export": [
     { "name": "iphone-6.9", "label": "iPhone 6.9\"", "size": { "width": 1320, "height": 2868 } },
-    { "name": "iphone-6.7", "label": "iPhone 6.7\"", "size": { "width": 1290, "height": 2796 } }
-  ],
-  "outputs": [
+    { "name": "iphone-6.7", "label": "iPhone 6.7\"", "size": { "width": 1290, "height": 2796 } },
     { "type": "xcode", "path": "../MyApp/Assets.xcassets/AppIcon.appiconset" }
   ]
 }
@@ -355,15 +353,17 @@ All collections follow the same structure. No `type` field needed.
 | `templates[].src` | string | Path to HTML/SVG file (relative to project root) |
 | `templates[].name` | string | Filename for exports (used by `--template` flag) |
 | `templates[].label` | string | Display label |
-| `export` | array | Flat array of export size definitions |
+| `export` | array | Array of export sizes and output actions |
 | `export[].name` | string | Size identifier (used by `--size` flag) |
 | `export[].label` | string | Display label |
 | `export[].size` | object | `{ width, height }` — output dimensions in pixels |
 | `export[].outFile` | string | Optional output path for this size (supports .png, .jpg) |
-| `outputs` | array | Optional post-render actions |
+| `export[].type` | string | Output action type (`xcode`, `copy-source`). Entries with `type` are post-render actions, not sizes |
 | `customExport` | object | Optional `{ defaultWidth, defaultHeight }` for custom size UI |
 
 ### Output Types
+
+Export entries with a `type` field are post-render actions (run with `--all`):
 
 | Type | Config | Description |
 |------|--------|-------------|
@@ -405,9 +405,7 @@ All collections follow the same structure. No `type` field needed.
   "export": [
     { "name": "1024", "label": "1024px", "size": { "width": 1024, "height": 1024 } },
     { "name": "180", "label": "180px", "size": { "width": 180, "height": 180 } },
-    { "name": "120", "label": "120px", "size": { "width": 120, "height": 120 } }
-  ],
-  "outputs": [
+    { "name": "120", "label": "120px", "size": { "width": 120, "height": 120 } },
     { "type": "xcode", "path": "../MyApp/Assets.xcassets/AppIcon.appiconset" }
   ]
 }
@@ -446,9 +444,7 @@ All collections follow the same structure. No `type` field needed.
   "export": [
     { "name": "2048", "label": "2048px", "size": { "width": 2048, "height": 2048 } },
     { "name": "1024", "label": "1024px", "size": { "width": 1024, "height": 1024 } },
-    { "name": "512", "label": "512px", "size": { "width": 512, "height": 512 } }
-  ],
-  "outputs": [
+    { "name": "512", "label": "512px", "size": { "width": 512, "height": 512 } },
     { "type": "copy-source", "format": "svg" }
   ]
 }

@@ -113,8 +113,7 @@ describe("formatCollectionList", () => {
         tags: [],
         sourceSize: { width: 800, height: 800 },
         templates: [{ src: "logo.svg", name: "logo", label: "Logo" }],
-        export: [],
-        outputs: [{ type: "copy-source", format: "svg" }],
+        export: [{ type: "copy-source", format: "svg" }],
       }],
     };
     const result = listCollections(manifest);

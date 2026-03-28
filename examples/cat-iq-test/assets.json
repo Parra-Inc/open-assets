@@ -53,22 +53,22 @@
       ],
       "export": [
         { "name": "1024", "label": "1024px", "size": { "width": 1024, "height": 1024 } },
-        { "name": "512", "label": "512px", "size": { "width": 512, "height": 512 } }
-      ],
-      "outputs": [{ "type": "xcode", "path": "../CatIQTest/Resources/Assets.xcassets/AppIcon.appiconset" }]
+        { "name": "512", "label": "512px", "size": { "width": 512, "height": 512 } },
+        { "type": "xcode", "path": "../CatIQTest/Resources/Assets.xcassets/AppIcon.appiconset" }
+      ]
     },
     {
       "id": "logo",
       "label": "Logo",
       "sourceSize": { "width": 940, "height": 940 },
       "templates": [
-        { "src": "assets/screenshots/icon-cat.svg", "name": "logo", "label": "Logo" }
+        { "src": "public/logo.svg", "name": "logo", "label": "Logo" }
       ],
       "export": [
         { "name": "1024", "label": "1024px", "size": { "width": 1024, "height": 1024 } },
-        { "name": "512", "label": "512px", "size": { "width": 512, "height": 512 } }
-      ],
-      "outputs": [{ "type": "copy-source", "format": "svg" }]
+        { "name": "512", "label": "512px", "size": { "width": 512, "height": 512 } },
+        { "type": "copy-source", "format": "svg" }
+      ]
     }
   ]
 }

@@ -42,8 +42,6 @@ export const validManifest = {
         { name: "180", label: "iPhone @3x", size: { width: 180, height: 180 } },
         { name: "512", label: "512px", size: { width: 512, height: 512 } },
         { name: "192", label: "192px", size: { width: 192, height: 192 } },
-      ],
-      outputs: [
         { type: "xcode", path: "App/Assets.xcassets/AppIcon.appiconset" },
       ],
     },
@@ -97,8 +95,6 @@ export const multiPlatformManifest = {
       ],
       export: [
         { name: "400", label: "400px", size: { width: 400, height: 400 } },
-      ],
-      outputs: [
         { type: "copy-source", format: "svg" },
       ],
     },

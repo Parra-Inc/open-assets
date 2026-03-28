@@ -57,7 +57,6 @@ The `assets.json` at the project root defines all asset collections. All collect
       "export": [
         { "name": "iphone-6.9", "label": "iPhone 6.9\"", "size": { "width": 1320, "height": 2868 } }
       ],
-      "outputs": [],
       "customExport": { "defaultWidth": 1320, "defaultHeight": 2868 }
     }
   ]
@@ -73,11 +72,12 @@ The `assets.json` at the project root defines all asset collections. All collect
 | `sourceSize` | object | `{ width, height }` — dimensions templates are authored at |
 | `borderRadius` | number | Border radius for preview frames (px) |
 | `templates` | array | Source files: `{ src, name, label }` |
-| `export` | array | Export sizes: `[{ name, label, size: { width, height }, outFile? }]` |
-| `outputs` | array | Post-render actions (optional) |
+| `export` | array | Export sizes and output actions. Entries with a `type` field are post-render actions |
 | `customExport` | object | Custom size defaults for UI (optional) |
 
 ### Output Types
+
+Export entries with a `type` field are post-render actions (run with `--all`):
 
 | Type | Config | Description |
 |------|--------|-------------|
@@ -116,9 +116,9 @@ The `assets.json` at the project root defines all asset collections. All collect
   ],
   "export": [
     { "name": "1024", "label": "1024px", "size": { "width": 1024, "height": 1024 } },
-    { "name": "180", "label": "180px", "size": { "width": 180, "height": 180 } }
-  ],
-  "outputs": [{ "type": "xcode", "path": "../MyApp/Assets.xcassets/AppIcon.appiconset" }]
+    { "name": "180", "label": "180px", "size": { "width": 180, "height": 180 } },
+    { "type": "xcode", "path": "../MyApp/Assets.xcassets/AppIcon.appiconset" }
+  ]
 }
 ```
 
@@ -151,9 +151,9 @@ The `assets.json` at the project root defines all asset collections. All collect
   ],
   "export": [
     { "name": "1024", "label": "1024px", "size": { "width": 1024, "height": 1024 } },
-    { "name": "512", "label": "512px", "size": { "width": 512, "height": 512 } }
-  ],
-  "outputs": [{ "type": "copy-source", "format": "svg" }]
+    { "name": "512", "label": "512px", "size": { "width": 512, "height": 512 } },
+    { "type": "copy-source", "format": "svg" }
+  ]
 }
 ```
 

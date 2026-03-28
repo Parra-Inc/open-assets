@@ -174,33 +174,14 @@ describe("validateConfig", () => {
     }
   });
 
-  test("output without type produces an error", () => {
+  test("export entry with type produces a passing output check", () => {
     const manifest = {
       name: "Test",
       collections: [{
         id: "test",
         sourceSize: { width: 100, height: 100 },
         templates: [{ src: "a.html", name: "a" }],
-        outputs: [{ path: "some/path" }],
-      }],
-    };
-    const { dir, cleanup } = createTmpProject(manifest, { "a.html": "test" });
-    try {
-      const result = validateConfig(manifest, dir);
-      expect(result.checks.some((c) => !c.ok && c.message.includes("output without 'type'"))).toBe(true);
-    } finally {
-      cleanup();
-    }
-  });
-
-  test("valid output type produces a passing check", () => {
-    const manifest = {
-      name: "Test",
-      collections: [{
-        id: "test",
-        sourceSize: { width: 100, height: 100 },
-        templates: [{ src: "a.html", name: "a" }],
-        outputs: [{ type: "xcode", path: "assets" }],
+        export: [{ type: "xcode", path: "assets" }],
       }],
     };
     const { dir, cleanup } = createTmpProject(manifest, { "a.html": "test" });

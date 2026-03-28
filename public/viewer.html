@@ -254,46 +254,46 @@
         const sh = col.sourceSize.height;
         const hasMultipleTemplates = col.templates.length > 1;
 
-        // Outputs (e.g., Xcode)
-        if (col.outputs) {
-          for (let i = 0; i < col.outputs.length; i++) {
-            const output = col.outputs[i];
-            if (output.type === 'xcode') {
-              const sectionLabel = document.createElement('div');
-              sectionLabel.className = 'section-label';
-              sectionLabel.textContent = 'Xcode';
-              exportDropdown.appendChild(sectionLabel);
+        // Outputs (e.g., Xcode, copy-source) — export entries with a type field
+        const allExports = col.export || [];
+        const outputs = allExports.filter(e => e.type);
+        for (let i = 0; i < outputs.length; i++) {
+          const output = outputs[i];
+          if (output.type === 'xcode') {
+            const sectionLabel = document.createElement('div');
+            sectionLabel.className = 'section-label';
+            sectionLabel.textContent = 'Xcode';
+            exportDropdown.appendChild(sectionLabel);
 
-              const btn = document.createElement('button');
-              btn.innerHTML = 'Export to Xcode <span class="dim">.appiconset</span>';
-              btn.addEventListener('click', () => runOutput(col.id, i));
-              exportDropdown.appendChild(btn);
+            const btn = document.createElement('button');
+            btn.innerHTML = 'Export to Xcode <span class="dim">.appiconset</span>';
+            btn.addEventListener('click', () => runOutput(col.id, i));
+            exportDropdown.appendChild(btn);
 
-              exportDropdown.appendChild(document.createElement('hr'));
-            } else if (output.type === 'copy-source') {
-              const sectionLabel = document.createElement('div');
-              sectionLabel.className = 'section-label';
-              sectionLabel.textContent = output.format.toUpperCase();
-              exportDropdown.appendChild(sectionLabel);
+            exportDropdown.appendChild(document.createElement('hr'));
+          } else if (output.type === 'copy-source') {
+            const sectionLabel = document.createElement('div');
+            sectionLabel.className = 'section-label';
+            sectionLabel.textContent = output.format.toUpperCase();
+            exportDropdown.appendChild(sectionLabel);
 
-              // SVG download for each template
-              for (const template of col.templates) {
-                if (template.src.endsWith('.' + output.format)) {
-                  const btn = document.createElement('button');
-                  const displayName = hasMultipleTemplates ? template.label : `Download ${output.format.toUpperCase()}`;
-                  btn.innerHTML = `${displayName} <span class="dim">${output.format}</span>`;
-                  btn.addEventListener('click', () => downloadSource(template));
-                  exportDropdown.appendChild(btn);
-                }
+            // SVG download for each template
+            for (const template of col.templates) {
+              if (template.src.endsWith('.' + output.format)) {
+                const btn = document.createElement('button');
+                const displayName = hasMultipleTemplates ? template.label : `Download ${output.format.toUpperCase()}`;
+                btn.innerHTML = `${displayName} <span class="dim">${output.format}</span>`;
+                btn.addEventListener('click', () => downloadSource(template));
+                exportDropdown.appendChild(btn);
               }
-
-              exportDropdown.appendChild(document.createElement('hr'));
             }
+
+            exportDropdown.appendChild(document.createElement('hr'));
           }
         }
 
-        // Export sizes
-        const sizes = col.export || [];
+        // Export sizes (entries without a type field)
+        const sizes = allExports.filter(e => !e.type);
         if (sizes.length > 0) {
           const sectionLabel = document.createElement('div');
           sectionLabel.className = 'section-label';
