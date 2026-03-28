@@ -1,6 +1,6 @@
 import { jest } from "@jest/globals";
 import { join } from "path";
-import { existsSync, readFileSync } from "fs";
+import { existsSync, readFileSync, mkdirSync, writeFileSync } from "fs";
 import { createTmpProject } from "./helpers/tmp-project.mjs";
 import { templateHtml } from "./helpers/fixtures.mjs";
 
@@ -169,6 +169,42 @@ describe("runXcodeOutput", () => {
       expect(result).toBe(expectedPath);
       expect(existsSync(expectedPath)).toBe(true);
       expect(readFileSync(expectedPath)).toEqual(FAKE_PNG);
+
+      const contentsPath = join(dir, "output/xcassets", "Contents.json");
+      expect(existsSync(contentsPath)).toBe(true);
+      const contents = JSON.parse(readFileSync(contentsPath, "utf-8"));
+      expect(contents.images).toEqual([
+        {
+          filename: "AppIcon.png",
+          idiom: "universal",
+          platform: "ios",
+          size: "1024x1024",
+        },
+      ]);
+      expect(contents.info).toEqual({ author: "xcode", version: 1 });
+    } finally {
+      cleanup();
+    }
+  });
+
+  test("removes stale images from output directory", async () => {
+    const { dir, cleanup } = createTmpProject(null, { "src/icon.html": templateHtml });
+    try {
+      const outputDir = join(dir, "output/xcassets");
+      mkdirSync(outputDir, { recursive: true });
+      writeFileSync(join(outputDir, "AppIcon-1024.png"), "old");
+      writeFileSync(join(outputDir, "OldIcon.png"), "old");
+
+      const collection = {
+        id: "icon",
+        sourceSize: { width: 1024, height: 1024 },
+        templates: [{ src: "src/icon.html", name: "icon" }],
+      };
+      await runXcodeOutput(dir, collection, { type: "xcode", path: "output/xcassets" });
+
+      expect(existsSync(join(outputDir, "AppIcon.png"))).toBe(true);
+      expect(existsSync(join(outputDir, "AppIcon-1024.png"))).toBe(false);
+      expect(existsSync(join(outputDir, "OldIcon.png"))).toBe(false);
     } finally {
       cleanup();
     }
