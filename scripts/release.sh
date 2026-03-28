@@ -29,70 +29,75 @@ fi
 # Read current version
 CURRENT=$(node -p "require('./package.json').version")
 
-# Compute next versions
-IFS='.' read -r MAJOR MINOR PATCH <<< "$CURRENT"
-NEXT_PATCH="${MAJOR}.${MINOR}.$((PATCH + 1))"
-NEXT_MINOR="${MAJOR}.$((MINOR + 1)).0"
-NEXT_MAJOR="$((MAJOR + 1)).0.0"
+# If a version was passed as an argument, use it directly
+if [[ -n "${1:-}" ]]; then
+  NEXT="$1"
+else
+  # Compute next versions
+  IFS='.' read -r MAJOR MINOR PATCH <<< "$CURRENT"
+  NEXT_PATCH="${MAJOR}.${MINOR}.$((PATCH + 1))"
+  NEXT_MINOR="${MAJOR}.$((MINOR + 1)).0"
+  NEXT_MAJOR="$((MAJOR + 1)).0.0"
 
-# Show current version and options
-echo ""
-echo "Current published version: v${CURRENT}"
-echo ""
-echo "Select release type:"
-echo ""
+  # Show current version and options
+  echo ""
+  echo "Current published version: v${CURRENT}"
+  echo ""
+  echo "Select release type:"
+  echo ""
 
-OPTIONS=("patch  → v${NEXT_PATCH}" "minor  → v${NEXT_MINOR}" "major  → v${NEXT_MAJOR}")
-VERSIONS=("$NEXT_PATCH" "$NEXT_MINOR" "$NEXT_MAJOR")
-SELECTED=0
+  OPTIONS=("patch  → v${NEXT_PATCH}" "minor  → v${NEXT_MINOR}" "major  → v${NEXT_MAJOR}")
+  VERSIONS=("$NEXT_PATCH" "$NEXT_MINOR" "$NEXT_MAJOR")
+  SELECTED=0
 
-# Read arrow keys and render menu
-render_menu() {
-  # Move cursor up to overwrite previous menu
-  if [[ $1 -eq 1 ]]; then
-    printf "\033[3A"
-  fi
-  for i in 0 1 2; do
-    if [[ $i -eq $SELECTED ]]; then
-      echo "  ▸ ${OPTIONS[$i]}"
-    else
-      echo "    ${OPTIONS[$i]}"
+  # Read arrow keys and render menu
+  render_menu() {
+    # Move cursor up to overwrite previous menu
+    if [[ $1 -eq 1 ]]; then
+      printf "\033[3A"
     fi
+    for i in 0 1 2; do
+      if [[ $i -eq $SELECTED ]]; then
+        echo "  ▸ ${OPTIONS[$i]}"
+      else
+        echo "    ${OPTIONS[$i]}"
+      fi
+    done
+  }
+
+  # Initial render
+  render_menu 0
+
+  # Interactive selection
+  while true; do
+    # Read a single keypress
+    IFS= read -rsn1 key
+    if [[ "$key" == $'\x1b' ]]; then
+      read -rsn2 rest
+      key+="$rest"
+    fi
+
+    case "$key" in
+      $'\x1b[A') # Up arrow
+        if [[ $SELECTED -gt 0 ]]; then
+          SELECTED=$((SELECTED - 1))
+        fi
+        render_menu 1
+        ;;
+      $'\x1b[B') # Down arrow
+        if [[ $SELECTED -lt 2 ]]; then
+          SELECTED=$((SELECTED + 1))
+        fi
+        render_menu 1
+        ;;
+      '') # Enter
+        break
+        ;;
+    esac
   done
-}
 
-# Initial render
-render_menu 0
-
-# Interactive selection
-while true; do
-  # Read a single keypress
-  IFS= read -rsn1 key
-  if [[ "$key" == $'\x1b' ]]; then
-    read -rsn2 rest
-    key+="$rest"
-  fi
-
-  case "$key" in
-    $'\x1b[A') # Up arrow
-      if [[ $SELECTED -gt 0 ]]; then
-        SELECTED=$((SELECTED - 1))
-      fi
-      render_menu 1
-      ;;
-    $'\x1b[B') # Down arrow
-      if [[ $SELECTED -lt 2 ]]; then
-        SELECTED=$((SELECTED + 1))
-      fi
-      render_menu 1
-      ;;
-    '') # Enter
-      break
-      ;;
-  esac
-done
-
-NEXT="${VERSIONS[$SELECTED]}"
+  NEXT="${VERSIONS[$SELECTED]}"
+fi
 
 echo ""
 echo "Releasing v${NEXT} (was v${CURRENT})"
