@@ -4,6 +4,7 @@ import {
   readLockfile,
   writeLockfile,
   computeChecksum,
+  extractLocalDeps,
   isUpToDate,
   recordExport,
 } from "../lib/lockfile.mjs";
@@ -237,5 +238,211 @@ describe("recordExport", () => {
     recordExport(lockData, "icon/icon", "512", "sha256:updated", "new.png");
     expect(lockData.assets["icon/icon"]["512"].sourceChecksum).toBe("sha256:updated");
     expect(lockData.assets["icon/icon"]["512"].outputPath).toBe("new.png");
+  });
+});
+
+describe("extractLocalDeps", () => {
+  test("returns empty array for nonexistent file", () => {
+    expect(extractLocalDeps("/tmp/no-such-file.html")).toEqual([]);
+  });
+
+  test("returns empty array for HTML with no local refs", () => {
+    const { dir, cleanup } = createTmpProject(null, {
+      "test.html": '<html><body><h1>Hello</h1></body></html>',
+    });
+    try {
+      expect(extractLocalDeps(join(dir, "test.html"))).toEqual([]);
+    } finally {
+      cleanup();
+    }
+  });
+
+  test("extracts src attributes from img tags", () => {
+    const { dir, cleanup } = createTmpProject(null, {
+      "assets/page.html": '<img src="../public/logo.svg" />',
+      "public/logo.svg": "<svg></svg>",
+    });
+    try {
+      const deps = extractLocalDeps(join(dir, "assets/page.html"));
+      expect(deps).toHaveLength(1);
+      expect(deps[0]).toBe(join(dir, "public/logo.svg"));
+    } finally {
+      cleanup();
+    }
+  });
+
+  test("extracts href attributes", () => {
+    const { dir, cleanup } = createTmpProject(null, {
+      "page.html": '<link href="styles.css" rel="stylesheet" />',
+      "styles.css": "body { color: red; }",
+    });
+    try {
+      const deps = extractLocalDeps(join(dir, "page.html"));
+      expect(deps).toHaveLength(1);
+      expect(deps[0]).toBe(join(dir, "styles.css"));
+    } finally {
+      cleanup();
+    }
+  });
+
+  test("ignores remote URLs", () => {
+    const { dir, cleanup } = createTmpProject(null, {
+      "page.html": [
+        '<script src="https://cdn.tailwindcss.com"></script>',
+        '<link href="https://fonts.googleapis.com/css2" rel="stylesheet" />',
+        '<img src="//example.com/img.png" />',
+        '<img src="data:image/png;base64,abc" />',
+      ].join("\n"),
+    });
+    try {
+      expect(extractLocalDeps(join(dir, "page.html"))).toEqual([]);
+    } finally {
+      cleanup();
+    }
+  });
+
+  test("deduplicates repeated references", () => {
+    const { dir, cleanup } = createTmpProject(null, {
+      "page.html": '<img src="logo.svg" /><img src="logo.svg" />',
+      "logo.svg": "<svg></svg>",
+    });
+    try {
+      const deps = extractLocalDeps(join(dir, "page.html"));
+      expect(deps).toHaveLength(1);
+    } finally {
+      cleanup();
+    }
+  });
+
+  test("skips references to files that do not exist", () => {
+    const { dir, cleanup } = createTmpProject(null, {
+      "page.html": '<img src="missing.png" /><img src="found.svg" />',
+      "found.svg": "<svg></svg>",
+    });
+    try {
+      const deps = extractLocalDeps(join(dir, "page.html"));
+      expect(deps).toHaveLength(1);
+      expect(deps[0]).toBe(join(dir, "found.svg"));
+    } finally {
+      cleanup();
+    }
+  });
+
+  test("handles both single and double quotes", () => {
+    const { dir, cleanup } = createTmpProject(null, {
+      "page.html": "<img src='a.svg' /><img src=\"b.svg\" />",
+      "a.svg": "<svg>a</svg>",
+      "b.svg": "<svg>b</svg>",
+    });
+    try {
+      const deps = extractLocalDeps(join(dir, "page.html"));
+      expect(deps).toHaveLength(2);
+    } finally {
+      cleanup();
+    }
+  });
+});
+
+describe("computeChecksum with dependencies", () => {
+  test("HTML with no local deps produces same hash as plain content hash", () => {
+    const { dir, cleanup } = createTmpProject(null, {
+      "test.html": "<html><body>Hello</body></html>",
+    });
+    try {
+      const htmlPath = join(dir, "test.html");
+      const htmlChecksum = computeChecksum(htmlPath);
+      // Rename to .txt to get the plain single-file hash
+      const { dir: dir2, cleanup: cleanup2 } = createTmpProject(null, {
+        "test.txt": "<html><body>Hello</body></html>",
+      });
+      try {
+        const txtChecksum = computeChecksum(join(dir2, "test.txt"));
+        expect(htmlChecksum).toBe(txtChecksum);
+      } finally {
+        cleanup2();
+      }
+    } finally {
+      cleanup();
+    }
+  });
+
+  test("hash changes when a dependency file changes", () => {
+    const { dir, cleanup } = createTmpProject(null, {
+      "page.html": '<img src="logo.svg" />',
+      "logo.svg": "<svg>version1</svg>",
+    });
+    try {
+      const hash1 = computeChecksum(join(dir, "page.html"));
+      writeFileSync(join(dir, "logo.svg"), "<svg>version2</svg>");
+      const hash2 = computeChecksum(join(dir, "page.html"));
+      expect(hash1).not.toBe(hash2);
+    } finally {
+      cleanup();
+    }
+  });
+
+  test("hash changes when template content changes", () => {
+    const { dir, cleanup } = createTmpProject(null, {
+      "page.html": '<img src="logo.svg" /><p>v1</p>',
+      "logo.svg": "<svg></svg>",
+    });
+    try {
+      const hash1 = computeChecksum(join(dir, "page.html"));
+      writeFileSync(join(dir, "page.html"), '<img src="logo.svg" /><p>v2</p>');
+      const hash2 = computeChecksum(join(dir, "page.html"));
+      expect(hash1).not.toBe(hash2);
+    } finally {
+      cleanup();
+    }
+  });
+
+  test("hash is stable when nothing changes", () => {
+    const { dir, cleanup } = createTmpProject(null, {
+      "page.html": '<img src="logo.svg" />',
+      "logo.svg": "<svg></svg>",
+    });
+    try {
+      const hash1 = computeChecksum(join(dir, "page.html"));
+      const hash2 = computeChecksum(join(dir, "page.html"));
+      expect(hash1).toBe(hash2);
+    } finally {
+      cleanup();
+    }
+  });
+
+  test("hash changes when dependency changes but template does not", () => {
+    const { dir, cleanup } = createTmpProject(null, {
+      "page.html": '<img src="icon.png" /><img src="logo.svg" />',
+      "icon.png": "fake-png-v1",
+      "logo.svg": "<svg>logo</svg>",
+    });
+    try {
+      const hash1 = computeChecksum(join(dir, "page.html"));
+      // Only change a dependency, leave the HTML untouched
+      writeFileSync(join(dir, "icon.png"), "fake-png-v2");
+      const hash2 = computeChecksum(join(dir, "page.html"));
+      expect(hash1).not.toBe(hash2);
+      // Template content is identical
+      expect(readFileSync(join(dir, "page.html"), "utf-8")).toBe(
+        '<img src="icon.png" /><img src="logo.svg" />'
+      );
+    } finally {
+      cleanup();
+    }
+  });
+
+  test("non-HTML files are not affected by nearby files", () => {
+    const { dir, cleanup } = createTmpProject(null, {
+      "icon.svg": "<svg>icon</svg>",
+      "logo.svg": "<svg>logo</svg>",
+    });
+    try {
+      const hash1 = computeChecksum(join(dir, "icon.svg"));
+      writeFileSync(join(dir, "logo.svg"), "<svg>changed</svg>");
+      const hash2 = computeChecksum(join(dir, "icon.svg"));
+      expect(hash1).toBe(hash2);
+    } finally {
+      cleanup();
+    }
   });
 });
