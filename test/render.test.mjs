@@ -351,6 +351,61 @@ describe("renderAssets", () => {
     expect(deps.renderScreenshot).toHaveBeenCalledTimes(2);
   });
 
+  test("outFile with {template} renders all templates to individual paths", async () => {
+    const outFileManifest = {
+      version: 1,
+      name: "OutFile Test",
+      tags: [],
+      collections: [
+        {
+          id: "tab-icons",
+          label: "Tab Icons",
+          sourceSize: { width: 128, height: 128 },
+          templates: [
+            { src: "assets/tab-icons/learn.html", name: "learn", label: "Learn" },
+            { src: "assets/tab-icons/plays.html", name: "plays", label: "Plays" },
+            { src: "assets/tab-icons/practice.html", name: "practice", label: "Practice" },
+          ],
+          export: [
+            { name: "25", label: "@1x (25px)", size: { width: 25, height: 25 } },
+            { name: "50", label: "@2x (50px)", size: { width: 50, height: 50 } },
+            { name: "128", label: "128px", size: { width: 128, height: 128 }, outFile: "output/tab-icons/{template}.png" },
+          ],
+        },
+      ],
+    };
+
+    const tmp = createTmpProject(outFileManifest, {
+      "assets/tab-icons/learn.html": templateHtml,
+      "assets/tab-icons/plays.html": templateHtml,
+      "assets/tab-icons/practice.html": templateHtml,
+    });
+    try {
+      const deps = createMockDeps();
+      const outputDir = join(tmp.dir, "exports");
+      await renderAssets(tmp.dir, outFileManifest, {
+        output: outputDir, force: true,
+      }, deps);
+
+      // All 3 templates x 3 sizes = 9 renders
+      expect(deps.renderScreenshot).toHaveBeenCalledTimes(9);
+
+      // The outFile size should render each template to its own path
+      const learnPath = join(tmp.dir, "output/tab-icons/learn.png");
+      const playsPath = join(tmp.dir, "output/tab-icons/plays.png");
+      const practicePath = join(tmp.dir, "output/tab-icons/practice.png");
+      expect(existsSync(learnPath)).toBe(true);
+      expect(existsSync(playsPath)).toBe(true);
+      expect(existsSync(practicePath)).toBe(true);
+
+      // Non-outFile sizes should render to the standard exports dir
+      expect(existsSync(join(outputDir, "tab-icons/25/learn.png"))).toBe(true);
+      expect(existsSync(join(outputDir, "tab-icons/50/learn.png"))).toBe(true);
+    } finally {
+      tmp.cleanup();
+    }
+  });
+
   test("size not found in collection skips it with warning", async () => {
     const logs = [];
     const deps = createMockDeps();
