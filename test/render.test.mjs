@@ -206,6 +206,43 @@ describe("renderAssets", () => {
     expect(existsSync(join(outputDir2, "icon", "512", "icon.png"))).toBe(true);
   });
 
+  test("re-renders when export config changes even if source unchanged", async () => {
+    // Simulate lockfile with old export checksum — source matches but export config changed
+    const deps = createMockDeps({
+      isUpToDate: jest.fn((lockData, assetKey, variantKey, checksum, outPath, exportChecksum) => {
+        // Source matches but export checksum differs
+        return false;
+      }),
+    });
+    const outputDir = join(tmpDir, "exports");
+    const result = await renderAssets(tmpDir, validManifest, {
+      output: outputDir, collection: "icon",
+    }, deps);
+
+    // Should render, not skip
+    expect(result.skipped).toBe(0);
+    expect(deps.renderScreenshot).toHaveBeenCalledTimes(2);
+    // recordExport should be called with 6 args (including exportChecksum)
+    expect(deps.recordExport).toHaveBeenCalledTimes(2);
+    for (const call of deps.recordExport.mock.calls) {
+      expect(call).toHaveLength(6);
+      expect(call[5]).toMatch(/^sha256:/); // exportChecksum
+    }
+  });
+
+  test("passes exportChecksum to isUpToDate", async () => {
+    const deps = createMockDeps();
+    const outputDir = join(tmpDir, "exports");
+    await renderAssets(tmpDir, validManifest, {
+      output: outputDir, collection: "icon",
+    }, deps);
+
+    for (const call of deps.isUpToDate.mock.calls) {
+      expect(call).toHaveLength(6);
+      expect(call[5]).toMatch(/^sha256:/); // exportChecksum
+    }
+  });
+
   test("records exports in lockfile", async () => {
     const deps = createMockDeps();
     const outputDir = join(tmpDir, "exports");

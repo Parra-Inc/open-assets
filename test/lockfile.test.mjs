@@ -4,6 +4,7 @@ import {
   readLockfile,
   writeLockfile,
   computeChecksum,
+  computeExportChecksum,
   extractLocalDeps,
   isUpToDate,
   recordExport,
@@ -192,6 +193,60 @@ describe("isUpToDate", () => {
       cleanup();
     }
   });
+
+  test("returns false when export checksum differs", () => {
+    const { dir, cleanup } = createTmpProject(null, { "out.png": "fake png data" });
+    try {
+      const outPath = join(dir, "out.png");
+      const lockData = {
+        version: 1,
+        assets: {
+          "icon/icon": {
+            "512": { sourceChecksum: "sha256:abc", exportChecksum: "sha256:old", outputPath: outPath },
+          },
+        },
+      };
+      expect(isUpToDate(lockData, "icon/icon", "512", "sha256:abc", outPath, "sha256:new")).toBe(false);
+    } finally {
+      cleanup();
+    }
+  });
+
+  test("returns true when both source and export checksums match", () => {
+    const { dir, cleanup } = createTmpProject(null, { "out.png": "fake png data" });
+    try {
+      const outPath = join(dir, "out.png");
+      const lockData = {
+        version: 1,
+        assets: {
+          "icon/icon": {
+            "512": { sourceChecksum: "sha256:abc", exportChecksum: "sha256:exp", outputPath: outPath },
+          },
+        },
+      };
+      expect(isUpToDate(lockData, "icon/icon", "512", "sha256:abc", outPath, "sha256:exp")).toBe(true);
+    } finally {
+      cleanup();
+    }
+  });
+
+  test("returns true when no export checksum is provided (backwards compat)", () => {
+    const { dir, cleanup } = createTmpProject(null, { "out.png": "fake png data" });
+    try {
+      const outPath = join(dir, "out.png");
+      const lockData = {
+        version: 1,
+        assets: {
+          "icon/icon": {
+            "512": { sourceChecksum: "sha256:abc", outputPath: outPath },
+          },
+        },
+      };
+      expect(isUpToDate(lockData, "icon/icon", "512", "sha256:abc", outPath)).toBe(true);
+    } finally {
+      cleanup();
+    }
+  });
 });
 
 describe("recordExport", () => {
@@ -238,6 +293,49 @@ describe("recordExport", () => {
     recordExport(lockData, "icon/icon", "512", "sha256:updated", "new.png");
     expect(lockData.assets["icon/icon"]["512"].sourceChecksum).toBe("sha256:updated");
     expect(lockData.assets["icon/icon"]["512"].outputPath).toBe("new.png");
+  });
+
+  test("stores exportChecksum when provided", () => {
+    const lockData = { version: 1, assets: {} };
+    recordExport(lockData, "icon/icon", "512", "sha256:abc", "out.png", "sha256:exp");
+    expect(lockData.assets["icon/icon"]["512"].exportChecksum).toBe("sha256:exp");
+  });
+
+  test("omits exportChecksum when not provided", () => {
+    const lockData = { version: 1, assets: {} };
+    recordExport(lockData, "icon/icon", "512", "sha256:abc", "out.png");
+    expect(lockData.assets["icon/icon"]["512"]).not.toHaveProperty("exportChecksum");
+  });
+});
+
+describe("computeExportChecksum", () => {
+  test("returns sha256 prefixed hash", () => {
+    const result = computeExportChecksum({ size: { width: 64, height: 64 } });
+    expect(result).toMatch(/^sha256:[a-f0-9]{64}$/);
+  });
+
+  test("same config produces same hash", () => {
+    const a = computeExportChecksum({ size: { width: 64, height: 64 } });
+    const b = computeExportChecksum({ size: { width: 64, height: 64 } });
+    expect(a).toBe(b);
+  });
+
+  test("different size produces different hash", () => {
+    const a = computeExportChecksum({ size: { width: 64, height: 64 } });
+    const b = computeExportChecksum({ size: { width: 128, height: 128 } });
+    expect(a).not.toBe(b);
+  });
+
+  test("adding outFile produces different hash", () => {
+    const a = computeExportChecksum({ size: { width: 64, height: 64 } });
+    const b = computeExportChecksum({ size: { width: 64, height: 64 }, outFile: "public/{template}.png" });
+    expect(a).not.toBe(b);
+  });
+
+  test("different outFile produces different hash", () => {
+    const a = computeExportChecksum({ size: { width: 64, height: 64 }, outFile: "a/{template}.png" });
+    const b = computeExportChecksum({ size: { width: 64, height: 64 }, outFile: "b/{template}.png" });
+    expect(a).not.toBe(b);
   });
 });
 
