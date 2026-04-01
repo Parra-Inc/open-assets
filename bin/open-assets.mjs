@@ -89,6 +89,7 @@ program
   .option("--tag <tag>", "Render only collections with this tag")
   .option("--template <name>", "Render only the template with this name")
   .option("--size <name>", "Use a named export size from config")
+  .option("--locale <code>", "Render only this locale (e.g. en, ar, ja)")
   .option("--width <px>", "Output width in pixels (custom size)")
   .option("--height <px>", "Output height in pixels (custom size)")
   .option("-f, --force", "Export at every size and re-render all assets (ignores cache)")
