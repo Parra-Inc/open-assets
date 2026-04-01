@@ -194,6 +194,7 @@ Export entries with a `type` field are post-render actions (run with `--force`):
 | `--collection <id>` | Render only the collection with this ID |
 | `--template <name>` | Render only the template with this name |
 | `--size <name>` | Use a named export size from config |
+| `--locale <code>` | Render only this locale (e.g. `en`, `ar`, `ja`) |
 | `-f, --force` | Export at every size and re-render all (ignores cache) |
 | `-o, --output <dir>` | Output directory (default: `./exports`) |
 | `--json` | Output results as JSON |
@@ -334,6 +335,132 @@ Alternatively, add a new object to the `collections` array in `assets.json` manu
 The `render` command maintains a `assets.lock` file with SHA256 checksums of source files. On subsequent renders, unchanged assets are skipped automatically. Use `--force` to re-render everything.
 
 Note: only source HTML/SVG files are checksummed. Changes to referenced assets (images in publicDir, compiled CSS) will not trigger re-renders — use `--force` when those change.
+
+## Localization (i18n)
+
+Collections can be localized so that templates render in multiple languages. When localizations are configured, each template is rendered once per locale, producing locale-specific exports with proper text direction (LTR/RTL).
+
+### Localizations file
+
+Create a JSON file (iOS `.xcstrings`-inspired format) that maps string keys to per-locale values:
+
+```json
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "hero_title": {
+      "localizations": {
+        "en": { "value": "Track your tax days" },
+        "ar": { "value": "تتبع أيام الضرائب الخاصة بك" },
+        "ja": { "value": "税金の日を追跡する" },
+        "de": { "value": "Verfolge deine Steuertage" }
+      }
+    },
+    "day_count_label": {
+      "localizations": {
+        "en": { "value": "You have {{n:183}} days remaining" },
+        "ar": { "value": "لديك {{n:183}} يوم متبقي" },
+        "de": { "value": "Sie haben {{n:183}} Tage übrig" }
+      }
+    }
+  }
+}
+```
+
+**Number formatting:** Use `{{n:NUMBER}}` inside localized values for locale-aware number formatting (e.g., `1,234` in English, `1.234` in German). Numbers are formatted using `Intl.NumberFormat` for the target locale.
+
+### Wiring localizations to a collection
+
+Add `localizations` (path to the JSON file) and optionally `locales` (filter to specific locales) to a collection in `assets.json`:
+
+```json
+{
+  "id": "screenshots",
+  "label": "App Store Screenshots",
+  "sourceSize": { "width": 440, "height": 956 },
+  "localizations": "localizations.json",
+  "locales": ["en", "ar", "ja", "de"],
+  "templates": [
+    { "src": "assets/screenshots/01-hero.html", "name": "01-hero", "label": "Hero" }
+  ],
+  "export": [
+    { "name": "iphone-6.9", "label": "iPhone 6.9\"", "size": { "width": 1320, "height": 2868 } }
+  ]
+}
+```
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `localizations` | string | Path to the localizations JSON file (relative to project root) |
+| `locales` | string[] | Optional filter — render only these locales. Omit to render all locales in the file. |
+
+### Using placeholders in templates
+
+Templates use `{{key}}` mustache-style placeholders that get replaced with localized values before rendering:
+
+```html
+<h1>{{hero_title}}</h1>
+<p>{{day_count_label}}</p>
+```
+
+The source language values serve as the default/fallback content visible during development. At render time, placeholders are substituted with the localized value for each target locale.
+
+### RTL support
+
+Right-to-left locales (Arabic, Hebrew, Persian, Urdu, etc.) are automatically detected. For RTL locales, the renderer sets `dir="rtl"` and `lang` on the `<html>` element before taking the screenshot.
+
+**Design templates with RTL in mind:**
+- Use `logical` CSS properties (`margin-inline-start` instead of `margin-left`, `padding-inline-end` instead of `padding-right`)
+- Use flexbox `gap` instead of directional margins between items
+- Avoid hardcoded `text-align: left` — use `text-align: start` instead
+- For layouts that must flip in RTL, use `[dir="rtl"]` CSS selectors:
+  ```css
+  .arrow { transform: rotate(0deg); }
+  [dir="rtl"] .arrow { transform: rotate(180deg); }
+  ```
+
+### Output structure with locales
+
+When localizations are active, locale codes are inserted into the output path:
+
+```
+exports/
+  screenshots/
+    en/
+      iphone-6.9/
+        01-hero.png
+    ar/
+      iphone-6.9/
+        01-hero.png
+    ja/
+      iphone-6.9/
+        01-hero.png
+```
+
+With `outFile`, use the `{locale}` template variable:
+```json
+{ "outFile": "output/{locale}/{template}.png" }
+```
+
+### CLI
+
+```bash
+# Render all locales for a collection
+open-assets render --collection screenshots --force
+
+# Render only Arabic
+open-assets render --collection screenshots --force --locale ar
+
+# Render a single template in Japanese
+open-assets render --collection screenshots --template 01-hero --locale ja --force
+```
+
+### Locale fallback order
+
+When resolving a string for a locale:
+1. Exact match (e.g., `es-419`)
+2. Base language (e.g., `es`)
+3. Source language (e.g., `en`)
 
 ## File Structure Convention
 
