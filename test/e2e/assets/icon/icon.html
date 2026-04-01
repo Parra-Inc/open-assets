@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1024" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 1024px;
+      height: 1024px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 50%, #1E40AF 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
+    }
+    .runner {
+      width: 520px;
+      height: 520px;
+      position: relative;
+    }
+    .runner-circle {
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      border: 32px solid rgba(255, 255, 255, 0.3);
+      position: absolute;
+    }
+    .runner-arc {
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      border: 32px solid transparent;
+      border-top-color: #10B981;
+      border-right-color: #10B981;
+      position: absolute;
+      transform: rotate(-45deg);
+    }
+    .runner-figure {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 260px;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="runner">
+    <div class="runner-circle"></div>
+    <div class="runner-arc"></div>
+    <div class="runner-figure">🏃</div>
+  </div>
+</body>
+</html>

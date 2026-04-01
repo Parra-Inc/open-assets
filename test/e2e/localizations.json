@@ -1,0 +1,131 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "app_name": {
+      "localizations": {
+        "en": { "value": "FitTrack" },
+        "fr": { "value": "FitTrack" },
+        "ar": { "value": "FitTrack" }
+      }
+    },
+    "hero_title": {
+      "localizations": {
+        "en": { "value": "Track Your Fitness" },
+        "fr": { "value": "Suivez Votre Forme" },
+        "ar": { "value": "تتبع لياقتك" }
+      }
+    },
+    "hero_subtitle": {
+      "localizations": {
+        "en": { "value": "Your personal workout companion" },
+        "fr": { "value": "Votre compagnon d'entraînement personnel" },
+        "ar": { "value": "رفيقك الشخصي للتمارين" }
+      }
+    },
+    "features_title": {
+      "localizations": {
+        "en": { "value": "Smart Insights" },
+        "fr": { "value": "Analyses Intelligentes" },
+        "ar": { "value": "تحليلات ذكية" }
+      }
+    },
+    "features_subtitle": {
+      "localizations": {
+        "en": { "value": "See your progress at a glance" },
+        "fr": { "value": "Voyez vos progrès en un coup d'œil" },
+        "ar": { "value": "شاهد تقدمك بنظرة واحدة" }
+      }
+    },
+    "cta_title": {
+      "localizations": {
+        "en": { "value": "Start Training" },
+        "fr": { "value": "Commencez l'Entraînement" },
+        "ar": { "value": "ابدأ التدريب" }
+      }
+    },
+    "cta_subtitle": {
+      "localizations": {
+        "en": { "value": "Join {{n:50000}} active users" },
+        "fr": { "value": "Rejoignez {{n:50000}} utilisateurs actifs" },
+        "ar": { "value": "انضم إلى {{n:50000}} مستخدم نشط" }
+      }
+    },
+    "step_count": {
+      "localizations": {
+        "en": { "value": "{{n:10432}} steps today" },
+        "fr": { "value": "{{n:10432}} pas aujourd'hui" },
+        "ar": { "value": "{{n:10432}} خطوة اليوم" }
+      }
+    },
+    "cta_badge_1": {
+      "localizations": {
+        "en": { "value": "No Ads" },
+        "fr": { "value": "Sans Pub" },
+        "ar": { "value": "بدون إعلانات" }
+      }
+    },
+    "cta_badge_2": {
+      "localizations": {
+        "en": { "value": "Private" },
+        "fr": { "value": "Privé" },
+        "ar": { "value": "خاص" }
+      }
+    },
+    "cta_badge_3": {
+      "localizations": {
+        "en": { "value": "Fast" },
+        "fr": { "value": "Rapide" },
+        "ar": { "value": "سريع" }
+      }
+    },
+    "cta_rating": {
+      "localizations": {
+        "en": { "value": "4.8 — App Store" },
+        "fr": { "value": "4.8 — App Store" },
+        "ar": { "value": "4.8 — App Store" }
+      }
+    },
+    "features_callout_1_label": {
+      "localizations": {
+        "en": { "value": "Workout" },
+        "fr": { "value": "Entraînement" },
+        "ar": { "value": "تمرين" }
+      }
+    },
+    "features_callout_1_value": {
+      "localizations": {
+        "en": { "value": "45 min" },
+        "fr": { "value": "45 min" },
+        "ar": { "value": "45 دقيقة" }
+      }
+    },
+    "features_callout_2_label": {
+      "localizations": {
+        "en": { "value": "Calories" },
+        "fr": { "value": "Calories" },
+        "ar": { "value": "سعرات" }
+      }
+    },
+    "features_callout_2_value": {
+      "localizations": {
+        "en": { "value": "320 kcal" },
+        "fr": { "value": "320 kcal" },
+        "ar": { "value": "320 سعرة" }
+      }
+    },
+    "og_title": {
+      "localizations": {
+        "en": { "value": "FitTrack — Fitness Made Simple" },
+        "fr": { "value": "FitTrack — Le Fitness Simplifié" },
+        "ar": { "value": "FitTrack — اللياقة ببساطة" }
+      }
+    },
+    "og_subtitle": {
+      "localizations": {
+        "en": { "value": "Track workouts, set goals, see results" },
+        "fr": { "value": "Suivez vos entraînements, fixez des objectifs, voyez les résultats" },
+        "ar": { "value": "تتبع التمارين، حدد الأهداف، شاهد النتائج" }
+      }
+    }
+  }
+}

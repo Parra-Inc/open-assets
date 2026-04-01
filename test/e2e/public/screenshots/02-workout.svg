@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 844">
+  <rect width="390" height="844" fill="#F8FAFC"/>
+
+  <!-- Status bar -->
+  <rect width="390" height="54" fill="#F8FAFC"/>
+  <text x="195" y="36" text-anchor="middle" fill="#1E293B" font-size="15" font-weight="600" font-family="system-ui">9:41</text>
+
+  <!-- Header -->
+  <text x="24" y="96" fill="#1E293B" font-size="28" font-weight="800" font-family="system-ui">Workout</text>
+
+  <!-- Active workout card -->
+  <rect x="16" y="116" width="358" height="260" rx="24" fill="linear-gradient(135deg, #3B82F6, #1D4ED8)"/>
+  <defs>
+    <linearGradient id="workout-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6"/>
+      <stop offset="100%" style="stop-color:#1D4ED8"/>
+    </linearGradient>
+  </defs>
+  <rect x="16" y="116" width="358" height="260" rx="24" fill="url(#workout-bg)"/>
+
+  <text x="40" y="152" fill="rgba(255,255,255,0.7)" font-size="13" font-weight="600" font-family="system-ui" letter-spacing="1">ACTIVE WORKOUT</text>
+  <text x="40" y="184" fill="white" font-size="22" font-weight="700" font-family="system-ui">Upper Body Strength</text>
+
+  <!-- Timer -->
+  <text x="195" y="260" text-anchor="middle" fill="white" font-size="56" font-weight="800" font-family="system-ui" letter-spacing="-2">24:35</text>
+  <text x="195" y="284" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="14" font-family="system-ui">elapsed</text>
+
+  <!-- Workout stats row -->
+  <text x="80" y="340" text-anchor="middle" fill="white" font-size="22" font-weight="800" font-family="system-ui">186</text>
+  <text x="80" y="358" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11" font-family="system-ui">kcal</text>
+  <text x="195" y="340" text-anchor="middle" fill="white" font-size="22" font-weight="800" font-family="system-ui">142</text>
+  <text x="195" y="358" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11" font-family="system-ui">bpm</text>
+  <text x="310" y="340" text-anchor="middle" fill="white" font-size="22" font-weight="800" font-family="system-ui">4/6</text>
+  <text x="310" y="358" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11" font-family="system-ui">sets</text>
+
+  <!-- Exercise list -->
+  <text x="24" y="416" fill="#1E293B" font-size="20" font-weight="700" font-family="system-ui">Exercises</text>
+
+  <!-- Exercise 1 — completed -->
+  <rect x="16" y="432" width="358" height="72" rx="16" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+  <circle cx="52" cy="468" r="18" fill="#DCFCE7"/>
+  <text x="52" y="474" text-anchor="middle" fill="#16A34A" font-size="16" font-weight="700" font-family="system-ui">✓</text>
+  <text x="82" y="460" fill="#1E293B" font-size="15" font-weight="600" font-family="system-ui">Bench Press</text>
+  <text x="82" y="480" fill="#94A3B8" font-size="13" font-family="system-ui">4 × 10 · 135 lbs</text>
+
+  <!-- Exercise 2 — completed -->
+  <rect x="16" y="516" width="358" height="72" rx="16" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+  <circle cx="52" cy="552" r="18" fill="#DCFCE7"/>
+  <text x="52" y="558" text-anchor="middle" fill="#16A34A" font-size="16" font-weight="700" font-family="system-ui">✓</text>
+  <text x="82" y="544" fill="#1E293B" font-size="15" font-weight="600" font-family="system-ui">Overhead Press</text>
+  <text x="82" y="564" fill="#94A3B8" font-size="13" font-family="system-ui">3 × 12 · 65 lbs</text>
+
+  <!-- Exercise 3 — active -->
+  <rect x="16" y="600" width="358" height="72" rx="16" fill="white" stroke="#3B82F6" stroke-width="2"/>
+  <circle cx="52" cy="636" r="18" fill="#EFF6FF"/>
+  <text x="52" y="642" text-anchor="middle" fill="#3B82F6" font-size="14" font-weight="800" font-family="system-ui">3</text>
+  <text x="82" y="628" fill="#1E293B" font-size="15" font-weight="600" font-family="system-ui">Dumbbell Rows</text>
+  <text x="82" y="648" fill="#3B82F6" font-size="13" font-weight="600" font-family="system-ui">In progress · Set 2 of 4</text>
+
+  <!-- Exercise 4 — locked -->
+  <rect x="16" y="684" width="358" height="72" rx="16" fill="white" stroke="#E2E8F0" stroke-width="1" opacity="0.5"/>
+  <circle cx="52" cy="720" r="18" fill="#F1F5F9"/>
+  <text x="52" y="726" text-anchor="middle" fill="#CBD5E1" font-size="14" font-weight="800" font-family="system-ui">4</text>
+  <text x="82" y="712" fill="#94A3B8" font-size="15" font-weight="600" font-family="system-ui">Lateral Raises</text>
+  <text x="82" y="732" fill="#CBD5E1" font-size="13" font-family="system-ui">3 × 15 · 20 lbs</text>
+
+  <!-- Tab bar -->
+  <rect x="0" y="760" width="390" height="84" fill="white"/>
+  <line x1="0" y1="760" x2="390" y2="760" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="65" y="792" text-anchor="middle" fill="#94A3B8" font-size="20">🏠</text>
+  <text x="65" y="810" text-anchor="middle" fill="#94A3B8" font-size="10" font-family="system-ui">Home</text>
+  <text x="163" y="792" text-anchor="middle" fill="#94A3B8" font-size="20">📊</text>
+  <text x="163" y="810" text-anchor="middle" fill="#94A3B8" font-size="10" font-family="system-ui">Stats</text>
+  <text x="260" y="792" text-anchor="middle" fill="#3B82F6" font-size="20">💪</text>
+  <text x="260" y="810" text-anchor="middle" fill="#3B82F6" font-size="10" font-weight="600" font-family="system-ui">Workouts</text>
+  <text x="340" y="792" text-anchor="middle" fill="#94A3B8" font-size="20">👤</text>
+  <text x="340" y="810" text-anchor="middle" fill="#94A3B8" font-size="10" font-family="system-ui">Profile</text>
+</svg>

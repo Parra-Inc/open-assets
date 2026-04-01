@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 844">
+  <rect width="390" height="844" fill="#F8FAFC"/>
+
+  <!-- Status bar -->
+  <rect width="390" height="54" fill="#F8FAFC"/>
+  <text x="195" y="36" text-anchor="middle" fill="#1E293B" font-size="15" font-weight="600" font-family="system-ui">9:41</text>
+
+  <!-- Greeting -->
+  <text x="24" y="100" fill="#94A3B8" font-size="14" font-weight="500" font-family="system-ui">Good morning</text>
+  <text x="24" y="128" fill="#1E293B" font-size="28" font-weight="800" font-family="system-ui">Alex</text>
+
+  <!-- Today's stats card -->
+  <rect x="16" y="152" width="358" height="160" rx="20" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="36" y="184" fill="#64748B" font-size="13" font-weight="600" font-family="system-ui" letter-spacing="1">TODAY'S PROGRESS</text>
+
+  <!-- Steps circle -->
+  <circle cx="90" cy="256" r="36" fill="none" stroke="#E2E8F0" stroke-width="6"/>
+  <circle cx="90" cy="256" r="36" fill="none" stroke="#3B82F6" stroke-width="6" stroke-dasharray="170 226" stroke-linecap="round" transform="rotate(-90 90 256)"/>
+  <text x="90" y="252" text-anchor="middle" fill="#1E293B" font-size="16" font-weight="800" font-family="system-ui">7.2k</text>
+  <text x="90" y="268" text-anchor="middle" fill="#94A3B8" font-size="10" font-family="system-ui">steps</text>
+
+  <!-- Calories circle -->
+  <circle cx="200" cy="256" r="36" fill="none" stroke="#E2E8F0" stroke-width="6"/>
+  <circle cx="200" cy="256" r="36" fill="none" stroke="#10B981" stroke-width="6" stroke-dasharray="140 226" stroke-linecap="round" transform="rotate(-90 200 256)"/>
+  <text x="200" y="252" text-anchor="middle" fill="#1E293B" font-size="16" font-weight="800" font-family="system-ui">482</text>
+  <text x="200" y="268" text-anchor="middle" fill="#94A3B8" font-size="10" font-family="system-ui">kcal</text>
+
+  <!-- Active minutes circle -->
+  <circle cx="310" cy="256" r="36" fill="none" stroke="#E2E8F0" stroke-width="6"/>
+  <circle cx="310" cy="256" r="36" fill="none" stroke="#F59E0B" stroke-width="6" stroke-dasharray="100 226" stroke-linecap="round" transform="rotate(-90 310 256)"/>
+  <text x="310" y="252" text-anchor="middle" fill="#1E293B" font-size="16" font-weight="800" font-family="system-ui">34</text>
+  <text x="310" y="268" text-anchor="middle" fill="#94A3B8" font-size="10" font-family="system-ui">min</text>
+
+  <!-- Weekly chart card -->
+  <rect x="16" y="328" width="358" height="200" rx="20" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="36" y="360" fill="#64748B" font-size="13" font-weight="600" font-family="system-ui" letter-spacing="1">THIS WEEK</text>
+
+  <!-- Bar chart -->
+  <rect x="44" y="440" width="32" height="60" rx="6" fill="#DBEAFE"/>
+  <rect x="92" y="410" width="32" height="90" rx="6" fill="#DBEAFE"/>
+  <rect x="140" y="430" width="32" height="70" rx="6" fill="#DBEAFE"/>
+  <rect x="188" y="390" width="32" height="110" rx="6" fill="#DBEAFE"/>
+  <rect x="236" y="420" width="32" height="80" rx="6" fill="#DBEAFE"/>
+  <rect x="284" y="400" width="32" height="100" rx="6" fill="#3B82F6"/>
+  <rect x="332" y="460" width="32" height="40" rx="6" fill="#E2E8F0"/>
+
+  <!-- Day labels -->
+  <text x="60" y="516" text-anchor="middle" fill="#94A3B8" font-size="11" font-family="system-ui">M</text>
+  <text x="108" y="516" text-anchor="middle" fill="#94A3B8" font-size="11" font-family="system-ui">T</text>
+  <text x="156" y="516" text-anchor="middle" fill="#94A3B8" font-size="11" font-family="system-ui">W</text>
+  <text x="204" y="516" text-anchor="middle" fill="#94A3B8" font-size="11" font-family="system-ui">T</text>
+  <text x="252" y="516" text-anchor="middle" fill="#94A3B8" font-size="11" font-family="system-ui">F</text>
+  <text x="300" y="516" text-anchor="middle" fill="#1E293B" font-size="11" font-weight="700" font-family="system-ui">S</text>
+  <text x="348" y="516" text-anchor="middle" fill="#94A3B8" font-size="11" font-family="system-ui">S</text>
+
+  <!-- Recent workouts section -->
+  <text x="24" y="564" fill="#1E293B" font-size="20" font-weight="700" font-family="system-ui">Recent Workouts</text>
+
+  <!-- Workout row 1 -->
+  <rect x="16" y="580" width="358" height="72" rx="16" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+  <circle cx="56" cy="616" r="22" fill="#EFF6FF"/>
+  <text x="56" y="622" text-anchor="middle" fill="#3B82F6" font-size="20">🏋️</text>
+  <text x="92" y="608" fill="#1E293B" font-size="15" font-weight="600" font-family="system-ui">Upper Body Strength</text>
+  <text x="92" y="628" fill="#94A3B8" font-size="13" font-family="system-ui">45 min · 320 kcal</text>
+
+  <!-- Workout row 2 -->
+  <rect x="16" y="664" width="358" height="72" rx="16" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+  <circle cx="56" cy="700" r="22" fill="#ECFDF5"/>
+  <text x="56" y="706" text-anchor="middle" fill="#10B981" font-size="20">🏃</text>
+  <text x="92" y="692" fill="#1E293B" font-size="15" font-weight="600" font-family="system-ui">Morning Run</text>
+  <text x="92" y="712" fill="#94A3B8" font-size="13" font-family="system-ui">32 min · 280 kcal</text>
+
+  <!-- Tab bar -->
+  <rect x="0" y="760" width="390" height="84" fill="white"/>
+  <line x1="0" y1="760" x2="390" y2="760" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="65" y="792" text-anchor="middle" fill="#3B82F6" font-size="20">🏠</text>
+  <text x="65" y="810" text-anchor="middle" fill="#3B82F6" font-size="10" font-weight="600" font-family="system-ui">Home</text>
+  <text x="163" y="792" text-anchor="middle" fill="#94A3B8" font-size="20">📊</text>
+  <text x="163" y="810" text-anchor="middle" fill="#94A3B8" font-size="10" font-family="system-ui">Stats</text>
+  <text x="260" y="792" text-anchor="middle" fill="#94A3B8" font-size="20">💪</text>
+  <text x="260" y="810" text-anchor="middle" fill="#94A3B8" font-size="10" font-family="system-ui">Workouts</text>
+  <text x="340" y="792" text-anchor="middle" fill="#94A3B8" font-size="20">👤</text>
+  <text x="340" y="810" text-anchor="middle" fill="#94A3B8" font-size="10" font-family="system-ui">Profile</text>
+</svg>

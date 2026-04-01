@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "name": "FitTrack",
+  "publicDir": "public",
+  "command": "npx open-assets render --force",
+  "collections": [
+    {
+      "id": "icon",
+      "label": "App Icon",
+      "tags": ["icon", "branding"],
+      "sourceSize": { "width": 1024, "height": 1024 },
+      "borderRadius": 224,
+      "templates": [
+        { "src": "assets/icon/icon.html", "name": "icon", "label": "App Icon" }
+      ],
+      "export": [
+        { "name": "1024", "label": "1024px", "size": { "width": 1024, "height": 1024 } },
+        { "name": "512", "label": "512px", "size": { "width": 512, "height": 512 } },
+        { "name": "180", "label": "180px", "size": { "width": 180, "height": 180 } },
+        { "type": "xcode", "path": "output/AppIcon.appiconset" }
+      ]
+    },
+    {
+      "id": "screenshots",
+      "label": "App Store Screenshots",
+      "tags": ["marketing"],
+      "sourceSize": { "width": 440, "height": 956 },
+      "borderRadius": 4,
+      "localizations": "localizations.json",
+      "locales": ["en", "fr", "ar"],
+      "templates": [
+        { "src": "assets/screenshots/01-hero.html", "name": "01-hero", "label": "Hero" },
+        { "src": "assets/screenshots/02-features.html", "name": "02-features", "label": "Features" },
+        { "src": "assets/screenshots/03-cta.html", "name": "03-cta", "label": "CTA" }
+      ],
+      "export": [
+        { "name": "iphone-6.9", "label": "iPhone 6.9\"", "size": { "width": 1320, "height": 2868 } },
+        { "name": "iphone-6.7", "label": "iPhone 6.7\"", "size": { "width": 1290, "height": 2796 } }
+      ],
+      "customExport": { "defaultWidth": 1320, "defaultHeight": 2868 }
+    },
+    {
+      "id": "logo",
+      "label": "Logo",
+      "tags": ["branding"],
+      "sourceSize": { "width": 800, "height": 800 },
+      "templates": [
+        { "src": "assets/logo/logo.svg", "name": "logo", "label": "Logo" }
+      ],
+      "export": [
+        { "name": "512", "label": "512px", "size": { "width": 512, "height": 512 } },
+        { "type": "copy-source", "format": "svg" }
+      ]
+    },
+    {
+      "id": "og",
+      "label": "Social Cards",
+      "tags": ["marketing", "web"],
+      "sourceSize": { "width": 1200, "height": 630 },
+      "background": "#3B82F6",
+      "localizations": "localizations.json",
+      "locales": ["en", "fr", "ar"],
+      "templates": [
+        { "src": "assets/og/default.html", "name": "default", "label": "Default OG" }
+      ],
+      "export": [
+        {
+          "name": "og",
+          "label": "OG Image",
+          "size": { "width": 1200, "height": 630 },
+          "outFile": "output/og/{locale}/{template}.png"
+        }
+      ]
+    }
+  ]
+}

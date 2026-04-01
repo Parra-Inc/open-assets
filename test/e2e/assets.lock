@@ -1,0 +1,295 @@
+{
+  "version": 1,
+  "assets": {
+    "icon/icon": {
+      "180": {
+        "sourceChecksum": "sha256:7f10a873190aeccf5d4586b130900adb586049fea6ef672481456c01365a3847",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/icon/180.png",
+        "exportedAt": "2026-04-01T03:12:19.161Z",
+        "exportChecksum": "sha256:c2e889c0963c3c70783c88dd0a3dc6a35bccb044ac19884b0cd0c3b960dd3140"
+      },
+      "512": {
+        "sourceChecksum": "sha256:7f10a873190aeccf5d4586b130900adb586049fea6ef672481456c01365a3847",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/icon/512.png",
+        "exportedAt": "2026-04-01T03:12:17.368Z",
+        "exportChecksum": "sha256:ffb750aec0ba57f441808a890f43db987463434c3d9b3706e6b3df29a7f80c33"
+      },
+      "1024": {
+        "sourceChecksum": "sha256:7f10a873190aeccf5d4586b130900adb586049fea6ef672481456c01365a3847",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/icon/1024.png",
+        "exportedAt": "2026-04-01T03:12:15.552Z",
+        "exportChecksum": "sha256:34fbda550402d1e0180c418018efe3c7d0f2abf5461cd5eb76c6841fb481e724"
+      },
+      "1024x1024": {
+        "sourceChecksum": "sha256:7f10a873190aeccf5d4586b130900adb586049fea6ef672481456c01365a3847",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/icon/icon.png",
+        "exportedAt": "2026-04-01T03:15:27.066Z",
+        "exportChecksum": "sha256:34fbda550402d1e0180c418018efe3c7d0f2abf5461cd5eb76c6841fb481e724"
+      }
+    },
+    "screenshots/01-hero": {
+      "440x956": {
+        "sourceChecksum": "sha256:3731ff8038cfd49b8c850a5b6825528a5023b82f98829b8b461419867e544145",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/screenshots/01-hero.png",
+        "exportedAt": "2026-03-31T23:07:27.917Z"
+      }
+    },
+    "screenshots/02-features": {
+      "440x956": {
+        "sourceChecksum": "sha256:adfdf709e841b9c72f19d1062e0aedd8b4b6f1e4a822f6ebfada18d35dfb410c",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/screenshots/02-features.png",
+        "exportedAt": "2026-03-31T23:07:29.533Z"
+      }
+    },
+    "screenshots/03-cta": {
+      "440x956": {
+        "sourceChecksum": "sha256:e5a41f66448ded491dfa3667bc794e5aa756a9ec57acbb49fae06a9005eb7f37",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/screenshots/03-cta.png",
+        "exportedAt": "2026-03-31T23:07:31.132Z"
+      }
+    },
+    "logo/logo": {
+      "512": {
+        "sourceChecksum": "sha256:246468f2da6c8f6cfd0a59ccd55e99f0b03b2766b91eeffb38bf9ccb87bdade6",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/logo/512.png",
+        "exportedAt": "2026-04-01T03:13:01.418Z",
+        "exportChecksum": "sha256:ffb750aec0ba57f441808a890f43db987463434c3d9b3706e6b3df29a7f80c33"
+      },
+      "800x800": {
+        "sourceChecksum": "sha256:1f66b56dc90b07e067e6294837365dba657fa79bdda72b2b52cf6ca648581b6f",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/logo/logo.png",
+        "exportedAt": "2026-04-01T03:15:45.238Z",
+        "exportChecksum": "sha256:dcff87019a7d429f7602a70d303bc5da1557ead15b47af16abc8559671bfe6e2"
+      }
+    },
+    "og/default": {
+      "1200x630": {
+        "sourceChecksum": "sha256:c486fff043d72310d364b54cf76bf1071150cecca67d2d0adef3310e63aee0b9",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/og/default.png",
+        "exportedAt": "2026-03-31T23:07:34.400Z"
+      }
+    },
+    "screenshots/en/01-hero": {
+      "440x956": {
+        "sourceChecksum": "sha256:88a902a19acff1eca35c7ec6dd603b3dfb3a85a92425650c23a326922f53216d",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/screenshots/en/01-hero.png",
+        "exportedAt": "2026-04-01T04:19:35.440Z",
+        "exportChecksum": "sha256:4f59e2ee4dd92fc04a766a080e2f4248d2ca850e2aceba04e78216534ec27db0"
+      },
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:3731ff8038cfd49b8c850a5b6825528a5023b82f98829b8b461419867e544145",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/screenshots/en/iphone-6.9/01-hero.png",
+        "exportedAt": "2026-04-01T03:12:23.011Z",
+        "exportChecksum": "sha256:9022d59a86a78818bbfda8955adf5dc1e8cf8ce5a3090cdcb1cd8005be1dfad2"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:3731ff8038cfd49b8c850a5b6825528a5023b82f98829b8b461419867e544145",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/screenshots/en/iphone-6.7/01-hero.png",
+        "exportedAt": "2026-04-01T03:12:29.494Z",
+        "exportChecksum": "sha256:0031e0e4edb243f7dd6ef3f727c97809f5518f9a1d81da8bd6ef40f7a04246f5"
+      }
+    },
+    "screenshots/en/02-features": {
+      "440x956": {
+        "sourceChecksum": "sha256:349960f143f3ad7339b6257409b1d44483f68732c17675c4dc40a44b415859ee",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/screenshots/en/02-features.png",
+        "exportedAt": "2026-04-01T04:19:37.295Z",
+        "exportChecksum": "sha256:4f59e2ee4dd92fc04a766a080e2f4248d2ca850e2aceba04e78216534ec27db0"
+      },
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:05faa8ac4a042727687bd66d48c705af82dbb104fd83ba2a9b3bae8e244985f1",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/screenshots/en/iphone-6.9/02-features.png",
+        "exportedAt": "2026-04-01T03:12:25.202Z",
+        "exportChecksum": "sha256:9022d59a86a78818bbfda8955adf5dc1e8cf8ce5a3090cdcb1cd8005be1dfad2"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:05faa8ac4a042727687bd66d48c705af82dbb104fd83ba2a9b3bae8e244985f1",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/screenshots/en/iphone-6.7/02-features.png",
+        "exportedAt": "2026-04-01T03:12:31.675Z",
+        "exportChecksum": "sha256:0031e0e4edb243f7dd6ef3f727c97809f5518f9a1d81da8bd6ef40f7a04246f5"
+      }
+    },
+    "screenshots/en/03-cta": {
+      "440x956": {
+        "sourceChecksum": "sha256:55def7be85fe7c4394c478ed246b8f38792899d0c245f18e14990eb2ef0ea08f",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/screenshots/en/03-cta.png",
+        "exportedAt": "2026-04-01T03:15:32.601Z",
+        "exportChecksum": "sha256:4f59e2ee4dd92fc04a766a080e2f4248d2ca850e2aceba04e78216534ec27db0"
+      },
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:55def7be85fe7c4394c478ed246b8f38792899d0c245f18e14990eb2ef0ea08f",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/screenshots/en/iphone-6.9/03-cta.png",
+        "exportedAt": "2026-04-01T03:12:27.291Z",
+        "exportChecksum": "sha256:9022d59a86a78818bbfda8955adf5dc1e8cf8ce5a3090cdcb1cd8005be1dfad2"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:55def7be85fe7c4394c478ed246b8f38792899d0c245f18e14990eb2ef0ea08f",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/screenshots/en/iphone-6.7/03-cta.png",
+        "exportedAt": "2026-04-01T03:12:33.773Z",
+        "exportChecksum": "sha256:0031e0e4edb243f7dd6ef3f727c97809f5518f9a1d81da8bd6ef40f7a04246f5"
+      }
+    },
+    "screenshots/fr/01-hero": {
+      "440x956": {
+        "sourceChecksum": "sha256:88a902a19acff1eca35c7ec6dd603b3dfb3a85a92425650c23a326922f53216d",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/screenshots/fr/01-hero.png",
+        "exportedAt": "2026-04-01T04:19:39.149Z",
+        "exportChecksum": "sha256:639790bb97fc6528d43ff312270e1f30064bf27a8d965104b0a8b1bf4c5d69f6"
+      },
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:3731ff8038cfd49b8c850a5b6825528a5023b82f98829b8b461419867e544145",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/screenshots/fr/iphone-6.9/01-hero.png",
+        "exportedAt": "2026-04-01T03:12:35.975Z",
+        "exportChecksum": "sha256:0e530132732f1675aa16d5e5b59fe74a5efd1f5f2c746d67cf4a45d167e8311d"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:3731ff8038cfd49b8c850a5b6825528a5023b82f98829b8b461419867e544145",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/screenshots/fr/iphone-6.7/01-hero.png",
+        "exportedAt": "2026-04-01T03:12:42.424Z",
+        "exportChecksum": "sha256:ffb5bab4d28224c3aae99205f869f546fc6919d02c07276db64cdb11fbbdae16"
+      }
+    },
+    "screenshots/fr/02-features": {
+      "440x956": {
+        "sourceChecksum": "sha256:349960f143f3ad7339b6257409b1d44483f68732c17675c4dc40a44b415859ee",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/screenshots/fr/02-features.png",
+        "exportedAt": "2026-04-01T04:19:40.994Z",
+        "exportChecksum": "sha256:639790bb97fc6528d43ff312270e1f30064bf27a8d965104b0a8b1bf4c5d69f6"
+      },
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:05faa8ac4a042727687bd66d48c705af82dbb104fd83ba2a9b3bae8e244985f1",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/screenshots/fr/iphone-6.9/02-features.png",
+        "exportedAt": "2026-04-01T03:12:38.162Z",
+        "exportChecksum": "sha256:0e530132732f1675aa16d5e5b59fe74a5efd1f5f2c746d67cf4a45d167e8311d"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:05faa8ac4a042727687bd66d48c705af82dbb104fd83ba2a9b3bae8e244985f1",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/screenshots/fr/iphone-6.7/02-features.png",
+        "exportedAt": "2026-04-01T03:12:44.586Z",
+        "exportChecksum": "sha256:ffb5bab4d28224c3aae99205f869f546fc6919d02c07276db64cdb11fbbdae16"
+      }
+    },
+    "screenshots/fr/03-cta": {
+      "440x956": {
+        "sourceChecksum": "sha256:55def7be85fe7c4394c478ed246b8f38792899d0c245f18e14990eb2ef0ea08f",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/screenshots/fr/03-cta.png",
+        "exportedAt": "2026-04-01T03:15:38.099Z",
+        "exportChecksum": "sha256:639790bb97fc6528d43ff312270e1f30064bf27a8d965104b0a8b1bf4c5d69f6"
+      },
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:55def7be85fe7c4394c478ed246b8f38792899d0c245f18e14990eb2ef0ea08f",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/screenshots/fr/iphone-6.9/03-cta.png",
+        "exportedAt": "2026-04-01T03:12:40.239Z",
+        "exportChecksum": "sha256:0e530132732f1675aa16d5e5b59fe74a5efd1f5f2c746d67cf4a45d167e8311d"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:55def7be85fe7c4394c478ed246b8f38792899d0c245f18e14990eb2ef0ea08f",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/screenshots/fr/iphone-6.7/03-cta.png",
+        "exportedAt": "2026-04-01T03:12:46.684Z",
+        "exportChecksum": "sha256:ffb5bab4d28224c3aae99205f869f546fc6919d02c07276db64cdb11fbbdae16"
+      }
+    },
+    "screenshots/ar/01-hero": {
+      "440x956": {
+        "sourceChecksum": "sha256:88a902a19acff1eca35c7ec6dd603b3dfb3a85a92425650c23a326922f53216d",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/screenshots/ar/01-hero.png",
+        "exportedAt": "2026-04-01T04:19:42.828Z",
+        "exportChecksum": "sha256:16f8ededd3f656af1b4dc7903450729ed754d2867987becbd597768460bc268b"
+      },
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:3731ff8038cfd49b8c850a5b6825528a5023b82f98829b8b461419867e544145",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/screenshots/ar/iphone-6.9/01-hero.png",
+        "exportedAt": "2026-04-01T03:12:48.902Z",
+        "exportChecksum": "sha256:1deb2d28e297d9bc2fd065a4f20d3cc7410f4ff4d0fa1ecb4ada63bf781423da"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:3731ff8038cfd49b8c850a5b6825528a5023b82f98829b8b461419867e544145",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/screenshots/ar/iphone-6.7/01-hero.png",
+        "exportedAt": "2026-04-01T03:12:55.360Z",
+        "exportChecksum": "sha256:c2265eb752beeb2d565ddcaec87eafd90710de03589332be753993e515922110"
+      }
+    },
+    "screenshots/ar/02-features": {
+      "440x956": {
+        "sourceChecksum": "sha256:349960f143f3ad7339b6257409b1d44483f68732c17675c4dc40a44b415859ee",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/screenshots/ar/02-features.png",
+        "exportedAt": "2026-04-01T04:19:44.671Z",
+        "exportChecksum": "sha256:16f8ededd3f656af1b4dc7903450729ed754d2867987becbd597768460bc268b"
+      },
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:05faa8ac4a042727687bd66d48c705af82dbb104fd83ba2a9b3bae8e244985f1",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/screenshots/ar/iphone-6.9/02-features.png",
+        "exportedAt": "2026-04-01T03:12:51.076Z",
+        "exportChecksum": "sha256:1deb2d28e297d9bc2fd065a4f20d3cc7410f4ff4d0fa1ecb4ada63bf781423da"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:05faa8ac4a042727687bd66d48c705af82dbb104fd83ba2a9b3bae8e244985f1",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/screenshots/ar/iphone-6.7/02-features.png",
+        "exportedAt": "2026-04-01T03:12:57.527Z",
+        "exportChecksum": "sha256:c2265eb752beeb2d565ddcaec87eafd90710de03589332be753993e515922110"
+      }
+    },
+    "screenshots/ar/03-cta": {
+      "440x956": {
+        "sourceChecksum": "sha256:55def7be85fe7c4394c478ed246b8f38792899d0c245f18e14990eb2ef0ea08f",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/screenshots/ar/03-cta.png",
+        "exportedAt": "2026-04-01T03:15:43.595Z",
+        "exportChecksum": "sha256:16f8ededd3f656af1b4dc7903450729ed754d2867987becbd597768460bc268b"
+      },
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:55def7be85fe7c4394c478ed246b8f38792899d0c245f18e14990eb2ef0ea08f",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/screenshots/ar/iphone-6.9/03-cta.png",
+        "exportedAt": "2026-04-01T03:12:53.165Z",
+        "exportChecksum": "sha256:1deb2d28e297d9bc2fd065a4f20d3cc7410f4ff4d0fa1ecb4ada63bf781423da"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:55def7be85fe7c4394c478ed246b8f38792899d0c245f18e14990eb2ef0ea08f",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/screenshots/ar/iphone-6.7/03-cta.png",
+        "exportedAt": "2026-04-01T03:12:59.603Z",
+        "exportChecksum": "sha256:c2265eb752beeb2d565ddcaec87eafd90710de03589332be753993e515922110"
+      }
+    },
+    "og/en/default": {
+      "1200x630": {
+        "sourceChecksum": "sha256:c486fff043d72310d364b54cf76bf1071150cecca67d2d0adef3310e63aee0b9",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/og/en/default.png",
+        "exportedAt": "2026-04-01T03:15:47.085Z",
+        "exportChecksum": "sha256:885680ea50a955d0e35cb3083d57bde8f65032e50704bf9f4ae920901b694d31"
+      },
+      "og": {
+        "sourceChecksum": "sha256:c486fff043d72310d364b54cf76bf1071150cecca67d2d0adef3310e63aee0b9",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/output/og/en/default.png",
+        "exportedAt": "2026-04-01T03:13:03.257Z",
+        "exportChecksum": "sha256:7d828f67d1017ad0b6e7f8d8152d13f309bb4df791c4a6a124a8cee0cc80a1c5"
+      }
+    },
+    "og/fr/default": {
+      "1200x630": {
+        "sourceChecksum": "sha256:c486fff043d72310d364b54cf76bf1071150cecca67d2d0adef3310e63aee0b9",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/og/fr/default.png",
+        "exportedAt": "2026-04-01T03:15:48.929Z",
+        "exportChecksum": "sha256:9b0dc4ea205b3ac463c1e3a465c620e0d01d78b22b076ae3f9339a6b555cc63d"
+      },
+      "og": {
+        "sourceChecksum": "sha256:c486fff043d72310d364b54cf76bf1071150cecca67d2d0adef3310e63aee0b9",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/output/og/fr/default.png",
+        "exportedAt": "2026-04-01T03:13:05.102Z",
+        "exportChecksum": "sha256:b93c96acb9d11c52aad5467aa603efbc056c835b6e5a81f4ae4b7d3ad94f6992"
+      }
+    },
+    "og/ar/default": {
+      "1200x630": {
+        "sourceChecksum": "sha256:c486fff043d72310d364b54cf76bf1071150cecca67d2d0adef3310e63aee0b9",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/exports/og/ar/default.png",
+        "exportedAt": "2026-04-01T03:15:50.771Z",
+        "exportChecksum": "sha256:01dc1b30fa06e066b793b5c8dd8c0ac864279c680c2b6944ee8437bcea95ca9b"
+      },
+      "og": {
+        "sourceChecksum": "sha256:c486fff043d72310d364b54cf76bf1071150cecca67d2d0adef3310e63aee0b9",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/test/e2e/output/og/ar/default.png",
+        "exportedAt": "2026-04-01T03:13:06.935Z",
+        "exportChecksum": "sha256:593c28c5fee801ef1fc808fdc44c06718a5184f639fca4f1c459ecdb5fc34003"
+      }
+    }
+  }
+}

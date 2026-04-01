@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1200" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+    .container {
+      text-align: center;
+      padding: 0 80px;
+    }
+    .logo {
+      font-size: 48px;
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-size: 64px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+    .subtitle {
+      font-size: 28px;
+      font-weight: 400;
+      opacity: 0.85;
+      line-height: 1.3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">🏃</div>
+    <h1>{{og_title}}</h1>
+    <p class="subtitle">{{og_subtitle}}</p>
+  </div>
+</body>
+</html>
