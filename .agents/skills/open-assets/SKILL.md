@@ -371,28 +371,40 @@ Create a JSON file (iOS `.xcstrings`-inspired format) that maps string keys to p
 
 ### Wiring localizations to a collection
 
-Add `localizations` (path to the JSON file) and optionally `locales` (filter to specific locales) to a collection in `assets.json`:
+Add `localizations` (path to the JSON file) and optionally `locales` (filter to specific locales) to a collection in `assets.json`. You can also set `defaultLocalization` at the root level of `assets.json` to control which locale is selected by default in the dev server's locale picker (falls back to `sourceLanguage` from the localizations file, then `"en"`):
 
 ```json
 {
-  "id": "screenshots",
-  "label": "App Store Screenshots",
-  "sourceSize": { "width": 440, "height": 956 },
-  "localizations": "localizations.json",
-  "locales": ["en", "ar", "ja", "de"],
-  "templates": [
-    { "src": "assets/screenshots/01-hero.html", "name": "01-hero", "label": "Hero" }
-  ],
-  "export": [
-    { "name": "iphone-6.9", "label": "iPhone 6.9\"", "size": { "width": 1320, "height": 2868 } }
+  "version": 1,
+  "name": "My App",
+  "defaultLocalization": "en",
+  "collections": [
+    {
+      "id": "screenshots",
+      "label": "App Store Screenshots",
+      "sourceSize": { "width": 440, "height": 956 },
+      "localizations": "localizations.json",
+      "locales": ["en", "ar", "ja", "de"],
+      "templates": [
+        { "src": "assets/screenshots/01-hero.html", "name": "01-hero", "label": "Hero" }
+      ],
+      "export": [
+        { "name": "iphone-6.9", "label": "iPhone 6.9\"", "size": { "width": 1320, "height": 2868 } }
+      ]
+    }
   ]
 }
 ```
 
 | Field | Type | Description |
 |-------|------|-------------|
+| `defaultLocalization` | string | Root-level. Default locale for the dev server locale picker. Falls back to `sourceLanguage` then `"en"`. |
 | `localizations` | string | Path to the localizations JSON file (relative to project root) |
 | `locales` | string[] | Optional filter — render only these locales. Omit to render all locales in the file. |
+
+### Dev server locale picker
+
+When a collection has `localizations` configured, the dev server shows a locale picker dropdown in the toolbar. Selecting a locale injects the localized strings into all template iframes in real time. The selected locale is also persisted in the URL (`?locale=ar`) and used for exports — exported PNGs will include the localized text for the active locale.
 
 ### Using placeholders in templates
 
