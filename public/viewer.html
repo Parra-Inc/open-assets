@@ -80,6 +80,14 @@
 
       .hint { position: fixed; bottom: 12px; left: 50%; transform: translateX(-50%); font-size: 11px; color: #555; z-index: 100; pointer-events: none; }
       .hint kbd { display: inline-block; padding: 1px 5px; border: 1px solid #444; border-radius: 3px; background: #1a1a1a; font-family: inherit; font-size: 10px; color: #888; }
+
+      /* Locale picker */
+      .locale-picker { display: none; align-items: center; gap: 6px; margin-left: 8px; }
+      .locale-picker.visible { display: flex; }
+      .locale-picker label { font-size: 11px; color: #666; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+      .locale-select { padding: 4px 8px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.06); color: #ccc; font-size: 12px; font-weight: 600; font-family: inherit; cursor: pointer; appearance: none; -webkit-appearance: none; padding-right: 22px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23888' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 6px center; }
+      .locale-select:hover { border-color: rgba(255,255,255,0.25); color: #fff; }
+      .locale-select:focus { outline: none; border-color: rgba(255,255,255,0.3); }
     </style>
   </head>
   <body>
@@ -88,6 +96,10 @@
         <img class="toolbar-icon" src="/img/icon/32/icon.png" alt="" />
         <h1 id="app-title">Loading...</h1>
         <div class="segmented" id="tab-bar"></div>
+        <div class="locale-picker" id="locale-picker">
+          <label>Locale</label>
+          <select class="locale-select" id="locale-select"></select>
+        </div>
       </div>
       <div class="toolbar-right">
         <button class="toolbar-btn" id="zoom-out" title="Zoom out">−</button>
@@ -118,6 +130,9 @@
       // ---- State ----
       let manifest = null;
       let activeCollection = null;
+      let localeData = null;       // raw localizations JSON (xcstrings format)
+      let availableLocales = [];   // locale codes for active collection
+      let activeLocale = null;     // currently selected locale (null = no localization)
 
       // ---- DOM refs ----
       const canvas = document.getElementById('canvas');
@@ -127,6 +142,8 @@
       const exportDropdown = document.getElementById('export-dropdown');
       const exportToggle = document.getElementById('export-toggle');
       const toast = document.getElementById('toast');
+      const localePicker = document.getElementById('locale-picker');
+      const localeSelect = document.getElementById('locale-select');
 
       // ---- Zoom / Pan ----
       let scale = 1, panX = 0, panY = 0, isPanning = false, startX = 0, startY = 0, startPanX = 0, startPanY = 0;
@@ -161,12 +178,158 @@
       function showToast(msg) { toast.textContent = msg; toast.classList.add('show'); }
       function hideToast() { toast.classList.remove('show'); }
 
+      // ---- Localization helpers ----
+
+      const RTL_LANGUAGES = new Set(['ar','he','fa','ur','yi','ps','sd','ku','dv','ug']);
+
+      function isRtl(locale) {
+        if (RTL_LANGUAGES.has(locale)) return true;
+        return RTL_LANGUAGES.has(locale.split('-')[0]);
+      }
+
+      function resolveStrings(data, locale) {
+        const strings = {};
+        const sourceLang = data.sourceLanguage || 'en';
+        for (const [key, entry] of Object.entries(data.strings || {})) {
+          const l10ns = entry.localizations || {};
+          const value = l10ns[locale]?.value ?? l10ns[locale.split('-')[0]]?.value ?? l10ns[sourceLang]?.value;
+          if (value !== undefined) strings[key] = value;
+        }
+        return strings;
+      }
+
+      function getLocalization() {
+        if (!activeLocale || !localeData) return undefined;
+        return {
+          strings: resolveStrings(localeData, activeLocale),
+          locale: activeLocale,
+          direction: isRtl(activeLocale) ? 'rtl' : 'ltr',
+        };
+      }
+
+      async function loadLocalizationsForCollection(col) {
+        if (!col.localizations) {
+          localeData = null;
+          availableLocales = [];
+          activeLocale = null;
+          localePicker.classList.remove('visible');
+          return;
+        }
+        try {
+          const res = await fetch(`/api/localizations?collection=${encodeURIComponent(col.id)}`);
+          const json = await res.json();
+          if (!json.ok) throw new Error(json.error);
+          localeData = json.data;
+          availableLocales = json.locales;
+          const defaultLocale = json.defaultLocale;
+
+          // Restore from URL param, or use defaultLocalization, or first available
+          const params = new URLSearchParams(window.location.search);
+          const urlLocale = params.get('locale');
+          if (urlLocale && availableLocales.includes(urlLocale)) {
+            activeLocale = urlLocale;
+          } else if (availableLocales.includes(defaultLocale)) {
+            activeLocale = defaultLocale;
+          } else {
+            activeLocale = availableLocales[0] || null;
+          }
+
+          buildLocalePicker();
+          localePicker.classList.add('visible');
+        } catch (err) {
+          console.error('Failed to load localizations:', err);
+          localeData = null;
+          availableLocales = [];
+          activeLocale = null;
+          localePicker.classList.remove('visible');
+        }
+      }
+
+      function buildLocalePicker() {
+        localeSelect.innerHTML = '';
+        for (const locale of availableLocales) {
+          const opt = document.createElement('option');
+          opt.value = locale;
+          opt.textContent = locale;
+          if (locale === activeLocale) opt.selected = true;
+          localeSelect.appendChild(opt);
+        }
+      }
+
+      localeSelect.addEventListener('change', () => {
+        activeLocale = localeSelect.value;
+        // Update URL without reload
+        const params = new URLSearchParams(window.location.search);
+        params.set('locale', activeLocale);
+        history.replaceState(null, '', '?' + params.toString());
+        applyLocalizationToIframes();
+      });
+
+      function applyLocalizationToIframes() {
+        const l10n = getLocalization();
+        if (!l10n) return;
+        const iframes = inner.querySelectorAll('iframe');
+        for (const iframe of iframes) {
+          applyLocalizationToIframe(iframe, l10n);
+        }
+      }
+
+      function applyLocalizationToIframe(iframe, l10n) {
+        if (!l10n) return;
+        try {
+          const doc = iframe.contentDocument || iframe.contentWindow?.document;
+          if (!doc || !doc.documentElement) return;
+
+          // Reload iframe to get fresh {{key}} placeholders, then inject
+          const src = iframe.dataset.file || iframe.getAttribute('src')?.split('?')[0];
+          if (!src) return;
+
+          iframe.onload = function() {
+            try {
+              const freshDoc = iframe.contentDocument || iframe.contentWindow?.document;
+              if (!freshDoc) return;
+              injectLocalization(freshDoc, l10n);
+            } catch (e) { /* cross-origin or timing */ }
+            iframe.onload = null;
+          };
+          iframe.src = src + '?_l=' + Date.now();
+        } catch (e) { /* ignore */ }
+      }
+
+      function injectLocalization(doc, l10n) {
+        const { strings, locale, direction } = l10n;
+        doc.documentElement.lang = locale;
+
+        const formatter = new Intl.NumberFormat(locale);
+        function processValue(value) {
+          return value.replace(/\{\{n:(\d+(?:\.\d+)?)\}\}/g, (_, num) => formatter.format(parseFloat(num)));
+        }
+
+        const walker = doc.createTreeWalker(doc.documentElement, NodeFilter.SHOW_TEXT);
+        while (walker.nextNode()) {
+          const node = walker.currentNode;
+          let text = node.textContent;
+          let changed = false;
+          text = text.replace(/\{\{([a-zA-Z_][\w.]*)\}\}/g, (match, key) => {
+            if (strings[key] !== undefined) { changed = true; return processValue(strings[key]); }
+            return match;
+          });
+          if (changed) {
+            node.textContent = text;
+            if (direction === 'rtl') node.parentElement.dir = direction;
+          }
+        }
+      }
+
       // ---- Render screenshot via Puppeteer server ----
       async function renderScreenshot(file, width, height, sourceW, sourceH) {
+        const body = { file, width, height, sourceW, sourceH };
+        const l10n = getLocalization();
+        if (l10n) body.localization = l10n;
         const res = await fetch('/api/render-screenshot', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ file, width, height, sourceW, sourceH }),
+          body: JSON.stringify(body),
         });
         if (!res.ok) throw new Error(`Server error: ${res.status}`);
         return await res.blob();
@@ -232,6 +395,15 @@
             iframe.dataset.file = template.src;
             iframe.style.width = sw + 'px';
             iframe.style.height = sh + 'px';
+
+            // Apply localization after iframe loads
+            const l10n = getLocalization();
+            if (l10n) {
+              iframe.addEventListener('load', function onLoad() {
+                try { injectLocalization(iframe.contentDocument || iframe.contentWindow.document, l10n); } catch(e) {}
+                iframe.removeEventListener('load', onLoad);
+              });
+            }
 
             border.appendChild(iframe);
             slot.appendChild(border);
@@ -462,6 +634,7 @@
         activeCollection = manifest.collections.find((c) => c.id === colId) || manifest.collections[0];
 
         buildTabBar();
+        await loadLocalizationsForCollection(activeCollection);
         buildCanvas();
         buildExportDropdown();
         requestAnimationFrame(fitAll);
@@ -489,9 +662,16 @@
 
         // Reload iframes whose src matches the changed file
         const iframes = inner.querySelectorAll('iframe');
+        const l10n = getLocalization();
         for (const iframe of iframes) {
           const src = iframe.dataset.file || iframe.getAttribute('src')?.split('?')[0];
           if (src && changedFile.endsWith(src.replace(/^\//, ''))) {
+            if (l10n) {
+              iframe.onload = function() {
+                try { injectLocalization(iframe.contentDocument || iframe.contentWindow.document, l10n); } catch(e) {}
+                iframe.onload = null;
+              };
+            }
             iframe.src = src + bust;
           }
         }
@@ -510,7 +690,15 @@
         if (['css', 'js', 'mjs', 'json', 'woff', 'woff2', 'ttf'].includes(ext)) {
           for (const iframe of iframes) {
             const src = iframe.dataset.file || iframe.getAttribute('src')?.split('?')[0];
-            if (src) iframe.src = src + bust;
+            if (src) {
+              if (l10n) {
+                iframe.onload = function() {
+                  try { injectLocalization(iframe.contentDocument || iframe.contentWindow.document, l10n); } catch(e) {}
+                  iframe.onload = null;
+                };
+              }
+              iframe.src = src + bust;
+            }
           }
         }
       }
