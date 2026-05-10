@@ -17,11 +17,11 @@ open-assets dev
 # Or with Tailwind
 concurrently "npx @tailwindcss/cli -i assets/styles.css -o dist/styles.css --watch" "open-assets dev"
 
-# Headless render
+# Headless render — prefer targeted flags when iterating; bare --force re-renders all collections (slow)
+open-assets render --force --template log-out          # one template only — fastest (~5–10s)
+open-assets render --force --collection ui-icons       # one collection
 open-assets render --collection screenshots --size iphone-6.9
-open-assets render --collection icon --force
-open-assets render --force
-open-assets render --template 01-hero --force
+open-assets render --force                              # everything — slow, use only for global rebuilds
 ```
 
 ## Concepts
@@ -205,6 +205,23 @@ Flags compose naturally:
 - `--collection screenshots --template 01-hero --force` → one template, all sizes
 - `--collection screenshots --size iphone-6.9` → all templates, one size
 
+#### Performance: prefer targeted renders when iterating
+
+A bare `render --force` re-renders **every collection** in `assets.json` (icons, splash, badges, screenshots, etc.) — this can take minutes on a project with many collections. When you're iterating on a single asset, scope the render:
+
+```bash
+# Iterating on one icon — ~5–10s
+open-assets render --force --template log-out
+
+# Iterating on one collection — moderate
+open-assets render --force --collection ui-icons
+
+# Full re-render — only when you intentionally changed everything
+open-assets render --force
+```
+
+Rule of thumb: if you just edited one SVG/HTML, use `--template <name>`. If you added a new template to a collection or changed shared CSS, use `--collection <id>`. Reserve a bare `--force` for rare global rebuilds.
+
 ### add commands
 
 Interactive commands for managing the config without editing JSON by hand. All support `--config <path>` for custom config filenames.
@@ -330,6 +347,10 @@ Alternatively, add a new object to the `collections` array in `assets.json` manu
 | Web | OG Image | 1200 | 630 |
 | Mac App Store | Retina | 2880 | 1800 |
 
+## Version Control
+
+**Commit `assets.lock` and `exports/` to the repository. DO NOT gitignore them.** The lockfile enables incremental builds, and the exports are the final rendered assets that other parts of the project (Xcode asset catalogs, web builds, etc.) depend on. Only `dist/` (compiled Tailwind) should be gitignored.
+
 ## Incremental Builds (assets.lock)
 
 The `render` command maintains a `assets.lock` file with SHA256 checksums of source files. On subsequent renders, unchanged assets are skipped automatically. Use `--force` to re-render everything.
@@ -371,40 +392,28 @@ Create a JSON file (iOS `.xcstrings`-inspired format) that maps string keys to p
 
 ### Wiring localizations to a collection
 
-Add `localizations` (path to the JSON file) and optionally `locales` (filter to specific locales) to a collection in `assets.json`. You can also set `defaultLocalization` at the root level of `assets.json` to control which locale is selected by default in the dev server's locale picker (falls back to `sourceLanguage` from the localizations file, then `"en"`):
+Add `localizations` (path to the JSON file) and optionally `locales` (filter to specific locales) to a collection in `assets.json`:
 
 ```json
 {
-  "version": 1,
-  "name": "My App",
-  "defaultLocalization": "en",
-  "collections": [
-    {
-      "id": "screenshots",
-      "label": "App Store Screenshots",
-      "sourceSize": { "width": 440, "height": 956 },
-      "localizations": "localizations.json",
-      "locales": ["en", "ar", "ja", "de"],
-      "templates": [
-        { "src": "assets/screenshots/01-hero.html", "name": "01-hero", "label": "Hero" }
-      ],
-      "export": [
-        { "name": "iphone-6.9", "label": "iPhone 6.9\"", "size": { "width": 1320, "height": 2868 } }
-      ]
-    }
+  "id": "screenshots",
+  "label": "App Store Screenshots",
+  "sourceSize": { "width": 440, "height": 956 },
+  "localizations": "localizations.json",
+  "locales": ["en", "ar", "ja", "de"],
+  "templates": [
+    { "src": "assets/screenshots/01-hero.html", "name": "01-hero", "label": "Hero" }
+  ],
+  "export": [
+    { "name": "iphone-6.9", "label": "iPhone 6.9\"", "size": { "width": 1320, "height": 2868 } }
   ]
 }
 ```
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `defaultLocalization` | string | Root-level. Default locale for the dev server locale picker. Falls back to `sourceLanguage` then `"en"`. |
 | `localizations` | string | Path to the localizations JSON file (relative to project root) |
 | `locales` | string[] | Optional filter — render only these locales. Omit to render all locales in the file. |
-
-### Dev server locale picker
-
-When a collection has `localizations` configured, the dev server shows a locale picker dropdown in the toolbar. Selecting a locale injects the localized strings into all template iframes in real time. The selected locale is also persisted in the URL (`?locale=ar`) and used for exports — exported PNGs will include the localized text for the active locale.
 
 ### Using placeholders in templates
 
@@ -479,7 +488,7 @@ When resolving a string for a locale:
 ```
 project/
   assets.json
-  assets.lock          # Auto-generated cache (commit this)
+  assets.lock          # Auto-generated cache — commit this
   public/                # Shared assets (images, logos, icons, photos)
     logo-round.png
     social/
@@ -500,7 +509,7 @@ project/
       default.html
   dist/
     styles.css           # Compiled Tailwind
-  exports/               # Rendered output (add to .gitignore)
+  exports/               # Rendered output — commit this
 ```
 
 ---
