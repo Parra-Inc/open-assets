@@ -1,0 +1,285 @@
+@import "tailwindcss";
+
+@theme {
+  /* Thoughtful brand palette — warm cream & gold */
+  --color-tf-primary: #CCAA6C;
+  --color-tf-primary-hover: #B8965A;
+  --color-tf-primary-light: #F2EADB;
+
+  /* Heart / coral accent (from icon) */
+  --color-tf-coral: #D4867F;
+  --color-tf-coral-light: #FEF4F2;
+
+  /* Backgrounds */
+  --color-tf-bg: #FAF8F5;
+  --color-tf-bg-secondary: #F5F1EC;
+
+  /* Text */
+  --color-tf-foreground: #2C2522;
+  --color-tf-foreground-muted: #8A7F76;
+
+  /* Status */
+  --color-tf-green: #7BAE7F;
+  --color-tf-amber: #D4A44A;
+  --color-tf-red: #D4645C;
+
+  /* Neutral (warm) */
+  --color-tf-gray-50: #F5F1EC;
+  --color-tf-gray-100: #F0EBE4;
+  --color-tf-gray-200: #E2DCD4;
+  --color-tf-gray-300: #CFC7BC;
+  --color-tf-gray-400: #B5ADA5;
+  --color-tf-gray-500: #8A7F76;
+
+  /* Fonts */
+  --font-sans: "SF Pro Display", -apple-system, system-ui, sans-serif;
+  --font-rounded: "SF Pro Rounded", "SF Pro Display", -apple-system, system-ui, sans-serif;
+}
+
+/* =============================================
+   SCREENSHOT FRAME — 440×956
+   ============================================= */
+.screenshot {
+  width: 440px;
+  height: 956px;
+  overflow: hidden;
+  position: relative;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =============================================
+   BACKGROUNDS
+   ============================================= */
+.bg-tf-gradient {
+  background: linear-gradient(
+    180deg,
+    #FAF8F5 0%,
+    #F5F1EC 50%,
+    #F2EADB 100%
+  );
+}
+
+/* =============================================
+   MARKETING HEADLINE TEXT
+   ============================================= */
+.headline {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: #2C2522;
+}
+
+.headline-gold {
+  background: linear-gradient(180deg, #CCAA6C 0%, #B8965A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.headline-coral {
+  background: linear-gradient(180deg, #D4867F 0%, #C9706A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subheadline {
+  font-weight: 500;
+  color: #8A7F76;
+  line-height: 1.4;
+}
+
+/* =============================================
+   PHONE MOCKUP
+   ============================================= */
+.phone {
+  position: relative;
+  background: #1a1a1a;
+  border-radius: 52px;
+  padding: 6px;
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+.phone-screen {
+  border-radius: 46px;
+  overflow: hidden;
+  background: #FAF8F5;
+}
+
+/* Phone scale variants: phone-{width} */
+.phone-300 .phone-screen {
+  width: 300px;
+  height: 652px;
+}
+.phone-300 .phone-content {
+  width: 440px;
+  height: 956px;
+  transform: scale(0.6818);
+  transform-origin: top left;
+}
+
+.phone-320 .phone-screen {
+  width: 320px;
+  height: 695px;
+}
+.phone-320 .phone-content {
+  width: 440px;
+  height: 956px;
+  transform: scale(0.7273);
+  transform-origin: top left;
+}
+
+.phone-340 .phone-screen {
+  width: 340px;
+  height: 739px;
+}
+.phone-340 .phone-content {
+  width: 440px;
+  height: 956px;
+  transform: scale(0.7727);
+  transform-origin: top left;
+}
+
+/* =============================================
+   AMBIENT GLOW
+   ============================================= */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* =============================================
+   SCATTERED FLARE
+   ============================================= */
+.flare {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.flare-heart {
+  font-family: var(--font-rounded);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.flare-plus {
+  display: block;
+}
+
+.flare-plus::before,
+.flare-plus::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+/* horizontal bar */
+.flare-plus::before {
+  width: 100%;
+  height: 32%;
+  top: 34%;
+  left: 0;
+}
+
+/* vertical bar */
+.flare-plus::after {
+  width: 32%;
+  height: 100%;
+  left: 34%;
+  top: 0;
+}
+
+.flare-dot {
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.flare-sparkle {
+  display: block;
+}
+
+.flare-sparkle::before,
+.flare-sparkle::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.flare-sparkle::before {
+  width: 100%;
+  height: 25%;
+  top: 37.5%;
+  left: 0;
+}
+
+.flare-sparkle::after {
+  width: 25%;
+  height: 100%;
+  left: 37.5%;
+  top: 0;
+}
+
+/* =============================================
+   FLOATING CALLOUTS
+   ============================================= */
+.callout {
+  background: rgba(250, 248, 245, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(204, 170, 108, 0.15);
+  border-radius: 14px;
+  padding: 10px 14px;
+  box-shadow:
+    0 8px 32px rgba(204, 170, 108, 0.12),
+    0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* =============================================
+   PILL / BADGE
+   ============================================= */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.pill-gold {
+  background: #F2EADB;
+  color: #CCAA6C;
+  border: 1px solid rgba(204, 170, 108, 0.2);
+}
+
+.pill-coral {
+  background: #FEF4F2;
+  color: #D4867F;
+  border: 1px solid rgba(212, 134, 127, 0.2);
+}
+
+.pill-green {
+  background: #EEF6EE;
+  color: #7BAE7F;
+  border: 1px solid rgba(123, 174, 127, 0.2);
+}
+
+/* =============================================
+   STATUS BAR (for phone mockup content)
+   ============================================= */
+.status-bar {
+  height: 54px;
+  padding: 0 24px;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 4px;
+}

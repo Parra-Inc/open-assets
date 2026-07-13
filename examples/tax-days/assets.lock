@@ -1,0 +1,1171 @@
+{
+  "version": 1,
+  "assets": {
+    "icon/icon": {
+      "512": {
+        "sourceChecksum": "sha256:b59eea88087163375be5c673a8f7aa8b776b07566255934756ead3ed47f2562b",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/icon/512.png",
+        "exportedAt": "2026-07-13T00:20:09.781Z",
+        "exportChecksum": "sha256:ffb750aec0ba57f441808a890f43db987463434c3d9b3706e6b3df29a7f80c33"
+      },
+      "1024": {
+        "sourceChecksum": "sha256:b59eea88087163375be5c673a8f7aa8b776b07566255934756ead3ed47f2562b",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/icon/1024.png",
+        "exportedAt": "2026-07-13T00:20:08.262Z",
+        "exportChecksum": "sha256:34fbda550402d1e0180c418018efe3c7d0f2abf5461cd5eb76c6841fb481e724"
+      }
+    },
+    "screenshots/en/01-hero": {
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:1d894099dbd52e62fad7882b90d6297a283d8e144f6f52f38f70c7366af20645",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/en/iphone-6.9/01-hero.png",
+        "exportedAt": "2026-07-13T00:20:12.041Z",
+        "exportChecksum": "sha256:4168759cefe85efe04d8d48cc09513f722961150a1ef7647fa110b391b89247d"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:1d894099dbd52e62fad7882b90d6297a283d8e144f6f52f38f70c7366af20645",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/en/iphone-6.7/01-hero.png",
+        "exportedAt": "2026-07-13T00:20:29.766Z",
+        "exportChecksum": "sha256:225528e09cefd1bfa5d77fa2758765c738f967e3ba7194a993a73116c11246bf"
+      },
+      "iphone-6.5": {
+        "sourceChecksum": "sha256:1d894099dbd52e62fad7882b90d6297a283d8e144f6f52f38f70c7366af20645",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/en/iphone-6.5/01-hero.png",
+        "exportedAt": "2026-07-13T00:20:47.449Z",
+        "exportChecksum": "sha256:30eed88a9d889a45e1957447b2290a0710559db9c438cef1080722f7cb9bcc7c"
+      },
+      "iphone-6.1": {
+        "sourceChecksum": "sha256:1d894099dbd52e62fad7882b90d6297a283d8e144f6f52f38f70c7366af20645",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/en/iphone-6.1/01-hero.png",
+        "exportedAt": "2026-07-13T00:21:05.124Z",
+        "exportChecksum": "sha256:4893895b2f9ffa82638b350c293189c470e1ce326403c0077c06caf60ca3c07d"
+      }
+    },
+    "screenshots/en/02-dashboard": {
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:4b338502391b0311a4435232f2561a306768dcbc8e435e30603e0951969a3301",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/en/iphone-6.9/02-dashboard.png",
+        "exportedAt": "2026-07-13T00:20:14.242Z",
+        "exportChecksum": "sha256:4168759cefe85efe04d8d48cc09513f722961150a1ef7647fa110b391b89247d"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:4b338502391b0311a4435232f2561a306768dcbc8e435e30603e0951969a3301",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/en/iphone-6.7/02-dashboard.png",
+        "exportedAt": "2026-07-13T00:20:31.960Z",
+        "exportChecksum": "sha256:225528e09cefd1bfa5d77fa2758765c738f967e3ba7194a993a73116c11246bf"
+      },
+      "iphone-6.5": {
+        "sourceChecksum": "sha256:4b338502391b0311a4435232f2561a306768dcbc8e435e30603e0951969a3301",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/en/iphone-6.5/02-dashboard.png",
+        "exportedAt": "2026-07-13T00:20:49.656Z",
+        "exportChecksum": "sha256:30eed88a9d889a45e1957447b2290a0710559db9c438cef1080722f7cb9bcc7c"
+      },
+      "iphone-6.1": {
+        "sourceChecksum": "sha256:4b338502391b0311a4435232f2561a306768dcbc8e435e30603e0951969a3301",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/en/iphone-6.1/02-dashboard.png",
+        "exportedAt": "2026-07-13T00:21:07.309Z",
+        "exportChecksum": "sha256:4893895b2f9ffa82638b350c293189c470e1ce326403c0077c06caf60ca3c07d"
+      }
+    },
+    "screenshots/en/03-calendar": {
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:8f66be3324d86a8e0e94527046149a786f09af430ddf4f9eb1a3700a579260d5",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/en/iphone-6.9/03-calendar.png",
+        "exportedAt": "2026-07-13T00:20:16.602Z",
+        "exportChecksum": "sha256:4168759cefe85efe04d8d48cc09513f722961150a1ef7647fa110b391b89247d"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:8f66be3324d86a8e0e94527046149a786f09af430ddf4f9eb1a3700a579260d5",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/en/iphone-6.7/03-calendar.png",
+        "exportedAt": "2026-07-13T00:20:34.312Z",
+        "exportChecksum": "sha256:225528e09cefd1bfa5d77fa2758765c738f967e3ba7194a993a73116c11246bf"
+      },
+      "iphone-6.5": {
+        "sourceChecksum": "sha256:8f66be3324d86a8e0e94527046149a786f09af430ddf4f9eb1a3700a579260d5",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/en/iphone-6.5/03-calendar.png",
+        "exportedAt": "2026-07-13T00:20:51.994Z",
+        "exportChecksum": "sha256:30eed88a9d889a45e1957447b2290a0710559db9c438cef1080722f7cb9bcc7c"
+      },
+      "iphone-6.1": {
+        "sourceChecksum": "sha256:8f66be3324d86a8e0e94527046149a786f09af430ddf4f9eb1a3700a579260d5",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/en/iphone-6.1/03-calendar.png",
+        "exportedAt": "2026-07-13T00:21:09.620Z",
+        "exportChecksum": "sha256:4893895b2f9ffa82638b350c293189c470e1ce326403c0077c06caf60ca3c07d"
+      }
+    },
+    "screenshots/en/04-privacy": {
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:735a5dd5b4b3106746d50e0f7d5d0795cd6400500141f30cee4c280bdb81bb70",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/en/iphone-6.9/04-privacy.png",
+        "exportedAt": "2026-07-13T00:20:18.776Z",
+        "exportChecksum": "sha256:4168759cefe85efe04d8d48cc09513f722961150a1ef7647fa110b391b89247d"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:735a5dd5b4b3106746d50e0f7d5d0795cd6400500141f30cee4c280bdb81bb70",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/en/iphone-6.7/04-privacy.png",
+        "exportedAt": "2026-07-13T00:20:36.491Z",
+        "exportChecksum": "sha256:225528e09cefd1bfa5d77fa2758765c738f967e3ba7194a993a73116c11246bf"
+      },
+      "iphone-6.5": {
+        "sourceChecksum": "sha256:735a5dd5b4b3106746d50e0f7d5d0795cd6400500141f30cee4c280bdb81bb70",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/en/iphone-6.5/04-privacy.png",
+        "exportedAt": "2026-07-13T00:20:54.167Z",
+        "exportChecksum": "sha256:30eed88a9d889a45e1957447b2290a0710559db9c438cef1080722f7cb9bcc7c"
+      },
+      "iphone-6.1": {
+        "sourceChecksum": "sha256:735a5dd5b4b3106746d50e0f7d5d0795cd6400500141f30cee4c280bdb81bb70",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/en/iphone-6.1/04-privacy.png",
+        "exportedAt": "2026-07-13T00:21:11.770Z",
+        "exportChecksum": "sha256:4893895b2f9ffa82638b350c293189c470e1ce326403c0077c06caf60ca3c07d"
+      }
+    },
+    "screenshots/en/05-schengen": {
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:e388b1436996717804a48433bab2aa19cc6dab5e0f49a43c35b926f3710de717",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/en/iphone-6.9/05-schengen.png",
+        "exportedAt": "2026-07-13T00:20:20.966Z",
+        "exportChecksum": "sha256:4168759cefe85efe04d8d48cc09513f722961150a1ef7647fa110b391b89247d"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:e388b1436996717804a48433bab2aa19cc6dab5e0f49a43c35b926f3710de717",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/en/iphone-6.7/05-schengen.png",
+        "exportedAt": "2026-07-13T00:20:38.705Z",
+        "exportChecksum": "sha256:225528e09cefd1bfa5d77fa2758765c738f967e3ba7194a993a73116c11246bf"
+      },
+      "iphone-6.5": {
+        "sourceChecksum": "sha256:e388b1436996717804a48433bab2aa19cc6dab5e0f49a43c35b926f3710de717",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/en/iphone-6.5/05-schengen.png",
+        "exportedAt": "2026-07-13T00:20:56.362Z",
+        "exportChecksum": "sha256:30eed88a9d889a45e1957447b2290a0710559db9c438cef1080722f7cb9bcc7c"
+      },
+      "iphone-6.1": {
+        "sourceChecksum": "sha256:e388b1436996717804a48433bab2aa19cc6dab5e0f49a43c35b926f3710de717",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/en/iphone-6.1/05-schengen.png",
+        "exportedAt": "2026-07-13T00:21:13.938Z",
+        "exportChecksum": "sha256:4893895b2f9ffa82638b350c293189c470e1ce326403c0077c06caf60ca3c07d"
+      }
+    },
+    "screenshots/en/06-notifications": {
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:7b7992c681eed70961764f7c823a8d5b542702102a745c6fdd4943c80bbe7734",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/en/iphone-6.9/06-notifications.png",
+        "exportedAt": "2026-07-13T00:20:23.136Z",
+        "exportChecksum": "sha256:4168759cefe85efe04d8d48cc09513f722961150a1ef7647fa110b391b89247d"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:7b7992c681eed70961764f7c823a8d5b542702102a745c6fdd4943c80bbe7734",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/en/iphone-6.7/06-notifications.png",
+        "exportedAt": "2026-07-13T00:20:40.869Z",
+        "exportChecksum": "sha256:225528e09cefd1bfa5d77fa2758765c738f967e3ba7194a993a73116c11246bf"
+      },
+      "iphone-6.5": {
+        "sourceChecksum": "sha256:7b7992c681eed70961764f7c823a8d5b542702102a745c6fdd4943c80bbe7734",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/en/iphone-6.5/06-notifications.png",
+        "exportedAt": "2026-07-13T00:20:58.525Z",
+        "exportChecksum": "sha256:30eed88a9d889a45e1957447b2290a0710559db9c438cef1080722f7cb9bcc7c"
+      },
+      "iphone-6.1": {
+        "sourceChecksum": "sha256:7b7992c681eed70961764f7c823a8d5b542702102a745c6fdd4943c80bbe7734",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/en/iphone-6.1/06-notifications.png",
+        "exportedAt": "2026-07-13T00:21:16.085Z",
+        "exportChecksum": "sha256:4893895b2f9ffa82638b350c293189c470e1ce326403c0077c06caf60ca3c07d"
+      }
+    },
+    "screenshots/en/07-stats": {
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:324d1bd0b851f29eb94105eea1cb2be42a4567ee188a8445dcbe149c53df0831",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/en/iphone-6.9/07-stats.png",
+        "exportedAt": "2026-07-13T00:20:25.349Z",
+        "exportChecksum": "sha256:4168759cefe85efe04d8d48cc09513f722961150a1ef7647fa110b391b89247d"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:324d1bd0b851f29eb94105eea1cb2be42a4567ee188a8445dcbe149c53df0831",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/en/iphone-6.7/07-stats.png",
+        "exportedAt": "2026-07-13T00:20:43.073Z",
+        "exportChecksum": "sha256:225528e09cefd1bfa5d77fa2758765c738f967e3ba7194a993a73116c11246bf"
+      },
+      "iphone-6.5": {
+        "sourceChecksum": "sha256:324d1bd0b851f29eb94105eea1cb2be42a4567ee188a8445dcbe149c53df0831",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/en/iphone-6.5/07-stats.png",
+        "exportedAt": "2026-07-13T00:21:00.734Z",
+        "exportChecksum": "sha256:30eed88a9d889a45e1957447b2290a0710559db9c438cef1080722f7cb9bcc7c"
+      },
+      "iphone-6.1": {
+        "sourceChecksum": "sha256:324d1bd0b851f29eb94105eea1cb2be42a4567ee188a8445dcbe149c53df0831",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/en/iphone-6.1/07-stats.png",
+        "exportedAt": "2026-07-13T00:21:18.274Z",
+        "exportChecksum": "sha256:4893895b2f9ffa82638b350c293189c470e1ce326403c0077c06caf60ca3c07d"
+      }
+    },
+    "screenshots/en/08-rules": {
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:12005b22d0c6040902cfdb4a6d299494839969292af2688e3c5f4574cbd21ce8",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/en/iphone-6.9/08-rules.png",
+        "exportedAt": "2026-07-13T00:20:27.516Z",
+        "exportChecksum": "sha256:4168759cefe85efe04d8d48cc09513f722961150a1ef7647fa110b391b89247d"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:12005b22d0c6040902cfdb4a6d299494839969292af2688e3c5f4574cbd21ce8",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/en/iphone-6.7/08-rules.png",
+        "exportedAt": "2026-07-13T00:20:45.226Z",
+        "exportChecksum": "sha256:225528e09cefd1bfa5d77fa2758765c738f967e3ba7194a993a73116c11246bf"
+      },
+      "iphone-6.5": {
+        "sourceChecksum": "sha256:12005b22d0c6040902cfdb4a6d299494839969292af2688e3c5f4574cbd21ce8",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/en/iphone-6.5/08-rules.png",
+        "exportedAt": "2026-07-13T00:21:02.917Z",
+        "exportChecksum": "sha256:30eed88a9d889a45e1957447b2290a0710559db9c438cef1080722f7cb9bcc7c"
+      },
+      "iphone-6.1": {
+        "sourceChecksum": "sha256:12005b22d0c6040902cfdb4a6d299494839969292af2688e3c5f4574cbd21ce8",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/en/iphone-6.1/08-rules.png",
+        "exportedAt": "2026-07-13T00:21:20.433Z",
+        "exportChecksum": "sha256:4893895b2f9ffa82638b350c293189c470e1ce326403c0077c06caf60ca3c07d"
+      }
+    },
+    "screenshots/ar/01-hero": {
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:1d894099dbd52e62fad7882b90d6297a283d8e144f6f52f38f70c7366af20645",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ar/iphone-6.9/01-hero.png",
+        "exportedAt": "2026-07-13T00:21:22.664Z",
+        "exportChecksum": "sha256:2362261f039fff8036e471c14dc7eea18300dd7c5cf6ae215ec66b8891e54ad2"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:1d894099dbd52e62fad7882b90d6297a283d8e144f6f52f38f70c7366af20645",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ar/iphone-6.7/01-hero.png",
+        "exportedAt": "2026-07-13T00:21:40.340Z",
+        "exportChecksum": "sha256:e1524008a8640517aedbab443cd005b9181b6f9d0e560316f3e1b48e5c21cbc2"
+      },
+      "iphone-6.5": {
+        "sourceChecksum": "sha256:1d894099dbd52e62fad7882b90d6297a283d8e144f6f52f38f70c7366af20645",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ar/iphone-6.5/01-hero.png",
+        "exportedAt": "2026-07-13T00:21:58.012Z",
+        "exportChecksum": "sha256:d80be77c97a549b1de19b4d644d87939b1480ba2b3dccba24583bff2f671f6fc"
+      },
+      "iphone-6.1": {
+        "sourceChecksum": "sha256:1d894099dbd52e62fad7882b90d6297a283d8e144f6f52f38f70c7366af20645",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ar/iphone-6.1/01-hero.png",
+        "exportedAt": "2026-07-13T00:22:17.734Z",
+        "exportChecksum": "sha256:1f332f92ea1305d7151142b4b065dc7efb0d9498ce43efbbf2eb71243995ce16"
+      }
+    },
+    "screenshots/ar/02-dashboard": {
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:4b338502391b0311a4435232f2561a306768dcbc8e435e30603e0951969a3301",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ar/iphone-6.9/02-dashboard.png",
+        "exportedAt": "2026-07-13T00:21:24.839Z",
+        "exportChecksum": "sha256:2362261f039fff8036e471c14dc7eea18300dd7c5cf6ae215ec66b8891e54ad2"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:4b338502391b0311a4435232f2561a306768dcbc8e435e30603e0951969a3301",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ar/iphone-6.7/02-dashboard.png",
+        "exportedAt": "2026-07-13T00:21:42.524Z",
+        "exportChecksum": "sha256:e1524008a8640517aedbab443cd005b9181b6f9d0e560316f3e1b48e5c21cbc2"
+      },
+      "iphone-6.5": {
+        "sourceChecksum": "sha256:4b338502391b0311a4435232f2561a306768dcbc8e435e30603e0951969a3301",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ar/iphone-6.5/02-dashboard.png",
+        "exportedAt": "2026-07-13T00:22:00.200Z",
+        "exportChecksum": "sha256:d80be77c97a549b1de19b4d644d87939b1480ba2b3dccba24583bff2f671f6fc"
+      },
+      "iphone-6.1": {
+        "sourceChecksum": "sha256:4b338502391b0311a4435232f2561a306768dcbc8e435e30603e0951969a3301",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ar/iphone-6.1/02-dashboard.png",
+        "exportedAt": "2026-07-13T00:22:19.936Z",
+        "exportChecksum": "sha256:1f332f92ea1305d7151142b4b065dc7efb0d9498ce43efbbf2eb71243995ce16"
+      }
+    },
+    "screenshots/ar/03-calendar": {
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:8f66be3324d86a8e0e94527046149a786f09af430ddf4f9eb1a3700a579260d5",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ar/iphone-6.9/03-calendar.png",
+        "exportedAt": "2026-07-13T00:21:27.200Z",
+        "exportChecksum": "sha256:2362261f039fff8036e471c14dc7eea18300dd7c5cf6ae215ec66b8891e54ad2"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:8f66be3324d86a8e0e94527046149a786f09af430ddf4f9eb1a3700a579260d5",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ar/iphone-6.7/03-calendar.png",
+        "exportedAt": "2026-07-13T00:21:44.878Z",
+        "exportChecksum": "sha256:e1524008a8640517aedbab443cd005b9181b6f9d0e560316f3e1b48e5c21cbc2"
+      },
+      "iphone-6.5": {
+        "sourceChecksum": "sha256:8f66be3324d86a8e0e94527046149a786f09af430ddf4f9eb1a3700a579260d5",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ar/iphone-6.5/03-calendar.png",
+        "exportedAt": "2026-07-13T00:22:02.537Z",
+        "exportChecksum": "sha256:d80be77c97a549b1de19b4d644d87939b1480ba2b3dccba24583bff2f671f6fc"
+      },
+      "iphone-6.1": {
+        "sourceChecksum": "sha256:8f66be3324d86a8e0e94527046149a786f09af430ddf4f9eb1a3700a579260d5",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ar/iphone-6.1/03-calendar.png",
+        "exportedAt": "2026-07-13T00:22:23.279Z",
+        "exportChecksum": "sha256:1f332f92ea1305d7151142b4b065dc7efb0d9498ce43efbbf2eb71243995ce16"
+      }
+    },
+    "screenshots/ar/04-privacy": {
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:735a5dd5b4b3106746d50e0f7d5d0795cd6400500141f30cee4c280bdb81bb70",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ar/iphone-6.9/04-privacy.png",
+        "exportedAt": "2026-07-13T00:21:29.386Z",
+        "exportChecksum": "sha256:2362261f039fff8036e471c14dc7eea18300dd7c5cf6ae215ec66b8891e54ad2"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:735a5dd5b4b3106746d50e0f7d5d0795cd6400500141f30cee4c280bdb81bb70",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ar/iphone-6.7/04-privacy.png",
+        "exportedAt": "2026-07-13T00:21:47.072Z",
+        "exportChecksum": "sha256:e1524008a8640517aedbab443cd005b9181b6f9d0e560316f3e1b48e5c21cbc2"
+      },
+      "iphone-6.5": {
+        "sourceChecksum": "sha256:735a5dd5b4b3106746d50e0f7d5d0795cd6400500141f30cee4c280bdb81bb70",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ar/iphone-6.5/04-privacy.png",
+        "exportedAt": "2026-07-13T00:22:04.764Z",
+        "exportChecksum": "sha256:d80be77c97a549b1de19b4d644d87939b1480ba2b3dccba24583bff2f671f6fc"
+      },
+      "iphone-6.1": {
+        "sourceChecksum": "sha256:735a5dd5b4b3106746d50e0f7d5d0795cd6400500141f30cee4c280bdb81bb70",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ar/iphone-6.1/04-privacy.png",
+        "exportedAt": "2026-07-13T00:22:25.798Z",
+        "exportChecksum": "sha256:1f332f92ea1305d7151142b4b065dc7efb0d9498ce43efbbf2eb71243995ce16"
+      }
+    },
+    "screenshots/ar/05-schengen": {
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:e388b1436996717804a48433bab2aa19cc6dab5e0f49a43c35b926f3710de717",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ar/iphone-6.9/05-schengen.png",
+        "exportedAt": "2026-07-13T00:21:31.561Z",
+        "exportChecksum": "sha256:2362261f039fff8036e471c14dc7eea18300dd7c5cf6ae215ec66b8891e54ad2"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:e388b1436996717804a48433bab2aa19cc6dab5e0f49a43c35b926f3710de717",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ar/iphone-6.7/05-schengen.png",
+        "exportedAt": "2026-07-13T00:21:49.251Z",
+        "exportChecksum": "sha256:e1524008a8640517aedbab443cd005b9181b6f9d0e560316f3e1b48e5c21cbc2"
+      },
+      "iphone-6.5": {
+        "sourceChecksum": "sha256:e388b1436996717804a48433bab2aa19cc6dab5e0f49a43c35b926f3710de717",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ar/iphone-6.5/05-schengen.png",
+        "exportedAt": "2026-07-13T00:22:07.334Z",
+        "exportChecksum": "sha256:d80be77c97a549b1de19b4d644d87939b1480ba2b3dccba24583bff2f671f6fc"
+      },
+      "iphone-6.1": {
+        "sourceChecksum": "sha256:e388b1436996717804a48433bab2aa19cc6dab5e0f49a43c35b926f3710de717",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ar/iphone-6.1/05-schengen.png",
+        "exportedAt": "2026-07-13T00:22:28.072Z",
+        "exportChecksum": "sha256:1f332f92ea1305d7151142b4b065dc7efb0d9498ce43efbbf2eb71243995ce16"
+      }
+    },
+    "screenshots/ar/06-notifications": {
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:7b7992c681eed70961764f7c823a8d5b542702102a745c6fdd4943c80bbe7734",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ar/iphone-6.9/06-notifications.png",
+        "exportedAt": "2026-07-13T00:21:33.724Z",
+        "exportChecksum": "sha256:2362261f039fff8036e471c14dc7eea18300dd7c5cf6ae215ec66b8891e54ad2"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:7b7992c681eed70961764f7c823a8d5b542702102a745c6fdd4943c80bbe7734",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ar/iphone-6.7/06-notifications.png",
+        "exportedAt": "2026-07-13T00:21:51.395Z",
+        "exportChecksum": "sha256:e1524008a8640517aedbab443cd005b9181b6f9d0e560316f3e1b48e5c21cbc2"
+      },
+      "iphone-6.5": {
+        "sourceChecksum": "sha256:7b7992c681eed70961764f7c823a8d5b542702102a745c6fdd4943c80bbe7734",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ar/iphone-6.5/06-notifications.png",
+        "exportedAt": "2026-07-13T00:22:09.873Z",
+        "exportChecksum": "sha256:d80be77c97a549b1de19b4d644d87939b1480ba2b3dccba24583bff2f671f6fc"
+      },
+      "iphone-6.1": {
+        "sourceChecksum": "sha256:7b7992c681eed70961764f7c823a8d5b542702102a745c6fdd4943c80bbe7734",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ar/iphone-6.1/06-notifications.png",
+        "exportedAt": "2026-07-13T00:22:30.499Z",
+        "exportChecksum": "sha256:1f332f92ea1305d7151142b4b065dc7efb0d9498ce43efbbf2eb71243995ce16"
+      }
+    },
+    "screenshots/ar/07-stats": {
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:324d1bd0b851f29eb94105eea1cb2be42a4567ee188a8445dcbe149c53df0831",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ar/iphone-6.9/07-stats.png",
+        "exportedAt": "2026-07-13T00:21:35.913Z",
+        "exportChecksum": "sha256:2362261f039fff8036e471c14dc7eea18300dd7c5cf6ae215ec66b8891e54ad2"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:324d1bd0b851f29eb94105eea1cb2be42a4567ee188a8445dcbe149c53df0831",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ar/iphone-6.7/07-stats.png",
+        "exportedAt": "2026-07-13T00:21:53.581Z",
+        "exportChecksum": "sha256:e1524008a8640517aedbab443cd005b9181b6f9d0e560316f3e1b48e5c21cbc2"
+      },
+      "iphone-6.5": {
+        "sourceChecksum": "sha256:324d1bd0b851f29eb94105eea1cb2be42a4567ee188a8445dcbe149c53df0831",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ar/iphone-6.5/07-stats.png",
+        "exportedAt": "2026-07-13T00:22:12.550Z",
+        "exportChecksum": "sha256:d80be77c97a549b1de19b4d644d87939b1480ba2b3dccba24583bff2f671f6fc"
+      },
+      "iphone-6.1": {
+        "sourceChecksum": "sha256:324d1bd0b851f29eb94105eea1cb2be42a4567ee188a8445dcbe149c53df0831",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ar/iphone-6.1/07-stats.png",
+        "exportedAt": "2026-07-13T00:22:32.868Z",
+        "exportChecksum": "sha256:1f332f92ea1305d7151142b4b065dc7efb0d9498ce43efbbf2eb71243995ce16"
+      }
+    },
+    "screenshots/ar/08-rules": {
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:12005b22d0c6040902cfdb4a6d299494839969292af2688e3c5f4574cbd21ce8",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ar/iphone-6.9/08-rules.png",
+        "exportedAt": "2026-07-13T00:21:38.114Z",
+        "exportChecksum": "sha256:2362261f039fff8036e471c14dc7eea18300dd7c5cf6ae215ec66b8891e54ad2"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:12005b22d0c6040902cfdb4a6d299494839969292af2688e3c5f4574cbd21ce8",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ar/iphone-6.7/08-rules.png",
+        "exportedAt": "2026-07-13T00:21:55.785Z",
+        "exportChecksum": "sha256:e1524008a8640517aedbab443cd005b9181b6f9d0e560316f3e1b48e5c21cbc2"
+      },
+      "iphone-6.5": {
+        "sourceChecksum": "sha256:12005b22d0c6040902cfdb4a6d299494839969292af2688e3c5f4574cbd21ce8",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ar/iphone-6.5/08-rules.png",
+        "exportedAt": "2026-07-13T00:22:15.052Z",
+        "exportChecksum": "sha256:d80be77c97a549b1de19b4d644d87939b1480ba2b3dccba24583bff2f671f6fc"
+      },
+      "iphone-6.1": {
+        "sourceChecksum": "sha256:12005b22d0c6040902cfdb4a6d299494839969292af2688e3c5f4574cbd21ce8",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ar/iphone-6.1/08-rules.png",
+        "exportedAt": "2026-07-13T00:22:35.125Z",
+        "exportChecksum": "sha256:1f332f92ea1305d7151142b4b065dc7efb0d9498ce43efbbf2eb71243995ce16"
+      }
+    },
+    "screenshots/de/01-hero": {
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:1d894099dbd52e62fad7882b90d6297a283d8e144f6f52f38f70c7366af20645",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/de/iphone-6.9/01-hero.png",
+        "exportedAt": "2026-07-13T00:22:38.109Z",
+        "exportChecksum": "sha256:419b3158791e5dc885717193178935a1fd0f9994a313caa32ee3e7c8587255ae"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:1d894099dbd52e62fad7882b90d6297a283d8e144f6f52f38f70c7366af20645",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/de/iphone-6.7/01-hero.png",
+        "exportedAt": "2026-07-13T00:22:56.059Z",
+        "exportChecksum": "sha256:2abb007f229b1b09d706572f8dc1c1a49b12dcffef0173d11452f31e8faeace1"
+      },
+      "iphone-6.5": {
+        "sourceChecksum": "sha256:1d894099dbd52e62fad7882b90d6297a283d8e144f6f52f38f70c7366af20645",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/de/iphone-6.5/01-hero.png",
+        "exportedAt": "2026-07-13T00:23:13.781Z",
+        "exportChecksum": "sha256:95fe89054b0ebedea21cf475e2b0dda8119b0e6aeac76fb291b510928f506619"
+      },
+      "iphone-6.1": {
+        "sourceChecksum": "sha256:1d894099dbd52e62fad7882b90d6297a283d8e144f6f52f38f70c7366af20645",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/de/iphone-6.1/01-hero.png",
+        "exportedAt": "2026-07-13T00:23:31.460Z",
+        "exportChecksum": "sha256:c9108463d1e60281a53491a5355034e15a8d9bbbade8692af55ed0c5e42d93ed"
+      }
+    },
+    "screenshots/de/02-dashboard": {
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:4b338502391b0311a4435232f2561a306768dcbc8e435e30603e0951969a3301",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/de/iphone-6.9/02-dashboard.png",
+        "exportedAt": "2026-07-13T00:22:40.459Z",
+        "exportChecksum": "sha256:419b3158791e5dc885717193178935a1fd0f9994a313caa32ee3e7c8587255ae"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:4b338502391b0311a4435232f2561a306768dcbc8e435e30603e0951969a3301",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/de/iphone-6.7/02-dashboard.png",
+        "exportedAt": "2026-07-13T00:22:58.256Z",
+        "exportChecksum": "sha256:2abb007f229b1b09d706572f8dc1c1a49b12dcffef0173d11452f31e8faeace1"
+      },
+      "iphone-6.5": {
+        "sourceChecksum": "sha256:4b338502391b0311a4435232f2561a306768dcbc8e435e30603e0951969a3301",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/de/iphone-6.5/02-dashboard.png",
+        "exportedAt": "2026-07-13T00:23:15.950Z",
+        "exportChecksum": "sha256:95fe89054b0ebedea21cf475e2b0dda8119b0e6aeac76fb291b510928f506619"
+      },
+      "iphone-6.1": {
+        "sourceChecksum": "sha256:4b338502391b0311a4435232f2561a306768dcbc8e435e30603e0951969a3301",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/de/iphone-6.1/02-dashboard.png",
+        "exportedAt": "2026-07-13T00:23:33.630Z",
+        "exportChecksum": "sha256:c9108463d1e60281a53491a5355034e15a8d9bbbade8692af55ed0c5e42d93ed"
+      }
+    },
+    "screenshots/de/03-calendar": {
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:8f66be3324d86a8e0e94527046149a786f09af430ddf4f9eb1a3700a579260d5",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/de/iphone-6.9/03-calendar.png",
+        "exportedAt": "2026-07-13T00:22:42.807Z",
+        "exportChecksum": "sha256:419b3158791e5dc885717193178935a1fd0f9994a313caa32ee3e7c8587255ae"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:8f66be3324d86a8e0e94527046149a786f09af430ddf4f9eb1a3700a579260d5",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/de/iphone-6.7/03-calendar.png",
+        "exportedAt": "2026-07-13T00:23:00.592Z",
+        "exportChecksum": "sha256:2abb007f229b1b09d706572f8dc1c1a49b12dcffef0173d11452f31e8faeace1"
+      },
+      "iphone-6.5": {
+        "sourceChecksum": "sha256:8f66be3324d86a8e0e94527046149a786f09af430ddf4f9eb1a3700a579260d5",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/de/iphone-6.5/03-calendar.png",
+        "exportedAt": "2026-07-13T00:23:18.310Z",
+        "exportChecksum": "sha256:95fe89054b0ebedea21cf475e2b0dda8119b0e6aeac76fb291b510928f506619"
+      },
+      "iphone-6.1": {
+        "sourceChecksum": "sha256:8f66be3324d86a8e0e94527046149a786f09af430ddf4f9eb1a3700a579260d5",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/de/iphone-6.1/03-calendar.png",
+        "exportedAt": "2026-07-13T00:23:35.926Z",
+        "exportChecksum": "sha256:c9108463d1e60281a53491a5355034e15a8d9bbbade8692af55ed0c5e42d93ed"
+      }
+    },
+    "screenshots/de/04-privacy": {
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:735a5dd5b4b3106746d50e0f7d5d0795cd6400500141f30cee4c280bdb81bb70",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/de/iphone-6.9/04-privacy.png",
+        "exportedAt": "2026-07-13T00:22:44.991Z",
+        "exportChecksum": "sha256:419b3158791e5dc885717193178935a1fd0f9994a313caa32ee3e7c8587255ae"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:735a5dd5b4b3106746d50e0f7d5d0795cd6400500141f30cee4c280bdb81bb70",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/de/iphone-6.7/04-privacy.png",
+        "exportedAt": "2026-07-13T00:23:02.771Z",
+        "exportChecksum": "sha256:2abb007f229b1b09d706572f8dc1c1a49b12dcffef0173d11452f31e8faeace1"
+      },
+      "iphone-6.5": {
+        "sourceChecksum": "sha256:735a5dd5b4b3106746d50e0f7d5d0795cd6400500141f30cee4c280bdb81bb70",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/de/iphone-6.5/04-privacy.png",
+        "exportedAt": "2026-07-13T00:23:20.518Z",
+        "exportChecksum": "sha256:95fe89054b0ebedea21cf475e2b0dda8119b0e6aeac76fb291b510928f506619"
+      },
+      "iphone-6.1": {
+        "sourceChecksum": "sha256:735a5dd5b4b3106746d50e0f7d5d0795cd6400500141f30cee4c280bdb81bb70",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/de/iphone-6.1/04-privacy.png",
+        "exportedAt": "2026-07-13T00:23:38.093Z",
+        "exportChecksum": "sha256:c9108463d1e60281a53491a5355034e15a8d9bbbade8692af55ed0c5e42d93ed"
+      }
+    },
+    "screenshots/de/05-schengen": {
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:e388b1436996717804a48433bab2aa19cc6dab5e0f49a43c35b926f3710de717",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/de/iphone-6.9/05-schengen.png",
+        "exportedAt": "2026-07-13T00:22:47.203Z",
+        "exportChecksum": "sha256:419b3158791e5dc885717193178935a1fd0f9994a313caa32ee3e7c8587255ae"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:e388b1436996717804a48433bab2aa19cc6dab5e0f49a43c35b926f3710de717",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/de/iphone-6.7/05-schengen.png",
+        "exportedAt": "2026-07-13T00:23:04.978Z",
+        "exportChecksum": "sha256:2abb007f229b1b09d706572f8dc1c1a49b12dcffef0173d11452f31e8faeace1"
+      },
+      "iphone-6.5": {
+        "sourceChecksum": "sha256:e388b1436996717804a48433bab2aa19cc6dab5e0f49a43c35b926f3710de717",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/de/iphone-6.5/05-schengen.png",
+        "exportedAt": "2026-07-13T00:23:22.713Z",
+        "exportChecksum": "sha256:95fe89054b0ebedea21cf475e2b0dda8119b0e6aeac76fb291b510928f506619"
+      },
+      "iphone-6.1": {
+        "sourceChecksum": "sha256:e388b1436996717804a48433bab2aa19cc6dab5e0f49a43c35b926f3710de717",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/de/iphone-6.1/05-schengen.png",
+        "exportedAt": "2026-07-13T00:23:40.261Z",
+        "exportChecksum": "sha256:c9108463d1e60281a53491a5355034e15a8d9bbbade8692af55ed0c5e42d93ed"
+      }
+    },
+    "screenshots/de/06-notifications": {
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:7b7992c681eed70961764f7c823a8d5b542702102a745c6fdd4943c80bbe7734",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/de/iphone-6.9/06-notifications.png",
+        "exportedAt": "2026-07-13T00:22:49.384Z",
+        "exportChecksum": "sha256:419b3158791e5dc885717193178935a1fd0f9994a313caa32ee3e7c8587255ae"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:7b7992c681eed70961764f7c823a8d5b542702102a745c6fdd4943c80bbe7734",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/de/iphone-6.7/06-notifications.png",
+        "exportedAt": "2026-07-13T00:23:07.135Z",
+        "exportChecksum": "sha256:2abb007f229b1b09d706572f8dc1c1a49b12dcffef0173d11452f31e8faeace1"
+      },
+      "iphone-6.5": {
+        "sourceChecksum": "sha256:7b7992c681eed70961764f7c823a8d5b542702102a745c6fdd4943c80bbe7734",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/de/iphone-6.5/06-notifications.png",
+        "exportedAt": "2026-07-13T00:23:24.879Z",
+        "exportChecksum": "sha256:95fe89054b0ebedea21cf475e2b0dda8119b0e6aeac76fb291b510928f506619"
+      },
+      "iphone-6.1": {
+        "sourceChecksum": "sha256:7b7992c681eed70961764f7c823a8d5b542702102a745c6fdd4943c80bbe7734",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/de/iphone-6.1/06-notifications.png",
+        "exportedAt": "2026-07-13T00:23:42.417Z",
+        "exportChecksum": "sha256:c9108463d1e60281a53491a5355034e15a8d9bbbade8692af55ed0c5e42d93ed"
+      }
+    },
+    "screenshots/de/07-stats": {
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:324d1bd0b851f29eb94105eea1cb2be42a4567ee188a8445dcbe149c53df0831",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/de/iphone-6.9/07-stats.png",
+        "exportedAt": "2026-07-13T00:22:51.595Z",
+        "exportChecksum": "sha256:419b3158791e5dc885717193178935a1fd0f9994a313caa32ee3e7c8587255ae"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:324d1bd0b851f29eb94105eea1cb2be42a4567ee188a8445dcbe149c53df0831",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/de/iphone-6.7/07-stats.png",
+        "exportedAt": "2026-07-13T00:23:09.339Z",
+        "exportChecksum": "sha256:2abb007f229b1b09d706572f8dc1c1a49b12dcffef0173d11452f31e8faeace1"
+      },
+      "iphone-6.5": {
+        "sourceChecksum": "sha256:324d1bd0b851f29eb94105eea1cb2be42a4567ee188a8445dcbe149c53df0831",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/de/iphone-6.5/07-stats.png",
+        "exportedAt": "2026-07-13T00:23:27.084Z",
+        "exportChecksum": "sha256:95fe89054b0ebedea21cf475e2b0dda8119b0e6aeac76fb291b510928f506619"
+      },
+      "iphone-6.1": {
+        "sourceChecksum": "sha256:324d1bd0b851f29eb94105eea1cb2be42a4567ee188a8445dcbe149c53df0831",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/de/iphone-6.1/07-stats.png",
+        "exportedAt": "2026-07-13T00:23:44.620Z",
+        "exportChecksum": "sha256:c9108463d1e60281a53491a5355034e15a8d9bbbade8692af55ed0c5e42d93ed"
+      }
+    },
+    "screenshots/de/08-rules": {
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:12005b22d0c6040902cfdb4a6d299494839969292af2688e3c5f4574cbd21ce8",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/de/iphone-6.9/08-rules.png",
+        "exportedAt": "2026-07-13T00:22:53.790Z",
+        "exportChecksum": "sha256:419b3158791e5dc885717193178935a1fd0f9994a313caa32ee3e7c8587255ae"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:12005b22d0c6040902cfdb4a6d299494839969292af2688e3c5f4574cbd21ce8",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/de/iphone-6.7/08-rules.png",
+        "exportedAt": "2026-07-13T00:23:11.537Z",
+        "exportChecksum": "sha256:2abb007f229b1b09d706572f8dc1c1a49b12dcffef0173d11452f31e8faeace1"
+      },
+      "iphone-6.5": {
+        "sourceChecksum": "sha256:12005b22d0c6040902cfdb4a6d299494839969292af2688e3c5f4574cbd21ce8",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/de/iphone-6.5/08-rules.png",
+        "exportedAt": "2026-07-13T00:23:29.241Z",
+        "exportChecksum": "sha256:95fe89054b0ebedea21cf475e2b0dda8119b0e6aeac76fb291b510928f506619"
+      },
+      "iphone-6.1": {
+        "sourceChecksum": "sha256:12005b22d0c6040902cfdb4a6d299494839969292af2688e3c5f4574cbd21ce8",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/de/iphone-6.1/08-rules.png",
+        "exportedAt": "2026-07-13T00:23:46.771Z",
+        "exportChecksum": "sha256:c9108463d1e60281a53491a5355034e15a8d9bbbade8692af55ed0c5e42d93ed"
+      }
+    },
+    "screenshots/ja/01-hero": {
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:1d894099dbd52e62fad7882b90d6297a283d8e144f6f52f38f70c7366af20645",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ja/iphone-6.9/01-hero.png",
+        "exportedAt": "2026-07-13T00:23:49.066Z",
+        "exportChecksum": "sha256:13110d85beefb5ceb330c57adfac43b8aa18b89c4298df7cbaac129c3544f1d2"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:1d894099dbd52e62fad7882b90d6297a283d8e144f6f52f38f70c7366af20645",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ja/iphone-6.7/01-hero.png",
+        "exportedAt": "2026-07-13T00:24:06.723Z",
+        "exportChecksum": "sha256:c23d864c1a6ed8b8f4c518f7fd194a1aef048da05fa607f3fa29e0d7ffc84c75"
+      },
+      "iphone-6.5": {
+        "sourceChecksum": "sha256:1d894099dbd52e62fad7882b90d6297a283d8e144f6f52f38f70c7366af20645",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ja/iphone-6.5/01-hero.png",
+        "exportedAt": "2026-07-13T00:24:24.400Z",
+        "exportChecksum": "sha256:1727f6b584f546d5df663e5fb512524dd8f1d975ea09402631f8718e2201e0c8"
+      },
+      "iphone-6.1": {
+        "sourceChecksum": "sha256:1d894099dbd52e62fad7882b90d6297a283d8e144f6f52f38f70c7366af20645",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ja/iphone-6.1/01-hero.png",
+        "exportedAt": "2026-07-13T00:24:44.388Z",
+        "exportChecksum": "sha256:4391922dc66ce2d4e2fbb02b5415de5541cb7d399626688caf5dcf87f62adff5"
+      }
+    },
+    "screenshots/ja/02-dashboard": {
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:4b338502391b0311a4435232f2561a306768dcbc8e435e30603e0951969a3301",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ja/iphone-6.9/02-dashboard.png",
+        "exportedAt": "2026-07-13T00:23:51.245Z",
+        "exportChecksum": "sha256:13110d85beefb5ceb330c57adfac43b8aa18b89c4298df7cbaac129c3544f1d2"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:4b338502391b0311a4435232f2561a306768dcbc8e435e30603e0951969a3301",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ja/iphone-6.7/02-dashboard.png",
+        "exportedAt": "2026-07-13T00:24:08.901Z",
+        "exportChecksum": "sha256:c23d864c1a6ed8b8f4c518f7fd194a1aef048da05fa607f3fa29e0d7ffc84c75"
+      },
+      "iphone-6.5": {
+        "sourceChecksum": "sha256:4b338502391b0311a4435232f2561a306768dcbc8e435e30603e0951969a3301",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ja/iphone-6.5/02-dashboard.png",
+        "exportedAt": "2026-07-13T00:24:26.572Z",
+        "exportChecksum": "sha256:1727f6b584f546d5df663e5fb512524dd8f1d975ea09402631f8718e2201e0c8"
+      },
+      "iphone-6.1": {
+        "sourceChecksum": "sha256:4b338502391b0311a4435232f2561a306768dcbc8e435e30603e0951969a3301",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ja/iphone-6.1/02-dashboard.png",
+        "exportedAt": "2026-07-13T00:24:46.566Z",
+        "exportChecksum": "sha256:4391922dc66ce2d4e2fbb02b5415de5541cb7d399626688caf5dcf87f62adff5"
+      }
+    },
+    "screenshots/ja/03-calendar": {
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:8f66be3324d86a8e0e94527046149a786f09af430ddf4f9eb1a3700a579260d5",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ja/iphone-6.9/03-calendar.png",
+        "exportedAt": "2026-07-13T00:23:53.590Z",
+        "exportChecksum": "sha256:13110d85beefb5ceb330c57adfac43b8aa18b89c4298df7cbaac129c3544f1d2"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:8f66be3324d86a8e0e94527046149a786f09af430ddf4f9eb1a3700a579260d5",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ja/iphone-6.7/03-calendar.png",
+        "exportedAt": "2026-07-13T00:24:11.236Z",
+        "exportChecksum": "sha256:c23d864c1a6ed8b8f4c518f7fd194a1aef048da05fa607f3fa29e0d7ffc84c75"
+      },
+      "iphone-6.5": {
+        "sourceChecksum": "sha256:8f66be3324d86a8e0e94527046149a786f09af430ddf4f9eb1a3700a579260d5",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ja/iphone-6.5/03-calendar.png",
+        "exportedAt": "2026-07-13T00:24:29.692Z",
+        "exportChecksum": "sha256:1727f6b584f546d5df663e5fb512524dd8f1d975ea09402631f8718e2201e0c8"
+      },
+      "iphone-6.1": {
+        "sourceChecksum": "sha256:8f66be3324d86a8e0e94527046149a786f09af430ddf4f9eb1a3700a579260d5",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ja/iphone-6.1/03-calendar.png",
+        "exportedAt": "2026-07-13T00:24:48.881Z",
+        "exportChecksum": "sha256:4391922dc66ce2d4e2fbb02b5415de5541cb7d399626688caf5dcf87f62adff5"
+      }
+    },
+    "screenshots/ja/04-privacy": {
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:735a5dd5b4b3106746d50e0f7d5d0795cd6400500141f30cee4c280bdb81bb70",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ja/iphone-6.9/04-privacy.png",
+        "exportedAt": "2026-07-13T00:23:55.766Z",
+        "exportChecksum": "sha256:13110d85beefb5ceb330c57adfac43b8aa18b89c4298df7cbaac129c3544f1d2"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:735a5dd5b4b3106746d50e0f7d5d0795cd6400500141f30cee4c280bdb81bb70",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ja/iphone-6.7/04-privacy.png",
+        "exportedAt": "2026-07-13T00:24:13.434Z",
+        "exportChecksum": "sha256:c23d864c1a6ed8b8f4c518f7fd194a1aef048da05fa607f3fa29e0d7ffc84c75"
+      },
+      "iphone-6.5": {
+        "sourceChecksum": "sha256:735a5dd5b4b3106746d50e0f7d5d0795cd6400500141f30cee4c280bdb81bb70",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ja/iphone-6.5/04-privacy.png",
+        "exportedAt": "2026-07-13T00:24:32.219Z",
+        "exportChecksum": "sha256:1727f6b584f546d5df663e5fb512524dd8f1d975ea09402631f8718e2201e0c8"
+      },
+      "iphone-6.1": {
+        "sourceChecksum": "sha256:735a5dd5b4b3106746d50e0f7d5d0795cd6400500141f30cee4c280bdb81bb70",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ja/iphone-6.1/04-privacy.png",
+        "exportedAt": "2026-07-13T00:24:51.077Z",
+        "exportChecksum": "sha256:4391922dc66ce2d4e2fbb02b5415de5541cb7d399626688caf5dcf87f62adff5"
+      }
+    },
+    "screenshots/ja/05-schengen": {
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:e388b1436996717804a48433bab2aa19cc6dab5e0f49a43c35b926f3710de717",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ja/iphone-6.9/05-schengen.png",
+        "exportedAt": "2026-07-13T00:23:57.954Z",
+        "exportChecksum": "sha256:13110d85beefb5ceb330c57adfac43b8aa18b89c4298df7cbaac129c3544f1d2"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:e388b1436996717804a48433bab2aa19cc6dab5e0f49a43c35b926f3710de717",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ja/iphone-6.7/05-schengen.png",
+        "exportedAt": "2026-07-13T00:24:15.627Z",
+        "exportChecksum": "sha256:c23d864c1a6ed8b8f4c518f7fd194a1aef048da05fa607f3fa29e0d7ffc84c75"
+      },
+      "iphone-6.5": {
+        "sourceChecksum": "sha256:e388b1436996717804a48433bab2aa19cc6dab5e0f49a43c35b926f3710de717",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ja/iphone-6.5/05-schengen.png",
+        "exportedAt": "2026-07-13T00:24:35.495Z",
+        "exportChecksum": "sha256:1727f6b584f546d5df663e5fb512524dd8f1d975ea09402631f8718e2201e0c8"
+      },
+      "iphone-6.1": {
+        "sourceChecksum": "sha256:e388b1436996717804a48433bab2aa19cc6dab5e0f49a43c35b926f3710de717",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ja/iphone-6.1/05-schengen.png",
+        "exportedAt": "2026-07-13T00:24:53.280Z",
+        "exportChecksum": "sha256:4391922dc66ce2d4e2fbb02b5415de5541cb7d399626688caf5dcf87f62adff5"
+      }
+    },
+    "screenshots/ja/06-notifications": {
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:7b7992c681eed70961764f7c823a8d5b542702102a745c6fdd4943c80bbe7734",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ja/iphone-6.9/06-notifications.png",
+        "exportedAt": "2026-07-13T00:24:00.127Z",
+        "exportChecksum": "sha256:13110d85beefb5ceb330c57adfac43b8aa18b89c4298df7cbaac129c3544f1d2"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:7b7992c681eed70961764f7c823a8d5b542702102a745c6fdd4943c80bbe7734",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ja/iphone-6.7/06-notifications.png",
+        "exportedAt": "2026-07-13T00:24:17.788Z",
+        "exportChecksum": "sha256:c23d864c1a6ed8b8f4c518f7fd194a1aef048da05fa607f3fa29e0d7ffc84c75"
+      },
+      "iphone-6.5": {
+        "sourceChecksum": "sha256:7b7992c681eed70961764f7c823a8d5b542702102a745c6fdd4943c80bbe7734",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ja/iphone-6.5/06-notifications.png",
+        "exportedAt": "2026-07-13T00:24:37.803Z",
+        "exportChecksum": "sha256:1727f6b584f546d5df663e5fb512524dd8f1d975ea09402631f8718e2201e0c8"
+      },
+      "iphone-6.1": {
+        "sourceChecksum": "sha256:7b7992c681eed70961764f7c823a8d5b542702102a745c6fdd4943c80bbe7734",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ja/iphone-6.1/06-notifications.png",
+        "exportedAt": "2026-07-13T00:24:55.443Z",
+        "exportChecksum": "sha256:4391922dc66ce2d4e2fbb02b5415de5541cb7d399626688caf5dcf87f62adff5"
+      }
+    },
+    "screenshots/ja/07-stats": {
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:324d1bd0b851f29eb94105eea1cb2be42a4567ee188a8445dcbe149c53df0831",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ja/iphone-6.9/07-stats.png",
+        "exportedAt": "2026-07-13T00:24:02.321Z",
+        "exportChecksum": "sha256:13110d85beefb5ceb330c57adfac43b8aa18b89c4298df7cbaac129c3544f1d2"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:324d1bd0b851f29eb94105eea1cb2be42a4567ee188a8445dcbe149c53df0831",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ja/iphone-6.7/07-stats.png",
+        "exportedAt": "2026-07-13T00:24:19.995Z",
+        "exportChecksum": "sha256:c23d864c1a6ed8b8f4c518f7fd194a1aef048da05fa607f3fa29e0d7ffc84c75"
+      },
+      "iphone-6.5": {
+        "sourceChecksum": "sha256:324d1bd0b851f29eb94105eea1cb2be42a4567ee188a8445dcbe149c53df0831",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ja/iphone-6.5/07-stats.png",
+        "exportedAt": "2026-07-13T00:24:40.012Z",
+        "exportChecksum": "sha256:1727f6b584f546d5df663e5fb512524dd8f1d975ea09402631f8718e2201e0c8"
+      },
+      "iphone-6.1": {
+        "sourceChecksum": "sha256:324d1bd0b851f29eb94105eea1cb2be42a4567ee188a8445dcbe149c53df0831",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ja/iphone-6.1/07-stats.png",
+        "exportedAt": "2026-07-13T00:24:57.606Z",
+        "exportChecksum": "sha256:4391922dc66ce2d4e2fbb02b5415de5541cb7d399626688caf5dcf87f62adff5"
+      }
+    },
+    "screenshots/ja/08-rules": {
+      "iphone-6.9": {
+        "sourceChecksum": "sha256:12005b22d0c6040902cfdb4a6d299494839969292af2688e3c5f4574cbd21ce8",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ja/iphone-6.9/08-rules.png",
+        "exportedAt": "2026-07-13T00:24:04.483Z",
+        "exportChecksum": "sha256:13110d85beefb5ceb330c57adfac43b8aa18b89c4298df7cbaac129c3544f1d2"
+      },
+      "iphone-6.7": {
+        "sourceChecksum": "sha256:12005b22d0c6040902cfdb4a6d299494839969292af2688e3c5f4574cbd21ce8",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ja/iphone-6.7/08-rules.png",
+        "exportedAt": "2026-07-13T00:24:22.166Z",
+        "exportChecksum": "sha256:c23d864c1a6ed8b8f4c518f7fd194a1aef048da05fa607f3fa29e0d7ffc84c75"
+      },
+      "iphone-6.5": {
+        "sourceChecksum": "sha256:12005b22d0c6040902cfdb4a6d299494839969292af2688e3c5f4574cbd21ce8",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ja/iphone-6.5/08-rules.png",
+        "exportedAt": "2026-07-13T00:24:42.176Z",
+        "exportChecksum": "sha256:1727f6b584f546d5df663e5fb512524dd8f1d975ea09402631f8718e2201e0c8"
+      },
+      "iphone-6.1": {
+        "sourceChecksum": "sha256:12005b22d0c6040902cfdb4a6d299494839969292af2688e3c5f4574cbd21ce8",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots/ja/iphone-6.1/08-rules.png",
+        "exportedAt": "2026-07-13T00:24:59.746Z",
+        "exportChecksum": "sha256:4391922dc66ce2d4e2fbb02b5415de5541cb7d399626688caf5dcf87f62adff5"
+      }
+    },
+    "screenshots-android/en/01-hero": {
+      "phone": {
+        "sourceChecksum": "sha256:39d21094b59ed458831b70f419b2111b582171e41f14750d72f705f6400cf656",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/en/phone/01-hero.png",
+        "exportedAt": "2026-07-13T00:25:01.943Z",
+        "exportChecksum": "sha256:8c7981f779fda73755ce3db0af59257e85f586f45f386092b1f46cdee0b7f719"
+      },
+      "tablet-7": {
+        "sourceChecksum": "sha256:39d21094b59ed458831b70f419b2111b582171e41f14750d72f705f6400cf656",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/en/tablet-7/01-hero.png",
+        "exportedAt": "2026-07-13T00:25:19.435Z",
+        "exportChecksum": "sha256:3e2a2ce5ffcb618afe3c4458e74b78471b316a211ba9e296544a81486bc2b1f8"
+      },
+      "tablet-10": {
+        "sourceChecksum": "sha256:39d21094b59ed458831b70f419b2111b582171e41f14750d72f705f6400cf656",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/en/tablet-10/01-hero.png",
+        "exportedAt": "2026-07-13T00:25:38.827Z",
+        "exportChecksum": "sha256:7f19635776e27458425d940c8cdc96d6258dd802073cd6cff92554d15e19b87e"
+      }
+    },
+    "screenshots-android/en/02-dashboard": {
+      "phone": {
+        "sourceChecksum": "sha256:eca47da8aad4b70467d55dc8b65bdd4fdabd0718c33bedb3eab42b43765d006a",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/en/phone/02-dashboard.png",
+        "exportedAt": "2026-07-13T00:25:04.091Z",
+        "exportChecksum": "sha256:8c7981f779fda73755ce3db0af59257e85f586f45f386092b1f46cdee0b7f719"
+      },
+      "tablet-7": {
+        "sourceChecksum": "sha256:eca47da8aad4b70467d55dc8b65bdd4fdabd0718c33bedb3eab42b43765d006a",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/en/tablet-7/02-dashboard.png",
+        "exportedAt": "2026-07-13T00:25:21.569Z",
+        "exportChecksum": "sha256:3e2a2ce5ffcb618afe3c4458e74b78471b316a211ba9e296544a81486bc2b1f8"
+      },
+      "tablet-10": {
+        "sourceChecksum": "sha256:eca47da8aad4b70467d55dc8b65bdd4fdabd0718c33bedb3eab42b43765d006a",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/en/tablet-10/02-dashboard.png",
+        "exportedAt": "2026-07-13T00:25:41.195Z",
+        "exportChecksum": "sha256:7f19635776e27458425d940c8cdc96d6258dd802073cd6cff92554d15e19b87e"
+      }
+    },
+    "screenshots-android/en/03-calendar": {
+      "phone": {
+        "sourceChecksum": "sha256:96623d477efc98491bdf6ef42fee50fd9d2c2f669f5f9bca84dfc852531e8ee9",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/en/phone/03-calendar.png",
+        "exportedAt": "2026-07-13T00:25:06.507Z",
+        "exportChecksum": "sha256:8c7981f779fda73755ce3db0af59257e85f586f45f386092b1f46cdee0b7f719"
+      },
+      "tablet-7": {
+        "sourceChecksum": "sha256:96623d477efc98491bdf6ef42fee50fd9d2c2f669f5f9bca84dfc852531e8ee9",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/en/tablet-7/03-calendar.png",
+        "exportedAt": "2026-07-13T00:25:23.781Z",
+        "exportChecksum": "sha256:3e2a2ce5ffcb618afe3c4458e74b78471b316a211ba9e296544a81486bc2b1f8"
+      },
+      "tablet-10": {
+        "sourceChecksum": "sha256:96623d477efc98491bdf6ef42fee50fd9d2c2f669f5f9bca84dfc852531e8ee9",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/en/tablet-10/03-calendar.png",
+        "exportedAt": "2026-07-13T00:25:44.188Z",
+        "exportChecksum": "sha256:7f19635776e27458425d940c8cdc96d6258dd802073cd6cff92554d15e19b87e"
+      }
+    },
+    "screenshots-android/en/04-privacy": {
+      "phone": {
+        "sourceChecksum": "sha256:53d1ad30385afc4dd8fee3747fe3414e950d784fc7a0b802c7e7dc7b2fab28bb",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/en/phone/04-privacy.png",
+        "exportedAt": "2026-07-13T00:25:08.708Z",
+        "exportChecksum": "sha256:8c7981f779fda73755ce3db0af59257e85f586f45f386092b1f46cdee0b7f719"
+      },
+      "tablet-7": {
+        "sourceChecksum": "sha256:53d1ad30385afc4dd8fee3747fe3414e950d784fc7a0b802c7e7dc7b2fab28bb",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/en/tablet-7/04-privacy.png",
+        "exportedAt": "2026-07-13T00:25:25.953Z",
+        "exportChecksum": "sha256:3e2a2ce5ffcb618afe3c4458e74b78471b316a211ba9e296544a81486bc2b1f8"
+      },
+      "tablet-10": {
+        "sourceChecksum": "sha256:53d1ad30385afc4dd8fee3747fe3414e950d784fc7a0b802c7e7dc7b2fab28bb",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/en/tablet-10/04-privacy.png",
+        "exportedAt": "2026-07-13T00:25:47.902Z",
+        "exportChecksum": "sha256:7f19635776e27458425d940c8cdc96d6258dd802073cd6cff92554d15e19b87e"
+      }
+    },
+    "screenshots-android/en/05-schengen": {
+      "phone": {
+        "sourceChecksum": "sha256:a7b18c43a36b92939f247f7c58d306a9f5d96aede5cce582a80b7d98b510285b",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/en/phone/05-schengen.png",
+        "exportedAt": "2026-07-13T00:25:10.863Z",
+        "exportChecksum": "sha256:8c7981f779fda73755ce3db0af59257e85f586f45f386092b1f46cdee0b7f719"
+      },
+      "tablet-7": {
+        "sourceChecksum": "sha256:a7b18c43a36b92939f247f7c58d306a9f5d96aede5cce582a80b7d98b510285b",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/en/tablet-7/05-schengen.png",
+        "exportedAt": "2026-07-13T00:25:28.103Z",
+        "exportChecksum": "sha256:3e2a2ce5ffcb618afe3c4458e74b78471b316a211ba9e296544a81486bc2b1f8"
+      },
+      "tablet-10": {
+        "sourceChecksum": "sha256:a7b18c43a36b92939f247f7c58d306a9f5d96aede5cce582a80b7d98b510285b",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/en/tablet-10/05-schengen.png",
+        "exportedAt": "2026-07-13T00:25:51.203Z",
+        "exportChecksum": "sha256:7f19635776e27458425d940c8cdc96d6258dd802073cd6cff92554d15e19b87e"
+      }
+    },
+    "screenshots-android/en/06-notifications": {
+      "phone": {
+        "sourceChecksum": "sha256:96a38bc09fff9c8fe204e04168172d21b0473d36bd269df68116602f1d2be915",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/en/phone/06-notifications.png",
+        "exportedAt": "2026-07-13T00:25:12.984Z",
+        "exportChecksum": "sha256:8c7981f779fda73755ce3db0af59257e85f586f45f386092b1f46cdee0b7f719"
+      },
+      "tablet-7": {
+        "sourceChecksum": "sha256:96a38bc09fff9c8fe204e04168172d21b0473d36bd269df68116602f1d2be915",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/en/tablet-7/06-notifications.png",
+        "exportedAt": "2026-07-13T00:25:30.220Z",
+        "exportChecksum": "sha256:3e2a2ce5ffcb618afe3c4458e74b78471b316a211ba9e296544a81486bc2b1f8"
+      },
+      "tablet-10": {
+        "sourceChecksum": "sha256:96a38bc09fff9c8fe204e04168172d21b0473d36bd269df68116602f1d2be915",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/en/tablet-10/06-notifications.png",
+        "exportedAt": "2026-07-13T00:25:53.667Z",
+        "exportChecksum": "sha256:7f19635776e27458425d940c8cdc96d6258dd802073cd6cff92554d15e19b87e"
+      }
+    },
+    "screenshots-android/en/07-stats": {
+      "phone": {
+        "sourceChecksum": "sha256:ea708957566078a3bd85836d517321ccfb3beeae302c169269a7617b3195857e",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/en/phone/07-stats.png",
+        "exportedAt": "2026-07-13T00:25:15.145Z",
+        "exportChecksum": "sha256:8c7981f779fda73755ce3db0af59257e85f586f45f386092b1f46cdee0b7f719"
+      },
+      "tablet-7": {
+        "sourceChecksum": "sha256:ea708957566078a3bd85836d517321ccfb3beeae302c169269a7617b3195857e",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/en/tablet-7/07-stats.png",
+        "exportedAt": "2026-07-13T00:25:33.000Z",
+        "exportChecksum": "sha256:3e2a2ce5ffcb618afe3c4458e74b78471b316a211ba9e296544a81486bc2b1f8"
+      },
+      "tablet-10": {
+        "sourceChecksum": "sha256:ea708957566078a3bd85836d517321ccfb3beeae302c169269a7617b3195857e",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/en/tablet-10/07-stats.png",
+        "exportedAt": "2026-07-13T00:25:56.779Z",
+        "exportChecksum": "sha256:7f19635776e27458425d940c8cdc96d6258dd802073cd6cff92554d15e19b87e"
+      }
+    },
+    "screenshots-android/en/08-rules": {
+      "phone": {
+        "sourceChecksum": "sha256:cc26fcf818671a93b971b6d2893bd5990d59777aaae3febd1ed46f3621f62517",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/en/phone/08-rules.png",
+        "exportedAt": "2026-07-13T00:25:17.277Z",
+        "exportChecksum": "sha256:8c7981f779fda73755ce3db0af59257e85f586f45f386092b1f46cdee0b7f719"
+      },
+      "tablet-7": {
+        "sourceChecksum": "sha256:cc26fcf818671a93b971b6d2893bd5990d59777aaae3febd1ed46f3621f62517",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/en/tablet-7/08-rules.png",
+        "exportedAt": "2026-07-13T00:25:35.512Z",
+        "exportChecksum": "sha256:3e2a2ce5ffcb618afe3c4458e74b78471b316a211ba9e296544a81486bc2b1f8"
+      },
+      "tablet-10": {
+        "sourceChecksum": "sha256:cc26fcf818671a93b971b6d2893bd5990d59777aaae3febd1ed46f3621f62517",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/en/tablet-10/08-rules.png",
+        "exportedAt": "2026-07-13T00:25:59.428Z",
+        "exportChecksum": "sha256:7f19635776e27458425d940c8cdc96d6258dd802073cd6cff92554d15e19b87e"
+      }
+    },
+    "screenshots-android/de/01-hero": {
+      "phone": {
+        "sourceChecksum": "sha256:39d21094b59ed458831b70f419b2111b582171e41f14750d72f705f6400cf656",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/de/phone/01-hero.png",
+        "exportedAt": "2026-07-13T00:26:01.825Z",
+        "exportChecksum": "sha256:5ff773b9d56b768a5af262b7e155620005a8aab575cd07aa836c8bc15e6d3c35"
+      },
+      "tablet-7": {
+        "sourceChecksum": "sha256:39d21094b59ed458831b70f419b2111b582171e41f14750d72f705f6400cf656",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/de/tablet-7/01-hero.png",
+        "exportedAt": "2026-07-13T00:26:20.283Z",
+        "exportChecksum": "sha256:723fc2339ca08ebb254e663d9e039f3ff7974927522d67069f072307749511ef"
+      },
+      "tablet-10": {
+        "sourceChecksum": "sha256:39d21094b59ed458831b70f419b2111b582171e41f14750d72f705f6400cf656",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/de/tablet-10/01-hero.png",
+        "exportedAt": "2026-07-13T00:26:37.595Z",
+        "exportChecksum": "sha256:0874db82cd934ba1bd329878dd1bbb34a2320e3f7820b53dfe7b47f47e4d5be3"
+      }
+    },
+    "screenshots-android/de/02-dashboard": {
+      "phone": {
+        "sourceChecksum": "sha256:eca47da8aad4b70467d55dc8b65bdd4fdabd0718c33bedb3eab42b43765d006a",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/de/phone/02-dashboard.png",
+        "exportedAt": "2026-07-13T00:26:04.221Z",
+        "exportChecksum": "sha256:5ff773b9d56b768a5af262b7e155620005a8aab575cd07aa836c8bc15e6d3c35"
+      },
+      "tablet-7": {
+        "sourceChecksum": "sha256:eca47da8aad4b70467d55dc8b65bdd4fdabd0718c33bedb3eab42b43765d006a",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/de/tablet-7/02-dashboard.png",
+        "exportedAt": "2026-07-13T00:26:22.409Z",
+        "exportChecksum": "sha256:723fc2339ca08ebb254e663d9e039f3ff7974927522d67069f072307749511ef"
+      },
+      "tablet-10": {
+        "sourceChecksum": "sha256:eca47da8aad4b70467d55dc8b65bdd4fdabd0718c33bedb3eab42b43765d006a",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/de/tablet-10/02-dashboard.png",
+        "exportedAt": "2026-07-13T00:26:39.777Z",
+        "exportChecksum": "sha256:0874db82cd934ba1bd329878dd1bbb34a2320e3f7820b53dfe7b47f47e4d5be3"
+      }
+    },
+    "screenshots-android/de/03-calendar": {
+      "phone": {
+        "sourceChecksum": "sha256:96623d477efc98491bdf6ef42fee50fd9d2c2f669f5f9bca84dfc852531e8ee9",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/de/phone/03-calendar.png",
+        "exportedAt": "2026-07-13T00:26:06.961Z",
+        "exportChecksum": "sha256:5ff773b9d56b768a5af262b7e155620005a8aab575cd07aa836c8bc15e6d3c35"
+      },
+      "tablet-7": {
+        "sourceChecksum": "sha256:96623d477efc98491bdf6ef42fee50fd9d2c2f669f5f9bca84dfc852531e8ee9",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/de/tablet-7/03-calendar.png",
+        "exportedAt": "2026-07-13T00:26:24.631Z",
+        "exportChecksum": "sha256:723fc2339ca08ebb254e663d9e039f3ff7974927522d67069f072307749511ef"
+      },
+      "tablet-10": {
+        "sourceChecksum": "sha256:96623d477efc98491bdf6ef42fee50fd9d2c2f669f5f9bca84dfc852531e8ee9",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/de/tablet-10/03-calendar.png",
+        "exportedAt": "2026-07-13T00:26:42.115Z",
+        "exportChecksum": "sha256:0874db82cd934ba1bd329878dd1bbb34a2320e3f7820b53dfe7b47f47e4d5be3"
+      }
+    },
+    "screenshots-android/de/04-privacy": {
+      "phone": {
+        "sourceChecksum": "sha256:53d1ad30385afc4dd8fee3747fe3414e950d784fc7a0b802c7e7dc7b2fab28bb",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/de/phone/04-privacy.png",
+        "exportedAt": "2026-07-13T00:26:09.316Z",
+        "exportChecksum": "sha256:5ff773b9d56b768a5af262b7e155620005a8aab575cd07aa836c8bc15e6d3c35"
+      },
+      "tablet-7": {
+        "sourceChecksum": "sha256:53d1ad30385afc4dd8fee3747fe3414e950d784fc7a0b802c7e7dc7b2fab28bb",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/de/tablet-7/04-privacy.png",
+        "exportedAt": "2026-07-13T00:26:26.826Z",
+        "exportChecksum": "sha256:723fc2339ca08ebb254e663d9e039f3ff7974927522d67069f072307749511ef"
+      },
+      "tablet-10": {
+        "sourceChecksum": "sha256:53d1ad30385afc4dd8fee3747fe3414e950d784fc7a0b802c7e7dc7b2fab28bb",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/de/tablet-10/04-privacy.png",
+        "exportedAt": "2026-07-13T00:26:44.339Z",
+        "exportChecksum": "sha256:0874db82cd934ba1bd329878dd1bbb34a2320e3f7820b53dfe7b47f47e4d5be3"
+      }
+    },
+    "screenshots-android/de/05-schengen": {
+      "phone": {
+        "sourceChecksum": "sha256:a7b18c43a36b92939f247f7c58d306a9f5d96aede5cce582a80b7d98b510285b",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/de/phone/05-schengen.png",
+        "exportedAt": "2026-07-13T00:26:11.603Z",
+        "exportChecksum": "sha256:5ff773b9d56b768a5af262b7e155620005a8aab575cd07aa836c8bc15e6d3c35"
+      },
+      "tablet-7": {
+        "sourceChecksum": "sha256:a7b18c43a36b92939f247f7c58d306a9f5d96aede5cce582a80b7d98b510285b",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/de/tablet-7/05-schengen.png",
+        "exportedAt": "2026-07-13T00:26:28.964Z",
+        "exportChecksum": "sha256:723fc2339ca08ebb254e663d9e039f3ff7974927522d67069f072307749511ef"
+      },
+      "tablet-10": {
+        "sourceChecksum": "sha256:a7b18c43a36b92939f247f7c58d306a9f5d96aede5cce582a80b7d98b510285b",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/de/tablet-10/05-schengen.png",
+        "exportedAt": "2026-07-13T00:26:46.537Z",
+        "exportChecksum": "sha256:0874db82cd934ba1bd329878dd1bbb34a2320e3f7820b53dfe7b47f47e4d5be3"
+      }
+    },
+    "screenshots-android/de/06-notifications": {
+      "phone": {
+        "sourceChecksum": "sha256:96a38bc09fff9c8fe204e04168172d21b0473d36bd269df68116602f1d2be915",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/de/phone/06-notifications.png",
+        "exportedAt": "2026-07-13T00:26:13.773Z",
+        "exportChecksum": "sha256:5ff773b9d56b768a5af262b7e155620005a8aab575cd07aa836c8bc15e6d3c35"
+      },
+      "tablet-7": {
+        "sourceChecksum": "sha256:96a38bc09fff9c8fe204e04168172d21b0473d36bd269df68116602f1d2be915",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/de/tablet-7/06-notifications.png",
+        "exportedAt": "2026-07-13T00:26:31.095Z",
+        "exportChecksum": "sha256:723fc2339ca08ebb254e663d9e039f3ff7974927522d67069f072307749511ef"
+      },
+      "tablet-10": {
+        "sourceChecksum": "sha256:96a38bc09fff9c8fe204e04168172d21b0473d36bd269df68116602f1d2be915",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/de/tablet-10/06-notifications.png",
+        "exportedAt": "2026-07-13T00:26:48.720Z",
+        "exportChecksum": "sha256:0874db82cd934ba1bd329878dd1bbb34a2320e3f7820b53dfe7b47f47e4d5be3"
+      }
+    },
+    "screenshots-android/de/07-stats": {
+      "phone": {
+        "sourceChecksum": "sha256:ea708957566078a3bd85836d517321ccfb3beeae302c169269a7617b3195857e",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/de/phone/07-stats.png",
+        "exportedAt": "2026-07-13T00:26:15.983Z",
+        "exportChecksum": "sha256:5ff773b9d56b768a5af262b7e155620005a8aab575cd07aa836c8bc15e6d3c35"
+      },
+      "tablet-7": {
+        "sourceChecksum": "sha256:ea708957566078a3bd85836d517321ccfb3beeae302c169269a7617b3195857e",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/de/tablet-7/07-stats.png",
+        "exportedAt": "2026-07-13T00:26:33.223Z",
+        "exportChecksum": "sha256:723fc2339ca08ebb254e663d9e039f3ff7974927522d67069f072307749511ef"
+      },
+      "tablet-10": {
+        "sourceChecksum": "sha256:ea708957566078a3bd85836d517321ccfb3beeae302c169269a7617b3195857e",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/de/tablet-10/07-stats.png",
+        "exportedAt": "2026-07-13T00:26:50.918Z",
+        "exportChecksum": "sha256:0874db82cd934ba1bd329878dd1bbb34a2320e3f7820b53dfe7b47f47e4d5be3"
+      }
+    },
+    "screenshots-android/de/08-rules": {
+      "phone": {
+        "sourceChecksum": "sha256:cc26fcf818671a93b971b6d2893bd5990d59777aaae3febd1ed46f3621f62517",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/de/phone/08-rules.png",
+        "exportedAt": "2026-07-13T00:26:18.122Z",
+        "exportChecksum": "sha256:5ff773b9d56b768a5af262b7e155620005a8aab575cd07aa836c8bc15e6d3c35"
+      },
+      "tablet-7": {
+        "sourceChecksum": "sha256:cc26fcf818671a93b971b6d2893bd5990d59777aaae3febd1ed46f3621f62517",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/de/tablet-7/08-rules.png",
+        "exportedAt": "2026-07-13T00:26:35.358Z",
+        "exportChecksum": "sha256:723fc2339ca08ebb254e663d9e039f3ff7974927522d67069f072307749511ef"
+      },
+      "tablet-10": {
+        "sourceChecksum": "sha256:cc26fcf818671a93b971b6d2893bd5990d59777aaae3febd1ed46f3621f62517",
+        "outputPath": "/Users/ianmaccallum/Developer/Repos/open-assets/examples/tax-days/exports/screenshots-android/de/tablet-10/08-rules.png",
+        "exportedAt": "2026-07-13T00:26:53.120Z",
+        "exportChecksum": "sha256:0874db82cd934ba1bd329878dd1bbb34a2320e3f7820b53dfe7b47f47e4d5be3"
+      }
+    }
+  }
+}

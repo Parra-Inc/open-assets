@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=440" />
+    <link rel="stylesheet" href="../../dist/styles.css" />
+  </head>
+  <body class="m-0 p-0">
+    <div class="screenshot bg-td-gradient flex flex-col items-center">
+      <!-- Ambient glow -->
+      <div class="glow-orb w-[220px] h-[220px] bg-td-primary top-[250px] right-[-30px]"></div>
+
+      <!-- Scattered decorative emoji -->
+      <div class="deco deco-sm deco-faded" style="top: 70px; right: 40px;">📊</div>
+      <div class="deco deco-sm deco-faded" style="top: 480px; left: 18px;">🗽</div>
+      <div class="deco deco-sm deco-faded" style="top: 150px; left: 28px;">🇫🇷</div>
+      <div class="deco deco-sm deco-faded" style="top: 650px; right: 30px;">🇩🇪</div>
+
+      <!-- Marketing text -->
+      <div class="relative z-10 pt-14 pb-2 px-8 text-center">
+        <h1 class="headline text-[36px] text-td-fg mb-4">
+          {{dash_line1}} <span style="color: var(--color-td-primary);">{{dash_accent}}</span>.<br/>{{dash_line2}}
+        </h1>
+        <p class="subheadline text-[15px] px-2">
+          {{dash_sub}}
+        </p>
+      </div>
+
+      <!-- Phone + floating callouts -->
+      <div class="relative z-10 mt-4 w-full flex justify-center">
+        <div class="relative">
+          <!-- Phone -->
+          <div style="transform: perspective(900px) rotateY(3deg) rotateX(1deg);">
+            <div class="phone phone-300">
+              <div class="phone-screen">
+                <img data-locale-img="02_dashboard"
+                     src="../../public/screenshots/en/02_dashboard.png"
+                     style="width: 300px; height: auto; display: block;" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating callout: Status -->
+          <div class="callout flex items-center gap-2.5 absolute z-20" style="top: 30px; right: -60px;">
+            <div class="w-9 h-9 rounded-full flex items-center justify-center shrink-0" style="background: rgba(76, 175, 125, 0.12);">
+              <span class="text-[16px]">✅</span>
+            </div>
+            <div>
+              <div class="text-[11px] font-medium" style="color: #6B8080;">{{dash_status_label}}</div>
+              <div class="text-[17px] font-bold" style="color: #4CAF7D;">{{dash_status_value}}</div>
+            </div>
+          </div>
+
+          <!-- Floating callout: Days used -->
+          <div class="callout flex items-center gap-2.5 absolute z-20" style="bottom: 120px; left: -55px;">
+            <div class="w-9 h-9 rounded-full flex items-center justify-center shrink-0" style="background: rgba(232, 168, 76, 0.12);">
+              <span class="text-[16px]">📍</span>
+            </div>
+            <div>
+              <div class="text-[11px] font-medium" style="color: #6B8080;">{{dash_days_label}}</div>
+              <div class="text-[17px] font-bold" style="color: #E8A84C;">{{dash_days_value}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      new MutationObserver(function() {
+        var lang = document.documentElement.lang || 'en';
+        document.querySelectorAll('[data-locale-img]').forEach(function(img) {
+          var name = img.getAttribute('data-locale-img');
+          img.src = '../../public/screenshots/' + lang + '/' + name + '.png';
+        });
+      }).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+    </script>
+  </body>
+</html>

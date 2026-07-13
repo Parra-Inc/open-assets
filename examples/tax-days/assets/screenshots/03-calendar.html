@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=440" />
+    <link rel="stylesheet" href="../../dist/styles.css" />
+  </head>
+  <body class="m-0 p-0">
+    <div class="screenshot bg-td-gradient flex flex-col items-center">
+      <!-- Ambient glow -->
+      <div class="glow-orb w-[240px] h-[240px] bg-td-primary top-[200px] -left-[50px]"></div>
+      <div class="glow-orb w-[180px] h-[180px] bg-td-accent top-[550px] right-[-40px]"></div>
+
+      <!-- Scattered decorative emoji -->
+      <div class="deco deco-sm deco-faded" style="top: 80px; left: 25px;">📅</div>
+      <div class="deco deco-sm deco-faded" style="top: 150px; right: 35px;">✈️</div>
+      <div class="deco deco-sm deco-faded" style="top: 500px; left: 20px;">🌍</div>
+      <div class="deco deco-sm deco-faded" style="top: 650px; right: 40px;">🗓️</div>
+
+      <!-- Marketing text -->
+      <div class="relative z-10 pt-14 pb-2 px-8 text-center">
+        <div class="pill bg-td-primary-light text-td-primary mx-auto mb-4">
+          <span>📅</span>
+          <span>{{cal_pill}}</span>
+        </div>
+        <h1 class="headline text-[36px] text-td-fg mb-4">
+          {{cal_line1}}<br/><span style="color: var(--color-td-primary);">{{cal_accent}}</span>
+        </h1>
+        <p class="subheadline text-[15px] px-2">
+          {{cal_sub}}
+        </p>
+      </div>
+
+      <!-- Phone + floating callouts -->
+      <div class="relative z-10 mt-4 w-full flex justify-center">
+        <div class="relative">
+          <div style="transform: perspective(900px) rotateY(-2deg) rotateX(1deg);">
+            <div class="phone phone-300">
+              <div class="phone-screen">
+                <img data-locale-img="03_calendar"
+                     src="../../public/screenshots/en/03_calendar.png"
+                     style="width: 300px; height: auto; display: block;" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating callout: Trips this year -->
+          <div class="callout flex items-center gap-2.5 absolute z-20" style="top: 40px; right: -55px;">
+            <div class="w-9 h-9 rounded-full flex items-center justify-center shrink-0" style="background: rgba(26, 138, 125, 0.12);">
+              <span class="text-[16px]">✈️</span>
+            </div>
+            <div>
+              <div class="text-[11px] font-medium" style="color: #6B8080;">{{cal_trips_label}}</div>
+              <div class="text-[17px] font-bold" style="color: #1A8A7D;">{{cal_trips_value}}</div>
+            </div>
+          </div>
+
+          <!-- Floating callout: Tap to add -->
+          <div class="callout flex items-center gap-2.5 absolute z-20" style="bottom: 140px; left: -55px;">
+            <div class="w-9 h-9 rounded-full flex items-center justify-center shrink-0" style="background: rgba(232, 168, 76, 0.12);">
+              <span class="text-[16px]">👆</span>
+            </div>
+            <div>
+              <div class="text-[11px] font-medium" style="color: #6B8080;">{{cal_add_label}}</div>
+              <div class="text-[17px] font-bold" style="color: #E8A84C;">{{cal_add_value}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Swap phone screenshots to match the active locale (set by open-assets)
+      new MutationObserver(function() {
+        var lang = document.documentElement.lang || 'en';
+        document.querySelectorAll('[data-locale-img]').forEach(function(img) {
+          var name = img.getAttribute('data-locale-img');
+          img.src = '../../public/screenshots/' + lang + '/' + name + '.png';
+        });
+      }).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+    </script>
+  </body>
+</html>

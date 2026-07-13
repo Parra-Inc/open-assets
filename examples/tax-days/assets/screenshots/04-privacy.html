@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=440" />
+    <link rel="stylesheet" href="../../dist/styles.css" />
+  </head>
+  <body class="m-0 p-0">
+    <div class="screenshot bg-td-gradient flex flex-col items-center">
+      <!-- Ambient glow -->
+      <div class="glow-orb w-[260px] h-[260px] bg-td-primary top-[180px] -left-[60px]"></div>
+      <div class="glow-orb w-[180px] h-[180px] bg-td-safe top-[500px] right-[-40px]"></div>
+
+      <!-- Scattered decorative emoji -->
+      <div class="deco deco-sm deco-faded" style="top: 80px; left: 30px;">🔐</div>
+      <div class="deco deco-sm deco-faded" style="top: 140px; right: 40px;">☁️</div>
+      <div class="deco deco-sm deco-faded" style="top: 560px; left: 25px;">🛡️</div>
+      <div class="deco deco-sm deco-faded" style="top: 680px; right: 35px;">✅</div>
+
+      <!-- Marketing text -->
+      <div class="relative z-10 pt-16 pb-4 px-8 text-center">
+        <div class="pill bg-td-safe-light text-td-safe mx-auto mb-5">
+          <span>🔒</span>
+          <span>{{privacy_pill}}</span>
+        </div>
+        <h1 class="headline text-[36px] text-td-fg mb-4">
+          {{privacy_line1}}<br/><span style="color: var(--color-td-primary);">{{privacy_accent}}</span>
+        </h1>
+        <p class="subheadline text-[15px] px-2">
+          {{privacy_sub}}
+        </p>
+      </div>
+
+      <!-- Privacy feature cards -->
+      <div class="relative z-10 mt-6 px-8 w-full flex flex-col gap-4">
+        <!-- Card: No servers -->
+        <div class="callout flex items-center gap-3">
+          <div class="w-11 h-11 rounded-full flex items-center justify-center shrink-0" style="background: rgba(26, 138, 125, 0.10);">
+            <span class="text-[20px]">🚫</span>
+          </div>
+          <div>
+            <div class="text-[15px] font-bold" style="color: var(--color-td-fg);">{{privacy_no_servers_title}}</div>
+            <div class="text-[12px] font-medium" style="color: var(--color-td-fg-muted);">{{privacy_no_servers_desc}}</div>
+          </div>
+        </div>
+
+        <!-- Card: On-device storage -->
+        <div class="callout flex items-center gap-3">
+          <div class="w-11 h-11 rounded-full flex items-center justify-center shrink-0" style="background: rgba(76, 175, 125, 0.10);">
+            <span class="text-[20px]">📱</span>
+          </div>
+          <div>
+            <div class="text-[15px] font-bold" style="color: var(--color-td-fg);">{{privacy_local_title}}</div>
+            <div class="text-[12px] font-medium" style="color: var(--color-td-fg-muted);">{{privacy_local_desc}}</div>
+          </div>
+        </div>
+
+        <!-- Card: iCloud backup -->
+        <div class="callout flex items-center gap-3">
+          <div class="w-11 h-11 rounded-full flex items-center justify-center shrink-0" style="background: rgba(26, 138, 125, 0.10);">
+            <span class="text-[20px]">☁️</span>
+          </div>
+          <div>
+            <div class="text-[15px] font-bold" style="color: var(--color-td-fg);">{{privacy_icloud_title}}</div>
+            <div class="text-[12px] font-medium" style="color: var(--color-td-fg-muted);">{{privacy_icloud_desc}}</div>
+          </div>
+        </div>
+
+        <!-- Card: We never touch it -->
+        <div class="callout flex items-center gap-3">
+          <div class="w-11 h-11 rounded-full flex items-center justify-center shrink-0" style="background: rgba(76, 175, 125, 0.10);">
+            <span class="text-[20px]">🤝</span>
+          </div>
+          <div>
+            <div class="text-[15px] font-bold" style="color: var(--color-td-fg);">{{privacy_zero_access_title}}</div>
+            <div class="text-[12px] font-medium" style="color: var(--color-td-fg-muted);">{{privacy_zero_access_desc}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

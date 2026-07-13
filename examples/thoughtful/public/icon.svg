@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FAF8F5"/>
+      <stop offset="100%" stop-color="#EDE8E0"/>
+    </linearGradient>
+    <linearGradient id="heartGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4867F"/>
+      <stop offset="100%" stop-color="#C05A53"/>
+    </linearGradient>
+    <filter id="heartShadow" x="-20%" y="-15%" width="140%" height="145%">
+      <feDropShadow dx="0" dy="12" stdDeviation="28" flood-color="#B5ADA5" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1024" height="1024" fill="url(#bg)"/>
+
+  <!-- Heart — offset right, vertically centered -->
+  <g filter="url(#heartShadow)" transform="translate(570, 500)">
+    <path d="
+      M 0,220
+      C -20,205 -125,108 -228,18
+      C -290,-40 -324,-118 -324,-188
+      C -324,-282 -270,-340 -182,-340
+      C -114,-340 -55,-304 0,-240
+      C 55,-304 114,-340 182,-340
+      C 270,-340 324,-282 324,-188
+      C 324,-118 290,-40 228,18
+      C 125,108 20,205 0,220
+      Z
+    " fill="url(#heartGrad)"/>
+
+    <!-- Subtle inner highlight on left lobe -->
+    <ellipse cx="-155" cy="-258" rx="62" ry="44" fill="white" opacity="0.25" transform="rotate(-25, -155, -258)"/>
+    <!-- Softer highlight on right lobe -->
+    <ellipse cx="155" cy="-258" rx="50" ry="36" fill="white" opacity="0.15" transform="rotate(25, 155, -258)"/>
+  </g>
+</svg>

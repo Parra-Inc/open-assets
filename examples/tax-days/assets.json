@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "name": "Tax Days",
+  "publicDir": "public",
+  "command": "npm run render",
+  "collections": [
+    {
+      "id": "icon",
+      "label": "App Icon",
+      "sourceSize": { "width": 1024, "height": 1024 },
+      "borderRadius": 224,
+      "templates": [
+        { "src": "assets/icon/icon.html", "name": "icon", "label": "App Icon" }
+      ],
+      "export": [
+        { "name": "1024", "label": "1024px", "size": { "width": 1024, "height": 1024 } },
+        { "name": "512", "label": "512px", "size": { "width": 512, "height": 512 } }
+      ]
+    },
+    {
+      "id": "screenshots",
+      "label": "App Store Screenshots",
+      "sourceSize": { "width": 440, "height": 956 },
+      "borderRadius": 4,
+      "localizations": "localizations.json",
+      "locales": ["en", "ar", "de", "ja"],
+      "templates": [
+        { "src": "assets/screenshots/01-hero.html", "name": "01-hero", "label": "Hero" },
+        { "src": "assets/screenshots/02-dashboard.html", "name": "02-dashboard", "label": "Dashboard" },
+        { "src": "assets/screenshots/03-calendar.html", "name": "03-calendar", "label": "Calendar" },
+        { "src": "assets/screenshots/04-privacy.html", "name": "04-privacy", "label": "Privacy" },
+        { "src": "assets/screenshots/05-schengen.html", "name": "05-schengen", "label": "Schengen Tracker" },
+        { "src": "assets/screenshots/06-notifications.html", "name": "06-notifications", "label": "Smart Notifications" },
+        { "src": "assets/screenshots/07-stats.html", "name": "07-stats", "label": "Stats" },
+        { "src": "assets/screenshots/08-rules.html", "name": "08-rules", "label": "Tax Rules" }
+      ],
+      "export": [
+        { "name": "iphone-6.9", "label": "iPhone 6.9\"", "size": { "width": 1320, "height": 2868 }, "outFile": "exports/screenshots/{locale}/iphone-6.9/{template}.png" },
+        { "name": "iphone-6.7", "label": "iPhone 6.7\"", "size": { "width": 1290, "height": 2796 }, "outFile": "exports/screenshots/{locale}/iphone-6.7/{template}.png" },
+        { "name": "iphone-6.5", "label": "iPhone 6.5\"", "size": { "width": 1284, "height": 2778 }, "outFile": "exports/screenshots/{locale}/iphone-6.5/{template}.png" },
+        { "name": "iphone-6.1", "label": "iPhone 6.1\"", "size": { "width": 1179, "height": 2556 }, "outFile": "exports/screenshots/{locale}/iphone-6.1/{template}.png" }
+      ],
+      "customExport": { "defaultWidth": 1320, "defaultHeight": 2868 }
+    },
+    {
+      "id": "screenshots-android",
+      "label": "Play Store Screenshots",
+      "sourceSize": { "width": 440, "height": 978 },
+      "borderRadius": 4,
+      "localizations": "localizations.json",
+      "locales": ["en", "de"],
+      "templates": [
+        { "src": "assets/screenshots-android/01-hero.html", "name": "01-hero", "label": "Hero" },
+        { "src": "assets/screenshots-android/02-dashboard.html", "name": "02-dashboard", "label": "Dashboard" },
+        { "src": "assets/screenshots-android/03-calendar.html", "name": "03-calendar", "label": "Calendar" },
+        { "src": "assets/screenshots-android/04-privacy.html", "name": "04-privacy", "label": "Privacy" },
+        { "src": "assets/screenshots-android/05-schengen.html", "name": "05-schengen", "label": "Schengen Tracker" },
+        { "src": "assets/screenshots-android/06-notifications.html", "name": "06-notifications", "label": "Smart Notifications" },
+        { "src": "assets/screenshots-android/07-stats.html", "name": "07-stats", "label": "Stats" },
+        { "src": "assets/screenshots-android/08-rules.html", "name": "08-rules", "label": "Tax Rules" }
+      ],
+      "export": [
+        { "name": "phone", "label": "Phone (1080x2400)", "size": { "width": 1080, "height": 2400 }, "outFile": "exports/screenshots-android/{locale}/phone/{template}.png" },
+        { "name": "tablet-7", "label": "7\" Tablet", "size": { "width": 1200, "height": 1920 }, "outFile": "exports/screenshots-android/{locale}/tablet-7/{template}.png" },
+        { "name": "tablet-10", "label": "10\" Tablet", "size": { "width": 1600, "height": 2560 }, "outFile": "exports/screenshots-android/{locale}/tablet-10/{template}.png" }
+      ],
+      "customExport": { "defaultWidth": 1080, "defaultHeight": 2400 }
+    }
+  ]
+}

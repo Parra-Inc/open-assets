@@ -1,0 +1,15 @@
+{
+  "name": "tax-days-assets",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npx @tailwindcss/cli -i src/styles.css -o dist/styles.css --watch\" \"npx open-assets dev\"",
+    "build:css": "npx @tailwindcss/cli -i src/styles.css -o dist/styles.css --minify",
+    "render": "npm run build:css && npx open-assets render --force"
+  },
+  "devDependencies": {
+    "@open-assets/open-assets": "^0.4.0",
+    "@tailwindcss/cli": "^4.2.0",
+    "concurrently": "^9",
+    "tailwindcss": "^4"
+  }
+}

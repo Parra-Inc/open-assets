@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=440" />
+    <link rel="stylesheet" href="../../dist/styles.css" />
+  </head>
+  <body class="m-0 p-0">
+    <div class="screenshot bg-td-gradient flex flex-col items-center">
+      <!-- Ambient glow -->
+      <div class="glow-orb w-[280px] h-[280px] bg-td-primary top-[120px] -left-[80px]"></div>
+      <div class="glow-orb w-[200px] h-[200px] bg-td-accent top-[350px] right-[-50px]"></div>
+      <div class="glow-orb w-[160px] h-[160px] bg-td-safe top-[600px] left-[40px]"></div>
+
+      <!-- Scattered decorative emoji -->
+      <div class="deco deco-faded" style="top: 85px; left: 32px;">🇺🇸</div>
+      <div class="deco deco-sm deco-faded" style="top: 310px; right: 28px;">🇪🇺</div>
+      <div class="deco deco-sm deco-faded" style="top: 180px; right: 45px;">🇬🇧</div>
+      <div class="deco deco-sm deco-faded" style="top: 520px; left: 20px;">✈️</div>
+      <div class="deco deco-sm deco-faded" style="top: 400px; right: 55px;">🌴</div>
+
+      <!-- Marketing text -->
+      <div class="relative z-10 pt-12 pb-0 px-10 text-center">
+        <div class="pill bg-td-primary-light text-td-primary mx-auto mb-4">
+          <span>📍</span>
+          <span>{{hero_pill}}</span>
+        </div>
+        <h1 class="headline text-[36px] text-td-fg mb-3">
+          {{hero_line1}}<br/>{{hero_line2}} <span style="color: var(--color-td-primary);">{{hero_accent}}</span>
+        </h1>
+        <p class="subheadline text-[14px] px-2">
+          {{hero_sub}}
+        </p>
+      </div>
+
+      <!-- Phone mockup — extends past bottom edge -->
+      <div class="relative z-10" style="margin-top: 40px;">
+        <div style="transform: perspective(900px) rotateY(-2deg) rotateX(1deg);">
+          <div class="phone phone-300">
+            <div class="phone-screen">
+              <img data-locale-img="01_home"
+                   src="../../public/screenshots/en/01_home.png"
+                   style="width: 300px; height: auto; display: block;" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Swap phone screenshots to match the active locale (set by open-assets)
+      new MutationObserver(function() {
+        var lang = document.documentElement.lang || 'en';
+        document.querySelectorAll('[data-locale-img]').forEach(function(img) {
+          var name = img.getAttribute('data-locale-img');
+          img.src = '../../public/screenshots/' + lang + '/' + name + '.png';
+        });
+      }).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+    </script>
+  </body>
+</html>

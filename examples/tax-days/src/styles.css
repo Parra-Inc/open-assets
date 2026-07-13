@@ -1,0 +1,251 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand — Deep Teal */
+  --color-td-primary: #1A8A7D;
+  --color-td-primary-hover: #157A6E;
+  --color-td-primary-light: #E8F7F5;
+
+  /* Accent — Warm Amber */
+  --color-td-accent: #E8A84C;
+  --color-td-accent-light: #FEF7E8;
+
+  /* Status */
+  --color-td-safe: #4CAF7D;
+  --color-td-safe-light: #E8F5EE;
+  --color-td-danger: #D4645C;
+  --color-td-danger-light: #FDECEA;
+
+  /* Backgrounds */
+  --color-td-bg: #F7FAFA;
+  --color-td-bg-secondary: #EDF5F4;
+
+  /* Text */
+  --color-td-fg: #1C2B2A;
+  --color-td-fg-muted: #6B8080;
+
+  /* Border */
+  --color-td-border: #D0DCDC;
+
+  /* Neutrals (teal-tinted) */
+  --color-td-gray-50: #F5FAFA;
+  --color-td-gray-100: #E8F0F0;
+  --color-td-gray-200: #D0DCDC;
+  --color-td-gray-300: #B0C0C0;
+  --color-td-gray-400: #8AA0A0;
+  --color-td-gray-500: #6B8080;
+  --color-td-gray-600: #4D6060;
+
+  /* Typography */
+  --font-display: "SF Pro Display", "SF Pro", -apple-system, system-ui, sans-serif;
+  --font-body: "SF Pro Text", "SF Pro", -apple-system, system-ui, sans-serif;
+  --font-rounded: "SF Pro Rounded", "SF Pro", -apple-system, system-ui, sans-serif;
+}
+
+/* Screenshot frame */
+.screenshot {
+  width: 440px;
+  height: 956px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Gradient backgrounds */
+.bg-td-gradient {
+  background: linear-gradient(180deg, #E8F7F5 0%, #F2FAFA 50%, #EDF5F4 100%);
+}
+
+.bg-td-gradient-dark {
+  background: linear-gradient(180deg, #0D3D38 0%, #1A8A7D 50%, #157A6E 100%);
+}
+
+/* White background with subtle warmth */
+.bg-white-clean {
+  background: #FFFFFF;
+}
+
+/* Phone mockup */
+.phone {
+  position: relative;
+  background: #1a1a1a;
+  border-radius: 52px;
+  padding: 6px;
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+.phone-screen {
+  border-radius: 46px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.phone-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Phone scale variants: phone-{width} — aspect ratio matches 440:956 */
+.phone-300 .phone-screen {
+  width: 300px;
+  height: 652px;
+}
+
+.phone-320 .phone-screen {
+  width: 320px;
+  height: 695px;
+}
+
+.phone-340 .phone-screen {
+  width: 340px;
+  height: 739px;
+}
+
+/* Decorative elements */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* Soft flare — large radial glow on white bg */
+.flare {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+/* Floating emoji / flag decoration */
+.deco {
+  position: absolute;
+  font-size: 28px;
+  pointer-events: none;
+  z-index: 1;
+}
+.deco-sm { font-size: 20px; }
+.deco-lg { font-size: 36px; }
+.deco-xl { font-size: 44px; }
+.deco-faded { opacity: 0.35; }
+.deco-mid { opacity: 0.55; }
+
+/* Route line — SVG overlay */
+.route-svg {
+  position: absolute;
+  inset: 0;
+  width: 440px;
+  height: 956px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Map pin */
+.pin {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pin-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  background: var(--color-td-primary);
+  border: 3px solid white;
+  box-shadow: 0 2px 8px rgba(26, 138, 125, 0.4);
+}
+
+.pin-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  background: var(--color-td-primary);
+  border: 3px solid white;
+  box-shadow: 0 2px 12px rgba(26, 138, 125, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: white;
+}
+
+.pin-icon::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid var(--color-td-primary);
+}
+
+.pin-label {
+  margin-top: 4px;
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--color-td-fg-muted);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Text styles */
+.headline {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.subheadline {
+  font-family: var(--font-body);
+  font-weight: 500;
+  color: var(--color-td-fg-muted);
+  line-height: 1.4;
+}
+
+/* Floating callouts */
+.callout {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(26, 138, 125, 0.2);
+  border-radius: 14px;
+  padding: 10px 14px;
+  box-shadow:
+    0 8px 32px rgba(26, 138, 125, 0.15),
+    0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* Progress bar */
+.progress-bar {
+  height: 8px;
+  border-radius: 4px;
+  background: var(--color-td-gray-100);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}

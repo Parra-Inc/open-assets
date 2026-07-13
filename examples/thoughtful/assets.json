@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "name": "Thoughtful",
+  "publicDir": "public",
+  "command": "npm run render",
+  "collections": [
+    {
+      "id": "icon",
+      "label": "App Icon",
+      "sourceSize": { "width": 1024, "height": 1024 },
+      "borderRadius": 224,
+      "templates": [
+        { "src": "assets/icon/icon.html", "name": "icon", "label": "App Icon" }
+      ],
+      "export": [
+        { "name": "1024", "label": "1024px", "size": { "width": 1024, "height": 1024 } },
+        { "name": "512", "label": "512px", "size": { "width": 512, "height": 512 } }
+      ]
+    },
+    {
+      "id": "screenshots",
+      "label": "App Store Screenshots",
+      "sourceSize": { "width": 440, "height": 956 },
+      "borderRadius": 4,
+      "templates": [
+        { "src": "assets/screenshots/01-hero.html", "name": "01-hero", "label": "Hero — Be more thoughtful" },
+        { "src": "assets/screenshots/02-send.html", "name": "02-send", "label": "Send cards" },
+        { "src": "assets/screenshots/03-tweak.html", "name": "03-tweak", "label": "Tweak the tone" },
+        { "src": "assets/screenshots/04-calendar.html", "name": "04-calendar", "label": "Never miss a date" },
+        { "src": "assets/screenshots/05-gifts.html", "name": "05-gifts", "label": "Gift memory" },
+        { "src": "assets/screenshots/06-stayclose.html", "name": "06-stayclose", "label": "Stay close" },
+        { "src": "assets/screenshots/07-voice.html", "name": "07-voice", "label": "Your voice" }
+      ],
+      "export": [
+        { "name": "iphone-6.9", "label": "iPhone 6.9\"", "size": { "width": 1320, "height": 2868 } },
+        { "name": "iphone-6.7", "label": "iPhone 6.7\"", "size": { "width": 1290, "height": 2796 } },
+        { "name": "iphone-6.5", "label": "iPhone 6.5\"", "size": { "width": 1284, "height": 2778 } },
+        { "name": "iphone-6.1", "label": "iPhone 6.1\"", "size": { "width": 1179, "height": 2556 } }
+      ],
+      "customExport": { "defaultWidth": 1320, "defaultHeight": 2868 }
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <!-- Background gradient — deep teal with depth -->
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0.35" y2="1">
+      <stop offset="0%" stop-color="#2AAFA0"/>
+      <stop offset="45%" stop-color="#1A8A7D"/>
+      <stop offset="100%" stop-color="#116B61"/>
+    </linearGradient>
+
+    <!-- Top-left shine -->
+    <radialGradient id="shine" cx="0.25" cy="0.12" r="0.85">
+      <stop offset="0%" stop-color="white" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Bottom-right warm glow from amber accent -->
+    <radialGradient id="warmGlow" cx="0.75" cy="0.85" r="0.6">
+      <stop offset="0%" stop-color="#E8A84C" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#E8A84C" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Calendar page shadow -->
+    <filter id="calShadow" x="-10%" y="-5%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="20" flood-color="#0D3D38" flood-opacity="0.35"/>
+    </filter>
+
+    <!-- Pin shadow -->
+    <filter id="pinShadow" x="-20%" y="-10%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0D3D38" flood-opacity="0.3"/>
+    </filter>
+
+    <!-- Calendar header gradient (darker teal strip) -->
+    <linearGradient id="calHeader" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#157A6E"/>
+      <stop offset="100%" stop-color="#1A8A7D"/>
+    </linearGradient>
+
+    <!-- Globe line gradient -->
+    <linearGradient id="globeLine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="white" stop-opacity="0.12"/>
+      <stop offset="50%" stop-color="white" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0.12"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ===== BACKGROUND ===== -->
+  <rect width="1024" height="1024" fill="url(#bgGrad)"/>
+  <rect width="1024" height="1024" fill="url(#shine)"/>
+  <rect width="1024" height="1024" fill="url(#warmGlow)"/>
+
+  <!-- ===== SUBTLE GLOBE LINES (background texture) ===== -->
+  <!-- These suggest "international / jurisdictions" without being literal -->
+  <g stroke="url(#globeLine)" stroke-width="1.5" fill="none" opacity="0.7">
+    <!-- Horizontal latitude lines -->
+    <path d="M0,340 Q512,300 1024,340"/>
+    <path d="M0,512 Q512,490 1024,512"/>
+    <path d="M0,684 Q512,724 1024,684"/>
+    <!-- Vertical longitude curves -->
+    <path d="M340,0 Q300,512 340,1024"/>
+    <path d="M512,0 Q490,512 512,1024"/>
+    <path d="M684,0 Q724,512 684,1024"/>
+  </g>
+
+  <!-- ===== SPARKLES ===== -->
+  <g fill="white" opacity="0.18">
+    <path d="M130,120 l3,-10 3,10 10,3 -10,3 -3,10 -3,-10 -10,-3z"/>
+    <path d="M820,160 l2,-7 2,7 7,2 -7,2 -2,7 -2,-7 -7,-2z"/>
+    <path d="M160,780 l2.5,-8 2.5,8 8,2.5 -8,2.5 -2.5,8 -2.5,-8 -8,-2.5z"/>
+    <path d="M880,860 l2,-6 2,6 6,2 -6,2 -2,6 -2,-6 -6,-2z"/>
+    <path d="M90,480 l1.5,-5 1.5,5 5,1.5 -5,1.5 -1.5,5 -1.5,-5 -5,-1.5z"/>
+    <path d="M920,530 l2,-7 2,7 7,2 -7,2 -2,7 -2,-7 -7,-2z"/>
+  </g>
+
+  <!-- Subtle circles -->
+  <circle cx="180" cy="200" r="18" fill="white" opacity="0.06"/>
+  <circle cx="860" cy="300" r="12" fill="white" opacity="0.05"/>
+  <circle cx="140" cy="650" r="14" fill="white" opacity="0.05"/>
+  <circle cx="890" cy="750" r="16" fill="white" opacity="0.06"/>
+
+  <!-- ===== CALENDAR PAGE ===== -->
+  <g filter="url(#calShadow)">
+    <!-- Main calendar body — white rounded rect, slightly tilted -->
+    <g transform="translate(512, 488) rotate(-3) translate(-512, -488)">
+      <!-- Page body -->
+      <rect x="222" y="248" width="580" height="560" rx="44" fill="white"/>
+
+      <!-- Header strip (teal bar at top of calendar) -->
+      <rect x="222" y="248" width="580" height="120" rx="44" fill="url(#calHeader)"/>
+      <!-- Square off bottom corners of header -->
+      <rect x="222" y="324" width="580" height="44" fill="url(#calHeader)"/>
+
+      <!-- Calendar ring holes -->
+      <circle cx="370" cy="248" r="18" fill="#1A8A7D"/>
+      <circle cx="370" cy="248" r="11" fill="url(#bgGrad)"/>
+      <circle cx="632" cy="248" r="18" fill="#1A8A7D"/>
+      <circle cx="632" cy="248" r="11" fill="url(#bgGrad)"/>
+
+      <!-- Day-of-week dots in header -->
+      <g fill="white" opacity="0.5">
+        <circle cx="310" cy="320" r="6"/>
+        <circle cx="370" cy="320" r="6"/>
+        <circle cx="430" cy="320" r="6"/>
+        <circle cx="490" cy="320" r="6"/>
+        <circle cx="550" cy="320" r="6"/>
+        <circle cx="610" cy="320" r="6"/>
+        <circle cx="670" cy="320" r="6"/>
+      </g>
+
+      <!-- Big day number -->
+      <text x="500" y="620" text-anchor="middle" font-family="SF Pro Display, SF Pro Rounded, -apple-system, system-ui, sans-serif" font-size="260" font-weight="800" fill="#1C2B2A" letter-spacing="-8">
+        83
+      </text>
+
+      <!-- "days" label below number -->
+      <text x="500" y="710" text-anchor="middle" font-family="SF Pro Display, SF Pro Rounded, -apple-system, system-ui, sans-serif" font-size="52" font-weight="600" fill="#6B8080" letter-spacing="6" text-transform="uppercase">
+        DAYS
+      </text>
+
+      <!-- Small progress bar -->
+      <rect x="340" y="748" width="320" height="14" rx="7" fill="#E8F0F0"/>
+      <rect x="340" y="748" width="182" height="14" rx="7" fill="#4CAF7D"/>
+    </g>
+  </g>
+
+  <!-- ===== MAP PIN (amber accent, overlapping calendar corner) ===== -->
+  <g filter="url(#pinShadow)" transform="translate(700, 190)">
+    <!-- Pin body -->
+    <path d="M0,-65 C-36,-65 -65,-36 -65,0 C-65,36 0,85 0,85 C0,85 65,36 65,0 C65,-36 36,-65 0,-65Z" fill="#E8A84C"/>
+    <!-- Inner highlight -->
+    <circle cx="0" cy="-5" r="28" fill="white" opacity="0.95"/>
+    <!-- Tiny globe inside pin -->
+    <g stroke="#E8A84C" stroke-width="3" fill="none">
+      <circle cx="0" cy="-5" r="16"/>
+      <line x1="-16" y1="-5" x2="16" y2="-5"/>
+      <ellipse cx="0" cy="-5" rx="8" ry="16"/>
+    </g>
+  </g>
+</svg>

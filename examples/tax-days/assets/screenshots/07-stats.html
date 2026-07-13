@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=440" />
+    <link rel="stylesheet" href="../../dist/styles.css" />
+  </head>
+  <body class="m-0 p-0">
+    <div class="screenshot bg-td-gradient flex flex-col items-center">
+      <!-- Ambient glow -->
+      <div class="glow-orb w-[240px] h-[240px] bg-td-safe top-[200px] right-[-50px]"></div>
+      <div class="glow-orb w-[160px] h-[160px] bg-td-accent top-[600px] left-[40px]"></div>
+
+      <!-- Scattered decorative emoji -->
+      <div class="deco deco-sm deco-faded" style="top: 80px; right: 30px;">📈</div>
+      <div class="deco deco-sm deco-faded" style="top: 530px; left: 20px;">🇺🇸</div>
+      <div class="deco deco-sm deco-faded" style="top: 190px; left: 65px;">🇪🇺</div>
+      <div class="deco deco-sm deco-faded" style="top: 700px; right: 45px;">🗓️</div>
+
+      <!-- Marketing text -->
+      <div class="relative z-10 pt-14 pb-2 px-8 text-center">
+        <h1 class="headline text-[36px] text-td-fg mb-4">
+          {{stats_line1}}<br/>{{stats_line2}} <span style="color: var(--color-td-safe);">{{stats_accent}}</span>
+        </h1>
+        <p class="subheadline text-[15px] px-2">
+          {{stats_sub}}
+        </p>
+      </div>
+
+      <!-- Phone + floating callout -->
+      <div class="relative z-10 mt-4 w-full flex justify-center">
+        <div class="relative">
+          <div style="transform: perspective(900px) rotateY(2deg) rotateX(1deg);">
+            <div class="phone phone-320">
+              <div class="phone-screen">
+                <img data-locale-img="07_stats"
+                     src="../../public/screenshots/en/07_stats.png"
+                     style="width: 320px; height: auto; display: block;" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating callout: All clear -->
+          <div class="callout flex items-center gap-2.5 absolute z-20" style="top: 40px; left: -50px;">
+            <div class="w-9 h-9 rounded-full flex items-center justify-center shrink-0" style="background: rgba(76, 175, 125, 0.12);">
+              <span class="text-[16px]">✅</span>
+            </div>
+            <div>
+              <div class="text-[11px] font-medium" style="color: #6B8080;">{{stats_rules_label}}</div>
+              <div class="text-[17px] font-bold" style="color: #4CAF7D;">{{stats_rules_value}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      new MutationObserver(function() {
+        var lang = document.documentElement.lang || 'en';
+        document.querySelectorAll('[data-locale-img]').forEach(function(img) {
+          var name = img.getAttribute('data-locale-img');
+          img.src = '../../public/screenshots/' + lang + '/' + name + '.png';
+        });
+      }).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+    </script>
+  </body>
+</html>

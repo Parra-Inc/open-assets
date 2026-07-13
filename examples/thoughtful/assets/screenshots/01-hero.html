@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=440" />
+    <link rel="stylesheet" href="../../dist/styles.css" />
+    <style>
+      .co-ico { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+      .co-lbl { font-size: 11px; font-weight: 600; color: #8A7F76; line-height: 1.1; }
+      .co-val { font-size: 15px; font-weight: 700; color: #2C2522; line-height: 1.15; }
+    </style>
+  </head>
+  <body class="m-0 p-0">
+    <div class="screenshot bg-tf-gradient flex flex-col items-center">
+      <!-- Ambient glow -->
+      <div class="glow-orb w-[280px] h-[280px] bg-tf-coral top-[100px] -left-[90px]"></div>
+      <div class="glow-orb w-[200px] h-[200px] bg-tf-primary top-[340px] right-[-60px]"></div>
+      <div class="glow-orb w-[180px] h-[180px] bg-tf-coral top-[640px] left-[30px]"></div>
+
+      <!-- Scattered flare -->
+      <span class="flare flare-heart" style="top: 86px; left: 30px; font-size: 22px; color: #D4867F; opacity: 0.22; transform: rotate(-18deg);">&#9829;</span>
+      <span class="flare flare-heart" style="top: 196px; right: 26px; font-size: 18px; color: #CCAA6C; opacity: 0.18; transform: rotate(12deg);">&#9829;</span>
+      <span class="flare flare-dot" style="top: 150px; left: 78px; width: 6px; height: 6px; color: #CCAA6C; opacity: 0.22;"></span>
+      <span class="flare flare-sparkle" style="top: 132px; right: 60px; width: 12px; height: 12px; color: #D4867F; opacity: 0.20; transform: rotate(45deg);"></span>
+
+      <!-- Marketing text (fixed-height block keeps phones aligned across frames) -->
+      <div class="relative z-10 px-9 text-center" style="padding-top: 46px; height: 262px;">
+        <div class="pill pill-coral mx-auto mb-4">
+          <span>&#9829;</span>
+          <span>Stay close to your people</span>
+        </div>
+        <h1 class="headline text-[29px]">
+          Be a more thoughtful<br/>
+          <span class="headline-coral">partner, friend, son,<br/>daughter, or parent</span>.
+        </h1>
+        <p class="subheadline text-[14px] px-3 mt-3">
+          One quiet app for everyone who matters.
+        </p>
+      </div>
+
+      <!-- Phone mockup -->
+      <div class="relative z-10" style="transform: perspective(900px) rotateY(-2deg) rotateX(1deg);">
+        <div class="phone phone-300">
+          <div class="phone-screen">
+            <img src="../../public/screenshots/01_home.png" style="width: 300px; height: auto; display: block;" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating callouts -->
+      <div class="callout flex items-center gap-2.5 absolute z-20" style="top: 322px; right: -4px;">
+        <div class="co-ico" style="background: rgba(212,134,127,0.14);"><span style="font-size:16px;">&#127874;</span></div>
+        <div><div class="co-lbl">Birthday</div><div class="co-val">Mom &middot; in 6 days</div></div>
+      </div>
+      <div class="callout flex items-center gap-2.5 absolute z-20" style="top: 612px; left: -4px;">
+        <div class="co-ico" style="background: rgba(123,174,127,0.16);"><span style="font-size:16px;">&#9989;</span></div>
+        <div><div class="co-lbl">In touch with</div><div class="co-val">10 of 12 people</div></div>
+      </div>
+    </div>
+  </body>
+</html>

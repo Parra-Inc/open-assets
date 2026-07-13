@@ -1,0 +1,7439 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "hero_pill": {
+      "localizations": {
+        "en": {
+          "value": "Tax Residency Tracker"
+        },
+        "ar": {
+          "value": "متتبع الإقامة الضريبية"
+        },
+        "ca": {
+          "value": "Seguiment de Residència Fiscal"
+        },
+        "cs": {
+          "value": "Sledování Daňového Rezidenství"
+        },
+        "da": {
+          "value": "Skatteresidensovervågning"
+        },
+        "de": {
+          "value": "Steuerresidenz-Tracker"
+        },
+        "el": {
+          "value": "Παρακολούθηση Φορολογικής Κατοικίας"
+        },
+        "en-AU": {
+          "value": "Tax Residency Tracker"
+        },
+        "en-GB": {
+          "value": "Tax Residency Tracker"
+        },
+        "es": {
+          "value": "Rastreador de Residencia Fiscal"
+        },
+        "es-419": {
+          "value": "Rastreador de Residencia Fiscal"
+        },
+        "fi": {
+          "value": "Verotusaseman Seuranta"
+        },
+        "fr": {
+          "value": "Suivi de Résidence Fiscale"
+        },
+        "fr-CA": {
+          "value": "Suivi de Résidence Fiscale"
+        },
+        "he": {
+          "value": "מעקב תושבות מס"
+        },
+        "hi": {
+          "value": "कर निवास ट्रैकर"
+        },
+        "hr": {
+          "value": "Praćenje Porezne Rezidencije"
+        },
+        "hu": {
+          "value": "Adóügyi Rezidencia Követő"
+        },
+        "id": {
+          "value": "Pelacak Residensi Pajak"
+        },
+        "it": {
+          "value": "Tracker Residenza Fiscale"
+        },
+        "ja": {
+          "value": "税務居住地トラッカー"
+        },
+        "ko": {
+          "value": "세금 거주지 추적기"
+        },
+        "ms": {
+          "value": "Penjejak Residensi Cukai"
+        },
+        "nb": {
+          "value": "Skattebosted-sporing"
+        },
+        "nl": {
+          "value": "Fiscale Residentie Tracker"
+        },
+        "pl": {
+          "value": "Śledzenie Rezydencji Podatkowej"
+        },
+        "pt-BR": {
+          "value": "Rastreador de Residência Fiscal"
+        },
+        "pt-PT": {
+          "value": "Rastreador de Residência Fiscal"
+        },
+        "ro": {
+          "value": "Urmărire Rezidență Fiscală"
+        },
+        "ru": {
+          "value": "Трекер налогового резидентства"
+        },
+        "sk": {
+          "value": "Sledovanie Daňovej Rezidencie"
+        },
+        "sv": {
+          "value": "Skatteresidensspårning"
+        },
+        "th": {
+          "value": "ติดตามถิ่นที่อยู่ทางภาษี"
+        },
+        "tr": {
+          "value": "Vergi Mukimliği Takipçisi"
+        },
+        "uk": {
+          "value": "Трекер податкового резидентства"
+        },
+        "vi": {
+          "value": "Theo dõi cư trú thuế"
+        },
+        "zh-Hans": {
+          "value": "税务居留追踪器"
+        },
+        "zh-Hant": {
+          "value": "稅務居留追蹤器"
+        }
+      }
+    },
+    "hero_line1": {
+      "localizations": {
+        "en": {
+          "value": "Don't Accidentally"
+        },
+        "ar": {
+          "value": "لا تصبح بالخطأ"
+        },
+        "ca": {
+          "value": "No et Converteixis"
+        },
+        "cs": {
+          "value": "Nestaňte se Náhodou"
+        },
+        "da": {
+          "value": "Bliv Ikke Utilsigtet"
+        },
+        "de": {
+          "value": "Werde Nicht Versehentlich"
+        },
+        "el": {
+          "value": "Μη Γίνεις Κατά Λάθος"
+        },
+        "en-AU": {
+          "value": "Don't Accidentally"
+        },
+        "en-GB": {
+          "value": "Don't Accidentally"
+        },
+        "es": {
+          "value": "No Te Conviertas"
+        },
+        "es-419": {
+          "value": "No Te Conviertas"
+        },
+        "fi": {
+          "value": "Älä Vahingossa Tule"
+        },
+        "fr": {
+          "value": "Ne Devenez Pas"
+        },
+        "fr-CA": {
+          "value": "Ne Devenez Pas"
+        },
+        "he": {
+          "value": "אל תהפוך בטעות"
+        },
+        "hi": {
+          "value": "गलती से न बनें"
+        },
+        "hr": {
+          "value": "Nemojte Slučajno Postati"
+        },
+        "hu": {
+          "value": "Ne Véletlenül Válj"
+        },
+        "id": {
+          "value": "Jangan Secara Tidak Sengaja"
+        },
+        "it": {
+          "value": "Non Diventare"
+        },
+        "ja": {
+          "value": "うっかり"
+        },
+        "ko": {
+          "value": "실수로"
+        },
+        "ms": {
+          "value": "Jangan Secara Tidak Sengaja"
+        },
+        "nb": {
+          "value": "Ikke Bli Utilsiktet"
+        },
+        "nl": {
+          "value": "Word Niet Per Ongeluk"
+        },
+        "pl": {
+          "value": "Nie Zostań Przypadkowo"
+        },
+        "pt-BR": {
+          "value": "Não Se Torne"
+        },
+        "pt-PT": {
+          "value": "Não Se Torne"
+        },
+        "ro": {
+          "value": "Nu Deveni Din Greșeală"
+        },
+        "ru": {
+          "value": "Не становитесь случайно"
+        },
+        "sk": {
+          "value": "Nestaňte sa Náhodou"
+        },
+        "sv": {
+          "value": "Bli Inte Oavsiktligt"
+        },
+        "th": {
+          "value": "อย่ากลายเป็น"
+        },
+        "tr": {
+          "value": "Yanlışlıkla Olmayın"
+        },
+        "uk": {
+          "value": "Не ставайте випадково"
+        },
+        "vi": {
+          "value": "Đừng Vô Tình Trở Thành"
+        },
+        "zh-Hans": {
+          "value": "别意外成为"
+        },
+        "zh-Hant": {
+          "value": "別意外成為"
+        }
+      }
+    },
+    "hero_line2": {
+      "localizations": {
+        "en": {
+          "value": "Become a"
+        },
+        "ar": {
+          "value": ""
+        },
+        "ca": {
+          "value": "en"
+        },
+        "cs": {
+          "value": ""
+        },
+        "da": {
+          "value": ""
+        },
+        "de": {
+          "value": "zum"
+        },
+        "el": {
+          "value": ""
+        },
+        "en-AU": {
+          "value": "Become a"
+        },
+        "en-GB": {
+          "value": "Become a"
+        },
+        "es": {
+          "value": "en"
+        },
+        "es-419": {
+          "value": "en"
+        },
+        "fi": {
+          "value": ""
+        },
+        "fr": {
+          "value": "Accidentellement"
+        },
+        "fr-CA": {
+          "value": "Accidentellement"
+        },
+        "he": {
+          "value": "ל"
+        },
+        "hi": {
+          "value": ""
+        },
+        "hr": {
+          "value": ""
+        },
+        "hu": {
+          "value": ""
+        },
+        "id": {
+          "value": "Menjadi"
+        },
+        "it": {
+          "value": "Accidentalmente"
+        },
+        "ja": {
+          "value": "なるな"
+        },
+        "ko": {
+          "value": "되지 마세요"
+        },
+        "ms": {
+          "value": "Menjadi"
+        },
+        "nb": {
+          "value": ""
+        },
+        "nl": {
+          "value": ""
+        },
+        "pl": {
+          "value": ""
+        },
+        "pt-BR": {
+          "value": "Acidentalmente em"
+        },
+        "pt-PT": {
+          "value": "Acidentalmente em"
+        },
+        "ro": {
+          "value": ""
+        },
+        "ru": {
+          "value": ""
+        },
+        "sk": {
+          "value": ""
+        },
+        "sv": {
+          "value": ""
+        },
+        "th": {
+          "value": "โดยไม่ตั้งใจ"
+        },
+        "tr": {
+          "value": ""
+        },
+        "uk": {
+          "value": ""
+        },
+        "vi": {
+          "value": ""
+        },
+        "zh-Hans": {
+          "value": ""
+        },
+        "zh-Hant": {
+          "value": ""
+        }
+      }
+    },
+    "hero_accent": {
+      "localizations": {
+        "en": {
+          "value": "Tax Resident"
+        },
+        "ar": {
+          "value": "مقيمًا ضريبيًا"
+        },
+        "ca": {
+          "value": "Resident Fiscal"
+        },
+        "cs": {
+          "value": "Daňovým Rezidentem"
+        },
+        "da": {
+          "value": "Skatteresident"
+        },
+        "de": {
+          "value": "Steuerresident"
+        },
+        "el": {
+          "value": "Φορολογικός Κάτοικος"
+        },
+        "en-AU": {
+          "value": "Tax Resident"
+        },
+        "en-GB": {
+          "value": "Tax Resident"
+        },
+        "es": {
+          "value": "Residente Fiscal"
+        },
+        "es-419": {
+          "value": "Residente Fiscal"
+        },
+        "fi": {
+          "value": "Verovelvolliseksi"
+        },
+        "fr": {
+          "value": "Résident Fiscal"
+        },
+        "fr-CA": {
+          "value": "Résident Fiscal"
+        },
+        "he": {
+          "value": "תושב מס"
+        },
+        "hi": {
+          "value": "कर निवासी"
+        },
+        "hr": {
+          "value": "Porezni Rezident"
+        },
+        "hu": {
+          "value": "Adórezidensé"
+        },
+        "id": {
+          "value": "Residen Pajak"
+        },
+        "it": {
+          "value": "Residente Fiscale"
+        },
+        "ja": {
+          "value": "税務居住者に"
+        },
+        "ko": {
+          "value": "세금 거주자가"
+        },
+        "ms": {
+          "value": "Residen Cukai"
+        },
+        "nb": {
+          "value": "Skatteresident"
+        },
+        "nl": {
+          "value": "Fiscaal Resident"
+        },
+        "pl": {
+          "value": "Rezydentem Podatkowym"
+        },
+        "pt-BR": {
+          "value": "Residente Fiscal"
+        },
+        "pt-PT": {
+          "value": "Residente Fiscal"
+        },
+        "ro": {
+          "value": "Rezident Fiscal"
+        },
+        "ru": {
+          "value": "Налоговым Резидентом"
+        },
+        "sk": {
+          "value": "Daňovým Rezidentom"
+        },
+        "sv": {
+          "value": "Skatteresident"
+        },
+        "th": {
+          "value": "ผู้มีถิ่นที่อยู่ทางภาษี"
+        },
+        "tr": {
+          "value": "Vergi Mukimi"
+        },
+        "uk": {
+          "value": "Податковим Резидентом"
+        },
+        "vi": {
+          "value": "Cư Dân Thuế"
+        },
+        "zh-Hans": {
+          "value": "税务居民"
+        },
+        "zh-Hant": {
+          "value": "稅務居民"
+        }
+      }
+    },
+    "hero_sub": {
+      "localizations": {
+        "en": {
+          "value": "Track your days across 50 states and 30+ countries"
+        },
+        "ar": {
+          "value": "تتبع أيامك عبر 50 ولاية و30+ دولة"
+        },
+        "ca": {
+          "value": "Segueix els teus dies en 50 estats i 30+ països"
+        },
+        "cs": {
+          "value": "Sledujte své dny v 50 státech a 30+ zemích"
+        },
+        "da": {
+          "value": "Spor dine dage på tværs af 50 stater og 30+ lande"
+        },
+        "de": {
+          "value": "Verfolge deine Tage in 50 Staaten und 30+ Ländern"
+        },
+        "el": {
+          "value": "Παρακολουθήστε τις μέρες σας σε 50 πολιτείες και 30+ χώρες"
+        },
+        "en-AU": {
+          "value": "Track your days across 50 states and 30+ countries"
+        },
+        "en-GB": {
+          "value": "Track your days across 50 states and 30+ countries"
+        },
+        "es": {
+          "value": "Rastrea tus días en 50 estados y 30+ países"
+        },
+        "es-419": {
+          "value": "Rastrea tus días en 50 estados y 30+ países"
+        },
+        "fi": {
+          "value": "Seuraa päiviäsi 50 osavaltiossa ja yli 30 maassa"
+        },
+        "fr": {
+          "value": "Suivez vos jours dans 50 états et 30+ pays"
+        },
+        "fr-CA": {
+          "value": "Suivez vos jours dans 50 états et 30+ pays"
+        },
+        "he": {
+          "value": "עקוב אחרי הימים שלך ב-50 מדינות ו-30+ ארצות"
+        },
+        "hi": {
+          "value": "50 राज्यों और 30+ देशों में अपने दिनों को ट्रैक करें"
+        },
+        "hr": {
+          "value": "Pratite svoje dane u 50 država i 30+ zemalja"
+        },
+        "hu": {
+          "value": "Kövesd napjaid 50 államban és 30+ országban"
+        },
+        "id": {
+          "value": "Lacak hari Anda di 50 negara bagian dan 30+ negara"
+        },
+        "it": {
+          "value": "Traccia i tuoi giorni in 50 stati e 30+ paesi"
+        },
+        "ja": {
+          "value": "50州と30以上の国での滞在日数を追跡"
+        },
+        "ko": {
+          "value": "50개 주와 30개 이상의 국가에서 체류일 추적"
+        },
+        "ms": {
+          "value": "Jejaki hari anda merentasi 50 negeri dan 30+ negara"
+        },
+        "nb": {
+          "value": "Spor dagene dine i 50 stater og 30+ land"
+        },
+        "nl": {
+          "value": "Volg je dagen in 50 staten en 30+ landen"
+        },
+        "pl": {
+          "value": "Śledź swoje dni w 50 stanach i 30+ krajach"
+        },
+        "pt-BR": {
+          "value": "Rastreie seus dias em 50 estados e 30+ países"
+        },
+        "pt-PT": {
+          "value": "Rastreie os seus dias em 50 estados e 30+ países"
+        },
+        "ro": {
+          "value": "Urmărește-ți zilele în 50 de state și 30+ țări"
+        },
+        "ru": {
+          "value": "Отслеживайте дни в 50 штатах и 30+ странах"
+        },
+        "sk": {
+          "value": "Sledujte svoje dni v 50 štátoch a 30+ krajinách"
+        },
+        "sv": {
+          "value": "Spåra dina dagar i 50 delstater och 30+ länder"
+        },
+        "th": {
+          "value": "ติดตามวันของคุณใน 50 รัฐและ 30+ ประเทศ"
+        },
+        "tr": {
+          "value": "50 eyalet ve 30+ ülkedeki günlerinizi takip edin"
+        },
+        "uk": {
+          "value": "Відстежуйте дні у 50 штатах і 30+ країнах"
+        },
+        "vi": {
+          "value": "Theo dõi ngày của bạn ở 50 tiểu bang và 30+ quốc gia"
+        },
+        "zh-Hans": {
+          "value": "追踪你在50个州和30多个国家的天数"
+        },
+        "zh-Hant": {
+          "value": "追蹤你在50個州和30多個國家的天數"
+        }
+      }
+    },
+    "dash_line1": {
+      "localizations": {
+        "en": {
+          "value": "Every"
+        },
+        "ar": {
+          "value": "كل"
+        },
+        "ca": {
+          "value": "Cada"
+        },
+        "cs": {
+          "value": "Každé"
+        },
+        "da": {
+          "value": "Alle"
+        },
+        "de": {
+          "value": "Jede"
+        },
+        "el": {
+          "value": "Κάθε"
+        },
+        "en-AU": {
+          "value": "Every"
+        },
+        "en-GB": {
+          "value": "Every"
+        },
+        "es": {
+          "value": "Cada"
+        },
+        "es-419": {
+          "value": "Cada"
+        },
+        "fi": {
+          "value": "Jokainen"
+        },
+        "fr": {
+          "value": "Chaque"
+        },
+        "fr-CA": {
+          "value": "Chaque"
+        },
+        "he": {
+          "value": "כל"
+        },
+        "hi": {
+          "value": "हर"
+        },
+        "hr": {
+          "value": "Svako"
+        },
+        "hu": {
+          "value": "Minden"
+        },
+        "id": {
+          "value": "Setiap"
+        },
+        "it": {
+          "value": "Ogni"
+        },
+        "ja": {
+          "value": "すべての"
+        },
+        "ko": {
+          "value": "모든"
+        },
+        "ms": {
+          "value": "Setiap"
+        },
+        "nb": {
+          "value": "Alle"
+        },
+        "nl": {
+          "value": "Elke"
+        },
+        "pl": {
+          "value": "Każda"
+        },
+        "pt-BR": {
+          "value": "Cada"
+        },
+        "pt-PT": {
+          "value": "Cada"
+        },
+        "ro": {
+          "value": "Fiecare"
+        },
+        "ru": {
+          "value": "Каждое"
+        },
+        "sk": {
+          "value": "Každé"
+        },
+        "sv": {
+          "value": "Varje"
+        },
+        "th": {
+          "value": "ทุก"
+        },
+        "tr": {
+          "value": "Her"
+        },
+        "uk": {
+          "value": "Кожне"
+        },
+        "vi": {
+          "value": "Mọi"
+        },
+        "zh-Hans": {
+          "value": "每条"
+        },
+        "zh-Hant": {
+          "value": "每條"
+        }
+      }
+    },
+    "dash_accent": {
+      "localizations": {
+        "en": {
+          "value": "Rule"
+        },
+        "ar": {
+          "value": "قاعدة"
+        },
+        "ca": {
+          "value": "Regla"
+        },
+        "cs": {
+          "value": "Pravidlo"
+        },
+        "da": {
+          "value": "Regel"
+        },
+        "de": {
+          "value": "Regel"
+        },
+        "el": {
+          "value": "Κανόνας"
+        },
+        "en-AU": {
+          "value": "Rule"
+        },
+        "en-GB": {
+          "value": "Rule"
+        },
+        "es": {
+          "value": "Regla"
+        },
+        "es-419": {
+          "value": "Regla"
+        },
+        "fi": {
+          "value": "Sääntö"
+        },
+        "fr": {
+          "value": "Règle"
+        },
+        "fr-CA": {
+          "value": "Règle"
+        },
+        "he": {
+          "value": "כלל"
+        },
+        "hi": {
+          "value": "नियम"
+        },
+        "hr": {
+          "value": "Pravilo"
+        },
+        "hu": {
+          "value": "Szabály"
+        },
+        "id": {
+          "value": "Aturan"
+        },
+        "it": {
+          "value": "Regola"
+        },
+        "ja": {
+          "value": "ルール"
+        },
+        "ko": {
+          "value": "규칙"
+        },
+        "ms": {
+          "value": "Peraturan"
+        },
+        "nb": {
+          "value": "Regel"
+        },
+        "nl": {
+          "value": "Regel"
+        },
+        "pl": {
+          "value": "Reguła"
+        },
+        "pt-BR": {
+          "value": "Regra"
+        },
+        "pt-PT": {
+          "value": "Regra"
+        },
+        "ro": {
+          "value": "Regulă"
+        },
+        "ru": {
+          "value": "Правило"
+        },
+        "sk": {
+          "value": "Pravidlo"
+        },
+        "sv": {
+          "value": "Regel"
+        },
+        "th": {
+          "value": "กฎ"
+        },
+        "tr": {
+          "value": "Kural"
+        },
+        "uk": {
+          "value": "Правило"
+        },
+        "vi": {
+          "value": "Quy Tắc"
+        },
+        "zh-Hans": {
+          "value": "规则"
+        },
+        "zh-Hant": {
+          "value": "規則"
+        }
+      }
+    },
+    "dash_line2": {
+      "localizations": {
+        "en": {
+          "value": "One Dashboard."
+        },
+        "ar": {
+          "value": "لوحة تحكم واحدة."
+        },
+        "ca": {
+          "value": "Un Tauler."
+        },
+        "cs": {
+          "value": "Jeden Přehled."
+        },
+        "da": {
+          "value": "Ét Dashboard."
+        },
+        "de": {
+          "value": "Ein Dashboard."
+        },
+        "el": {
+          "value": "Ένας Πίνακας."
+        },
+        "en-AU": {
+          "value": "One Dashboard."
+        },
+        "en-GB": {
+          "value": "One Dashboard."
+        },
+        "es": {
+          "value": "Un Panel."
+        },
+        "es-419": {
+          "value": "Un Panel."
+        },
+        "fi": {
+          "value": "Yksi Näkymä."
+        },
+        "fr": {
+          "value": "Un Tableau de Bord."
+        },
+        "fr-CA": {
+          "value": "Un Tableau de Bord."
+        },
+        "he": {
+          "value": "לוח בקרה אחד."
+        },
+        "hi": {
+          "value": "एक डैशबोर्ड।"
+        },
+        "hr": {
+          "value": "Jedna Nadzorna Ploča."
+        },
+        "hu": {
+          "value": "Egy Irányítópult."
+        },
+        "id": {
+          "value": "Satu Dasbor."
+        },
+        "it": {
+          "value": "Una Dashboard."
+        },
+        "ja": {
+          "value": "一つのダッシュボード。"
+        },
+        "ko": {
+          "value": "하나의 대시보드."
+        },
+        "ms": {
+          "value": "Satu Papan Pemuka."
+        },
+        "nb": {
+          "value": "Ett Dashboard."
+        },
+        "nl": {
+          "value": "Eén Dashboard."
+        },
+        "pl": {
+          "value": "Jeden Panel."
+        },
+        "pt-BR": {
+          "value": "Um Painel."
+        },
+        "pt-PT": {
+          "value": "Um Painel."
+        },
+        "ro": {
+          "value": "Un Singur Panou."
+        },
+        "ru": {
+          "value": "Одна Панель."
+        },
+        "sk": {
+          "value": "Jeden Prehľad."
+        },
+        "sv": {
+          "value": "En Översikt."
+        },
+        "th": {
+          "value": "แดชบอร์ดเดียว"
+        },
+        "tr": {
+          "value": "Tek Pano."
+        },
+        "uk": {
+          "value": "Одна Панель."
+        },
+        "vi": {
+          "value": "Một Bảng Điều Khiển."
+        },
+        "zh-Hans": {
+          "value": "一个仪表盘。"
+        },
+        "zh-Hant": {
+          "value": "一個儀表板。"
+        }
+      }
+    },
+    "dash_sub": {
+      "localizations": {
+        "en": {
+          "value": "See exactly how many days you have left before you trigger a rule"
+        },
+        "ar": {
+          "value": "اعرف بالضبط كم يومًا تبقى لك قبل تفعيل قاعدة"
+        },
+        "ca": {
+          "value": "Mira exactament quants dies et queden abans d'activar una regla"
+        },
+        "cs": {
+          "value": "Přesně zjistěte, kolik dní vám zbývá, než aktivujete pravidlo"
+        },
+        "da": {
+          "value": "Se præcis hvor mange dage du har tilbage, før du udløser en regel"
+        },
+        "de": {
+          "value": "Sieh genau, wie viele Tage dir bleiben, bevor eine Regel greift"
+        },
+        "el": {
+          "value": "Δείτε ακριβώς πόσες μέρες απομένουν πριν ενεργοποιήσετε έναν κανόνα"
+        },
+        "en-AU": {
+          "value": "See exactly how many days you have left before you trigger a rule"
+        },
+        "en-GB": {
+          "value": "See exactly how many days you have left before you trigger a rule"
+        },
+        "es": {
+          "value": "Ve exactamente cuántos días te quedan antes de activar una regla"
+        },
+        "es-419": {
+          "value": "Ve exactamente cuántos días te quedan antes de activar una regla"
+        },
+        "fi": {
+          "value": "Näe tarkalleen, montako päivää sinulla on jäljellä ennen säännön laukeamista"
+        },
+        "fr": {
+          "value": "Voyez exactement combien de jours il vous reste avant de déclencher une règle"
+        },
+        "fr-CA": {
+          "value": "Voyez exactement combien de jours il vous reste avant de déclencher une règle"
+        },
+        "he": {
+          "value": "ראה בדיוק כמה ימים נותרו לך לפני שתפעיל כלל"
+        },
+        "hi": {
+          "value": "देखें कि नियम लागू होने से पहले आपके पास कितने दिन बचे हैं"
+        },
+        "hr": {
+          "value": "Pogledajte točno koliko vam dana preostaje prije aktiviranja pravila"
+        },
+        "hu": {
+          "value": "Pontosan lásd, hány napod van hátra, mielőtt aktiválsz egy szabályt"
+        },
+        "id": {
+          "value": "Lihat persis berapa hari yang tersisa sebelum Anda memicu aturan"
+        },
+        "it": {
+          "value": "Vedi esattamente quanti giorni ti restano prima di attivare una regola"
+        },
+        "ja": {
+          "value": "ルールに抵触するまでの残り日数を正確に把握"
+        },
+        "ko": {
+          "value": "규칙이 적용되기 전 남은 일수를 정확히 확인하세요"
+        },
+        "ms": {
+          "value": "Lihat dengan tepat berapa hari yang tinggal sebelum anda mencetuskan peraturan"
+        },
+        "nb": {
+          "value": "Se nøyaktig hvor mange dager du har igjen før du utløser en regel"
+        },
+        "nl": {
+          "value": "Zie precies hoeveel dagen je nog hebt voordat je een regel activeert"
+        },
+        "pl": {
+          "value": "Zobacz dokładnie, ile dni ci pozostało, zanim aktywujesz regułę"
+        },
+        "pt-BR": {
+          "value": "Veja exatamente quantos dias restam antes de acionar uma regra"
+        },
+        "pt-PT": {
+          "value": "Veja exatamente quantos dias restam antes de acionar uma regra"
+        },
+        "ro": {
+          "value": "Vezi exact câte zile mai ai înainte să declanșezi o regulă"
+        },
+        "ru": {
+          "value": "Точно знайте, сколько дней осталось до срабатывания правила"
+        },
+        "sk": {
+          "value": "Presne si pozrite, koľko dní vám zostáva pred aktiváciou pravidla"
+        },
+        "sv": {
+          "value": "Se exakt hur många dagar du har kvar innan du utlöser en regel"
+        },
+        "th": {
+          "value": "ดูจำนวนวันที่เหลือก่อนที่คุณจะเข้าข่ายกฎ"
+        },
+        "tr": {
+          "value": "Bir kuralı tetiklemeden önce kaç gününüz kaldığını tam olarak görün"
+        },
+        "uk": {
+          "value": "Точно бачте, скільки днів залишилося до спрацювання правила"
+        },
+        "vi": {
+          "value": "Xem chính xác số ngày còn lại trước khi kích hoạt quy tắc"
+        },
+        "zh-Hans": {
+          "value": "精确查看触发规则前还剩多少天"
+        },
+        "zh-Hant": {
+          "value": "精確查看觸發規則前還剩多少天"
+        }
+      }
+    },
+    "dash_status_label": {
+      "localizations": {
+        "en": {
+          "value": "Status"
+        },
+        "ar": {
+          "value": "الحالة"
+        },
+        "ca": {
+          "value": "Estat"
+        },
+        "cs": {
+          "value": "Stav"
+        },
+        "da": {
+          "value": "Status"
+        },
+        "de": {
+          "value": "Status"
+        },
+        "el": {
+          "value": "Κατάσταση"
+        },
+        "en-AU": {
+          "value": "Status"
+        },
+        "en-GB": {
+          "value": "Status"
+        },
+        "es": {
+          "value": "Estado"
+        },
+        "es-419": {
+          "value": "Estado"
+        },
+        "fi": {
+          "value": "Tila"
+        },
+        "fr": {
+          "value": "Statut"
+        },
+        "fr-CA": {
+          "value": "Statut"
+        },
+        "he": {
+          "value": "מצב"
+        },
+        "hi": {
+          "value": "स्थिति"
+        },
+        "hr": {
+          "value": "Status"
+        },
+        "hu": {
+          "value": "Állapot"
+        },
+        "id": {
+          "value": "Status"
+        },
+        "it": {
+          "value": "Stato"
+        },
+        "ja": {
+          "value": "ステータス"
+        },
+        "ko": {
+          "value": "상태"
+        },
+        "ms": {
+          "value": "Status"
+        },
+        "nb": {
+          "value": "Status"
+        },
+        "nl": {
+          "value": "Status"
+        },
+        "pl": {
+          "value": "Status"
+        },
+        "pt-BR": {
+          "value": "Status"
+        },
+        "pt-PT": {
+          "value": "Estado"
+        },
+        "ro": {
+          "value": "Stare"
+        },
+        "ru": {
+          "value": "Статус"
+        },
+        "sk": {
+          "value": "Stav"
+        },
+        "sv": {
+          "value": "Status"
+        },
+        "th": {
+          "value": "สถานะ"
+        },
+        "tr": {
+          "value": "Durum"
+        },
+        "uk": {
+          "value": "Статус"
+        },
+        "vi": {
+          "value": "Trạng thái"
+        },
+        "zh-Hans": {
+          "value": "状态"
+        },
+        "zh-Hant": {
+          "value": "狀態"
+        }
+      }
+    },
+    "dash_status_value": {
+      "localizations": {
+        "en": {
+          "value": "Safe"
+        },
+        "ar": {
+          "value": "آمن"
+        },
+        "ca": {
+          "value": "Segur"
+        },
+        "cs": {
+          "value": "Bezpečný"
+        },
+        "da": {
+          "value": "Sikker"
+        },
+        "de": {
+          "value": "Sicher"
+        },
+        "el": {
+          "value": "Ασφαλής"
+        },
+        "en-AU": {
+          "value": "Safe"
+        },
+        "en-GB": {
+          "value": "Safe"
+        },
+        "es": {
+          "value": "Seguro"
+        },
+        "es-419": {
+          "value": "Seguro"
+        },
+        "fi": {
+          "value": "Turvallinen"
+        },
+        "fr": {
+          "value": "Sûr"
+        },
+        "fr-CA": {
+          "value": "Sûr"
+        },
+        "he": {
+          "value": "בטוח"
+        },
+        "hi": {
+          "value": "सुरक्षित"
+        },
+        "hr": {
+          "value": "Sigurno"
+        },
+        "hu": {
+          "value": "Biztonságos"
+        },
+        "id": {
+          "value": "Aman"
+        },
+        "it": {
+          "value": "Sicuro"
+        },
+        "ja": {
+          "value": "安全"
+        },
+        "ko": {
+          "value": "안전"
+        },
+        "ms": {
+          "value": "Selamat"
+        },
+        "nb": {
+          "value": "Trygt"
+        },
+        "nl": {
+          "value": "Veilig"
+        },
+        "pl": {
+          "value": "Bezpieczny"
+        },
+        "pt-BR": {
+          "value": "Seguro"
+        },
+        "pt-PT": {
+          "value": "Seguro"
+        },
+        "ro": {
+          "value": "Sigur"
+        },
+        "ru": {
+          "value": "Безопасно"
+        },
+        "sk": {
+          "value": "Bezpečný"
+        },
+        "sv": {
+          "value": "Säkert"
+        },
+        "th": {
+          "value": "ปลอดภัย"
+        },
+        "tr": {
+          "value": "Güvenli"
+        },
+        "uk": {
+          "value": "Безпечно"
+        },
+        "vi": {
+          "value": "An toàn"
+        },
+        "zh-Hans": {
+          "value": "安全"
+        },
+        "zh-Hant": {
+          "value": "安全"
+        }
+      }
+    },
+    "dash_days_label": {
+      "localizations": {
+        "en": {
+          "value": "Days used"
+        },
+        "ar": {
+          "value": "الأيام المستخدمة"
+        },
+        "ca": {
+          "value": "Dies utilitzats"
+        },
+        "cs": {
+          "value": "Využité dny"
+        },
+        "da": {
+          "value": "Brugte dage"
+        },
+        "de": {
+          "value": "Tage genutzt"
+        },
+        "el": {
+          "value": "Ημέρες"
+        },
+        "en-AU": {
+          "value": "Days used"
+        },
+        "en-GB": {
+          "value": "Days used"
+        },
+        "es": {
+          "value": "Días usados"
+        },
+        "es-419": {
+          "value": "Días usados"
+        },
+        "fi": {
+          "value": "Käytetyt päivät"
+        },
+        "fr": {
+          "value": "Jours utilisés"
+        },
+        "fr-CA": {
+          "value": "Jours utilisés"
+        },
+        "he": {
+          "value": "ימים בשימוש"
+        },
+        "hi": {
+          "value": "उपयोग किए गए दिन"
+        },
+        "hr": {
+          "value": "Iskorišteni dani"
+        },
+        "hu": {
+          "value": "Felhasznált napok"
+        },
+        "id": {
+          "value": "Hari digunakan"
+        },
+        "it": {
+          "value": "Giorni usati"
+        },
+        "ja": {
+          "value": "使用日数"
+        },
+        "ko": {
+          "value": "사용 일수"
+        },
+        "ms": {
+          "value": "Hari digunakan"
+        },
+        "nb": {
+          "value": "Dager brukt"
+        },
+        "nl": {
+          "value": "Dagen gebruikt"
+        },
+        "pl": {
+          "value": "Wykorzystane dni"
+        },
+        "pt-BR": {
+          "value": "Dias usados"
+        },
+        "pt-PT": {
+          "value": "Dias usados"
+        },
+        "ro": {
+          "value": "Zile folosite"
+        },
+        "ru": {
+          "value": "Дней использовано"
+        },
+        "sk": {
+          "value": "Využité dni"
+        },
+        "sv": {
+          "value": "Dagar använda"
+        },
+        "th": {
+          "value": "จำนวนวันที่ใช้"
+        },
+        "tr": {
+          "value": "Kullanılan günler"
+        },
+        "uk": {
+          "value": "Днів використано"
+        },
+        "vi": {
+          "value": "Số ngày đã dùng"
+        },
+        "zh-Hans": {
+          "value": "已用天数"
+        },
+        "zh-Hant": {
+          "value": "已用天數"
+        }
+      }
+    },
+    "rules_line1": {
+      "localizations": {
+        "en": {
+          "value": "From"
+        },
+        "ar": {
+          "value": "من"
+        },
+        "ca": {
+          "value": "De"
+        },
+        "cs": {
+          "value": "Od"
+        },
+        "da": {
+          "value": "Fra"
+        },
+        "de": {
+          "value": "Von"
+        },
+        "el": {
+          "value": "Από"
+        },
+        "en-AU": {
+          "value": "From"
+        },
+        "en-GB": {
+          "value": "From"
+        },
+        "es": {
+          "value": "De"
+        },
+        "es-419": {
+          "value": "De"
+        },
+        "fi": {
+          "value": "Mistä"
+        },
+        "fr": {
+          "value": "De"
+        },
+        "fr-CA": {
+          "value": "De"
+        },
+        "he": {
+          "value": "מ"
+        },
+        "hi": {
+          "value": ""
+        },
+        "hr": {
+          "value": "Od"
+        },
+        "hu": {
+          "value": ""
+        },
+        "id": {
+          "value": "Dari"
+        },
+        "it": {
+          "value": "Da"
+        },
+        "ja": {
+          "value": ""
+        },
+        "ko": {
+          "value": ""
+        },
+        "ms": {
+          "value": "Dari"
+        },
+        "nb": {
+          "value": "Fra"
+        },
+        "nl": {
+          "value": "Van"
+        },
+        "pl": {
+          "value": "Od"
+        },
+        "pt-BR": {
+          "value": "De"
+        },
+        "pt-PT": {
+          "value": "De"
+        },
+        "ro": {
+          "value": "De la"
+        },
+        "ru": {
+          "value": "От"
+        },
+        "sk": {
+          "value": "Od"
+        },
+        "sv": {
+          "value": "Från"
+        },
+        "th": {
+          "value": "จาก"
+        },
+        "tr": {
+          "value": ""
+        },
+        "uk": {
+          "value": "Від"
+        },
+        "vi": {
+          "value": "Từ"
+        },
+        "zh-Hans": {
+          "value": "从"
+        },
+        "zh-Hant": {
+          "value": "從"
+        }
+      }
+    },
+    "rules_accent": {
+      "localizations": {
+        "en": {
+          "value": "Schengen"
+        },
+        "ar": {
+          "value": "شنغن"
+        },
+        "ca": {
+          "value": "Schengen"
+        },
+        "cs": {
+          "value": "Schengenu"
+        },
+        "da": {
+          "value": "Schengen"
+        },
+        "de": {
+          "value": "Schengen"
+        },
+        "el": {
+          "value": "Σένγκεν"
+        },
+        "en-AU": {
+          "value": "Schengen"
+        },
+        "en-GB": {
+          "value": "Schengen"
+        },
+        "es": {
+          "value": "Schengen"
+        },
+        "es-419": {
+          "value": "Schengen"
+        },
+        "fi": {
+          "value": "Schengenistä"
+        },
+        "fr": {
+          "value": "Schengen"
+        },
+        "fr-CA": {
+          "value": "Schengen"
+        },
+        "he": {
+          "value": "שנגן"
+        },
+        "hi": {
+          "value": "शेंगेन"
+        },
+        "hr": {
+          "value": "Schengena"
+        },
+        "hu": {
+          "value": "Schengentől"
+        },
+        "id": {
+          "value": "Schengen"
+        },
+        "it": {
+          "value": "Schengen"
+        },
+        "ja": {
+          "value": "シェンゲンから"
+        },
+        "ko": {
+          "value": "솅겐에서"
+        },
+        "ms": {
+          "value": "Schengen"
+        },
+        "nb": {
+          "value": "Schengen"
+        },
+        "nl": {
+          "value": "Schengen"
+        },
+        "pl": {
+          "value": "Schengen"
+        },
+        "pt-BR": {
+          "value": "Schengen"
+        },
+        "pt-PT": {
+          "value": "Schengen"
+        },
+        "ro": {
+          "value": "Schengen"
+        },
+        "ru": {
+          "value": "Шенгена"
+        },
+        "sk": {
+          "value": "Schengenu"
+        },
+        "sv": {
+          "value": "Schengen"
+        },
+        "th": {
+          "value": "เชงเก้น"
+        },
+        "tr": {
+          "value": "Schengen'den"
+        },
+        "uk": {
+          "value": "Шенгену"
+        },
+        "vi": {
+          "value": "Schengen"
+        },
+        "zh-Hans": {
+          "value": "申根"
+        },
+        "zh-Hant": {
+          "value": "申根"
+        }
+      }
+    },
+    "rules_line2": {
+      "localizations": {
+        "en": {
+          "value": "to Sacramento"
+        },
+        "ar": {
+          "value": "إلى ساكرامنتو"
+        },
+        "ca": {
+          "value": "a Sacramento"
+        },
+        "cs": {
+          "value": "po Sacramento"
+        },
+        "da": {
+          "value": "til Sacramento"
+        },
+        "de": {
+          "value": "bis Sacramento"
+        },
+        "el": {
+          "value": "στο Σακραμέντο"
+        },
+        "en-AU": {
+          "value": "to Sacramento"
+        },
+        "en-GB": {
+          "value": "to Sacramento"
+        },
+        "es": {
+          "value": "a Sacramento"
+        },
+        "es-419": {
+          "value": "a Sacramento"
+        },
+        "fi": {
+          "value": "Sacramentoon"
+        },
+        "fr": {
+          "value": "à Sacramento"
+        },
+        "fr-CA": {
+          "value": "à Sacramento"
+        },
+        "he": {
+          "value": "עד סקרמנטו"
+        },
+        "hi": {
+          "value": "शेंगेन से सैक्रामेंटो तक"
+        },
+        "hr": {
+          "value": "do Sacramenta"
+        },
+        "hu": {
+          "value": "Sacramentóig"
+        },
+        "id": {
+          "value": "ke Sacramento"
+        },
+        "it": {
+          "value": "a Sacramento"
+        },
+        "ja": {
+          "value": "サクラメントまで"
+        },
+        "ko": {
+          "value": "새크라멘토까지"
+        },
+        "ms": {
+          "value": "ke Sacramento"
+        },
+        "nb": {
+          "value": "til Sacramento"
+        },
+        "nl": {
+          "value": "tot Sacramento"
+        },
+        "pl": {
+          "value": "po Sacramento"
+        },
+        "pt-BR": {
+          "value": "a Sacramento"
+        },
+        "pt-PT": {
+          "value": "a Sacramento"
+        },
+        "ro": {
+          "value": "la Sacramento"
+        },
+        "ru": {
+          "value": "до Сакраменто"
+        },
+        "sk": {
+          "value": "po Sacramento"
+        },
+        "sv": {
+          "value": "till Sacramento"
+        },
+        "th": {
+          "value": "ถึงแซคราเมนโต"
+        },
+        "tr": {
+          "value": "Sacramento'ya"
+        },
+        "uk": {
+          "value": "до Сакраменто"
+        },
+        "vi": {
+          "value": "đến Sacramento"
+        },
+        "zh-Hans": {
+          "value": "到萨克拉门托"
+        },
+        "zh-Hant": {
+          "value": "到沙加緬度"
+        }
+      }
+    },
+    "rules_sub": {
+      "localizations": {
+        "en": {
+          "value": "183-day rules, substantial presence, rolling windows, and more"
+        },
+        "ar": {
+          "value": "قواعد 183 يومًا، التواجد الفعلي، النوافذ المتجددة، والمزيد"
+        },
+        "ca": {
+          "value": "Regles de 183 dies, presència substancial, finestres mòbils i més"
+        },
+        "cs": {
+          "value": "Pravidla 183 dnů, podstatná přítomnost, klouzavá okna a další"
+        },
+        "da": {
+          "value": "183-dages regler, væsentlig tilstedeværelse, rullende vinduer og mere"
+        },
+        "de": {
+          "value": "183-Tage-Regeln, wesentliche Anwesenheit, rollende Zeitfenster und mehr"
+        },
+        "el": {
+          "value": "Κανόνες 183 ημερών, ουσιαστική παρουσία, κυλιόμενα παράθυρα κι άλλα"
+        },
+        "en-AU": {
+          "value": "183-day rules, substantial presence, rolling windows, and more"
+        },
+        "en-GB": {
+          "value": "183-day rules, substantial presence, rolling windows, and more"
+        },
+        "es": {
+          "value": "Reglas de 183 días, presencia sustancial, ventanas móviles y más"
+        },
+        "es-419": {
+          "value": "Reglas de 183 días, presencia sustancial, ventanas móviles y más"
+        },
+        "fi": {
+          "value": "183 päivän säännöt, olennainen läsnäolo, liukuvat ikkunat ja paljon muuta"
+        },
+        "fr": {
+          "value": "Règles des 183 jours, présence substantielle, fenêtres glissantes et plus"
+        },
+        "fr-CA": {
+          "value": "Règles des 183 jours, présence substantielle, fenêtres glissantes et plus"
+        },
+        "he": {
+          "value": "כללי 183 ימים, נוכחות מהותית, חלונות מתגלגלים ועוד"
+        },
+        "hi": {
+          "value": "183-दिन के नियम, पर्याप्त उपस्थिति, रोलिंग विंडो और अधिक"
+        },
+        "hr": {
+          "value": "Pravila od 183 dana, značajna prisutnost, pokretni prozori i više"
+        },
+        "hu": {
+          "value": "183 napos szabályok, lényeges jelenlét, gördülő ablakok és még sok más"
+        },
+        "id": {
+          "value": "Aturan 183 hari, kehadiran substansial, jendela bergulir, dan lainnya"
+        },
+        "it": {
+          "value": "Regole dei 183 giorni, presenza sostanziale, finestre mobili e altro"
+        },
+        "ja": {
+          "value": "183日ルール、実質的滞在、ローリングウィンドウなど"
+        },
+        "ko": {
+          "value": "183일 규칙, 실질적 체류, 롤링 윈도우 등"
+        },
+        "ms": {
+          "value": "Peraturan 183 hari, kehadiran substansial, tingkap bergerak dan lagi"
+        },
+        "nb": {
+          "value": "183-dagers regler, vesentlig tilstedeværelse, rullende vinduer og mer"
+        },
+        "nl": {
+          "value": "183-dagenregels, substantiële aanwezigheid, rollende vensters en meer"
+        },
+        "pl": {
+          "value": "Reguły 183 dni, znacząca obecność, okna kroczące i więcej"
+        },
+        "pt-BR": {
+          "value": "Regras de 183 dias, presença substancial, janelas móveis e mais"
+        },
+        "pt-PT": {
+          "value": "Regras de 183 dias, presença substancial, janelas móveis e mais"
+        },
+        "ro": {
+          "value": "Reguli de 183 zile, prezență substanțială, ferestre mobile și altele"
+        },
+        "ru": {
+          "value": "Правила 183 дней, существенное присутствие, скользящие окна и другое"
+        },
+        "sk": {
+          "value": "Pravidlá 183 dní, podstatná prítomnosť, posuvné okná a ďalšie"
+        },
+        "sv": {
+          "value": "183-dagarsregler, väsentlig närvaro, rullande fönster och mer"
+        },
+        "th": {
+          "value": "กฎ 183 วัน การมีตัวตนสำคัญ กรอบเวลาหมุนเวียน และอื่นๆ"
+        },
+        "tr": {
+          "value": "183 gün kuralları, önemli bulunma, kayan pencereler ve daha fazlası"
+        },
+        "uk": {
+          "value": "Правила 183 днів, суттєва присутність, ковзні вікна та інше"
+        },
+        "vi": {
+          "value": "Quy tắc 183 ngày, hiện diện đáng kể, cửa sổ cuốn và hơn thế"
+        },
+        "zh-Hans": {
+          "value": "183天规则、实质性存在、滚动窗口等"
+        },
+        "zh-Hant": {
+          "value": "183天規則、實質性存在、滾動窗口等"
+        }
+      }
+    },
+    "rules_callout_label": {
+      "localizations": {
+        "en": {
+          "value": "Supported"
+        },
+        "ar": {
+          "value": "مدعوم"
+        },
+        "ca": {
+          "value": "Suportat"
+        },
+        "cs": {
+          "value": "Podporováno"
+        },
+        "da": {
+          "value": "Understøttet"
+        },
+        "de": {
+          "value": "Unterstützt"
+        },
+        "el": {
+          "value": "Υποστηρίζονται"
+        },
+        "en-AU": {
+          "value": "Supported"
+        },
+        "en-GB": {
+          "value": "Supported"
+        },
+        "es": {
+          "value": "Compatible"
+        },
+        "es-419": {
+          "value": "Compatible"
+        },
+        "fi": {
+          "value": "Tuettu"
+        },
+        "fr": {
+          "value": "Pris en charge"
+        },
+        "fr-CA": {
+          "value": "Pris en charge"
+        },
+        "he": {
+          "value": "נתמך"
+        },
+        "hi": {
+          "value": "समर्थित"
+        },
+        "hr": {
+          "value": "Podržano"
+        },
+        "hu": {
+          "value": "Támogatott"
+        },
+        "id": {
+          "value": "Didukung"
+        },
+        "it": {
+          "value": "Supportate"
+        },
+        "ja": {
+          "value": "対応"
+        },
+        "ko": {
+          "value": "지원"
+        },
+        "ms": {
+          "value": "Disokong"
+        },
+        "nb": {
+          "value": "Støttet"
+        },
+        "nl": {
+          "value": "Ondersteund"
+        },
+        "pl": {
+          "value": "Obsługiwane"
+        },
+        "pt-BR": {
+          "value": "Suportado"
+        },
+        "pt-PT": {
+          "value": "Suportado"
+        },
+        "ro": {
+          "value": "Suportat"
+        },
+        "ru": {
+          "value": "Поддержка"
+        },
+        "sk": {
+          "value": "Podporované"
+        },
+        "sv": {
+          "value": "Stöds"
+        },
+        "th": {
+          "value": "รองรับ"
+        },
+        "tr": {
+          "value": "Desteklenen"
+        },
+        "uk": {
+          "value": "Підтримка"
+        },
+        "vi": {
+          "value": "Hỗ trợ"
+        },
+        "zh-Hans": {
+          "value": "支持"
+        },
+        "zh-Hant": {
+          "value": "支援"
+        }
+      }
+    },
+    "rules_callout_value": {
+      "localizations": {
+        "en": {
+          "value": "80+ rules"
+        },
+        "ar": {
+          "value": "80+ قاعدة"
+        },
+        "ca": {
+          "value": "80+ regles"
+        },
+        "cs": {
+          "value": "80+ pravidel"
+        },
+        "da": {
+          "value": "80+ regler"
+        },
+        "de": {
+          "value": "80+ Regeln"
+        },
+        "el": {
+          "value": "80+ κανόνες"
+        },
+        "en-AU": {
+          "value": "80+ rules"
+        },
+        "en-GB": {
+          "value": "80+ rules"
+        },
+        "es": {
+          "value": "80+ reglas"
+        },
+        "es-419": {
+          "value": "80+ reglas"
+        },
+        "fi": {
+          "value": "80+ sääntöä"
+        },
+        "fr": {
+          "value": "80+ règles"
+        },
+        "fr-CA": {
+          "value": "80+ règles"
+        },
+        "he": {
+          "value": "80+ כללים"
+        },
+        "hi": {
+          "value": "80+ नियम"
+        },
+        "hr": {
+          "value": "80+ pravila"
+        },
+        "hu": {
+          "value": "80+ szabály"
+        },
+        "id": {
+          "value": "80+ aturan"
+        },
+        "it": {
+          "value": "80+ regole"
+        },
+        "ja": {
+          "value": "80以上のルール"
+        },
+        "ko": {
+          "value": "80개 이상의 규칙"
+        },
+        "ms": {
+          "value": "80+ peraturan"
+        },
+        "nb": {
+          "value": "80+ regler"
+        },
+        "nl": {
+          "value": "80+ regels"
+        },
+        "pl": {
+          "value": "80+ reguł"
+        },
+        "pt-BR": {
+          "value": "80+ regras"
+        },
+        "pt-PT": {
+          "value": "80+ regras"
+        },
+        "ro": {
+          "value": "80+ reguli"
+        },
+        "ru": {
+          "value": "80+ правил"
+        },
+        "sk": {
+          "value": "80+ pravidiel"
+        },
+        "sv": {
+          "value": "80+ regler"
+        },
+        "th": {
+          "value": "80+ กฎ"
+        },
+        "tr": {
+          "value": "80+ kural"
+        },
+        "uk": {
+          "value": "80+ правил"
+        },
+        "vi": {
+          "value": "80+ quy tắc"
+        },
+        "zh-Hans": {
+          "value": "80+条规则"
+        },
+        "zh-Hant": {
+          "value": "80+條規則"
+        }
+      }
+    },
+    "schen_line1": {
+      "localizations": {
+        "en": {
+          "value": "Never Overstay"
+        },
+        "ar": {
+          "value": "لا تتجاوز أبدًا"
+        },
+        "ca": {
+          "value": "No Excedeixis Mai"
+        },
+        "cs": {
+          "value": "Nikdy Nepřekračte"
+        },
+        "da": {
+          "value": "Overskrid Aldrig"
+        },
+        "de": {
+          "value": "Nie Überziehen"
+        },
+        "el": {
+          "value": "Μην Ξεπεράσεις Ποτέ"
+        },
+        "en-AU": {
+          "value": "Never Overstay"
+        },
+        "en-GB": {
+          "value": "Never Overstay"
+        },
+        "es": {
+          "value": "Nunca Excedas"
+        },
+        "es-419": {
+          "value": "Nunca Excedas"
+        },
+        "fi": {
+          "value": "Älä Koskaan Ylitä"
+        },
+        "fr": {
+          "value": "Ne Dépassez Jamais"
+        },
+        "fr-CA": {
+          "value": "Ne Dépassez Jamais"
+        },
+        "he": {
+          "value": "לעולם אל תחרוג"
+        },
+        "hi": {
+          "value": "कभी न बढ़ाएं"
+        },
+        "hr": {
+          "value": "Nikad Ne Prekoračite"
+        },
+        "hu": {
+          "value": "Soha Ne Lépd Túl"
+        },
+        "id": {
+          "value": "Jangan Pernah Melampaui"
+        },
+        "it": {
+          "value": "Non Superare Mai"
+        },
+        "ja": {
+          "value": "超過しない"
+        },
+        "ko": {
+          "value": "절대 초과하지 마세요"
+        },
+        "ms": {
+          "value": "Jangan Sesekali Melebihi"
+        },
+        "nb": {
+          "value": "Aldri Overskrid"
+        },
+        "nl": {
+          "value": "Overschrijd Nooit"
+        },
+        "pl": {
+          "value": "Nigdy Nie Przekraczaj"
+        },
+        "pt-BR": {
+          "value": "Nunca Exceda"
+        },
+        "pt-PT": {
+          "value": "Nunca Exceda"
+        },
+        "ro": {
+          "value": "Nu Depăși Niciodată"
+        },
+        "ru": {
+          "value": "Не превышайте"
+        },
+        "sk": {
+          "value": "Nikdy Neprekračujte"
+        },
+        "sv": {
+          "value": "Överskriv Aldrig"
+        },
+        "th": {
+          "value": "ไม่เกินจำนวนวัน"
+        },
+        "tr": {
+          "value": "Asla Aşmayın"
+        },
+        "uk": {
+          "value": "Ніколи не перевищуйте"
+        },
+        "vi": {
+          "value": "Đừng Bao Giờ Vượt Quá"
+        },
+        "zh-Hans": {
+          "value": "绝不超期停留"
+        },
+        "zh-Hant": {
+          "value": "絕不超期停留"
+        }
+      }
+    },
+    "schen_line2": {
+      "localizations": {
+        "en": {
+          "value": "Your"
+        },
+        "ar": {
+          "value": "أيام"
+        },
+        "ca": {
+          "value": "Els Teus Dies"
+        },
+        "cs": {
+          "value": "Vaše Dny v"
+        },
+        "da": {
+          "value": "Dine"
+        },
+        "de": {
+          "value": "Deine"
+        },
+        "el": {
+          "value": "Τις Μέρες σου στη"
+        },
+        "en-AU": {
+          "value": "Your"
+        },
+        "en-GB": {
+          "value": "Your"
+        },
+        "es": {
+          "value": "Tus Días"
+        },
+        "es-419": {
+          "value": "Tus Días"
+        },
+        "fi": {
+          "value": ""
+        },
+        "fr": {
+          "value": "Vos Jours"
+        },
+        "fr-CA": {
+          "value": "Vos Jours"
+        },
+        "he": {
+          "value": "מימי"
+        },
+        "hi": {
+          "value": "अपने"
+        },
+        "hr": {
+          "value": "Vaše"
+        },
+        "hu": {
+          "value": "A"
+        },
+        "id": {
+          "value": "Hari"
+        },
+        "it": {
+          "value": "I Tuoi Giorni"
+        },
+        "ja": {
+          "value": ""
+        },
+        "ko": {
+          "value": ""
+        },
+        "ms": {
+          "value": "Hari"
+        },
+        "nb": {
+          "value": "Dine"
+        },
+        "nl": {
+          "value": "Je"
+        },
+        "pl": {
+          "value": "Swoich Dni"
+        },
+        "pt-BR": {
+          "value": "Seus Dias"
+        },
+        "pt-PT": {
+          "value": "Os Seus Dias"
+        },
+        "ro": {
+          "value": "Zilele de"
+        },
+        "ru": {
+          "value": "Ваши Дни в"
+        },
+        "sk": {
+          "value": "Vaše Dni v"
+        },
+        "sv": {
+          "value": "Dina"
+        },
+        "th": {
+          "value": "ใน"
+        },
+        "tr": {
+          "value": ""
+        },
+        "uk": {
+          "value": "Ваші Дні в"
+        },
+        "vi": {
+          "value": "Số Ngày"
+        },
+        "zh-Hans": {
+          "value": "你的"
+        },
+        "zh-Hant": {
+          "value": "你的"
+        }
+      }
+    },
+    "schen_accent": {
+      "localizations": {
+        "en": {
+          "value": "Schengen"
+        },
+        "ar": {
+          "value": "شنغن"
+        },
+        "ca": {
+          "value": "Schengen"
+        },
+        "cs": {
+          "value": "Schengenu"
+        },
+        "da": {
+          "value": "Schengen"
+        },
+        "de": {
+          "value": "Schengen"
+        },
+        "el": {
+          "value": "Σένγκεν"
+        },
+        "en-AU": {
+          "value": "Schengen"
+        },
+        "en-GB": {
+          "value": "Schengen"
+        },
+        "es": {
+          "value": "Schengen"
+        },
+        "es-419": {
+          "value": "Schengen"
+        },
+        "fi": {
+          "value": "Schengen"
+        },
+        "fr": {
+          "value": "Schengen"
+        },
+        "fr-CA": {
+          "value": "Schengen"
+        },
+        "he": {
+          "value": "שנגן"
+        },
+        "hi": {
+          "value": "शेंगेन"
+        },
+        "hr": {
+          "value": "Schengen"
+        },
+        "hu": {
+          "value": "Schengen"
+        },
+        "id": {
+          "value": "Schengen"
+        },
+        "it": {
+          "value": "Schengen"
+        },
+        "ja": {
+          "value": "シェンゲン"
+        },
+        "ko": {
+          "value": "솅겐"
+        },
+        "ms": {
+          "value": "Schengen"
+        },
+        "nb": {
+          "value": "Schengen"
+        },
+        "nl": {
+          "value": "Schengen"
+        },
+        "pl": {
+          "value": "Schengen"
+        },
+        "pt-BR": {
+          "value": "Schengen"
+        },
+        "pt-PT": {
+          "value": "Schengen"
+        },
+        "ro": {
+          "value": "Schengen"
+        },
+        "ru": {
+          "value": "Шенгене"
+        },
+        "sk": {
+          "value": "Schengene"
+        },
+        "sv": {
+          "value": "Schengen"
+        },
+        "th": {
+          "value": "เชงเก้น"
+        },
+        "tr": {
+          "value": "Schengen"
+        },
+        "uk": {
+          "value": "Шенгені"
+        },
+        "vi": {
+          "value": "Schengen"
+        },
+        "zh-Hans": {
+          "value": "申根"
+        },
+        "zh-Hant": {
+          "value": "申根"
+        }
+      }
+    },
+    "schen_line3": {
+      "localizations": {
+        "en": {
+          "value": "Days"
+        },
+        "ar": {
+          "value": "الخاصة بك"
+        },
+        "ca": {
+          "value": "a"
+        },
+        "cs": {
+          "value": ""
+        },
+        "da": {
+          "value": "Dage"
+        },
+        "de": {
+          "value": "Tage"
+        },
+        "el": {
+          "value": ""
+        },
+        "en-AU": {
+          "value": "Days"
+        },
+        "en-GB": {
+          "value": "Days"
+        },
+        "es": {
+          "value": "en"
+        },
+        "es-419": {
+          "value": "en"
+        },
+        "fi": {
+          "value": "Päiviäsi"
+        },
+        "fr": {
+          "value": ""
+        },
+        "fr-CA": {
+          "value": ""
+        },
+        "he": {
+          "value": "שלך"
+        },
+        "hi": {
+          "value": "दिन"
+        },
+        "hr": {
+          "value": "Dane"
+        },
+        "hu": {
+          "value": "Napjaidat"
+        },
+        "id": {
+          "value": "Anda"
+        },
+        "it": {
+          "value": ""
+        },
+        "ja": {
+          "value": "の日数"
+        },
+        "ko": {
+          "value": "일수"
+        },
+        "ms": {
+          "value": "Anda"
+        },
+        "nb": {
+          "value": "Dager"
+        },
+        "nl": {
+          "value": "Dagen"
+        },
+        "pl": {
+          "value": "w"
+        },
+        "pt-BR": {
+          "value": "no"
+        },
+        "pt-PT": {
+          "value": "no"
+        },
+        "ro": {
+          "value": ""
+        },
+        "ru": {
+          "value": ""
+        },
+        "sk": {
+          "value": ""
+        },
+        "sv": {
+          "value": "Dagar"
+        },
+        "th": {
+          "value": ""
+        },
+        "tr": {
+          "value": "Günlerinizi"
+        },
+        "uk": {
+          "value": ""
+        },
+        "vi": {
+          "value": "Của Bạn"
+        },
+        "zh-Hans": {
+          "value": "天数"
+        },
+        "zh-Hant": {
+          "value": "天數"
+        }
+      }
+    },
+    "schen_sub": {
+      "localizations": {
+        "en": {
+          "value": "Rolling 90/180 window tracking so you always know where you stand"
+        },
+        "ar": {
+          "value": "تتبع نافذة 90/180 المتجددة لتعرف دائمًا أين أنت"
+        },
+        "ca": {
+          "value": "Seguiment de finestra mòbil 90/180 per saber sempre on ets"
+        },
+        "cs": {
+          "value": "Klouzavé sledování okna 90/180, abyste vždy věděli, jak na tom jste"
+        },
+        "da": {
+          "value": "Rullende 90/180 vinduessporing, så du altid ved, hvor du står"
+        },
+        "de": {
+          "value": "Rollierende 90/180-Fenster-Verfolgung — du weißt immer, wo du stehst"
+        },
+        "el": {
+          "value": "Κυλιόμενη παρακολούθηση παραθύρου 90/180 για να ξέρετε πάντα πού βρίσκεστε"
+        },
+        "en-AU": {
+          "value": "Rolling 90/180 window tracking so you always know where you stand"
+        },
+        "en-GB": {
+          "value": "Rolling 90/180 window tracking so you always know where you stand"
+        },
+        "es": {
+          "value": "Seguimiento de ventana móvil 90/180 para saber siempre dónde estás"
+        },
+        "es-419": {
+          "value": "Seguimiento de ventana móvil 90/180 para saber siempre dónde estás"
+        },
+        "fi": {
+          "value": "Liukuva 90/180 ikkunan seuranta — tiedät aina missä menet"
+        },
+        "fr": {
+          "value": "Suivi fenêtre glissante 90/180 pour toujours savoir où vous en êtes"
+        },
+        "fr-CA": {
+          "value": "Suivi fenêtre glissante 90/180 pour toujours savoir où vous en êtes"
+        },
+        "he": {
+          "value": "מעקב חלון מתגלגל 90/180 כדי שתדע תמיד איפה אתה עומד"
+        },
+        "hi": {
+          "value": "रोलिंग 90/180 विंडो ट्रैकिंग ताकि आप हमेशा जानें कि आप कहाँ खड़े हैं"
+        },
+        "hr": {
+          "value": "Praćenje pokretnog prozora 90/180 da uvijek znate gdje stojite"
+        },
+        "hu": {
+          "value": "Gördülő 90/180 ablak követés, hogy mindig tudd, hol tartasz"
+        },
+        "id": {
+          "value": "Pelacakan jendela bergulir 90/180 agar Anda selalu tahu posisi Anda"
+        },
+        "it": {
+          "value": "Tracciamento finestra mobile 90/180 per sapere sempre dove sei"
+        },
+        "ja": {
+          "value": "90/180日のローリングウィンドウ追跡で常に状況を把握"
+        },
+        "ko": {
+          "value": "90/180일 롤링 윈도우 추적으로 항상 현재 상태 파악"
+        },
+        "ms": {
+          "value": "Penjejakan tingkap bergerak 90/180 supaya anda sentiasa tahu kedudukan anda"
+        },
+        "nb": {
+          "value": "Rullende 90/180-vindusporing slik at du alltid vet hvor du står"
+        },
+        "nl": {
+          "value": "Rollende 90/180 venstertracking zodat je altijd weet waar je staat"
+        },
+        "pl": {
+          "value": "Śledzenie okna kroczącego 90/180, aby zawsze wiedzieć, gdzie stoisz"
+        },
+        "pt-BR": {
+          "value": "Rastreamento de janela móvel 90/180 para saber sempre onde você está"
+        },
+        "pt-PT": {
+          "value": "Rastreamento de janela móvel 90/180 para saber sempre onde está"
+        },
+        "ro": {
+          "value": "Urmărire fereastră mobilă 90/180 ca să știi mereu unde te afli"
+        },
+        "ru": {
+          "value": "Скользящее окно 90/180 — вы всегда знаете, где находитесь"
+        },
+        "sk": {
+          "value": "Posuvné sledovanie okna 90/180, aby ste vždy vedeli, ako na tom ste"
+        },
+        "sv": {
+          "value": "Rullande 90/180-fönsterspårning så att du alltid vet var du står"
+        },
+        "th": {
+          "value": "ติดตามกรอบเวลา 90/180 วันเพื่อให้คุณรู้สถานะเสมอ"
+        },
+        "tr": {
+          "value": "90/180 kayan pencere takibi ile her zaman nerede olduğunuzu bilin"
+        },
+        "uk": {
+          "value": "Ковзне вікно 90/180 — ви завжди знаєте, де стоїте"
+        },
+        "vi": {
+          "value": "Theo dõi cửa sổ cuốn 90/180 để luôn biết vị trí của bạn"
+        },
+        "zh-Hans": {
+          "value": "滚动90/180窗口追踪，随时了解你的状态"
+        },
+        "zh-Hant": {
+          "value": "滾動90/180窗口追蹤，隨時了解你的狀態"
+        }
+      }
+    },
+    "schen_days_label": {
+      "localizations": {
+        "en": {
+          "value": "Days used"
+        },
+        "ar": {
+          "value": "الأيام المستخدمة"
+        },
+        "ca": {
+          "value": "Dies utilitzats"
+        },
+        "cs": {
+          "value": "Využité dny"
+        },
+        "da": {
+          "value": "Brugte dage"
+        },
+        "de": {
+          "value": "Tage genutzt"
+        },
+        "el": {
+          "value": "Ημέρες"
+        },
+        "en-AU": {
+          "value": "Days used"
+        },
+        "en-GB": {
+          "value": "Days used"
+        },
+        "es": {
+          "value": "Días usados"
+        },
+        "es-419": {
+          "value": "Días usados"
+        },
+        "fi": {
+          "value": "Käytetyt päivät"
+        },
+        "fr": {
+          "value": "Jours utilisés"
+        },
+        "fr-CA": {
+          "value": "Jours utilisés"
+        },
+        "he": {
+          "value": "ימים בשימוש"
+        },
+        "hi": {
+          "value": "उपयोग किए गए दिन"
+        },
+        "hr": {
+          "value": "Iskorišteni dani"
+        },
+        "hu": {
+          "value": "Felhasznált napok"
+        },
+        "id": {
+          "value": "Hari digunakan"
+        },
+        "it": {
+          "value": "Giorni usati"
+        },
+        "ja": {
+          "value": "使用日数"
+        },
+        "ko": {
+          "value": "사용 일수"
+        },
+        "ms": {
+          "value": "Hari digunakan"
+        },
+        "nb": {
+          "value": "Dager brukt"
+        },
+        "nl": {
+          "value": "Dagen gebruikt"
+        },
+        "pl": {
+          "value": "Wykorzystane dni"
+        },
+        "pt-BR": {
+          "value": "Dias usados"
+        },
+        "pt-PT": {
+          "value": "Dias usados"
+        },
+        "ro": {
+          "value": "Zile folosite"
+        },
+        "ru": {
+          "value": "Дней использовано"
+        },
+        "sk": {
+          "value": "Využité dni"
+        },
+        "sv": {
+          "value": "Dagar använda"
+        },
+        "th": {
+          "value": "จำนวนวันที่ใช้"
+        },
+        "tr": {
+          "value": "Kullanılan günler"
+        },
+        "uk": {
+          "value": "Днів використано"
+        },
+        "vi": {
+          "value": "Số ngày đã dùng"
+        },
+        "zh-Hans": {
+          "value": "已用天数"
+        },
+        "zh-Hant": {
+          "value": "已用天數"
+        }
+      }
+    },
+    "schen_status_label": {
+      "localizations": {
+        "en": {
+          "value": "Status"
+        },
+        "ar": {
+          "value": "الحالة"
+        },
+        "ca": {
+          "value": "Estat"
+        },
+        "cs": {
+          "value": "Stav"
+        },
+        "da": {
+          "value": "Status"
+        },
+        "de": {
+          "value": "Status"
+        },
+        "el": {
+          "value": "Κατάσταση"
+        },
+        "en-AU": {
+          "value": "Status"
+        },
+        "en-GB": {
+          "value": "Status"
+        },
+        "es": {
+          "value": "Estado"
+        },
+        "es-419": {
+          "value": "Estado"
+        },
+        "fi": {
+          "value": "Tila"
+        },
+        "fr": {
+          "value": "Statut"
+        },
+        "fr-CA": {
+          "value": "Statut"
+        },
+        "he": {
+          "value": "מצב"
+        },
+        "hi": {
+          "value": "स्थिति"
+        },
+        "hr": {
+          "value": "Status"
+        },
+        "hu": {
+          "value": "Állapot"
+        },
+        "id": {
+          "value": "Status"
+        },
+        "it": {
+          "value": "Stato"
+        },
+        "ja": {
+          "value": "ステータス"
+        },
+        "ko": {
+          "value": "상태"
+        },
+        "ms": {
+          "value": "Status"
+        },
+        "nb": {
+          "value": "Status"
+        },
+        "nl": {
+          "value": "Status"
+        },
+        "pl": {
+          "value": "Status"
+        },
+        "pt-BR": {
+          "value": "Status"
+        },
+        "pt-PT": {
+          "value": "Estado"
+        },
+        "ro": {
+          "value": "Stare"
+        },
+        "ru": {
+          "value": "Статус"
+        },
+        "sk": {
+          "value": "Stav"
+        },
+        "sv": {
+          "value": "Status"
+        },
+        "th": {
+          "value": "สถานะ"
+        },
+        "tr": {
+          "value": "Durum"
+        },
+        "uk": {
+          "value": "Статус"
+        },
+        "vi": {
+          "value": "Trạng thái"
+        },
+        "zh-Hans": {
+          "value": "状态"
+        },
+        "zh-Hant": {
+          "value": "狀態"
+        }
+      }
+    },
+    "schen_status_value": {
+      "localizations": {
+        "en": {
+          "value": "Danger"
+        },
+        "ar": {
+          "value": "خطر"
+        },
+        "ca": {
+          "value": "Perill"
+        },
+        "cs": {
+          "value": "Nebezpečí"
+        },
+        "da": {
+          "value": "Fare"
+        },
+        "de": {
+          "value": "Gefahr"
+        },
+        "el": {
+          "value": "Κίνδυνος"
+        },
+        "en-AU": {
+          "value": "Danger"
+        },
+        "en-GB": {
+          "value": "Danger"
+        },
+        "es": {
+          "value": "Peligro"
+        },
+        "es-419": {
+          "value": "Peligro"
+        },
+        "fi": {
+          "value": "Vaara"
+        },
+        "fr": {
+          "value": "Danger"
+        },
+        "fr-CA": {
+          "value": "Danger"
+        },
+        "he": {
+          "value": "סכנה"
+        },
+        "hi": {
+          "value": "खतरा"
+        },
+        "hr": {
+          "value": "Opasnost"
+        },
+        "hu": {
+          "value": "Veszély"
+        },
+        "id": {
+          "value": "Bahaya"
+        },
+        "it": {
+          "value": "Pericolo"
+        },
+        "ja": {
+          "value": "危険"
+        },
+        "ko": {
+          "value": "위험"
+        },
+        "ms": {
+          "value": "Bahaya"
+        },
+        "nb": {
+          "value": "Fare"
+        },
+        "nl": {
+          "value": "Gevaar"
+        },
+        "pl": {
+          "value": "Niebezpieczeństwo"
+        },
+        "pt-BR": {
+          "value": "Perigo"
+        },
+        "pt-PT": {
+          "value": "Perigo"
+        },
+        "ro": {
+          "value": "Pericol"
+        },
+        "ru": {
+          "value": "Опасно"
+        },
+        "sk": {
+          "value": "Nebezpečenstvo"
+        },
+        "sv": {
+          "value": "Fara"
+        },
+        "th": {
+          "value": "อันตราย"
+        },
+        "tr": {
+          "value": "Tehlike"
+        },
+        "uk": {
+          "value": "Небезпечно"
+        },
+        "vi": {
+          "value": "Nguy hiểm"
+        },
+        "zh-Hans": {
+          "value": "危险"
+        },
+        "zh-Hant": {
+          "value": "危險"
+        }
+      }
+    },
+    "notif_line1": {
+      "localizations": {
+        "en": {
+          "value": "Set It"
+        },
+        "ar": {
+          "value": "اضبطه"
+        },
+        "ca": {
+          "value": "Configura-ho"
+        },
+        "cs": {
+          "value": "Nastavte"
+        },
+        "da": {
+          "value": "Sæt Det Op"
+        },
+        "de": {
+          "value": "Einrichten"
+        },
+        "el": {
+          "value": "Ρύθμισε το"
+        },
+        "en-AU": {
+          "value": "Set It"
+        },
+        "en-GB": {
+          "value": "Set It"
+        },
+        "es": {
+          "value": "Configúralo"
+        },
+        "es-419": {
+          "value": "Configúralo"
+        },
+        "fi": {
+          "value": "Aseta"
+        },
+        "fr": {
+          "value": "Configurez"
+        },
+        "fr-CA": {
+          "value": "Configurez"
+        },
+        "he": {
+          "value": "הגדר"
+        },
+        "hi": {
+          "value": "सेट करें"
+        },
+        "hr": {
+          "value": "Postavite"
+        },
+        "hu": {
+          "value": "Állítsd Be"
+        },
+        "id": {
+          "value": "Atur Saja"
+        },
+        "it": {
+          "value": "Configuralo"
+        },
+        "ja": {
+          "value": "設定して"
+        },
+        "ko": {
+          "value": "설정하고"
+        },
+        "ms": {
+          "value": "Tetapkan"
+        },
+        "nb": {
+          "value": "Sett Det Opp"
+        },
+        "nl": {
+          "value": "Stel In"
+        },
+        "pl": {
+          "value": "Ustaw"
+        },
+        "pt-BR": {
+          "value": "Configure"
+        },
+        "pt-PT": {
+          "value": "Configure"
+        },
+        "ro": {
+          "value": "Setează"
+        },
+        "ru": {
+          "value": "Настройте"
+        },
+        "sk": {
+          "value": "Nastavte"
+        },
+        "sv": {
+          "value": "Ställ In"
+        },
+        "th": {
+          "value": "ตั้งค่า"
+        },
+        "tr": {
+          "value": "Ayarlayın"
+        },
+        "uk": {
+          "value": "Налаштуйте"
+        },
+        "vi": {
+          "value": "Thiết Lập"
+        },
+        "zh-Hans": {
+          "value": "设定好"
+        },
+        "zh-Hant": {
+          "value": "設定好"
+        }
+      }
+    },
+    "notif_line2": {
+      "localizations": {
+        "en": {
+          "value": "and"
+        },
+        "ar": {
+          "value": "و"
+        },
+        "ca": {
+          "value": "i"
+        },
+        "cs": {
+          "value": "a"
+        },
+        "da": {
+          "value": "og"
+        },
+        "de": {
+          "value": "und"
+        },
+        "el": {
+          "value": "και"
+        },
+        "en-AU": {
+          "value": "and"
+        },
+        "en-GB": {
+          "value": "and"
+        },
+        "es": {
+          "value": "y"
+        },
+        "es-419": {
+          "value": "y"
+        },
+        "fi": {
+          "value": "ja"
+        },
+        "fr": {
+          "value": "et"
+        },
+        "fr-CA": {
+          "value": "et"
+        },
+        "he": {
+          "value": "ו"
+        },
+        "hi": {
+          "value": "और"
+        },
+        "hr": {
+          "value": "i"
+        },
+        "hu": {
+          "value": "és"
+        },
+        "id": {
+          "value": "dan"
+        },
+        "it": {
+          "value": "e"
+        },
+        "ja": {
+          "value": "あとは"
+        },
+        "ko": {
+          "value": ""
+        },
+        "ms": {
+          "value": "dan"
+        },
+        "nb": {
+          "value": "og"
+        },
+        "nl": {
+          "value": "en"
+        },
+        "pl": {
+          "value": "i"
+        },
+        "pt-BR": {
+          "value": "e"
+        },
+        "pt-PT": {
+          "value": "e"
+        },
+        "ro": {
+          "value": "și"
+        },
+        "ru": {
+          "value": "и"
+        },
+        "sk": {
+          "value": "a"
+        },
+        "sv": {
+          "value": "och"
+        },
+        "th": {
+          "value": "แล้ว"
+        },
+        "tr": {
+          "value": "ve"
+        },
+        "uk": {
+          "value": "і"
+        },
+        "vi": {
+          "value": "và"
+        },
+        "zh-Hans": {
+          "value": "然后"
+        },
+        "zh-Hant": {
+          "value": "然後"
+        }
+      }
+    },
+    "notif_accent": {
+      "localizations": {
+        "en": {
+          "value": "Forget"
+        },
+        "ar": {
+          "value": "انسَ"
+        },
+        "ca": {
+          "value": "Oblida't"
+        },
+        "cs": {
+          "value": "Zapomeňte"
+        },
+        "da": {
+          "value": "Glem"
+        },
+        "de": {
+          "value": "Vergessen"
+        },
+        "el": {
+          "value": "Ξέχασέ"
+        },
+        "en-AU": {
+          "value": "Forget"
+        },
+        "en-GB": {
+          "value": "Forget"
+        },
+        "es": {
+          "value": "Olvídate"
+        },
+        "es-419": {
+          "value": "Olvídate"
+        },
+        "fi": {
+          "value": "Unohda"
+        },
+        "fr": {
+          "value": "Oubliez"
+        },
+        "fr-CA": {
+          "value": "Oubliez"
+        },
+        "he": {
+          "value": "שכח"
+        },
+        "hi": {
+          "value": "भूल जाएं"
+        },
+        "hr": {
+          "value": "Zaboravite"
+        },
+        "hu": {
+          "value": "Felejtsd El"
+        },
+        "id": {
+          "value": "Lupakan"
+        },
+        "it": {
+          "value": "Dimenticalo"
+        },
+        "ja": {
+          "value": "忘れるだけ"
+        },
+        "ko": {
+          "value": "잊어버리세요"
+        },
+        "ms": {
+          "value": "Lupakan"
+        },
+        "nb": {
+          "value": "Glem"
+        },
+        "nl": {
+          "value": "Vergeet"
+        },
+        "pl": {
+          "value": "Zapomnij"
+        },
+        "pt-BR": {
+          "value": "Esqueça"
+        },
+        "pt-PT": {
+          "value": "Esqueça"
+        },
+        "ro": {
+          "value": "Uită"
+        },
+        "ru": {
+          "value": "Забудьте"
+        },
+        "sk": {
+          "value": "Zabudnite"
+        },
+        "sv": {
+          "value": "Glöm"
+        },
+        "th": {
+          "value": "ลืมมันไป"
+        },
+        "tr": {
+          "value": "Unutun"
+        },
+        "uk": {
+          "value": "Забудьте"
+        },
+        "vi": {
+          "value": "Quên Đi"
+        },
+        "zh-Hans": {
+          "value": "忘掉它"
+        },
+        "zh-Hant": {
+          "value": "忘掉它"
+        }
+      }
+    },
+    "notif_line3": {
+      "localizations": {
+        "en": {
+          "value": "It"
+        },
+        "ar": {
+          "value": "الأمر"
+        },
+        "ca": {
+          "value": ""
+        },
+        "cs": {
+          "value": ""
+        },
+        "da": {
+          "value": "Det"
+        },
+        "de": {
+          "value": ""
+        },
+        "el": {
+          "value": "το"
+        },
+        "en-AU": {
+          "value": "It"
+        },
+        "en-GB": {
+          "value": "It"
+        },
+        "es": {
+          "value": ""
+        },
+        "es-419": {
+          "value": ""
+        },
+        "fi": {
+          "value": ""
+        },
+        "fr": {
+          "value": ""
+        },
+        "fr-CA": {
+          "value": ""
+        },
+        "he": {
+          "value": "מזה"
+        },
+        "hi": {
+          "value": ""
+        },
+        "hr": {
+          "value": ""
+        },
+        "hu": {
+          "value": ""
+        },
+        "id": {
+          "value": ""
+        },
+        "it": {
+          "value": ""
+        },
+        "ja": {
+          "value": ""
+        },
+        "ko": {
+          "value": ""
+        },
+        "ms": {
+          "value": ""
+        },
+        "nb": {
+          "value": "Det"
+        },
+        "nl": {
+          "value": "Het"
+        },
+        "pl": {
+          "value": ""
+        },
+        "pt-BR": {
+          "value": ""
+        },
+        "pt-PT": {
+          "value": ""
+        },
+        "ro": {
+          "value": ""
+        },
+        "ru": {
+          "value": ""
+        },
+        "sk": {
+          "value": ""
+        },
+        "sv": {
+          "value": "Det"
+        },
+        "th": {
+          "value": ""
+        },
+        "tr": {
+          "value": ""
+        },
+        "uk": {
+          "value": ""
+        },
+        "vi": {
+          "value": ""
+        },
+        "zh-Hans": {
+          "value": ""
+        },
+        "zh-Hant": {
+          "value": ""
+        }
+      }
+    },
+    "notif_sub": {
+      "localizations": {
+        "en": {
+          "value": "Smart alerts warn you days before you cross a threshold"
+        },
+        "ar": {
+          "value": "تنبيهات ذكية تحذرك قبل أيام من تجاوز الحد"
+        },
+        "ca": {
+          "value": "Alertes intel·ligents t'avisen dies abans de creuar un llindar"
+        },
+        "cs": {
+          "value": "Chytré výstrahy vás varují dny před překročením limitu"
+        },
+        "da": {
+          "value": "Smarte advarsler advarer dig dage før du krydser en grænse"
+        },
+        "de": {
+          "value": "Intelligente Warnungen warnen dich Tage vor Überschreitung eines Grenzwerts"
+        },
+        "el": {
+          "value": "Έξυπνες ειδοποιήσεις σε προειδοποιούν μέρες πριν ξεπεράσεις ένα όριο"
+        },
+        "en-AU": {
+          "value": "Smart alerts warn you days before you cross a threshold"
+        },
+        "en-GB": {
+          "value": "Smart alerts warn you days before you cross a threshold"
+        },
+        "es": {
+          "value": "Alertas inteligentes te avisan días antes de cruzar un umbral"
+        },
+        "es-419": {
+          "value": "Alertas inteligentes te avisan días antes de cruzar un umbral"
+        },
+        "fi": {
+          "value": "Älykkäät hälytykset varoittavat päiviä ennen rajan ylittämistä"
+        },
+        "fr": {
+          "value": "Des alertes intelligentes vous préviennent avant de franchir un seuil"
+        },
+        "fr-CA": {
+          "value": "Des alertes intelligentes vous préviennent avant de franchir un seuil"
+        },
+        "he": {
+          "value": "התראות חכמות מזהירות אותך ימים לפני חציית סף"
+        },
+        "hi": {
+          "value": "स्मार्ट अलर्ट आपको सीमा पार करने से दिन पहले चेतावनी देते हैं"
+        },
+        "hr": {
+          "value": "Pametna upozorenja vas upozoravaju danima prije prekoračenja praga"
+        },
+        "hu": {
+          "value": "Az okos figyelmeztetések napokkal a határ átlépése előtt szólnak"
+        },
+        "id": {
+          "value": "Peringatan pintar memperingatkan Anda beberapa hari sebelum melewati batas"
+        },
+        "it": {
+          "value": "Avvisi intelligenti ti avvisano giorni prima di superare una soglia"
+        },
+        "ja": {
+          "value": "閾値を超える前にスマートアラートが事前に警告"
+        },
+        "ko": {
+          "value": "스마트 알림이 기준 초과 며칠 전에 경고합니다"
+        },
+        "ms": {
+          "value": "Amaran pintar memberi amaran hari sebelum anda melepasi ambang"
+        },
+        "nb": {
+          "value": "Smarte varsler advarer deg dager før du krysser en grense"
+        },
+        "nl": {
+          "value": "Slimme meldingen waarschuwen je dagen voordat je een drempel overschrijdt"
+        },
+        "pl": {
+          "value": "Inteligentne alerty ostrzegają dni przed przekroczeniem progu"
+        },
+        "pt-BR": {
+          "value": "Alertas inteligentes avisam dias antes de cruzar um limite"
+        },
+        "pt-PT": {
+          "value": "Alertas inteligentes avisam dias antes de cruzar um limite"
+        },
+        "ro": {
+          "value": "Alerte inteligente te avertizează cu zile înainte să depășești un prag"
+        },
+        "ru": {
+          "value": "Умные уведомления предупреждают за дни до превышения порога"
+        },
+        "sk": {
+          "value": "Inteligentné upozornenia vás varujú dni pred prekročením limitu"
+        },
+        "sv": {
+          "value": "Smarta varningar varnar dig dagar innan du passerar en gräns"
+        },
+        "th": {
+          "value": "การแจ้งเตือนอัจฉริยะจะเตือนคุณล่วงหน้าก่อนถึงเกณฑ์"
+        },
+        "tr": {
+          "value": "Akıllı uyarılar, bir eşiği aşmadan günler önce sizi uyarır"
+        },
+        "uk": {
+          "value": "Розумні сповіщення попереджають за кілька днів до перевищення порогу"
+        },
+        "vi": {
+          "value": "Cảnh báo thông minh cảnh báo bạn vài ngày trước khi vượt ngưỡng"
+        },
+        "zh-Hans": {
+          "value": "智能提醒在你即将超过阈值前提前警告"
+        },
+        "zh-Hant": {
+          "value": "智能提醒在你即將超過閾值前提前警告"
+        }
+      }
+    },
+    "notif_alert_label": {
+      "localizations": {
+        "en": {
+          "value": "Alert at"
+        },
+        "ar": {
+          "value": "تنبيه عند"
+        },
+        "ca": {
+          "value": "Alerta a"
+        },
+        "cs": {
+          "value": "Upozornění"
+        },
+        "da": {
+          "value": "Advarsel ved"
+        },
+        "de": {
+          "value": "Warnung bei"
+        },
+        "el": {
+          "value": "Ειδοποίηση στις"
+        },
+        "en-AU": {
+          "value": "Alert at"
+        },
+        "en-GB": {
+          "value": "Alert at"
+        },
+        "es": {
+          "value": "Alerta en"
+        },
+        "es-419": {
+          "value": "Alerta en"
+        },
+        "fi": {
+          "value": "Hälytys"
+        },
+        "fr": {
+          "value": "Alerte à"
+        },
+        "fr-CA": {
+          "value": "Alerte à"
+        },
+        "he": {
+          "value": "התראה ב"
+        },
+        "hi": {
+          "value": "अलर्ट"
+        },
+        "hr": {
+          "value": "Upozorenje"
+        },
+        "hu": {
+          "value": "Figyelmeztetés"
+        },
+        "id": {
+          "value": "Peringatan"
+        },
+        "it": {
+          "value": "Avviso a"
+        },
+        "ja": {
+          "value": "アラート"
+        },
+        "ko": {
+          "value": "알림"
+        },
+        "ms": {
+          "value": "Amaran pada"
+        },
+        "nb": {
+          "value": "Varsel ved"
+        },
+        "nl": {
+          "value": "Melding bij"
+        },
+        "pl": {
+          "value": "Alert"
+        },
+        "pt-BR": {
+          "value": "Alerta em"
+        },
+        "pt-PT": {
+          "value": "Alerta em"
+        },
+        "ro": {
+          "value": "Alertă la"
+        },
+        "ru": {
+          "value": "Оповещение"
+        },
+        "sk": {
+          "value": "Upozornenie"
+        },
+        "sv": {
+          "value": "Varning vid"
+        },
+        "th": {
+          "value": "แจ้งเตือนที่"
+        },
+        "tr": {
+          "value": "Uyarı"
+        },
+        "uk": {
+          "value": "Сповіщення"
+        },
+        "vi": {
+          "value": "Cảnh báo"
+        },
+        "zh-Hans": {
+          "value": "提醒于"
+        },
+        "zh-Hant": {
+          "value": "提醒於"
+        }
+      }
+    },
+    "notif_alert_value": {
+      "localizations": {
+        "en": {
+          "value": "7, 3, 1 days"
+        },
+        "ar": {
+          "value": "7، 3، 1 أيام"
+        },
+        "ca": {
+          "value": "7, 3, 1 dies"
+        },
+        "cs": {
+          "value": "7, 3, 1 dní"
+        },
+        "da": {
+          "value": "7, 3, 1 dage"
+        },
+        "de": {
+          "value": "7, 3, 1 Tage"
+        },
+        "el": {
+          "value": "7, 3, 1 μέρες"
+        },
+        "en-AU": {
+          "value": "7, 3, 1 days"
+        },
+        "en-GB": {
+          "value": "7, 3, 1 days"
+        },
+        "es": {
+          "value": "7, 3, 1 días"
+        },
+        "es-419": {
+          "value": "7, 3, 1 días"
+        },
+        "fi": {
+          "value": "7, 3, 1 päivää"
+        },
+        "fr": {
+          "value": "7, 3, 1 jours"
+        },
+        "fr-CA": {
+          "value": "7, 3, 1 jours"
+        },
+        "he": {
+          "value": "7, 3, 1 ימים"
+        },
+        "hi": {
+          "value": "7, 3, 1 दिन"
+        },
+        "hr": {
+          "value": "7, 3, 1 dana"
+        },
+        "hu": {
+          "value": "7, 3, 1 nap"
+        },
+        "id": {
+          "value": "7, 3, 1 hari"
+        },
+        "it": {
+          "value": "7, 3, 1 giorni"
+        },
+        "ja": {
+          "value": "7、3、1日前"
+        },
+        "ko": {
+          "value": "7, 3, 1일 전"
+        },
+        "ms": {
+          "value": "7, 3, 1 hari"
+        },
+        "nb": {
+          "value": "7, 3, 1 dager"
+        },
+        "nl": {
+          "value": "7, 3, 1 dagen"
+        },
+        "pl": {
+          "value": "7, 3, 1 dni"
+        },
+        "pt-BR": {
+          "value": "7, 3, 1 dias"
+        },
+        "pt-PT": {
+          "value": "7, 3, 1 dias"
+        },
+        "ro": {
+          "value": "7, 3, 1 zile"
+        },
+        "ru": {
+          "value": "7, 3, 1 дней"
+        },
+        "sk": {
+          "value": "7, 3, 1 dní"
+        },
+        "sv": {
+          "value": "7, 3, 1 dagar"
+        },
+        "th": {
+          "value": "7, 3, 1 วัน"
+        },
+        "tr": {
+          "value": "7, 3, 1 gün"
+        },
+        "uk": {
+          "value": "7, 3, 1 днів"
+        },
+        "vi": {
+          "value": "7, 3, 1 ngày"
+        },
+        "zh-Hans": {
+          "value": "7、3、1天"
+        },
+        "zh-Hant": {
+          "value": "7、3、1天"
+        }
+      }
+    },
+    "notif_protected_label": {
+      "localizations": {
+        "en": {
+          "value": "You're"
+        },
+        "ar": {
+          "value": "أنت"
+        },
+        "ca": {
+          "value": "Estàs"
+        },
+        "cs": {
+          "value": "Jste"
+        },
+        "da": {
+          "value": "Du er"
+        },
+        "de": {
+          "value": "Du bist"
+        },
+        "el": {
+          "value": "Είσαι"
+        },
+        "en-AU": {
+          "value": "You're"
+        },
+        "en-GB": {
+          "value": "You're"
+        },
+        "es": {
+          "value": "Estás"
+        },
+        "es-419": {
+          "value": "Estás"
+        },
+        "fi": {
+          "value": "Olet"
+        },
+        "fr": {
+          "value": "Vous êtes"
+        },
+        "fr-CA": {
+          "value": "Vous êtes"
+        },
+        "he": {
+          "value": "אתה"
+        },
+        "hi": {
+          "value": "आप हैं"
+        },
+        "hr": {
+          "value": "Vi ste"
+        },
+        "hu": {
+          "value": "Te"
+        },
+        "id": {
+          "value": "Anda"
+        },
+        "it": {
+          "value": "Sei"
+        },
+        "ja": {
+          "value": "あなたは"
+        },
+        "ko": {
+          "value": "당신은"
+        },
+        "ms": {
+          "value": "Anda"
+        },
+        "nb": {
+          "value": "Du er"
+        },
+        "nl": {
+          "value": "Je bent"
+        },
+        "pl": {
+          "value": "Jesteś"
+        },
+        "pt-BR": {
+          "value": "Você está"
+        },
+        "pt-PT": {
+          "value": "Você está"
+        },
+        "ro": {
+          "value": "Ești"
+        },
+        "ru": {
+          "value": "Вы"
+        },
+        "sk": {
+          "value": "Ste"
+        },
+        "sv": {
+          "value": "Du är"
+        },
+        "th": {
+          "value": "คุณ"
+        },
+        "tr": {
+          "value": "Siz"
+        },
+        "uk": {
+          "value": "Ви"
+        },
+        "vi": {
+          "value": "Bạn"
+        },
+        "zh-Hans": {
+          "value": "你已"
+        },
+        "zh-Hant": {
+          "value": "你已"
+        }
+      }
+    },
+    "notif_protected_value": {
+      "localizations": {
+        "en": {
+          "value": "Protected"
+        },
+        "ar": {
+          "value": "محمي"
+        },
+        "ca": {
+          "value": "Protegit"
+        },
+        "cs": {
+          "value": "Chráněn"
+        },
+        "da": {
+          "value": "Beskyttet"
+        },
+        "de": {
+          "value": "Geschützt"
+        },
+        "el": {
+          "value": "Προστατευμένος"
+        },
+        "en-AU": {
+          "value": "Protected"
+        },
+        "en-GB": {
+          "value": "Protected"
+        },
+        "es": {
+          "value": "Protegido"
+        },
+        "es-419": {
+          "value": "Protegido"
+        },
+        "fi": {
+          "value": "Suojattu"
+        },
+        "fr": {
+          "value": "Protégé"
+        },
+        "fr-CA": {
+          "value": "Protégé"
+        },
+        "he": {
+          "value": "מוגן"
+        },
+        "hi": {
+          "value": "सुरक्षित"
+        },
+        "hr": {
+          "value": "Zaštićeni"
+        },
+        "hu": {
+          "value": "Védett"
+        },
+        "id": {
+          "value": "Terlindungi"
+        },
+        "it": {
+          "value": "Protetto"
+        },
+        "ja": {
+          "value": "保護されています"
+        },
+        "ko": {
+          "value": "보호됨"
+        },
+        "ms": {
+          "value": "Dilindungi"
+        },
+        "nb": {
+          "value": "Beskyttet"
+        },
+        "nl": {
+          "value": "Beschermd"
+        },
+        "pl": {
+          "value": "Chroniony"
+        },
+        "pt-BR": {
+          "value": "Protegido"
+        },
+        "pt-PT": {
+          "value": "Protegido"
+        },
+        "ro": {
+          "value": "Protejat"
+        },
+        "ru": {
+          "value": "Защищены"
+        },
+        "sk": {
+          "value": "Chránený"
+        },
+        "sv": {
+          "value": "Skyddad"
+        },
+        "th": {
+          "value": "ได้รับการปกป้อง"
+        },
+        "tr": {
+          "value": "Korunuyorsunuz"
+        },
+        "uk": {
+          "value": "Захищені"
+        },
+        "vi": {
+          "value": "Được bảo vệ"
+        },
+        "zh-Hans": {
+          "value": "受保护"
+        },
+        "zh-Hant": {
+          "value": "受保護"
+        }
+      }
+    },
+    "stats_line1": {
+      "localizations": {
+        "en": {
+          "value": "Your Year"
+        },
+        "ar": {
+          "value": "عامك"
+        },
+        "ca": {
+          "value": "El Teu Any"
+        },
+        "cs": {
+          "value": "Váš Rok"
+        },
+        "da": {
+          "value": "Dit År"
+        },
+        "de": {
+          "value": "Dein Jahr"
+        },
+        "el": {
+          "value": "Η Χρονιά Σου"
+        },
+        "en-AU": {
+          "value": "Your Year"
+        },
+        "en-GB": {
+          "value": "Your Year"
+        },
+        "es": {
+          "value": "Tu Año"
+        },
+        "es-419": {
+          "value": "Tu Año"
+        },
+        "fi": {
+          "value": "Vuotesi"
+        },
+        "fr": {
+          "value": "Votre Année"
+        },
+        "fr-CA": {
+          "value": "Votre Année"
+        },
+        "he": {
+          "value": "השנה שלך"
+        },
+        "hi": {
+          "value": "आपका साल"
+        },
+        "hr": {
+          "value": "Vaša Godina"
+        },
+        "hu": {
+          "value": "Az Éved"
+        },
+        "id": {
+          "value": "Tahun Anda"
+        },
+        "it": {
+          "value": "Il Tuo Anno"
+        },
+        "ja": {
+          "value": "あなたの一年を"
+        },
+        "ko": {
+          "value": "당신의 한 해를"
+        },
+        "ms": {
+          "value": "Tahun Anda"
+        },
+        "nb": {
+          "value": "Ditt År"
+        },
+        "nl": {
+          "value": "Jouw Jaar"
+        },
+        "pl": {
+          "value": "Twój Rok"
+        },
+        "pt-BR": {
+          "value": "Seu Ano"
+        },
+        "pt-PT": {
+          "value": "O Seu Ano"
+        },
+        "ro": {
+          "value": "Anul Tău"
+        },
+        "ru": {
+          "value": "Ваш Год"
+        },
+        "sk": {
+          "value": "Váš Rok"
+        },
+        "sv": {
+          "value": "Ditt År"
+        },
+        "th": {
+          "value": "ปีของคุณ"
+        },
+        "tr": {
+          "value": "Yılınız"
+        },
+        "uk": {
+          "value": "Ваш Рік"
+        },
+        "vi": {
+          "value": "Năm Của Bạn"
+        },
+        "zh-Hans": {
+          "value": "你的一年"
+        },
+        "zh-Hant": {
+          "value": "你的一年"
+        }
+      }
+    },
+    "stats_line2": {
+      "localizations": {
+        "en": {
+          "value": "in"
+        },
+        "ar": {
+          "value": "في"
+        },
+        "ca": {
+          "value": "en"
+        },
+        "cs": {
+          "value": "ve"
+        },
+        "da": {
+          "value": "i"
+        },
+        "de": {
+          "value": "in"
+        },
+        "el": {
+          "value": "σε"
+        },
+        "en-AU": {
+          "value": "in"
+        },
+        "en-GB": {
+          "value": "in"
+        },
+        "es": {
+          "value": "en"
+        },
+        "es-419": {
+          "value": "en"
+        },
+        "fi": {
+          "value": ""
+        },
+        "fr": {
+          "value": "en"
+        },
+        "fr-CA": {
+          "value": "en"
+        },
+        "he": {
+          "value": "ב"
+        },
+        "hi": {
+          "value": "में"
+        },
+        "hr": {
+          "value": "u"
+        },
+        "hu": {
+          "value": ""
+        },
+        "id": {
+          "value": "dalam"
+        },
+        "it": {
+          "value": "in"
+        },
+        "ja": {
+          "value": ""
+        },
+        "ko": {
+          "value": ""
+        },
+        "ms": {
+          "value": "dalam"
+        },
+        "nb": {
+          "value": "i"
+        },
+        "nl": {
+          "value": "in"
+        },
+        "pl": {
+          "value": "w"
+        },
+        "pt-BR": {
+          "value": "em"
+        },
+        "pt-PT": {
+          "value": "em"
+        },
+        "ro": {
+          "value": "în"
+        },
+        "ru": {
+          "value": "в"
+        },
+        "sk": {
+          "value": "v"
+        },
+        "sv": {
+          "value": "i"
+        },
+        "th": {
+          "value": "ใน"
+        },
+        "tr": {
+          "value": ""
+        },
+        "uk": {
+          "value": "в"
+        },
+        "vi": {
+          "value": "theo"
+        },
+        "zh-Hans": {
+          "value": "用"
+        },
+        "zh-Hant": {
+          "value": "用"
+        }
+      }
+    },
+    "stats_accent": {
+      "localizations": {
+        "en": {
+          "value": "Days"
+        },
+        "ar": {
+          "value": "الأيام"
+        },
+        "ca": {
+          "value": "Dies"
+        },
+        "cs": {
+          "value": "Dnech"
+        },
+        "da": {
+          "value": "Dage"
+        },
+        "de": {
+          "value": "Tagen"
+        },
+        "el": {
+          "value": "Ημέρες"
+        },
+        "en-AU": {
+          "value": "Days"
+        },
+        "en-GB": {
+          "value": "Days"
+        },
+        "es": {
+          "value": "Días"
+        },
+        "es-419": {
+          "value": "Días"
+        },
+        "fi": {
+          "value": "Päivinä"
+        },
+        "fr": {
+          "value": "Jours"
+        },
+        "fr-CA": {
+          "value": "Jours"
+        },
+        "he": {
+          "value": "ימים"
+        },
+        "hi": {
+          "value": "दिनों"
+        },
+        "hr": {
+          "value": "Danima"
+        },
+        "hu": {
+          "value": "Napokban"
+        },
+        "id": {
+          "value": "Hari"
+        },
+        "it": {
+          "value": "Giorni"
+        },
+        "ja": {
+          "value": "日数で"
+        },
+        "ko": {
+          "value": "일수로"
+        },
+        "ms": {
+          "value": "Hari"
+        },
+        "nb": {
+          "value": "Dager"
+        },
+        "nl": {
+          "value": "Dagen"
+        },
+        "pl": {
+          "value": "Dniach"
+        },
+        "pt-BR": {
+          "value": "Dias"
+        },
+        "pt-PT": {
+          "value": "Dias"
+        },
+        "ro": {
+          "value": "Zile"
+        },
+        "ru": {
+          "value": "Днях"
+        },
+        "sk": {
+          "value": "Dňoch"
+        },
+        "sv": {
+          "value": "Dagar"
+        },
+        "th": {
+          "value": "วัน"
+        },
+        "tr": {
+          "value": "Günlerle"
+        },
+        "uk": {
+          "value": "Днях"
+        },
+        "vi": {
+          "value": "Ngày"
+        },
+        "zh-Hans": {
+          "value": "天数"
+        },
+        "zh-Hant": {
+          "value": "天數"
+        }
+      }
+    },
+    "stats_sub": {
+      "localizations": {
+        "en": {
+          "value": "Jurisdiction breakdown, rule status, and smart projections"
+        },
+        "ar": {
+          "value": "تفصيل الولايات القضائية وحالة القواعد والتوقعات الذكية"
+        },
+        "ca": {
+          "value": "Desglossament jurisdiccional, estat de regles i projeccions intel·ligents"
+        },
+        "cs": {
+          "value": "Rozčlenění jurisdikcí, stav pravidel a inteligentní projekce"
+        },
+        "da": {
+          "value": "Jurisdiktionsoversigt, regelstatus og smarte prognoser"
+        },
+        "de": {
+          "value": "Jurisdiktionsaufschlüsselung, Regelstatus und intelligente Prognosen"
+        },
+        "el": {
+          "value": "Ανάλυση δικαιοδοσίας, κατάσταση κανόνων και έξυπνες προβλέψεις"
+        },
+        "en-AU": {
+          "value": "Jurisdiction breakdown, rule status, and smart projections"
+        },
+        "en-GB": {
+          "value": "Jurisdiction breakdown, rule status, and smart projections"
+        },
+        "es": {
+          "value": "Desglose jurisdiccional, estado de reglas y proyecciones inteligentes"
+        },
+        "es-419": {
+          "value": "Desglose jurisdiccional, estado de reglas y proyecciones inteligentes"
+        },
+        "fi": {
+          "value": "Lainkäyttöaluejako, sääntöjen tila ja älykkäät ennusteet"
+        },
+        "fr": {
+          "value": "Répartition par juridiction, état des règles et projections intelligentes"
+        },
+        "fr-CA": {
+          "value": "Répartition par juridiction, état des règles et projections intelligentes"
+        },
+        "he": {
+          "value": "פירוט תחומי שיפוט, מצב כללים ותחזיות חכמות"
+        },
+        "hi": {
+          "value": "क्षेत्राधिकार विवरण, नियम स्थिति और स्मार्ट अनुमान"
+        },
+        "hr": {
+          "value": "Pregled jurisdikcija, status pravila i pametne projekcije"
+        },
+        "hu": {
+          "value": "Joghatósági bontás, szabályállapot és intelligens előrejelzések"
+        },
+        "id": {
+          "value": "Rincian yurisdiksi, status aturan, dan proyeksi pintar"
+        },
+        "it": {
+          "value": "Ripartizione giurisdizionale, stato regole e proiezioni intelligenti"
+        },
+        "ja": {
+          "value": "管轄区域の内訳、ルールステータス、スマート予測"
+        },
+        "ko": {
+          "value": "관할권 분석, 규칙 상태, 스마트 예측"
+        },
+        "ms": {
+          "value": "Pecahan bidang kuasa, status peraturan dan unjuran pintar"
+        },
+        "nb": {
+          "value": "Jurisdiksjonsfordeling, regelstatus og smarte prognoser"
+        },
+        "nl": {
+          "value": "Jurisdictie-overzicht, regelstatus en slimme projecties"
+        },
+        "pl": {
+          "value": "Podział jurysdykcji, status reguł i inteligentne prognozy"
+        },
+        "pt-BR": {
+          "value": "Detalhamento por jurisdição, status de regras e projeções inteligentes"
+        },
+        "pt-PT": {
+          "value": "Detalhamento por jurisdição, estado de regras e projeções inteligentes"
+        },
+        "ro": {
+          "value": "Detaliere jurisdicție, stare reguli și proiecții inteligente"
+        },
+        "ru": {
+          "value": "Разбивка по юрисдикциям, статус правил и умные прогнозы"
+        },
+        "sk": {
+          "value": "Rozčlenenie jurisdikcií, stav pravidiel a inteligentné projekcie"
+        },
+        "sv": {
+          "value": "Jurisdiktionsöversikt, regelstatus och smarta prognoser"
+        },
+        "th": {
+          "value": "รายละเอียดเขตอำนาจ สถานะกฎ และการคาดการณ์อัจฉริยะ"
+        },
+        "tr": {
+          "value": "Yargı alanı dökümü, kural durumu ve akıllı projeksiyonlar"
+        },
+        "uk": {
+          "value": "Розбивка юрисдикцій, статус правил та розумні прогнози"
+        },
+        "vi": {
+          "value": "Phân tích khu vực pháp lý, trạng thái quy tắc và dự báo thông minh"
+        },
+        "zh-Hans": {
+          "value": "管辖区细分、规则状态和智能预测"
+        },
+        "zh-Hant": {
+          "value": "管轄區細分、規則狀態和智能預測"
+        }
+      }
+    },
+    "stats_rules_label": {
+      "localizations": {
+        "en": {
+          "value": "All rules"
+        },
+        "ar": {
+          "value": "جميع القواعد"
+        },
+        "ca": {
+          "value": "Totes les regles"
+        },
+        "cs": {
+          "value": "Všechna pravidla"
+        },
+        "da": {
+          "value": "Alle regler"
+        },
+        "de": {
+          "value": "Alle Regeln"
+        },
+        "el": {
+          "value": "Όλοι οι κανόνες"
+        },
+        "en-AU": {
+          "value": "All rules"
+        },
+        "en-GB": {
+          "value": "All rules"
+        },
+        "es": {
+          "value": "Todas las reglas"
+        },
+        "es-419": {
+          "value": "Todas las reglas"
+        },
+        "fi": {
+          "value": "Kaikki säännöt"
+        },
+        "fr": {
+          "value": "Toutes les règles"
+        },
+        "fr-CA": {
+          "value": "Toutes les règles"
+        },
+        "he": {
+          "value": "כל הכללים"
+        },
+        "hi": {
+          "value": "सभी नियम"
+        },
+        "hr": {
+          "value": "Sva pravila"
+        },
+        "hu": {
+          "value": "Összes szabály"
+        },
+        "id": {
+          "value": "Semua aturan"
+        },
+        "it": {
+          "value": "Tutte le regole"
+        },
+        "ja": {
+          "value": "全ルール"
+        },
+        "ko": {
+          "value": "모든 규칙"
+        },
+        "ms": {
+          "value": "Semua peraturan"
+        },
+        "nb": {
+          "value": "Alle regler"
+        },
+        "nl": {
+          "value": "Alle regels"
+        },
+        "pl": {
+          "value": "Wszystkie reguły"
+        },
+        "pt-BR": {
+          "value": "Todas as regras"
+        },
+        "pt-PT": {
+          "value": "Todas as regras"
+        },
+        "ro": {
+          "value": "Toate regulile"
+        },
+        "ru": {
+          "value": "Все правила"
+        },
+        "sk": {
+          "value": "Všetky pravidlá"
+        },
+        "sv": {
+          "value": "Alla regler"
+        },
+        "th": {
+          "value": "กฎทั้งหมด"
+        },
+        "tr": {
+          "value": "Tüm kurallar"
+        },
+        "uk": {
+          "value": "Всі правила"
+        },
+        "vi": {
+          "value": "Tất cả quy tắc"
+        },
+        "zh-Hans": {
+          "value": "所有规则"
+        },
+        "zh-Hant": {
+          "value": "所有規則"
+        }
+      }
+    },
+    "stats_rules_value": {
+      "localizations": {
+        "en": {
+          "value": "Clear"
+        },
+        "ar": {
+          "value": "سليم"
+        },
+        "ca": {
+          "value": "Lliure"
+        },
+        "cs": {
+          "value": "V pořádku"
+        },
+        "da": {
+          "value": "Fri"
+        },
+        "de": {
+          "value": "Frei"
+        },
+        "el": {
+          "value": "Καθαρά"
+        },
+        "en-AU": {
+          "value": "Clear"
+        },
+        "en-GB": {
+          "value": "Clear"
+        },
+        "es": {
+          "value": "Libre"
+        },
+        "es-419": {
+          "value": "Libre"
+        },
+        "fi": {
+          "value": "Selvä"
+        },
+        "fr": {
+          "value": "OK"
+        },
+        "fr-CA": {
+          "value": "OK"
+        },
+        "he": {
+          "value": "תקין"
+        },
+        "hi": {
+          "value": "स्पष्ट"
+        },
+        "hr": {
+          "value": "Čisto"
+        },
+        "hu": {
+          "value": "Rendben"
+        },
+        "id": {
+          "value": "Bersih"
+        },
+        "it": {
+          "value": "OK"
+        },
+        "ja": {
+          "value": "問題なし"
+        },
+        "ko": {
+          "value": "이상 없음"
+        },
+        "ms": {
+          "value": "Bersih"
+        },
+        "nb": {
+          "value": "Klart"
+        },
+        "nl": {
+          "value": "Vrij"
+        },
+        "pl": {
+          "value": "OK"
+        },
+        "pt-BR": {
+          "value": "Livre"
+        },
+        "pt-PT": {
+          "value": "Livre"
+        },
+        "ro": {
+          "value": "OK"
+        },
+        "ru": {
+          "value": "Чисто"
+        },
+        "sk": {
+          "value": "V poriadku"
+        },
+        "sv": {
+          "value": "Klart"
+        },
+        "th": {
+          "value": "ปลอดภัย"
+        },
+        "tr": {
+          "value": "Temiz"
+        },
+        "uk": {
+          "value": "Чисто"
+        },
+        "vi": {
+          "value": "Rõ ràng"
+        },
+        "zh-Hans": {
+          "value": "正常"
+        },
+        "zh-Hant": {
+          "value": "正常"
+        }
+      }
+    },
+    "privacy_pill": {
+      "localizations": {
+        "en": {
+          "value": "100% Private"
+        },
+        "ar": {
+          "value": "خصوصية 100%"
+        },
+        "ca": {
+          "value": "100% Privat"
+        },
+        "cs": {
+          "value": "100% Soukromé"
+        },
+        "da": {
+          "value": "100% Privat"
+        },
+        "de": {
+          "value": "100% Privat"
+        },
+        "el": {
+          "value": "100% Ιδιωτικό"
+        },
+        "en-AU": {
+          "value": "100% Private"
+        },
+        "en-GB": {
+          "value": "100% Private"
+        },
+        "es": {
+          "value": "100% Privado"
+        },
+        "es-419": {
+          "value": "100% Privado"
+        },
+        "fi": {
+          "value": "100% Yksityinen"
+        },
+        "fr": {
+          "value": "100% Privé"
+        },
+        "fr-CA": {
+          "value": "100% Privé"
+        },
+        "he": {
+          "value": "100% פרטי"
+        },
+        "hi": {
+          "value": "100% निजी"
+        },
+        "hr": {
+          "value": "100% Privatno"
+        },
+        "hu": {
+          "value": "100% Privát"
+        },
+        "id": {
+          "value": "100% Pribadi"
+        },
+        "it": {
+          "value": "100% Privato"
+        },
+        "ja": {
+          "value": "100%プライベート"
+        },
+        "ko": {
+          "value": "100% 비공개"
+        },
+        "ms": {
+          "value": "100% Peribadi"
+        },
+        "nb": {
+          "value": "100% Privat"
+        },
+        "nl": {
+          "value": "100% Privé"
+        },
+        "pl": {
+          "value": "100% Prywatne"
+        },
+        "pt-BR": {
+          "value": "100% Privado"
+        },
+        "pt-PT": {
+          "value": "100% Privado"
+        },
+        "ro": {
+          "value": "100% Privat"
+        },
+        "ru": {
+          "value": "100% Конфиденциально"
+        },
+        "sk": {
+          "value": "100% Súkromné"
+        },
+        "sv": {
+          "value": "100% Privat"
+        },
+        "th": {
+          "value": "ส่วนตัว 100%"
+        },
+        "tr": {
+          "value": "100% Gizli"
+        },
+        "uk": {
+          "value": "100% Приватно"
+        },
+        "vi": {
+          "value": "100% Riêng tư"
+        },
+        "zh-Hans": {
+          "value": "100% 隐私"
+        },
+        "zh-Hant": {
+          "value": "100% 隱私"
+        }
+      }
+    },
+    "privacy_line1": {
+      "localizations": {
+        "en": {
+          "value": "Your Data Stays"
+        },
+        "ar": {
+          "value": "بياناتك تبقى"
+        },
+        "ca": {
+          "value": "Les Teves Dades Queden"
+        },
+        "cs": {
+          "value": "Vaše Data Zůstanou"
+        },
+        "da": {
+          "value": "Dine Data Forbliver"
+        },
+        "de": {
+          "value": "Deine Daten Bleiben"
+        },
+        "el": {
+          "value": "Τα Δεδομένα σου Μένουν"
+        },
+        "en-AU": {
+          "value": "Your Data Stays"
+        },
+        "en-GB": {
+          "value": "Your Data Stays"
+        },
+        "es": {
+          "value": "Tus Datos Se Quedan"
+        },
+        "es-419": {
+          "value": "Tus Datos Se Quedan"
+        },
+        "fi": {
+          "value": "Tietosi Pysyvät"
+        },
+        "fr": {
+          "value": "Vos Données Restent"
+        },
+        "fr-CA": {
+          "value": "Vos Données Restent"
+        },
+        "he": {
+          "value": "הנתונים שלך נשארים"
+        },
+        "hi": {
+          "value": "आपका डेटा रहता है"
+        },
+        "hr": {
+          "value": "Vaši Podaci Ostaju"
+        },
+        "hu": {
+          "value": "Az Adataid Maradnak"
+        },
+        "id": {
+          "value": "Data Anda Tetap"
+        },
+        "it": {
+          "value": "I Tuoi Dati Restano"
+        },
+        "ja": {
+          "value": "データはずっと"
+        },
+        "ko": {
+          "value": "데이터는 항상"
+        },
+        "ms": {
+          "value": "Data Anda Kekal"
+        },
+        "nb": {
+          "value": "Dataene Dine Forblir"
+        },
+        "nl": {
+          "value": "Je Data Blijft"
+        },
+        "pl": {
+          "value": "Twoje Dane Pozostają"
+        },
+        "pt-BR": {
+          "value": "Seus Dados Ficam"
+        },
+        "pt-PT": {
+          "value": "Os Seus Dados Ficam"
+        },
+        "ro": {
+          "value": "Datele Tale Rămân"
+        },
+        "ru": {
+          "value": "Ваши данные остаются"
+        },
+        "sk": {
+          "value": "Vaše Dáta Zostanú"
+        },
+        "sv": {
+          "value": "Din Data Stannar"
+        },
+        "th": {
+          "value": "ข้อมูลของคุณอยู่"
+        },
+        "tr": {
+          "value": "Verileriniz Kalır"
+        },
+        "uk": {
+          "value": "Ваші дані залишаються"
+        },
+        "vi": {
+          "value": "Dữ Liệu Của Bạn Luôn"
+        },
+        "zh-Hans": {
+          "value": "数据始终"
+        },
+        "zh-Hant": {
+          "value": "數據始終"
+        }
+      }
+    },
+    "privacy_accent": {
+      "localizations": {
+        "en": {
+          "value": "Yours. Always."
+        },
+        "ar": {
+          "value": "ملكك. دائمًا."
+        },
+        "ca": {
+          "value": "Teves. Sempre."
+        },
+        "cs": {
+          "value": "Vaše. Vždy."
+        },
+        "da": {
+          "value": "Dine. Altid."
+        },
+        "de": {
+          "value": "Deine. Immer."
+        },
+        "el": {
+          "value": "Δικά σου. Πάντα."
+        },
+        "en-AU": {
+          "value": "Yours. Always."
+        },
+        "en-GB": {
+          "value": "Yours. Always."
+        },
+        "es": {
+          "value": "Tuyos. Siempre."
+        },
+        "es-419": {
+          "value": "Tuyos. Siempre."
+        },
+        "fi": {
+          "value": "Sinun. Aina."
+        },
+        "fr": {
+          "value": "Les Vôtres. Toujours."
+        },
+        "fr-CA": {
+          "value": "Les Vôtres. Toujours."
+        },
+        "he": {
+          "value": "שלך. תמיד."
+        },
+        "hi": {
+          "value": "आपका। हमेशा।"
+        },
+        "hr": {
+          "value": "Vaši. Uvijek."
+        },
+        "hu": {
+          "value": "A Tiéd. Mindig."
+        },
+        "id": {
+          "value": "Milik Anda. Selalu."
+        },
+        "it": {
+          "value": "Tuoi. Sempre."
+        },
+        "ja": {
+          "value": "あなたのもの。"
+        },
+        "ko": {
+          "value": "당신의 것. 언제나."
+        },
+        "ms": {
+          "value": "Milik Anda. Sentiasa."
+        },
+        "nb": {
+          "value": "Dine. Alltid."
+        },
+        "nl": {
+          "value": "Van Jou. Altijd."
+        },
+        "pl": {
+          "value": "Twoje. Zawsze."
+        },
+        "pt-BR": {
+          "value": "Seus. Sempre."
+        },
+        "pt-PT": {
+          "value": "Seus. Sempre."
+        },
+        "ro": {
+          "value": "Ale Tale. Mereu."
+        },
+        "ru": {
+          "value": "Вашими. Всегда."
+        },
+        "sk": {
+          "value": "Vaše. Vždy."
+        },
+        "sv": {
+          "value": "Din. Alltid."
+        },
+        "th": {
+          "value": "ของคุณ ตลอดไป"
+        },
+        "tr": {
+          "value": "Sizin. Her Zaman."
+        },
+        "uk": {
+          "value": "Вашими. Завжди."
+        },
+        "vi": {
+          "value": "Của Bạn. Mãi mãi."
+        },
+        "zh-Hans": {
+          "value": "属于你。"
+        },
+        "zh-Hant": {
+          "value": "屬於你。"
+        }
+      }
+    },
+    "privacy_sub": {
+      "localizations": {
+        "en": {
+          "value": "No servers. No accounts. No tracking. Your tax data never leaves your device."
+        },
+        "ar": {
+          "value": "لا خوادم. لا حسابات. لا تتبع. بيانات الضرائب لا تغادر جهازك أبدًا."
+        },
+        "ca": {
+          "value": "Sense servidors. Sense comptes. Sense seguiment. Les teves dades fiscals mai surten del dispositiu."
+        },
+        "cs": {
+          "value": "Žádné servery. Žádné účty. Žádné sledování. Vaše daňová data nikdy neopustí zařízení."
+        },
+        "da": {
+          "value": "Ingen servere. Ingen konti. Ingen sporing. Dine skattedata forlader aldrig din enhed."
+        },
+        "de": {
+          "value": "Keine Server. Keine Konten. Kein Tracking. Deine Steuerdaten verlassen nie dein Gerät."
+        },
+        "el": {
+          "value": "Χωρίς servers. Χωρίς λογαριασμούς. Χωρίς παρακολούθηση. Τα φορολογικά σου δεδομένα δεν φεύγουν ποτέ."
+        },
+        "en-AU": {
+          "value": "No servers. No accounts. No tracking. Your tax data never leaves your device."
+        },
+        "en-GB": {
+          "value": "No servers. No accounts. No tracking. Your tax data never leaves your device."
+        },
+        "es": {
+          "value": "Sin servidores. Sin cuentas. Sin rastreo. Tus datos fiscales nunca salen de tu dispositivo."
+        },
+        "es-419": {
+          "value": "Sin servidores. Sin cuentas. Sin rastreo. Tus datos fiscales nunca salen de tu dispositivo."
+        },
+        "fi": {
+          "value": "Ei palvelimia. Ei tilejä. Ei seurantaa. Verotietosi eivät koskaan poistu laitteeltasi."
+        },
+        "fr": {
+          "value": "Pas de serveurs. Pas de comptes. Pas de suivi. Vos données fiscales ne quittent jamais votre appareil."
+        },
+        "fr-CA": {
+          "value": "Pas de serveurs. Pas de comptes. Pas de suivi. Vos données fiscales ne quittent jamais votre appareil."
+        },
+        "he": {
+          "value": "ללא שרתים. ללא חשבונות. ללא מעקב. נתוני המס שלך לא עוזבים את המכשיר לעולם."
+        },
+        "hi": {
+          "value": "कोई सर्वर नहीं। कोई अकाउंट नहीं। कोई ट्रैकिंग नहीं। आपका टैक्स डेटा कभी आपके डिवाइस से बाहर नहीं जाता।"
+        },
+        "hr": {
+          "value": "Nema servera. Nema računa. Nema praćenja. Vaši porezni podaci nikada ne napuštaju uređaj."
+        },
+        "hu": {
+          "value": "Nincs szerver. Nincs fiók. Nincs követés. Az adóadataid soha nem hagyják el az eszközöd."
+        },
+        "id": {
+          "value": "Tanpa server. Tanpa akun. Tanpa pelacakan. Data pajak Anda tidak pernah meninggalkan perangkat."
+        },
+        "it": {
+          "value": "Nessun server. Nessun account. Nessun tracciamento. I tuoi dati fiscali non lasciano mai il dispositivo."
+        },
+        "ja": {
+          "value": "サーバーなし。アカウント不要。追跡なし。税務データはデバイスから出ません。"
+        },
+        "ko": {
+          "value": "서버 없음. 계정 없음. 추적 없음. 세금 데이터는 기기를 떠나지 않습니다."
+        },
+        "ms": {
+          "value": "Tiada pelayan. Tiada akaun. Tiada penjejakan. Data cukai anda tidak pernah meninggalkan peranti."
+        },
+        "nb": {
+          "value": "Ingen servere. Ingen kontoer. Ingen sporing. Skattedataene dine forlater aldri enheten din."
+        },
+        "nl": {
+          "value": "Geen servers. Geen accounts. Geen tracking. Je belastinggegevens verlaten nooit je apparaat."
+        },
+        "pl": {
+          "value": "Brak serwerów. Brak kont. Brak śledzenia. Twoje dane podatkowe nigdy nie opuszczają urządzenia."
+        },
+        "pt-BR": {
+          "value": "Sem servidores. Sem contas. Sem rastreamento. Seus dados fiscais nunca saem do dispositivo."
+        },
+        "pt-PT": {
+          "value": "Sem servidores. Sem contas. Sem rastreamento. Os seus dados fiscais nunca saem do dispositivo."
+        },
+        "ro": {
+          "value": "Fără servere. Fără conturi. Fără urmărire. Datele tale fiscale nu părăsesc niciodată dispozitivul."
+        },
+        "ru": {
+          "value": "Без серверов. Без аккаунтов. Без отслеживания. Ваши налоговые данные никогда не покидают устройство."
+        },
+        "sk": {
+          "value": "Žiadne servery. Žiadne účty. Žiadne sledovanie. Vaše daňové údaje nikdy neopustia zariadenie."
+        },
+        "sv": {
+          "value": "Inga servrar. Inga konton. Ingen spårning. Din skattedata lämnar aldrig din enhet."
+        },
+        "th": {
+          "value": "ไม่มีเซิร์ฟเวอร์ ไม่มีบัญชี ไม่มีการติดตาม ข้อมูลภาษีไม่เคยออกจากอุปกรณ์"
+        },
+        "tr": {
+          "value": "Sunucu yok. Hesap yok. Takip yok. Vergi verileriniz cihazınızdan asla ayrılmaz."
+        },
+        "uk": {
+          "value": "Без серверів. Без акаунтів. Без відстеження. Ваші податкові дані ніколи не залишають пристрій."
+        },
+        "vi": {
+          "value": "Không máy chủ. Không tài khoản. Không theo dõi. Dữ liệu thuế không bao giờ rời thiết bị."
+        },
+        "zh-Hans": {
+          "value": "无服务器。无账户。无追踪。您的税务数据永远不会离开设备。"
+        },
+        "zh-Hant": {
+          "value": "無伺服器。無帳戶。無追蹤。您的稅務數據永遠不會離開裝置。"
+        }
+      }
+    },
+    "privacy_no_servers_title": {
+      "localizations": {
+        "en": {
+          "value": "No Servers"
+        },
+        "ar": {
+          "value": "بدون خوادم"
+        },
+        "ca": {
+          "value": "Sense Servidors"
+        },
+        "cs": {
+          "value": "Žádné Servery"
+        },
+        "da": {
+          "value": "Ingen Servere"
+        },
+        "de": {
+          "value": "Keine Server"
+        },
+        "el": {
+          "value": "Χωρίς Servers"
+        },
+        "en-AU": {
+          "value": "No Servers"
+        },
+        "en-GB": {
+          "value": "No Servers"
+        },
+        "es": {
+          "value": "Sin Servidores"
+        },
+        "es-419": {
+          "value": "Sin Servidores"
+        },
+        "fi": {
+          "value": "Ei Palvelimia"
+        },
+        "fr": {
+          "value": "Aucun Serveur"
+        },
+        "fr-CA": {
+          "value": "Aucun Serveur"
+        },
+        "he": {
+          "value": "ללא שרתים"
+        },
+        "hi": {
+          "value": "कोई सर्वर नहीं"
+        },
+        "hr": {
+          "value": "Nema Servera"
+        },
+        "hu": {
+          "value": "Nincs Szerver"
+        },
+        "id": {
+          "value": "Tanpa Server"
+        },
+        "it": {
+          "value": "Nessun Server"
+        },
+        "ja": {
+          "value": "サーバーなし"
+        },
+        "ko": {
+          "value": "서버 없음"
+        },
+        "ms": {
+          "value": "Tiada Pelayan"
+        },
+        "nb": {
+          "value": "Ingen Servere"
+        },
+        "nl": {
+          "value": "Geen Servers"
+        },
+        "pl": {
+          "value": "Brak Serwerów"
+        },
+        "pt-BR": {
+          "value": "Sem Servidores"
+        },
+        "pt-PT": {
+          "value": "Sem Servidores"
+        },
+        "ro": {
+          "value": "Fără Servere"
+        },
+        "ru": {
+          "value": "Без серверов"
+        },
+        "sk": {
+          "value": "Žiadne Servery"
+        },
+        "sv": {
+          "value": "Inga Servrar"
+        },
+        "th": {
+          "value": "ไม่มีเซิร์ฟเวอร์"
+        },
+        "tr": {
+          "value": "Sunucu Yok"
+        },
+        "uk": {
+          "value": "Без серверів"
+        },
+        "vi": {
+          "value": "Không Máy Chủ"
+        },
+        "zh-Hans": {
+          "value": "无服务器"
+        },
+        "zh-Hant": {
+          "value": "無伺服器"
+        }
+      }
+    },
+    "privacy_no_servers_desc": {
+      "localizations": {
+        "en": {
+          "value": "No backend, no databases, no third-party services"
+        },
+        "ar": {
+          "value": "لا خلفية، لا قواعد بيانات، لا خدمات طرف ثالث"
+        },
+        "ca": {
+          "value": "Sense backend, sense bases de dades, sense serveis de tercers"
+        },
+        "cs": {
+          "value": "Žádný backend, žádné databáze, žádné služby třetích stran"
+        },
+        "da": {
+          "value": "Ingen backend, ingen databaser, ingen tredjepartstjenester"
+        },
+        "de": {
+          "value": "Kein Backend, keine Datenbanken, keine Drittanbieter"
+        },
+        "el": {
+          "value": "Χωρίς backend, βάσεις δεδομένων ή υπηρεσίες τρίτων"
+        },
+        "en-AU": {
+          "value": "No backend, no databases, no third-party services"
+        },
+        "en-GB": {
+          "value": "No backend, no databases, no third-party services"
+        },
+        "es": {
+          "value": "Sin backend, sin bases de datos, sin servicios de terceros"
+        },
+        "es-419": {
+          "value": "Sin backend, sin bases de datos, sin servicios de terceros"
+        },
+        "fi": {
+          "value": "Ei taustajärjestelmää, ei tietokantoja, ei kolmannen osapuolen palveluja"
+        },
+        "fr": {
+          "value": "Pas de backend, pas de bases de données, pas de services tiers"
+        },
+        "fr-CA": {
+          "value": "Pas de backend, pas de bases de données, pas de services tiers"
+        },
+        "he": {
+          "value": "ללא שרת אחורי, ללא מסדי נתונים, ללא שירותי צד שלישי"
+        },
+        "hi": {
+          "value": "कोई बैकएंड नहीं, कोई डेटाबेस नहीं, कोई थर्ड-पार्टी सेवा नहीं"
+        },
+        "hr": {
+          "value": "Bez backenda, baza podataka ili usluga trećih strana"
+        },
+        "hu": {
+          "value": "Nincs backend, adatbázis vagy harmadik féltől származó szolgáltatás"
+        },
+        "id": {
+          "value": "Tanpa backend, tanpa database, tanpa layanan pihak ketiga"
+        },
+        "it": {
+          "value": "Nessun backend, nessun database, nessun servizio di terze parti"
+        },
+        "ja": {
+          "value": "バックエンド、データベース、サードパーティサービスなし"
+        },
+        "ko": {
+          "value": "백엔드 없음, 데이터베이스 없음, 타사 서비스 없음"
+        },
+        "ms": {
+          "value": "Tiada backend, tiada pangkalan data, tiada perkhidmatan pihak ketiga"
+        },
+        "nb": {
+          "value": "Ingen backend, ingen databaser, ingen tredjepartstjenester"
+        },
+        "nl": {
+          "value": "Geen backend, geen databases, geen externe diensten"
+        },
+        "pl": {
+          "value": "Bez backendu, bez baz danych, bez usług firm trzecich"
+        },
+        "pt-BR": {
+          "value": "Sem backend, sem bancos de dados, sem serviços de terceiros"
+        },
+        "pt-PT": {
+          "value": "Sem backend, sem bases de dados, sem serviços de terceiros"
+        },
+        "ro": {
+          "value": "Fără backend, fără baze de date, fără servicii terțe"
+        },
+        "ru": {
+          "value": "Без бэкенда, баз данных и сторонних сервисов"
+        },
+        "sk": {
+          "value": "Žiadny backend, žiadne databázy, žiadne služby tretích strán"
+        },
+        "sv": {
+          "value": "Ingen backend, inga databaser, inga tredjepartstjänster"
+        },
+        "th": {
+          "value": "ไม่มีแบ็กเอนด์ ไม่มีฐานข้อมูล ไม่มีบริการบุคคลที่สาม"
+        },
+        "tr": {
+          "value": "Backend yok, veritabanı yok, üçüncü taraf hizmetler yok"
+        },
+        "uk": {
+          "value": "Без бекенду, баз даних та сторонніх сервісів"
+        },
+        "vi": {
+          "value": "Không backend, không cơ sở dữ liệu, không dịch vụ bên thứ ba"
+        },
+        "zh-Hans": {
+          "value": "无后端、无数据库、无第三方服务"
+        },
+        "zh-Hant": {
+          "value": "無後端、無資料庫、無第三方服務"
+        }
+      }
+    },
+    "privacy_local_title": {
+      "localizations": {
+        "en": {
+          "value": "Stored on Device"
+        },
+        "ar": {
+          "value": "مخزن على الجهاز"
+        },
+        "ca": {
+          "value": "Emmagatzemat al Dispositiu"
+        },
+        "cs": {
+          "value": "Uloženo v Zařízení"
+        },
+        "da": {
+          "value": "Gemt på Enhed"
+        },
+        "de": {
+          "value": "Auf dem Gerät Gespeichert"
+        },
+        "el": {
+          "value": "Αποθηκευμένο στη Συσκευή"
+        },
+        "en-AU": {
+          "value": "Stored on Device"
+        },
+        "en-GB": {
+          "value": "Stored on Device"
+        },
+        "es": {
+          "value": "Almacenado en el Dispositivo"
+        },
+        "es-419": {
+          "value": "Almacenado en el Dispositivo"
+        },
+        "fi": {
+          "value": "Tallennettu Laitteelle"
+        },
+        "fr": {
+          "value": "Stocké sur l'Appareil"
+        },
+        "fr-CA": {
+          "value": "Stocké sur l'Appareil"
+        },
+        "he": {
+          "value": "מאוחסן במכשיר"
+        },
+        "hi": {
+          "value": "डिवाइस पर संग्रहीत"
+        },
+        "hr": {
+          "value": "Pohranjeno na Uređaju"
+        },
+        "hu": {
+          "value": "Az Eszközön Tárolva"
+        },
+        "id": {
+          "value": "Disimpan di Perangkat"
+        },
+        "it": {
+          "value": "Archiviato sul Dispositivo"
+        },
+        "ja": {
+          "value": "デバイスに保存"
+        },
+        "ko": {
+          "value": "기기에 저장"
+        },
+        "ms": {
+          "value": "Disimpan pada Peranti"
+        },
+        "nb": {
+          "value": "Lagret på Enheten"
+        },
+        "nl": {
+          "value": "Opgeslagen op Apparaat"
+        },
+        "pl": {
+          "value": "Przechowywane na Urządzeniu"
+        },
+        "pt-BR": {
+          "value": "Armazenado no Dispositivo"
+        },
+        "pt-PT": {
+          "value": "Armazenado no Dispositivo"
+        },
+        "ro": {
+          "value": "Stocat pe Dispozitiv"
+        },
+        "ru": {
+          "value": "Хранится на устройстве"
+        },
+        "sk": {
+          "value": "Uložené v Zariadení"
+        },
+        "sv": {
+          "value": "Lagrat på Enheten"
+        },
+        "th": {
+          "value": "เก็บบนอุปกรณ์"
+        },
+        "tr": {
+          "value": "Cihazda Depolanır"
+        },
+        "uk": {
+          "value": "Зберігається на пристрої"
+        },
+        "vi": {
+          "value": "Lưu Trên Thiết Bị"
+        },
+        "zh-Hans": {
+          "value": "存储在设备上"
+        },
+        "zh-Hant": {
+          "value": "儲存在裝置上"
+        }
+      }
+    },
+    "privacy_local_desc": {
+      "localizations": {
+        "en": {
+          "value": "All your data lives on your iPhone, under your control"
+        },
+        "ar": {
+          "value": "جميع بياناتك موجودة على جهاز iPhone الخاص بك، تحت سيطرتك"
+        },
+        "ca": {
+          "value": "Totes les teves dades viuen al teu iPhone, sota el teu control"
+        },
+        "cs": {
+          "value": "Všechna data žijí na vašem iPhonu pod vaší kontrolou"
+        },
+        "da": {
+          "value": "Alle dine data lever på din iPhone, under din kontrol"
+        },
+        "de": {
+          "value": "Alle Daten liegen auf deinem iPhone, unter deiner Kontrolle"
+        },
+        "el": {
+          "value": "Όλα τα δεδομένα σου ζουν στο iPhone σου, υπό τον έλεγχό σου"
+        },
+        "en-AU": {
+          "value": "All your data lives on your iPhone, under your control"
+        },
+        "en-GB": {
+          "value": "All your data lives on your iPhone, under your control"
+        },
+        "es": {
+          "value": "Todos tus datos viven en tu iPhone, bajo tu control"
+        },
+        "es-419": {
+          "value": "Todos tus datos viven en tu iPhone, bajo tu control"
+        },
+        "fi": {
+          "value": "Kaikki tietosi elävät iPhonessasi, sinun hallinnassasi"
+        },
+        "fr": {
+          "value": "Toutes vos données sont sur votre iPhone, sous votre contrôle"
+        },
+        "fr-CA": {
+          "value": "Toutes vos données sont sur votre iPhone, sous votre contrôle"
+        },
+        "he": {
+          "value": "כל הנתונים שלך נמצאים באייפון שלך, בשליטתך"
+        },
+        "hi": {
+          "value": "आपका सारा डेटा आपके iPhone पर है, आपके नियंत्रण में"
+        },
+        "hr": {
+          "value": "Svi vaši podaci žive na vašem iPhoneu, pod vašom kontrolom"
+        },
+        "hu": {
+          "value": "Minden adatod az iPhone-odon él, az irányításod alatt"
+        },
+        "id": {
+          "value": "Semua data Anda ada di iPhone Anda, di bawah kendali Anda"
+        },
+        "it": {
+          "value": "Tutti i tuoi dati vivono sul tuo iPhone, sotto il tuo controllo"
+        },
+        "ja": {
+          "value": "すべてのデータはiPhoneに保存され、あなたの管理下にあります"
+        },
+        "ko": {
+          "value": "모든 데이터가 iPhone에 저장되며, 당신이 관리합니다"
+        },
+        "ms": {
+          "value": "Semua data anda berada pada iPhone anda, di bawah kawalan anda"
+        },
+        "nb": {
+          "value": "Alle dataene dine lever på din iPhone, under din kontroll"
+        },
+        "nl": {
+          "value": "Al je data staat op je iPhone, onder jouw controle"
+        },
+        "pl": {
+          "value": "Wszystkie dane żyją na Twoim iPhonie, pod Twoją kontrolą"
+        },
+        "pt-BR": {
+          "value": "Todos os seus dados ficam no seu iPhone, sob seu controle"
+        },
+        "pt-PT": {
+          "value": "Todos os seus dados ficam no seu iPhone, sob o seu controlo"
+        },
+        "ro": {
+          "value": "Toate datele tale sunt pe iPhone-ul tău, sub controlul tău"
+        },
+        "ru": {
+          "value": "Все данные хранятся на вашем iPhone, под вашим контролем"
+        },
+        "sk": {
+          "value": "Všetky vaše dáta žijú na vašom iPhone, pod vašou kontrolou"
+        },
+        "sv": {
+          "value": "All din data lever på din iPhone, under din kontroll"
+        },
+        "th": {
+          "value": "ข้อมูลทั้งหมดอยู่บน iPhone ของคุณ ภายใต้การควบคุมของคุณ"
+        },
+        "tr": {
+          "value": "Tüm verileriniz iPhone'unuzda, sizin kontrolünüzde yaşar"
+        },
+        "uk": {
+          "value": "Усі ваші дані зберігаються на вашому iPhone, під вашим контролем"
+        },
+        "vi": {
+          "value": "Tất cả dữ liệu nằm trên iPhone của bạn, dưới sự kiểm soát của bạn"
+        },
+        "zh-Hans": {
+          "value": "所有数据保存在您的iPhone上，由您掌控"
+        },
+        "zh-Hant": {
+          "value": "所有數據保存在您的iPhone上，由您掌控"
+        }
+      }
+    },
+    "privacy_icloud_title": {
+      "localizations": {
+        "en": {
+          "value": "iCloud Backup"
+        },
+        "ar": {
+          "value": "نسخة iCloud الاحتياطية"
+        },
+        "ca": {
+          "value": "Còpia de Seguretat d'iCloud"
+        },
+        "cs": {
+          "value": "Záloha na iCloud"
+        },
+        "da": {
+          "value": "iCloud Backup"
+        },
+        "de": {
+          "value": "iCloud-Backup"
+        },
+        "el": {
+          "value": "Αντίγραφο iCloud"
+        },
+        "en-AU": {
+          "value": "iCloud Backup"
+        },
+        "en-GB": {
+          "value": "iCloud Backup"
+        },
+        "es": {
+          "value": "Copia en iCloud"
+        },
+        "es-419": {
+          "value": "Copia en iCloud"
+        },
+        "fi": {
+          "value": "iCloud-varmuuskopio"
+        },
+        "fr": {
+          "value": "Sauvegarde iCloud"
+        },
+        "fr-CA": {
+          "value": "Sauvegarde iCloud"
+        },
+        "he": {
+          "value": "גיבוי iCloud"
+        },
+        "hi": {
+          "value": "iCloud बैकअप"
+        },
+        "hr": {
+          "value": "iCloud Sigurnosna Kopija"
+        },
+        "hu": {
+          "value": "iCloud Biztonsági Mentés"
+        },
+        "id": {
+          "value": "Cadangan iCloud"
+        },
+        "it": {
+          "value": "Backup iCloud"
+        },
+        "ja": {
+          "value": "iCloudバックアップ"
+        },
+        "ko": {
+          "value": "iCloud 백업"
+        },
+        "ms": {
+          "value": "Sandaran iCloud"
+        },
+        "nb": {
+          "value": "iCloud-sikkerhetskopi"
+        },
+        "nl": {
+          "value": "iCloud-back-up"
+        },
+        "pl": {
+          "value": "Kopia Zapasowa iCloud"
+        },
+        "pt-BR": {
+          "value": "Backup no iCloud"
+        },
+        "pt-PT": {
+          "value": "Backup no iCloud"
+        },
+        "ro": {
+          "value": "Backup iCloud"
+        },
+        "ru": {
+          "value": "Резервная копия iCloud"
+        },
+        "sk": {
+          "value": "Záloha na iCloud"
+        },
+        "sv": {
+          "value": "iCloud-säkerhetskopiering"
+        },
+        "th": {
+          "value": "สำรองข้อมูล iCloud"
+        },
+        "tr": {
+          "value": "iCloud Yedekleme"
+        },
+        "uk": {
+          "value": "Резервна копія iCloud"
+        },
+        "vi": {
+          "value": "Sao Lưu iCloud"
+        },
+        "zh-Hans": {
+          "value": "iCloud备份"
+        },
+        "zh-Hant": {
+          "value": "iCloud備份"
+        }
+      }
+    },
+    "privacy_icloud_desc": {
+      "localizations": {
+        "en": {
+          "value": "Synced via Apple CloudKit — encrypted, private, Apple-managed"
+        },
+        "ar": {
+          "value": "مزامن عبر Apple CloudKit — مشفر وخاص وتديره Apple"
+        },
+        "ca": {
+          "value": "Sincronitzat via Apple CloudKit — xifrat, privat, gestionat per Apple"
+        },
+        "cs": {
+          "value": "Synchronizováno přes Apple CloudKit — šifrované, soukromé, spravované Apple"
+        },
+        "da": {
+          "value": "Synkroniseret via Apple CloudKit — krypteret, privat, Apple-styret"
+        },
+        "de": {
+          "value": "Synchronisiert über Apple CloudKit — verschlüsselt, privat, von Apple verwaltet"
+        },
+        "el": {
+          "value": "Συγχρονισμένο μέσω Apple CloudKit — κρυπτογραφημένο, ιδιωτικό"
+        },
+        "en-AU": {
+          "value": "Synced via Apple CloudKit — encrypted, private, Apple-managed"
+        },
+        "en-GB": {
+          "value": "Synced via Apple CloudKit — encrypted, private, Apple-managed"
+        },
+        "es": {
+          "value": "Sincronizado vía Apple CloudKit — cifrado, privado, gestionado por Apple"
+        },
+        "es-419": {
+          "value": "Sincronizado vía Apple CloudKit — cifrado, privado, gestionado por Apple"
+        },
+        "fi": {
+          "value": "Synkronoitu Apple CloudKitin kautta — salattu, yksityinen, Applen hallitsema"
+        },
+        "fr": {
+          "value": "Synchronisé via Apple CloudKit — chiffré, privé, géré par Apple"
+        },
+        "fr-CA": {
+          "value": "Synchronisé via Apple CloudKit — chiffré, privé, géré par Apple"
+        },
+        "he": {
+          "value": "מסונכרן דרך Apple CloudKit — מוצפן, פרטי, מנוהל על ידי Apple"
+        },
+        "hi": {
+          "value": "Apple CloudKit के माध्यम से सिंक — एन्क्रिप्टेड, निजी, Apple-प्रबंधित"
+        },
+        "hr": {
+          "value": "Sinkronizirano putem Apple CloudKit — šifrirano, privatno, Apple upravlja"
+        },
+        "hu": {
+          "value": "Apple CloudKit-en szinkronizálva — titkosított, privát, Apple által kezelt"
+        },
+        "id": {
+          "value": "Disinkronkan via Apple CloudKit — terenkripsi, pribadi, dikelola Apple"
+        },
+        "it": {
+          "value": "Sincronizzato tramite Apple CloudKit — crittografato, privato, gestito da Apple"
+        },
+        "ja": {
+          "value": "Apple CloudKitで同期 — 暗号化、プライベート、Apple管理"
+        },
+        "ko": {
+          "value": "Apple CloudKit으로 동기화 — 암호화, 비공개, Apple 관리"
+        },
+        "ms": {
+          "value": "Disegerakkan melalui Apple CloudKit — disulitkan, peribadi, diurus Apple"
+        },
+        "nb": {
+          "value": "Synkronisert via Apple CloudKit — kryptert, privat, Apple-administrert"
+        },
+        "nl": {
+          "value": "Gesynchroniseerd via Apple CloudKit — versleuteld, privé, door Apple beheerd"
+        },
+        "pl": {
+          "value": "Synchronizacja przez Apple CloudKit — szyfrowane, prywatne, zarządzane przez Apple"
+        },
+        "pt-BR": {
+          "value": "Sincronizado via Apple CloudKit — criptografado, privado, gerenciado pela Apple"
+        },
+        "pt-PT": {
+          "value": "Sincronizado via Apple CloudKit — encriptado, privado, gerido pela Apple"
+        },
+        "ro": {
+          "value": "Sincronizat prin Apple CloudKit — criptat, privat, gestionat de Apple"
+        },
+        "ru": {
+          "value": "Синхронизация через Apple CloudKit — зашифровано, приватно, управляется Apple"
+        },
+        "sk": {
+          "value": "Synchronizované cez Apple CloudKit — šifrované, súkromné, spravované Apple"
+        },
+        "sv": {
+          "value": "Synkroniserat via Apple CloudKit — krypterat, privat, Apple-hanterat"
+        },
+        "th": {
+          "value": "ซิงค์ผ่าน Apple CloudKit — เข้ารหัส ส่วนตัว จัดการโดย Apple"
+        },
+        "tr": {
+          "value": "Apple CloudKit ile senkronize — şifreli, gizli, Apple tarafından yönetilen"
+        },
+        "uk": {
+          "value": "Синхронізація через Apple CloudKit — зашифровано, приватно, керується Apple"
+        },
+        "vi": {
+          "value": "Đồng bộ qua Apple CloudKit — mã hóa, riêng tư, do Apple quản lý"
+        },
+        "zh-Hans": {
+          "value": "通过Apple CloudKit同步 — 加密、私密、Apple管理"
+        },
+        "zh-Hant": {
+          "value": "透過Apple CloudKit同步 — 加密、私密、Apple管理"
+        }
+      }
+    },
+    "privacy_zero_access_title": {
+      "localizations": {
+        "en": {
+          "value": "Zero Access"
+        },
+        "ar": {
+          "value": "صفر وصول"
+        },
+        "ca": {
+          "value": "Accés Zero"
+        },
+        "cs": {
+          "value": "Nulový Přístup"
+        },
+        "da": {
+          "value": "Nul Adgang"
+        },
+        "de": {
+          "value": "Kein Zugriff"
+        },
+        "el": {
+          "value": "Μηδενική Πρόσβαση"
+        },
+        "en-AU": {
+          "value": "Zero Access"
+        },
+        "en-GB": {
+          "value": "Zero Access"
+        },
+        "es": {
+          "value": "Acceso Cero"
+        },
+        "es-419": {
+          "value": "Acceso Cero"
+        },
+        "fi": {
+          "value": "Nollapääsy"
+        },
+        "fr": {
+          "value": "Zéro Accès"
+        },
+        "fr-CA": {
+          "value": "Zéro Accès"
+        },
+        "he": {
+          "value": "אפס גישה"
+        },
+        "hi": {
+          "value": "शून्य पहुंच"
+        },
+        "hr": {
+          "value": "Nulti Pristup"
+        },
+        "hu": {
+          "value": "Nulla Hozzáférés"
+        },
+        "id": {
+          "value": "Tanpa Akses"
+        },
+        "it": {
+          "value": "Zero Accesso"
+        },
+        "ja": {
+          "value": "ゼロアクセス"
+        },
+        "ko": {
+          "value": "제로 액세스"
+        },
+        "ms": {
+          "value": "Tiada Akses"
+        },
+        "nb": {
+          "value": "Null Tilgang"
+        },
+        "nl": {
+          "value": "Geen Toegang"
+        },
+        "pl": {
+          "value": "Zero Dostępu"
+        },
+        "pt-BR": {
+          "value": "Acesso Zero"
+        },
+        "pt-PT": {
+          "value": "Acesso Zero"
+        },
+        "ro": {
+          "value": "Acces Zero"
+        },
+        "ru": {
+          "value": "Нулевой доступ"
+        },
+        "sk": {
+          "value": "Nulový Prístup"
+        },
+        "sv": {
+          "value": "Noll Åtkomst"
+        },
+        "th": {
+          "value": "ไม่มีการเข้าถึง"
+        },
+        "tr": {
+          "value": "Sıfır Erişim"
+        },
+        "uk": {
+          "value": "Нульовий доступ"
+        },
+        "vi": {
+          "value": "Không Truy Cập"
+        },
+        "zh-Hans": {
+          "value": "零访问"
+        },
+        "zh-Hant": {
+          "value": "零存取"
+        }
+      }
+    },
+    "privacy_zero_access_desc": {
+      "localizations": {
+        "en": {
+          "value": "We can't see, access, or sell your data — ever"
+        },
+        "ar": {
+          "value": "لا يمكننا رؤية بياناتك أو الوصول إليها أو بيعها — أبدًا"
+        },
+        "ca": {
+          "value": "No podem veure, accedir ni vendre les teves dades — mai"
+        },
+        "cs": {
+          "value": "Vaše data nemůžeme vidět, přistupovat k nim ani je prodávat — nikdy"
+        },
+        "da": {
+          "value": "Vi kan ikke se, tilgå eller sælge dine data — nogensinde"
+        },
+        "de": {
+          "value": "Wir können deine Daten nicht sehen, darauf zugreifen oder verkaufen — niemals"
+        },
+        "el": {
+          "value": "Δεν μπορούμε να δούμε, να προσπελάσουμε ή να πουλήσουμε τα δεδομένα σου — ποτέ"
+        },
+        "en-AU": {
+          "value": "We can't see, access, or sell your data — ever"
+        },
+        "en-GB": {
+          "value": "We can't see, access, or sell your data — ever"
+        },
+        "es": {
+          "value": "No podemos ver, acceder ni vender tus datos — nunca"
+        },
+        "es-419": {
+          "value": "No podemos ver, acceder ni vender tus datos — nunca"
+        },
+        "fi": {
+          "value": "Emme voi nähdä, käyttää tai myydä tietojasi — koskaan"
+        },
+        "fr": {
+          "value": "Nous ne pouvons ni voir, ni accéder, ni vendre vos données — jamais"
+        },
+        "fr-CA": {
+          "value": "Nous ne pouvons ni voir, ni accéder, ni vendre vos données — jamais"
+        },
+        "he": {
+          "value": "אנחנו לא יכולים לראות, לגשת או למכור את הנתונים שלך — לעולם"
+        },
+        "hi": {
+          "value": "हम आपका डेटा न देख सकते हैं, न एक्सेस कर सकते हैं, न बेच सकते हैं — कभी नहीं"
+        },
+        "hr": {
+          "value": "Ne možemo vidjeti, pristupiti niti prodati vaše podatke — nikada"
+        },
+        "hu": {
+          "value": "Nem láthatjuk, nem férhetünk hozzá és nem adhatjuk el az adataidat — soha"
+        },
+        "id": {
+          "value": "Kami tidak bisa melihat, mengakses, atau menjual data Anda — selamanya"
+        },
+        "it": {
+          "value": "Non possiamo vedere, accedere o vendere i tuoi dati — mai"
+        },
+        "ja": {
+          "value": "あなたのデータを見ること、アクセスすること、販売することは一切できません"
+        },
+        "ko": {
+          "value": "우리는 당신의 데이터를 보거나, 접근하거나, 판매할 수 없습니다 — 절대"
+        },
+        "ms": {
+          "value": "Kami tidak boleh melihat, mengakses atau menjual data anda — selama-lamanya"
+        },
+        "nb": {
+          "value": "Vi kan ikke se, få tilgang til eller selge dataene dine — noensinne"
+        },
+        "nl": {
+          "value": "Wij kunnen je data niet zien, openen of verkopen — nooit"
+        },
+        "pl": {
+          "value": "Nie możemy zobaczyć, uzyskać dostępu ani sprzedać Twoich danych — nigdy"
+        },
+        "pt-BR": {
+          "value": "Não podemos ver, acessar ou vender seus dados — nunca"
+        },
+        "pt-PT": {
+          "value": "Não podemos ver, aceder ou vender os seus dados — nunca"
+        },
+        "ro": {
+          "value": "Nu putem vedea, accesa sau vinde datele tale — niciodată"
+        },
+        "ru": {
+          "value": "Мы не можем видеть, получить доступ или продать ваши данные — никогда"
+        },
+        "sk": {
+          "value": "Vaše dáta nemôžeme vidieť, pristupovať k nim ani ich predávať — nikdy"
+        },
+        "sv": {
+          "value": "Vi kan inte se, komma åt eller sälja din data — aldrig"
+        },
+        "th": {
+          "value": "เราไม่สามารถดู เข้าถึง หรือขายข้อมูลของคุณ — ตลอดไป"
+        },
+        "tr": {
+          "value": "Verilerinizi göremez, erişemez veya satamayız — asla"
+        },
+        "uk": {
+          "value": "Ми не можемо бачити, отримати доступ або продати ваші дані — ніколи"
+        },
+        "vi": {
+          "value": "Chúng tôi không thể xem, truy cập hoặc bán dữ liệu của bạn — không bao giờ"
+        },
+        "zh-Hans": {
+          "value": "我们无法查看、访问或出售您的数据 — 永远不会"
+        },
+        "zh-Hant": {
+          "value": "我們無法查看、存取或出售您的數據 — 永遠不會"
+        }
+      }
+    },
+    "dash_days_value": {
+      "localizations": {
+        "en": {
+          "value": "127 / 183"
+        },
+        "ar": {
+          "value": "١٢٧ / ١٨٣"
+        },
+        "ca": {
+          "value": "127 / 183"
+        },
+        "cs": {
+          "value": "127 / 183"
+        },
+        "da": {
+          "value": "127 / 183"
+        },
+        "de": {
+          "value": "127 / 183"
+        },
+        "el": {
+          "value": "127 / 183"
+        },
+        "en-AU": {
+          "value": "127 / 183"
+        },
+        "en-GB": {
+          "value": "127 / 183"
+        },
+        "es": {
+          "value": "127 / 183"
+        },
+        "es-419": {
+          "value": "127 / 183"
+        },
+        "fi": {
+          "value": "127 / 183"
+        },
+        "fr": {
+          "value": "127 / 183"
+        },
+        "fr-CA": {
+          "value": "127 / 183"
+        },
+        "he": {
+          "value": "127 / 183"
+        },
+        "hi": {
+          "value": "127 / 183"
+        },
+        "hr": {
+          "value": "127 / 183"
+        },
+        "hu": {
+          "value": "127 / 183"
+        },
+        "id": {
+          "value": "127 / 183"
+        },
+        "it": {
+          "value": "127 / 183"
+        },
+        "ja": {
+          "value": "127 / 183"
+        },
+        "ko": {
+          "value": "127 / 183"
+        },
+        "ms": {
+          "value": "127 / 183"
+        },
+        "nb": {
+          "value": "127 / 183"
+        },
+        "nl": {
+          "value": "127 / 183"
+        },
+        "pl": {
+          "value": "127 / 183"
+        },
+        "pt-BR": {
+          "value": "127 / 183"
+        },
+        "pt-PT": {
+          "value": "127 / 183"
+        },
+        "ro": {
+          "value": "127 / 183"
+        },
+        "ru": {
+          "value": "127 / 183"
+        },
+        "sk": {
+          "value": "127 / 183"
+        },
+        "sv": {
+          "value": "127 / 183"
+        },
+        "th": {
+          "value": "127 / 183"
+        },
+        "tr": {
+          "value": "127 / 183"
+        },
+        "uk": {
+          "value": "127 / 183"
+        },
+        "vi": {
+          "value": "127 / 183"
+        },
+        "zh-Hans": {
+          "value": "127 / 183"
+        },
+        "zh-Hant": {
+          "value": "127 / 183"
+        }
+      }
+    },
+    "schen_days_value": {
+      "localizations": {
+        "en": {
+          "value": "86 / 90"
+        },
+        "ar": {
+          "value": "٨٦ / ٩٠"
+        },
+        "ca": {
+          "value": "86 / 90"
+        },
+        "cs": {
+          "value": "86 / 90"
+        },
+        "da": {
+          "value": "86 / 90"
+        },
+        "de": {
+          "value": "86 / 90"
+        },
+        "el": {
+          "value": "86 / 90"
+        },
+        "en-AU": {
+          "value": "86 / 90"
+        },
+        "en-GB": {
+          "value": "86 / 90"
+        },
+        "es": {
+          "value": "86 / 90"
+        },
+        "es-419": {
+          "value": "86 / 90"
+        },
+        "fi": {
+          "value": "86 / 90"
+        },
+        "fr": {
+          "value": "86 / 90"
+        },
+        "fr-CA": {
+          "value": "86 / 90"
+        },
+        "he": {
+          "value": "86 / 90"
+        },
+        "hi": {
+          "value": "86 / 90"
+        },
+        "hr": {
+          "value": "86 / 90"
+        },
+        "hu": {
+          "value": "86 / 90"
+        },
+        "id": {
+          "value": "86 / 90"
+        },
+        "it": {
+          "value": "86 / 90"
+        },
+        "ja": {
+          "value": "86 / 90"
+        },
+        "ko": {
+          "value": "86 / 90"
+        },
+        "ms": {
+          "value": "86 / 90"
+        },
+        "nb": {
+          "value": "86 / 90"
+        },
+        "nl": {
+          "value": "86 / 90"
+        },
+        "pl": {
+          "value": "86 / 90"
+        },
+        "pt-BR": {
+          "value": "86 / 90"
+        },
+        "pt-PT": {
+          "value": "86 / 90"
+        },
+        "ro": {
+          "value": "86 / 90"
+        },
+        "ru": {
+          "value": "86 / 90"
+        },
+        "sk": {
+          "value": "86 / 90"
+        },
+        "sv": {
+          "value": "86 / 90"
+        },
+        "th": {
+          "value": "86 / 90"
+        },
+        "tr": {
+          "value": "86 / 90"
+        },
+        "uk": {
+          "value": "86 / 90"
+        },
+        "vi": {
+          "value": "86 / 90"
+        },
+        "zh-Hans": {
+          "value": "86 / 90"
+        },
+        "zh-Hant": {
+          "value": "86 / 90"
+        }
+      }
+    },
+    "cal_pill": {
+      "localizations": {
+        "en": {
+          "value": "Trip Calendar"
+        },
+        "ar": {
+          "value": "تقويم الرحلات"
+        },
+        "ca": {
+          "value": "Calendari de Viatges"
+        },
+        "cs": {
+          "value": "Kalendář Cest"
+        },
+        "da": {
+          "value": "Rejsekalender"
+        },
+        "de": {
+          "value": "Reisekalender"
+        },
+        "el": {
+          "value": "Ημερολόγιο Ταξιδιών"
+        },
+        "en-AU": {
+          "value": "Trip Calendar"
+        },
+        "en-GB": {
+          "value": "Trip Calendar"
+        },
+        "es": {
+          "value": "Calendario de Viajes"
+        },
+        "es-419": {
+          "value": "Calendario de Viajes"
+        },
+        "fi": {
+          "value": "Matkakalenteri"
+        },
+        "fr": {
+          "value": "Calendrier des Voyages"
+        },
+        "fr-CA": {
+          "value": "Calendrier des Voyages"
+        },
+        "he": {
+          "value": "לוח שנה לנסיעות"
+        },
+        "hi": {
+          "value": "यात्रा कैलेंडर"
+        },
+        "hr": {
+          "value": "Kalendar Putovanja"
+        },
+        "hu": {
+          "value": "Utazási Naptár"
+        },
+        "id": {
+          "value": "Kalender Perjalanan"
+        },
+        "it": {
+          "value": "Calendario Viaggi"
+        },
+        "ja": {
+          "value": "旅行カレンダー"
+        },
+        "ko": {
+          "value": "여행 캘린더"
+        },
+        "ms": {
+          "value": "Kalendar Perjalanan"
+        },
+        "nb": {
+          "value": "Reisekalender"
+        },
+        "nl": {
+          "value": "Reiskalender"
+        },
+        "pl": {
+          "value": "Kalendarz Podróży"
+        },
+        "pt-BR": {
+          "value": "Calendário de Viagens"
+        },
+        "pt-PT": {
+          "value": "Calendário de Viagens"
+        },
+        "ro": {
+          "value": "Calendar de Călătorii"
+        },
+        "ru": {
+          "value": "Календарь Поездок"
+        },
+        "sk": {
+          "value": "Kalendár Ciest"
+        },
+        "sv": {
+          "value": "Resekalender"
+        },
+        "th": {
+          "value": "ปฏิทินการเดินทาง"
+        },
+        "tr": {
+          "value": "Seyahat Takvimi"
+        },
+        "uk": {
+          "value": "Календар Подорожей"
+        },
+        "vi": {
+          "value": "Lịch Chuyến đi"
+        },
+        "zh-Hans": {
+          "value": "行程日历"
+        },
+        "zh-Hant": {
+          "value": "行程日曆"
+        }
+      }
+    },
+    "cal_line1": {
+      "localizations": {
+        "en": {
+          "value": "Every trip."
+        },
+        "ar": {
+          "value": "كل رحلة."
+        },
+        "ca": {
+          "value": "Cada viatge."
+        },
+        "cs": {
+          "value": "Každá cesta."
+        },
+        "da": {
+          "value": "Hver rejse."
+        },
+        "de": {
+          "value": "Jede Reise."
+        },
+        "el": {
+          "value": "Κάθε ταξίδι."
+        },
+        "en-AU": {
+          "value": "Every trip."
+        },
+        "en-GB": {
+          "value": "Every trip."
+        },
+        "es": {
+          "value": "Cada viaje."
+        },
+        "es-419": {
+          "value": "Cada viaje."
+        },
+        "fi": {
+          "value": "Joka matka."
+        },
+        "fr": {
+          "value": "Chaque voyage."
+        },
+        "fr-CA": {
+          "value": "Chaque voyage."
+        },
+        "he": {
+          "value": "כל נסיעה."
+        },
+        "hi": {
+          "value": "हर यात्रा."
+        },
+        "hr": {
+          "value": "Svako putovanje."
+        },
+        "hu": {
+          "value": "Minden utazás."
+        },
+        "id": {
+          "value": "Setiap perjalanan."
+        },
+        "it": {
+          "value": "Ogni viaggio."
+        },
+        "ja": {
+          "value": "すべての旅行を."
+        },
+        "ko": {
+          "value": "모든 여행을."
+        },
+        "ms": {
+          "value": "Setiap perjalanan."
+        },
+        "nb": {
+          "value": "Hver reise."
+        },
+        "nl": {
+          "value": "Elke reis."
+        },
+        "pl": {
+          "value": "Każda podróż."
+        },
+        "pt-BR": {
+          "value": "Cada viagem."
+        },
+        "pt-PT": {
+          "value": "Cada viagem."
+        },
+        "ro": {
+          "value": "Fiecare călătorie."
+        },
+        "ru": {
+          "value": "Каждая поездка."
+        },
+        "sk": {
+          "value": "Každá cesta."
+        },
+        "sv": {
+          "value": "Varje resa."
+        },
+        "th": {
+          "value": "ทุกการเดินทาง"
+        },
+        "tr": {
+          "value": "Her seyahat."
+        },
+        "uk": {
+          "value": "Кожна подорож."
+        },
+        "vi": {
+          "value": "Mọi chuyến đi."
+        },
+        "zh-Hans": {
+          "value": "每一次行程。"
+        },
+        "zh-Hant": {
+          "value": "每一次行程。"
+        }
+      }
+    },
+    "cal_accent": {
+      "localizations": {
+        "en": {
+          "value": "One calendar."
+        },
+        "ar": {
+          "value": "تقويم واحد."
+        },
+        "ca": {
+          "value": "Un calendari."
+        },
+        "cs": {
+          "value": "Jeden kalendář."
+        },
+        "da": {
+          "value": "Én kalender."
+        },
+        "de": {
+          "value": "Ein Kalender."
+        },
+        "el": {
+          "value": "Ένα ημερολόγιο."
+        },
+        "en-AU": {
+          "value": "One calendar."
+        },
+        "en-GB": {
+          "value": "One calendar."
+        },
+        "es": {
+          "value": "Un calendario."
+        },
+        "es-419": {
+          "value": "Un calendario."
+        },
+        "fi": {
+          "value": "Yksi kalenteri."
+        },
+        "fr": {
+          "value": "Un calendrier."
+        },
+        "fr-CA": {
+          "value": "Un calendrier."
+        },
+        "he": {
+          "value": "לוח שנה אחד."
+        },
+        "hi": {
+          "value": "एक कैलेंडर."
+        },
+        "hr": {
+          "value": "Jedan kalendar."
+        },
+        "hu": {
+          "value": "Egy naptár."
+        },
+        "id": {
+          "value": "Satu kalender."
+        },
+        "it": {
+          "value": "Un calendario."
+        },
+        "ja": {
+          "value": "ひとつのカレンダーに."
+        },
+        "ko": {
+          "value": "하나의 캘린더에."
+        },
+        "ms": {
+          "value": "Satu kalendar."
+        },
+        "nb": {
+          "value": "Én kalender."
+        },
+        "nl": {
+          "value": "Eén kalender."
+        },
+        "pl": {
+          "value": "Jeden kalendarz."
+        },
+        "pt-BR": {
+          "value": "Um calendário."
+        },
+        "pt-PT": {
+          "value": "Um calendário."
+        },
+        "ro": {
+          "value": "Un calendar."
+        },
+        "ru": {
+          "value": "Один календарь."
+        },
+        "sk": {
+          "value": "Jeden kalendár."
+        },
+        "sv": {
+          "value": "En kalender."
+        },
+        "th": {
+          "value": "หนึ่งปฏิทิน"
+        },
+        "tr": {
+          "value": "Tek takvim."
+        },
+        "uk": {
+          "value": "Один календар."
+        },
+        "vi": {
+          "value": "Một lịch."
+        },
+        "zh-Hans": {
+          "value": "一个日历。"
+        },
+        "zh-Hant": {
+          "value": "一個日曆。"
+        }
+      }
+    },
+    "cal_sub": {
+      "localizations": {
+        "en": {
+          "value": "Color-coded days, tap-to-add simplicity — your entire year at a glance."
+        },
+        "ar": {
+          "value": "أيام بترميز ملون، إضافة بنقرة واحدة — سنتك بأكملها في لمحة."
+        },
+        "ca": {
+          "value": "Dies amb codi de colors, afegir amb un toc — tot el teu any d'una ullada."
+        },
+        "cs": {
+          "value": "Dny s barevným kódováním, přidání jedním ťuknutím — celý váš rok na první pohled."
+        },
+        "da": {
+          "value": "Farvekodede dage, tilføj med et tryk — hele dit år på et øjeblik."
+        },
+        "de": {
+          "value": "Farbcodierte Tage, mit einem Tippen hinzufügen — dein ganzes Jahr auf einen Blick."
+        },
+        "el": {
+          "value": "Ημέρες με χρωματική κωδικοποίηση, προσθήκη με ένα άγγιγμα — όλη σας η χρονιά με μια ματιά."
+        },
+        "en-AU": {
+          "value": "Colour-coded days, tap-to-add simplicity — your entire year at a glance."
+        },
+        "en-GB": {
+          "value": "Colour-coded days, tap-to-add simplicity — your entire year at a glance."
+        },
+        "es": {
+          "value": "Días codificados por colores, añade con un toque — todo tu año de un vistazo."
+        },
+        "es-419": {
+          "value": "Días codificados por colores, agrega con un toque — todo tu año de un vistazo."
+        },
+        "fi": {
+          "value": "Värikoodatut päivät, lisäys yhdellä napautuksella — koko vuosi yhdellä silmäyksellä."
+        },
+        "fr": {
+          "value": "Jours codés par couleur, ajout en un toucher — toute votre année en un coup d'œil."
+        },
+        "fr-CA": {
+          "value": "Jours codés par couleur, ajout en un toucher — toute votre année en un coup d'œil."
+        },
+        "he": {
+          "value": "ימים בקוד צבעים, הוספה בנגיעה אחת — כל השנה שלך במבט אחד."
+        },
+        "hi": {
+          "value": "रंग-कोडित दिन, टैप करके जोड़ें — आपका पूरा साल एक नज़र में."
+        },
+        "hr": {
+          "value": "Dani označeni bojama, dodavanje jednim dodirom — cijela vaša godina na prvi pogled."
+        },
+        "hu": {
+          "value": "Színkódolt napok, koppintásos hozzáadás — az egész éved egy pillantásra."
+        },
+        "id": {
+          "value": "Hari berkode warna, tambahkan dengan satu sentuhan — seluruh tahun Anda dalam sekejap."
+        },
+        "it": {
+          "value": "Giorni con codice colore, aggiunta con un tocco — il tuo anno intero in un colpo d'occhio."
+        },
+        "ja": {
+          "value": "色分けされた日、タップで追加 — 一年間がひと目でわかる。"
+        },
+        "ko": {
+          "value": "색상으로 구분된 날짜, 탭으로 간편하게 추가 — 한 해 전체를 한눈에."
+        },
+        "ms": {
+          "value": "Hari berkod warna, tambah dengan satu sentuhan — seluruh tahun anda sekali pandang."
+        },
+        "nb": {
+          "value": "Fargekodede dager, legg til med ett trykk — hele året ditt på et blunk."
+        },
+        "nl": {
+          "value": "Kleurgecodeerde dagen, toevoegen met één tik — je hele jaar in één oogopslag."
+        },
+        "pl": {
+          "value": "Dni oznaczone kolorami, dodawanie jednym dotknięciem — cały rok w mgnieniu oka."
+        },
+        "pt-BR": {
+          "value": "Dias codificados por cor, adicione com um toque — seu ano inteiro num relance."
+        },
+        "pt-PT": {
+          "value": "Dias codificados por cor, adicionar com um toque — o seu ano inteiro num relance."
+        },
+        "ro": {
+          "value": "Zile codificate pe culori, adaugă cu o atingere — întregul an dintr-o privire."
+        },
+        "ru": {
+          "value": "Дни с цветовой маркировкой, добавление одним касанием — весь ваш год с одного взгляда."
+        },
+        "sk": {
+          "value": "Dni s farebným kódovaním, pridanie jedným klepnutím — celý váš rok na prvý pohľad."
+        },
+        "sv": {
+          "value": "Färgkodade dagar, lägg till med en knapptryckning — hela ditt år med en blick."
+        },
+        "th": {
+          "value": "วันที่รหัสสี เพิ่มได้ด้วยการแตะ — ทั้งปีของคุณในพริบตา"
+        },
+        "tr": {
+          "value": "Renk kodlu günler, dokunarak ekleme kolaylığı — tüm yılınız bir bakışta."
+        },
+        "uk": {
+          "value": "Дні з кольоровим кодуванням, додавання одним дотиком — увесь ваш рік з першого погляду."
+        },
+        "vi": {
+          "value": "Các ngày được mã màu, thêm chỉ với một chạm — cả năm của bạn trong nháy mắt."
+        },
+        "zh-Hans": {
+          "value": "彩色编码的日期，轻触即可添加——一整年尽收眼底。"
+        },
+        "zh-Hant": {
+          "value": "彩色編碼的日期，輕觸即可新增——一整年盡收眼底。"
+        }
+      }
+    },
+    "cal_trips_label": {
+      "localizations": {
+        "en": {
+          "value": "This year"
+        },
+        "ar": {
+          "value": "هذا العام"
+        },
+        "ca": {
+          "value": "Aquest any"
+        },
+        "cs": {
+          "value": "Tento rok"
+        },
+        "da": {
+          "value": "I år"
+        },
+        "de": {
+          "value": "Dieses Jahr"
+        },
+        "el": {
+          "value": "Φέτος"
+        },
+        "en-AU": {
+          "value": "This year"
+        },
+        "en-GB": {
+          "value": "This year"
+        },
+        "es": {
+          "value": "Este año"
+        },
+        "es-419": {
+          "value": "Este año"
+        },
+        "fi": {
+          "value": "Tänä vuonna"
+        },
+        "fr": {
+          "value": "Cette année"
+        },
+        "fr-CA": {
+          "value": "Cette année"
+        },
+        "he": {
+          "value": "השנה"
+        },
+        "hi": {
+          "value": "इस साल"
+        },
+        "hr": {
+          "value": "Ove godine"
+        },
+        "hu": {
+          "value": "Idén"
+        },
+        "id": {
+          "value": "Tahun ini"
+        },
+        "it": {
+          "value": "Quest'anno"
+        },
+        "ja": {
+          "value": "今年"
+        },
+        "ko": {
+          "value": "올해"
+        },
+        "ms": {
+          "value": "Tahun ini"
+        },
+        "nb": {
+          "value": "I år"
+        },
+        "nl": {
+          "value": "Dit jaar"
+        },
+        "pl": {
+          "value": "W tym roku"
+        },
+        "pt-BR": {
+          "value": "Este ano"
+        },
+        "pt-PT": {
+          "value": "Este ano"
+        },
+        "ro": {
+          "value": "Anul acesta"
+        },
+        "ru": {
+          "value": "В этом году"
+        },
+        "sk": {
+          "value": "Tento rok"
+        },
+        "sv": {
+          "value": "I år"
+        },
+        "th": {
+          "value": "ปีนี้"
+        },
+        "tr": {
+          "value": "Bu yıl"
+        },
+        "uk": {
+          "value": "Цього року"
+        },
+        "vi": {
+          "value": "Năm nay"
+        },
+        "zh-Hans": {
+          "value": "今年"
+        },
+        "zh-Hant": {
+          "value": "今年"
+        }
+      }
+    },
+    "cal_trips_value": {
+      "localizations": {
+        "en": {
+          "value": "10 trips"
+        },
+        "ar": {
+          "value": "10 رحلات"
+        },
+        "ca": {
+          "value": "10 viatges"
+        },
+        "cs": {
+          "value": "10 cest"
+        },
+        "da": {
+          "value": "10 rejser"
+        },
+        "de": {
+          "value": "10 Reisen"
+        },
+        "el": {
+          "value": "10 ταξίδια"
+        },
+        "en-AU": {
+          "value": "10 trips"
+        },
+        "en-GB": {
+          "value": "10 trips"
+        },
+        "es": {
+          "value": "10 viajes"
+        },
+        "es-419": {
+          "value": "10 viajes"
+        },
+        "fi": {
+          "value": "10 matkaa"
+        },
+        "fr": {
+          "value": "10 voyages"
+        },
+        "fr-CA": {
+          "value": "10 voyages"
+        },
+        "he": {
+          "value": "10 נסיעות"
+        },
+        "hi": {
+          "value": "10 यात्राएँ"
+        },
+        "hr": {
+          "value": "10 putovanja"
+        },
+        "hu": {
+          "value": "10 utazás"
+        },
+        "id": {
+          "value": "10 perjalanan"
+        },
+        "it": {
+          "value": "10 viaggi"
+        },
+        "ja": {
+          "value": "10件の旅行"
+        },
+        "ko": {
+          "value": "여행 10회"
+        },
+        "ms": {
+          "value": "10 perjalanan"
+        },
+        "nb": {
+          "value": "10 reiser"
+        },
+        "nl": {
+          "value": "10 reizen"
+        },
+        "pl": {
+          "value": "10 podróży"
+        },
+        "pt-BR": {
+          "value": "10 viagens"
+        },
+        "pt-PT": {
+          "value": "10 viagens"
+        },
+        "ro": {
+          "value": "10 călătorii"
+        },
+        "ru": {
+          "value": "10 поездок"
+        },
+        "sk": {
+          "value": "10 ciest"
+        },
+        "sv": {
+          "value": "10 resor"
+        },
+        "th": {
+          "value": "10 การเดินทาง"
+        },
+        "tr": {
+          "value": "10 seyahat"
+        },
+        "uk": {
+          "value": "10 подорожей"
+        },
+        "vi": {
+          "value": "10 chuyến đi"
+        },
+        "zh-Hans": {
+          "value": "10次行程"
+        },
+        "zh-Hant": {
+          "value": "10次行程"
+        }
+      }
+    },
+    "cal_add_label": {
+      "localizations": {
+        "en": {
+          "value": "Add trip"
+        },
+        "ar": {
+          "value": "إضافة رحلة"
+        },
+        "ca": {
+          "value": "Afegeix viatge"
+        },
+        "cs": {
+          "value": "Přidat cestu"
+        },
+        "da": {
+          "value": "Tilføj rejse"
+        },
+        "de": {
+          "value": "Reise hinzufügen"
+        },
+        "el": {
+          "value": "Προσθήκη ταξιδιού"
+        },
+        "en-AU": {
+          "value": "Add trip"
+        },
+        "en-GB": {
+          "value": "Add trip"
+        },
+        "es": {
+          "value": "Añadir viaje"
+        },
+        "es-419": {
+          "value": "Agregar viaje"
+        },
+        "fi": {
+          "value": "Lisää matka"
+        },
+        "fr": {
+          "value": "Ajouter un voyage"
+        },
+        "fr-CA": {
+          "value": "Ajouter un voyage"
+        },
+        "he": {
+          "value": "הוסף נסיעה"
+        },
+        "hi": {
+          "value": "यात्रा जोड़ें"
+        },
+        "hr": {
+          "value": "Dodaj putovanje"
+        },
+        "hu": {
+          "value": "Utazás hozzáadása"
+        },
+        "id": {
+          "value": "Tambah perjalanan"
+        },
+        "it": {
+          "value": "Aggiungi viaggio"
+        },
+        "ja": {
+          "value": "旅行を追加"
+        },
+        "ko": {
+          "value": "여행 추가"
+        },
+        "ms": {
+          "value": "Tambah perjalanan"
+        },
+        "nb": {
+          "value": "Legg til reise"
+        },
+        "nl": {
+          "value": "Reis toevoegen"
+        },
+        "pl": {
+          "value": "Dodaj podróż"
+        },
+        "pt-BR": {
+          "value": "Adicionar viagem"
+        },
+        "pt-PT": {
+          "value": "Adicionar viagem"
+        },
+        "ro": {
+          "value": "Adaugă călătorie"
+        },
+        "ru": {
+          "value": "Добавить поездку"
+        },
+        "sk": {
+          "value": "Pridať cestu"
+        },
+        "sv": {
+          "value": "Lägg till resa"
+        },
+        "th": {
+          "value": "เพิ่มการเดินทาง"
+        },
+        "tr": {
+          "value": "Seyahat ekle"
+        },
+        "uk": {
+          "value": "Додати подорож"
+        },
+        "vi": {
+          "value": "Thêm chuyến đi"
+        },
+        "zh-Hans": {
+          "value": "添加行程"
+        },
+        "zh-Hant": {
+          "value": "新增行程"
+        }
+      }
+    },
+    "cal_add_value": {
+      "localizations": {
+        "en": {
+          "value": "Tap any day"
+        },
+        "ar": {
+          "value": "انقر أي يوم"
+        },
+        "ca": {
+          "value": "Toca qualsevol dia"
+        },
+        "cs": {
+          "value": "Klepněte na den"
+        },
+        "da": {
+          "value": "Tryk på en dag"
+        },
+        "de": {
+          "value": "Beliebigen Tag tippen"
+        },
+        "el": {
+          "value": "Πατήστε μια ημέρα"
+        },
+        "en-AU": {
+          "value": "Tap any day"
+        },
+        "en-GB": {
+          "value": "Tap any day"
+        },
+        "es": {
+          "value": "Toca un día"
+        },
+        "es-419": {
+          "value": "Toca un día"
+        },
+        "fi": {
+          "value": "Napauta päivää"
+        },
+        "fr": {
+          "value": "Touchez un jour"
+        },
+        "fr-CA": {
+          "value": "Touchez un jour"
+        },
+        "he": {
+          "value": "הקש על יום"
+        },
+        "hi": {
+          "value": "कोई दिन टैप करें"
+        },
+        "hr": {
+          "value": "Dodirnite bilo koji dan"
+        },
+        "hu": {
+          "value": "Koppints egy napra"
+        },
+        "id": {
+          "value": "Ketuk hari mana saja"
+        },
+        "it": {
+          "value": "Tocca un giorno"
+        },
+        "ja": {
+          "value": "好きな日をタップ"
+        },
+        "ko": {
+          "value": "원하는 날짜 탭"
+        },
+        "ms": {
+          "value": "Ketik mana-mana hari"
+        },
+        "nb": {
+          "value": "Trykk på en dag"
+        },
+        "nl": {
+          "value": "Tik op een dag"
+        },
+        "pl": {
+          "value": "Dotknij dowolny dzień"
+        },
+        "pt-BR": {
+          "value": "Toque em qualquer dia"
+        },
+        "pt-PT": {
+          "value": "Toque em qualquer dia"
+        },
+        "ro": {
+          "value": "Atinge orice zi"
+        },
+        "ru": {
+          "value": "Нажмите любой день"
+        },
+        "sk": {
+          "value": "Klepnite na deň"
+        },
+        "sv": {
+          "value": "Tryck på en dag"
+        },
+        "th": {
+          "value": "แตะวันใดก็ได้"
+        },
+        "tr": {
+          "value": "Bir güne dokun"
+        },
+        "uk": {
+          "value": "Торкніться дня"
+        },
+        "vi": {
+          "value": "Chạm vào ngày bất kỳ"
+        },
+        "zh-Hans": {
+          "value": "点击任意日期"
+        },
+        "zh-Hant": {
+          "value": "點擊任意日期"
+        }
+      }
+    }
+  }
+}
