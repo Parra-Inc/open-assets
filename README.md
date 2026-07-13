@@ -12,8 +12,14 @@ Design your App Store screenshots, app icons, logos, OG images, favicons, and mo
 
 ## Examples
 
-<p><img src="public/img/examples/only-recipes-icon.png" width="14" height="14" /> <a href="https://onlyrecipes.app"><strong>Only Recipes</strong></a> (<a href="examples/only-recipes">examples</a>)</p>
+<p><img src="public/img/examples/tax-days-icon.png" width="14" height="14" /> <a href="https://apps.apple.com/us/app/tax-days-residency-tracker/id6761441335"><strong>Tax Days</strong></a> (<a href="examples/tax-days">examples</a>)</p>
+<img src="public/img/examples/tax-days.png" alt="Tax Days screenshots" width="100%" />
+
+<p><img src="public/img/examples/only-recipes-icon.png" width="14" height="14" /> <a href="https://apps.apple.com/us/app/only-recipes-recipe-keeper/id1553858589"><strong>Only Recipes</strong></a> (<a href="examples/only-recipes">examples</a>)</p>
 <img src="public/img/examples/only-recipes.png" alt="Only Recipes screenshots" width="100%" />
+
+<p><img src="public/img/examples/thoughtful-icon.png" width="14" height="14" /> <a href="https://apps.apple.com/us/app/thoughtful-grow-relationships/id6762098726"><strong>Thoughtful</strong></a> (<a href="examples/thoughtful">examples</a>)</p>
+<img src="public/img/examples/thoughtful.png" alt="Thoughtful screenshots" width="100%" />
 
 <p><img src="public/img/examples/cat-iq-test-icon.png" width="14" height="14" /> <a href="https://apps.apple.com/us/app/cat-iq-test/id6759520249"><strong>Cat IQ Test</strong></a> (<a href="examples/cat-iq-test">examples</a>)</p>
 <img src="public/img/examples/cat-iq-test.png" alt="Cat IQ Test screenshots" width="100%" />
