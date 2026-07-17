@@ -1,14 +1,28 @@
 <p align="center">
-  <img src="public/img/banner/1280/banner.png" alt="Open Assets" width="100%" />
+  <img src="public/img/banner/1280.png" alt="Open Assets" width="100%" />
 </p>
 
 # Open Assets
 
-The LLM first way to do graphics all from your git repo. 
+[![npm version](https://img.shields.io/npm/v/@open-assets/open-assets)](https://www.npmjs.com/package/@open-assets/open-assets)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+[![Claude Code Skill](https://img.shields.io/badge/Claude%20Code-skill%20included-d97757)](#2-design-with-claude-code)
 
-Dev server and export tool for app marketing assets. Like Storybook, but for marketing assets.
+**Screenshots, icons, and marketing assets, made a breeze in your git repo.**
 
-Design your App Store screenshots, app icons, logos, OG images, favicons, and more in HTML/CSS/SVG, preview them live in the browser, and export pixel-perfect PNGs at any size — including directly into your Xcode project.
+Design App Store screenshots, app icons, logos, OG images, and favicons as HTML/CSS/SVG templates. Preview them live in the browser. Render every size your stores need from a single template with one command, then export the results anywhere: your exports folder, your web app's public directory, or straight into an Xcode asset catalog.
+
+Like Storybook, but for marketing assets. Free, local, MIT licensed, and built for AI coding agents.
+
+## Why Open Assets
+
+- **One template, every size.** Author a screenshot once at its source size and render it for iPhone 6.9", 6.7", iPad, Play Store, Product Hunt, and any custom dimension. No per-device rework.
+- **Export to multiple locations.** Each export size can write to its own destination with `outFile`: drop `favicon.png` into `public/`, send the OG image to your web app, and write the app icon directly into your Xcode `.appiconset`.
+- **Localization built in.** One template renders in every language. Mustache-style `{{placeholders}}`, locale-aware number formatting, and automatic RTL layout for Arabic, Hebrew, and friends. See [Localization](#localization).
+- **Live preview dev server.** A Storybook-style UI with hot reload, zoom/pan, and one-click exports while you iterate on templates.
+- **Incremental renders.** `assets.lock` checksums every source file, so you, your teammates, and CI only re-render what changed.
+- **Versioned in git, rendered in CI.** No SaaS, no per-seat design tool. Review screenshot changes in a PR with `git diff`, re-render on every push with GitHub Actions.
+- **Agent native.** Ships a Claude Code skill (`npx open-assets skills`), so your agent can design, localize, and render the entire asset set for you.
 
 ## Examples
 
@@ -65,7 +79,7 @@ Then use `oa` anywhere:
 
 ```bash
 oa dev
-oa render --force
+oa render
 oa init
 ```
 
@@ -81,6 +95,26 @@ open-assets uses a simple, unified data model. Every asset type follows the same
 | **Source Size** | The dimensions the HTML template is authored at. Puppeteer scales from source → export size. |
 | **Output** | An optional post-render action (e.g., write to Xcode `.appiconset`, copy SVG source). |
 
+### One template, many sizes, many destinations
+
+Every entry in a collection's `export` array is either a size or an output action. A single template renders to all of them in one pass:
+
+```json
+"export": [
+  { "name": "iphone-6.9", "label": "iPhone 6.9\"", "size": { "width": 1320, "height": 2868 } },
+  { "name": "iphone-6.7", "label": "iPhone 6.7\"", "size": { "width": 1290, "height": 2796 } },
+  { "name": "favicon", "size": { "width": 32, "height": 32 }, "outFile": "public/favicon.png" },
+  { "type": "xcode", "path": "../MyApp/Assets.xcassets/AppIcon.appiconset" }
+]
+```
+
+- Sized entries land in `exports/{collection}/{size}/{template}.png`
+- `outFile` sends a rendered size anywhere in your repo (`.png` or `.jpg`), like your web app's `public/` directory
+- `xcode` fills an Xcode `.appiconset` directly
+- `copy-source` copies SVG sources alongside the rendered PNGs
+
+Change the template once, run `npx open-assets render`, and every destination updates. Unchanged templates are skipped automatically.
+
 ## End-to-End Screenshot Pipeline
 
 ### 1. Initialize
@@ -93,7 +127,16 @@ Creates a `assets.json`, sample HTML templates, and a `public/` directory for sh
 
 ### 2. Design with Claude Code
 
-Install the open-assets Claude Code skill into your project:
+The easiest way to get the skill is the Claude Code plugin marketplace. Inside Claude Code, run:
+
+```
+/plugin marketplace add Parra-Inc/open-assets
+/plugin install open-assets@open-assets
+```
+
+The skill is installed once, works in every project, and updates with `/plugin marketplace update open-assets`.
+
+Alternatively, copy the skill into a single project:
 
 ```bash
 # Using the built-in command
@@ -129,10 +172,10 @@ Opens a live preview UI at `http://localhost:3200` with zoom/pan controls and ex
 ### 4. Export
 
 ```bash
-npx open-assets render --force
+npx open-assets render
 ```
 
-Exports every template at every configured export size into `./exports/`, organized as `exports/{collection}/{size}/{template}.png`.
+Exports every template at every configured export size into `./exports/`, skipping anything that hasn't changed, organized as `exports/{collection}/{size}/{template}.png`.
 
 ### 5. Upload to App Store Connect / Google Play
 
@@ -147,6 +190,7 @@ Capture real app screenshots via Playwright or XCTest, then use them inside your
 npx playwright test --project=screenshots
 
 # 2. Export marketing screenshots with those captures embedded
+# (--force because captured images aren't checksummed by the cache)
 npx open-assets render --force
 ```
 
@@ -158,8 +202,58 @@ Reference captured screenshots in your HTML templates:
 The `assets.json` `command` field stores the export command so automation tools know what to run:
 ```json
 {
-  "command": "npx open-assets render --force"
+  "command": "npx open-assets render"
 }
+```
+
+## Localization
+
+Ship screenshots in every language you support, from the same templates. Add a localizations file (an iOS `.xcstrings`-inspired format), reference keys in templates with `{{key}}`, and every template renders once per locale:
+
+```json
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "hero_title": {
+      "localizations": {
+        "en": { "value": "Track your tax days" },
+        "de": { "value": "Verfolge deine Steuertage" },
+        "ja": { "value": "税金の日を追跡する" },
+        "ar": { "value": "تتبع أيام الضرائب الخاصة بك" }
+      }
+    }
+  }
+}
+```
+
+Wire it to a collection in `assets.json`:
+
+```json
+{
+  "id": "screenshots",
+  "localizations": "localizations.json",
+  "locales": ["en", "de", "ja", "ar"]
+}
+```
+
+Then use the keys in any template:
+
+```html
+<h1>{{hero_title}}</h1>
+```
+
+What you get:
+
+- **Per-locale exports**: output paths become `exports/{collection}/{locale}/{size}/{template}.png`, ready for App Store Connect's per-language screenshot slots
+- **RTL support**: right-to-left locales (Arabic, Hebrew, Persian, Urdu) automatically render with `dir="rtl"` set on the document
+- **Locale-aware numbers**: `{{n:1234}}` renders as `1,234` in English and `1.234` in German via `Intl.NumberFormat`
+- **Fallback chain**: exact locale (`es-419`), then base language (`es`), then the source language
+
+Render all locales, or just one:
+
+```bash
+npx open-assets render --collection screenshots               # every locale
+npx open-assets render --collection screenshots --locale ja   # just Japanese
 ```
 
 ## CLI Commands
@@ -197,8 +291,8 @@ Options:
 Render assets headlessly via the command line, without opening a browser.
 
 ```bash
-open-assets render                              # Render all collections at source size
-open-assets render --force                      # Export at every size, ignore cache
+open-assets render                              # Render everything at every export size
+open-assets render --force                      # Re-render everything, ignoring the cache
 open-assets render --collection screenshots     # Render a specific collection
 open-assets render --template 01-hero           # Render a single template
 open-assets render --size iphone-6.9            # Use a named export size
@@ -212,11 +306,13 @@ Options:
 | Flag | Env Var | Default | Description |
 |------|---------|---------|-------------|
 | `--collection <id>` | — | all | Render only the collection with this ID |
+| `--tag <tag>` | — | all | Render only collections with this tag |
 | `--template <name>` | — | all | Render only the template with this name |
 | `--size <name>` | — | — | Use a named export size from config |
+| `--locale <code>` | — | all | Render only this locale (e.g. `en`, `ar`, `ja`) |
 | `--width <px>` | — | — | Custom output width |
 | `--height <px>` | — | — | Custom output height |
-| `-f, --force` | — | — | Export at every size and re-render all (ignores cache) |
+| `-f, --force` | — | — | Re-render everything, ignoring the incremental cache |
 | `-o, --output <dir>` | `OPEN_ASSETS_OUTPUT` | `./exports` | Output directory |
 | `--config <path>` | `OPEN_ASSETS_CONFIG` | `assets.json` | Path to config file |
 | `--parallel <count>` | `OPEN_ASSETS_PARALLEL` | `1` | Number of parallel renders |
@@ -224,16 +320,19 @@ Options:
 | `--json` | — | — | Output results as JSON |
 | `-q, --quiet` | `OPEN_ASSETS_QUIET` | `false` | Suppress progress logs |
 
-**Selective export** — flags compose naturally:
+**Selective export**: flags compose naturally:
 ```bash
 # Single template at a single device size
 open-assets render --collection screenshots --template 01-hero --size iphone-6.9
 
 # One template at all device sizes
-open-assets render --collection screenshots --template 01-hero --force
+open-assets render --collection screenshots --template 01-hero
 
 # All templates at one device size
 open-assets render --collection screenshots --size iphone-6.9
+
+# All templates in one language
+open-assets render --collection screenshots --locale ja
 ```
 
 **Output structure**: `exports/{collection}/{size}/{template}.png`
@@ -278,7 +377,7 @@ open-assets validate          # Check current directory
 open-assets validate ./assets # Check specific directory
 ```
 
-Returns exit code 1 if any errors are found — useful in CI pipelines.
+Returns exit code 1 if any errors are found, useful in CI pipelines.
 
 ### `open-assets skills [dir]`
 
@@ -290,6 +389,13 @@ open-assets skills ./my-app   # Install to a specific project
 
 # Or using the Skills CLI
 npx skills add https://github.com/Parra-Inc/open-assets --skill open-assets
+```
+
+Prefer a global, per-user install? Use the Claude Code plugin marketplace instead: the skill then works in every project without copying files:
+
+```
+/plugin marketplace add Parra-Inc/open-assets
+/plugin install open-assets@open-assets
 ```
 
 ### `open-assets init [dir]`
@@ -310,7 +416,7 @@ Your project needs a `assets.json` at its root. This file defines the collection
   "version": 1,
   "name": "My App",
   "publicDir": "public",
-  "command": "npx open-assets render --force",
+  "command": "npx open-assets render",
   "collections": [ ... ]
 }
 ```
@@ -323,6 +429,7 @@ Your project needs a `assets.json` at its root. This file defines the collection
 | `name` | string | yes | App display name |
 | `publicDir` | string | no | Directory for shared assets (auto-served by dev server) |
 | `command` | string | no | Export command for automation tools and CI |
+| `tags` | array | no | Tag definitions (`{ id, label }`) for grouping collections |
 | `collections` | array | yes | Asset collection definitions |
 
 ### Collection Schema (Unified)
@@ -351,8 +458,11 @@ All collections follow the same structure. No `type` field needed.
 |-------|------|-------------|
 | `id` | string | Unique collection identifier (used in CLI `--collection`) |
 | `label` | string | Display name in the collection selector |
-| `sourceSize` | object | `{ width, height }` — the dimensions templates are authored at |
+| `tags` | array | Tag ids applied to this collection (filter renders with `--tag`) |
+| `sourceSize` | object | `{ width, height }`: the dimensions templates are authored at |
 | `borderRadius` | number | Border radius for preview frames (px) |
+| `localizations` | string | Path to a localizations JSON file (see [Localization](#localization)) |
+| `locales` | array | Optional locale filter. Omit to render every locale in the localizations file |
 | `templates` | array | Source files to render |
 | `templates[].src` | string | Path to HTML/SVG file (relative to project root) |
 | `templates[].name` | string | Filename for exports (used by `--template` flag) |
@@ -360,14 +470,14 @@ All collections follow the same structure. No `type` field needed.
 | `export` | array | Array of export sizes and output actions |
 | `export[].name` | string | Size identifier (used by `--size` flag) |
 | `export[].label` | string | Display label |
-| `export[].size` | object | `{ width, height }` — output dimensions in pixels |
+| `export[].size` | object | `{ width, height }`: output dimensions in pixels |
 | `export[].outFile` | string | Optional output path for this size (supports .png, .jpg) |
 | `export[].type` | string | Output action type (`xcode`, `copy-source`). Entries with `type` are post-render actions, not sizes |
 | `customExport` | object | Optional `{ defaultWidth, defaultHeight }` for custom size UI |
 
 ### Output Types
 
-Export entries with a `type` field are post-render actions (run with `--force`):
+Export entries with a `type` field are post-render actions that run after every render:
 
 | Type | Config | Description |
 |------|--------|-------------|
@@ -493,7 +603,7 @@ Export entries with a `type` field are post-render actions (run with `--force`):
 The `render` command maintains a `assets.lock` file that stores SHA256 checksums of each source HTML/SVG file. On subsequent renders, unchanged assets are skipped automatically:
 
 ```
-$ open-assets render --force
+$ open-assets render
   Skipping 01-hero at 1320x2868 (unchanged)
   Rendering 03-new-screen at 1320x2868...
     → exports/screenshots/iphone-6.9/03-new-screen.png
@@ -503,7 +613,7 @@ Done. 1 asset(s) rendered, 1 skipped (unchanged) in 1.2s.
 
 Use `--force` to re-render everything regardless of the cache.
 
-**Limitation**: Only source HTML/SVG files are checksummed. Changes to referenced assets (images in `publicDir`, compiled Tailwind CSS) won't trigger re-renders — use `--force` when those change.
+**Limitation**: Only source HTML/SVG files are checksummed. Changes to referenced assets (images in `publicDir`, compiled Tailwind CSS) won't trigger re-renders, so use `--force` when those change.
 
 Commit `assets.lock` to your repository so teammates and CI benefit from the cache.
 
@@ -528,7 +638,7 @@ jobs:
           node-version: 20
       - run: npm ci
       - run: npx open-assets validate
-      - run: npx open-assets render --force --json --quiet
+      - run: npx open-assets render --json --quiet
       - uses: actions/upload-artifact@v4
         with:
           name: screenshots
@@ -556,6 +666,7 @@ jobs:
 project/
   assets.json
   assets.lock              # Auto-generated cache (commit this)
+  localizations.json         # Localized strings (optional)
   public/                    # Shared assets (configured via publicDir)
     logo-round.png
     social/
@@ -576,7 +687,7 @@ project/
       default.html
   dist/
     styles.css               # Compiled Tailwind
-  exports/                   # Rendered output (gitignored)
+  exports/                   # Rendered output (commit this)
     screenshots/
       iphone-6.9/
         01-hero.png
