@@ -92,7 +92,7 @@ program
   .option("--locale <code>", "Render only this locale (e.g. en, ar, ja)")
   .option("--width <px>", "Output width in pixels (custom size)")
   .option("--height <px>", "Output height in pixels (custom size)")
-  .option("-f, --force", "Export at every size and re-render all assets (ignores cache)")
+  .option("-f, --force", "Re-render all assets, ignoring the incremental cache")
   .option("-o, --output <dir>", "Output directory (env: OPEN_ASSETS_OUTPUT)", env("OPEN_ASSETS_OUTPUT", "./exports"))
   .option("--config <path>", "Path to config file (env: OPEN_ASSETS_CONFIG)", env("OPEN_ASSETS_CONFIG", "assets.json"))
   .option("--parallel <count>", "Number of parallel renders (env: OPEN_ASSETS_PARALLEL)", env("OPEN_ASSETS_PARALLEL", "1"))
