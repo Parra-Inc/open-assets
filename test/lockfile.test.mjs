@@ -247,6 +247,44 @@ describe("isUpToDate", () => {
       cleanup();
     }
   });
+
+  test("returns false when recorded for a different output path", () => {
+    const { dir, cleanup } = createTmpProject(null, { "out.png": "fake png data" });
+    try {
+      const outPath = join(dir, "out.png");
+      const lockData = {
+        version: 1,
+        assets: {
+          "icon/icon": {
+            "512": { sourceChecksum: "sha256:abc", outputPath: "exports/icon/512.png" },
+          },
+        },
+      };
+      // Same checksum, but this render targets a different output location
+      expect(isUpToDate(lockData, "icon/icon", "512", "sha256:abc", outPath)).toBe(false);
+    } finally {
+      cleanup();
+    }
+  });
+
+  test("resolves relative output paths against projectDir", () => {
+    const { dir, cleanup } = createTmpProject(null, { "exports/out.png": "fake png data" });
+    try {
+      const lockData = {
+        version: 1,
+        assets: {
+          "icon/icon": {
+            "512": { sourceChecksum: "sha256:abc", outputPath: "exports/out.png" },
+          },
+        },
+      };
+      expect(isUpToDate(lockData, "icon/icon", "512", "sha256:abc", "exports/out.png", undefined, dir)).toBe(true);
+      // Without the right projectDir the file can't be found
+      expect(isUpToDate(lockData, "icon/icon", "512", "sha256:abc", "exports/out.png", undefined, "/tmp/nope")).toBe(false);
+    } finally {
+      cleanup();
+    }
+  });
 });
 
 describe("recordExport", () => {

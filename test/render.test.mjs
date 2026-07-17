@@ -37,23 +37,24 @@ describe("renderAssets", () => {
 
   afterEach(() => cleanup());
 
-  test("renders all templates at source size by default", async () => {
+  test("renders every template at every export size by default", async () => {
     const deps = createMockDeps();
     const outputDir = join(tmpDir, "exports");
     const result = await renderAssets(tmpDir, validManifest, { output: outputDir }, deps);
 
-    // 2 icon templates + 2 screenshot templates = 4 renders
-    expect(deps.renderScreenshot).toHaveBeenCalledTimes(4);
-    expect(result.results).toHaveLength(4);
+    // icon: 2 templates x 4 sizes + screenshots: 2 templates x 3 sizes = 14 renders
+    expect(deps.renderScreenshot).toHaveBeenCalledTimes(14);
+    // 14 renders + 1 xcode output
+    expect(result.results).toHaveLength(15);
     expect(result.skipped).toBe(0);
 
-    // Icon templates rendered at source size 1024x1024
+    // Icon templates rendered at the 1024 export size
     expect(deps.renderScreenshot).toHaveBeenCalledWith(
       tmpDir, "src/icon.html", 1024, 1024, 1024, 1024, { format: "png" }
     );
-    // Screenshot templates rendered at source size 440x956
+    // Screenshot templates rendered at the 6.9" export size, scaled from source
     expect(deps.renderScreenshot).toHaveBeenCalledWith(
-      tmpDir, "src/screenshot-hero.html", 440, 956, 440, 956, { format: "png" }
+      tmpDir, "src/screenshot-hero.html", 1320, 2868, 440, 956, { format: "png" }
     );
   });
 
@@ -62,8 +63,8 @@ describe("renderAssets", () => {
     const outputDir = join(tmpDir, "exports");
     const result = await renderAssets(tmpDir, validManifest, { output: outputDir, collection: "icon" }, deps);
 
-    // Only icon templates: 2
-    expect(deps.renderScreenshot).toHaveBeenCalledTimes(2);
+    // Only icon templates: 2 templates x 4 sizes
+    expect(deps.renderScreenshot).toHaveBeenCalledTimes(8);
     expect(result.results.every((r) => r.collection === "icon")).toBe(true);
   });
 
@@ -73,7 +74,8 @@ describe("renderAssets", () => {
     const result = await renderAssets(tmpDir, validManifest, { output: outputDir, tag: "marketing" }, deps);
 
     expect(result.results.every((r) => r.collection === "screenshots")).toBe(true);
-    expect(deps.renderScreenshot).toHaveBeenCalledTimes(2);
+    // 2 screenshot templates x 3 sizes
+    expect(deps.renderScreenshot).toHaveBeenCalledTimes(6);
   });
 
   test("--template filter renders only matching template", async () => {
@@ -81,8 +83,8 @@ describe("renderAssets", () => {
     const outputDir = join(tmpDir, "exports");
     const result = await renderAssets(tmpDir, validManifest, { output: outputDir, template: "icon" }, deps);
 
-    // "icon" template exists in icon collection only, screenshot templates don't match
-    expect(result.results.filter((r) => r.template === "icon")).toHaveLength(1);
+    // "icon" template exists in icon collection only (4 sizes), screenshot templates don't match
+    expect(result.results.filter((r) => r.template === "icon")).toHaveLength(4);
     expect(result.results.every((r) => r.template === "icon" || r.template === undefined)).toBe(true);
   });
 
@@ -112,8 +114,8 @@ describe("renderAssets", () => {
     }
   });
 
-  test("--force renders at every export size and ignores cache", async () => {
-    // Without force: renders at source size only, respects cache
+  test("respects cache by default, --force ignores it", async () => {
+    // Without force: unchanged assets are skipped via the lockfile
     const deps = createMockDeps({
       isUpToDate: jest.fn(() => true),
     });
@@ -121,10 +123,12 @@ describe("renderAssets", () => {
     const resultNoForce = await renderAssets(tmpDir, validManifest, {
       output: outputDir, collection: "icon",
     }, deps);
-    expect(resultNoForce.skipped).toBe(2);
-    expect(resultNoForce.results).toHaveLength(0);
+    // 4 sizes x 2 templates all skipped; only the xcode output runs
+    expect(resultNoForce.skipped).toBe(8);
+    expect(deps.renderScreenshot).not.toHaveBeenCalled();
+    expect(resultNoForce.results.filter((r) => r.type !== "xcode")).toHaveLength(0);
 
-    // With force: renders all sizes and ignores cache
+    // With force: re-renders everything, ignoring the cache
     const deps2 = createMockDeps({
       isUpToDate: jest.fn(() => true),
     });
@@ -148,9 +152,10 @@ describe("renderAssets", () => {
       output: outputDir, collection: "icon",
     }, deps);
 
-    expect(result.skipped).toBe(1);
-    expect(result.results).toHaveLength(1);
-    expect(result.results[0].template).toBe("icon-alt");
+    // icon skipped at all 4 sizes; icon-alt rendered at all 4 sizes + xcode output
+    expect(result.skipped).toBe(4);
+    expect(result.results).toHaveLength(5);
+    expect(result.results.every((r) => r.template === "icon-alt" || r.type === "xcode")).toBe(true);
   });
 
   test("returns error when collection filter matches nothing", async () => {
@@ -181,29 +186,38 @@ describe("renderAssets", () => {
       output: outputDir, collection: "icon",
     }, deps);
 
-    const outFile = join(outputDir, "icon", "icon.png");
+    const outFile = join(outputDir, "icon", "1024", "icon.png");
     expect(existsSync(outFile)).toBe(true);
     expect(readFileSync(outFile)).toEqual(FAKE_PNG);
   });
 
-  test("uses flat directory when single size, subdirs when multiple", async () => {
+  test("uses subdirs for multi-template collections, flat size names for single-template", async () => {
+    // Multi-template collection → subdirs per size
     const deps = createMockDeps();
     const outputDir = join(tmpDir, "exports");
-
-    // Single size (default) → flat
     await renderAssets(tmpDir, validManifest, {
       output: outputDir, collection: "icon",
     }, deps);
-    expect(existsSync(join(outputDir, "icon", "icon.png"))).toBe(true);
+    expect(existsSync(join(outputDir, "icon", "1024", "icon.png"))).toBe(true);
+    expect(existsSync(join(outputDir, "icon", "512", "icon-alt.png"))).toBe(true);
 
-    // Multiple sizes (--force) → subdirs (multi-template collection)
-    const deps2 = createMockDeps();
-    const outputDir2 = join(tmpDir, "exports2");
-    await renderAssets(tmpDir, validManifest, {
-      output: outputDir2, collection: "icon", force: true,
-    }, deps2);
-    expect(existsSync(join(outputDir2, "icon", "1024", "icon.png"))).toBe(true);
-    expect(existsSync(join(outputDir2, "icon", "512", "icon.png"))).toBe(true);
+    // Single-template collection → flat layout named by size
+    const tmp = createTmpProject(multiPlatformManifest, {
+      "src/icon.html": templateHtml,
+      "src/logo.svg": templateSvg,
+    });
+    try {
+      const deps2 = createMockDeps();
+      const outputDir2 = join(tmp.dir, "exports");
+      await renderAssets(tmp.dir, multiPlatformManifest, {
+        output: outputDir2, collection: "icon",
+      }, deps2);
+      expect(existsSync(join(outputDir2, "icon", "1024.png"))).toBe(true);
+      expect(existsSync(join(outputDir2, "icon", "512.png"))).toBe(true);
+      expect(existsSync(join(outputDir2, "icon", "192.png"))).toBe(true);
+    } finally {
+      tmp.cleanup();
+    }
   });
 
   test("re-renders when export config changes even if source unchanged", async () => {
@@ -221,9 +235,9 @@ describe("renderAssets", () => {
 
     // Should render, not skip
     expect(result.skipped).toBe(0);
-    expect(deps.renderScreenshot).toHaveBeenCalledTimes(2);
+    expect(deps.renderScreenshot).toHaveBeenCalledTimes(8);
     // recordExport should be called with 6 args (including exportChecksum)
-    expect(deps.recordExport).toHaveBeenCalledTimes(2);
+    expect(deps.recordExport).toHaveBeenCalledTimes(8);
     for (const call of deps.recordExport.mock.calls) {
       expect(call).toHaveLength(6);
       expect(call[5]).toMatch(/^sha256:/); // exportChecksum
@@ -238,8 +252,9 @@ describe("renderAssets", () => {
     }, deps);
 
     for (const call of deps.isUpToDate.mock.calls) {
-      expect(call).toHaveLength(6);
+      expect(call).toHaveLength(7);
       expect(call[5]).toMatch(/^sha256:/); // exportChecksum
+      expect(call[6]).toBe(tmpDir); // projectDir
     }
   });
 
@@ -250,7 +265,7 @@ describe("renderAssets", () => {
       output: outputDir, collection: "icon",
     }, deps);
 
-    expect(deps.recordExport).toHaveBeenCalledTimes(2);
+    expect(deps.recordExport).toHaveBeenCalledTimes(8);
     expect(deps.writeLockfile).toHaveBeenCalledTimes(1);
   });
 
@@ -268,11 +283,11 @@ describe("renderAssets", () => {
     expect(result.elapsed).toMatch(/^\d+\.\ds$/);
   });
 
-  test("--force triggers xcode output when collection has outputs", async () => {
+  test("xcode output runs on default render", async () => {
     const deps = createMockDeps();
     const outputDir = join(tmpDir, "exports");
     await renderAssets(tmpDir, validManifest, {
-      output: outputDir, collection: "icon", force: true,
+      output: outputDir, collection: "icon",
     }, deps);
 
     expect(deps.runXcodeOutput).toHaveBeenCalledTimes(1);
@@ -282,17 +297,7 @@ describe("renderAssets", () => {
     });
   });
 
-  test("xcode output is not triggered without --force", async () => {
-    const deps = createMockDeps();
-    const outputDir = join(tmpDir, "exports");
-    await renderAssets(tmpDir, validManifest, {
-      output: outputDir, collection: "icon",
-    }, deps);
-
-    expect(deps.runXcodeOutput).not.toHaveBeenCalled();
-  });
-
-  test("--force triggers copy-source output", async () => {
+  test("copy-source output runs on default render", async () => {
     const tmp = createTmpProject(multiPlatformManifest, {
       "src/icon.html": templateHtml,
       "src/logo.svg": templateSvg,
@@ -301,7 +306,7 @@ describe("renderAssets", () => {
       const deps = createMockDeps();
       const outputDir = join(tmp.dir, "exports");
       await renderAssets(tmp.dir, multiPlatformManifest, {
-        output: outputDir, collection: "logo", force: true,
+        output: outputDir, collection: "logo",
       }, deps);
 
       // Should have copy-source result
@@ -324,7 +329,7 @@ describe("renderAssets", () => {
     try {
       const deps = createMockDeps();
       const outputDir = join(tmp.dir, "exports");
-      // Render logo at source size (default, no --all)
+      // Default render exports all sizes and runs the copy-source output
       await renderAssets(tmp.dir, multiPlatformManifest, {
         output: outputDir, collection: "logo",
       }, deps);
@@ -348,7 +353,7 @@ describe("renderAssets", () => {
 
     expect(deps.recordExport).not.toHaveBeenCalled();
     // But still renders
-    expect(deps.renderScreenshot).toHaveBeenCalledTimes(2);
+    expect(deps.renderScreenshot).toHaveBeenCalledTimes(8);
   });
 
   test("outFile with {template} renders all templates to individual paths", async () => {

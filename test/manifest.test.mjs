@@ -149,14 +149,10 @@ describe("resolveRenderSizes", () => {
   const iconCollection = validManifest.collections[0];
   const screenshotCollection = validManifest.collections[1];
 
-  test("defaults to source size when no options given", () => {
+  test("defaults to all export sizes when no options given", () => {
     const result = resolveRenderSizes(iconCollection);
-    expect(result.sizes).toHaveLength(1);
-    expect(result.sizes[0]).toEqual({
-      name: "1024x1024",
-      label: "1024x1024",
-      size: { width: 1024, height: 1024 },
-    });
+    expect(result.sizes).toHaveLength(4); // 1024, 180, 512, 192
+    expect(result.sizes.map((s) => s.name)).toEqual(["1024", "180", "512", "192"]);
   });
 
   test("uses custom width and height", () => {
@@ -192,19 +188,14 @@ describe("resolveRenderSizes", () => {
     expect(result.warning).toMatch(/size "nonexistent" not found/);
   });
 
-  test("--force returns all export sizes", () => {
-    const result = resolveRenderSizes(iconCollection, { force: true });
-    expect(result.sizes).toHaveLength(4); // 2 iOS + 2 Web
-  });
-
-  test("--force with no export sizes returns empty", () => {
+  test("no export sizes returns empty", () => {
     const col = { sourceSize: { width: 100, height: 100 }, export: [] };
-    const result = resolveRenderSizes(col, { force: true });
+    const result = resolveRenderSizes(col);
     expect(result.sizes).toHaveLength(0);
   });
 
-  test("custom width/height takes precedence over --force", () => {
-    const result = resolveRenderSizes(iconCollection, { width: 50, height: 50, force: true });
+  test("custom width/height takes precedence over export sizes", () => {
+    const result = resolveRenderSizes(iconCollection, { width: 50, height: 50 });
     expect(result.sizes).toHaveLength(1);
     expect(result.sizes[0].size.width).toBe(50);
   });
