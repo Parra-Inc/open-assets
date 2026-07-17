@@ -106,8 +106,19 @@ echo ""
 # Bump version in package.json (no git ops from npm)
 npm version "$NEXT" --no-git-tag-version --quiet
 
+# Keep Claude Code plugin manifests in sync
+node -e "
+const fs = require('fs');
+for (const file of ['.claude-plugin/plugin.json', '.claude-plugin/marketplace.json']) {
+  const json = JSON.parse(fs.readFileSync(file, 'utf8'));
+  if (json.version) json.version = '$NEXT';
+  if (json.plugins) json.plugins.forEach(p => { p.version = '$NEXT'; });
+  fs.writeFileSync(file, JSON.stringify(json, null, 2) + '\n');
+}
+"
+
 # Commit and tag
-git add package.json
+git add package.json .claude-plugin/plugin.json .claude-plugin/marketplace.json
 git commit -m "release: v${NEXT}"
 git tag "v${NEXT}"
 

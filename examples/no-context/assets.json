@@ -2,7 +2,7 @@
   "version": 1,
   "name": "No Context",
   "publicDir": "public",
-  "command": "npx open-assets render --force",
+  "command": "npx open-assets render",
   "collections": [
     {
       "id": "icon",

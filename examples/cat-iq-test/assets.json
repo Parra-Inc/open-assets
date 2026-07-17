@@ -2,7 +2,7 @@
   "version": 1,
   "name": "Cat IQ Test",
   "publicDir": "public",
-  "command": "npx open-assets render --force",
+  "command": "npx open-assets render",
   "collections": [
     {
       "id": "screenshots",

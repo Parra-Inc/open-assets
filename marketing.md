@@ -321,7 +321,7 @@ Every piece below is something we can ship in a week. None of these are paid ads
 2. Browser opens at localhost:3200 with sample screenshots
 3. Edit `01-hero.html` — change headline, save
 4. Browser hot-reloads
-5. Terminal: `npx open-assets render --force`
+5. Terminal: `npx open-assets render`
 6. `exports/screenshots/iphone-6.9/01-hero.png` opens in Preview at 1320×2868
 
 **Length:** 30 seconds, no narration, just sound effects + lo-fi soundtrack.

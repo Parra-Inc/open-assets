@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "concurrently \"npx @tailwindcss/cli -i src/styles.css -o dist/styles.css --watch\" \"npx open-assets dev\"",
     "build:css": "npx @tailwindcss/cli -i src/styles.css -o dist/styles.css --minify",
-    "render": "npm run build:css && npx open-assets render --force"
+    "render": "npm run build:css && npx open-assets render"
   },
   "devDependencies": {
     "@open-assets/open-assets": "^0.4.0",
