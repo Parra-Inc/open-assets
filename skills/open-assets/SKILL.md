@@ -17,11 +17,12 @@ open-assets dev
 # Or with Tailwind
 concurrently "npx @tailwindcss/cli -i assets/styles.css -o dist/styles.css --watch" "open-assets dev"
 
-# Headless render — prefer targeted flags when iterating; bare --force re-renders all collections (slow)
-open-assets render --force --template log-out          # one template only — fastest (~5–10s)
-open-assets render --force --collection ui-icons       # one collection
+# Headless render (incremental: unchanged templates are skipped via assets.lock)
+open-assets render                                      # everything, at every export size
+open-assets render --template log-out                   # one template only
+open-assets render --collection ui-icons               # one collection
 open-assets render --collection screenshots --size iphone-6.9
-open-assets render --force                              # everything — slow, use only for global rebuilds
+open-assets render --force                              # re-render everything, ignoring the cache
 ```
 
 ## Concepts
@@ -43,7 +44,7 @@ The `assets.json` at the project root defines all asset collections. All collect
   "version": 1,
   "name": "App Display Name",
   "publicDir": "public",
-  "command": "npx open-assets render --force",
+  "command": "npx open-assets render",
   "collections": [
     {
       "id": "unique-id",
@@ -76,7 +77,7 @@ The `assets.json` at the project root defines all asset collections. All collect
 
 ### Output Types
 
-Export entries with a `type` field are post-render actions (run with `--force`):
+Export entries with a `type` field are post-render actions that run after every render:
 
 | Type | Config | Description |
 |------|--------|-------------|
@@ -195,32 +196,32 @@ Export entries with a `type` field are post-render actions (run with `--force`):
 | `--template <name>` | Render only the template with this name |
 | `--size <name>` | Use a named export size from config |
 | `--locale <code>` | Render only this locale (e.g. `en`, `ar`, `ja`) |
-| `-f, --force` | Export at every size and re-render all (ignores cache) |
+| `-f, --force` | Re-render everything, ignoring the incremental cache |
 | `-o, --output <dir>` | Output directory (default: `./exports`) |
 | `--json` | Output results as JSON |
 | `-q, --quiet` | Suppress progress logs |
 
 Flags compose naturally:
 - `--collection screenshots --template 01-hero --size iphone-6.9` → single template, single size
-- `--collection screenshots --template 01-hero --force` → one template, all sizes
+- `--collection screenshots --template 01-hero` → one template, all sizes
 - `--collection screenshots --size iphone-6.9` → all templates, one size
 
 #### Performance: prefer targeted renders when iterating
 
-A bare `render --force` re-renders **every collection** in `assets.json` (icons, splash, badges, screenshots, etc.) — this can take minutes on a project with many collections. When you're iterating on a single asset, scope the render:
+A plain `render` is incremental: unchanged templates are skipped via `assets.lock`, so it is usually fast. But `--force` re-renders **every collection** in `assets.json` (icons, splash, badges, screenshots, etc.), which can take minutes on a project with many collections. When you're iterating on a single asset, scope the render:
 
 ```bash
-# Iterating on one icon — ~5–10s
-open-assets render --force --template log-out
+# Iterating on one icon (fastest)
+open-assets render --template log-out
 
-# Iterating on one collection — moderate
-open-assets render --force --collection ui-icons
+# Iterating on one collection
+open-assets render --collection ui-icons
 
-# Full re-render — only when you intentionally changed everything
+# Re-render everything, ignoring the cache
 open-assets render --force
 ```
 
-Rule of thumb: if you just edited one SVG/HTML, use `--template <name>`. If you added a new template to a collection or changed shared CSS, use `--collection <id>`. Reserve a bare `--force` for rare global rebuilds.
+Rule of thumb: plain `render` is the default; it only re-renders what changed. Add `--template <name>` or `--collection <id>` to scope further. Reserve `--force` for when the cache must be bypassed: changed shared CSS, changed images in `publicDir`, or a rare global rebuild.
 
 ### add commands
 
@@ -467,13 +468,13 @@ With `outFile`, use the `{locale}` template variable:
 
 ```bash
 # Render all locales for a collection
-open-assets render --collection screenshots --force
+open-assets render --collection screenshots
 
 # Render only Arabic
-open-assets render --collection screenshots --force --locale ar
+open-assets render --collection screenshots --locale ar
 
 # Render a single template in Japanese
-open-assets render --collection screenshots --template 01-hero --locale ja --force
+open-assets render --collection screenshots --template 01-hero --locale ja
 ```
 
 ### Locale fallback order
