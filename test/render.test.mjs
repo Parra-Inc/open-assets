@@ -88,6 +88,23 @@ describe("renderAssets", () => {
     expect(result.results.every((r) => r.template === "icon" || r.template === undefined)).toBe(true);
   });
 
+  test("--template filter keeps the multi-template output layout", async () => {
+    const deps = createMockDeps();
+    const outputDir = join(tmpDir, "exports");
+    const result = await renderAssets(tmpDir, validManifest, {
+      output: outputDir, collection: "screenshots", template: "hero",
+    }, deps);
+
+    // Filtering a 2-template collection down to 1 must not switch to the
+    // flat single-template layout: paths stay exports/{col}/{size}/{template}.png
+    const renders = result.results.filter((r) => r.template === "hero");
+    expect(renders).toHaveLength(3);
+    for (const r of renders) {
+      expect(r.path).toBe(join(outputDir, "screenshots", `${r.width}x${r.height}`, "hero.png"));
+      expect(existsSync(r.path)).toBe(true);
+    }
+  });
+
   test("--size renders at named size", async () => {
     const deps = createMockDeps();
     const outputDir = join(tmpDir, "exports");
