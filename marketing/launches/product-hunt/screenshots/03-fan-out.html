@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      width: 1270px;
+      height: 760px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0b081c 0%, #140e33 55%, #0e0a26 100%);
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      position: relative;
+    }
+    .grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: radial-gradient(ellipse 90% 80% at 50% 45%, black 40%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 45%, black 40%, transparent 100%);
+    }
+    .glow { position: absolute; top: 55%; left: 50%; width: 1000px; height: 600px; transform: translate(-50%, -50%); background: radial-gradient(ellipse at center, rgba(93, 63, 211, 0.15) 0%, transparent 70%); }
+    .vignette { position: absolute; inset: 0; background: radial-gradient(ellipse 120% 110% at 50% 50%, transparent 55%, rgba(5, 3, 14, 0.55) 100%); }
+
+    .header { position: absolute; top: 60px; left: 0; width: 100%; text-align: center; z-index: 2; }
+    .kicker {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px; font-weight: 600; letter-spacing: 3.5px;
+      color: #a78bfa; text-transform: uppercase; margin-bottom: 16px;
+    }
+    .headline { font-size: 52px; font-weight: 800; color: #fff; letter-spacing: -1.8px; line-height: 1.05; }
+    .sub { font-size: 20px; color: rgba(255,255,255,0.6); margin-top: 12px; }
+    .sub strong { color: rgba(255,255,255,0.9); font-weight: 600; }
+
+    .layout {
+      position: absolute; top: 250px; left: 90px; right: 90px;
+      display: flex; align-items: center; gap: 0;
+      z-index: 1;
+    }
+
+    /* Source template card */
+    .code-card {
+      width: 280px; flex-shrink: 0;
+      border-radius: 16px;
+      background: linear-gradient(170deg, #1c1638 0%, #171130 100%);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5), 0 6px 20px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+    }
+    .code-chrome {
+      display: flex; align-items: center; gap: 8px;
+      padding: 13px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      background: rgba(255, 255, 255, 0.025);
+    }
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dot-r { background: #f66; opacity: 0.85; }
+    .dot-y { background: #fb5; opacity: 0.85; }
+    .dot-g { background: #5c7; opacity: 0.85; }
+    .code-filename { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; font-weight: 500; color: rgba(255, 255, 255, 0.5); margin-left: 4px; }
+    .code-body { padding: 18px 20px 20px; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.9; white-space: pre; }
+    .c-tag { color: #7dd3fc; }
+    .c-attr { color: #c4b5fd; }
+    .c-str { color: #86efac; }
+    .c-txt { color: rgba(255, 255, 255, 0.88); font-weight: 600; }
+    .c-dim { color: rgba(255, 255, 255, 0.35); }
+    .src-label {
+      text-align: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; letter-spacing: 1.2px;
+      color: rgba(255, 255, 255, 0.42);
+      margin-top: 14px; text-transform: uppercase;
+    }
+    .src-wrap { flex-shrink: 0; }
+
+    /* Connectors */
+    .flow {
+      flex: 1; height: 340px; position: relative; margin: 0 -6px;
+    }
+
+    /* Destination cards */
+    .dests { width: 560px; flex-shrink: 0; display: flex; flex-direction: column; gap: 14px; }
+    .dest {
+      display: flex; align-items: center; gap: 16px;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      border-radius: 14px;
+      padding: 14px 18px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    .dest-icon {
+      width: 42px; height: 42px; border-radius: 11px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 19px;
+    }
+    .di-store { background: rgba(124, 92, 191, 0.25); border: 1px solid rgba(167, 139, 250, 0.3); }
+    .di-xcode { background: rgba(56, 189, 248, 0.16); border: 1px solid rgba(125, 211, 252, 0.3); }
+    .di-web { background: rgba(134, 239, 172, 0.13); border: 1px solid rgba(134, 239, 172, 0.3); }
+    .di-og { background: rgba(245, 166, 35, 0.14); border: 1px solid rgba(245, 166, 35, 0.35); }
+    .dest-copy { flex: 1; }
+    .dest-title { font-size: 16.5px; font-weight: 700; color: #fff; letter-spacing: -0.2px; margin-bottom: 3px; }
+    .dest-path { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: rgba(255, 255, 255, 0.45); }
+    .dest-sizes {
+      display: flex; gap: 6px; flex-shrink: 0;
+    }
+    .size-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 600;
+      color: rgba(255, 255, 255, 0.6);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: 100px; padding: 4px 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="glow"></div>
+
+  <div class="header">
+    <div class="kicker">One source of truth</div>
+    <div class="headline">One template. Every size. Every destination.</div>
+    <div class="sub">Change the file once, run <strong>npx open-assets render</strong>, and everywhere updates.</div>
+  </div>
+
+  <div class="layout">
+    <div class="src-wrap">
+      <div class="code-card">
+        <div class="code-chrome">
+          <div class="dot dot-r"></div>
+          <div class="dot dot-y"></div>
+          <div class="dot dot-g"></div>
+          <div class="code-filename">icon.html</div>
+        </div>
+        <div class="code-body"><span class="c-tag">&lt;div</span> <span class="c-attr">class</span><span class="c-dim">=</span><span class="c-str">"icon"</span><span class="c-tag">&gt;</span>
+  <span class="c-tag">&lt;div</span> <span class="c-attr">class</span><span class="c-dim">=</span><span class="c-str">"sun"</span><span class="c-tag">/&gt;</span>
+  <span class="c-tag">&lt;div</span> <span class="c-attr">class</span><span class="c-dim">=</span><span class="c-str">"peaks"</span><span class="c-tag">/&gt;</span>
+<span class="c-tag">&lt;/div&gt;</span></div>
+      </div>
+      <div class="src-label">The only file you edit</div>
+    </div>
+
+    <div class="flow">
+      <svg width="100%" height="340" viewBox="0 0 240 340" fill="none" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="fan" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="rgba(167,139,250,0.08)" />
+            <stop offset="1" stop-color="rgba(167,139,250,0.75)" />
+          </linearGradient>
+        </defs>
+        <path d="M 0 170 C 110 170, 130 44, 236 44" stroke="url(#fan)" stroke-width="1.5" />
+        <path d="M 0 170 C 110 170, 130 128, 236 128" stroke="url(#fan)" stroke-width="1.5" />
+        <path d="M 0 170 C 110 170, 130 212, 236 212" stroke="url(#fan)" stroke-width="1.5" />
+        <path d="M 0 170 C 110 170, 130 296, 236 296" stroke="url(#fan)" stroke-width="1.5" />
+        <circle cx="236" cy="44" r="3.5" fill="#a78bfa" />
+        <circle cx="236" cy="128" r="3.5" fill="#a78bfa" />
+        <circle cx="236" cy="212" r="3.5" fill="#a78bfa" />
+        <circle cx="236" cy="296" r="3.5" fill="#a78bfa" />
+      </svg>
+    </div>
+
+    <div class="dests">
+      <div class="dest">
+        <div class="dest-icon di-store">📱</div>
+        <div class="dest-copy">
+          <div class="dest-title">App Store &amp; Play Store</div>
+          <div class="dest-path">exports/screenshots/{size}/…</div>
+        </div>
+        <div class="dest-sizes">
+          <div class="size-pill">6.9"</div>
+          <div class="size-pill">6.7"</div>
+          <div class="size-pill">iPad</div>
+          <div class="size-pill">1080×1920</div>
+        </div>
+      </div>
+      <div class="dest">
+        <div class="dest-icon di-xcode">🛠</div>
+        <div class="dest-copy">
+          <div class="dest-title">Xcode asset catalog</div>
+          <div class="dest-path">MyApp/Assets.xcassets/AppIcon.appiconset</div>
+        </div>
+        <div class="dest-sizes">
+          <div class="size-pill">1024</div>
+          <div class="size-pill">180</div>
+          <div class="size-pill">120</div>
+        </div>
+      </div>
+      <div class="dest">
+        <div class="dest-icon di-web">🌐</div>
+        <div class="dest-copy">
+          <div class="dest-title">Your web app</div>
+          <div class="dest-path">public/favicon.png · public/apple-touch-icon.png</div>
+        </div>
+        <div class="dest-sizes">
+          <div class="size-pill">32</div>
+          <div class="size-pill">180</div>
+        </div>
+      </div>
+      <div class="dest">
+        <div class="dest-icon di-og">🔗</div>
+        <div class="dest-copy">
+          <div class="dest-title">Social cards</div>
+          <div class="dest-path">exports/og/… · 1200×630</div>
+        </div>
+        <div class="dest-sizes">
+          <div class="size-pill">OG</div>
+          <div class="size-pill">Banner</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="vignette"></div>
+</body>
+</html>

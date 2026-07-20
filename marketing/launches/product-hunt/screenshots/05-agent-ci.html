@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      width: 1270px;
+      height: 760px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0b081c 0%, #140e33 55%, #0e0a26 100%);
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      position: relative;
+    }
+    .grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: radial-gradient(ellipse 90% 80% at 50% 45%, black 40%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 45%, black 40%, transparent 100%);
+    }
+    .glow-l { position: absolute; top: 55%; left: 8%; width: 640px; height: 500px; transform: translateY(-50%); background: radial-gradient(ellipse at center, rgba(217, 119, 87, 0.1) 0%, transparent 68%); }
+    .glow-r { position: absolute; top: 55%; right: 2%; width: 640px; height: 500px; transform: translateY(-50%); background: radial-gradient(ellipse at center, rgba(93, 63, 211, 0.16) 0%, transparent 70%); }
+    .vignette { position: absolute; inset: 0; background: radial-gradient(ellipse 120% 110% at 50% 50%, transparent 55%, rgba(5, 3, 14, 0.55) 100%); }
+
+    .header { position: absolute; top: 58px; left: 0; width: 100%; text-align: center; z-index: 2; }
+    .kicker {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px; font-weight: 600; letter-spacing: 3.5px;
+      color: #a78bfa; text-transform: uppercase; margin-bottom: 16px;
+    }
+    .headline { font-size: 52px; font-weight: 800; color: #fff; letter-spacing: -1.8px; line-height: 1.05; }
+    .sub { font-size: 20px; color: rgba(255,255,255,0.6); margin-top: 12px; }
+    .sub strong { color: rgba(255,255,255,0.9); font-weight: 600; }
+
+    .cols {
+      position: absolute; top: 248px; left: 90px; right: 90px;
+      display: flex; gap: 40px; align-items: stretch;
+      z-index: 1;
+    }
+
+    .card {
+      flex: 1;
+      border-radius: 16px;
+      background: linear-gradient(170deg, #1a1434 0%, #151027 100%);
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5), 0 6px 20px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+      overflow: hidden;
+      display: flex; flex-direction: column;
+    }
+    .card-chrome {
+      display: flex; align-items: center; gap: 8px;
+      padding: 13px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      background: rgba(255, 255, 255, 0.025);
+    }
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dot-r { background: #f66; opacity: 0.85; }
+    .dot-y { background: #fb5; opacity: 0.85; }
+    .dot-g { background: #5c7; opacity: 0.85; }
+    .card-name { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; font-weight: 500; color: rgba(255, 255, 255, 0.5); margin-left: 4px; }
+    .card-tag {
+      margin-left: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9.5px; font-weight: 600; letter-spacing: 0.8px;
+      border-radius: 100px; padding: 3px 10px;
+    }
+    .tag-agent { color: #fca5a5; background: rgba(217, 119, 87, 0.14); border: 1px solid rgba(217, 119, 87, 0.4); }
+    .tag-ci { color: #86efac; background: rgba(134, 239, 172, 0.1); border: 1px solid rgba(134, 239, 172, 0.35); }
+
+    .card-body { padding: 20px 22px; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 2.0; flex: 1; }
+    .card-body.pre { white-space: pre; }
+
+    .u-msg {
+      font-family: 'Inter', sans-serif;
+      font-size: 14.5px; line-height: 1.55; font-weight: 500;
+      color: rgba(255, 255, 255, 0.88);
+      background: rgba(124, 92, 191, 0.16);
+      border: 1px solid rgba(167, 139, 250, 0.25);
+      border-radius: 12px;
+      padding: 13px 16px;
+      margin-bottom: 16px;
+    }
+    .a-step { display: flex; align-items: center; gap: 10px; font-size: 12.5px; color: rgba(255, 255, 255, 0.62); margin-bottom: 10px; }
+    .a-check { color: #86efac; }
+    .a-spin { color: #d97757; }
+    .a-file { color: #c4b5fd; }
+    .a-dim { color: rgba(255, 255, 255, 0.35); }
+
+    .yaml-key { color: #7dd3fc; }
+    .yaml-str { color: #86efac; }
+    .yaml-dim { color: rgba(255, 255, 255, 0.38); }
+    .out-ok { color: #86efac; }
+    .out-skip { color: rgba(255, 255, 255, 0.4); }
+    .out-strong { color: rgba(255, 255, 255, 0.88); font-weight: 600; }
+
+    .card-foot {
+      font-family: 'Inter', sans-serif;
+      font-size: 13.5px; font-weight: 500;
+      color: rgba(255, 255, 255, 0.55);
+      padding: 14px 22px;
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .card-foot strong { color: rgba(255, 255, 255, 0.88); font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="glow-l"></div>
+  <div class="glow-r"></div>
+
+  <div class="header">
+    <div class="kicker">Agent native · CI friendly</div>
+    <div class="headline">Your agent designs it. Your CI renders it.</div>
+    <div class="sub">Ships a <strong>Claude Code skill</strong>. Checksummed renders keep CI fast.</div>
+  </div>
+
+  <div class="cols">
+    <div class="card">
+      <div class="card-chrome">
+        <div class="dot dot-r"></div>
+        <div class="dot dot-y"></div>
+        <div class="dot dot-g"></div>
+        <div class="card-name">claude</div>
+        <div class="card-tag tag-agent">AGENT</div>
+      </div>
+      <div class="card-body">
+        <div class="u-msg">Design 8 high-converting App Store screenshots for this app. Bold headlines, phone mockups, close with reviews and a CTA.</div>
+        <div class="a-step"><span class="a-check">✓</span>Read assets.json <span class="a-dim">· 5 collections</span></div>
+        <div class="a-step"><span class="a-check">✓</span>Wrote <span class="a-file">01-hero.html</span></div>
+        <div class="a-step"><span class="a-check">✓</span>Wrote <span class="a-file">02-features.html</span> <span class="a-dim">… 08-cta.html</span></div>
+        <div class="a-step"><span class="a-spin">◐</span>npx open-assets render <span class="a-dim">· 32 exports</span></div>
+      </div>
+      <div class="card-foot">Install once: <strong>npx open-assets skills</strong></div>
+    </div>
+
+    <div class="card">
+      <div class="card-chrome">
+        <div class="dot dot-r"></div>
+        <div class="dot dot-y"></div>
+        <div class="dot dot-g"></div>
+        <div class="card-name">.github/workflows/assets.yml</div>
+        <div class="card-tag tag-ci">CI</div>
+      </div>
+      <div class="card-body pre"><span class="yaml-key">on</span><span class="yaml-dim">:</span> <span class="yaml-key">push</span>
+<span class="yaml-key">steps</span><span class="yaml-dim">:</span>
+<span class="yaml-dim">  -</span> <span class="yaml-key">run</span><span class="yaml-dim">:</span> <span class="yaml-str">npx open-assets render</span>
+
+<span class="out-skip">Skipping 01-hero (unchanged)</span>
+<span class="out-skip">Skipping 02-features (unchanged)</span>
+<span class="out-ok">Rendering 03-reviews…</span>
+<span class="out-strong">1 rendered, 31 skipped in 1.2s</span></div>
+      <div class="card-foot"><strong>assets.lock</strong> checksums every source, so PRs diff screenshots like code</div>
+    </div>
+  </div>
+
+  <div class="vignette"></div>
+</body>
+</html>

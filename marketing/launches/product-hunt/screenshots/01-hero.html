@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      width: 1270px;
+      height: 760px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0b081c 0%, #140e33 55%, #0e0a26 100%);
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      position: relative;
+    }
+
+    .grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: radial-gradient(ellipse 90% 80% at 50% 45%, black 40%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 45%, black 40%, transparent 100%);
+    }
+    .glow-left {
+      position: absolute; top: 48%; left: 6%;
+      width: 720px; height: 520px;
+      background: radial-gradient(ellipse at center, rgba(124, 92, 191, 0.16) 0%, transparent 68%);
+      transform: translateY(-50%);
+    }
+    .glow-right {
+      position: absolute; top: 52%; right: -6%;
+      width: 660px; height: 580px;
+      background: radial-gradient(ellipse at center, rgba(93, 63, 211, 0.18) 0%, transparent 70%);
+      transform: translateY(-50%);
+    }
+    .vignette {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 120% 110% at 50% 50%, transparent 55%, rgba(5, 3, 14, 0.55) 100%);
+    }
+
+    .copy {
+      position: absolute;
+      left: 84px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 520px;
+      z-index: 2;
+    }
+    .kicker {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px; font-weight: 600; letter-spacing: 3.5px;
+      color: #a78bfa; text-transform: uppercase; margin-bottom: 24px;
+    }
+    .kicker-dash { width: 26px; height: 1px; background: linear-gradient(90deg, transparent, #a78bfa); }
+    .title {
+      font-size: 82px; font-weight: 800; color: #ffffff;
+      letter-spacing: -3px; line-height: 0.98; margin-bottom: 26px;
+    }
+    .subtitle {
+      font-size: 24px; font-weight: 400; color: rgba(255, 255, 255, 0.62);
+      letter-spacing: -0.2px; line-height: 1.5; max-width: 500px; margin-bottom: 38px;
+    }
+    .subtitle strong { color: rgba(255, 255, 255, 0.92); font-weight: 600; }
+    .terminal {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 18px; font-weight: 500; color: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px; padding: 15px 24px 15px 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+    .terminal .prompt { color: #86efac; }
+    .badges { display: flex; gap: 10px; margin-top: 26px; }
+    .badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px; font-weight: 600; letter-spacing: 0.8px;
+      color: rgba(255, 255, 255, 0.55);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 100px; padding: 6px 14px;
+    }
+
+    /* Right art: template fanning out */
+    .art { position: absolute; right: 30px; top: 40px; width: 620px; height: 680px; z-index: 1; }
+
+    .code-card {
+      position: absolute; left: 0; top: 250px; width: 218px;
+      border-radius: 14px;
+      background: linear-gradient(170deg, #1c1638 0%, #171130 100%);
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45), 0 4px 16px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+    }
+    .code-chrome {
+      display: flex; align-items: center; gap: 8px;
+      padding: 11px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      background: rgba(255, 255, 255, 0.025);
+    }
+    .dot { width: 9px; height: 9px; border-radius: 50%; }
+    .dot-r { background: #f66; opacity: 0.85; }
+    .dot-y { background: #fb5; opacity: 0.85; }
+    .dot-g { background: #5c7; opacity: 0.85; }
+    .code-filename { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 500; color: rgba(255, 255, 255, 0.5); margin-left: 4px; }
+    .code-body { padding: 14px 16px 16px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; line-height: 1.85; white-space: pre; }
+    .c-tag { color: #7dd3fc; }
+    .c-attr { color: #c4b5fd; }
+    .c-str { color: #86efac; }
+    .c-txt { color: rgba(255, 255, 255, 0.88); font-weight: 600; }
+    .c-dim { color: rgba(255, 255, 255, 0.35); }
+
+    .out-label {
+      position: absolute;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px; font-weight: 500; letter-spacing: 0.6px;
+      color: rgba(255, 255, 255, 0.42); white-space: nowrap;
+    }
+
+    .phone-stack { position: absolute; left: 392px; top: 80px; }
+    .phone-ghost {
+      position: absolute; width: 146px; height: 318px; border-radius: 22px;
+      border: 1.5px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.025);
+    }
+    .phone-ghost-1 { left: 26px; top: -14px; transform: rotate(3deg); }
+    .phone-ghost-2 { left: 14px; top: -7px; transform: rotate(1.5deg); opacity: 0.7; }
+    .phone {
+      position: relative; width: 146px; height: 318px; border-radius: 22px;
+      background: linear-gradient(175deg, #fdf6ec 0%, #f7ead8 100%);
+      border: 1.5px solid rgba(255, 255, 255, 0.28);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5), 0 6px 20px rgba(0, 0, 0, 0.35);
+      overflow: hidden; padding: 20px 14px 0;
+    }
+    .phone-headline { font-size: 19px; font-weight: 900; letter-spacing: -0.6px; line-height: 1.12; color: #1a1428; }
+    .phone-highlight { display: inline-block; background: #5b3f9e; color: #fff; padding: 1px 7px 3px; border-radius: 7px; margin-top: 3px; }
+    .phone-screen {
+      position: absolute; left: 16px; right: 16px; bottom: -12px; top: 92px;
+      border-radius: 18px 18px 0 0; background: #ffffff;
+      border: 3px solid #1a1428; border-bottom: none;
+      box-shadow: 0 -6px 24px rgba(26, 20, 40, 0.18);
+      padding: 12px 10px;
+    }
+    .app-row { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
+    .app-avatar { width: 16px; height: 16px; border-radius: 6px; background: linear-gradient(160deg, #7c5cbf, #5b3f9e); flex-shrink: 0; }
+    .app-line { height: 5px; border-radius: 3px; background: #e5ddf2; }
+    .app-card { border-radius: 8px; background: #f4f0fb; padding: 8px; margin-bottom: 6px; }
+    .app-card-tall { height: 52px; background: linear-gradient(160deg, #ece4fa, #f6f1fd); }
+
+    .icon-out {
+      position: absolute; left: 296px; top: 466px;
+      width: 92px; height: 92px; border-radius: 22px; overflow: hidden;
+      border: 1.5px solid rgba(255, 255, 255, 0.22);
+      box-shadow: 0 16px 44px rgba(0, 0, 0, 0.45), 0 4px 14px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(180deg, #2a1f5e 0%, #3d2b7a 30%, #5b3f9e 60%, #7c5cbf 100%);
+    }
+    .icon-sun {
+      position: absolute; top: 16px; left: 18px; width: 15px; height: 15px; border-radius: 50%;
+      background: radial-gradient(circle at 40% 40%, #ffd86e, #f5a623 60%, #e8832a);
+      box-shadow: 0 0 12px rgba(255, 200, 60, 0.5);
+    }
+    .icon-mtn-back { position: absolute; bottom: 0; left: 0; width: 100%; height: 42px; background: rgba(255, 255, 255, 0.18); clip-path: polygon(40% 0%, 0% 100%, 80% 100%); }
+    .icon-mtn-front { position: absolute; bottom: 0; left: 0; width: 100%; height: 34px; background: rgba(255, 255, 255, 0.3); clip-path: polygon(70% 0%, 30% 100%, 110% 100%); }
+
+    .og-out {
+      position: absolute; left: 424px; top: 480px; width: 190px; height: 100px;
+      border-radius: 12px;
+      background: linear-gradient(150deg, #241b4d 0%, #180f38 100%);
+      border: 1.5px solid rgba(255, 255, 255, 0.16);
+      box-shadow: 0 16px 44px rgba(0, 0, 0, 0.45), 0 4px 14px rgba(0, 0, 0, 0.3);
+      padding: 16px 16px 0; overflow: hidden;
+    }
+    .og-mark { width: 20px; height: 20px; border-radius: 6px; background: linear-gradient(160deg, #7c5cbf, #5b3f9e); margin-bottom: 10px; position: relative; overflow: hidden; }
+    .og-mark::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 9px; background: rgba(255, 255, 255, 0.35); clip-path: polygon(50% 0%, 10% 100%, 95% 100%); }
+    .og-line { height: 7px; border-radius: 4px; background: rgba(255, 255, 255, 0.85); margin-bottom: 6px; }
+    .og-line-2 { width: 65%; opacity: 0.35; }
+
+    .favicon-row { position: absolute; left: 52px; top: 508px; display: flex; align-items: flex-end; gap: 10px; }
+    .fav {
+      border-radius: 26%; overflow: hidden; position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      background: linear-gradient(180deg, #2a1f5e 0%, #3d2b7a 30%, #5b3f9e 60%, #7c5cbf 100%);
+    }
+    .fav-48 { width: 48px; height: 48px; }
+    .fav-32 { width: 32px; height: 32px; }
+    .fav-20 { width: 20px; height: 20px; }
+    .fav-mtn { position: absolute; bottom: 0; left: 0; width: 100%; height: 40%; background: rgba(255, 255, 255, 0.28); clip-path: polygon(55% 0%, 10% 100%, 100% 100%); }
+    .fav-dot { position: absolute; top: 18%; left: 20%; width: 18%; height: 18%; border-radius: 50%; background: radial-gradient(circle at 40% 40%, #ffd86e, #f5a623 70%); }
+
+    .locales { position: absolute; left: 392px; top: 434px; display: flex; gap: 6px; }
+    .locale-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9.5px; font-weight: 600; letter-spacing: 0.5px;
+      color: rgba(255, 255, 255, 0.55);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 100px; padding: 3px 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="glow-left"></div>
+  <div class="glow-right"></div>
+
+  <div class="copy">
+    <div class="kicker">Marketing assets as code<span class="kicker-dash"></span></div>
+    <div class="title">Open Assets</div>
+    <div class="subtitle"><strong>One source of truth for your app's screenshots, icons, and favicons.</strong> Design in HTML, render at every size, export everywhere.</div>
+    <div class="terminal"><span class="prompt">$</span>npx open-assets render</div>
+    <div class="badges">
+      <div class="badge">MIT</div>
+      <div class="badge">LOCAL</div>
+      <div class="badge">OPEN SOURCE</div>
+    </div>
+  </div>
+
+  <div class="art">
+    <svg class="connectors" width="620" height="680" viewBox="0 0 620 680" fill="none" style="position:absolute;inset:0;pointer-events:none;">
+      <defs>
+        <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="rgba(167,139,250,0.05)" />
+          <stop offset="0.5" stop-color="rgba(167,139,250,0.45)" />
+          <stop offset="1" stop-color="rgba(167,139,250,0.7)" />
+        </linearGradient>
+        <linearGradient id="lineDown" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="rgba(167,139,250,0.05)" />
+          <stop offset="1" stop-color="rgba(167,139,250,0.7)" />
+        </linearGradient>
+      </defs>
+      <path d="M 218 326 C 300 326, 310 238, 388 238" stroke="url(#line)" stroke-width="1.5" />
+      <path d="M 218 350 C 268 354, 250 504, 292 510" stroke="url(#line)" stroke-width="1.5" />
+      <path d="M 218 338 C 330 344, 340 526, 420 528" stroke="url(#line)" stroke-width="1.5" />
+      <path d="M 110 390 C 108 434, 106 470, 104 500" stroke="url(#lineDown)" stroke-width="1.5" />
+      <circle cx="388" cy="238" r="3" fill="#a78bfa" opacity="0.9" />
+      <circle cx="292" cy="510" r="3" fill="#a78bfa" opacity="0.9" />
+      <circle cx="420" cy="528" r="3" fill="#a78bfa" opacity="0.9" />
+      <circle cx="104" cy="502" r="3" fill="#a78bfa" opacity="0.9" />
+    </svg>
+
+    <div class="code-card">
+      <div class="code-chrome">
+        <div class="dot dot-r"></div>
+        <div class="dot dot-y"></div>
+        <div class="dot dot-g"></div>
+        <div class="code-filename">01-hero.html</div>
+      </div>
+      <div class="code-body"><span class="c-tag">&lt;h1</span> <span class="c-attr">class</span><span class="c-dim">=</span><span class="c-str">"hero"</span><span class="c-tag">&gt;</span>
+  <span class="c-txt">{{headline}}</span>
+<span class="c-tag">&lt;/h1&gt;</span>
+<span class="c-tag">&lt;img</span> <span class="c-attr">src</span><span class="c-dim">=</span><span class="c-str">"app.png"</span><span class="c-tag">/&gt;</span></div>
+    </div>
+
+    <div class="phone-stack">
+      <div class="phone-ghost phone-ghost-1"></div>
+      <div class="phone-ghost phone-ghost-2"></div>
+      <div class="phone">
+        <div class="phone-headline">Hello, <span class="phone-highlight">App Store</span></div>
+        <div class="phone-screen">
+          <div class="app-row">
+            <div class="app-avatar"></div>
+            <div class="app-line" style="width: 60%;"></div>
+          </div>
+          <div class="app-card app-card-tall"></div>
+          <div class="app-card">
+            <div class="app-line" style="width: 80%; margin-bottom: 5px;"></div>
+            <div class="app-line" style="width: 50%;"></div>
+          </div>
+          <div class="app-card">
+            <div class="app-line" style="width: 70%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="out-label" style="left: 392px; top: 410px;">iphone-6.9 · 1320×2868</div>
+    <div class="locales">
+      <div class="locale-pill">EN</div>
+      <div class="locale-pill">日本語</div>
+      <div class="locale-pill">عربي</div>
+      <div class="locale-pill">+33</div>
+    </div>
+
+    <div class="icon-out">
+      <div class="icon-sun"></div>
+      <div class="icon-mtn-back"></div>
+      <div class="icon-mtn-front"></div>
+    </div>
+    <div class="out-label" style="left: 296px; top: 570px;">AppIcon · 1024</div>
+
+    <div class="favicon-row">
+      <div class="fav fav-48"><div class="fav-dot"></div><div class="fav-mtn"></div></div>
+      <div class="fav fav-32"><div class="fav-dot"></div><div class="fav-mtn"></div></div>
+      <div class="fav fav-20"><div class="fav-dot"></div><div class="fav-mtn"></div></div>
+    </div>
+    <div class="out-label" style="left: 52px; top: 570px;">favicon · 48 · 32 · 16</div>
+
+    <div class="og-out">
+      <div class="og-mark"></div>
+      <div class="og-line" style="width: 85%;"></div>
+      <div class="og-line og-line-2"></div>
+    </div>
+    <div class="out-label" style="left: 424px; top: 592px;">og · 1200×630</div>
+  </div>
+
+  <div class="vignette"></div>
+</body>
+</html>
