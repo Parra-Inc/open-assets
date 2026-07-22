@@ -1,0 +1,35 @@
+{
+  "name": "open-assets",
+  "owner": {
+    "name": "Parra Inc",
+    "url": "https://github.com/Parra-Inc"
+  },
+  "description": "Marketplace for the open-assets Claude Code plugin: generate and manage app marketing assets (screenshots, icons, logos) using HTML/Tailwind.",
+  "plugins": [
+    {
+      "name": "open-assets",
+      "source": "./",
+      "displayName": "Open Assets",
+      "description": "Generate and manage app marketing assets (screenshots, icons, logos) using HTML/Tailwind with open-assets",
+      "version": "0.4.0",
+      "author": {
+        "name": "Parra Inc",
+        "url": "https://github.com/Parra-Inc"
+      },
+      "homepage": "https://openassets.dev",
+      "repository": "https://github.com/Parra-Inc/open-assets",
+      "license": "MIT",
+      "category": "design",
+      "keywords": [
+        "screenshots",
+        "app-store",
+        "assets",
+        "icons",
+        "logos",
+        "marketing",
+        "og-images",
+        "xcode"
+      ]
+    }
+  ]
+}
