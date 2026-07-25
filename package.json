@@ -40,7 +40,7 @@
   },
   "scripts": {
     "assets": "node bin/open-assets.mjs render --force -o ./public/img",
-    "test": "node --experimental-vm-modules node_modules/.bin/jest",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "release": "./scripts/release.sh"
   },
   "homepage": "https://openassets.dev",
