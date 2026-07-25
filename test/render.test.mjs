@@ -7,9 +7,14 @@ import { join } from "path";
 
 const FAKE_PNG = Buffer.from("fake-png-data");
 
+// Sum of all size variants across every renderVariants call
+function totalVariants(deps) {
+  return deps.renderVariants.mock.calls.reduce((n, call) => n + call[4].length, 0);
+}
+
 function createMockDeps(overrides = {}) {
   return {
-    renderScreenshot: jest.fn(async () => FAKE_PNG),
+    renderVariants: jest.fn(async (projDir, src, sw, sh, variants) => variants.map(() => FAKE_PNG)),
     runXcodeOutput: jest.fn(async (projDir, col, output) => join(projDir, output.path, "AppIcon.png")),
     closeBrowser: jest.fn(async () => {}),
     readLockfile: jest.fn(() => ({ version: 1, assets: {} })),
@@ -42,19 +47,34 @@ describe("renderAssets", () => {
     const outputDir = join(tmpDir, "exports");
     const result = await renderAssets(tmpDir, validManifest, { output: outputDir }, deps);
 
-    // icon: 2 templates x 4 sizes + screenshots: 2 templates x 3 sizes = 14 renders
-    expect(deps.renderScreenshot).toHaveBeenCalledTimes(14);
+    // One render unit per (template, locale): icon 2 + screenshots 2
+    expect(deps.renderVariants).toHaveBeenCalledTimes(4);
+    // icon: 2 templates x 4 sizes + screenshots: 2 templates x 3 sizes = 14 images
+    expect(totalVariants(deps)).toBe(14);
     // 14 renders + 1 xcode output
     expect(result.results).toHaveLength(15);
     expect(result.skipped).toBe(0);
 
-    // Icon templates rendered at the 1024 export size
-    expect(deps.renderScreenshot).toHaveBeenCalledWith(
-      tmpDir, "src/icon.html", 1024, 1024, 1024, 1024, { format: "png" }
+    // Icon templates render all 4 export sizes from one navigation
+    expect(deps.renderVariants).toHaveBeenCalledWith(
+      tmpDir, "src/icon.html", 1024, 1024,
+      [
+        { width: 1024, height: 1024, format: "png" },
+        { width: 180, height: 180, format: "png" },
+        { width: 512, height: 512, format: "png" },
+        { width: 192, height: 192, format: "png" },
+      ],
+      {}
     );
-    // Screenshot templates rendered at the 6.9" export size, scaled from source
-    expect(deps.renderScreenshot).toHaveBeenCalledWith(
-      tmpDir, "src/screenshot-hero.html", 1320, 2868, 440, 956, { format: "png" }
+    // Screenshot templates render every display size from one navigation
+    expect(deps.renderVariants).toHaveBeenCalledWith(
+      tmpDir, "src/screenshot-hero.html", 440, 956,
+      [
+        { width: 1320, height: 2868, format: "png" },
+        { width: 1290, height: 2796, format: "png" },
+        { width: 1080, height: 1920, format: "png" },
+      ],
+      {}
     );
   });
 
@@ -63,8 +83,9 @@ describe("renderAssets", () => {
     const outputDir = join(tmpDir, "exports");
     const result = await renderAssets(tmpDir, validManifest, { output: outputDir, collection: "icon" }, deps);
 
-    // Only icon templates: 2 templates x 4 sizes
-    expect(deps.renderScreenshot).toHaveBeenCalledTimes(8);
+    // Only icon templates: 2 units x 4 sizes
+    expect(deps.renderVariants).toHaveBeenCalledTimes(2);
+    expect(totalVariants(deps)).toBe(8);
     expect(result.results.every((r) => r.collection === "icon")).toBe(true);
   });
 
@@ -74,8 +95,9 @@ describe("renderAssets", () => {
     const result = await renderAssets(tmpDir, validManifest, { output: outputDir, tag: "marketing" }, deps);
 
     expect(result.results.every((r) => r.collection === "screenshots")).toBe(true);
-    // 2 screenshot templates x 3 sizes
-    expect(deps.renderScreenshot).toHaveBeenCalledTimes(6);
+    // 2 screenshot units x 3 sizes
+    expect(deps.renderVariants).toHaveBeenCalledTimes(2);
+    expect(totalVariants(deps)).toBe(6);
   });
 
   test("--template filter renders only matching template", async () => {
@@ -110,10 +132,9 @@ describe("renderAssets", () => {
     const outputDir = join(tmpDir, "exports");
     const result = await renderAssets(tmpDir, validManifest, { output: outputDir, collection: "icon", size: "512" }, deps);
 
-    expect(deps.renderScreenshot).toHaveBeenCalledTimes(2); // 2 templates at size 512
-    for (const call of deps.renderScreenshot.mock.calls) {
-      expect(call[2]).toBe(512); // width
-      expect(call[3]).toBe(512); // height
+    expect(deps.renderVariants).toHaveBeenCalledTimes(2); // 2 templates at size 512
+    for (const call of deps.renderVariants.mock.calls) {
+      expect(call[4]).toEqual([{ width: 512, height: 512, format: "png" }]);
     }
   });
 
@@ -124,10 +145,9 @@ describe("renderAssets", () => {
       output: outputDir, collection: "icon", width: 256, height: 256,
     }, deps);
 
-    expect(deps.renderScreenshot).toHaveBeenCalledTimes(2);
-    for (const call of deps.renderScreenshot.mock.calls) {
-      expect(call[2]).toBe(256);
-      expect(call[3]).toBe(256);
+    expect(deps.renderVariants).toHaveBeenCalledTimes(2);
+    for (const call of deps.renderVariants.mock.calls) {
+      expect(call[4]).toEqual([{ width: 256, height: 256, format: "png" }]);
     }
   });
 
@@ -142,7 +162,7 @@ describe("renderAssets", () => {
     }, deps);
     // 4 sizes x 2 templates all skipped; only the xcode output runs
     expect(resultNoForce.skipped).toBe(8);
-    expect(deps.renderScreenshot).not.toHaveBeenCalled();
+    expect(deps.renderVariants).not.toHaveBeenCalled();
     expect(resultNoForce.results.filter((r) => r.type !== "xcode")).toHaveLength(0);
 
     // With force: re-renders everything, ignoring the cache
@@ -155,7 +175,8 @@ describe("renderAssets", () => {
     }, deps2);
 
     // 4 sizes x 2 templates = 8 renders + 1 xcode output = 9 results
-    expect(deps2.renderScreenshot).toHaveBeenCalledTimes(8);
+    expect(deps2.renderVariants).toHaveBeenCalledTimes(2);
+    expect(totalVariants(deps2)).toBe(8);
     expect(result.skipped).toBe(0);
     expect(result.results).toHaveLength(9);
   });
@@ -252,7 +273,7 @@ describe("renderAssets", () => {
 
     // Should render, not skip
     expect(result.skipped).toBe(0);
-    expect(deps.renderScreenshot).toHaveBeenCalledTimes(8);
+    expect(totalVariants(deps)).toBe(8);
     // recordExport should be called with 6 args (including exportChecksum)
     expect(deps.recordExport).toHaveBeenCalledTimes(8);
     for (const call of deps.recordExport.mock.calls) {
@@ -327,8 +348,7 @@ describe("renderAssets", () => {
       }, deps);
 
       // Should have copy-source result
-      const copySvg = deps.renderScreenshot.mock.calls.length; // render calls
-      expect(copySvg).toBeGreaterThan(0);
+      expect(deps.renderVariants.mock.calls.length).toBeGreaterThan(0);
 
       // The copy-source output should copy the SVG (flat in collection dir)
       const svgCopyPath = join(outputDir, "logo", "logo.svg");
@@ -370,7 +390,7 @@ describe("renderAssets", () => {
 
     expect(deps.recordExport).not.toHaveBeenCalled();
     // But still renders
-    expect(deps.renderScreenshot).toHaveBeenCalledTimes(8);
+    expect(totalVariants(deps)).toBe(8);
   });
 
   test("outFile with {template} renders all templates to individual paths", async () => {
@@ -409,8 +429,9 @@ describe("renderAssets", () => {
         output: outputDir, force: true,
       }, deps);
 
-      // All 3 templates x 3 sizes = 9 renders
-      expect(deps.renderScreenshot).toHaveBeenCalledTimes(9);
+      // All 3 templates x 3 sizes = 9 renders across 3 units
+      expect(deps.renderVariants).toHaveBeenCalledTimes(3);
+      expect(totalVariants(deps)).toBe(9);
 
       // The outFile size should render each template to its own path
       const learnPath = join(tmp.dir, "output/tab-icons/learn.png");
@@ -436,7 +457,7 @@ describe("renderAssets", () => {
       output: outputDir, collection: "icon", size: "nonexistent",
     }, deps, (msg) => logs.push(msg));
 
-    expect(deps.renderScreenshot).not.toHaveBeenCalled();
+    expect(deps.renderVariants).not.toHaveBeenCalled();
     expect(logs.some((l) => l.includes("Warning"))).toBe(true);
   });
 });

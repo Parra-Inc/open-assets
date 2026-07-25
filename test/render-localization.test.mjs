@@ -9,7 +9,7 @@ const FAKE_PNG = Buffer.from("fake-png-data");
 
 function createMockDeps(overrides = {}) {
   return {
-    renderScreenshot: jest.fn(async () => FAKE_PNG),
+    renderVariants: jest.fn(async (projDir, src, sw, sh, variants) => variants.map(() => FAKE_PNG)),
     runXcodeOutput: jest.fn(async (projDir, col, output) => join(projDir, output.path, "AppIcon.png")),
     closeBrowser: jest.fn(async () => {}),
     readLockfile: jest.fn(() => ({ version: 1, assets: {} })),
@@ -112,8 +112,8 @@ describe("renderAssets with localizations", () => {
     const outputDir = join(tmpDir, "exports");
     const result = await renderAssets(tmpDir, localizedManifest, { output: outputDir, force: true }, deps);
 
-    // 3 locales (en, ar, ja) × 1 template × 1 size = 3 renders
-    expect(deps.renderScreenshot).toHaveBeenCalledTimes(3);
+    // 3 locales (en, ar, ja) × 1 template × 1 size = 3 render units
+    expect(deps.renderVariants).toHaveBeenCalledTimes(3);
     expect(result.results).toHaveLength(3);
 
     // Check locale is included in results
@@ -121,15 +121,15 @@ describe("renderAssets with localizations", () => {
     expect(localesRendered).toEqual(["ar", "en", "ja"]);
   });
 
-  test("passes localization options to renderScreenshot", async () => {
+  test("passes localization options to renderVariants", async () => {
     setupProject(localizedManifest);
     const deps = createMockDeps();
     const outputDir = join(tmpDir, "exports");
     await renderAssets(tmpDir, localizedManifest, { output: outputDir, force: true }, deps);
 
-    // Check that renderScreenshot was called with localization option
-    for (const call of deps.renderScreenshot.mock.calls) {
-      const options = call[6]; // 7th arg is options
+    // Check that renderVariants was called with localization option
+    for (const call of deps.renderVariants.mock.calls) {
+      const options = call[5]; // 6th arg is options
       expect(options.localization).toBeDefined();
       expect(options.localization.locale).toBeDefined();
       expect(options.localization.direction).toBeDefined();
@@ -137,16 +137,16 @@ describe("renderAssets with localizations", () => {
     }
 
     // Verify Arabic gets RTL direction
-    const arCall = deps.renderScreenshot.mock.calls.find(
-      (call) => call[6].localization.locale === "ar"
+    const arCall = deps.renderVariants.mock.calls.find(
+      (call) => call[5].localization.locale === "ar"
     );
-    expect(arCall[6].localization.direction).toBe("rtl");
+    expect(arCall[5].localization.direction).toBe("rtl");
 
     // Verify English gets LTR direction
-    const enCall = deps.renderScreenshot.mock.calls.find(
-      (call) => call[6].localization.locale === "en"
+    const enCall = deps.renderVariants.mock.calls.find(
+      (call) => call[5].localization.locale === "en"
     );
-    expect(enCall[6].localization.direction).toBe("ltr");
+    expect(enCall[5].localization.direction).toBe("ltr");
   });
 
   test("--locale flag filters to a single locale", async () => {
@@ -155,7 +155,7 @@ describe("renderAssets with localizations", () => {
     const outputDir = join(tmpDir, "exports");
     const result = await renderAssets(tmpDir, localizedManifest, { output: outputDir, force: true, locale: "ar" }, deps);
 
-    expect(deps.renderScreenshot).toHaveBeenCalledTimes(1);
+    expect(deps.renderVariants).toHaveBeenCalledTimes(1);
     expect(result.results).toHaveLength(1);
     expect(result.results[0].locale).toBe("ar");
   });
@@ -166,7 +166,7 @@ describe("renderAssets with localizations", () => {
     const outputDir = join(tmpDir, "exports");
     const result = await renderAssets(tmpDir, localizedManifest, { output: outputDir, force: true, locale: "xx" }, deps);
 
-    expect(deps.renderScreenshot).not.toHaveBeenCalled();
+    expect(deps.renderVariants).not.toHaveBeenCalled();
     expect(result.results).toHaveLength(0);
   });
 
@@ -177,7 +177,7 @@ describe("renderAssets with localizations", () => {
     const result = await renderAssets(tmpDir, localizedManifestFiltered, { output: outputDir, force: true }, deps);
 
     // Only en and ar (not ja)
-    expect(deps.renderScreenshot).toHaveBeenCalledTimes(2);
+    expect(deps.renderVariants).toHaveBeenCalledTimes(2);
     const localesRendered = result.results.map((r) => r.locale).sort();
     expect(localesRendered).toEqual(["ar", "en"]);
   });
@@ -213,8 +213,11 @@ describe("renderAssets with localizations", () => {
     const outputDir = join(tmpDir, "exports");
     const result = await renderAssets(tmpDir, localizedManifestMultiTemplate, { output: outputDir, force: true }, deps);
 
-    // 3 locales × 2 templates × 2 sizes = 12 renders
-    expect(deps.renderScreenshot).toHaveBeenCalledTimes(12);
+    // 3 locales × 2 templates = 6 units × 2 sizes = 12 renders
+    expect(deps.renderVariants).toHaveBeenCalledTimes(6);
+    expect(
+      deps.renderVariants.mock.calls.reduce((n, call) => n + call[4].length, 0)
+    ).toBe(12);
     expect(result.results).toHaveLength(12);
   });
 
@@ -249,8 +252,8 @@ describe("renderAssets with localizations", () => {
     expect(result.results).toHaveLength(1);
     expect(result.results[0].locale).toBeUndefined();
 
-    // renderScreenshot should NOT receive localization option
-    const options = deps.renderScreenshot.mock.calls[0][6];
+    // renderVariants should NOT receive localization option
+    const options = deps.renderVariants.mock.calls[0][5];
     expect(options.localization).toBeUndefined();
   });
 

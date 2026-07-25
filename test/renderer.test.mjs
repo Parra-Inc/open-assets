@@ -14,6 +14,8 @@ function createMockPage() {
     evaluate: jest.fn(async () => {}),
     screenshot: jest.fn(async () => FAKE_PNG),
     close: jest.fn(async () => {}),
+    isClosed: jest.fn(() => false),
+    browser: jest.fn(() => null), // wired to the browser in launch()
   };
 }
 
@@ -32,15 +34,24 @@ jest.unstable_mockModule("puppeteer", () => ({
   launch: jest.fn(async () => {
     mockPage = createMockPage();
     mockBrowser = createMockBrowser(mockPage);
+    mockPage.browser = jest.fn(() => mockBrowser);
     return mockBrowser;
   }),
 }));
 
-const { renderScreenshot, closeBrowser, runXcodeOutput } = await import("../lib/renderer.mjs");
+const { renderScreenshot, renderVariants, closeBrowser, runXcodeOutput } = await import("../lib/renderer.mjs");
 
 afterEach(async () => {
   await closeBrowser();
 });
+
+// Find the evaluate call that applies the zoom for a variant: it is the only
+// evaluate invoked with a single string argument.
+function zoomCalls(page) {
+  return page.evaluate.mock.calls.filter(
+    (call) => call.length === 2 && typeof call[1] === "string"
+  );
+}
 
 describe("renderScreenshot", () => {
   test("sets viewport to target dimensions", async () => {
@@ -57,13 +68,25 @@ describe("renderScreenshot", () => {
     }
   });
 
-  test("navigates to file:// URL", async () => {
+  test("navigates to file:// URL with deterministic load wait", async () => {
     const { dir, cleanup } = createTmpProject(null, { "test.html": templateHtml });
     try {
       await renderScreenshot(dir, "test.html", 512, 512, 1024, 1024);
-      const url = mockPage.goto.mock.calls[0][0];
+      const [url, opts] = mockPage.goto.mock.calls[0];
       expect(url).toMatch(/^file:\/\//);
       expect(url).toContain("test.html");
+      expect(opts).toEqual({ waitUntil: "load", timeout: 30000 });
+    } finally {
+      cleanup();
+    }
+  });
+
+  test("passes custom timeout through to goto", async () => {
+    const { dir, cleanup } = createTmpProject(null, { "test.html": templateHtml });
+    try {
+      await renderScreenshot(dir, "test.html", 512, 512, 1024, 1024, { timeout: 5000 });
+      const [, opts] = mockPage.goto.mock.calls[0];
+      expect(opts).toEqual({ waitUntil: "load", timeout: 5000 });
     } finally {
       cleanup();
     }
@@ -74,19 +97,21 @@ describe("renderScreenshot", () => {
     try {
       await renderScreenshot(dir, "test.html", 512, 512, 1024, 1024);
       // scale = max(512/1024, 512/1024) = 0.5
-      expect(mockPage.evaluate).toHaveBeenCalled();
-      const zoomArg = mockPage.evaluate.mock.calls[0][1];
-      expect(zoomArg).toBe(0.5);
+      const calls = zoomCalls(mockPage);
+      expect(calls).toHaveLength(1);
+      expect(calls[0][1]).toBe("0.5");
     } finally {
       cleanup();
     }
   });
 
-  test("does not apply CSS zoom when scale == 1", async () => {
+  test("clears CSS zoom when scale == 1", async () => {
     const { dir, cleanup } = createTmpProject(null, { "test.html": templateHtml });
     try {
       await renderScreenshot(dir, "test.html", 1024, 1024, 1024, 1024);
-      expect(mockPage.evaluate).not.toHaveBeenCalled();
+      const calls = zoomCalls(mockPage);
+      expect(calls).toHaveLength(1);
+      expect(calls[0][1]).toBe("");
     } finally {
       cleanup();
     }
@@ -102,10 +127,24 @@ describe("renderScreenshot", () => {
     }
   });
 
-  test("takes screenshot with correct clip", async () => {
+  test("takes screenshot with correct clip and transparent background", async () => {
     const { dir, cleanup } = createTmpProject(null, { "test.html": templateHtml });
     try {
       await renderScreenshot(dir, "test.html", 300, 400, 600, 800);
+      expect(mockPage.screenshot).toHaveBeenCalledWith({
+        type: "png",
+        clip: { x: 0, y: 0, width: 300, height: 400 },
+        omitBackground: true,
+      });
+    } finally {
+      cleanup();
+    }
+  });
+
+  test("does not omit background when a background color is set", async () => {
+    const { dir, cleanup } = createTmpProject(null, { "test.html": templateHtml });
+    try {
+      await renderScreenshot(dir, "test.html", 300, 400, 600, 800, { background: "#fff" });
       expect(mockPage.screenshot).toHaveBeenCalledWith({
         type: "png",
         clip: { x: 0, y: 0, width: 300, height: 400 },
@@ -115,11 +154,65 @@ describe("renderScreenshot", () => {
     }
   });
 
-  test("closes page after screenshot", async () => {
+  test("reuses the pooled page across renders instead of closing it", async () => {
     const { dir, cleanup } = createTmpProject(null, { "test.html": templateHtml });
     try {
       await renderScreenshot(dir, "test.html", 512, 512, 1024, 1024);
-      expect(mockPage.close).toHaveBeenCalled();
+      await renderScreenshot(dir, "test.html", 256, 256, 1024, 1024);
+      expect(mockBrowser.newPage).toHaveBeenCalledTimes(1);
+      expect(mockPage.close).not.toHaveBeenCalled();
+      expect(mockPage.goto).toHaveBeenCalledTimes(2);
+    } finally {
+      cleanup();
+    }
+  });
+});
+
+describe("renderVariants", () => {
+  test("renders all sizes from a single navigation", async () => {
+    const { dir, cleanup } = createTmpProject(null, { "test.html": templateHtml });
+    try {
+      const buffers = await renderVariants(dir, "test.html", 1024, 1024, [
+        { width: 1024, height: 1024, format: "png" },
+        { width: 512, height: 512, format: "png" },
+        { width: 192, height: 192, format: "png" },
+      ]);
+
+      expect(buffers).toHaveLength(3);
+      expect(mockPage.goto).toHaveBeenCalledTimes(1);
+      expect(mockPage.screenshot).toHaveBeenCalledTimes(3);
+
+      // Each variant gets its own clip
+      expect(mockPage.screenshot).toHaveBeenCalledWith({
+        type: "png",
+        clip: { x: 0, y: 0, width: 1024, height: 1024 },
+        omitBackground: true,
+      });
+      expect(mockPage.screenshot).toHaveBeenCalledWith({
+        type: "png",
+        clip: { x: 0, y: 0, width: 512, height: 512 },
+        omitBackground: true,
+      });
+
+      // Zoom is re-assigned for every variant: cleared at scale 1, then set
+      const calls = zoomCalls(mockPage);
+      expect(calls.map((c) => c[1])).toEqual(["", "0.5", "0.1875"]);
+    } finally {
+      cleanup();
+    }
+  });
+
+  test("renders jpeg variants with quality", async () => {
+    const { dir, cleanup } = createTmpProject(null, { "test.html": templateHtml });
+    try {
+      await renderVariants(dir, "test.html", 1024, 1024, [
+        { width: 512, height: 512, format: "jpeg", quality: 80 },
+      ]);
+      expect(mockPage.screenshot).toHaveBeenCalledWith({
+        type: "jpeg",
+        clip: { x: 0, y: 0, width: 512, height: 512 },
+        quality: 80,
+      });
     } finally {
       cleanup();
     }

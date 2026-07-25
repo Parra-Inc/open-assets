@@ -98,12 +98,8 @@ describe("startServer", () => {
   async function startTestServer(rendererOverrides = {}) {
     const renderer = { ...createMockRenderer(), ...rendererOverrides };
     const port = 30000 + Math.floor(Math.random() * 20000);
-    server = await startServer(tmpDir, { port, host: "127.0.0.1", quiet: true }, renderer);
-    // Wait for server to start listening
-    await new Promise((resolve) => {
-      if (server.listening) return resolve();
-      server.on("listening", resolve);
-    });
+    // startServer resolves once the server is listening
+    ({ server } = await startServer(tmpDir, { port, host: "127.0.0.1", quiet: true }, renderer));
     return { server, renderer };
   }
 
@@ -151,7 +147,7 @@ describe("startServer", () => {
     expect(res.headers["content-type"]).toBe("image/png");
     expect(res.body).toEqual(FAKE_PNG);
     expect(renderer.renderScreenshot).toHaveBeenCalledWith(
-      tmpDir, "src/icon.html", 512, 512, 512, 512
+      tmpDir, "src/icon.html", 512, 512, 512, 512, {}
     );
   });
 
@@ -164,7 +160,7 @@ describe("startServer", () => {
     });
 
     expect(renderer.renderScreenshot).toHaveBeenCalledWith(
-      tmpDir, "src/icon.html", 512, 512, 1024, 1024
+      tmpDir, "src/icon.html", 512, 512, 1024, 1024, {}
     );
   });
 
