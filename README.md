@@ -316,8 +316,17 @@ Options:
 | `-o, --output <dir>` | `OPEN_ASSETS_OUTPUT` | `./exports` | Output directory |
 | `--config <path>` | `OPEN_ASSETS_CONFIG` | `assets.json` | Path to config file |
 | `--render-timeout <ms>` | `OPEN_ASSETS_RENDER_TIMEOUT` | `30000` | Puppeteer render timeout |
+| — | `OPEN_ASSETS_CONCURRENCY` | auto | Templates rendered at once (see below) |
 | `--json` | — | — | Output results as JSON |
 | `-q, --quiet` | `OPEN_ASSETS_QUIET` | `false` | Suppress progress logs |
+
+**Concurrency**: each template is loaded once per locale and screenshotted at
+every export size from that single page load. A couple of templates render at a
+time, which is where the throughput ceiling sits: Chromium serializes the
+capture path, so extra workers queue behind each other instead of adding speed.
+The default is `min(cores - 1, 2)`. Raise `OPEN_ASSETS_CONCURRENCY` only if your
+templates are unusually slow to lay out relative to how long they take to
+capture, and measure before keeping the change.
 
 **Selective export**: flags compose naturally:
 ```bash

@@ -201,6 +201,8 @@ Export entries with a `type` field are post-render actions that run after every 
 | `--json` | Output results as JSON |
 | `-q, --quiet` | Suppress progress logs |
 
+Set `OPEN_ASSETS_CONCURRENCY` to change how many templates render at once. It defaults to `min(cores - 1, 2)`; higher values queue behind Chromium's capture path rather than going faster.
+
 Flags compose naturally:
 - `--collection screenshots --template 01-hero --size iphone-6.9` → single template, single size
 - `--collection screenshots --template 01-hero` → one template, all sizes
@@ -208,7 +210,7 @@ Flags compose naturally:
 
 #### Performance: prefer targeted renders when iterating
 
-A plain `render` is incremental: unchanged templates are skipped via `assets.lock`, so it is usually fast. The renderer also loads each template once per locale and screenshots every export size from that single page load, with several templates rendering in parallel. Still, `--force` re-renders **every collection** in `assets.json` (icons, splash, badges, screenshots, etc.), so when you're iterating on a single asset, scope the render:
+A plain `render` is incremental: unchanged templates are skipped via `assets.lock`, so it is usually fast. The renderer also loads each template once per locale and screenshots every export size from that single page load, with a couple of templates rendering concurrently. Still, `--force` re-renders **every collection** in `assets.json` (icons, splash, badges, screenshots, etc.), so when you're iterating on a single asset, scope the render:
 
 ```bash
 # Iterating on one icon (fastest)

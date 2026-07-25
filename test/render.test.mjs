@@ -1,5 +1,5 @@
 import { jest } from "@jest/globals";
-import { renderAssets } from "../lib/render.mjs";
+import { renderAssets, resolveConcurrency } from "../lib/render.mjs";
 import { createTmpProject } from "./helpers/tmp-project.mjs";
 import { validManifest, multiPlatformManifest, templateHtml, templateSvg } from "./helpers/fixtures.mjs";
 import { existsSync, readFileSync } from "fs";
@@ -25,6 +25,53 @@ function createMockDeps(overrides = {}) {
     ...overrides,
   };
 }
+
+describe("resolveConcurrency", () => {
+  const units = (n) => Array.from({ length: n }, () => ({}));
+
+  afterEach(() => {
+    delete process.env.OPEN_ASSETS_CONCURRENCY;
+  });
+
+  it("never starts more workers than there are units", () => {
+    expect(resolveConcurrency(units(1), { cores: 16 })).toBe(1);
+  });
+
+  it("returns 1 when there is no work", () => {
+    expect(resolveConcurrency([], { cores: 16 })).toBe(1);
+  });
+
+  it("caps concurrency on a machine with cores to spare", () => {
+    expect(resolveConcurrency(units(50), { cores: 64 })).toBe(2);
+  });
+
+  it("leaves a core for this process and the browser process", () => {
+    expect(resolveConcurrency(units(50), { cores: 2 })).toBe(1);
+  });
+
+  it("stays at 1 on a single-core machine", () => {
+    expect(resolveConcurrency(units(50), { cores: 1 })).toBe(1);
+  });
+
+  it("honours an explicit override above the cap", () => {
+    expect(resolveConcurrency(units(50), { cores: 4, override: 8 })).toBe(8);
+  });
+
+  it("clamps an override to the number of units", () => {
+    expect(resolveConcurrency(units(3), { cores: 64, override: 8 })).toBe(3);
+  });
+
+  it("reads the override from OPEN_ASSETS_CONCURRENCY", () => {
+    process.env.OPEN_ASSETS_CONCURRENCY = "6";
+    expect(resolveConcurrency(units(50), { cores: 4 })).toBe(6);
+  });
+
+  it("ignores a non-numeric or non-positive override", () => {
+    expect(resolveConcurrency(units(50), { cores: 64, override: "banana" })).toBe(2);
+    expect(resolveConcurrency(units(50), { cores: 64, override: 0 })).toBe(2);
+    expect(resolveConcurrency(units(50), { cores: 64, override: -4 })).toBe(2);
+  });
+});
 
 describe("renderAssets", () => {
   let tmpDir, cleanup;

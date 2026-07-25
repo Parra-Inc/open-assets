@@ -16,13 +16,18 @@ function createMockPage() {
     close: jest.fn(async () => {}),
     isClosed: jest.fn(() => false),
     browser: jest.fn(() => null), // wired to the browser in launch()
+    createCDPSession: jest.fn(async () => ({ send: jest.fn(async () => {}) })),
   };
 }
 
 function createMockBrowser(page) {
+  // Pages are created through a per-page browser context, so newPage is
+  // reached via createBrowserContext rather than called on the browser.
+  const context = { newPage: jest.fn(async () => page) };
   return {
     connected: true,
-    newPage: jest.fn(async () => page),
+    newPage: context.newPage,
+    createBrowserContext: jest.fn(async () => context),
     close: jest.fn(async () => {}),
   };
 }
