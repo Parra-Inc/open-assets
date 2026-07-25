@@ -95,7 +95,6 @@ program
   .option("-f, --force", "Re-render all assets, ignoring the incremental cache")
   .option("-o, --output <dir>", "Output directory (env: OPEN_ASSETS_OUTPUT)", env("OPEN_ASSETS_OUTPUT", "./exports"))
   .option("--config <path>", "Path to config file (env: OPEN_ASSETS_CONFIG)", env("OPEN_ASSETS_CONFIG", "assets.json"))
-  .option("--parallel <count>", "Number of parallel renders (env: OPEN_ASSETS_PARALLEL)", env("OPEN_ASSETS_PARALLEL", "1"))
   .option("--render-timeout <ms>", "Puppeteer render timeout in ms", env("OPEN_ASSETS_RENDER_TIMEOUT", "30000"))
   .option("--json", "Output results as JSON (for CI/scripting)")
   .option("-q, --quiet", "Suppress progress logs", env("OPEN_ASSETS_QUIET") === "true")
@@ -116,7 +115,7 @@ program
 
     const log = opts.quiet ? undefined : (msg) => console.log(msg);
     const deps = {
-      renderScreenshot: renderer.renderScreenshot,
+      renderVariants: renderer.renderVariants,
       runXcodeOutput: renderer.runXcodeOutput,
       closeBrowser: renderer.closeBrowser,
       readLockfile: lockfile.readLockfile,

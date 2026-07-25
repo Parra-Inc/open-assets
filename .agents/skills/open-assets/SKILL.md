@@ -208,7 +208,7 @@ Flags compose naturally:
 
 #### Performance: prefer targeted renders when iterating
 
-A plain `render` is incremental: unchanged templates are skipped via `assets.lock`, so it is usually fast. But `--force` re-renders **every collection** in `assets.json` (icons, splash, badges, screenshots, etc.), which can take minutes on a project with many collections. When you're iterating on a single asset, scope the render:
+A plain `render` is incremental: unchanged templates are skipped via `assets.lock`, so it is usually fast. The renderer also loads each template once per locale and screenshots every export size from that single page load, with several templates rendering in parallel. Still, `--force` re-renders **every collection** in `assets.json` (icons, splash, badges, screenshots, etc.), so when you're iterating on a single asset, scope the render:
 
 ```bash
 # Iterating on one icon (fastest)

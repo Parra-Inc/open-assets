@@ -315,7 +315,6 @@ Options:
 | `-f, --force` | — | — | Re-render everything, ignoring the incremental cache |
 | `-o, --output <dir>` | `OPEN_ASSETS_OUTPUT` | `./exports` | Output directory |
 | `--config <path>` | `OPEN_ASSETS_CONFIG` | `assets.json` | Path to config file |
-| `--parallel <count>` | `OPEN_ASSETS_PARALLEL` | `1` | Number of parallel renders |
 | `--render-timeout <ms>` | `OPEN_ASSETS_RENDER_TIMEOUT` | `30000` | Puppeteer render timeout |
 | `--json` | — | — | Output results as JSON |
 | `-q, --quiet` | `OPEN_ASSETS_QUIET` | `false` | Suppress progress logs |
