@@ -11,7 +11,7 @@
       "source": "./",
       "displayName": "Open Assets",
       "description": "Generate and manage app marketing assets (screenshots, icons, logos) using HTML/Tailwind with open-assets",
-      "version": "0.5.0",
+      "version": "0.5.1",
       "author": {
         "name": "Parra Inc",
         "url": "https://github.com/Parra-Inc"
