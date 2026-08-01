@@ -1,0 +1,6377 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "hero_pill": {
+      "localizations": {
+        "en": {
+          "value": "Pool & Hot Tub Care"
+        },
+        "ar": {
+          "value": "العناية بالمسبح والجاكوزي"
+        },
+        "ca": {
+          "value": "Cura de Piscines i Spas"
+        },
+        "cs": {
+          "value": "Péče o Bazén a Vířivku"
+        },
+        "da": {
+          "value": "Pleje af Pool og Spa"
+        },
+        "de": {
+          "value": "Pool- & Whirlpool-Pflege"
+        },
+        "el": {
+          "value": "Φροντίδα Πισίνας & Σπα"
+        },
+        "en-AU": {
+          "value": "Pool & Spa Care"
+        },
+        "en-GB": {
+          "value": "Pool & Hot Tub Care"
+        },
+        "es": {
+          "value": "Cuidado de Piscina y Spa"
+        },
+        "es-419": {
+          "value": "Cuidado de Piscina y Spa"
+        },
+        "fi": {
+          "value": "Altaan ja Porealtaan Hoito"
+        },
+        "fr": {
+          "value": "Entretien Piscine & Spa"
+        },
+        "fr-CA": {
+          "value": "Entretien Piscine et Spa"
+        },
+        "he": {
+          "value": "טיפוח בריכה וג'קוזי"
+        },
+        "hi": {
+          "value": "पूल और हॉट टब देखभाल"
+        },
+        "hr": {
+          "value": "Njega Bazena i Jacuzzija"
+        },
+        "hu": {
+          "value": "Medence- és Pezsgőfürdő-Ápolás"
+        },
+        "id": {
+          "value": "Perawatan Kolam & Spa"
+        },
+        "it": {
+          "value": "Cura di Piscina e Spa"
+        },
+        "ja": {
+          "value": "プール・スパのお手入れ"
+        },
+        "ko": {
+          "value": "수영장 & 스파 관리"
+        },
+        "ms": {
+          "value": "Penjagaan Kolam & Spa"
+        },
+        "nb": {
+          "value": "Stell av Basseng og Boblebad"
+        },
+        "nl": {
+          "value": "Zwembad- & Spaverzorging"
+        },
+        "pl": {
+          "value": "Pielęgnacja Basenu i Spa"
+        },
+        "pt-BR": {
+          "value": "Cuidados de Piscina e Spa"
+        },
+        "pt-PT": {
+          "value": "Cuidados de Piscina e Spa"
+        },
+        "ro": {
+          "value": "Îngrijire Piscină și Spa"
+        },
+        "ru": {
+          "value": "Уход за бассейном и спа"
+        },
+        "sk": {
+          "value": "Starostlivosť o Bazén a Vírivku"
+        },
+        "sv": {
+          "value": "Pool- och Spaskötsel"
+        },
+        "th": {
+          "value": "การดูแลสระว่ายน้ำและสปา"
+        },
+        "tr": {
+          "value": "Havuz ve Spa Bakımı"
+        },
+        "uk": {
+          "value": "Догляд за басейном і спа"
+        },
+        "vi": {
+          "value": "Chăm Sóc Hồ Bơi & Bồn Tắm"
+        },
+        "zh-Hans": {
+          "value": "泳池和按摩浴缸护理"
+        },
+        "zh-Hant": {
+          "value": "泳池與按摩浴缸保養"
+        }
+      }
+    },
+    "hero_line1": {
+      "localizations": {
+        "en": {
+          "value": "Your pool, always"
+        },
+        "ar": {
+          "value": "مسبحك، دائمًا"
+        },
+        "ca": {
+          "value": "La teva piscina, sempre"
+        },
+        "cs": {
+          "value": "Váš bazén, vždy"
+        },
+        "da": {
+          "value": "Din pool, altid"
+        },
+        "de": {
+          "value": "Dein Pool, immer"
+        },
+        "el": {
+          "value": "Η πισίνα σου, πάντα"
+        },
+        "en-AU": {
+          "value": "Your pool, always"
+        },
+        "en-GB": {
+          "value": "Your pool, always"
+        },
+        "es": {
+          "value": "Tu piscina, siempre"
+        },
+        "es-419": {
+          "value": "Tu piscina, siempre"
+        },
+        "fi": {
+          "value": "Altaasi, aina"
+        },
+        "fr": {
+          "value": "Votre piscine, toujours"
+        },
+        "fr-CA": {
+          "value": "Votre piscine, toujours"
+        },
+        "he": {
+          "value": "הבריכה שלך, תמיד"
+        },
+        "hi": {
+          "value": "आपका पूल, हमेशा"
+        },
+        "hr": {
+          "value": "Vaš bazen, uvijek"
+        },
+        "hu": {
+          "value": "A medencéd, mindig"
+        },
+        "id": {
+          "value": "Kolammu, selalu"
+        },
+        "it": {
+          "value": "La tua piscina, sempre"
+        },
+        "ja": {
+          "value": "あなたのプールを、いつでも"
+        },
+        "ko": {
+          "value": "당신의 수영장, 언제나"
+        },
+        "ms": {
+          "value": "Kolam anda, sentiasa"
+        },
+        "nb": {
+          "value": "Bassenget ditt, alltid"
+        },
+        "nl": {
+          "value": "Jouw zwembad, altijd"
+        },
+        "pl": {
+          "value": "Twój basen, zawsze"
+        },
+        "pt-BR": {
+          "value": "Sua piscina, sempre"
+        },
+        "pt-PT": {
+          "value": "A sua piscina, sempre"
+        },
+        "ro": {
+          "value": "Piscina ta, mereu"
+        },
+        "ru": {
+          "value": "Ваш бассейн, всегда"
+        },
+        "sk": {
+          "value": "Váš bazén, vždy"
+        },
+        "sv": {
+          "value": "Din pool, alltid"
+        },
+        "th": {
+          "value": "สระของคุณ พร้อมลงเล่นน้ำ"
+        },
+        "tr": {
+          "value": "Havuzunuz, her zaman"
+        },
+        "uk": {
+          "value": "Ваш басейн, завжди"
+        },
+        "vi": {
+          "value": "Hồ bơi của bạn, luôn"
+        },
+        "zh-Hans": {
+          "value": "你的泳池，始终"
+        },
+        "zh-Hant": {
+          "value": "你的泳池，隨時"
+        }
+      }
+    },
+    "hero_accent": {
+      "localizations": {
+        "en": {
+          "value": "swim-ready."
+        },
+        "ar": {
+          "value": "جاهز للسباحة."
+        },
+        "ca": {
+          "value": "a punt per nedar."
+        },
+        "cs": {
+          "value": "připraven ke koupání."
+        },
+        "da": {
+          "value": "klar til svømning."
+        },
+        "de": {
+          "value": "badebereit."
+        },
+        "el": {
+          "value": "έτοιμη για κολύμπι."
+        },
+        "en-AU": {
+          "value": "swim-ready."
+        },
+        "en-GB": {
+          "value": "swim-ready."
+        },
+        "es": {
+          "value": "lista para nadar."
+        },
+        "es-419": {
+          "value": "lista para nadar."
+        },
+        "fi": {
+          "value": "uintivalmiina."
+        },
+        "fr": {
+          "value": "prête à la baignade."
+        },
+        "fr-CA": {
+          "value": "prête pour la baignade."
+        },
+        "he": {
+          "value": "מוכנה לשחייה."
+        },
+        "hi": {
+          "value": "तैरने के लिए तैयार।"
+        },
+        "hr": {
+          "value": "spreman za plivanje."
+        },
+        "hu": {
+          "value": "úszásra kész."
+        },
+        "id": {
+          "value": "siap untuk berenang."
+        },
+        "it": {
+          "value": "pronta per nuotare."
+        },
+        "ja": {
+          "value": "すぐ泳げる状態に。"
+        },
+        "ko": {
+          "value": "수영할 준비 완료."
+        },
+        "ms": {
+          "value": "sedia untuk berenang."
+        },
+        "nb": {
+          "value": "klart for bading."
+        },
+        "nl": {
+          "value": "zwemklaar."
+        },
+        "pl": {
+          "value": "gotowy do pływania."
+        },
+        "pt-BR": {
+          "value": "pronta para nadar."
+        },
+        "pt-PT": {
+          "value": "pronta a nadar."
+        },
+        "ro": {
+          "value": "gata de scăldat."
+        },
+        "ru": {
+          "value": "готов к купанию."
+        },
+        "sk": {
+          "value": "pripravený na kúpanie."
+        },
+        "sv": {
+          "value": "redo för simning."
+        },
+        "th": {
+          "value": "เสมอ"
+        },
+        "tr": {
+          "value": "yüzmeye hazır."
+        },
+        "uk": {
+          "value": "готовий до купання."
+        },
+        "vi": {
+          "value": "sẵn sàng để bơi."
+        },
+        "zh-Hans": {
+          "value": "随时可游泳。"
+        },
+        "zh-Hant": {
+          "value": "準備好下水。"
+        }
+      }
+    },
+    "hero_sub": {
+      "localizations": {
+        "en": {
+          "value": "Water chemistry, maintenance, and service records in one app built for pool owners."
+        },
+        "ar": {
+          "value": "كيمياء المياه والصيانة وسجلات الخدمة في تطبيق واحد لأصحاب المسابح."
+        },
+        "ca": {
+          "value": "Química de l'aigua, manteniment i historial de servei en una sola app per a propietaris de piscines."
+        },
+        "cs": {
+          "value": "Chemie vody, údržba a servisní záznamy v jedné aplikaci pro majitele bazénů."
+        },
+        "da": {
+          "value": "Vandkemi, vedligeholdelse og serviceoptegnelser i én app til poolejere."
+        },
+        "de": {
+          "value": "Wasserchemie, Wartung und Serviceprotokolle in einer App für Poolbesitzer."
+        },
+        "el": {
+          "value": "Χημεία νερού, συντήρηση και ιστορικό συντήρησης σε μία εφαρμογή για ιδιοκτήτες πισίνας."
+        },
+        "en-AU": {
+          "value": "Water chemistry, maintenance, and service records in one app built for pool owners."
+        },
+        "en-GB": {
+          "value": "Water chemistry, maintenance, and service records in one app built for pool owners."
+        },
+        "es": {
+          "value": "Química del agua, mantenimiento y registros de servicio en una sola app para dueños de piscinas."
+        },
+        "es-419": {
+          "value": "Química del agua, mantenimiento y registros de servicio en una sola app para dueños de piscinas."
+        },
+        "fi": {
+          "value": "Veden kemia, huolto ja huoltohistoria yhdessä sovelluksessa altaanomistajille."
+        },
+        "fr": {
+          "value": "Chimie de l'eau, entretien et historique de service dans une seule app pour propriétaires de piscine."
+        },
+        "fr-CA": {
+          "value": "Chimie de l'eau, entretien et historique d'entretien dans une seule appli pour propriétaires de piscine."
+        },
+        "he": {
+          "value": "כימיה של מים, תחזוקה ותיעוד שירות באפליקציה אחת לבעלי בריכות."
+        },
+        "hi": {
+          "value": "पूल मालिकों के लिए एक ही ऐप में पानी की रसायन विज्ञान, रखरखाव और सर्विस रिकॉर्ड।"
+        },
+        "hr": {
+          "value": "Kemija vode, održavanje i servisni zapisi u jednoj aplikaciji za vlasnike bazena."
+        },
+        "hu": {
+          "value": "Vízkémia, karbantartás és szervíznaplók egyetlen appban medencetulajdonosoknak."
+        },
+        "id": {
+          "value": "Kimia air, perawatan, dan catatan servis dalam satu aplikasi untuk pemilik kolam."
+        },
+        "it": {
+          "value": "Chimica dell'acqua, manutenzione e registri di servizio in un'unica app per proprietari di piscine."
+        },
+        "ja": {
+          "value": "水質管理、メンテナンス、サービス記録を1つのアプリで。プールオーナーのために。"
+        },
+        "ko": {
+          "value": "수영장 소유자를 위한 하나의 앱에서 수질 관리, 유지보수, 서비스 기록까지."
+        },
+        "ms": {
+          "value": "Kimia air, penyelenggaraan, dan rekod servis dalam satu aplikasi untuk pemilik kolam."
+        },
+        "nb": {
+          "value": "Vannkjemi, vedlikehold og servicehistorikk i én app for bassengeiere."
+        },
+        "nl": {
+          "value": "Waterchemie, onderhoud en servicegeschiedenis in één app voor zwembadeigenaren."
+        },
+        "pl": {
+          "value": "Chemia wody, konserwacja i historia serwisowa w jednej aplikacji dla właścicieli basenów."
+        },
+        "pt-BR": {
+          "value": "Química da água, manutenção e histórico de serviços em um só app para donos de piscina."
+        },
+        "pt-PT": {
+          "value": "Química da água, manutenção e histórico de serviços numa só app para proprietários de piscina."
+        },
+        "ro": {
+          "value": "Chimia apei, întreținere și istoric de service într-o singură aplicație pentru proprietarii de piscine."
+        },
+        "ru": {
+          "value": "Химия воды, обслуживание и история сервиса в одном приложении для владельцев бассейнов."
+        },
+        "sk": {
+          "value": "Chémia vody, údržba a servisné záznamy v jednej aplikácii pre majiteľov bazénov."
+        },
+        "sv": {
+          "value": "Vattenkemi, underhåll och servicehistorik i en enda app för poolägare."
+        },
+        "th": {
+          "value": "เคมีของน้ำ การบำรุงรักษา และประวัติการซ่อมบำรุง ในแอปเดียวสำหรับเจ้าของสระว่ายน้ำ"
+        },
+        "tr": {
+          "value": "Havuz sahipleri için tek bir uygulamada su kimyası, bakım ve servis kayıtları."
+        },
+        "uk": {
+          "value": "Хімія води, обслуговування та історія сервісу в одному додатку для власників басейнів."
+        },
+        "vi": {
+          "value": "Hóa chất nước, bảo trì và hồ sơ dịch vụ trong một ứng dụng duy nhất cho chủ hồ bơi."
+        },
+        "zh-Hans": {
+          "value": "为泳池主人打造的一站式应用，涵盖水质、维护和服务记录。"
+        },
+        "zh-Hant": {
+          "value": "為泳池主人打造的一站式應用程式，涵蓋水質、保養與服務紀錄。"
+        }
+      }
+    },
+    "cta_button": {
+      "localizations": {
+        "en": {
+          "value": "Get Skimmer"
+        },
+        "ar": {
+          "value": "احصل على Skimmer"
+        },
+        "ca": {
+          "value": "Obtén Skimmer"
+        },
+        "cs": {
+          "value": "Získat Skimmer"
+        },
+        "da": {
+          "value": "Få Skimmer"
+        },
+        "de": {
+          "value": "Skimmer holen"
+        },
+        "el": {
+          "value": "Απόκτησε το Skimmer"
+        },
+        "en-AU": {
+          "value": "Get Skimmer"
+        },
+        "en-GB": {
+          "value": "Get Skimmer"
+        },
+        "es": {
+          "value": "Obtener Skimmer"
+        },
+        "es-419": {
+          "value": "Obtener Skimmer"
+        },
+        "fi": {
+          "value": "Hanki Skimmer"
+        },
+        "fr": {
+          "value": "Obtenir Skimmer"
+        },
+        "fr-CA": {
+          "value": "Obtenir Skimmer"
+        },
+        "he": {
+          "value": "קבל את Skimmer"
+        },
+        "hi": {
+          "value": "Skimmer पाएं"
+        },
+        "hr": {
+          "value": "Preuzmi Skimmer"
+        },
+        "hu": {
+          "value": "Szerezd meg a Skimmert"
+        },
+        "id": {
+          "value": "Dapatkan Skimmer"
+        },
+        "it": {
+          "value": "Ottieni Skimmer"
+        },
+        "ja": {
+          "value": "Skimmerを入手"
+        },
+        "ko": {
+          "value": "Skimmer 받기"
+        },
+        "ms": {
+          "value": "Dapatkan Skimmer"
+        },
+        "nb": {
+          "value": "Skaff Skimmer"
+        },
+        "nl": {
+          "value": "Skimmer downloaden"
+        },
+        "pl": {
+          "value": "Pobierz Skimmer"
+        },
+        "pt-BR": {
+          "value": "Obter Skimmer"
+        },
+        "pt-PT": {
+          "value": "Obter Skimmer"
+        },
+        "ro": {
+          "value": "Obține Skimmer"
+        },
+        "ru": {
+          "value": "Получить Skimmer"
+        },
+        "sk": {
+          "value": "Získať Skimmer"
+        },
+        "sv": {
+          "value": "Skaffa Skimmer"
+        },
+        "th": {
+          "value": "รับ Skimmer"
+        },
+        "tr": {
+          "value": "Skimmer'ı Al"
+        },
+        "uk": {
+          "value": "Отримати Skimmer"
+        },
+        "vi": {
+          "value": "Nhận Skimmer"
+        },
+        "zh-Hans": {
+          "value": "获取 Skimmer"
+        },
+        "zh-Hant": {
+          "value": "取得 Skimmer"
+        }
+      }
+    },
+    "s01_head": {
+      "localizations": {
+        "en": {
+          "value": "Every pool in one place"
+        },
+        "ar": {
+          "value": "كل مسبح في مكان واحد"
+        },
+        "ca": {
+          "value": "Cada piscina en un sol lloc"
+        },
+        "cs": {
+          "value": "Každý bazén na jednom místě"
+        },
+        "da": {
+          "value": "Alle pools ét sted"
+        },
+        "de": {
+          "value": "Jeder Pool an einem Ort"
+        },
+        "el": {
+          "value": "Κάθε πισίνα σε ένα μέρος"
+        },
+        "en-AU": {
+          "value": "Every pool in one place"
+        },
+        "en-GB": {
+          "value": "Every pool in one place"
+        },
+        "es": {
+          "value": "Cada piscina en un solo lugar"
+        },
+        "es-419": {
+          "value": "Cada piscina en un solo lugar"
+        },
+        "fi": {
+          "value": "Jokainen allas yhdessä paikassa"
+        },
+        "fr": {
+          "value": "Chaque piscine au même endroit"
+        },
+        "fr-CA": {
+          "value": "Chaque piscine au même endroit"
+        },
+        "he": {
+          "value": "כל בריכה במקום אחד"
+        },
+        "hi": {
+          "value": "हर पूल एक ही जगह"
+        },
+        "hr": {
+          "value": "Svaki bazen na jednom mjestu"
+        },
+        "hu": {
+          "value": "Minden medence egy helyen"
+        },
+        "id": {
+          "value": "Setiap kolam dalam satu tempat"
+        },
+        "it": {
+          "value": "Ogni piscina in un unico posto"
+        },
+        "ja": {
+          "value": "すべてのプールを一か所で"
+        },
+        "ko": {
+          "value": "모든 수영장을 한곳에서"
+        },
+        "ms": {
+          "value": "Setiap kolam dalam satu tempat"
+        },
+        "nb": {
+          "value": "Hvert basseng på ett sted"
+        },
+        "nl": {
+          "value": "Elk zwembad op één plek"
+        },
+        "pl": {
+          "value": "Każdy basen w jednym miejscu"
+        },
+        "pt-BR": {
+          "value": "Cada piscina em um só lugar"
+        },
+        "pt-PT": {
+          "value": "Cada piscina num só lugar"
+        },
+        "ro": {
+          "value": "Fiecare piscină într-un singur loc"
+        },
+        "ru": {
+          "value": "Все бассейны в одном месте"
+        },
+        "sk": {
+          "value": "Každý bazén na jednom mieste"
+        },
+        "sv": {
+          "value": "Varje pool på ett ställe"
+        },
+        "th": {
+          "value": "ทุกสระอยู่ในที่เดียว"
+        },
+        "tr": {
+          "value": "Her havuz tek bir yerde"
+        },
+        "uk": {
+          "value": "Усі басейни в одному місці"
+        },
+        "vi": {
+          "value": "Mọi hồ bơi trong một nơi"
+        },
+        "zh-Hans": {
+          "value": "所有泳池一目了然"
+        },
+        "zh-Hant": {
+          "value": "所有泳池一目了然"
+        }
+      }
+    },
+    "s01_sub": {
+      "localizations": {
+        "en": {
+          "value": "Pools and hot tubs side by side, each with its own water status at a glance."
+        },
+        "ar": {
+          "value": "المسابح والجاكوزي جنبًا إلى جنب، لكل منها حالة ماء واضحة بنظرة واحدة."
+        },
+        "ca": {
+          "value": "Piscines i spas un al costat de l'altre, cadascun amb el seu estat de l'aigua d'un cop d'ull."
+        },
+        "cs": {
+          "value": "Bazény i vířivky vedle sebe, každý se svým stavem vody na první pohled."
+        },
+        "da": {
+          "value": "Pools og spabade side om side, hver med sin egen vandstatus ved et blik."
+        },
+        "de": {
+          "value": "Pools und Whirlpools nebeneinander, jeder mit eigenem Wasserstatus auf einen Blick."
+        },
+        "el": {
+          "value": "Πισίνες και σπα δίπλα-δίπλα, καθένα με τη δική του κατάσταση νερού με μια ματιά."
+        },
+        "en-AU": {
+          "value": "Pools and spas side by side, each with its own water status at a glance."
+        },
+        "en-GB": {
+          "value": "Pools and hot tubs side by side, each with its own water status at a glance."
+        },
+        "es": {
+          "value": "Piscinas y spas uno junto al otro, cada uno con su estado del agua de un vistazo."
+        },
+        "es-419": {
+          "value": "Piscinas y spas uno al lado del otro, cada uno con su estado del agua de un vistazo."
+        },
+        "fi": {
+          "value": "Altaat ja porealtaat vierekkäin, kunkin veden tila yhdellä silmäyksellä."
+        },
+        "fr": {
+          "value": "Piscines et spas côte à côte, chacun avec son état de l'eau en un coup d'œil."
+        },
+        "fr-CA": {
+          "value": "Piscines et spas côte à côte, chacun avec son état de l'eau d'un coup d'œil."
+        },
+        "he": {
+          "value": "בריכות וג'קוזי זה לצד זה, לכל אחד מצב מים ברור במבט אחד."
+        },
+        "hi": {
+          "value": "पूल और हॉट टब साथ-साथ, हर एक की पानी की स्थिति एक नज़र में।"
+        },
+        "hr": {
+          "value": "Bazeni i jacuzziji jedan uz drugi, svaki sa svojim stanjem vode na prvi pogled."
+        },
+        "hu": {
+          "value": "Medencék és pezsgőfürdők egymás mellett, mindegyik vízállapota egy pillantásra."
+        },
+        "id": {
+          "value": "Kolam dan spa berdampingan, masing-masing dengan status airnya secara sekilas."
+        },
+        "it": {
+          "value": "Piscine e spa affiancate, ognuna con il proprio stato dell'acqua a colpo d'occhio."
+        },
+        "ja": {
+          "value": "プールとスパを並べて表示。それぞれの水質状態がひと目で分かります。"
+        },
+        "ko": {
+          "value": "수영장과 스파를 나란히, 각각의 수질 상태를 한눈에."
+        },
+        "ms": {
+          "value": "Kolam dan spa bersebelahan, setiap satu dengan status airnya secara sepintas lalu."
+        },
+        "nb": {
+          "value": "Basseng og boblebad side om side, hver med sin egen vannstatus med et blikk."
+        },
+        "nl": {
+          "value": "Zwembaden en spa's naast elkaar, elk met zijn eigen waterstatus in één oogopslag."
+        },
+        "pl": {
+          "value": "Baseny i spa obok siebie, każdy z własnym stanem wody na pierwszy rzut oka."
+        },
+        "pt-BR": {
+          "value": "Piscinas e spas lado a lado, cada um com seu próprio status da água num relance."
+        },
+        "pt-PT": {
+          "value": "Piscinas e spas lado a lado, cada um com o seu estado da água num relance."
+        },
+        "ro": {
+          "value": "Piscine și spa-uri unul lângă altul, fiecare cu starea apei dintr-o privire."
+        },
+        "ru": {
+          "value": "Бассейны и спа рядом, у каждого свой статус воды с первого взгляда."
+        },
+        "sk": {
+          "value": "Bazény a vírivky vedľa seba, každý so svojím stavom vody na prvý pohľad."
+        },
+        "sv": {
+          "value": "Pooler och spabad sida vid sida, var och en med sin egen vattenstatus med en blick."
+        },
+        "th": {
+          "value": "สระและอ่างน้ำร้อนวางเรียงกัน แต่ละแห่งบอกสถานะน้ำได้ในพริบตา"
+        },
+        "tr": {
+          "value": "Havuzlar ve spalar yan yana, her biri kendi su durumuyla tek bakışta."
+        },
+        "uk": {
+          "value": "Басейни та спа поруч, у кожного свій стан води з першого погляду."
+        },
+        "vi": {
+          "value": "Hồ bơi và bồn nước nóng cạnh nhau, mỗi cái có trạng thái nước riêng chỉ trong nháy mắt."
+        },
+        "zh-Hans": {
+          "value": "泳池与热水浴缸并排呈现，各自的水质状态一眼可见。"
+        },
+        "zh-Hant": {
+          "value": "泳池與熱水浴缸並排呈現，各自的水質狀態一眼可見。"
+        }
+      }
+    },
+    "s02_head": {
+      "localizations": {
+        "en": {
+          "value": "Your whole pool on one screen"
+        },
+        "ar": {
+          "value": "مسبحك بالكامل في شاشة واحدة"
+        },
+        "ca": {
+          "value": "Tota la teva piscina en una pantalla"
+        },
+        "cs": {
+          "value": "Celý váš bazén na jedné obrazovce"
+        },
+        "da": {
+          "value": "Hele din pool på én skærm"
+        },
+        "de": {
+          "value": "Dein ganzer Pool auf einem Bildschirm"
+        },
+        "el": {
+          "value": "Όλη η πισίνα σου σε μία οθόνη"
+        },
+        "en-AU": {
+          "value": "Your whole pool on one screen"
+        },
+        "en-GB": {
+          "value": "Your whole pool on one screen"
+        },
+        "es": {
+          "value": "Toda tu piscina en una pantalla"
+        },
+        "es-419": {
+          "value": "Toda tu piscina en una pantalla"
+        },
+        "fi": {
+          "value": "Koko altaasi yhdellä näytöllä"
+        },
+        "fr": {
+          "value": "Toute votre piscine sur un seul écran"
+        },
+        "fr-CA": {
+          "value": "Toute votre piscine sur un seul écran"
+        },
+        "he": {
+          "value": "כל הבריכה שלך במסך אחד"
+        },
+        "hi": {
+          "value": "आपका पूरा पूल एक स्क्रीन पर"
+        },
+        "hr": {
+          "value": "Cijeli vaš bazen na jednom zaslonu"
+        },
+        "hu": {
+          "value": "Az egész medencéd egy képernyőn"
+        },
+        "id": {
+          "value": "Seluruh kolammu dalam satu layar"
+        },
+        "it": {
+          "value": "Tutta la tua piscina in una schermata"
+        },
+        "ja": {
+          "value": "プール全体を1画面で"
+        },
+        "ko": {
+          "value": "수영장 전체를 한 화면에서"
+        },
+        "ms": {
+          "value": "Seluruh kolam anda dalam satu skrin"
+        },
+        "nb": {
+          "value": "Hele bassenget på én skjerm"
+        },
+        "nl": {
+          "value": "Je hele zwembad op één scherm"
+        },
+        "pl": {
+          "value": "Cały twój basen na jednym ekranie"
+        },
+        "pt-BR": {
+          "value": "Sua piscina inteira em uma tela"
+        },
+        "pt-PT": {
+          "value": "Toda a sua piscina num só ecrã"
+        },
+        "ro": {
+          "value": "Toată piscina ta pe un singur ecran"
+        },
+        "ru": {
+          "value": "Весь ваш бассейн на одном экране"
+        },
+        "sk": {
+          "value": "Celý váš bazén na jednej obrazovke"
+        },
+        "sv": {
+          "value": "Hela poolen på en skärm"
+        },
+        "th": {
+          "value": "สระทั้งหมดของคุณในหน้าจอเดียว"
+        },
+        "tr": {
+          "value": "Tüm havuzunuz tek ekranda"
+        },
+        "uk": {
+          "value": "Весь ваш басейн на одному екрані"
+        },
+        "vi": {
+          "value": "Toàn bộ hồ bơi trên một màn hình"
+        },
+        "zh-Hans": {
+          "value": "一屏掌握整个泳池"
+        },
+        "zh-Hant": {
+          "value": "一個畫面掌握整座泳池"
+        }
+      }
+    },
+    "s02_sub": {
+      "localizations": {
+        "en": {
+          "value": "Volume, equipment, costs, and the latest test. The full picture at a glance."
+        },
+        "ar": {
+          "value": "الحجم والمعدات والتكاليف وآخر اختبار. الصورة الكاملة بنظرة واحدة."
+        },
+        "ca": {
+          "value": "Volum, equipament, costos i l'última prova. La imatge completa d'un cop d'ull."
+        },
+        "cs": {
+          "value": "Objem, vybavení, náklady a poslední test. Kompletní přehled na první pohled."
+        },
+        "da": {
+          "value": "Volumen, udstyr, omkostninger og seneste test. Det fulde billede på et øjeblik."
+        },
+        "de": {
+          "value": "Volumen, Ausstattung, Kosten und der letzte Test. Das komplette Bild auf einen Blick."
+        },
+        "el": {
+          "value": "Όγκος, εξοπλισμός, κόστη και τελευταία δοκιμή. Η πλήρης εικόνα με μια ματιά."
+        },
+        "en-AU": {
+          "value": "Volume, equipment, costs, and the latest test. The full picture at a glance."
+        },
+        "en-GB": {
+          "value": "Volume, equipment, costs, and the latest test. The full picture at a glance."
+        },
+        "es": {
+          "value": "Volumen, equipamiento, costes y la última prueba. La imagen completa de un vistazo."
+        },
+        "es-419": {
+          "value": "Volumen, equipo, costos y la última prueba. La imagen completa de un vistazo."
+        },
+        "fi": {
+          "value": "Tilavuus, laitteet, kustannukset ja viimeisin testi. Koko kuva yhdellä silmäyksellä."
+        },
+        "fr": {
+          "value": "Volume, équipement, coûts et dernier test. La vue d'ensemble en un coup d'œil."
+        },
+        "fr-CA": {
+          "value": "Volume, équipement, coûts et dernier test. Le portrait complet en un coup d'œil."
+        },
+        "he": {
+          "value": "נפח, ציוד, עלויות והבדיקה האחרונה. התמונה המלאה במבט אחד."
+        },
+        "hi": {
+          "value": "वॉल्यूम, उपकरण, लागत और नवीनतम परीक्षण। एक नज़र में पूरी तस्वीर।"
+        },
+        "hr": {
+          "value": "Volumen, oprema, troškovi i posljednji test. Cjelovita slika na prvi pogled."
+        },
+        "hu": {
+          "value": "Térfogat, felszerelés, költségek és a legutóbbi teszt. A teljes kép egy pillantással."
+        },
+        "id": {
+          "value": "Volume, peralatan, biaya, dan tes terbaru. Gambaran lengkap sekali lihat."
+        },
+        "it": {
+          "value": "Volume, attrezzatura, costi e ultimo test. Il quadro completo a colpo d'occhio."
+        },
+        "ja": {
+          "value": "容量、設備、費用、最新のテスト結果。全体像が一目でわかります。"
+        },
+        "ko": {
+          "value": "용량, 장비, 비용, 최근 테스트까지. 한눈에 보는 전체 그림."
+        },
+        "ms": {
+          "value": "Isipadu, peralatan, kos, dan ujian terkini. Gambaran penuh sekali imbas."
+        },
+        "nb": {
+          "value": "Volum, utstyr, kostnader og siste test. Hele bildet på et blunk."
+        },
+        "nl": {
+          "value": "Volume, apparatuur, kosten en de laatste test. Het volledige beeld in één oogopslag."
+        },
+        "pl": {
+          "value": "Objętość, sprzęt, koszty i ostatni test. Pełny obraz w jednym spojrzeniu."
+        },
+        "pt-BR": {
+          "value": "Volume, equipamentos, custos e o teste mais recente. O quadro completo em um relance."
+        },
+        "pt-PT": {
+          "value": "Volume, equipamento, custos e o último teste. O quadro completo num relance."
+        },
+        "ro": {
+          "value": "Volum, echipamente, costuri și ultimul test. Imaginea completă dintr-o privire."
+        },
+        "ru": {
+          "value": "Объём, оборудование, расходы и последний тест. Полная картина одним взглядом."
+        },
+        "sk": {
+          "value": "Objem, vybavenie, náklady a posledný test. Kompletný obraz na prvý pohľad."
+        },
+        "sv": {
+          "value": "Volym, utrustning, kostnader och senaste testet. Hela bilden på ett ögonblick."
+        },
+        "th": {
+          "value": "ปริมาตร อุปกรณ์ ค่าใช้จ่าย และผลทดสอบล่าสุด ภาพรวมทั้งหมดในมุมมองเดียว"
+        },
+        "tr": {
+          "value": "Hacim, ekipman, maliyetler ve son test. Tüm resim bir bakışta."
+        },
+        "uk": {
+          "value": "Об'єм, обладнання, витрати та останній тест. Повна картина одним поглядом."
+        },
+        "vi": {
+          "value": "Dung tích, thiết bị, chi phí và bài kiểm tra gần nhất. Bức tranh toàn cảnh chỉ trong một cái nhìn."
+        },
+        "zh-Hans": {
+          "value": "容量、设备、费用和最新测试，一目了然的完整概览。"
+        },
+        "zh-Hant": {
+          "value": "容量、設備、費用和最新測試，一目了然的完整概覽。"
+        }
+      }
+    },
+    "s03_head": {
+      "localizations": {
+        "en": {
+          "value": "Stop green water before it starts"
+        },
+        "ar": {
+          "value": "أوقف المياه الخضراء قبل أن تبدأ"
+        },
+        "ca": {
+          "value": "Atura l'aigua verda abans que comenci"
+        },
+        "cs": {
+          "value": "Zastavte zelenou vodu, než začne"
+        },
+        "da": {
+          "value": "Stop grønt vand, før det starter"
+        },
+        "de": {
+          "value": "Stoppe grünes Wasser, bevor es entsteht"
+        },
+        "el": {
+          "value": "Σταμάτησε το πράσινο νερό πριν ξεκινήσει"
+        },
+        "en-AU": {
+          "value": "Stop green water before it starts"
+        },
+        "en-GB": {
+          "value": "Stop green water before it starts"
+        },
+        "es": {
+          "value": "Detén el agua verde antes de que empiece"
+        },
+        "es-419": {
+          "value": "Detén el agua verde antes de que empiece"
+        },
+        "fi": {
+          "value": "Pysäytä viherlevä ennen kuin se alkaa"
+        },
+        "fr": {
+          "value": "Stoppez l'eau verte avant qu'elle n'arrive"
+        },
+        "fr-CA": {
+          "value": "Arrêtez l'eau verte avant qu'elle n'arrive"
+        },
+        "he": {
+          "value": "עצור מים ירוקים לפני שהם מתחילים"
+        },
+        "hi": {
+          "value": "हरे पानी को शुरू होने से पहले रोकें"
+        },
+        "hr": {
+          "value": "Zaustavite zelenu vodu prije nego počne"
+        },
+        "hu": {
+          "value": "Állítsd meg a zöld vizet, mielőtt elkezdődne"
+        },
+        "id": {
+          "value": "Hentikan air hijau sebelum dimulai"
+        },
+        "it": {
+          "value": "Ferma l'acqua verde prima che inizi"
+        },
+        "ja": {
+          "value": "緑色の水になる前に止める"
+        },
+        "ko": {
+          "value": "녹조가 생기기 전에 막으세요"
+        },
+        "ms": {
+          "value": "Hentikan air hijau sebelum bermula"
+        },
+        "nb": {
+          "value": "Stopp grønt vann før det starter"
+        },
+        "nl": {
+          "value": "Stop groen water voordat het begint"
+        },
+        "pl": {
+          "value": "Zatrzymaj zieloną wodę, zanim się zacznie"
+        },
+        "pt-BR": {
+          "value": "Pare a água verde antes que comece"
+        },
+        "pt-PT": {
+          "value": "Trave a água verde antes que comece"
+        },
+        "ro": {
+          "value": "Oprește apa verde înainte să înceapă"
+        },
+        "ru": {
+          "value": "Остановите зелёную воду до её появления"
+        },
+        "sk": {
+          "value": "Zastavte zelenú vodu skôr, než začne"
+        },
+        "sv": {
+          "value": "Stoppa grönt vatten innan det börjar"
+        },
+        "th": {
+          "value": "หยุดน้ำเขียวก่อนที่จะเกิดขึ้น"
+        },
+        "tr": {
+          "value": "Yeşil suyu başlamadan durdurun"
+        },
+        "uk": {
+          "value": "Зупиніть зелену воду до її появи"
+        },
+        "vi": {
+          "value": "Ngăn nước xanh trước khi nó bắt đầu"
+        },
+        "zh-Hans": {
+          "value": "在绿藻出现前及时制止"
+        },
+        "zh-Hant": {
+          "value": "在綠藻出現前及時阻止"
+        }
+      }
+    },
+    "s03_sub": {
+      "localizations": {
+        "en": {
+          "value": "Every reading scored against its ideal range, so you catch drift early and fix it fast."
+        },
+        "ar": {
+          "value": "كل قراءة تُقيَّم مقابل نطاقها المثالي، لترصد الانحراف مبكرًا وتصلحه بسرعة."
+        },
+        "ca": {
+          "value": "Cada lectura es compara amb el seu rang ideal, perquè detectis la desviació aviat i la corregeixis ràpid."
+        },
+        "cs": {
+          "value": "Každá hodnota je porovnána s ideálním rozsahem, takže odchylku zachytíte včas a rychle vyřešíte."
+        },
+        "da": {
+          "value": "Hver måling vurderes mod dens ideelle interval, så du opdager afvigelser tidligt og retter dem hurtigt."
+        },
+        "de": {
+          "value": "Jeder Messwert wird mit seinem Idealbereich verglichen, damit du Abweichungen früh erkennst und schnell behebst."
+        },
+        "el": {
+          "value": "Κάθε μέτρηση αξιολογείται ως προς το ιδανικό εύρος της, ώστε να εντοπίζεις νωρίς την απόκλιση και να τη διορθώνεις γρήγορα."
+        },
+        "en-AU": {
+          "value": "Every reading scored against its ideal range, so you catch drift early and fix it fast."
+        },
+        "en-GB": {
+          "value": "Every reading scored against its ideal range, so you catch drift early and fix it fast."
+        },
+        "es": {
+          "value": "Cada lectura se compara con su rango ideal, para que detectes la desviación pronto y la corrijas rápido."
+        },
+        "es-419": {
+          "value": "Cada lectura se compara con su rango ideal, para que detectes la desviación a tiempo y la corrijas rápido."
+        },
+        "fi": {
+          "value": "Jokainen mittaustulos arvioidaan ihannealueeseensa nähden, joten huomaat poikkeaman ajoissa ja korjaat sen nopeasti."
+        },
+        "fr": {
+          "value": "Chaque mesure est évaluée par rapport à sa plage idéale, pour repérer les écarts tôt et les corriger vite."
+        },
+        "fr-CA": {
+          "value": "Chaque mesure est évaluée par rapport à sa plage idéale, pour repérer les écarts tôt et les corriger vite."
+        },
+        "he": {
+          "value": "כל מדידה מדורגת מול הטווח האידיאלי שלה, כך שתזהה סטייה מוקדם ותתקן אותה מהר."
+        },
+        "hi": {
+          "value": "हर रीडिंग को उसकी आदर्श सीमा के विरुद्ध जांचा जाता है, ताकि आप जल्दी बदलाव पकड़ें और तुरंत ठीक करें।"
+        },
+        "hr": {
+          "value": "Svako očitanje ocjenjuje se prema idealnom rasponu, tako da rano uočite odstupanje i brzo ga ispravite."
+        },
+        "hu": {
+          "value": "Minden mérés az ideális tartományához van viszonyítva, így korán észreveszed az eltérést, és gyorsan javítod."
+        },
+        "id": {
+          "value": "Setiap pembacaan dinilai terhadap rentang idealnya, sehingga kamu menangkap penyimpangan lebih awal dan memperbaikinya dengan cepat."
+        },
+        "it": {
+          "value": "Ogni lettura viene valutata rispetto al suo intervallo ideale, così individui presto lo scostamento e lo correggi in fretta."
+        },
+        "ja": {
+          "value": "各測定値を理想範囲と照らし合わせるので、変化を早く察知してすぐに対処できます。"
+        },
+        "ko": {
+          "value": "모든 측정값을 이상적인 범위와 비교하여, 이탈을 조기에 발견하고 빠르게 조정하세요."
+        },
+        "ms": {
+          "value": "Setiap bacaan dinilai berdasarkan julat idealnya, jadi anda dapat kesan penyimpangan awal dan betulkan dengan cepat."
+        },
+        "nb": {
+          "value": "Hver måling vurderes mot sitt ideelle område, så du fanger avvik tidlig og retter dem raskt."
+        },
+        "nl": {
+          "value": "Elke meting wordt beoordeeld tegen het ideale bereik, zodat je afwijkingen vroeg opmerkt en snel oplost."
+        },
+        "pl": {
+          "value": "Każdy odczyt jest oceniany względem idealnego zakresu, dzięki czemu wcześnie wychwycisz odchylenie i szybko je naprawisz."
+        },
+        "pt-BR": {
+          "value": "Cada leitura é avaliada contra sua faixa ideal, para você detectar o desvio cedo e corrigir rápido."
+        },
+        "pt-PT": {
+          "value": "Cada leitura é avaliada face ao seu intervalo ideal, para detetar o desvio cedo e corrigi-lo depressa."
+        },
+        "ro": {
+          "value": "Fiecare valoare este evaluată față de intervalul ideal, ca să depistezi devierea devreme și să o corectezi rapid."
+        },
+        "ru": {
+          "value": "Каждое измерение оценивается по идеальному диапазону, чтобы вы рано заметили отклонение и быстро его исправили."
+        },
+        "sk": {
+          "value": "Každá hodnota sa porovnáva s ideálnym rozsahom, takže odchýlku zachytíte včas a rýchlo napravíte."
+        },
+        "sv": {
+          "value": "Varje mätvärde bedöms mot sitt idealintervall, så du fångar avvikelser tidigt och åtgärdar dem snabbt."
+        },
+        "th": {
+          "value": "ทุกค่าที่วัดจะถูกประเมินเทียบกับช่วงที่เหมาะสม เพื่อให้คุณจับความเบี่ยงเบนได้เร็วและแก้ไขได้ทันที"
+        },
+        "tr": {
+          "value": "Her ölçüm ideal aralığına göre değerlendirilir, böylece sapmayı erken yakalar ve hızlıca düzeltirsiniz."
+        },
+        "uk": {
+          "value": "Кожне вимірювання оцінюється за ідеальним діапазоном, щоб ви рано помітили відхилення та швидко його виправили."
+        },
+        "vi": {
+          "value": "Mỗi chỉ số được đánh giá so với phạm vi lý tưởng, để bạn phát hiện sớm sự sai lệch và khắc phục nhanh chóng."
+        },
+        "zh-Hans": {
+          "value": "每项读数都会与理想范围进行比对，让你尽早发现偏差并快速修正。"
+        },
+        "zh-Hant": {
+          "value": "每項數值都會對照理想範圍評估，讓你提早發現偏差並迅速修正。"
+        }
+      }
+    },
+    "s04_head": {
+      "localizations": {
+        "en": {
+          "value": "Log a test in seconds"
+        },
+        "ar": {
+          "value": "سجّل اختبارًا في ثوانٍ"
+        },
+        "ca": {
+          "value": "Registra una prova en segons"
+        },
+        "cs": {
+          "value": "Zaznamenejte test za pár vteřin"
+        },
+        "da": {
+          "value": "Log en test på sekunder"
+        },
+        "de": {
+          "value": "Test in Sekunden protokollieren"
+        },
+        "el": {
+          "value": "Καταχώρησε δοκιμή σε δευτερόλεπτα"
+        },
+        "en-AU": {
+          "value": "Log a test in seconds"
+        },
+        "en-GB": {
+          "value": "Log a test in seconds"
+        },
+        "es": {
+          "value": "Registra una prueba en segundos"
+        },
+        "es-419": {
+          "value": "Registra una prueba en segundos"
+        },
+        "fi": {
+          "value": "Kirjaa testi sekunneissa"
+        },
+        "fr": {
+          "value": "Enregistrez un test en quelques secondes"
+        },
+        "fr-CA": {
+          "value": "Enregistrez un test en quelques secondes"
+        },
+        "he": {
+          "value": "תעד בדיקה תוך שניות"
+        },
+        "hi": {
+          "value": "सेकंडों में परीक्षण दर्ज करें"
+        },
+        "hr": {
+          "value": "Zabilježite test za nekoliko sekundi"
+        },
+        "hu": {
+          "value": "Rögzíts egy tesztet másodpercek alatt"
+        },
+        "id": {
+          "value": "Catat tes dalam hitungan detik"
+        },
+        "it": {
+          "value": "Registra un test in pochi secondi"
+        },
+        "ja": {
+          "value": "数秒でテストを記録"
+        },
+        "ko": {
+          "value": "몇 초 만에 테스트 기록"
+        },
+        "ms": {
+          "value": "Catat ujian dalam beberapa saat"
+        },
+        "nb": {
+          "value": "Registrer en test på sekunder"
+        },
+        "nl": {
+          "value": "Leg een test vast in seconden"
+        },
+        "pl": {
+          "value": "Zapisz test w kilka sekund"
+        },
+        "pt-BR": {
+          "value": "Registre um teste em segundos"
+        },
+        "pt-PT": {
+          "value": "Registe um teste em segundos"
+        },
+        "ro": {
+          "value": "Înregistrează un test în câteva secunde"
+        },
+        "ru": {
+          "value": "Записывайте тест за секунды"
+        },
+        "sk": {
+          "value": "Zaznamenajte test za pár sekúnd"
+        },
+        "sv": {
+          "value": "Logga ett test på sekunder"
+        },
+        "th": {
+          "value": "บันทึกผลทดสอบภายในไม่กี่วินาที"
+        },
+        "tr": {
+          "value": "Saniyeler içinde test kaydedin"
+        },
+        "uk": {
+          "value": "Записуйте тест за секунди"
+        },
+        "vi": {
+          "value": "Ghi lại bài kiểm tra trong vài giây"
+        },
+        "zh-Hans": {
+          "value": "几秒钟记录一次测试"
+        },
+        "zh-Hant": {
+          "value": "幾秒鐘記錄一次測試"
+        }
+      }
+    },
+    "s04_sub": {
+      "localizations": {
+        "en": {
+          "value": "Dip a strip, type the numbers, done. Skimmer builds your trends automatically."
+        },
+        "ar": {
+          "value": "اغمس الشريط، أدخل الأرقام، انتهيت. يبني Skimmer اتجاهاتك تلقائيًا."
+        },
+        "ca": {
+          "value": "Mulla una tira, escriu els números, llest. Skimmer crea les teves tendències automàticament."
+        },
+        "cs": {
+          "value": "Namočte proužek, zadejte čísla, hotovo. Skimmer automaticky vytváří vaše trendy."
+        },
+        "da": {
+          "value": "Dyp en strimmel, indtast tallene, færdig. Skimmer opbygger dine tendenser automatisk."
+        },
+        "de": {
+          "value": "Streifen eintauchen, Zahlen eingeben, fertig. Skimmer erstellt deine Trends automatisch."
+        },
+        "el": {
+          "value": "Βούτηξε μια ταινία, πληκτρολόγησε τους αριθμούς, έτοιμο. Το Skimmer φτιάχνει τις τάσεις σου αυτόματα."
+        },
+        "en-AU": {
+          "value": "Dip a strip, type the numbers, done. Skimmer builds your trends automatically."
+        },
+        "en-GB": {
+          "value": "Dip a strip, type the numbers, done. Skimmer builds your trends automatically."
+        },
+        "es": {
+          "value": "Moja una tira, escribe los números, listo. Skimmer construye tus tendencias automáticamente."
+        },
+        "es-419": {
+          "value": "Moja una tira, escribe los números, listo. Skimmer arma tus tendencias automáticamente."
+        },
+        "fi": {
+          "value": "Kastele liuska, kirjoita luvut, valmista. Skimmer rakentaa trendisi automaattisesti."
+        },
+        "fr": {
+          "value": "Trempez une bandelette, entrez les chiffres, c'est fait. Skimmer construit vos tendances automatiquement."
+        },
+        "fr-CA": {
+          "value": "Trempez une languette, entrez les chiffres, c'est fait. Skimmer bâtit vos tendances automatiquement."
+        },
+        "he": {
+          "value": "טבול רצועה, הקלד מספרים, סיימת. Skimmer בונה את המגמות שלך אוטומטית."
+        },
+        "hi": {
+          "value": "स्ट्रिप डुबोएं, संख्याएं टाइप करें, हो गया। Skimmer स्वचालित रूप से आपके रुझान बनाता है।"
+        },
+        "hr": {
+          "value": "Umočite traku, unesite brojeve, gotovo. Skimmer automatski gradi vaše trendove."
+        },
+        "hu": {
+          "value": "Mártsd be a csíkot, írd be a számokat, kész. A Skimmer automatikusan felépíti a trendjeidet."
+        },
+        "id": {
+          "value": "Celupkan strip, ketik angkanya, selesai. Skimmer membangun tren kamu secara otomatis."
+        },
+        "it": {
+          "value": "Immergi una striscia, digita i numeri, fatto. Skimmer costruisce le tue tendenze automaticamente."
+        },
+        "ja": {
+          "value": "ストリップを浸して数値を入力するだけ。Skimmerが自動でトレンドを作成します。"
+        },
+        "ko": {
+          "value": "스트립을 담그고 숫자만 입력하면 끝. Skimmer가 자동으로 추세를 만들어 드립니다."
+        },
+        "ms": {
+          "value": "Celup jalur, taip nombor, selesai. Skimmer membina trend anda secara automatik."
+        },
+        "nb": {
+          "value": "Dypp en strimmel, skriv inn tallene, ferdig. Skimmer bygger trendene dine automatisk."
+        },
+        "nl": {
+          "value": "Doop een strip, typ de cijfers, klaar. Skimmer bouwt je trends automatisch op."
+        },
+        "pl": {
+          "value": "Zanurz pasek, wpisz liczby, gotowe. Skimmer automatycznie tworzy twoje trendy."
+        },
+        "pt-BR": {
+          "value": "Molhe uma tira, digite os números, pronto. O Skimmer cria suas tendências automaticamente."
+        },
+        "pt-PT": {
+          "value": "Molhe uma tira, escreva os números, pronto. O Skimmer cria as suas tendências automaticamente."
+        },
+        "ro": {
+          "value": "Înmoaie o bandă, introdu numerele, gata. Skimmer îți construiește tendințele automat."
+        },
+        "ru": {
+          "value": "Окуните полоску, введите цифры, готово. Skimmer автоматически строит ваши тренды."
+        },
+        "sk": {
+          "value": "Namočte prúžok, zadajte čísla, hotovo. Skimmer automaticky vytvára vaše trendy."
+        },
+        "sv": {
+          "value": "Doppa en remsa, skriv in siffrorna, klart. Skimmer bygger dina trender automatiskt."
+        },
+        "th": {
+          "value": "จุ่มแถบทดสอบ พิมพ์ตัวเลข เสร็จเรียบร้อย Skimmer สร้างแนวโน้มให้คุณโดยอัตโนมัติ"
+        },
+        "tr": {
+          "value": "Bir şerit batırın, sayıları girin, tamam. Skimmer trendlerinizi otomatik olarak oluşturur."
+        },
+        "uk": {
+          "value": "Занурте смужку, введіть цифри, готово. Skimmer автоматично будує ваші тренди."
+        },
+        "vi": {
+          "value": "Nhúng que thử, nhập số liệu, xong. Skimmer tự động xây dựng xu hướng cho bạn."
+        },
+        "zh-Hans": {
+          "value": "蘸一下试纸，输入数字，完成。Skimmer 会自动为你生成趋势图。"
+        },
+        "zh-Hant": {
+          "value": "沾一下試紙，輸入數字，完成。Skimmer 會自動為你建立趨勢圖。"
+        }
+      }
+    },
+    "s05_head": {
+      "localizations": {
+        "en": {
+          "value": "Never forget the filter again"
+        },
+        "ar": {
+          "value": "لا تنسَ الفلتر مجددًا"
+        },
+        "ca": {
+          "value": "No oblidis mai més el filtre"
+        },
+        "cs": {
+          "value": "Už nikdy nezapomeňte na filtr"
+        },
+        "da": {
+          "value": "Glem aldrig filteret igen"
+        },
+        "de": {
+          "value": "Nie wieder den Filter vergessen"
+        },
+        "el": {
+          "value": "Μην ξεχάσεις ξανά το φίλτρο"
+        },
+        "en-AU": {
+          "value": "Never forget the filter again"
+        },
+        "en-GB": {
+          "value": "Never forget the filter again"
+        },
+        "es": {
+          "value": "Nunca más olvides el filtro"
+        },
+        "es-419": {
+          "value": "Nunca más olvides el filtro"
+        },
+        "fi": {
+          "value": "Älä unohda suodatinta enää koskaan"
+        },
+        "fr": {
+          "value": "N'oubliez plus jamais le filtre"
+        },
+        "fr-CA": {
+          "value": "N'oubliez plus jamais le filtre"
+        },
+        "he": {
+          "value": "אל תשכח את הפילטר שוב"
+        },
+        "hi": {
+          "value": "फ़िल्टर को फिर कभी न भूलें"
+        },
+        "hr": {
+          "value": "Nikad više ne zaboravite filter"
+        },
+        "hu": {
+          "value": "Soha többé ne felejtsd el a szűrőt"
+        },
+        "id": {
+          "value": "Jangan pernah lupa filter lagi"
+        },
+        "it": {
+          "value": "Non dimenticare mai più il filtro"
+        },
+        "ja": {
+          "value": "フィルター交換をもう忘れない"
+        },
+        "ko": {
+          "value": "필터 교체를 다시는 잊지 마세요"
+        },
+        "ms": {
+          "value": "Jangan lupa penapis lagi"
+        },
+        "nb": {
+          "value": "Glem aldri filteret igjen"
+        },
+        "nl": {
+          "value": "Vergeet het filter nooit meer"
+        },
+        "pl": {
+          "value": "Nigdy więcej nie zapomnij o filtrze"
+        },
+        "pt-BR": {
+          "value": "Nunca mais esqueça o filtro"
+        },
+        "pt-PT": {
+          "value": "Nunca mais se esqueça do filtro"
+        },
+        "ro": {
+          "value": "Nu mai uita niciodată de filtru"
+        },
+        "ru": {
+          "value": "Никогда больше не забывайте про фильтр"
+        },
+        "sk": {
+          "value": "Už nikdy nezabudnite na filter"
+        },
+        "sv": {
+          "value": "Glöm aldrig filtret igen"
+        },
+        "th": {
+          "value": "ไม่พลาดการเปลี่ยนไส้กรองอีกต่อไป"
+        },
+        "tr": {
+          "value": "Filtreyi bir daha asla unutmayın"
+        },
+        "uk": {
+          "value": "Ніколи більше не забувайте про фільтр"
+        },
+        "vi": {
+          "value": "Không bao giờ quên bộ lọc nữa"
+        },
+        "zh-Hans": {
+          "value": "再也不会忘记更换滤芯"
+        },
+        "zh-Hant": {
+          "value": "再也不會忘記更換濾芯"
+        }
+      }
+    },
+    "s05_sub": {
+      "localizations": {
+        "en": {
+          "value": "Recurring schedules for every chore show what is due now and what can wait."
+        },
+        "ar": {
+          "value": "جداول متكررة لكل مهمة تُظهر ما هو مستحق الآن وما يمكن أن ينتظر."
+        },
+        "ca": {
+          "value": "Horaris recurrents per a cada tasca mostren què toca ara i què pot esperar."
+        },
+        "cs": {
+          "value": "Opakující se plány pro každý úkol ukazují, co je splatné nyní a co může počkat."
+        },
+        "da": {
+          "value": "Tilbagevendende planer for hver opgave viser, hvad der forfalder nu, og hvad der kan vente."
+        },
+        "de": {
+          "value": "Wiederkehrende Zeitpläne für jede Aufgabe zeigen, was jetzt fällig ist und was warten kann."
+        },
+        "el": {
+          "value": "Επαναλαμβανόμενα προγράμματα για κάθε εργασία δείχνουν τι οφείλεται τώρα και τι μπορεί να περιμένει."
+        },
+        "en-AU": {
+          "value": "Recurring schedules for every chore show what is due now and what can wait."
+        },
+        "en-GB": {
+          "value": "Recurring schedules for every chore show what is due now and what can wait."
+        },
+        "es": {
+          "value": "Horarios recurrentes para cada tarea muestran qué toca ahora y qué puede esperar."
+        },
+        "es-419": {
+          "value": "Horarios recurrentes para cada tarea muestran qué está pendiente ahora y qué puede esperar."
+        },
+        "fi": {
+          "value": "Toistuvat aikataulut jokaiselle tehtävälle näyttävät, mikä on nyt erääntynyt ja mikä voi odottaa."
+        },
+        "fr": {
+          "value": "Des plannings récurrents pour chaque tâche montrent ce qui est dû maintenant et ce qui peut attendre."
+        },
+        "fr-CA": {
+          "value": "Des horaires récurrents pour chaque tâche montrent ce qui est dû maintenant et ce qui peut attendre."
+        },
+        "he": {
+          "value": "לוחות זמנים חוזרים לכל מטלה מראים מה נדרש עכשיו ומה יכול לחכות."
+        },
+        "hi": {
+          "value": "हर काम के लिए आवर्ती शेड्यूल दिखाते हैं कि अभी क्या देय है और क्या इंतज़ार कर सकता है।"
+        },
+        "hr": {
+          "value": "Ponavljajući rasporedi za svaki zadatak pokazuju što je sada dospjelo, a što može pričekati."
+        },
+        "hu": {
+          "value": "Ismétlődő ütemezések minden feladathoz mutatják, mi esedékes most, és mi várhat."
+        },
+        "id": {
+          "value": "Jadwal berulang untuk setiap tugas menunjukkan apa yang jatuh tempo sekarang dan apa yang bisa menunggu."
+        },
+        "it": {
+          "value": "Programmi ricorrenti per ogni attività mostrano cosa è dovuto ora e cosa può aspettare."
+        },
+        "ja": {
+          "value": "すべての作業に繰り返しスケジュールを設定。今必要なことと後回しにできることが一目瞭然。"
+        },
+        "ko": {
+          "value": "모든 작업에 반복 일정을 설정해, 지금 해야 할 일과 기다려도 되는 일을 한눈에 확인하세요."
+        },
+        "ms": {
+          "value": "Jadual berulang untuk setiap tugas menunjukkan apa yang perlu sekarang dan apa yang boleh menunggu."
+        },
+        "nb": {
+          "value": "Tilbakevendende planer for hver oppgave viser hva som forfaller nå og hva som kan vente."
+        },
+        "nl": {
+          "value": "Terugkerende schema's voor elke klus tonen wat nu moet gebeuren en wat kan wachten."
+        },
+        "pl": {
+          "value": "Cykliczne harmonogramy dla każdego zadania pokazują, co jest teraz do zrobienia, a co może poczekać."
+        },
+        "pt-BR": {
+          "value": "Cronogramas recorrentes para cada tarefa mostram o que está vencendo agora e o que pode esperar."
+        },
+        "pt-PT": {
+          "value": "Calendários recorrentes para cada tarefa mostram o que está pendente agora e o que pode esperar."
+        },
+        "ro": {
+          "value": "Programe recurente pentru fiecare sarcină arată ce este scadent acum și ce mai poate aștepta."
+        },
+        "ru": {
+          "value": "Повторяющиеся графики для каждой задачи показывают, что нужно сейчас, а что может подождать."
+        },
+        "sk": {
+          "value": "Opakujúce sa plány pre každú úlohu ukazujú, čo je splatné teraz a čo môže počkať."
+        },
+        "sv": {
+          "value": "Återkommande scheman för varje syssla visar vad som är dags nu och vad som kan vänta."
+        },
+        "th": {
+          "value": "ตารางงานที่เกิดซ้ำสำหรับทุกงานแสดงให้เห็นว่าอะไรต้องทำตอนนี้ และอะไรรอได้"
+        },
+        "tr": {
+          "value": "Her görev için tekrarlayan programlar, şimdi neyin gerektiğini ve neyin bekleyebileceğini gösterir."
+        },
+        "uk": {
+          "value": "Повторювані графіки для кожного завдання показують, що потрібно зараз, а що може почекати."
+        },
+        "vi": {
+          "value": "Lịch trình lặp lại cho mọi công việc cho thấy điều gì cần làm ngay và điều gì có thể chờ."
+        },
+        "zh-Hans": {
+          "value": "每项任务都有周期性提醒，清楚显示当前该做什么、什么可以稍后处理。"
+        },
+        "zh-Hant": {
+          "value": "每項工作都有週期性排程，清楚顯示現在該做什麼、什麼可以稍後處理。"
+        }
+      }
+    },
+    "s06_head": {
+      "localizations": {
+        "en": {
+          "value": "Every service, on the record"
+        },
+        "ar": {
+          "value": "كل خدمة، في السجل"
+        },
+        "ca": {
+          "value": "Cada servei, registrat"
+        },
+        "cs": {
+          "value": "Každý servis zaznamenán"
+        },
+        "da": {
+          "value": "Hver service, på rekord"
+        },
+        "de": {
+          "value": "Jeder Service, dokumentiert"
+        },
+        "el": {
+          "value": "Κάθε συντήρηση, καταγεγραμμένη"
+        },
+        "en-AU": {
+          "value": "Every service, on the record"
+        },
+        "en-GB": {
+          "value": "Every service, on the record"
+        },
+        "es": {
+          "value": "Cada servicio, registrado"
+        },
+        "es-419": {
+          "value": "Cada servicio, registrado"
+        },
+        "fi": {
+          "value": "Jokainen huolto, kirjattuna"
+        },
+        "fr": {
+          "value": "Chaque service, enregistré"
+        },
+        "fr-CA": {
+          "value": "Chaque entretien, enregistré"
+        },
+        "he": {
+          "value": "כל שירות, בתיעוד"
+        },
+        "hi": {
+          "value": "हर सर्विस, रिकॉर्ड पर"
+        },
+        "hr": {
+          "value": "Svaki servis, zabilježen"
+        },
+        "hu": {
+          "value": "Minden szerviz, rögzítve"
+        },
+        "id": {
+          "value": "Setiap servis, tercatat"
+        },
+        "it": {
+          "value": "Ogni servizio, registrato"
+        },
+        "ja": {
+          "value": "すべてのサービスを記録"
+        },
+        "ko": {
+          "value": "모든 서비스, 기록으로"
+        },
+        "ms": {
+          "value": "Setiap servis, direkodkan"
+        },
+        "nb": {
+          "value": "Hver service, journalført"
+        },
+        "nl": {
+          "value": "Elke service, vastgelegd"
+        },
+        "pl": {
+          "value": "Każdy serwis, zapisany"
+        },
+        "pt-BR": {
+          "value": "Cada serviço, registrado"
+        },
+        "pt-PT": {
+          "value": "Cada serviço, registado"
+        },
+        "ro": {
+          "value": "Fiecare service, înregistrat"
+        },
+        "ru": {
+          "value": "Каждое обслуживание, в записи"
+        },
+        "sk": {
+          "value": "Každý servis, zaznamenaný"
+        },
+        "sv": {
+          "value": "Varje service, dokumenterad"
+        },
+        "th": {
+          "value": "ทุกงานซ่อมบำรุง ถูกบันทึก"
+        },
+        "tr": {
+          "value": "Her servis, kayıt altında"
+        },
+        "uk": {
+          "value": "Кожне обслуговування, в записі"
+        },
+        "vi": {
+          "value": "Mọi dịch vụ, đều được ghi lại"
+        },
+        "zh-Hans": {
+          "value": "每次服务，都有记录"
+        },
+        "zh-Hant": {
+          "value": "每次服務，都有紀錄"
+        }
+      }
+    },
+    "s06_sub": {
+      "localizations": {
+        "en": {
+          "value": "Costs, parts, and notes for every job, so you always know what was done and when."
+        },
+        "ar": {
+          "value": "التكاليف والقطع والملاحظات لكل عمل، فتعرف دائمًا ما تم وماذا ومتى."
+        },
+        "ca": {
+          "value": "Costos, peces i notes de cada feina, perquè sempre sàpigues què es va fer i quan."
+        },
+        "cs": {
+          "value": "Náklady, díly a poznámky ke každé práci, takže vždy víte, co bylo uděláno a kdy."
+        },
+        "da": {
+          "value": "Omkostninger, dele og noter for hvert job, så du altid ved, hvad der blev gjort og hvornår."
+        },
+        "de": {
+          "value": "Kosten, Teile und Notizen zu jedem Auftrag, damit du immer weißt, was wann erledigt wurde."
+        },
+        "el": {
+          "value": "Κόστη, ανταλλακτικά και σημειώσεις για κάθε εργασία, ώστε να ξέρεις πάντα τι έγινε και πότε."
+        },
+        "en-AU": {
+          "value": "Costs, parts, and notes for every job, so you always know what was done and when."
+        },
+        "en-GB": {
+          "value": "Costs, parts, and notes for every job, so you always know what was done and when."
+        },
+        "es": {
+          "value": "Costes, piezas y notas de cada trabajo, para que siempre sepas qué se hizo y cuándo."
+        },
+        "es-419": {
+          "value": "Costos, piezas y notas de cada trabajo, para que siempre sepas qué se hizo y cuándo."
+        },
+        "fi": {
+          "value": "Kustannukset, osat ja muistiinpanot jokaisesta työstä, joten tiedät aina mitä tehtiin ja milloin."
+        },
+        "fr": {
+          "value": "Coûts, pièces et notes pour chaque intervention, pour toujours savoir ce qui a été fait et quand."
+        },
+        "fr-CA": {
+          "value": "Coûts, pièces et notes pour chaque travail, pour toujours savoir ce qui a été fait et quand."
+        },
+        "he": {
+          "value": "עלויות, חלקים והערות לכל עבודה, כך שתמיד תדע מה נעשה ומתי."
+        },
+        "hi": {
+          "value": "हर काम के लिए लागत, पुर्जे और नोट्स, ताकि आप हमेशा जानें कि क्या हुआ और कब।"
+        },
+        "hr": {
+          "value": "Troškovi, dijelovi i bilješke za svaki posao, tako da uvijek znate što je učinjeno i kada."
+        },
+        "hu": {
+          "value": "Költségek, alkatrészek és jegyzetek minden munkához, hogy mindig tudd, mi történt és mikor."
+        },
+        "id": {
+          "value": "Biaya, suku cadang, dan catatan untuk setiap pekerjaan, jadi kamu selalu tahu apa yang dilakukan dan kapan."
+        },
+        "it": {
+          "value": "Costi, ricambi e note per ogni lavoro, così sai sempre cosa è stato fatto e quando."
+        },
+        "ja": {
+          "value": "費用、部品、メモを作業ごとに記録。いつ何をしたか、いつでも確認できます。"
+        },
+        "ko": {
+          "value": "모든 작업의 비용, 부품, 메모까지. 언제 무엇을 했는지 항상 알 수 있습니다."
+        },
+        "ms": {
+          "value": "Kos, alat ganti, dan nota untuk setiap kerja, supaya anda sentiasa tahu apa yang dibuat dan bila."
+        },
+        "nb": {
+          "value": "Kostnader, deler og notater for hver jobb, så du alltid vet hva som ble gjort og når."
+        },
+        "nl": {
+          "value": "Kosten, onderdelen en notities per klus, zodat je altijd weet wat er gedaan is en wanneer."
+        },
+        "pl": {
+          "value": "Koszty, części i notatki do każdej pracy, dzięki czemu zawsze wiesz, co i kiedy zostało zrobione."
+        },
+        "pt-BR": {
+          "value": "Custos, peças e notas de cada trabalho, para você sempre saber o que foi feito e quando."
+        },
+        "pt-PT": {
+          "value": "Custos, peças e notas de cada trabalho, para saber sempre o que foi feito e quando."
+        },
+        "ro": {
+          "value": "Costuri, piese și note pentru fiecare lucrare, ca să știi mereu ce s-a făcut și când."
+        },
+        "ru": {
+          "value": "Расходы, детали и заметки для каждой работы, чтобы вы всегда знали, что и когда было сделано."
+        },
+        "sk": {
+          "value": "Náklady, diely a poznámky ku každej práci, takže vždy viete, čo bolo urobené a kedy."
+        },
+        "sv": {
+          "value": "Kostnader, delar och anteckningar för varje jobb, så du alltid vet vad som gjordes och när."
+        },
+        "th": {
+          "value": "ค่าใช้จ่าย อะไหล่ และบันทึกย่อสำหรับทุกงาน คุณจึงรู้เสมอว่าทำอะไรไปและเมื่อไหร่"
+        },
+        "tr": {
+          "value": "Her iş için maliyetler, parçalar ve notlar, böylece ne zaman ne yapıldığını her zaman bilirsiniz."
+        },
+        "uk": {
+          "value": "Витрати, деталі та нотатки для кожної роботи, щоб ви завжди знали, що і коли було зроблено."
+        },
+        "vi": {
+          "value": "Chi phí, phụ tùng và ghi chú cho mỗi công việc, để bạn luôn biết điều gì đã được làm và khi nào."
+        },
+        "zh-Hans": {
+          "value": "每项工作的费用、零件和备注一目了然，让你随时知道做了什么、何时完成。"
+        },
+        "zh-Hant": {
+          "value": "每項工作的費用、零件與備註一目了然，讓你隨時掌握做了什麼、何時完成。"
+        }
+      }
+    },
+    "s07_head": {
+      "localizations": {
+        "en": {
+          "value": "Private by design"
+        },
+        "ar": {
+          "value": "خصوصية بالتصميم"
+        },
+        "ca": {
+          "value": "Privat per disseny"
+        },
+        "cs": {
+          "value": "Soukromí od základu"
+        },
+        "da": {
+          "value": "Privat by design"
+        },
+        "de": {
+          "value": "Privat by design"
+        },
+        "el": {
+          "value": "Ιδιωτικότητα εκ σχεδιασμού"
+        },
+        "en-AU": {
+          "value": "Private by design"
+        },
+        "en-GB": {
+          "value": "Private by design"
+        },
+        "es": {
+          "value": "Privado por diseño"
+        },
+        "es-419": {
+          "value": "Privado por diseño"
+        },
+        "fi": {
+          "value": "Yksityinen alusta asti"
+        },
+        "fr": {
+          "value": "Privé par conception"
+        },
+        "fr-CA": {
+          "value": "Privé par conception"
+        },
+        "he": {
+          "value": "פרטי מעצם התכנון"
+        },
+        "hi": {
+          "value": "डिज़ाइन के अनुसार निजी"
+        },
+        "hr": {
+          "value": "Privatnost po dizajnu"
+        },
+        "hu": {
+          "value": "Eleve privát"
+        },
+        "id": {
+          "value": "Privat sejak dirancang"
+        },
+        "it": {
+          "value": "Privato per progettazione"
+        },
+        "ja": {
+          "value": "設計からプライベート"
+        },
+        "ko": {
+          "value": "설계부터 프라이빗"
+        },
+        "ms": {
+          "value": "Privasi mengikut reka bentuk"
+        },
+        "nb": {
+          "value": "Privat by design"
+        },
+        "nl": {
+          "value": "Privé door ontwerp"
+        },
+        "pl": {
+          "value": "Prywatność od podstaw"
+        },
+        "pt-BR": {
+          "value": "Privado por design"
+        },
+        "pt-PT": {
+          "value": "Privado por conceção"
+        },
+        "ro": {
+          "value": "Privat prin design"
+        },
+        "ru": {
+          "value": "Конфиденциальность по умолчанию"
+        },
+        "sk": {
+          "value": "Súkromie od návrhu"
+        },
+        "sv": {
+          "value": "Privat från grunden"
+        },
+        "th": {
+          "value": "เป็นส่วนตัวตั้งแต่การออกแบบ"
+        },
+        "tr": {
+          "value": "Tasarımdan gelen gizlilik"
+        },
+        "uk": {
+          "value": "Конфіденційність за задумом"
+        },
+        "vi": {
+          "value": "Riêng tư theo thiết kế"
+        },
+        "zh-Hans": {
+          "value": "从设计上保护隐私"
+        },
+        "zh-Hant": {
+          "value": "從設計上保護隱私"
+        }
+      }
+    },
+    "s07_sub": {
+      "localizations": {
+        "en": {
+          "value": "Skimmer works completely offline. Everything about your pool stays with you."
+        },
+        "ar": {
+          "value": "يعمل Skimmer بلا اتصال بالكامل. كل ما يخص مسبحك يبقى معك."
+        },
+        "ca": {
+          "value": "Skimmer funciona completament sense connexió. Tot sobre la teva piscina es queda amb tu."
+        },
+        "cs": {
+          "value": "Skimmer funguje zcela offline. Vše o vašem bazénu zůstává jen u vás."
+        },
+        "da": {
+          "value": "Skimmer fungerer helt offline. Alt om din pool bliver hos dig."
+        },
+        "de": {
+          "value": "Skimmer funktioniert komplett offline. Alles über deinen Pool bleibt bei dir."
+        },
+        "el": {
+          "value": "Το Skimmer λειτουργεί εντελώς εκτός σύνδεσης. Όλα για την πισίνα σου μένουν μαζί σου."
+        },
+        "en-AU": {
+          "value": "Skimmer works completely offline. Everything about your pool stays with you."
+        },
+        "en-GB": {
+          "value": "Skimmer works completely offline. Everything about your pool stays with you."
+        },
+        "es": {
+          "value": "Skimmer funciona completamente sin conexión. Todo sobre tu piscina se queda contigo."
+        },
+        "es-419": {
+          "value": "Skimmer funciona completamente sin conexión. Todo sobre tu piscina se queda contigo."
+        },
+        "fi": {
+          "value": "Skimmer toimii täysin ilman verkkoyhteyttä. Kaikki altaastasi pysyy sinulla."
+        },
+        "fr": {
+          "value": "Skimmer fonctionne entièrement hors ligne. Tout ce qui concerne votre piscine reste avec vous."
+        },
+        "fr-CA": {
+          "value": "Skimmer fonctionne entièrement hors ligne. Tout ce qui concerne votre piscine reste avec vous."
+        },
+        "he": {
+          "value": "Skimmer פועל לגמרי במצב לא מקוון. כל מה שקשור לבריכה שלך נשאר איתך."
+        },
+        "hi": {
+          "value": "Skimmer पूरी तरह ऑफ़लाइन काम करता है। आपके पूल के बारे में सब कुछ आपके पास रहता है।"
+        },
+        "hr": {
+          "value": "Skimmer radi potpuno bez interneta. Sve o vašem bazenu ostaje kod vas."
+        },
+        "hu": {
+          "value": "A Skimmer teljesen offline működik. Minden, ami a medencédről szól, nálad marad."
+        },
+        "id": {
+          "value": "Skimmer bekerja sepenuhnya offline. Semua tentang kolammu tetap bersamamu."
+        },
+        "it": {
+          "value": "Skimmer funziona completamente offline. Tutto ciò che riguarda la tua piscina resta con te."
+        },
+        "ja": {
+          "value": "Skimmerは完全オフラインで動作。プールに関するすべてがあなたの手元に残ります。"
+        },
+        "ko": {
+          "value": "Skimmer는 완전히 오프라인으로 작동합니다. 수영장에 관한 모든 것이 당신 곁에 남습니다."
+        },
+        "ms": {
+          "value": "Skimmer beroperasi sepenuhnya luar talian. Semua tentang kolam anda kekal bersama anda."
+        },
+        "nb": {
+          "value": "Skimmer fungerer helt uten nett. Alt om bassenget ditt blir hos deg."
+        },
+        "nl": {
+          "value": "Skimmer werkt volledig offline. Alles over je zwembad blijft bij jou."
+        },
+        "pl": {
+          "value": "Skimmer działa całkowicie offline. Wszystko o twoim basenie zostaje przy tobie."
+        },
+        "pt-BR": {
+          "value": "O Skimmer funciona totalmente offline. Tudo sobre sua piscina fica com você."
+        },
+        "pt-PT": {
+          "value": "O Skimmer funciona totalmente offline. Tudo sobre a sua piscina fica consigo."
+        },
+        "ro": {
+          "value": "Skimmer funcționează complet offline. Tot ce ține de piscina ta rămâne la tine."
+        },
+        "ru": {
+          "value": "Skimmer полностью работает офлайн. Всё о вашем бассейне остаётся при вас."
+        },
+        "sk": {
+          "value": "Skimmer funguje úplne offline. Všetko o vašom bazéne zostáva len pri vás."
+        },
+        "sv": {
+          "value": "Skimmer fungerar helt offline. Allt om din pool stannar hos dig."
+        },
+        "th": {
+          "value": "Skimmer ทำงานแบบออฟไลน์ทั้งหมด ทุกอย่างเกี่ยวกับสระของคุณอยู่กับคุณเท่านั้น"
+        },
+        "tr": {
+          "value": "Skimmer tamamen çevrimdışı çalışır. Havuzunuzla ilgili her şey sizde kalır."
+        },
+        "uk": {
+          "value": "Skimmer працює повністю офлайн. Все про ваш басейн залишається з вами."
+        },
+        "vi": {
+          "value": "Skimmer hoạt động hoàn toàn ngoại tuyến. Mọi thứ về hồ bơi của bạn ở lại với bạn."
+        },
+        "zh-Hans": {
+          "value": "Skimmer 完全离线运行。关于你泳池的一切都只属于你。"
+        },
+        "zh-Hant": {
+          "value": "Skimmer 完全離線運作。關於你泳池的一切都只屬於你。"
+        }
+      }
+    },
+    "s08_head": {
+      "localizations": {
+        "en": {
+          "value": "Sell with the receipts"
+        },
+        "ar": {
+          "value": "بِعْ مع الإيصالات"
+        },
+        "ca": {
+          "value": "Ven amb els rebuts"
+        },
+        "cs": {
+          "value": "Prodejte s doklady"
+        },
+        "da": {
+          "value": "Sælg med kvitteringerne"
+        },
+        "de": {
+          "value": "Verkaufe mit Belegen"
+        },
+        "el": {
+          "value": "Πούλησε με τις αποδείξεις"
+        },
+        "en-AU": {
+          "value": "Sell with the receipts"
+        },
+        "en-GB": {
+          "value": "Sell with the receipts"
+        },
+        "es": {
+          "value": "Vende con los comprobantes"
+        },
+        "es-419": {
+          "value": "Vende con los comprobantes"
+        },
+        "fi": {
+          "value": "Myy kuiteilla"
+        },
+        "fr": {
+          "value": "Vendez avec les preuves"
+        },
+        "fr-CA": {
+          "value": "Vendez avec les preuves"
+        },
+        "he": {
+          "value": "מכור עם הקבלות"
+        },
+        "hi": {
+          "value": "रसीदों के साथ बेचें"
+        },
+        "hr": {
+          "value": "Prodajte s potvrdama"
+        },
+        "hu": {
+          "value": "Add el a bizonylatokkal"
+        },
+        "id": {
+          "value": "Jual dengan buktinya"
+        },
+        "it": {
+          "value": "Vendi con le ricevute"
+        },
+        "ja": {
+          "value": "証拠と一緒に売却"
+        },
+        "ko": {
+          "value": "영수증과 함께 판매하세요"
+        },
+        "ms": {
+          "value": "Jual dengan resit"
+        },
+        "nb": {
+          "value": "Selg med kvitteringene"
+        },
+        "nl": {
+          "value": "Verkoop met de bewijzen"
+        },
+        "pl": {
+          "value": "Sprzedaj z dokumentacją"
+        },
+        "pt-BR": {
+          "value": "Venda com os comprovantes"
+        },
+        "pt-PT": {
+          "value": "Venda com os comprovativos"
+        },
+        "ro": {
+          "value": "Vinde cu dovezile la tine"
+        },
+        "ru": {
+          "value": "Продавайте с чеками"
+        },
+        "sk": {
+          "value": "Predajte s dokladmi"
+        },
+        "sv": {
+          "value": "Sälj med kvittona"
+        },
+        "th": {
+          "value": "ขายพร้อมหลักฐาน"
+        },
+        "tr": {
+          "value": "Fişlerle birlikte satın"
+        },
+        "uk": {
+          "value": "Продавайте з чеками"
+        },
+        "vi": {
+          "value": "Bán kèm hóa đơn"
+        },
+        "zh-Hans": {
+          "value": "带上凭证再出售"
+        },
+        "zh-Hant": {
+          "value": "帶著憑證出售"
+        }
+      }
+    },
+    "s08_sub": {
+      "localizations": {
+        "en": {
+          "value": "Export a buyer-ready service history PDF. Proof your pool was cared for."
+        },
+        "ar": {
+          "value": "صدِّر ملف PDF جاهزًا للمشتري بسجل الخدمة. إثبات أن مسبحك حظي بالعناية."
+        },
+        "ca": {
+          "value": "Exporta un PDF d'historial de servei llest per al comprador. Prova que la teva piscina va rebre cures."
+        },
+        "cs": {
+          "value": "Exportujte servisní historii jako PDF připravené pro kupujícího. Důkaz, že se o váš bazén pečovalo."
+        },
+        "da": {
+          "value": "Eksportér en køberklar servicehistorik-PDF. Bevis for at din pool blev passet."
+        },
+        "de": {
+          "value": "Exportiere ein käuferfertiges Service-Historie-PDF. Beweis, dass dein Pool gepflegt wurde."
+        },
+        "el": {
+          "value": "Εξήγαγε ένα PDF ιστορικού συντήρησης έτοιμο για τον αγοραστή. Απόδειξη ότι η πισίνα σου φροντίστηκε."
+        },
+        "en-AU": {
+          "value": "Export a buyer-ready service history PDF. Proof your pool was cared for."
+        },
+        "en-GB": {
+          "value": "Export a buyer-ready service history PDF. Proof your pool was cared for."
+        },
+        "es": {
+          "value": "Exporta un PDF de historial de servicio listo para el comprador. Prueba de que tu piscina fue cuidada."
+        },
+        "es-419": {
+          "value": "Exporta un PDF de historial de servicio listo para el comprador. Prueba de que tu piscina fue cuidada."
+        },
+        "fi": {
+          "value": "Vie ostajalle valmis huoltohistoria-PDF. Todiste siitä, että altaastasi on pidetty huolta."
+        },
+        "fr": {
+          "value": "Exportez un PDF d'historique de service prêt pour l'acheteur. La preuve que votre piscine a été entretenue."
+        },
+        "fr-CA": {
+          "value": "Exportez un PDF d'historique d'entretien prêt pour l'acheteur. La preuve que votre piscine a été entretenue."
+        },
+        "he": {
+          "value": "ייצא PDF של היסטוריית שירות מוכן לקונה. הוכחה שהבריכה שלך טופלה."
+        },
+        "hi": {
+          "value": "खरीदार के लिए तैयार सर्विस इतिहास PDF निर्यात करें। इस बात का प्रमाण कि आपके पूल की देखभाल की गई।"
+        },
+        "hr": {
+          "value": "Izvezite PDF povijesti servisa spreman za kupca. Dokaz da se o vašem bazenu vodila briga."
+        },
+        "hu": {
+          "value": "Exportálj vevőkész szerviztörténet PDF-et. Bizonyíték arra, hogy a medencédet gondozták."
+        },
+        "id": {
+          "value": "Ekspor PDF riwayat servis siap untuk pembeli. Bukti bahwa kolammu terawat."
+        },
+        "it": {
+          "value": "Esporta un PDF della cronologia di servizio pronto per l'acquirente. Prova che la tua piscina è stata curata."
+        },
+        "ja": {
+          "value": "買い手向けのサービス履歴PDFをエクスポート。プールが手入れされていた証拠になります。"
+        },
+        "ko": {
+          "value": "구매자를 위한 서비스 기록 PDF를 내보내세요. 수영장이 잘 관리되었다는 증거입니다."
+        },
+        "ms": {
+          "value": "Eksport PDF sejarah servis sedia untuk pembeli. Bukti kolam anda dijaga."
+        },
+        "nb": {
+          "value": "Eksporter en kjøperklar service-PDF. Bevis på at bassenget ditt er godt vedlikeholdt."
+        },
+        "nl": {
+          "value": "Exporteer een koperklare servicegeschiedenis-PDF. Bewijs dat je zwembad goed onderhouden is."
+        },
+        "pl": {
+          "value": "Wyeksportuj PDF historii serwisowej gotowy dla kupującego. Dowód, że twój basen był doglądany."
+        },
+        "pt-BR": {
+          "value": "Exporte um PDF de histórico de serviço pronto para o comprador. Prova de que sua piscina foi bem cuidada."
+        },
+        "pt-PT": {
+          "value": "Exporte um PDF de histórico de serviços pronto para o comprador. Prova de que a sua piscina foi bem cuidada."
+        },
+        "ro": {
+          "value": "Exportă un PDF cu istoricul de service, gata pentru cumpărător. Dovada că piscina ta a fost îngrijită."
+        },
+        "ru": {
+          "value": "Экспортируйте PDF истории обслуживания, готовый для покупателя. Доказательство того, что за бассейном ухаживали."
+        },
+        "sk": {
+          "value": "Exportujte PDF servisnej histórie pripravený pre kupujúceho. Dôkaz, že sa o váš bazén starali."
+        },
+        "sv": {
+          "value": "Exportera en köparklar service-PDF. Bevis på att din pool har skötts om."
+        },
+        "th": {
+          "value": "ส่งออก PDF ประวัติการซ่อมบำรุงพร้อมให้ผู้ซื้อ เป็นหลักฐานว่าสระของคุณได้รับการดูแลอย่างดี"
+        },
+        "tr": {
+          "value": "Alıcıya hazır servis geçmişi PDF'i dışa aktarın. Havuzunuzun bakımının yapıldığının kanıtı."
+        },
+        "uk": {
+          "value": "Експортуйте PDF історії обслуговування, готовий для покупця. Доказ того, що за басейном доглядали."
+        },
+        "vi": {
+          "value": "Xuất PDF lịch sử dịch vụ sẵn sàng cho người mua. Bằng chứng hồ bơi của bạn đã được chăm sóc."
+        },
+        "zh-Hans": {
+          "value": "导出一份买家可用的服务历史 PDF，证明你的泳池得到了悉心维护。"
+        },
+        "zh-Hant": {
+          "value": "匯出一份買家適用的服務歷史 PDF，證明你的泳池獲得妥善保養。"
+        }
+      }
+    },
+    "s07_pill": {
+      "localizations": {
+        "en": {
+          "value": "100% Private"
+        },
+        "en-GB": {
+          "value": "100% Private"
+        },
+        "en-AU": {
+          "value": "100% Private"
+        },
+        "ar": {
+          "value": "خصوصية 100%"
+        },
+        "ca": {
+          "value": "100% Privat"
+        },
+        "cs": {
+          "value": "100% Soukromé"
+        },
+        "da": {
+          "value": "100% Privat"
+        },
+        "de": {
+          "value": "100 % Privat"
+        },
+        "el": {
+          "value": "100% Ιδιωτικό"
+        },
+        "es": {
+          "value": "100% Privado"
+        },
+        "es-419": {
+          "value": "100% Privado"
+        },
+        "fi": {
+          "value": "100 % Yksityinen"
+        },
+        "fr": {
+          "value": "100 % Privé"
+        },
+        "fr-CA": {
+          "value": "100 % Privé"
+        },
+        "he": {
+          "value": "100% פרטי"
+        },
+        "hi": {
+          "value": "100% निजी"
+        },
+        "hr": {
+          "value": "100% Privatno"
+        },
+        "hu": {
+          "value": "100% Privát"
+        },
+        "id": {
+          "value": "100% Privat"
+        },
+        "it": {
+          "value": "100% Privato"
+        },
+        "ja": {
+          "value": "100%プライベート"
+        },
+        "ko": {
+          "value": "100% 비공개"
+        },
+        "ms": {
+          "value": "100% Peribadi"
+        },
+        "nb": {
+          "value": "100% Privat"
+        },
+        "nl": {
+          "value": "100% Privé"
+        },
+        "pl": {
+          "value": "100% Prywatne"
+        },
+        "pt-BR": {
+          "value": "100% Privado"
+        },
+        "pt-PT": {
+          "value": "100% Privado"
+        },
+        "ro": {
+          "value": "100% Privat"
+        },
+        "ru": {
+          "value": "100% Конфиденциально"
+        },
+        "sk": {
+          "value": "100 % Súkromné"
+        },
+        "sv": {
+          "value": "100 % Privat"
+        },
+        "th": {
+          "value": "เป็นส่วนตัว 100%"
+        },
+        "tr": {
+          "value": "%100 Gizli"
+        },
+        "uk": {
+          "value": "100% Конфіденційно"
+        },
+        "vi": {
+          "value": "100% Riêng Tư"
+        },
+        "zh-Hans": {
+          "value": "100% 隐私"
+        },
+        "zh-Hant": {
+          "value": "100% 隱私"
+        }
+      }
+    },
+    "s07_c1t": {
+      "localizations": {
+        "en": {
+          "value": "No account needed"
+        },
+        "en-GB": {
+          "value": "No account needed"
+        },
+        "en-AU": {
+          "value": "No account needed"
+        },
+        "ar": {
+          "value": "لا حاجة لحساب"
+        },
+        "ca": {
+          "value": "No cal compte"
+        },
+        "cs": {
+          "value": "Účet není potřeba"
+        },
+        "da": {
+          "value": "Ingen konto nødvendig"
+        },
+        "de": {
+          "value": "Kein Konto nötig"
+        },
+        "el": {
+          "value": "Δεν χρειάζεται λογαριασμός"
+        },
+        "es": {
+          "value": "No necesita cuenta"
+        },
+        "es-419": {
+          "value": "No necesita cuenta"
+        },
+        "fi": {
+          "value": "Ei tiliä tarvita"
+        },
+        "fr": {
+          "value": "Aucun compte requis"
+        },
+        "fr-CA": {
+          "value": "Aucun compte requis"
+        },
+        "he": {
+          "value": "אין צורך בחשבון"
+        },
+        "hi": {
+          "value": "किसी खाते की ज़रूरत नहीं"
+        },
+        "hr": {
+          "value": "Nije potreban račun"
+        },
+        "hu": {
+          "value": "Nincs szükség fiókra"
+        },
+        "id": {
+          "value": "Tidak perlu akun"
+        },
+        "it": {
+          "value": "Nessun account necessario"
+        },
+        "ja": {
+          "value": "アカウント不要"
+        },
+        "ko": {
+          "value": "계정 불필요"
+        },
+        "ms": {
+          "value": "Tiada akaun diperlukan"
+        },
+        "nb": {
+          "value": "Ingen konto nødvendig"
+        },
+        "nl": {
+          "value": "Geen account nodig"
+        },
+        "pl": {
+          "value": "Konto niepotrzebne"
+        },
+        "pt-BR": {
+          "value": "Não precisa de conta"
+        },
+        "pt-PT": {
+          "value": "Sem necessidade de conta"
+        },
+        "ro": {
+          "value": "Nu necesită cont"
+        },
+        "ru": {
+          "value": "Аккаунт не нужен"
+        },
+        "sk": {
+          "value": "Účet nie je potrebný"
+        },
+        "sv": {
+          "value": "Inget konto behövs"
+        },
+        "th": {
+          "value": "ไม่ต้องใช้บัญชี"
+        },
+        "tr": {
+          "value": "Hesap gerekmez"
+        },
+        "uk": {
+          "value": "Обліковий запис не потрібен"
+        },
+        "vi": {
+          "value": "Không cần tài khoản"
+        },
+        "zh-Hans": {
+          "value": "无需账户"
+        },
+        "zh-Hant": {
+          "value": "無需帳戶"
+        }
+      }
+    },
+    "s07_c1d": {
+      "localizations": {
+        "en": {
+          "value": "No sign-up, no email, no tracking."
+        },
+        "en-GB": {
+          "value": "No sign-up, no email, no tracking."
+        },
+        "en-AU": {
+          "value": "No sign-up, no email, no tracking."
+        },
+        "ar": {
+          "value": "لا تسجيل، لا بريد إلكتروني، لا تتبع."
+        },
+        "ca": {
+          "value": "Sense registre, sense correu, sense seguiment."
+        },
+        "cs": {
+          "value": "Žádná registrace, žádný e-mail, žádné sledování."
+        },
+        "da": {
+          "value": "Ingen tilmelding, ingen e-mail, ingen sporing."
+        },
+        "de": {
+          "value": "Keine Anmeldung, keine E-Mail, kein Tracking."
+        },
+        "el": {
+          "value": "Χωρίς εγγραφή, χωρίς email, χωρίς παρακολούθηση."
+        },
+        "es": {
+          "value": "Sin registro, sin correo, sin seguimiento."
+        },
+        "es-419": {
+          "value": "Sin registro, sin correo, sin rastreo."
+        },
+        "fi": {
+          "value": "Ei rekisteröitymistä, ei sähköpostia, ei seurantaa."
+        },
+        "fr": {
+          "value": "Pas d'inscription, pas d'e-mail, pas de suivi."
+        },
+        "fr-CA": {
+          "value": "Pas d'inscription, pas de courriel, pas de suivi."
+        },
+        "he": {
+          "value": "בלי הרשמה, בלי אימייל, בלי מעקב."
+        },
+        "hi": {
+          "value": "कोई साइन-अप नहीं, कोई ईमेल नहीं, कोई ट्रैकिंग नहीं।"
+        },
+        "hr": {
+          "value": "Bez registracije, bez e-maila, bez praćenja."
+        },
+        "hu": {
+          "value": "Nincs regisztráció, nincs e-mail, nincs nyomkövetés."
+        },
+        "id": {
+          "value": "Tanpa pendaftaran, tanpa email, tanpa pelacakan."
+        },
+        "it": {
+          "value": "Nessuna registrazione, nessuna email, nessun tracciamento."
+        },
+        "ja": {
+          "value": "登録不要、メール不要、追跡なし。"
+        },
+        "ko": {
+          "value": "가입도, 이메일도, 추적도 없습니다."
+        },
+        "ms": {
+          "value": "Tiada pendaftaran, tiada e-mel, tiada penjejakan."
+        },
+        "nb": {
+          "value": "Ingen registrering, ingen e-post, ingen sporing."
+        },
+        "nl": {
+          "value": "Geen aanmelding, geen e-mail, geen tracking."
+        },
+        "pl": {
+          "value": "Bez rejestracji, bez e-maila, bez śledzenia."
+        },
+        "pt-BR": {
+          "value": "Sem cadastro, sem e-mail, sem rastreamento."
+        },
+        "pt-PT": {
+          "value": "Sem registo, sem e-mail, sem monitorização."
+        },
+        "ro": {
+          "value": "Fără înregistrare, fără e-mail, fără urmărire."
+        },
+        "ru": {
+          "value": "Без регистрации, без email, без слежки."
+        },
+        "sk": {
+          "value": "Žiadna registrácia, žiadny e-mail, žiadne sledovanie."
+        },
+        "sv": {
+          "value": "Ingen registrering, ingen e-post, ingen spårning."
+        },
+        "th": {
+          "value": "ไม่ต้องสมัคร ไม่ต้องใช้อีเมล ไม่มีการติดตาม"
+        },
+        "tr": {
+          "value": "Kayıt yok, e-posta yok, takip yok."
+        },
+        "uk": {
+          "value": "Без реєстрації, без email, без відстеження."
+        },
+        "vi": {
+          "value": "Không đăng ký, không email, không theo dõi."
+        },
+        "zh-Hans": {
+          "value": "无需注册，无需邮箱，无追踪。"
+        },
+        "zh-Hant": {
+          "value": "無需註冊，無需信箱，無追蹤。"
+        }
+      }
+    },
+    "s07_c2t": {
+      "localizations": {
+        "en": {
+          "value": "Stored on your iPhone"
+        },
+        "en-GB": {
+          "value": "Stored on your iPhone"
+        },
+        "en-AU": {
+          "value": "Stored on your iPhone"
+        },
+        "ar": {
+          "value": "محفوظ على هاتفك"
+        },
+        "ca": {
+          "value": "Desat al teu iPhone"
+        },
+        "cs": {
+          "value": "Uloženo ve vašem iPhonu"
+        },
+        "da": {
+          "value": "Gemt på din iPhone"
+        },
+        "de": {
+          "value": "Gespeichert auf deinem iPhone"
+        },
+        "el": {
+          "value": "Αποθηκευμένο στο iPhone σου"
+        },
+        "es": {
+          "value": "Guardado en tu iPhone"
+        },
+        "es-419": {
+          "value": "Guardado en tu iPhone"
+        },
+        "fi": {
+          "value": "Tallennettu iPhoneellesi"
+        },
+        "fr": {
+          "value": "Stocké sur votre iPhone"
+        },
+        "fr-CA": {
+          "value": "Stocké sur votre iPhone"
+        },
+        "he": {
+          "value": "נשמר באייפון שלך"
+        },
+        "hi": {
+          "value": "आपके iPhone पर संग्रहित"
+        },
+        "hr": {
+          "value": "Pohranjeno na vašem iPhoneu"
+        },
+        "hu": {
+          "value": "Az iPhone-odon tárolva"
+        },
+        "id": {
+          "value": "Disimpan di iPhone kamu"
+        },
+        "it": {
+          "value": "Salvato sul tuo iPhone"
+        },
+        "ja": {
+          "value": "iPhoneに保存"
+        },
+        "ko": {
+          "value": "iPhone에 저장"
+        },
+        "ms": {
+          "value": "Disimpan di iPhone anda"
+        },
+        "nb": {
+          "value": "Lagret på iPhonen din"
+        },
+        "nl": {
+          "value": "Opgeslagen op je iPhone"
+        },
+        "pl": {
+          "value": "Przechowywane na twoim iPhonie"
+        },
+        "pt-BR": {
+          "value": "Guardado no seu iPhone"
+        },
+        "pt-PT": {
+          "value": "Guardado no seu iPhone"
+        },
+        "ro": {
+          "value": "Stocat pe iPhone-ul tău"
+        },
+        "ru": {
+          "value": "Хранится на вашем iPhone"
+        },
+        "sk": {
+          "value": "Uložené vo vašom iPhone"
+        },
+        "sv": {
+          "value": "Sparat på din iPhone"
+        },
+        "th": {
+          "value": "เก็บไว้ในไอโฟนของคุณ"
+        },
+        "tr": {
+          "value": "iPhone'unuzda saklanır"
+        },
+        "uk": {
+          "value": "Зберігається на вашому iPhone"
+        },
+        "vi": {
+          "value": "Lưu trên iPhone của bạn"
+        },
+        "zh-Hans": {
+          "value": "存储在你的 iPhone 上"
+        },
+        "zh-Hant": {
+          "value": "儲存在你的 iPhone 上"
+        }
+      }
+    },
+    "s07_c2d": {
+      "localizations": {
+        "en": {
+          "value": "Every test and service record lives on your device."
+        },
+        "en-GB": {
+          "value": "Every test and service record lives on your device."
+        },
+        "en-AU": {
+          "value": "Every test and service record lives on your device."
+        },
+        "ar": {
+          "value": "كل اختبار وسجل خدمة يعيش على جهازك."
+        },
+        "ca": {
+          "value": "Cada prova i registre de servei viu al teu dispositiu."
+        },
+        "cs": {
+          "value": "Každý test a servisní záznam žije na vašem zařízení."
+        },
+        "da": {
+          "value": "Hver test og serviceoptegnelse ligger på din enhed."
+        },
+        "de": {
+          "value": "Jeder Test und Servicedatensatz lebt auf deinem Gerät."
+        },
+        "el": {
+          "value": "Κάθε δοκιμή και αρχείο συντήρησης ζει στη συσκευή σου."
+        },
+        "es": {
+          "value": "Cada prueba y registro de servicio vive en tu dispositivo."
+        },
+        "es-419": {
+          "value": "Cada prueba y registro de servicio vive en tu dispositivo."
+        },
+        "fi": {
+          "value": "Jokainen testi ja huoltotieto on laitteellasi."
+        },
+        "fr": {
+          "value": "Chaque test et enregistrement de service vit sur votre appareil."
+        },
+        "fr-CA": {
+          "value": "Chaque test et enregistrement d'entretien vit sur votre appareil."
+        },
+        "he": {
+          "value": "כל בדיקה ותיעוד שירות חיים במכשיר שלך."
+        },
+        "hi": {
+          "value": "हर परीक्षण और सर्विस रिकॉर्ड आपके डिवाइस पर रहता है।"
+        },
+        "hr": {
+          "value": "Svaki test i servisni zapis živi na vašem uređaju."
+        },
+        "hu": {
+          "value": "Minden teszt és szervizrekord az eszközödön él."
+        },
+        "id": {
+          "value": "Setiap tes dan catatan servis ada di perangkatmu."
+        },
+        "it": {
+          "value": "Ogni test e registro di servizio vive sul tuo dispositivo."
+        },
+        "ja": {
+          "value": "すべてのテストとサービス記録がデバイスに保存されます。"
+        },
+        "ko": {
+          "value": "모든 테스트와 서비스 기록이 기기에 저장됩니다."
+        },
+        "ms": {
+          "value": "Setiap ujian dan rekod servis berada pada peranti anda."
+        },
+        "nb": {
+          "value": "Hver test og servicejournal ligger på enheten din."
+        },
+        "nl": {
+          "value": "Elke test en servicerecord staat op jouw toestel."
+        },
+        "pl": {
+          "value": "Każdy test i wpis serwisowy znajduje się na twoim urządzeniu."
+        },
+        "pt-BR": {
+          "value": "Cada teste e registro de serviço fica no seu dispositivo."
+        },
+        "pt-PT": {
+          "value": "Cada teste e registo de serviço fica no seu dispositivo."
+        },
+        "ro": {
+          "value": "Fiecare test și înregistrare de service trăiește pe dispozitivul tău."
+        },
+        "ru": {
+          "value": "Каждый тест и запись обслуживания хранится на вашем устройстве."
+        },
+        "sk": {
+          "value": "Každý test a servisný záznam žije na vašom zariadení."
+        },
+        "sv": {
+          "value": "Varje test och servicepost finns på din enhet."
+        },
+        "th": {
+          "value": "ผลทดสอบและบันทึกการซ่อมบำรุงทุกรายการอยู่ในอุปกรณ์ของคุณ"
+        },
+        "tr": {
+          "value": "Her test ve servis kaydı cihazınızda yaşar."
+        },
+        "uk": {
+          "value": "Кожен тест і запис обслуговування зберігається на вашому пристрої."
+        },
+        "vi": {
+          "value": "Mọi bài kiểm tra và hồ sơ dịch vụ đều nằm trên thiết bị của bạn."
+        },
+        "zh-Hans": {
+          "value": "每项测试和服务记录都保存在你的设备上。"
+        },
+        "zh-Hant": {
+          "value": "每項測試與服務紀錄都保存在你的裝置上。"
+        }
+      }
+    },
+    "s07_c3t": {
+      "localizations": {
+        "en": {
+          "value": "iCloud sync, optional"
+        },
+        "en-GB": {
+          "value": "iCloud sync, optional"
+        },
+        "en-AU": {
+          "value": "iCloud sync, optional"
+        },
+        "ar": {
+          "value": "مزامنة iCloud، اختيارية"
+        },
+        "ca": {
+          "value": "Sincronització iCloud, opcional"
+        },
+        "cs": {
+          "value": "Synchronizace s iCloud, volitelná"
+        },
+        "da": {
+          "value": "iCloud-synkronisering, valgfri"
+        },
+        "de": {
+          "value": "iCloud-Sync, optional"
+        },
+        "el": {
+          "value": "Συγχρονισμός iCloud, προαιρετικός"
+        },
+        "es": {
+          "value": "Sincronización con iCloud, opcional"
+        },
+        "es-419": {
+          "value": "Sincronización con iCloud, opcional"
+        },
+        "fi": {
+          "value": "iCloud-synkronointi, valinnainen"
+        },
+        "fr": {
+          "value": "Synchronisation iCloud, facultative"
+        },
+        "fr-CA": {
+          "value": "Synchronisation iCloud, facultative"
+        },
+        "he": {
+          "value": "סנכרון iCloud, אופציונלי"
+        },
+        "hi": {
+          "value": "iCloud सिंक, वैकल्पिक"
+        },
+        "hr": {
+          "value": "iCloud sinkronizacija, neobavezna"
+        },
+        "hu": {
+          "value": "iCloud-szinkronizálás, opcionális"
+        },
+        "id": {
+          "value": "Sinkronisasi iCloud, opsional"
+        },
+        "it": {
+          "value": "Sincronizzazione iCloud, opzionale"
+        },
+        "ja": {
+          "value": "iCloud同期（オプション）"
+        },
+        "ko": {
+          "value": "iCloud 동기화, 선택 사항"
+        },
+        "ms": {
+          "value": "Penyegerakan iCloud, pilihan"
+        },
+        "nb": {
+          "value": "iCloud-synkronisering, valgfritt"
+        },
+        "nl": {
+          "value": "iCloud-synchronisatie, optioneel"
+        },
+        "pl": {
+          "value": "Synchronizacja z iCloud, opcjonalna"
+        },
+        "pt-BR": {
+          "value": "Sincronização com iCloud, opcional"
+        },
+        "pt-PT": {
+          "value": "Sincronização iCloud, opcional"
+        },
+        "ro": {
+          "value": "Sincronizare iCloud, opțională"
+        },
+        "ru": {
+          "value": "Синхронизация с iCloud, по желанию"
+        },
+        "sk": {
+          "value": "Synchronizácia s iCloud, voliteľná"
+        },
+        "sv": {
+          "value": "iCloud-synk, valfritt"
+        },
+        "th": {
+          "value": "ซิงค์ iCloud (ไม่บังคับ)"
+        },
+        "tr": {
+          "value": "iCloud senkronizasyonu, isteğe bağlı"
+        },
+        "uk": {
+          "value": "Синхронізація з iCloud, за бажанням"
+        },
+        "vi": {
+          "value": "Đồng bộ iCloud, tùy chọn"
+        },
+        "zh-Hans": {
+          "value": "iCloud 同步，可选"
+        },
+        "zh-Hant": {
+          "value": "iCloud 同步，可選"
+        }
+      }
+    },
+    "s07_c3d": {
+      "localizations": {
+        "en": {
+          "value": "Backs up to your personal iCloud. Only you can see it."
+        },
+        "en-GB": {
+          "value": "Backs up to your personal iCloud. Only you can see it."
+        },
+        "en-AU": {
+          "value": "Backs up to your personal iCloud. Only you can see it."
+        },
+        "ar": {
+          "value": "نسخ احتياطي إلى iCloud الخاص بك. أنت فقط من يراه."
+        },
+        "ca": {
+          "value": "Còpia de seguretat al teu iCloud personal. Només tu ho pots veure."
+        },
+        "cs": {
+          "value": "Zálohuje se do vašeho osobního iCloudu. Vidíte to jen vy."
+        },
+        "da": {
+          "value": "Sikkerhedskopierer til din personlige iCloud. Kun du kan se det."
+        },
+        "de": {
+          "value": "Sichert in deiner persönlichen iCloud. Nur du kannst es sehen."
+        },
+        "el": {
+          "value": "Δημιουργεί αντίγραφο ασφαλείας στο προσωπικό σου iCloud. Μόνο εσύ το βλέπεις."
+        },
+        "es": {
+          "value": "Copia de seguridad en tu iCloud personal. Solo tú puedes verlo."
+        },
+        "es-419": {
+          "value": "Respaldo en tu iCloud personal. Solo tú puedes verlo."
+        },
+        "fi": {
+          "value": "Varmuuskopioi henkilökohtaiseen iCloudiisi. Vain sinä näet sen."
+        },
+        "fr": {
+          "value": "Sauvegarde sur votre iCloud personnel. Vous seul pouvez le voir."
+        },
+        "fr-CA": {
+          "value": "Sauvegarde sur votre iCloud personnel. Vous seul pouvez le voir."
+        },
+        "he": {
+          "value": "מגבה ל-iCloud האישי שלך. רק אתה יכול לראות אותו."
+        },
+        "hi": {
+          "value": "आपके व्यक्तिगत iCloud में बैकअप होता है। केवल आप इसे देख सकते हैं।"
+        },
+        "hr": {
+          "value": "Sigurnosna kopija na vaš osobni iCloud. Samo vi to možete vidjeti."
+        },
+        "hu": {
+          "value": "Biztonsági mentés a személyes iCloudodba. Csak te látod."
+        },
+        "id": {
+          "value": "Mencadangkan ke iCloud pribadimu. Hanya kamu yang bisa melihatnya."
+        },
+        "it": {
+          "value": "Backup sul tuo iCloud personale. Solo tu puoi vederlo."
+        },
+        "ja": {
+          "value": "あなた個人のiCloudにバックアップ。見られるのはあなただけです。"
+        },
+        "ko": {
+          "value": "개인 iCloud에 백업됩니다. 오직 당신만 볼 수 있습니다."
+        },
+        "ms": {
+          "value": "Sandaran ke iCloud peribadi anda. Hanya anda boleh melihatnya."
+        },
+        "nb": {
+          "value": "Sikkerhetskopieres til din personlige iCloud. Bare du kan se det."
+        },
+        "nl": {
+          "value": "Back-up naar jouw persoonlijke iCloud. Alleen jij kunt het zien."
+        },
+        "pl": {
+          "value": "Kopia zapasowa w twoim osobistym iCloud. Tylko ty możesz to zobaczyć."
+        },
+        "pt-BR": {
+          "value": "Backup no seu iCloud pessoal. Só você pode ver."
+        },
+        "pt-PT": {
+          "value": "Cópia de segurança no seu iCloud pessoal. Só você pode vê-lo."
+        },
+        "ro": {
+          "value": "Se salvează în iCloud-ul tău personal. Doar tu poți vedea."
+        },
+        "ru": {
+          "value": "Резервное копирование в ваш личный iCloud. Видите только вы."
+        },
+        "sk": {
+          "value": "Zálohuje sa do vášho osobného iCloud. Vidíte to len vy."
+        },
+        "sv": {
+          "value": "Säkerhetskopieras till din personliga iCloud. Bara du kan se det."
+        },
+        "th": {
+          "value": "สำรองข้อมูลไปยัง iCloud ส่วนตัวของคุณ มีเพียงคุณเท่านั้นที่เห็นได้"
+        },
+        "tr": {
+          "value": "Kişisel iCloud'unuza yedeklenir. Yalnızca siz görebilirsiniz."
+        },
+        "uk": {
+          "value": "Резервне копіювання у ваш особистий iCloud. Бачите лише ви."
+        },
+        "vi": {
+          "value": "Sao lưu vào iCloud cá nhân của bạn. Chỉ bạn mới có thể xem."
+        },
+        "zh-Hans": {
+          "value": "备份到你的个人 iCloud，只有你能看到。"
+        },
+        "zh-Hant": {
+          "value": "備份到你的個人 iCloud，只有你能看到。"
+        }
+      }
+    },
+    "s07_c4t": {
+      "localizations": {
+        "en": {
+          "value": "Yours to export"
+        },
+        "en-GB": {
+          "value": "Yours to export"
+        },
+        "en-AU": {
+          "value": "Yours to export"
+        },
+        "ar": {
+          "value": "ملكك للتصدير"
+        },
+        "ca": {
+          "value": "Teu per exportar"
+        },
+        "cs": {
+          "value": "Vaše k exportu"
+        },
+        "da": {
+          "value": "Din til eksport"
+        },
+        "de": {
+          "value": "Dein zum Exportieren"
+        },
+        "el": {
+          "value": "Δικό σου για εξαγωγή"
+        },
+        "es": {
+          "value": "Tuyo para exportar"
+        },
+        "es-419": {
+          "value": "Tuyo para exportar"
+        },
+        "fi": {
+          "value": "Sinun vietäväksesi"
+        },
+        "fr": {
+          "value": "À vous pour l'export"
+        },
+        "fr-CA": {
+          "value": "À vous pour l'exportation"
+        },
+        "he": {
+          "value": "שלך לייצוא"
+        },
+        "hi": {
+          "value": "निर्यात के लिए आपका"
+        },
+        "hr": {
+          "value": "Vaše za izvoz"
+        },
+        "hu": {
+          "value": "A tiéd exportálásra"
+        },
+        "id": {
+          "value": "Milikmu untuk diekspor"
+        },
+        "it": {
+          "value": "Tuo da esportare"
+        },
+        "ja": {
+          "value": "いつでもエクスポート"
+        },
+        "ko": {
+          "value": "언제든 내보내기 가능"
+        },
+        "ms": {
+          "value": "Milik anda untuk eksport"
+        },
+        "nb": {
+          "value": "Din å eksportere"
+        },
+        "nl": {
+          "value": "Van jou om te exporteren"
+        },
+        "pl": {
+          "value": "Twoje do eksportu"
+        },
+        "pt-BR": {
+          "value": "Seu para exportar"
+        },
+        "pt-PT": {
+          "value": "Seu para exportar"
+        },
+        "ro": {
+          "value": "Al tău pentru export"
+        },
+        "ru": {
+          "value": "Ваше для экспорта"
+        },
+        "sk": {
+          "value": "Vaše na export"
+        },
+        "sv": {
+          "value": "Din att exportera"
+        },
+        "th": {
+          "value": "ส่งออกได้ตามต้องการ"
+        },
+        "tr": {
+          "value": "Dışa aktarmak sizin elinizde"
+        },
+        "uk": {
+          "value": "Ваше для експорту"
+        },
+        "vi": {
+          "value": "Của bạn để xuất"
+        },
+        "zh-Hans": {
+          "value": "随时可导出"
+        },
+        "zh-Hant": {
+          "value": "隨時可匯出"
+        }
+      }
+    },
+    "s07_c4d": {
+      "localizations": {
+        "en": {
+          "value": "Take your full history as a PDF anytime."
+        },
+        "en-GB": {
+          "value": "Take your full history as a PDF anytime."
+        },
+        "en-AU": {
+          "value": "Take your full history as a PDF anytime."
+        },
+        "ar": {
+          "value": "احصل على سجلك الكامل كملف PDF في أي وقت."
+        },
+        "ca": {
+          "value": "Emporta't tot el teu historial com a PDF quan vulguis."
+        },
+        "cs": {
+          "value": "Kdykoliv si vezměte celou historii jako PDF."
+        },
+        "da": {
+          "value": "Tag din fulde historik som PDF når som helst."
+        },
+        "de": {
+          "value": "Nimm deine komplette Historie jederzeit als PDF mit."
+        },
+        "el": {
+          "value": "Πάρε όλο το ιστορικό σου ως PDF όποτε θες."
+        },
+        "es": {
+          "value": "Lleva tu historial completo como PDF cuando quieras."
+        },
+        "es-419": {
+          "value": "Lleva tu historial completo como PDF cuando quieras."
+        },
+        "fi": {
+          "value": "Vie koko historiasi PDF-tiedostona milloin tahansa."
+        },
+        "fr": {
+          "value": "Récupérez tout votre historique en PDF à tout moment."
+        },
+        "fr-CA": {
+          "value": "Prenez tout votre historique en PDF n'importe quand."
+        },
+        "he": {
+          "value": "קח את כל ההיסטוריה שלך כ-PDF בכל עת."
+        },
+        "hi": {
+          "value": "कभी भी अपना पूरा इतिहास PDF के रूप में लें।"
+        },
+        "hr": {
+          "value": "Preuzmite cijelu povijest kao PDF u bilo kojem trenutku."
+        },
+        "hu": {
+          "value": "Bármikor exportáld a teljes előzményedet PDF-ként."
+        },
+        "id": {
+          "value": "Ambil seluruh riwayatmu sebagai PDF kapan saja."
+        },
+        "it": {
+          "value": "Prendi tutta la tua cronologia come PDF in qualsiasi momento."
+        },
+        "ja": {
+          "value": "履歴全体をいつでもPDFとして取得できます。"
+        },
+        "ko": {
+          "value": "언제든 전체 기록을 PDF로 가져가세요."
+        },
+        "ms": {
+          "value": "Ambil sejarah penuh anda sebagai PDF pada bila-bila masa."
+        },
+        "nb": {
+          "value": "Ta ut hele historikken som PDF når som helst."
+        },
+        "nl": {
+          "value": "Neem je volledige geschiedenis op elk moment mee als PDF."
+        },
+        "pl": {
+          "value": "Pobierz całą historię jako PDF w dowolnym momencie."
+        },
+        "pt-BR": {
+          "value": "Leve todo o seu histórico como PDF a qualquer momento."
+        },
+        "pt-PT": {
+          "value": "Leve todo o seu histórico como PDF a qualquer momento."
+        },
+        "ro": {
+          "value": "Ia-ți întregul istoric ca PDF oricând."
+        },
+        "ru": {
+          "value": "Экспортируйте всю историю в PDF в любой момент."
+        },
+        "sk": {
+          "value": "Kedykoľvek si vezmite celú históriu ako PDF."
+        },
+        "sv": {
+          "value": "Ta med hela din historik som PDF när som helst."
+        },
+        "th": {
+          "value": "นำประวัติทั้งหมดของคุณออกเป็น PDF ได้ทุกเมื่อ"
+        },
+        "tr": {
+          "value": "Tüm geçmişinizi istediğiniz zaman PDF olarak alın."
+        },
+        "uk": {
+          "value": "Візьміть всю свою історію як PDF у будь-який час."
+        },
+        "vi": {
+          "value": "Lấy toàn bộ lịch sử của bạn dưới dạng PDF bất cứ lúc nào."
+        },
+        "zh-Hans": {
+          "value": "随时将完整历史记录导出为 PDF。"
+        },
+        "zh-Hant": {
+          "value": "隨時將完整歷史紀錄匯出為 PDF。"
+        }
+      }
+    },
+    "s02_i1": {
+      "localizations": {
+        "en": {
+          "value": "Pool details"
+        },
+        "en-GB": {
+          "value": "Pool details"
+        },
+        "en-AU": {
+          "value": "Pool details"
+        },
+        "ar": {
+          "value": "تفاصيل المسبح"
+        },
+        "ca": {
+          "value": "Detalls de la piscina"
+        },
+        "cs": {
+          "value": "Detaily bazénu"
+        },
+        "da": {
+          "value": "Pooldetaljer"
+        },
+        "de": {
+          "value": "Pool-Details"
+        },
+        "el": {
+          "value": "Στοιχεία πισίνας"
+        },
+        "es": {
+          "value": "Detalles de la piscina"
+        },
+        "es-419": {
+          "value": "Detalles de la piscina"
+        },
+        "fi": {
+          "value": "Altaan tiedot"
+        },
+        "fr": {
+          "value": "Détails de la piscine"
+        },
+        "fr-CA": {
+          "value": "Détails de la piscine"
+        },
+        "he": {
+          "value": "פרטי הבריכה"
+        },
+        "hi": {
+          "value": "पूल विवरण"
+        },
+        "hr": {
+          "value": "Detalji bazena"
+        },
+        "hu": {
+          "value": "Medence adatai"
+        },
+        "id": {
+          "value": "Detail kolam"
+        },
+        "it": {
+          "value": "Dettagli piscina"
+        },
+        "ja": {
+          "value": "プールの詳細"
+        },
+        "ko": {
+          "value": "수영장 상세정보"
+        },
+        "ms": {
+          "value": "Butiran kolam"
+        },
+        "nb": {
+          "value": "Bassengdetaljer"
+        },
+        "nl": {
+          "value": "Zwembaddetails"
+        },
+        "pl": {
+          "value": "Szczegóły basenu"
+        },
+        "pt-BR": {
+          "value": "Detalhes da piscina"
+        },
+        "pt-PT": {
+          "value": "Detalhes da piscina"
+        },
+        "ro": {
+          "value": "Detalii piscină"
+        },
+        "ru": {
+          "value": "Детали бассейна"
+        },
+        "sk": {
+          "value": "Detaily bazéna"
+        },
+        "sv": {
+          "value": "Pooldetaljer"
+        },
+        "th": {
+          "value": "รายละเอียดสระ"
+        },
+        "tr": {
+          "value": "Havuz detayları"
+        },
+        "uk": {
+          "value": "Деталі басейну"
+        },
+        "vi": {
+          "value": "Chi tiết hồ bơi"
+        },
+        "zh-Hans": {
+          "value": "泳池详情"
+        },
+        "zh-Hant": {
+          "value": "泳池詳情"
+        }
+      }
+    },
+    "s02_i2": {
+      "localizations": {
+        "en": {
+          "value": "Equipment list"
+        },
+        "en-GB": {
+          "value": "Equipment list"
+        },
+        "en-AU": {
+          "value": "Equipment list"
+        },
+        "ar": {
+          "value": "قائمة المعدات"
+        },
+        "ca": {
+          "value": "Llista d'equipament"
+        },
+        "cs": {
+          "value": "Seznam vybavení"
+        },
+        "da": {
+          "value": "Udstyrsliste"
+        },
+        "de": {
+          "value": "Ausstattungsliste"
+        },
+        "el": {
+          "value": "Λίστα εξοπλισμού"
+        },
+        "es": {
+          "value": "Lista de equipamiento"
+        },
+        "es-419": {
+          "value": "Lista de equipo"
+        },
+        "fi": {
+          "value": "Laiteluettelo"
+        },
+        "fr": {
+          "value": "Liste d'équipement"
+        },
+        "fr-CA": {
+          "value": "Liste d'équipement"
+        },
+        "he": {
+          "value": "רשימת ציוד"
+        },
+        "hi": {
+          "value": "उपकरण सूची"
+        },
+        "hr": {
+          "value": "Popis opreme"
+        },
+        "hu": {
+          "value": "Felszerelési lista"
+        },
+        "id": {
+          "value": "Daftar peralatan"
+        },
+        "it": {
+          "value": "Elenco attrezzatura"
+        },
+        "ja": {
+          "value": "設備リスト"
+        },
+        "ko": {
+          "value": "장비 목록"
+        },
+        "ms": {
+          "value": "Senarai peralatan"
+        },
+        "nb": {
+          "value": "Utstyrsliste"
+        },
+        "nl": {
+          "value": "Apparatuurlijst"
+        },
+        "pl": {
+          "value": "Lista sprzętu"
+        },
+        "pt-BR": {
+          "value": "Lista de equipamentos"
+        },
+        "pt-PT": {
+          "value": "Lista de equipamento"
+        },
+        "ro": {
+          "value": "Listă echipamente"
+        },
+        "ru": {
+          "value": "Список оборудования"
+        },
+        "sk": {
+          "value": "Zoznam vybavenia"
+        },
+        "sv": {
+          "value": "Utrustningslista"
+        },
+        "th": {
+          "value": "รายการอุปกรณ์"
+        },
+        "tr": {
+          "value": "Ekipman listesi"
+        },
+        "uk": {
+          "value": "Список обладнання"
+        },
+        "vi": {
+          "value": "Danh sách thiết bị"
+        },
+        "zh-Hans": {
+          "value": "设备清单"
+        },
+        "zh-Hant": {
+          "value": "設備清單"
+        }
+      }
+    },
+    "s02_i3": {
+      "localizations": {
+        "en": {
+          "value": "Costs tracked"
+        },
+        "en-GB": {
+          "value": "Costs tracked"
+        },
+        "en-AU": {
+          "value": "Costs tracked"
+        },
+        "ar": {
+          "value": "تتبع التكاليف"
+        },
+        "ca": {
+          "value": "Costos registrats"
+        },
+        "cs": {
+          "value": "Sledované náklady"
+        },
+        "da": {
+          "value": "Omkostninger sporet"
+        },
+        "de": {
+          "value": "Kosten erfasst"
+        },
+        "el": {
+          "value": "Καταγραφή κόστους"
+        },
+        "es": {
+          "value": "Costes registrados"
+        },
+        "es-419": {
+          "value": "Costos registrados"
+        },
+        "fi": {
+          "value": "Kustannukset seurattu"
+        },
+        "fr": {
+          "value": "Coûts suivis"
+        },
+        "fr-CA": {
+          "value": "Coûts suivis"
+        },
+        "he": {
+          "value": "מעקב עלויות"
+        },
+        "hi": {
+          "value": "लागत ट्रैक की गई"
+        },
+        "hr": {
+          "value": "Praćeni troškovi"
+        },
+        "hu": {
+          "value": "Költségek nyomon követve"
+        },
+        "id": {
+          "value": "Biaya terlacak"
+        },
+        "it": {
+          "value": "Costi monitorati"
+        },
+        "ja": {
+          "value": "費用の記録"
+        },
+        "ko": {
+          "value": "비용 추적"
+        },
+        "ms": {
+          "value": "Kos dijejaki"
+        },
+        "nb": {
+          "value": "Kostnader sporet"
+        },
+        "nl": {
+          "value": "Kosten bijgehouden"
+        },
+        "pl": {
+          "value": "Śledzone koszty"
+        },
+        "pt-BR": {
+          "value": "Custos rastreados"
+        },
+        "pt-PT": {
+          "value": "Custos monitorizados"
+        },
+        "ro": {
+          "value": "Costuri urmărite"
+        },
+        "ru": {
+          "value": "Учёт расходов"
+        },
+        "sk": {
+          "value": "Sledované náklady"
+        },
+        "sv": {
+          "value": "Kostnader spårade"
+        },
+        "th": {
+          "value": "ติดตามค่าใช้จ่าย"
+        },
+        "tr": {
+          "value": "Maliyetler takip edildi"
+        },
+        "uk": {
+          "value": "Облік витрат"
+        },
+        "vi": {
+          "value": "Theo dõi chi phí"
+        },
+        "zh-Hans": {
+          "value": "费用追踪"
+        },
+        "zh-Hant": {
+          "value": "費用追蹤"
+        }
+      }
+    },
+    "s02_i4": {
+      "localizations": {
+        "en": {
+          "value": "Latest test"
+        },
+        "en-GB": {
+          "value": "Latest test"
+        },
+        "en-AU": {
+          "value": "Latest test"
+        },
+        "ar": {
+          "value": "آخر اختبار"
+        },
+        "ca": {
+          "value": "Última prova"
+        },
+        "cs": {
+          "value": "Poslední test"
+        },
+        "da": {
+          "value": "Seneste test"
+        },
+        "de": {
+          "value": "Letzter Test"
+        },
+        "el": {
+          "value": "Τελευταία δοκιμή"
+        },
+        "es": {
+          "value": "Última prueba"
+        },
+        "es-419": {
+          "value": "Última prueba"
+        },
+        "fi": {
+          "value": "Viimeisin testi"
+        },
+        "fr": {
+          "value": "Dernier test"
+        },
+        "fr-CA": {
+          "value": "Dernier test"
+        },
+        "he": {
+          "value": "בדיקה אחרונה"
+        },
+        "hi": {
+          "value": "नवीनतम परीक्षण"
+        },
+        "hr": {
+          "value": "Posljednji test"
+        },
+        "hu": {
+          "value": "Legutóbbi teszt"
+        },
+        "id": {
+          "value": "Tes terbaru"
+        },
+        "it": {
+          "value": "Ultimo test"
+        },
+        "ja": {
+          "value": "最新のテスト"
+        },
+        "ko": {
+          "value": "최근 테스트"
+        },
+        "ms": {
+          "value": "Ujian terkini"
+        },
+        "nb": {
+          "value": "Siste test"
+        },
+        "nl": {
+          "value": "Laatste test"
+        },
+        "pl": {
+          "value": "Ostatni test"
+        },
+        "pt-BR": {
+          "value": "Último teste"
+        },
+        "pt-PT": {
+          "value": "Último teste"
+        },
+        "ro": {
+          "value": "Ultimul test"
+        },
+        "ru": {
+          "value": "Последний тест"
+        },
+        "sk": {
+          "value": "Posledný test"
+        },
+        "sv": {
+          "value": "Senaste testet"
+        },
+        "th": {
+          "value": "ผลทดสอบล่าสุด"
+        },
+        "tr": {
+          "value": "Son test"
+        },
+        "uk": {
+          "value": "Останній тест"
+        },
+        "vi": {
+          "value": "Bài kiểm tra gần nhất"
+        },
+        "zh-Hans": {
+          "value": "最新测试"
+        },
+        "zh-Hant": {
+          "value": "最新測試"
+        }
+      }
+    },
+    "s02_pill": {
+      "localizations": {
+        "en": {
+          "value": "Pool Profile"
+        },
+        "en-GB": {
+          "value": "Pool Profile"
+        },
+        "en-AU": {
+          "value": "Pool Profile"
+        },
+        "ar": {
+          "value": "ملف المسبح"
+        },
+        "ca": {
+          "value": "Perfil de Piscina"
+        },
+        "cs": {
+          "value": "Profil Bazénu"
+        },
+        "da": {
+          "value": "Poolprofil"
+        },
+        "de": {
+          "value": "Pool-Profil"
+        },
+        "el": {
+          "value": "Προφίλ Πισίνας"
+        },
+        "es": {
+          "value": "Perfil de Piscina"
+        },
+        "es-419": {
+          "value": "Perfil de Piscina"
+        },
+        "fi": {
+          "value": "Allasprofiili"
+        },
+        "fr": {
+          "value": "Profil de Piscine"
+        },
+        "fr-CA": {
+          "value": "Profil de Piscine"
+        },
+        "he": {
+          "value": "פרופיל בריכה"
+        },
+        "hi": {
+          "value": "पूल प्रोफ़ाइल"
+        },
+        "hr": {
+          "value": "Profil Bazena"
+        },
+        "hu": {
+          "value": "Medenceprofil"
+        },
+        "id": {
+          "value": "Profil Kolam"
+        },
+        "it": {
+          "value": "Profilo Piscina"
+        },
+        "ja": {
+          "value": "プールプロフィール"
+        },
+        "ko": {
+          "value": "수영장 프로필"
+        },
+        "ms": {
+          "value": "Profil Kolam"
+        },
+        "nb": {
+          "value": "Bassengprofil"
+        },
+        "nl": {
+          "value": "Zwembadprofiel"
+        },
+        "pl": {
+          "value": "Profil Basenu"
+        },
+        "pt-BR": {
+          "value": "Perfil da Piscina"
+        },
+        "pt-PT": {
+          "value": "Perfil da Piscina"
+        },
+        "ro": {
+          "value": "Profil Piscină"
+        },
+        "ru": {
+          "value": "Профиль Бассейна"
+        },
+        "sk": {
+          "value": "Profil Bazéna"
+        },
+        "sv": {
+          "value": "Poolprofil"
+        },
+        "th": {
+          "value": "โปรไฟล์สระ"
+        },
+        "tr": {
+          "value": "Havuz Profili"
+        },
+        "uk": {
+          "value": "Профіль Басейну"
+        },
+        "vi": {
+          "value": "Hồ Sơ Hồ Bơi"
+        },
+        "zh-Hans": {
+          "value": "泳池档案"
+        },
+        "zh-Hant": {
+          "value": "泳池檔案"
+        }
+      }
+    },
+    "s02_h1": {
+      "localizations": {
+        "en": {
+          "value": "Your whole pool"
+        },
+        "en-GB": {
+          "value": "Your whole pool"
+        },
+        "en-AU": {
+          "value": "Your whole pool"
+        },
+        "ar": {
+          "value": "مسبحك بالكامل"
+        },
+        "ca": {
+          "value": "Tota la teva piscina"
+        },
+        "cs": {
+          "value": "Celý váš bazén"
+        },
+        "da": {
+          "value": "Hele din pool"
+        },
+        "de": {
+          "value": "Dein ganzer Pool"
+        },
+        "el": {
+          "value": "Όλη η πισίνα σου"
+        },
+        "es": {
+          "value": "Toda tu piscina"
+        },
+        "es-419": {
+          "value": "Toda tu piscina"
+        },
+        "fi": {
+          "value": "Koko altaasi"
+        },
+        "fr": {
+          "value": "Toute votre piscine"
+        },
+        "fr-CA": {
+          "value": "Toute votre piscine"
+        },
+        "he": {
+          "value": "כל הבריכה שלך"
+        },
+        "hi": {
+          "value": "आपका पूरा पूल"
+        },
+        "hr": {
+          "value": "Cijeli vaš bazen"
+        },
+        "hu": {
+          "value": "Az egész medencéd"
+        },
+        "id": {
+          "value": "Seluruh kolammu"
+        },
+        "it": {
+          "value": "Tutta la tua piscina"
+        },
+        "ja": {
+          "value": "プール全体を"
+        },
+        "ko": {
+          "value": "수영장 전체를"
+        },
+        "ms": {
+          "value": "Seluruh kolam anda"
+        },
+        "nb": {
+          "value": "Hele bassenget"
+        },
+        "nl": {
+          "value": "Je hele zwembad"
+        },
+        "pl": {
+          "value": "Cały twój basen"
+        },
+        "pt-BR": {
+          "value": "Sua piscina inteira"
+        },
+        "pt-PT": {
+          "value": "Toda a sua piscina"
+        },
+        "ro": {
+          "value": "Toată piscina ta"
+        },
+        "ru": {
+          "value": "Весь ваш бассейн"
+        },
+        "sk": {
+          "value": "Celý váš bazén"
+        },
+        "sv": {
+          "value": "Hela poolen"
+        },
+        "th": {
+          "value": "สระทั้งหมดของคุณ"
+        },
+        "tr": {
+          "value": "Tüm havuzunuz"
+        },
+        "uk": {
+          "value": "Весь ваш басейн"
+        },
+        "vi": {
+          "value": "Toàn bộ hồ bơi"
+        },
+        "zh-Hans": {
+          "value": "整个泳池"
+        },
+        "zh-Hant": {
+          "value": "整座泳池"
+        }
+      }
+    },
+    "s02_acc": {
+      "localizations": {
+        "en": {
+          "value": "on one screen"
+        },
+        "en-GB": {
+          "value": "on one screen"
+        },
+        "en-AU": {
+          "value": "on one screen"
+        },
+        "ar": {
+          "value": "في شاشة واحدة"
+        },
+        "ca": {
+          "value": "en una pantalla"
+        },
+        "cs": {
+          "value": "na jedné obrazovce"
+        },
+        "da": {
+          "value": "på én skærm"
+        },
+        "de": {
+          "value": "auf einem Bildschirm"
+        },
+        "el": {
+          "value": "σε μία οθόνη"
+        },
+        "es": {
+          "value": "en una pantalla"
+        },
+        "es-419": {
+          "value": "en una pantalla"
+        },
+        "fi": {
+          "value": "yhdellä näytöllä"
+        },
+        "fr": {
+          "value": "sur un seul écran"
+        },
+        "fr-CA": {
+          "value": "sur un seul écran"
+        },
+        "he": {
+          "value": "במסך אחד"
+        },
+        "hi": {
+          "value": "एक स्क्रीन पर"
+        },
+        "hr": {
+          "value": "na jednom zaslonu"
+        },
+        "hu": {
+          "value": "egy képernyőn"
+        },
+        "id": {
+          "value": "dalam satu layar"
+        },
+        "it": {
+          "value": "in una schermata"
+        },
+        "ja": {
+          "value": "1画面で"
+        },
+        "ko": {
+          "value": "한 화면에서"
+        },
+        "ms": {
+          "value": "dalam satu skrin"
+        },
+        "nb": {
+          "value": "på én skjerm"
+        },
+        "nl": {
+          "value": "op één scherm"
+        },
+        "pl": {
+          "value": "na jednym ekranie"
+        },
+        "pt-BR": {
+          "value": "em uma tela"
+        },
+        "pt-PT": {
+          "value": "num só ecrã"
+        },
+        "ro": {
+          "value": "pe un singur ecran"
+        },
+        "ru": {
+          "value": "на одном экране"
+        },
+        "sk": {
+          "value": "na jednej obrazovke"
+        },
+        "sv": {
+          "value": "på en skärm"
+        },
+        "th": {
+          "value": "ในหน้าจอเดียว"
+        },
+        "tr": {
+          "value": "tek ekranda"
+        },
+        "uk": {
+          "value": "на одному екрані"
+        },
+        "vi": {
+          "value": "trên một màn hình"
+        },
+        "zh-Hans": {
+          "value": "一屏掌握"
+        },
+        "zh-Hant": {
+          "value": "一個畫面掌握"
+        }
+      }
+    },
+    "s03_pill": {
+      "localizations": {
+        "en": {
+          "value": "Water Chemistry"
+        },
+        "en-GB": {
+          "value": "Water Chemistry"
+        },
+        "en-AU": {
+          "value": "Water Chemistry"
+        },
+        "ar": {
+          "value": "كيمياء المياه"
+        },
+        "ca": {
+          "value": "Química de l'Aigua"
+        },
+        "cs": {
+          "value": "Chemie Vody"
+        },
+        "da": {
+          "value": "Vandkemi"
+        },
+        "de": {
+          "value": "Wasserchemie"
+        },
+        "el": {
+          "value": "Χημεία Νερού"
+        },
+        "es": {
+          "value": "Química del Agua"
+        },
+        "es-419": {
+          "value": "Química del Agua"
+        },
+        "fi": {
+          "value": "Veden Kemia"
+        },
+        "fr": {
+          "value": "Chimie de l'Eau"
+        },
+        "fr-CA": {
+          "value": "Chimie de l'Eau"
+        },
+        "he": {
+          "value": "כימיה של מים"
+        },
+        "hi": {
+          "value": "जल रसायन विज्ञान"
+        },
+        "hr": {
+          "value": "Kemija Vode"
+        },
+        "hu": {
+          "value": "Vízkémia"
+        },
+        "id": {
+          "value": "Kimia Air"
+        },
+        "it": {
+          "value": "Chimica dell'Acqua"
+        },
+        "ja": {
+          "value": "水質管理"
+        },
+        "ko": {
+          "value": "수질 관리"
+        },
+        "ms": {
+          "value": "Kimia Air"
+        },
+        "nb": {
+          "value": "Vannkjemi"
+        },
+        "nl": {
+          "value": "Waterchemie"
+        },
+        "pl": {
+          "value": "Chemia Wody"
+        },
+        "pt-BR": {
+          "value": "Química da Água"
+        },
+        "pt-PT": {
+          "value": "Química da Água"
+        },
+        "ro": {
+          "value": "Chimia Apei"
+        },
+        "ru": {
+          "value": "Химия Воды"
+        },
+        "sk": {
+          "value": "Chémia Vody"
+        },
+        "sv": {
+          "value": "Vattenkemi"
+        },
+        "th": {
+          "value": "เคมีของน้ำ"
+        },
+        "tr": {
+          "value": "Su Kimyası"
+        },
+        "uk": {
+          "value": "Хімія Води"
+        },
+        "vi": {
+          "value": "Hóa Chất Nước"
+        },
+        "zh-Hans": {
+          "value": "水质管理"
+        },
+        "zh-Hant": {
+          "value": "水質管理"
+        }
+      }
+    },
+    "s03_h1": {
+      "localizations": {
+        "en": {
+          "value": "Stop green water"
+        },
+        "en-GB": {
+          "value": "Stop green water"
+        },
+        "en-AU": {
+          "value": "Stop green water"
+        },
+        "ar": {
+          "value": "أوقف المياه الخضراء"
+        },
+        "ca": {
+          "value": "Atura l'aigua verda"
+        },
+        "cs": {
+          "value": "Zastavte zelenou vodu"
+        },
+        "da": {
+          "value": "Stop grønt vand"
+        },
+        "de": {
+          "value": "Stoppe grünes Wasser"
+        },
+        "el": {
+          "value": "Σταμάτησε το πράσινο νερό"
+        },
+        "es": {
+          "value": "Detén el agua verde"
+        },
+        "es-419": {
+          "value": "Detén el agua verde"
+        },
+        "fi": {
+          "value": "Pysäytä viherlevä"
+        },
+        "fr": {
+          "value": "Stoppez l'eau verte"
+        },
+        "fr-CA": {
+          "value": "Arrêtez l'eau verte"
+        },
+        "he": {
+          "value": "עצור מים ירוקים"
+        },
+        "hi": {
+          "value": "हरे पानी को रोकें"
+        },
+        "hr": {
+          "value": "Zaustavite zelenu vodu"
+        },
+        "hu": {
+          "value": "Állítsd meg a zöld vizet"
+        },
+        "id": {
+          "value": "Hentikan air hijau"
+        },
+        "it": {
+          "value": "Ferma l'acqua verde"
+        },
+        "ja": {
+          "value": "緑色の水になる前に"
+        },
+        "ko": {
+          "value": "녹조가 생기기 전에"
+        },
+        "ms": {
+          "value": "Hentikan air hijau"
+        },
+        "nb": {
+          "value": "Stopp grønt vann"
+        },
+        "nl": {
+          "value": "Stop groen water"
+        },
+        "pl": {
+          "value": "Zatrzymaj zieloną wodę"
+        },
+        "pt-BR": {
+          "value": "Pare a água verde"
+        },
+        "pt-PT": {
+          "value": "Trave a água verde"
+        },
+        "ro": {
+          "value": "Oprește apa verde"
+        },
+        "ru": {
+          "value": "Остановите зелёную воду"
+        },
+        "sk": {
+          "value": "Zastavte zelenú vodu"
+        },
+        "sv": {
+          "value": "Stoppa grönt vatten"
+        },
+        "th": {
+          "value": "หยุดน้ำเขียว"
+        },
+        "tr": {
+          "value": "Yeşil suyu durdurun"
+        },
+        "uk": {
+          "value": "Зупиніть зелену воду"
+        },
+        "vi": {
+          "value": "Ngăn nước xanh"
+        },
+        "zh-Hans": {
+          "value": "在绿藻出现前"
+        },
+        "zh-Hant": {
+          "value": "在綠藻出現前"
+        }
+      }
+    },
+    "s03_acc": {
+      "localizations": {
+        "en": {
+          "value": "before it starts"
+        },
+        "en-GB": {
+          "value": "before it starts"
+        },
+        "en-AU": {
+          "value": "before it starts"
+        },
+        "ar": {
+          "value": "قبل أن تبدأ"
+        },
+        "ca": {
+          "value": "abans que comenci"
+        },
+        "cs": {
+          "value": "než začne"
+        },
+        "da": {
+          "value": "før det starter"
+        },
+        "de": {
+          "value": "bevor es entsteht"
+        },
+        "el": {
+          "value": "πριν ξεκινήσει"
+        },
+        "es": {
+          "value": "antes de que empiece"
+        },
+        "es-419": {
+          "value": "antes de que empiece"
+        },
+        "fi": {
+          "value": "ennen kuin se alkaa"
+        },
+        "fr": {
+          "value": "avant qu'elle n'arrive"
+        },
+        "fr-CA": {
+          "value": "avant qu'elle n'arrive"
+        },
+        "he": {
+          "value": "לפני שהם מתחילים"
+        },
+        "hi": {
+          "value": "शुरू होने से पहले"
+        },
+        "hr": {
+          "value": "prije nego počne"
+        },
+        "hu": {
+          "value": "mielőtt elkezdődne"
+        },
+        "id": {
+          "value": "sebelum dimulai"
+        },
+        "it": {
+          "value": "prima che inizi"
+        },
+        "ja": {
+          "value": "止める"
+        },
+        "ko": {
+          "value": "막으세요"
+        },
+        "ms": {
+          "value": "sebelum bermula"
+        },
+        "nb": {
+          "value": "før det starter"
+        },
+        "nl": {
+          "value": "voordat het begint"
+        },
+        "pl": {
+          "value": "zanim się zacznie"
+        },
+        "pt-BR": {
+          "value": "antes que comece"
+        },
+        "pt-PT": {
+          "value": "antes que comece"
+        },
+        "ro": {
+          "value": "înainte să înceapă"
+        },
+        "ru": {
+          "value": "до её появления"
+        },
+        "sk": {
+          "value": "skôr, než začne"
+        },
+        "sv": {
+          "value": "innan det börjar"
+        },
+        "th": {
+          "value": "ก่อนที่จะเกิดขึ้น"
+        },
+        "tr": {
+          "value": "başlamadan"
+        },
+        "uk": {
+          "value": "до її появи"
+        },
+        "vi": {
+          "value": "trước khi nó bắt đầu"
+        },
+        "zh-Hans": {
+          "value": "及时制止"
+        },
+        "zh-Hant": {
+          "value": "及時阻止"
+        }
+      }
+    },
+    "s04_pill": {
+      "localizations": {
+        "en": {
+          "value": "Quick Logging"
+        },
+        "en-GB": {
+          "value": "Quick Logging"
+        },
+        "en-AU": {
+          "value": "Quick Logging"
+        },
+        "ar": {
+          "value": "تسجيل سريع"
+        },
+        "ca": {
+          "value": "Registre Ràpid"
+        },
+        "cs": {
+          "value": "Rychlé Zadávání"
+        },
+        "da": {
+          "value": "Hurtig Logning"
+        },
+        "de": {
+          "value": "Schnelle Erfassung"
+        },
+        "el": {
+          "value": "Γρήγορη Καταχώρηση"
+        },
+        "es": {
+          "value": "Registro Rápido"
+        },
+        "es-419": {
+          "value": "Registro Rápido"
+        },
+        "fi": {
+          "value": "Nopea Kirjaus"
+        },
+        "fr": {
+          "value": "Saisie Rapide"
+        },
+        "fr-CA": {
+          "value": "Saisie Rapide"
+        },
+        "he": {
+          "value": "תיעוד מהיר"
+        },
+        "hi": {
+          "value": "त्वरित लॉगिंग"
+        },
+        "hr": {
+          "value": "Brzo Bilježenje"
+        },
+        "hu": {
+          "value": "Gyors Naplózás"
+        },
+        "id": {
+          "value": "Pencatatan Cepat"
+        },
+        "it": {
+          "value": "Registrazione Rapida"
+        },
+        "ja": {
+          "value": "クイック記録"
+        },
+        "ko": {
+          "value": "빠른 기록"
+        },
+        "ms": {
+          "value": "Catatan Pantas"
+        },
+        "nb": {
+          "value": "Rask Registrering"
+        },
+        "nl": {
+          "value": "Snel Vastleggen"
+        },
+        "pl": {
+          "value": "Szybkie Zapisywanie"
+        },
+        "pt-BR": {
+          "value": "Registro Rápido"
+        },
+        "pt-PT": {
+          "value": "Registo Rápido"
+        },
+        "ro": {
+          "value": "Înregistrare Rapidă"
+        },
+        "ru": {
+          "value": "Быстрая Запись"
+        },
+        "sk": {
+          "value": "Rýchle Zaznamenanie"
+        },
+        "sv": {
+          "value": "Snabb Loggning"
+        },
+        "th": {
+          "value": "บันทึกอย่างรวดเร็ว"
+        },
+        "tr": {
+          "value": "Hızlı Kayıt"
+        },
+        "uk": {
+          "value": "Швидкий Запис"
+        },
+        "vi": {
+          "value": "Ghi Chép Nhanh"
+        },
+        "zh-Hans": {
+          "value": "快速记录"
+        },
+        "zh-Hant": {
+          "value": "快速記錄"
+        }
+      }
+    },
+    "s04_h1": {
+      "localizations": {
+        "en": {
+          "value": "Log a test"
+        },
+        "en-GB": {
+          "value": "Log a test"
+        },
+        "en-AU": {
+          "value": "Log a test"
+        },
+        "ar": {
+          "value": "سجّل اختبارًا"
+        },
+        "ca": {
+          "value": "Registra una prova"
+        },
+        "cs": {
+          "value": "Zaznamenejte test"
+        },
+        "da": {
+          "value": "Log en test"
+        },
+        "de": {
+          "value": "Test protokollieren"
+        },
+        "el": {
+          "value": "Καταχώρησε δοκιμή"
+        },
+        "es": {
+          "value": "Registra una prueba"
+        },
+        "es-419": {
+          "value": "Registra una prueba"
+        },
+        "fi": {
+          "value": "Kirjaa testi"
+        },
+        "fr": {
+          "value": "Enregistrez un test"
+        },
+        "fr-CA": {
+          "value": "Enregistrez un test"
+        },
+        "he": {
+          "value": "תעד בדיקה"
+        },
+        "hi": {
+          "value": "परीक्षण दर्ज करें"
+        },
+        "hr": {
+          "value": "Zabilježite test"
+        },
+        "hu": {
+          "value": "Rögzíts egy tesztet"
+        },
+        "id": {
+          "value": "Catat tes"
+        },
+        "it": {
+          "value": "Registra un test"
+        },
+        "ja": {
+          "value": "数秒で"
+        },
+        "ko": {
+          "value": "몇 초 만에"
+        },
+        "ms": {
+          "value": "Catat ujian"
+        },
+        "nb": {
+          "value": "Registrer en test"
+        },
+        "nl": {
+          "value": "Leg een test vast"
+        },
+        "pl": {
+          "value": "Zapisz test"
+        },
+        "pt-BR": {
+          "value": "Registre um teste"
+        },
+        "pt-PT": {
+          "value": "Registe um teste"
+        },
+        "ro": {
+          "value": "Înregistrează un test"
+        },
+        "ru": {
+          "value": "Записывайте тест"
+        },
+        "sk": {
+          "value": "Zaznamenajte test"
+        },
+        "sv": {
+          "value": "Logga ett test"
+        },
+        "th": {
+          "value": "บันทึกผลทดสอบ"
+        },
+        "tr": {
+          "value": "Test kaydedin"
+        },
+        "uk": {
+          "value": "Записуйте тест"
+        },
+        "vi": {
+          "value": "Ghi lại bài kiểm tra"
+        },
+        "zh-Hans": {
+          "value": "几秒钟记录"
+        },
+        "zh-Hant": {
+          "value": "幾秒鐘記錄"
+        }
+      }
+    },
+    "s04_acc": {
+      "localizations": {
+        "en": {
+          "value": "in seconds"
+        },
+        "en-GB": {
+          "value": "in seconds"
+        },
+        "en-AU": {
+          "value": "in seconds"
+        },
+        "ar": {
+          "value": "في ثوانٍ"
+        },
+        "ca": {
+          "value": "en segons"
+        },
+        "cs": {
+          "value": "za pár vteřin"
+        },
+        "da": {
+          "value": "på sekunder"
+        },
+        "de": {
+          "value": "in Sekunden"
+        },
+        "el": {
+          "value": "σε δευτερόλεπτα"
+        },
+        "es": {
+          "value": "en segundos"
+        },
+        "es-419": {
+          "value": "en segundos"
+        },
+        "fi": {
+          "value": "sekunneissa"
+        },
+        "fr": {
+          "value": "en quelques secondes"
+        },
+        "fr-CA": {
+          "value": "en quelques secondes"
+        },
+        "he": {
+          "value": "תוך שניות"
+        },
+        "hi": {
+          "value": "सेकंडों में"
+        },
+        "hr": {
+          "value": "za nekoliko sekundi"
+        },
+        "hu": {
+          "value": "másodpercek alatt"
+        },
+        "id": {
+          "value": "dalam hitungan detik"
+        },
+        "it": {
+          "value": "in pochi secondi"
+        },
+        "ja": {
+          "value": "テストを記録"
+        },
+        "ko": {
+          "value": "테스트 기록"
+        },
+        "ms": {
+          "value": "dalam beberapa saat"
+        },
+        "nb": {
+          "value": "på sekunder"
+        },
+        "nl": {
+          "value": "in seconden"
+        },
+        "pl": {
+          "value": "w kilka sekund"
+        },
+        "pt-BR": {
+          "value": "em segundos"
+        },
+        "pt-PT": {
+          "value": "em segundos"
+        },
+        "ro": {
+          "value": "în câteva secunde"
+        },
+        "ru": {
+          "value": "за секунды"
+        },
+        "sk": {
+          "value": "za pár sekúnd"
+        },
+        "sv": {
+          "value": "på sekunder"
+        },
+        "th": {
+          "value": "ภายในไม่กี่วินาที"
+        },
+        "tr": {
+          "value": "saniyeler içinde"
+        },
+        "uk": {
+          "value": "за секунди"
+        },
+        "vi": {
+          "value": "trong vài giây"
+        },
+        "zh-Hans": {
+          "value": "一次测试"
+        },
+        "zh-Hant": {
+          "value": "一次測試"
+        }
+      }
+    },
+    "s05_pill": {
+      "localizations": {
+        "en": {
+          "value": "Smart Reminders"
+        },
+        "en-GB": {
+          "value": "Smart Reminders"
+        },
+        "en-AU": {
+          "value": "Smart Reminders"
+        },
+        "ar": {
+          "value": "تذكيرات ذكية"
+        },
+        "ca": {
+          "value": "Recordatoris Intel·ligents"
+        },
+        "cs": {
+          "value": "Chytré Připomínky"
+        },
+        "da": {
+          "value": "Smarte Påmindelser"
+        },
+        "de": {
+          "value": "Intelligente Erinnerungen"
+        },
+        "el": {
+          "value": "Έξυπνες Υπενθυμίσεις"
+        },
+        "es": {
+          "value": "Recordatorios Inteligentes"
+        },
+        "es-419": {
+          "value": "Recordatorios Inteligentes"
+        },
+        "fi": {
+          "value": "Älykkäät Muistutukset"
+        },
+        "fr": {
+          "value": "Rappels Intelligents"
+        },
+        "fr-CA": {
+          "value": "Rappels Intelligents"
+        },
+        "he": {
+          "value": "תזכורות חכמות"
+        },
+        "hi": {
+          "value": "स्मार्ट रिमाइंडर"
+        },
+        "hr": {
+          "value": "Pametni Podsjetnici"
+        },
+        "hu": {
+          "value": "Okos Emlékeztetők"
+        },
+        "id": {
+          "value": "Pengingat Cerdas"
+        },
+        "it": {
+          "value": "Promemoria Intelligenti"
+        },
+        "ja": {
+          "value": "スマートリマインダー"
+        },
+        "ko": {
+          "value": "스마트 알림"
+        },
+        "ms": {
+          "value": "Peringatan Pintar"
+        },
+        "nb": {
+          "value": "Smarte Påminnelser"
+        },
+        "nl": {
+          "value": "Slimme Herinneringen"
+        },
+        "pl": {
+          "value": "Inteligentne Przypomnienia"
+        },
+        "pt-BR": {
+          "value": "Lembretes Inteligentes"
+        },
+        "pt-PT": {
+          "value": "Lembretes Inteligentes"
+        },
+        "ro": {
+          "value": "Mementouri Inteligente"
+        },
+        "ru": {
+          "value": "Умные Напоминания"
+        },
+        "sk": {
+          "value": "Inteligentné Pripomienky"
+        },
+        "sv": {
+          "value": "Smarta Påminnelser"
+        },
+        "th": {
+          "value": "การแจ้งเตือนอัจฉริยะ"
+        },
+        "tr": {
+          "value": "Akıllı Hatırlatıcılar"
+        },
+        "uk": {
+          "value": "Розумні Нагадування"
+        },
+        "vi": {
+          "value": "Nhắc Nhở Thông Minh"
+        },
+        "zh-Hans": {
+          "value": "智能提醒"
+        },
+        "zh-Hant": {
+          "value": "智慧提醒"
+        }
+      }
+    },
+    "s05_h1": {
+      "localizations": {
+        "en": {
+          "value": "Never forget"
+        },
+        "en-GB": {
+          "value": "Never forget"
+        },
+        "en-AU": {
+          "value": "Never forget"
+        },
+        "ar": {
+          "value": "لا تنسَ"
+        },
+        "ca": {
+          "value": "No oblidis mai"
+        },
+        "cs": {
+          "value": "Už nikdy nezapomeňte"
+        },
+        "da": {
+          "value": "Glem aldrig"
+        },
+        "de": {
+          "value": "Nie wieder"
+        },
+        "el": {
+          "value": "Μην ξεχάσεις ξανά"
+        },
+        "es": {
+          "value": "Nunca más olvides"
+        },
+        "es-419": {
+          "value": "Nunca más olvides"
+        },
+        "fi": {
+          "value": "Älä unohda enää"
+        },
+        "fr": {
+          "value": "N'oubliez plus jamais"
+        },
+        "fr-CA": {
+          "value": "N'oubliez plus jamais"
+        },
+        "he": {
+          "value": "אל תשכח שוב"
+        },
+        "hi": {
+          "value": "फिर कभी न भूलें"
+        },
+        "hr": {
+          "value": "Nikad više ne zaboravite"
+        },
+        "hu": {
+          "value": "Soha többé ne felejtsd el"
+        },
+        "id": {
+          "value": "Jangan pernah lupa"
+        },
+        "it": {
+          "value": "Non dimenticare mai più"
+        },
+        "ja": {
+          "value": "フィルター交換を"
+        },
+        "ko": {
+          "value": "다시는 잊지 마세요"
+        },
+        "ms": {
+          "value": "Jangan lupa"
+        },
+        "nb": {
+          "value": "Glem aldri"
+        },
+        "nl": {
+          "value": "Vergeet nooit meer"
+        },
+        "pl": {
+          "value": "Nigdy więcej nie zapomnij"
+        },
+        "pt-BR": {
+          "value": "Nunca mais esqueça"
+        },
+        "pt-PT": {
+          "value": "Nunca mais se esqueça"
+        },
+        "ro": {
+          "value": "Nu mai uita niciodată"
+        },
+        "ru": {
+          "value": "Никогда больше не забывайте"
+        },
+        "sk": {
+          "value": "Už nikdy nezabudnite"
+        },
+        "sv": {
+          "value": "Glöm aldrig"
+        },
+        "th": {
+          "value": "ไม่พลาดการเปลี่ยน"
+        },
+        "tr": {
+          "value": "Bir daha asla unutmayın"
+        },
+        "uk": {
+          "value": "Ніколи більше не забувайте"
+        },
+        "vi": {
+          "value": "Không bao giờ quên"
+        },
+        "zh-Hans": {
+          "value": "再也不会忘记"
+        },
+        "zh-Hant": {
+          "value": "再也不會忘記"
+        }
+      }
+    },
+    "s05_acc": {
+      "localizations": {
+        "en": {
+          "value": "the filter again"
+        },
+        "en-GB": {
+          "value": "the filter again"
+        },
+        "en-AU": {
+          "value": "the filter again"
+        },
+        "ar": {
+          "value": "الفلتر مجددًا"
+        },
+        "ca": {
+          "value": "més el filtre"
+        },
+        "cs": {
+          "value": "na filtr"
+        },
+        "da": {
+          "value": "filteret igen"
+        },
+        "de": {
+          "value": "den Filter vergessen"
+        },
+        "el": {
+          "value": "το φίλτρο"
+        },
+        "es": {
+          "value": "el filtro"
+        },
+        "es-419": {
+          "value": "el filtro"
+        },
+        "fi": {
+          "value": "suodatinta"
+        },
+        "fr": {
+          "value": "le filtre"
+        },
+        "fr-CA": {
+          "value": "le filtre"
+        },
+        "he": {
+          "value": "את הפילטר"
+        },
+        "hi": {
+          "value": "फ़िल्टर को"
+        },
+        "hr": {
+          "value": "filter"
+        },
+        "hu": {
+          "value": "a szűrőt"
+        },
+        "id": {
+          "value": "filter lagi"
+        },
+        "it": {
+          "value": "il filtro"
+        },
+        "ja": {
+          "value": "もう忘れない"
+        },
+        "ko": {
+          "value": "필터를"
+        },
+        "ms": {
+          "value": "penapis lagi"
+        },
+        "nb": {
+          "value": "filteret igjen"
+        },
+        "nl": {
+          "value": "het filter"
+        },
+        "pl": {
+          "value": "o filtrze"
+        },
+        "pt-BR": {
+          "value": "o filtro"
+        },
+        "pt-PT": {
+          "value": "do filtro"
+        },
+        "ro": {
+          "value": "de filtru"
+        },
+        "ru": {
+          "value": "про фильтр"
+        },
+        "sk": {
+          "value": "na filter"
+        },
+        "sv": {
+          "value": "filtret igen"
+        },
+        "th": {
+          "value": "ไส้กรองอีกต่อไป"
+        },
+        "tr": {
+          "value": "filtreyi"
+        },
+        "uk": {
+          "value": "про фільтр"
+        },
+        "vi": {
+          "value": "bộ lọc nữa"
+        },
+        "zh-Hans": {
+          "value": "更换滤芯"
+        },
+        "zh-Hant": {
+          "value": "更換濾芯"
+        }
+      }
+    },
+    "s06_pill": {
+      "localizations": {
+        "en": {
+          "value": "Service History"
+        },
+        "en-GB": {
+          "value": "Service History"
+        },
+        "en-AU": {
+          "value": "Service History"
+        },
+        "ar": {
+          "value": "سجل الخدمة"
+        },
+        "ca": {
+          "value": "Historial de Servei"
+        },
+        "cs": {
+          "value": "Historie Servisu"
+        },
+        "da": {
+          "value": "Servicehistorik"
+        },
+        "de": {
+          "value": "Servicehistorie"
+        },
+        "el": {
+          "value": "Ιστορικό Συντήρησης"
+        },
+        "es": {
+          "value": "Historial de Servicio"
+        },
+        "es-419": {
+          "value": "Historial de Servicio"
+        },
+        "fi": {
+          "value": "Huoltohistoria"
+        },
+        "fr": {
+          "value": "Historique de Service"
+        },
+        "fr-CA": {
+          "value": "Historique d'Entretien"
+        },
+        "he": {
+          "value": "היסטוריית שירות"
+        },
+        "hi": {
+          "value": "सर्विस इतिहास"
+        },
+        "hr": {
+          "value": "Povijest Servisa"
+        },
+        "hu": {
+          "value": "Szerviztörténet"
+        },
+        "id": {
+          "value": "Riwayat Servis"
+        },
+        "it": {
+          "value": "Cronologia Servizi"
+        },
+        "ja": {
+          "value": "サービス履歴"
+        },
+        "ko": {
+          "value": "서비스 기록"
+        },
+        "ms": {
+          "value": "Sejarah Servis"
+        },
+        "nb": {
+          "value": "Servicehistorikk"
+        },
+        "nl": {
+          "value": "Servicegeschiedenis"
+        },
+        "pl": {
+          "value": "Historia Serwisu"
+        },
+        "pt-BR": {
+          "value": "Histórico de Serviços"
+        },
+        "pt-PT": {
+          "value": "Histórico de Serviços"
+        },
+        "ro": {
+          "value": "Istoric Service"
+        },
+        "ru": {
+          "value": "История Обслуживания"
+        },
+        "sk": {
+          "value": "História Servisu"
+        },
+        "sv": {
+          "value": "Servicehistorik"
+        },
+        "th": {
+          "value": "ประวัติการซ่อมบำรุง"
+        },
+        "tr": {
+          "value": "Servis Geçmişi"
+        },
+        "uk": {
+          "value": "Історія Обслуговування"
+        },
+        "vi": {
+          "value": "Lịch Sử Dịch Vụ"
+        },
+        "zh-Hans": {
+          "value": "服务历史"
+        },
+        "zh-Hant": {
+          "value": "服務紀錄"
+        }
+      }
+    },
+    "s06_h1": {
+      "localizations": {
+        "en": {
+          "value": "Every service,"
+        },
+        "en-GB": {
+          "value": "Every service,"
+        },
+        "en-AU": {
+          "value": "Every service,"
+        },
+        "ar": {
+          "value": "كل خدمة،"
+        },
+        "ca": {
+          "value": "Cada servei,"
+        },
+        "cs": {
+          "value": "Každý servis"
+        },
+        "da": {
+          "value": "Hver service,"
+        },
+        "de": {
+          "value": "Jeder Service,"
+        },
+        "el": {
+          "value": "Κάθε συντήρηση,"
+        },
+        "es": {
+          "value": "Cada servicio,"
+        },
+        "es-419": {
+          "value": "Cada servicio,"
+        },
+        "fi": {
+          "value": "Jokainen huolto,"
+        },
+        "fr": {
+          "value": "Chaque service,"
+        },
+        "fr-CA": {
+          "value": "Chaque entretien,"
+        },
+        "he": {
+          "value": "כל שירות,"
+        },
+        "hi": {
+          "value": "हर सर्विस,"
+        },
+        "hr": {
+          "value": "Svaki servis,"
+        },
+        "hu": {
+          "value": "Minden szerviz,"
+        },
+        "id": {
+          "value": "Setiap servis,"
+        },
+        "it": {
+          "value": "Ogni servizio,"
+        },
+        "ja": {
+          "value": "すべてのサービスを"
+        },
+        "ko": {
+          "value": "모든 서비스,"
+        },
+        "ms": {
+          "value": "Setiap servis,"
+        },
+        "nb": {
+          "value": "Hver service,"
+        },
+        "nl": {
+          "value": "Elke service,"
+        },
+        "pl": {
+          "value": "Każdy serwis,"
+        },
+        "pt-BR": {
+          "value": "Cada serviço,"
+        },
+        "pt-PT": {
+          "value": "Cada serviço,"
+        },
+        "ro": {
+          "value": "Fiecare service,"
+        },
+        "ru": {
+          "value": "Каждое обслуживание,"
+        },
+        "sk": {
+          "value": "Každý servis,"
+        },
+        "sv": {
+          "value": "Varje service,"
+        },
+        "th": {
+          "value": "ทุกงานซ่อมบำรุง"
+        },
+        "tr": {
+          "value": "Her servis,"
+        },
+        "uk": {
+          "value": "Кожне обслуговування,"
+        },
+        "vi": {
+          "value": "Mọi dịch vụ,"
+        },
+        "zh-Hans": {
+          "value": "每次服务，"
+        },
+        "zh-Hant": {
+          "value": "每次服務，"
+        }
+      }
+    },
+    "s06_acc": {
+      "localizations": {
+        "en": {
+          "value": "on the record"
+        },
+        "en-GB": {
+          "value": "on the record"
+        },
+        "en-AU": {
+          "value": "on the record"
+        },
+        "ar": {
+          "value": "في السجل"
+        },
+        "ca": {
+          "value": "registrat"
+        },
+        "cs": {
+          "value": "zaznamenán"
+        },
+        "da": {
+          "value": "på rekord"
+        },
+        "de": {
+          "value": "dokumentiert"
+        },
+        "el": {
+          "value": "καταγεγραμμένη"
+        },
+        "es": {
+          "value": "registrado"
+        },
+        "es-419": {
+          "value": "registrado"
+        },
+        "fi": {
+          "value": "kirjattuna"
+        },
+        "fr": {
+          "value": "enregistré"
+        },
+        "fr-CA": {
+          "value": "enregistré"
+        },
+        "he": {
+          "value": "בתיעוד"
+        },
+        "hi": {
+          "value": "रिकॉर्ड पर"
+        },
+        "hr": {
+          "value": "zabilježen"
+        },
+        "hu": {
+          "value": "rögzítve"
+        },
+        "id": {
+          "value": "tercatat"
+        },
+        "it": {
+          "value": "registrato"
+        },
+        "ja": {
+          "value": "記録"
+        },
+        "ko": {
+          "value": "기록으로"
+        },
+        "ms": {
+          "value": "direkodkan"
+        },
+        "nb": {
+          "value": "journalført"
+        },
+        "nl": {
+          "value": "vastgelegd"
+        },
+        "pl": {
+          "value": "zapisany"
+        },
+        "pt-BR": {
+          "value": "registrado"
+        },
+        "pt-PT": {
+          "value": "registado"
+        },
+        "ro": {
+          "value": "înregistrat"
+        },
+        "ru": {
+          "value": "в записи"
+        },
+        "sk": {
+          "value": "zaznamenaný"
+        },
+        "sv": {
+          "value": "dokumenterad"
+        },
+        "th": {
+          "value": "ถูกบันทึก"
+        },
+        "tr": {
+          "value": "kayıt altında"
+        },
+        "uk": {
+          "value": "в записі"
+        },
+        "vi": {
+          "value": "đều được ghi lại"
+        },
+        "zh-Hans": {
+          "value": "都有记录"
+        },
+        "zh-Hant": {
+          "value": "都有紀錄"
+        }
+      }
+    },
+    "s07_h1": {
+      "localizations": {
+        "en": {
+          "value": "Private"
+        },
+        "en-GB": {
+          "value": "Private"
+        },
+        "en-AU": {
+          "value": "Private"
+        },
+        "ar": {
+          "value": "خصوصية"
+        },
+        "ca": {
+          "value": "Privat"
+        },
+        "cs": {
+          "value": "Soukromí"
+        },
+        "da": {
+          "value": "Privat"
+        },
+        "de": {
+          "value": "Privat"
+        },
+        "el": {
+          "value": "Ιδιωτικότητα"
+        },
+        "es": {
+          "value": "Privado"
+        },
+        "es-419": {
+          "value": "Privado"
+        },
+        "fi": {
+          "value": "Yksityinen"
+        },
+        "fr": {
+          "value": "Privé"
+        },
+        "fr-CA": {
+          "value": "Privé"
+        },
+        "he": {
+          "value": "פרטי"
+        },
+        "hi": {
+          "value": "निजी"
+        },
+        "hr": {
+          "value": "Privatnost"
+        },
+        "hu": {
+          "value": "Privát"
+        },
+        "id": {
+          "value": "Privat"
+        },
+        "it": {
+          "value": "Privato"
+        },
+        "ja": {
+          "value": "設計から"
+        },
+        "ko": {
+          "value": "설계부터"
+        },
+        "ms": {
+          "value": "Privasi"
+        },
+        "nb": {
+          "value": "Privat"
+        },
+        "nl": {
+          "value": "Privé"
+        },
+        "pl": {
+          "value": "Prywatność"
+        },
+        "pt-BR": {
+          "value": "Privado"
+        },
+        "pt-PT": {
+          "value": "Privado"
+        },
+        "ro": {
+          "value": "Privat"
+        },
+        "ru": {
+          "value": "Конфиденциальность"
+        },
+        "sk": {
+          "value": "Súkromie"
+        },
+        "sv": {
+          "value": "Privat"
+        },
+        "th": {
+          "value": "เป็นส่วนตัว"
+        },
+        "tr": {
+          "value": "Gizlilik"
+        },
+        "uk": {
+          "value": "Конфіденційність"
+        },
+        "vi": {
+          "value": "Riêng tư"
+        },
+        "zh-Hans": {
+          "value": "隐私"
+        },
+        "zh-Hant": {
+          "value": "隱私"
+        }
+      }
+    },
+    "s07_acc": {
+      "localizations": {
+        "en": {
+          "value": "by design"
+        },
+        "en-GB": {
+          "value": "by design"
+        },
+        "en-AU": {
+          "value": "by design"
+        },
+        "ar": {
+          "value": "بالتصميم"
+        },
+        "ca": {
+          "value": "per disseny"
+        },
+        "cs": {
+          "value": "od základu"
+        },
+        "da": {
+          "value": "by design"
+        },
+        "de": {
+          "value": "by design"
+        },
+        "el": {
+          "value": "εκ σχεδιασμού"
+        },
+        "es": {
+          "value": "por diseño"
+        },
+        "es-419": {
+          "value": "por diseño"
+        },
+        "fi": {
+          "value": "alusta asti"
+        },
+        "fr": {
+          "value": "par conception"
+        },
+        "fr-CA": {
+          "value": "par conception"
+        },
+        "he": {
+          "value": "מעצם התכנון"
+        },
+        "hi": {
+          "value": "डिज़ाइन के अनुसार"
+        },
+        "hr": {
+          "value": "po dizajnu"
+        },
+        "hu": {
+          "value": "eleve"
+        },
+        "id": {
+          "value": "sejak dirancang"
+        },
+        "it": {
+          "value": "per progettazione"
+        },
+        "ja": {
+          "value": "プライベート"
+        },
+        "ko": {
+          "value": "프라이빗"
+        },
+        "ms": {
+          "value": "mengikut reka bentuk"
+        },
+        "nb": {
+          "value": "by design"
+        },
+        "nl": {
+          "value": "door ontwerp"
+        },
+        "pl": {
+          "value": "od podstaw"
+        },
+        "pt-BR": {
+          "value": "por design"
+        },
+        "pt-PT": {
+          "value": "por conceção"
+        },
+        "ro": {
+          "value": "prin design"
+        },
+        "ru": {
+          "value": "по умолчанию"
+        },
+        "sk": {
+          "value": "od návrhu"
+        },
+        "sv": {
+          "value": "från grunden"
+        },
+        "th": {
+          "value": "ตั้งแต่การออกแบบ"
+        },
+        "tr": {
+          "value": "tasarımdan gelen"
+        },
+        "uk": {
+          "value": "за задумом"
+        },
+        "vi": {
+          "value": "theo thiết kế"
+        },
+        "zh-Hans": {
+          "value": "从设计上保护"
+        },
+        "zh-Hant": {
+          "value": "從設計上保護"
+        }
+      }
+    },
+    "s08_pill": {
+      "localizations": {
+        "en": {
+          "value": "Resale Report"
+        },
+        "en-GB": {
+          "value": "Resale Report"
+        },
+        "en-AU": {
+          "value": "Resale Report"
+        },
+        "ar": {
+          "value": "تقرير إعادة البيع"
+        },
+        "ca": {
+          "value": "Informe de Revenda"
+        },
+        "cs": {
+          "value": "Zpráva pro Prodej"
+        },
+        "da": {
+          "value": "Videresalgsrapport"
+        },
+        "de": {
+          "value": "Wiederverkaufsbericht"
+        },
+        "el": {
+          "value": "Αναφορά Μεταπώλησης"
+        },
+        "es": {
+          "value": "Informe de Reventa"
+        },
+        "es-419": {
+          "value": "Informe de Reventa"
+        },
+        "fi": {
+          "value": "Jälleenmyyntiraportti"
+        },
+        "fr": {
+          "value": "Rapport de Revente"
+        },
+        "fr-CA": {
+          "value": "Rapport de Revente"
+        },
+        "he": {
+          "value": "דוח מכירה חוזרת"
+        },
+        "hi": {
+          "value": "पुनर्विक्रय रिपोर्ट"
+        },
+        "hr": {
+          "value": "Izvještaj za Preprodaju"
+        },
+        "hu": {
+          "value": "Viszonteladási Jelentés"
+        },
+        "id": {
+          "value": "Laporan Jual Kembali"
+        },
+        "it": {
+          "value": "Rapporto di Rivendita"
+        },
+        "ja": {
+          "value": "転売レポート"
+        },
+        "ko": {
+          "value": "재판매 리포트"
+        },
+        "ms": {
+          "value": "Laporan Jualan Semula"
+        },
+        "nb": {
+          "value": "Videresalgsrapport"
+        },
+        "nl": {
+          "value": "Doorverkooprapport"
+        },
+        "pl": {
+          "value": "Raport Odsprzedaży"
+        },
+        "pt-BR": {
+          "value": "Relatório de Revenda"
+        },
+        "pt-PT": {
+          "value": "Relatório de Revenda"
+        },
+        "ro": {
+          "value": "Raport de Revânzare"
+        },
+        "ru": {
+          "value": "Отчёт для Перепродажи"
+        },
+        "sk": {
+          "value": "Správa pre Ďalší Predaj"
+        },
+        "sv": {
+          "value": "Återförsäljningsrapport"
+        },
+        "th": {
+          "value": "รายงานการขายต่อ"
+        },
+        "tr": {
+          "value": "Yeniden Satış Raporu"
+        },
+        "uk": {
+          "value": "Звіт для Перепродажу"
+        },
+        "vi": {
+          "value": "Báo Cáo Bán Lại"
+        },
+        "zh-Hans": {
+          "value": "转售报告"
+        },
+        "zh-Hant": {
+          "value": "轉售報告"
+        }
+      }
+    },
+    "s08_h1": {
+      "localizations": {
+        "en": {
+          "value": "Sell with"
+        },
+        "en-GB": {
+          "value": "Sell with"
+        },
+        "en-AU": {
+          "value": "Sell with"
+        },
+        "ar": {
+          "value": "بِعْ مع"
+        },
+        "ca": {
+          "value": "Ven amb"
+        },
+        "cs": {
+          "value": "Prodejte s"
+        },
+        "da": {
+          "value": "Sælg med"
+        },
+        "de": {
+          "value": "Verkaufe mit"
+        },
+        "el": {
+          "value": "Πούλησε με"
+        },
+        "es": {
+          "value": "Vende con"
+        },
+        "es-419": {
+          "value": "Vende con"
+        },
+        "fi": {
+          "value": "Myy"
+        },
+        "fr": {
+          "value": "Vendez avec"
+        },
+        "fr-CA": {
+          "value": "Vendez avec"
+        },
+        "he": {
+          "value": "מכור עם"
+        },
+        "hi": {
+          "value": "बेचें"
+        },
+        "hr": {
+          "value": "Prodajte s"
+        },
+        "hu": {
+          "value": "Add el"
+        },
+        "id": {
+          "value": "Jual dengan"
+        },
+        "it": {
+          "value": "Vendi con"
+        },
+        "ja": {
+          "value": "証拠と一緒に"
+        },
+        "ko": {
+          "value": "영수증과 함께"
+        },
+        "ms": {
+          "value": "Jual dengan"
+        },
+        "nb": {
+          "value": "Selg med"
+        },
+        "nl": {
+          "value": "Verkoop met"
+        },
+        "pl": {
+          "value": "Sprzedaj z"
+        },
+        "pt-BR": {
+          "value": "Venda com"
+        },
+        "pt-PT": {
+          "value": "Venda com"
+        },
+        "ro": {
+          "value": "Vinde cu"
+        },
+        "ru": {
+          "value": "Продавайте с"
+        },
+        "sk": {
+          "value": "Predajte s"
+        },
+        "sv": {
+          "value": "Sälj med"
+        },
+        "th": {
+          "value": "ขายพร้อม"
+        },
+        "tr": {
+          "value": "Satın"
+        },
+        "uk": {
+          "value": "Продавайте з"
+        },
+        "vi": {
+          "value": "Bán kèm"
+        },
+        "zh-Hans": {
+          "value": "带上凭证"
+        },
+        "zh-Hant": {
+          "value": "帶著憑證"
+        }
+      }
+    },
+    "s08_acc": {
+      "localizations": {
+        "en": {
+          "value": "the receipts"
+        },
+        "en-GB": {
+          "value": "the receipts"
+        },
+        "en-AU": {
+          "value": "the receipts"
+        },
+        "ar": {
+          "value": "الإيصالات"
+        },
+        "ca": {
+          "value": "els rebuts"
+        },
+        "cs": {
+          "value": "doklady"
+        },
+        "da": {
+          "value": "kvitteringerne"
+        },
+        "de": {
+          "value": "Belegen"
+        },
+        "el": {
+          "value": "τις αποδείξεις"
+        },
+        "es": {
+          "value": "los comprobantes"
+        },
+        "es-419": {
+          "value": "los comprobantes"
+        },
+        "fi": {
+          "value": "kuiteilla"
+        },
+        "fr": {
+          "value": "les preuves"
+        },
+        "fr-CA": {
+          "value": "les preuves"
+        },
+        "he": {
+          "value": "הקבלות"
+        },
+        "hi": {
+          "value": "रसीदों के साथ"
+        },
+        "hr": {
+          "value": "potvrdama"
+        },
+        "hu": {
+          "value": "a bizonylatokkal"
+        },
+        "id": {
+          "value": "buktinya"
+        },
+        "it": {
+          "value": "le ricevute"
+        },
+        "ja": {
+          "value": "売却"
+        },
+        "ko": {
+          "value": "판매하세요"
+        },
+        "ms": {
+          "value": "resit"
+        },
+        "nb": {
+          "value": "kvitteringene"
+        },
+        "nl": {
+          "value": "de bewijzen"
+        },
+        "pl": {
+          "value": "dokumentacją"
+        },
+        "pt-BR": {
+          "value": "os comprovantes"
+        },
+        "pt-PT": {
+          "value": "os comprovativos"
+        },
+        "ro": {
+          "value": "dovezile la tine"
+        },
+        "ru": {
+          "value": "чеками"
+        },
+        "sk": {
+          "value": "dokladmi"
+        },
+        "sv": {
+          "value": "kvittona"
+        },
+        "th": {
+          "value": "หลักฐาน"
+        },
+        "tr": {
+          "value": "fişlerle birlikte"
+        },
+        "uk": {
+          "value": "чеками"
+        },
+        "vi": {
+          "value": "hóa đơn"
+        },
+        "zh-Hans": {
+          "value": "再出售"
+        },
+        "zh-Hant": {
+          "value": "出售"
+        }
+      }
+    }
+  }
+}

@@ -26,6 +26,9 @@ Like Storybook, but for marketing assets. Free, local, MIT licensed, and built f
 
 ## Examples
 
+<p><img src="public/img/examples/skimmer-icon.png" width="14" height="14" /> <a href="https://apps.apple.com/app/id6775022955"><strong>Skimmer</strong></a> (<a href="examples/skimmer">examples</a>)</p>
+<img src="public/img/examples/skimmer.png" alt="Skimmer screenshots" width="100%" />
+
 <p><img src="public/img/examples/tax-days-icon.png" width="14" height="14" /> <a href="https://apps.apple.com/us/app/tax-days-residency-tracker/id6761441335"><strong>Tax Days</strong></a> (<a href="examples/tax-days">examples</a>)</p>
 <img src="public/img/examples/tax-days.png" alt="Tax Days screenshots" width="100%" />
 

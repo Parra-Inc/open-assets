@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=440, initial-scale=1" />
+    <link rel="stylesheet" href="../../dist/styles.css" />
+    <link rel="stylesheet" href="_shared.css" />
+  </head>
+  <body>
+    <div class="frame">
+      <!-- Pale rippling pool water (Unsplash) continues the hero's story -->
+      <img class="photo-full" src="../../public/screenshots-bg/ripple.jpg" style="opacity: 0.55;" />
+      <div class="scrim-top" style="height: 46%;"></div>
+
+      <div class="copy">
+        <div class="pill glass">{{s02_pill}}</div>
+        <div class="headline">{{s02_h1}}<br/><span class="accent-box">{{s02_acc}}</span></div>
+      </div>
+
+      <!-- 2x2 checklist of what lives on the pool screen -->
+      <div style="position: relative; z-index: 3; width: 100%; padding: 22px 30px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+        <div class="check-item"><span class="check-dot">&#10003;</span>{{s02_i1}}</div>
+        <div class="check-item"><span class="check-dot">&#10003;</span>{{s02_i2}}</div>
+        <div class="check-item"><span class="check-dot">&#10003;</span>{{s02_i3}}</div>
+        <div class="check-item"><span class="check-dot">&#10003;</span>{{s02_i4}}</div>
+      </div>
+
+      <div class="device dock" style="bottom: -120px; width: 320px;">
+        <img data-locale-img="02_pool_detail"
+             src="../../public/screenshots/en/02_pool_detail.png" />
+      </div>
+    </div>
+
+    <script>
+      // Swap the device screenshot to match the active locale (set by open-assets).
+      new MutationObserver(function () {
+        var lang = document.documentElement.lang || 'en';
+        document.querySelectorAll('[data-locale-img]').forEach(function (img) {
+          var name = img.getAttribute('data-locale-img');
+          img.src = '../../public/screenshots/' + lang + '/' + name + '.png';
+        });
+      }).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+    </script>
+  </body>
+</html>

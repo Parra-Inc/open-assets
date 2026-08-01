@@ -1,0 +1,189 @@
+@import "tailwindcss";
+
+@theme {
+  --color-sk-navy: #0E3A57;
+  --color-sk-navy-deep: #0A2C43;
+
+  --color-sk-bg: #F5FAFD;
+  --color-sk-surface: #FFFFFF;
+  --color-sk-separator: #DCEAF1;
+  --color-sk-foam: #EAF6FB;
+  --color-sk-sky: #E4EFF5;
+  --color-sk-water: #CFE9F5;
+  --color-sk-water-deep: #A9D6EA;
+
+  --color-sk-sea: #2BA9DD;
+  --color-sk-sea-light: #51BFEB;
+  --color-sk-sea-deep: #1D98CF;
+  --color-sk-sea-ink: #0E6E99;
+
+  --color-sk-aqua: #16B8A6;
+  --color-sk-aqua-light: #35CBB7;
+  --color-sk-aqua-deep: #0FA695;
+  --color-sk-aqua-ink: #096B60;
+
+  --color-sk-coral: #F26D8D;
+  --color-sk-coral-light: #FB8BA6;
+  --color-sk-coral-deep: #EB5A7F;
+  --color-sk-coral-ink: #B62F52;
+
+  --color-sk-amber: #F4B23E;
+  --color-sk-amber-light: #FBC65F;
+  --color-sk-amber-deep: #EEA221;
+  --color-sk-amber-ink: #8F5A06;
+
+  --color-sk-fg: #0E2E42;
+  --color-sk-muted: #55788C;
+  --color-sk-subtle: #93AFBE;
+
+  --color-sk-success: #0FA695;
+  --color-sk-warning: #EEA221;
+  --color-sk-danger: #EB5A7F;
+  --color-sk-info: #1D98CF;
+
+  --color-sk-action: #0E6E99;
+
+  --font-display: "SF Pro Display", -apple-system, system-ui, sans-serif;
+  --font-mono: "SF Mono", "JetBrains Mono", ui-monospace, monospace;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Background gradients — the icon's sky, settling into pale water */
+.bg-sk-hero {
+  background:
+    radial-gradient(ellipse at top right, rgba(22, 184, 166, 0.10) 0%, transparent 55%),
+    radial-gradient(ellipse at bottom left, rgba(43, 169, 221, 0.14) 0%, transparent 60%),
+    linear-gradient(180deg, #FEFFFF 0%, #F2F9FC 45%, #E4EFF5 100%);
+}
+
+.bg-sk-light {
+  background: linear-gradient(180deg, #FFFFFF 0%, #EAF6FB 50%, #CFE9F5 100%);
+}
+
+/* Phone mockup */
+.phone {
+  border-radius: 52px;
+  background: #0E2E42;
+  padding: 6px;
+  position: relative;
+  box-shadow:
+    0 50px 100px -20px rgba(14, 46, 66, 0.28),
+    0 0 0 1px rgba(255, 255, 255, 0.10) inset;
+}
+
+.phone-screen {
+  background: #F5FAFD;
+  border-radius: 46px;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.phone-300 {
+  width: 300px;
+  height: 651px;
+}
+
+.phone-280 {
+  width: 280px;
+  height: 608px;
+}
+
+.phone-320 {
+  width: 320px;
+  height: 694px;
+}
+
+/* Glow orbs */
+.glow-orb {
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.45;
+  position: absolute;
+  pointer-events: none;
+}
+
+/* Pills — a tint of the pad with its ink on top */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.pill-aqua {
+  background: rgba(22, 184, 166, 0.14);
+  color: #096B60;
+}
+
+.pill-sea {
+  background: rgba(43, 169, 221, 0.14);
+  color: #0E6E99;
+}
+
+.pill-success {
+  background: rgba(22, 184, 166, 0.14);
+  color: #096B60;
+}
+
+.pill-warning {
+  background: rgba(244, 178, 62, 0.18);
+  color: #8F5A06;
+}
+
+.pill-danger {
+  background: rgba(242, 109, 141, 0.16);
+  color: #B62F52;
+}
+
+.pill-coral {
+  background: rgba(242, 109, 141, 0.16);
+  color: #B62F52;
+}
+
+.pill-amber {
+  background: rgba(244, 178, 62, 0.18);
+  color: #8F5A06;
+}
+
+/* Headlines */
+.headline {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #0E3A57;
+  line-height: 1.05;
+}
+
+.subheadline {
+  font-family: var(--font-display);
+  color: #55788C;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-feature-settings: "tnum";
+}
+
+/* Screenshot frame container */
+.screenshot {
+  width: 440px;
+  height: 956px;
+  overflow: hidden;
+  position: relative;
+}

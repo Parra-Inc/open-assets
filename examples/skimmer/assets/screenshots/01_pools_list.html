@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=440, initial-scale=1" />
+    <link rel="stylesheet" href="../../dist/styles.css" />
+    <link rel="stylesheet" href="_shared.css" />
+  </head>
+  <body>
+    <div class="frame">
+      <!-- Full-bleed backyard villa pool (Unsplash) -->
+      <img class="photo-full" src="../../public/screenshots-bg/villa.jpg" style="object-position: 58% 100%;" />
+      <div class="scrim-top"></div>
+
+      <div class="copy">
+        <div class="pill glass">{{hero_pill}}</div>
+        <div class="headline-xl">{{hero_line1}}<br/><span class="accent-box">{{hero_accent}}</span></div>
+        <div class="subhead on-photo">{{hero_sub}}</div>
+      </div>
+
+      <div class="device dock" style="width: 326px; bottom: -120px;">
+        <img data-locale-img="01_pools_list"
+             src="../../public/screenshots/en/01_pools_list.png" />
+      </div>
+      <div class="cta">{{cta_button}}</div>
+    </div>
+
+    <script>
+      // Swap the device screenshot to match the active locale (set by open-assets).
+      new MutationObserver(function () {
+        var lang = document.documentElement.lang || 'en';
+        document.querySelectorAll('[data-locale-img]').forEach(function (img) {
+          var name = img.getAttribute('data-locale-img');
+          img.src = '../../public/screenshots/' + lang + '/' + name + '.png';
+        });
+      }).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+    </script>
+  </body>
+</html>

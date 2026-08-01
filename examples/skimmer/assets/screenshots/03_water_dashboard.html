@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=440, initial-scale=1" />
+    <link rel="stylesheet" href="../../dist/styles.css" />
+    <link rel="stylesheet" href="_shared.css" />
+  </head>
+  <body>
+    <div class="frame">
+      <div class="blob" style="width: 300px; height: 300px; background: #2BA9DD; top: -60px; left: -60px;"></div>
+      <div class="blob" style="width: 280px; height: 280px; background: #2BA9DD; bottom: 120px; right: -90px;"></div>
+      <div class="blob" style="width: 190px; height: 190px; background: #6FCBEC; top: 440px; left: 180px;"></div>
+
+      <div class="copy">
+        <div class="pill glass">{{s03_pill}}</div>
+        <div class="headline">{{s03_h1}}<br/><span class="accent-box">{{s03_acc}}</span></div>
+        <div class="subhead">{{s03_sub}}</div>
+      </div>
+
+      <div class="device dock" style="width: 330px; bottom: -110px;">
+        <img data-locale-img="03_water_dashboard"
+             src="../../public/screenshots/en/03_water_dashboard.png" />
+      </div>
+
+      <!-- Floating readings pulled from the on-screen data (symbols only, locale-safe) -->
+      <div class="chip" style="left: 26px; top: 322px; transform: rotate(-3deg); box-shadow: 0 18px 44px rgba(14, 46, 66, 0.28);"><span class="dot"></span>pH 7.5</div>
+      <div class="chip" style="right: 26px; top: 392px; transform: rotate(2.5deg); box-shadow: 0 18px 44px rgba(14, 46, 66, 0.28);"><span class="dot"></span>2.4 ppm</div>
+    </div>
+
+    <script>
+      // Swap the device screenshot to match the active locale (set by open-assets).
+      new MutationObserver(function () {
+        var lang = document.documentElement.lang || 'en';
+        document.querySelectorAll('[data-locale-img]').forEach(function (img) {
+          var name = img.getAttribute('data-locale-img');
+          img.src = '../../public/screenshots/' + lang + '/' + name + '.png';
+        });
+        document.querySelectorAll('[data-locale-bg]').forEach(function (el) {
+          var name = el.getAttribute('data-locale-bg');
+          el.style.backgroundImage = "url('../../public/screenshots/" + lang + "/" + name + ".png')";
+        });
+      }).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=440, initial-scale=1" />
+    <link rel="stylesheet" href="../../dist/styles.css" />
+    <link rel="stylesheet" href="_shared.css" />
+  </head>
+  <body>
+    <div class="frame">
+      <div class="blob" style="width: 300px; height: 300px; background: #2BA9DD; top: -40px; right: -80px;"></div>
+      <div class="blob" style="width: 260px; height: 260px; background: #6FCBEC; bottom: 200px; left: -70px;"></div>
+      <div class="blob" style="width: 180px; height: 180px; background: #2BA9DD; top: 360px; right: 210px;"></div>
+
+      <div class="copy">
+        <div class="pill glass">&#128274;&nbsp; {{s07_pill}}</div>
+        <div class="headline">{{s07_h1}}<br/><span class="accent-box">{{s07_acc}}</span></div>
+        <div class="subhead">{{s07_sub}}</div>
+      </div>
+
+      <!-- Privacy feature cards (Tax Days style) -->
+      <div style="position: relative; z-index: 3; width: 100%; padding: 44px 34px 0; display: flex; flex-direction: column; gap: 18px;">
+        <div class="pcard">
+          <div class="picon" style="background: rgba(242, 109, 141, 0.12);">&#128683;</div>
+          <div>
+            <div class="pcard-title">{{s07_c1t}}</div>
+            <div class="pcard-desc">{{s07_c1d}}</div>
+          </div>
+        </div>
+        <div class="pcard">
+          <div class="picon" style="background: rgba(43, 169, 221, 0.12);">&#128241;</div>
+          <div>
+            <div class="pcard-title">{{s07_c2t}}</div>
+            <div class="pcard-desc">{{s07_c2d}}</div>
+          </div>
+        </div>
+        <div class="pcard">
+          <div class="picon" style="background: rgba(22, 184, 166, 0.12);">&#9729;&#65039;</div>
+          <div>
+            <div class="pcard-title">{{s07_c3t}}</div>
+            <div class="pcard-desc">{{s07_c3d}}</div>
+          </div>
+        </div>
+        <div class="pcard">
+          <div class="picon" style="background: rgba(244, 178, 62, 0.14);">&#128196;</div>
+          <div>
+            <div class="pcard-title">{{s07_c4t}}</div>
+            <div class="pcard-desc">{{s07_c4d}}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Shield anchor at the bottom -->
+      <div style="position: absolute; bottom: 60px; left: 0; right: 0; text-align: center; z-index: 2;"><img src="../../public/icon.svg" style="display: block; margin: 0 auto; width: 96px; height: 96px; border-radius: 22px; box-shadow: 0 18px 44px rgba(14, 46, 66, 0.25);" /></div>
+    </div>
+  </body>
+</html>

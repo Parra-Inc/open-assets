@@ -1,0 +1,329 @@
+/* ------------------------------------------------------------------ *
+ * Skimmer App Store screenshot frame
+ * Frosted-white base with blurred brand-color blobs behind a device
+ * bezel that holds a real light-mode app capture. (Tax Days style.)
+ * Marketing copy is injected per-locale from localizations.json via
+ * {{key}} placeholders, and the device screenshot is swapped per-locale
+ * by the data-locale-img + MutationObserver script in each template.
+ * ------------------------------------------------------------------ */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 440px;
+  height: 956px;
+  font-family: "Inter", -apple-system, "SF Pro Display", sans-serif;
+  overflow: hidden;
+}
+
+.frame {
+  width: 440px;
+  height: 956px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* the icon's sky settling into its pale water */
+  background: linear-gradient(170deg, #FEFFFF 0%, #F2F9FC 46%, #CFE9F5 100%);
+}
+
+/* soft blurred color blobs sitting behind the frosted base */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(72px);
+  opacity: 0.42;
+  z-index: 1;
+}
+
+/* copy block above the device */
+.copy {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  padding: 66px 36px 0;
+}
+
+/* brand pill above the headline (used on the hero frame) */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: #0E6E99;
+  background: rgba(43, 169, 221, 0.14);
+  margin-bottom: 16px;
+}
+
+.headline {
+  font-size: 40px;
+  font-weight: 900;
+  color: #0E3A57;
+  letter-spacing: -1.2px;
+  line-height: 1.05;
+}
+
+.headline .accent {
+  /* app's primary accent blue (skSea / "Pool" #2BA9DD), one step deep so the
+     display text still clears contrast on the near-white frame */
+  color: #1D98CF;
+}
+
+.subhead {
+  font-size: 17px;
+  font-weight: 500;
+  color: #55788C;
+  margin-top: 14px;
+  line-height: 1.42;
+}
+
+/* device bezel holding the real capture */
+.device {
+  width: 312px;
+  margin-top: 36px;
+  border-radius: 50px;
+  overflow: hidden;
+  box-shadow: 0 34px 90px rgba(14, 46, 66, 0.3);
+  border: 7px solid #0E2E42;
+  position: relative;
+  z-index: 2;
+}
+
+.device img {
+  width: 100%;
+  display: block;
+}
+
+/* ------------------------------------------------------------------ *
+ * Photo frames (shots 1-3): full-bleed Unsplash pool photography.
+ * ------------------------------------------------------------------ */
+
+/* full-bleed photo background */
+.photo-full {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* white wash from the top so navy copy reads over the photo */
+.scrim-top {
+  position: absolute;
+  inset: 0;
+  height: 62%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.55) 34%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  z-index: 1;
+}
+
+/* oversized hero headline */
+.headline-xl {
+  font-size: 46px;
+  font-weight: 900;
+  color: #0E3A57;
+  letter-spacing: -1.6px;
+  line-height: 1.04;
+}
+
+/* navy highlight box around the accent line (only-recipes style) */
+.accent-box {
+  display: inline-block;
+  background: #0E3A57;
+  color: #FFFFFF;
+  border-radius: 14px;
+  padding: 2px 14px 7px;
+  margin-top: 8px;
+  box-shadow: 0 14px 34px rgba(14, 58, 87, 0.35);
+}
+
+/* frosted pill for photo frames */
+.pill.glass {
+  background: rgba(255, 255, 255, 0.82);
+  color: #0E6E99;
+  box-shadow: 0 8px 24px rgba(14, 58, 87, 0.14);
+}
+
+.subhead.on-photo {
+  color: #1D4A66;
+  font-weight: 600;
+}
+
+/* device pinned to the bottom edge, cropped by the frame */
+.device.dock {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 0;
+}
+
+/* circular photo cutout bleeding off the frame edge */
+.photo-circle {
+  position: absolute;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 8px solid #FFFFFF;
+  box-shadow: 0 30px 80px rgba(14, 46, 66, 0.35);
+  z-index: 3;
+}
+
+.photo-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* circular magnifier popover showing a zoomed UI detail from the capture */
+.zoom {
+  position: absolute;
+  z-index: 4;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  border: 6px solid #FFFFFF;
+  box-shadow: 0 24px 60px rgba(14, 46, 66, 0.32);
+  background-repeat: no-repeat;
+  background-size: 370% auto;
+  background-color: #F2F9FC;
+}
+
+/* full-width zoomed slice of the capture, overlaid like a lifted card */
+.slice-zoom {
+  position: absolute;
+  z-index: 4;
+  left: 20px;
+  right: 20px;
+  height: 112px;
+  border-radius: 22px;
+  border: 4px solid #FFFFFF;
+  box-shadow: 0 26px 60px rgba(14, 46, 66, 0.32);
+  background-repeat: no-repeat;
+  background-size: 120% auto;
+  background-color: #FFFFFF;
+}
+
+/* floating glass stat chip */
+.chip {
+  position: absolute;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-size: 19px;
+  font-weight: 800;
+  color: #0E3A57;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 18px 44px rgba(3, 22, 35, 0.45);
+}
+
+.chip .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #16B8A6;
+}
+
+.chip .dot.amber {
+  background: #F4B23E;
+}
+
+/* checklist item (2x2 grid under a headline) */
+.check-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  padding: 13px 14px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0E3A57;
+  box-shadow: 0 10px 26px rgba(14, 46, 66, 0.12);
+}
+
+.check-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #0E8578;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+/* privacy feature card (device-free privacy frame) */
+.pcard {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 22px;
+  padding: 18px 20px;
+  box-shadow: 0 14px 36px rgba(14, 46, 66, 0.12);
+  text-align: left;
+}
+
+.picon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.pcard-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0E3A57;
+}
+
+.pcard-desc {
+  font-size: 14px;
+  font-weight: 500;
+  color: #55788C;
+  margin-top: 2px;
+  line-height: 1.35;
+}
+
+/* CTA chip pinned near the bottom (used on the final / hero frame) */
+.cta {
+  position: absolute;
+  bottom: 40px;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 26px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFFFFF;
+  background: linear-gradient(180deg, #1D98CF 0%, #0E6E99 100%);
+  box-shadow: 0 12px 30px rgba(14, 110, 153, 0.32);
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=440, initial-scale=1" />
+    <link rel="stylesheet" href="../../dist/styles.css" />
+    <link rel="stylesheet" href="_shared.css" />
+  </head>
+  <body>
+    <div class="frame">
+      <div class="blob" style="width: 300px; height: 300px; background: #6FCBEC; top: -50px; right: -90px; opacity: 0.26;"></div>
+      <div class="blob" style="width: 270px; height: 270px; background: #2BA9DD; bottom: 160px; left: -80px;"></div>
+      <div class="blob" style="width: 180px; height: 180px; background: #2BA9DD; top: 400px; right: 200px;"></div>
+
+      <div class="copy">
+        <div class="pill glass">{{s05_pill}}</div>
+        <div class="headline">{{s05_h1}}<br/><span class="accent-box">{{s05_acc}}</span></div>
+        <div class="subhead">{{s05_sub}}</div>
+      </div>
+
+      <div class="device dock" style="width: 334px; bottom: -90px;">
+        <img data-locale-img="05_maintenance_list"
+             src="../../public/screenshots/en/05_maintenance_list.png" />
+      </div>
+
+      <!-- Magnified UI detail -->
+      <div class="zoom" data-locale-bg="05_maintenance_list"
+           style="right: 6px; top: 420px; transform: rotate(3deg); background-image: url('../../public/screenshots/en/05_maintenance_list.png'); background-position: 91% 19%;"></div>
+    </div>
+
+    <script>
+      // Swap the device screenshot to match the active locale (set by open-assets).
+      new MutationObserver(function () {
+        var lang = document.documentElement.lang || 'en';
+        document.querySelectorAll('[data-locale-img]').forEach(function (img) {
+          var name = img.getAttribute('data-locale-img');
+          img.src = '../../public/screenshots/' + lang + '/' + name + '.png';
+        });
+        document.querySelectorAll('[data-locale-bg]').forEach(function (el) {
+          var name = el.getAttribute('data-locale-bg');
+          el.style.backgroundImage = "url('../../public/screenshots/" + lang + "/" + name + ".png')";
+        });
+      }).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+    </script>
+  </body>
+</html>

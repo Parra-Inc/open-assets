@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "name": "Skimmer",
+  "publicDir": "public",
+  "command": "npm run render",
+  "collections": [
+    {
+      "id": "icon",
+      "label": "App Icon",
+      "sourceSize": { "width": 1024, "height": 1024 },
+      "borderRadius": 224,
+      "templates": [
+        { "src": "assets/icon/icon.html", "name": "icon", "label": "App Icon" }
+      ],
+      "export": [
+        { "name": "1024", "label": "1024px", "size": { "width": 1024, "height": 1024 } },
+        { "name": "512", "label": "512px", "size": { "width": 512, "height": 512 } }
+      ]
+    },
+    {
+      "id": "screenshots",
+      "label": "App Store Screenshots",
+      "sourceSize": { "width": 440, "height": 956 },
+      "borderRadius": 4,
+      "localizations": "localizations.json",
+      "locales": ["en", "ar", "de", "ja"],
+      "templates": [
+        { "src": "assets/screenshots/01_pools_list.html", "name": "01_pools_list", "label": "Pools List" },
+        { "src": "assets/screenshots/02_pool_detail.html", "name": "02_pool_detail", "label": "Pool Detail" },
+        { "src": "assets/screenshots/03_water_dashboard.html", "name": "03_water_dashboard", "label": "Water Dashboard" },
+        { "src": "assets/screenshots/04_log_water_test.html", "name": "04_log_water_test", "label": "Log Water Test" },
+        { "src": "assets/screenshots/05_maintenance_list.html", "name": "05_maintenance_list", "label": "Maintenance List" },
+        { "src": "assets/screenshots/06_task_detail_timeline.html", "name": "06_task_detail_timeline", "label": "Task Detail & Timeline" },
+        { "src": "assets/screenshots/07_settings.html", "name": "07_settings", "label": "Settings" },
+        { "src": "assets/screenshots/08_pdf_export.html", "name": "08_pdf_export", "label": "Service History PDF" }
+      ],
+      "export": [
+        { "name": "iphone-6.9", "label": "iPhone 6.9\"", "size": { "width": 1320, "height": 2868 }, "outFile": "exports/screenshots/{locale}/iphone-6.9/{template}.png" },
+        { "name": "iphone-6.7", "label": "iPhone 6.7\"", "size": { "width": 1290, "height": 2796 }, "outFile": "exports/screenshots/{locale}/iphone-6.7/{template}.png" },
+        { "name": "iphone-6.5", "label": "iPhone 6.5\"", "size": { "width": 1284, "height": 2778 }, "outFile": "exports/screenshots/{locale}/iphone-6.5/{template}.png" },
+        { "name": "iphone-6.1", "label": "iPhone 6.1\"", "size": { "width": 1179, "height": 2556 }, "outFile": "exports/screenshots/{locale}/iphone-6.1/{template}.png" }
+      ],
+      "customExport": { "defaultWidth": 1320, "defaultHeight": 2868 }
+    }
+  ]
+}
