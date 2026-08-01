@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      width: 1270px;
+      height: 760px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0b081c 0%, #140e33 55%, #0e0a26 100%);
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      position: relative;
+    }
+    .grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: radial-gradient(ellipse 90% 80% at 50% 45%, black 40%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 45%, black 40%, transparent 100%);
+    }
+    .glow { position: absolute; top: 52%; left: 50%; width: 1000px; height: 600px; transform: translate(-50%, -50%); background: radial-gradient(ellipse at center, rgba(93, 63, 211, 0.16) 0%, transparent 70%); }
+    .vignette { position: absolute; inset: 0; background: radial-gradient(ellipse 120% 110% at 50% 50%, transparent 55%, rgba(5, 3, 14, 0.55) 100%); }
+
+    .header { position: absolute; top: 62px; left: 0; width: 100%; text-align: center; z-index: 2; }
+    .kicker {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px; font-weight: 600; letter-spacing: 3.5px;
+      color: #a78bfa; text-transform: uppercase; margin-bottom: 16px;
+    }
+    .headline { font-size: 52px; font-weight: 800; color: #fff; letter-spacing: -1.8px; line-height: 1.05; }
+    .sub { font-size: 20px; color: rgba(255,255,255,0.6); margin-top: 12px; }
+    .sub strong { color: rgba(255,255,255,0.9); font-weight: 600; }
+
+    /* Terminal / install card */
+    .terminal-card {
+      position: absolute; left: 50%; top: 258px; transform: translateX(-50%);
+      width: 660px;
+      border-radius: 16px;
+      background: linear-gradient(170deg, #1c1638 0%, #171130 100%);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), 0 8px 26px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+      z-index: 1;
+    }
+    .term-chrome {
+      display: flex; align-items: center; gap: 8px;
+      padding: 13px 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.025);
+    }
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dot-r { background: #f66; opacity: 0.85; }
+    .dot-y { background: #fb5; opacity: 0.85; }
+    .dot-g { background: #5c7; opacity: 0.85; }
+
+    .tabs { display: flex; gap: 8px; padding: 16px 20px 0; }
+    .tab {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px; font-weight: 600; color: rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      border-radius: 100px; padding: 7px 16px;
+    }
+    .tab.active { color: #fff; background: rgba(124, 92, 191, 0.32); border-color: rgba(167, 139, 250, 0.45); }
+
+    .term-body { padding: 22px 24px 26px; font-family: 'JetBrains Mono', monospace; }
+    .term-line { font-size: 18px; color: rgba(255, 255, 255, 0.9); margin-bottom: 12px; }
+    .term-line .prompt { color: #86efac; margin-right: 10px; }
+    .term-line.dim { font-size: 14px; color: rgba(255, 255, 255, 0.35); margin-bottom: 0; margin-left: 26px; }
+
+    .badges { position: absolute; left: 50%; top: 486px; transform: translateX(-50%); display: flex; gap: 12px; z-index: 1; }
+    .badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px; font-weight: 600; letter-spacing: 0.8px;
+      color: rgba(255, 255, 255, 0.75);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 100px; padding: 9px 20px;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .badge-dot { width: 7px; height: 7px; border-radius: 50%; background: #86efac; box-shadow: 0 0 8px rgba(134, 239, 172, 0.8); }
+
+    .footline {
+      position: absolute; left: 50%; bottom: 56px; transform: translateX(-50%);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px; color: rgba(255, 255, 255, 0.38);
+      letter-spacing: 0.2px; text-align: center; z-index: 1;
+      white-space: nowrap;
+    }
+    .footline strong { color: rgba(255, 255, 255, 0.6); font-weight: 500; }
+  </style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="glow"></div>
+
+  <div class="header">
+    <div class="kicker">Get started</div>
+    <div class="headline">Completely free. Completely open source.</div>
+    <div class="sub">No account, no SaaS, no per-seat pricing. <strong>Runs entirely on your machine, forever.</strong></div>
+  </div>
+
+  <div class="terminal-card">
+    <div class="term-chrome">
+      <div class="dot dot-r"></div>
+      <div class="dot dot-y"></div>
+      <div class="dot dot-g"></div>
+    </div>
+    <div class="tabs">
+      <div class="tab active">npm</div>
+      <div class="tab">yarn</div>
+      <div class="tab">pnpm</div>
+      <div class="tab">bun</div>
+    </div>
+    <div class="term-body">
+      <div class="term-line"><span class="prompt">$</span>npm install --save-dev @open-assets/open-assets</div>
+      <div class="term-line"><span class="prompt">$</span>npx open-assets dev</div>
+      <div class="term-line dim">→ live preview at localhost:3200</div>
+    </div>
+  </div>
+
+  <div class="badges">
+    <div class="badge"><span class="badge-dot"></span>MIT LICENSE</div>
+    <div class="badge"><span class="badge-dot"></span>NO ACCOUNT</div>
+    <div class="badge"><span class="badge-dot"></span>100% LOCAL</div>
+    <div class="badge"><span class="badge-dot"></span>FREE FOREVER</div>
+  </div>
+
+  <div class="footline">★ <strong>github.com/Parra-Inc/open-assets</strong> &nbsp;·&nbsp; <strong>npmjs.com/package/@open-assets/open-assets</strong></div>
+
+  <div class="vignette"></div>
+</body>
+</html>

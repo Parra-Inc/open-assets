@@ -10,10 +10,12 @@
       "borderRadius": 8,
       "templates": [
         { "src": "screenshots/01-hero.html", "name": "01-hero", "label": "Hero" },
-        { "src": "screenshots/02-dev-server.html", "name": "02-dev-server", "label": "Dev Server" },
+        { "src": "screenshots/02-examples.html", "name": "02-examples", "label": "Examples" },
         { "src": "screenshots/03-fan-out.html", "name": "03-fan-out", "label": "Fan Out" },
         { "src": "screenshots/04-localization.html", "name": "04-localization", "label": "Localization" },
-        { "src": "screenshots/05-agent-ci.html", "name": "05-agent-ci", "label": "Agent and CI" }
+        { "src": "screenshots/05-agent-ci.html", "name": "05-agent-ci", "label": "Agent and CI" },
+        { "src": "screenshots/06-dev-server.html", "name": "06-dev-server", "label": "Dev Server" },
+        { "src": "screenshots/07-install.html", "name": "07-install", "label": "Install" }
       ],
       "export": [
         { "name": "ph-2x", "label": "PH Gallery 2x", "size": { "width": 2540, "height": 1520 } },

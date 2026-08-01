@@ -3,15 +3,15 @@
   "assets": {
     "gallery/01-hero": {
       "exports/gallery/ph-2x/01-hero.png": {
-        "sourceChecksum": "sha256:db51b07763cad6740a367f1b771f0deeb96d85fdc1de9c158c175bcd458c896e",
+        "sourceChecksum": "sha256:0aa840c2c815ee3599d124e8306b2b6a22b30f2a9c5b9fd9e5b837888f1da709",
         "outputPath": "exports/gallery/ph-2x/01-hero.png",
-        "exportedAt": "2026-07-20T00:26:22.015Z",
+        "exportedAt": "2026-07-27T17:22:10.906Z",
         "exportChecksum": "sha256:497125bfc968a89c62a19590710c2f6b6c8c091a93ee5ee3c6488c25c3f6a61b"
       },
       "exports/gallery/ph-1x/01-hero.png": {
-        "sourceChecksum": "sha256:db51b07763cad6740a367f1b771f0deeb96d85fdc1de9c158c175bcd458c896e",
+        "sourceChecksum": "sha256:0aa840c2c815ee3599d124e8306b2b6a22b30f2a9c5b9fd9e5b837888f1da709",
         "outputPath": "exports/gallery/ph-1x/01-hero.png",
-        "exportedAt": "2026-07-20T00:26:32.157Z",
+        "exportedAt": "2026-07-27T17:22:10.908Z",
         "exportChecksum": "sha256:9c730b196b78185854a9a5531a1e6dadcea9feb6ddc1d730d61f8fbfda3c2d70"
       }
     },
@@ -33,13 +33,13 @@
       "exports/gallery/ph-2x/03-fan-out.png": {
         "sourceChecksum": "sha256:45f2b18c8a3a62e8a0fd25fec73063235630e1c6efc21924a1b42e63a00e8c5b",
         "outputPath": "exports/gallery/ph-2x/03-fan-out.png",
-        "exportedAt": "2026-07-20T00:26:26.219Z",
+        "exportedAt": "2026-07-27T17:22:10.908Z",
         "exportChecksum": "sha256:497125bfc968a89c62a19590710c2f6b6c8c091a93ee5ee3c6488c25c3f6a61b"
       },
       "exports/gallery/ph-1x/03-fan-out.png": {
         "sourceChecksum": "sha256:45f2b18c8a3a62e8a0fd25fec73063235630e1c6efc21924a1b42e63a00e8c5b",
         "outputPath": "exports/gallery/ph-1x/03-fan-out.png",
-        "exportedAt": "2026-07-20T00:26:35.644Z",
+        "exportedAt": "2026-07-27T17:22:10.908Z",
         "exportChecksum": "sha256:9c730b196b78185854a9a5531a1e6dadcea9feb6ddc1d730d61f8fbfda3c2d70"
       }
     },
@@ -47,13 +47,13 @@
       "exports/gallery/ph-2x/04-localization.png": {
         "sourceChecksum": "sha256:8dbb39d7950142860d48581b4c1e2a1500fc66f16cbe90bf3d734d05d55aa5fa",
         "outputPath": "exports/gallery/ph-2x/04-localization.png",
-        "exportedAt": "2026-07-20T00:26:28.338Z",
+        "exportedAt": "2026-07-27T17:22:10.908Z",
         "exportChecksum": "sha256:497125bfc968a89c62a19590710c2f6b6c8c091a93ee5ee3c6488c25c3f6a61b"
       },
       "exports/gallery/ph-1x/04-localization.png": {
         "sourceChecksum": "sha256:8dbb39d7950142860d48581b4c1e2a1500fc66f16cbe90bf3d734d05d55aa5fa",
         "outputPath": "exports/gallery/ph-1x/04-localization.png",
-        "exportedAt": "2026-07-20T00:26:37.352Z",
+        "exportedAt": "2026-07-27T17:22:10.908Z",
         "exportChecksum": "sha256:9c730b196b78185854a9a5531a1e6dadcea9feb6ddc1d730d61f8fbfda3c2d70"
       }
     },
@@ -61,13 +61,13 @@
       "exports/gallery/ph-2x/05-agent-ci.png": {
         "sourceChecksum": "sha256:bf5a87fb2f0093f43eae85e8bd485518942865674a2beea2ed22d80728ad9e96",
         "outputPath": "exports/gallery/ph-2x/05-agent-ci.png",
-        "exportedAt": "2026-07-20T23:19:28.052Z",
+        "exportedAt": "2026-07-27T17:22:10.908Z",
         "exportChecksum": "sha256:497125bfc968a89c62a19590710c2f6b6c8c091a93ee5ee3c6488c25c3f6a61b"
       },
       "exports/gallery/ph-1x/05-agent-ci.png": {
         "sourceChecksum": "sha256:bf5a87fb2f0093f43eae85e8bd485518942865674a2beea2ed22d80728ad9e96",
         "outputPath": "exports/gallery/ph-1x/05-agent-ci.png",
-        "exportedAt": "2026-07-20T23:19:29.742Z",
+        "exportedAt": "2026-07-27T17:22:10.908Z",
         "exportChecksum": "sha256:9c730b196b78185854a9a5531a1e6dadcea9feb6ddc1d730d61f8fbfda3c2d70"
       },
       "exports/gallery/ph-2x.png": {
@@ -80,6 +80,48 @@
         "sourceChecksum": "sha256:bf5a87fb2f0093f43eae85e8bd485518942865674a2beea2ed22d80728ad9e96",
         "outputPath": "exports/gallery/ph-1x.png",
         "exportedAt": "2026-07-20T00:26:09.187Z",
+        "exportChecksum": "sha256:9c730b196b78185854a9a5531a1e6dadcea9feb6ddc1d730d61f8fbfda3c2d70"
+      }
+    },
+    "gallery/02-examples": {
+      "exports/gallery/ph-2x/02-examples.png": {
+        "sourceChecksum": "sha256:7c81497f1b2aafde6ccb4bddb003de5fac95c7ed7b4141c38320f1a4696096db",
+        "outputPath": "exports/gallery/ph-2x/02-examples.png",
+        "exportedAt": "2026-07-27T18:47:48.872Z",
+        "exportChecksum": "sha256:497125bfc968a89c62a19590710c2f6b6c8c091a93ee5ee3c6488c25c3f6a61b"
+      },
+      "exports/gallery/ph-1x/02-examples.png": {
+        "sourceChecksum": "sha256:7c81497f1b2aafde6ccb4bddb003de5fac95c7ed7b4141c38320f1a4696096db",
+        "outputPath": "exports/gallery/ph-1x/02-examples.png",
+        "exportedAt": "2026-07-27T18:47:48.873Z",
+        "exportChecksum": "sha256:9c730b196b78185854a9a5531a1e6dadcea9feb6ddc1d730d61f8fbfda3c2d70"
+      }
+    },
+    "gallery/06-dev-server": {
+      "exports/gallery/ph-2x/06-dev-server.png": {
+        "sourceChecksum": "sha256:7b1f4d591fd657b2e5e5ec1cbd49309867adbc1328a97eba75382bb26892aa0f",
+        "outputPath": "exports/gallery/ph-2x/06-dev-server.png",
+        "exportedAt": "2026-07-27T17:22:10.908Z",
+        "exportChecksum": "sha256:497125bfc968a89c62a19590710c2f6b6c8c091a93ee5ee3c6488c25c3f6a61b"
+      },
+      "exports/gallery/ph-1x/06-dev-server.png": {
+        "sourceChecksum": "sha256:7b1f4d591fd657b2e5e5ec1cbd49309867adbc1328a97eba75382bb26892aa0f",
+        "outputPath": "exports/gallery/ph-1x/06-dev-server.png",
+        "exportedAt": "2026-07-27T17:22:10.908Z",
+        "exportChecksum": "sha256:9c730b196b78185854a9a5531a1e6dadcea9feb6ddc1d730d61f8fbfda3c2d70"
+      }
+    },
+    "gallery/07-install": {
+      "exports/gallery/ph-2x/07-install.png": {
+        "sourceChecksum": "sha256:94c530ae5c51788dc8b1451059bde563e3d5f223297e4e8306053bcd8490c6b9",
+        "outputPath": "exports/gallery/ph-2x/07-install.png",
+        "exportedAt": "2026-07-27T17:22:10.908Z",
+        "exportChecksum": "sha256:497125bfc968a89c62a19590710c2f6b6c8c091a93ee5ee3c6488c25c3f6a61b"
+      },
+      "exports/gallery/ph-1x/07-install.png": {
+        "sourceChecksum": "sha256:94c530ae5c51788dc8b1451059bde563e3d5f223297e4e8306053bcd8490c6b9",
+        "outputPath": "exports/gallery/ph-1x/07-install.png",
+        "exportedAt": "2026-07-27T17:22:10.908Z",
         "exportChecksum": "sha256:9c730b196b78185854a9a5531a1e6dadcea9feb6ddc1d730d61f8fbfda3c2d70"
       }
     }

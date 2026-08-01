@@ -20,7 +20,7 @@ works.
 Passing:
 
 - Try-able instantly: `npx open-assets init`.
-- Gallery: 5 brand-matched frames authored in `screenshots/` and rendered to
+- Gallery: 7 brand-matched frames authored in `screenshots/` and rendered to
   `exports/gallery/` at 2x (2540x1520) and 1x (1270x760). Upload the 2x set.
 - Tagline and maker comment drafted (`title.md`, `first-comment.md`).
 - Pricing transparent: free, MIT.

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      width: 1270px;
+      height: 760px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0b081c 0%, #140e33 55%, #0e0a26 100%);
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      position: relative;
+    }
+    .grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: radial-gradient(ellipse 90% 80% at 50% 45%, black 40%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 45%, black 40%, transparent 100%);
+    }
+    .glow-left {
+      position: absolute; top: 50%; left: 2%;
+      width: 560px; height: 480px;
+      background: radial-gradient(ellipse at center, rgba(124, 92, 191, 0.16) 0%, transparent 68%);
+      transform: translateY(-50%);
+    }
+    .glow-right {
+      position: absolute; top: 50%; right: -12%;
+      width: 820px; height: 700px;
+      background: radial-gradient(ellipse at center, rgba(93, 63, 211, 0.2) 0%, transparent 70%);
+      transform: translateY(-50%);
+    }
+    .vignette {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 120% 110% at 50% 50%, transparent 55%, rgba(5, 3, 14, 0.55) 100%);
+    }
+
+    .copy {
+      position: absolute;
+      left: 84px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 420px;
+      z-index: 2;
+    }
+    .kicker {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px; font-weight: 600; letter-spacing: 3.5px;
+      color: #a78bfa; text-transform: uppercase; margin-bottom: 24px;
+    }
+    .kicker-dash { width: 26px; height: 1px; background: linear-gradient(90deg, transparent, #a78bfa); }
+    .title {
+      font-size: 60px; font-weight: 800; color: #ffffff;
+      letter-spacing: -2.2px; line-height: 1.04; margin-bottom: 24px;
+    }
+    .subtitle {
+      font-size: 21px; font-weight: 400; color: rgba(255, 255, 255, 0.62);
+      letter-spacing: -0.2px; line-height: 1.55; max-width: 400px;
+    }
+    .subtitle strong { color: rgba(255, 255, 255, 0.92); font-weight: 600; }
+
+    /* Right side: shelf of real, shipped screenshot sets */
+    .shelf { position: absolute; right: 46px; top: 50%; transform: translateY(-50%); width: 700px; z-index: 1; }
+    .set { margin-bottom: 22px; }
+    .set:last-child { margin-bottom: 0; }
+    .set-label {
+      display: flex; align-items: center; gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px; font-weight: 600; letter-spacing: 0.5px;
+      color: rgba(255, 255, 255, 0.55);
+      margin-bottom: 9px;
+    }
+    .set-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .set-row {
+      width: 100%; display: block;
+      border-radius: 11px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 22px 54px rgba(0, 0, 0, 0.48), 0 4px 18px rgba(0, 0, 0, 0.32);
+    }
+  </style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="glow-left"></div>
+  <div class="glow-right"></div>
+
+  <div class="copy">
+    <div class="kicker">Shipped with Open Assets<span class="kicker-dash"></span></div>
+    <div class="title">Design beautiful screenshots.</div>
+    <div class="subtitle"><strong>Every set on the right is a real HTML template</strong>, rendered by the CLI for an app that's actually live on the App Store.</div>
+  </div>
+
+  <div class="shelf">
+    <div class="set">
+      <div class="set-label"><span class="set-dot" style="background: #38bdf8;"></span>Tax Days &middot; 8 screenshots, one template each</div>
+      <img class="set-row" src="../public/examples/tax-days.jpg" />
+    </div>
+    <div class="set">
+      <div class="set-label"><span class="set-dot" style="background: #fbbf24;"></span>Only Recipes &middot; 8 screenshots, one template each</div>
+      <img class="set-row" src="../public/examples/only-recipes.jpg" />
+    </div>
+    <div class="set">
+      <div class="set-label"><span class="set-dot" style="background: #5eead4;"></span>Skimmer &middot; 8 screenshots, one template each</div>
+      <img class="set-row" src="../public/examples/skimmer.jpg" />
+    </div>
+  </div>
+
+  <div class="vignette"></div>
+</body>
+</html>
