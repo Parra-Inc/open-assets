@@ -3,3 +3,6 @@ exports/
 node_modules/
 
 .DS_Store
+# Git worktrees (Claude Code)
+.worktrees/
+.claude/worktrees/
