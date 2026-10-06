@@ -41,6 +41,7 @@
   "scripts": {
     "assets": "node bin/open-assets.mjs render --force -o ./public/img",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "check": "npm run build --if-present && npm test",
     "release": "./scripts/release.sh"
   },
   "homepage": "https://openassets.dev",
