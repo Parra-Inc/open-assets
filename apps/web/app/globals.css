@@ -122,7 +122,7 @@ p code, li code, figcaption code {
   align-items: center;
   gap: 32px;
 }
-.hero-copy { max-width: 580px; }
+.hero-copy { max-width: min(580px, 100%); min-width: 0; }
 
 .kicker {
   display: inline-flex;
@@ -182,7 +182,7 @@ p code, li code, figcaption code {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
   text-align: left;
 }
-.hero-copy .terminal { display: inline-flex; }
+.hero-copy .terminal { display: inline-flex; max-width: 100%; }
 .terminal .prompt { color: var(--green); }
 .terminal code { flex: 1; overflow-x: auto; white-space: nowrap; font-size: inherit; scrollbar-width: none; }
 .copy-btn {

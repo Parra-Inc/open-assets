@@ -117,6 +117,12 @@ export default function Home() {
                 <a href="#get-started" className="btn btn-primary">
                   Get started
                 </a>
+                <a href={site.docs} className="btn btn-ghost">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5zM4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5" />
+                  </svg>
+                  Read the docs
+                </a>
                 <a href={site.github} className="btn btn-ghost">
                   <GitHubIcon />
                   Star on GitHub
