@@ -1,0 +1,6 @@
+name: open-assets
+runtime:
+  name: nodejs
+  options:
+    packagemanager: npm
+description: Cloudflare zone config for open-assets.dev (marketing site, docs, www redirect, security baseline).

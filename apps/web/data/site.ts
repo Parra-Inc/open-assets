@@ -8,8 +8,7 @@ export const site = {
   github: 'https://github.com/Parra-Inc/open-assets',
   npm: 'https://www.npmjs.com/package/@open-assets/open-assets',
   readme: 'https://github.com/Parra-Inc/open-assets#readme',
-  // TODO(domain): switch to https://docs.open-assets.dev once the zone exists.
-  docs: 'https://open-assets-docs-production.ian-b42.workers.dev',
+  docs: 'https://docs.open-assets.dev',
   pkg: '@open-assets/open-assets',
   org: { name: 'Parra', url: 'https://parra.io', logo: 'https://open-assets.dev/icon-512.png' },
   // App Store Connect provider token for Parra LLC. Every app this site links
