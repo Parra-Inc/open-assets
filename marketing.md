@@ -364,7 +364,7 @@ Every piece below is something we can ship in a week. None of these are paid ads
 **What:** A 3×3 grid of rendered example screenshots from the three (eventually ten) example apps. Composite into one big PNG. Use as:
 - Twitter card / OG image when the repo URL is shared
 - Top of every blog post
-- Hero image on openassets.dev
+- Hero image on open-assets.dev
 - README banner (already exists but iterate)
 
 ### F. The "listicle pitch" email
