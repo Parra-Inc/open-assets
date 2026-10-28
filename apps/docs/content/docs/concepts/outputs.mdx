@@ -1,0 +1,108 @@
+---
+title: Outputs
+description: "Where Open Assets writes rendered images: export sizes, the default folder layout, outFile with template and locale placeholders, JPEG, Xcode and copy-source."
+---
+
+A collection's `export` array holds two kinds of entries:
+
+- **Sizes**: entries without a `type`. Each template renders once per size.
+- **Output actions**: entries with a `type` (`xcode` or `copy-source`). They run after the sizes render.
+
+```json
+"export": [
+  { "name": "iphone-6.9", "label": "iPhone 6.9\"", "size": { "width": 1320, "height": 2868 } },
+  { "name": "favicon", "size": { "width": 32, "height": 32 }, "outFile": "public/favicon.png" },
+  { "type": "xcode", "path": "../MyApp/Assets.xcassets/AppIcon.appiconset" }
+]
+```
+
+## Sized entries
+
+| Field | Purpose |
+| --- | --- |
+| `name` | Identifier. Folder or filename in the default layout, and what `--size` matches. |
+| `label` | Display name. `--size` matches it too. |
+| `size` | `{ width, height }` of the image in pixels. |
+| `outFile` | Optional destination path, relative to the project directory. |
+
+### Default layout
+
+Without `outFile`, images go under the output directory (`./exports`, or `-o <dir>`). The layout depends on how many templates the collection has:
+
+| Collection | Path |
+| --- | --- |
+| One template | `exports/<collection>/<size name>.png` |
+| Two or more templates | `exports/<collection>/<size name>/<template name>.png` |
+| One template, localized | `exports/<collection>/<locale>/<size name>.png` |
+| Two or more, localized | `exports/<collection>/<locale>/<size name>/<template name>.png` |
+
+The count is taken from the collection's full template list, so `--template` renders land in the same place as full runs. Adding a second template to a one-template collection switches it to the folder-per-size layout.
+
+<Callout type="warn">
+The output directory resolves against the directory you run the command from, not the project directory. `open-assets render ./marketing` run from the repo root writes to `./exports`. `outFile` and Xcode paths, by contrast, always resolve against the project directory.
+</Callout>
+
+### outFile
+
+`outFile` sends one size to an exact path, anywhere in your repo. Missing folders are created.
+
+```json
+{ "name": "32", "size": { "width": 32, "height": 32 }, "outFile": "public/favicon.png" }
+```
+
+Two placeholders are replaced:
+
+- `{template}`: the template's `name`. Needed when a collection has more than one template, or every template overwrites the same file.
+- `{locale}`: the locale code, for localized collections.
+
+```json
+{
+  "name": "iphone-6.9",
+  "size": { "width": 1320, "height": 2868 },
+  "outFile": "exports/screenshots/{locale}/iphone-6.9/{template}.png"
+}
+```
+
+The Skimmer and Tax Days examples use exactly this pattern to group App Store screenshots by locale first.
+
+**Format.** The extension picks the format: `.jpg` or `.jpeg` renders JPEG, anything else renders PNG. Without `outFile`, output is always PNG.
+
+`outFile` is part of the lockfile's export checksum, so changing it re-renders that size. See [The out-file guide](/guides/out-file) for more recipes.
+
+## xcode
+
+```json
+{ "type": "xcode", "path": "../MyApp/Assets.xcassets/AppIcon.appiconset" }
+```
+
+Renders the collection's **first** template at its source size, then in `path` (relative to the project directory, created if missing):
+
+1. Deletes every `.png`, `.jpg` and `.jpeg` other than `AppIcon.png`.
+2. Writes `AppIcon.png`.
+3. Writes `Contents.json` describing one universal iOS image of size `<width>x<height>`.
+
+Use a 1024×1024 `sourceSize`. The Xcode output is not cached by the lockfile: it runs on every `render` of that collection and counts as one rendered asset. You can also run it from the dev server's export menu. See the [Xcode app icon guide](/guides/xcode-app-icon).
+
+## copy-source
+
+```json
+{ "type": "copy-source", "format": "svg" }
+```
+
+Copies each template whose `src` ends in `.<format>` (default `svg`) to `exports/<collection>/<name>.<format>`. If exactly one template in the collection matches and the entry has a `name`, that name is used for the file; otherwise each template's own `name` is. The Cat IQ Test example uses:
+
+```json
+{ "name": "logo", "type": "copy-source", "format": "svg" }
+```
+
+The copy goes under the output directory and runs on every render. Separately, any SVG template rendered at an export size equal to its source size also gets its `.svg` copied next to that PNG.
+
+## Unknown types
+
+Entries with any other `type` are ignored by `render` (and `validate` just lists them as `Output: <type>`), so a typo silently produces nothing.
+
+## Related
+
+- [Outputs reference](/reference/outputs)
+- [Lockfile](/concepts/lockfile)
+- [Xcode app icon](/guides/xcode-app-icon)

@@ -1,0 +1,83 @@
+---
+title: Localized Strings
+description: The localizations.json format for translated screenshot copy, how {{key}} placeholders are replaced, the fallback chain and what happens when a key is missing.
+---
+
+Translated copy lives in one JSON file. Templates reference strings by key, and Open Assets swaps in the right language at render time.
+
+## File format
+
+The format is modeled on Xcode's `.xcstrings` string catalogs:
+
+```json title="localizations.json"
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "hero_title": {
+      "localizations": {
+        "en": { "value": "Know your tax days" },
+        "de": { "value": "Kenne deine Steuertage" },
+        "es": { "value": "Conoce tus días fiscales" },
+        "es-419": { "value": "Conoce tus días de impuestos" }
+      }
+    },
+    "hero_sub": {
+      "localizations": {
+        "en": { "value": "Tracked automatically, in {{n:190}} countries." }
+      }
+    }
+  }
+}
+```
+
+| Field | Meaning |
+| --- | --- |
+| `sourceLanguage` | The last-resort fallback locale. Defaults to `"en"` when omitted. |
+| `strings` | An object of keys. Each key holds a `localizations` object. |
+| `strings.<key>.localizations.<locale>.value` | The string for that locale. |
+
+The file path in the collection's `localizations` field is resolved relative to the project directory. A missing file or invalid JSON stops the render with an error naming the file.
+
+Several collections can share one file, or each can have its own.
+
+## Placeholders
+
+Write `{{key}}` anywhere in the text of a template:
+
+```html
+<h1>{{hero_title}}</h1>
+<p>{{hero_sub}}</p>
+```
+
+Rules, from the render code:
+
+- Keys start with a letter or underscore, followed by letters, digits, underscores or dots. `{{hero_title}}` and `{{home.title}}` work. `{{1st}}` and `{{hero-title}}` are not recognized.
+- Replacement happens in **text nodes only**. Placeholders in attributes (`alt`, `src`, `style`, `class`) are not replaced. To vary an image per locale, use the `lang` attribute set on `<html>` (see [UI test screenshots](/guides/ui-test-screenshots#captures-per-language)).
+- Values are inserted as plain text. HTML in a value shows up as literal characters, so a value cannot add a `<br>` or a `<span>`. Split a headline into several keys when you need markup between parts, as the Tax Days example does with `{{hero_line1}}<br/>{{hero_line2}} <span>{{hero_accent}}</span>`.
+- A newline in a value is a newline character in the text. It only shows as a line break if the element has `white-space: pre-line`.
+
+## Fallback chain
+
+For each key and locale, the value comes from the first match in:
+
+1. The exact locale (`es-419`).
+2. The base language, the part before the first `-` (`es`).
+3. The `sourceLanguage` (`en`).
+
+So you only translate what differs. An `en-GB` render uses the `en` value for every key without an `en-GB` entry. Note that the base of `zh-Hans` is `zh`, so add a `zh` entry if you want both Chinese scripts to share a fallback.
+
+## Missing keys
+
+If a key has no value in the locale, its base language or the source language, nothing is substituted and the placeholder renders literally as `{{key}}`. The same happens for a key that does not exist in the file (a typo, for example). The render does not fail, so look through the exported images for stray braces before shipping.
+
+`npx open-assets validate` checks that the localizations file loads and that every locale listed in a collection's `locales` exists in the file. It does not check individual keys.
+
+## Which locales render
+
+The set of locales is every locale code that appears in any string. A locale with even one translated string is rendered, with fallbacks filling the rest. Use the collection's `locales` array to choose a subset. See [Locales and folders](/localization/locales).
+
+## Related
+
+- [Number formatting](/localization/formatting)
+- [Right-to-left locales](/localization/rtl)
+- [Template API](/reference/template-api)

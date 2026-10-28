@@ -1,0 +1,68 @@
+---
+title: Installation
+description: Install the Open Assets CLI as a dev dependency or run it with npx. Covers the Node version requirement, the Chromium download and how to verify the install.
+---
+
+Open Assets is published to npm as `@open-assets/open-assets`. The package provides one binary, `open-assets`.
+
+## Requirements
+
+- **Node.js 18 or later.** The package declares `"engines": { "node": ">=18.0.0" }`.
+- **Disk space for Chromium.** Open Assets depends on [Puppeteer](https://pptr.dev), which downloads a compatible build of Chromium when it is installed. Rendering, both from `open-assets render` and from the export buttons in the dev server, runs in that headless browser.
+
+## Install as a dev dependency (recommended)
+
+Pin the version per project so teammates and CI render with the same CLI and the same Chromium:
+
+```npm
+npm install --save-dev @open-assets/open-assets
+```
+
+Then run it through your package manager, for example `npx open-assets render`, or add [package.json scripts](/setup#packagejson-scripts).
+
+## Install globally
+
+A global install puts `open-assets` on your `PATH` for every project:
+
+```npm
+npm install --global @open-assets/open-assets
+```
+
+This is handy for quick experiments. For anything you commit, prefer the dev dependency so the version is recorded in your lockfile.
+
+## Run without installing
+
+`npx` fetches the package on demand. This is the fastest way to try it:
+
+```bash
+npx @open-assets/open-assets init
+```
+
+Once the package is installed in the project, the shorter `npx open-assets <command>` resolves to the local binary.
+
+## Verify the install
+
+```bash
+npx open-assets --version
+```
+
+This prints the installed version (for example `0.5.1`). `npx open-assets --help` lists every command.
+
+To check that Chromium works too, scaffold a throwaway project and render it:
+
+```bash
+mkdir oa-check && cd oa-check
+npx open-assets init
+npx open-assets render
+```
+
+If the render finishes with `Done. N asset(s) rendered`, Puppeteer launched Chromium successfully. If it fails while launching the browser, see [Troubleshooting](/troubleshooting).
+
+<Callout type="info">
+Open Assets launches Chromium with Puppeteer's defaults plus flags that stop background tabs from being throttled. It does not add sandbox or Linux-specific flags of its own, so a container or CI image needs whatever system libraries Puppeteer's Chromium requires on that platform. See [CI with GitHub Actions](/ci/github-actions) for a working setup.
+</Callout>
+
+## Next steps
+
+- [Quick start](/quick-start): scaffold, preview and render in five minutes.
+- [Shell alias and editor setup](/setup): shorten the command and wire up scripts.

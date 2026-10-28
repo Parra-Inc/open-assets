@@ -1,0 +1,92 @@
+---
+title: FAQ
+description: "Answers about Open Assets: MIT license and price, offline use, Figma and frameit comparisons, Android, Mac, Windows, transparency, JPEG output and file size."
+---
+
+<Accordions type="multiple">
+<Accordion title="How much does it cost?">
+
+Nothing. Open Assets is open source under the MIT license. There is no account, no hosted service and no per-seat pricing. It is an npm package that runs on your machine or in your CI.
+
+</Accordion>
+<Accordion title="Does it work offline?">
+
+Yes, if your templates do. The CLI, dev server and renderer run locally with a Chrome that Puppeteer downloads at install time. What needs the network is whatever your templates load: Google Fonts, the Tailwind CDN script, remote images. Compile Tailwind locally and self-host fonts and images in `public/` for fully offline renders. The [Skimmer](/examples/skimmer) example is set up this way.
+
+</Accordion>
+<Accordion title="How does it compare to Figma?">
+
+Figma is a visual design tool. Open Assets is code: templates are HTML and CSS in your repo. That gives you `git diff` and pull requests on screenshot changes, one template rendered at every size, translations from a strings file, and renders in CI. You lose freeform canvas editing. Many teams design the first screenshot in Figma, then rebuild the system as templates so the agent or CI can produce every size and language.
+
+</Accordion>
+<Accordion title="How does it compare to fastlane frameit?">
+
+frameit puts device frames around screenshots and adds titles from a config file. Open Assets renders any HTML layout, so the frame, background and text are whatever you design. It also produces icons, OG images and launch graphics. It does not upload to App Store Connect: keep fastlane `deliver` for that. See [Migrate from frameit](/migrate/frameit).
+
+</Accordion>
+<Accordion title="Can I use it for Android and Google Play?">
+
+Yes. Export sizes are just dimensions. The built-in presets include Play Store phone sizes, the feature graphic (1024x500) and the 512x512 icon. See [Google Play](/guides/google-play) and the [Tax Days](/examples/tax-days) example.
+
+</Accordion>
+<Accordion title="Can I make Mac App Store screenshots?">
+
+Yes. There is a Mac App Store Retina preset at 2880x1800. Author a collection at a 16:10 source size and export it at that size. See [Export sizes](/reference/sizes).
+
+</Accordion>
+<Accordion title="Does it work on Windows?">
+
+Open Assets is plain Node and Puppeteer, and Puppeteer supports Windows. The project is developed on macOS and its publish workflow runs on Linux. Windows is not tested in CI. If you hit a path problem on Windows, run it in WSL and open an issue.
+
+</Accordion>
+<Accordion title="Which Node version do I need?">
+
+Node 18 or later, per the package's `engines` field. Use a current LTS release.
+
+</Accordion>
+<Accordion title="Can it make App Preview videos?">
+
+No. Open Assets renders still images (PNG and JPEG). CSS animations are paused at their first frame before each screenshot so renders are deterministic.
+
+</Accordion>
+<Accordion title="Are PNGs transparent?">
+
+Yes, by default. PNG renders omit the page background, so anything you do not paint is transparent. Set a `background` color on the collection to fill it. Note that App Store icons must not have transparency: give your icon template an opaque background. See [Outputs](/concepts/outputs).
+
+</Accordion>
+<Accordion title="Can I export JPEG?">
+
+Yes. Give an export an `outFile` ending in `.jpg` or `.jpeg` and it is rendered as JPEG instead of PNG. JPEG has no transparency. There is no setting for JPEG quality in `assets.json`, so Chrome's default quality is used. See [outFile](/guides/out-file).
+
+</Accordion>
+<Accordion title="Why are my files so large?">
+
+Full-resolution PNGs of photographic screenshots are often 1 to 3 MB each. App Store Connect accepts them. For the web, export OG images as `.jpg` through `outFile`, or run the PNGs through an optimizer after rendering. The `--json` output of `render` reports each file's size in bytes.
+
+</Accordion>
+<Accordion title="Do I have to use Tailwind?">
+
+No. Templates are any HTML, CSS or SVG. Tailwind is a convention in the examples and the skill, either compiled (`@tailwindcss/cli`) or from the CDN.
+
+</Accordion>
+<Accordion title="Should I commit the exports folder?">
+
+The skill and the README recommend committing `assets.lock` and your renders. The lockfile only skips a render when its output file exists, so committed renders keep CI and teammates incremental, and PRs show image diffs. If you would rather keep binaries out of git, upload them as CI artifacts instead. See [GitHub Actions](/ci/github-actions).
+
+</Accordion>
+<Accordion title="Can AI agents use it?">
+
+Yes. It ships a Claude Code skill and the docs are available as `llms.txt`. See [Claude Code](/agents/claude-code) and [Other agents](/agents/other).
+
+</Accordion>
+<Accordion title="Does it upload to App Store Connect?">
+
+No. It renders files. Upload them with fastlane `deliver`, the App Store Connect API, or by hand. See [Upload to App Store Connect](/guides/app-store-connect).
+
+</Accordion>
+<Accordion title="Can I use web fonts and emoji?">
+
+Yes. The renderer waits for fonts to load and images to decode before each screenshot. Emoji render with whatever emoji font the machine has, so they can look different on Linux CI than on a Mac.
+
+</Accordion>
+</Accordions>

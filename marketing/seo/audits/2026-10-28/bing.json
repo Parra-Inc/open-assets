@@ -1,0 +1,18 @@
+{
+  "schema": "audit-seo/v1",
+  "site": "open-assets.dev",
+  "siteId": "open-assets-dev",
+  "capturedAt": "2026-10-28T18:18:07Z",
+  "layer": "bing",
+  "calls": [
+    {
+      "tool": "get_sites",
+      "params": {},
+      "ok": true,
+      "result": "19 verified sites; open-assets.dev not among them"
+    }
+  ],
+  "notes": [
+    "Phase 2b skipped: site not verified in Bing Webmaster Tools (blocked on domain purchase)."
+  ]
+}

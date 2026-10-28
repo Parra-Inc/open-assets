@@ -1,0 +1,158 @@
+---
+title: Troubleshooting
+description: "Fixes for common Open Assets problems: missing assets.json, Chromium launch failures, fonts not loading, blurry renders, timeouts, busy ports and stale renders."
+---
+
+Each entry quotes the message you see, then the cause and the fix. Messages starting with `Error:` exit with code 1.
+
+## Config and CLI errors
+
+<Accordions type="single">
+<Accordion title="Error: assets.json not found in /path/to/project">
+
+**Cause:** the command ran in a folder without the config file. `dev` adds `Run "open-assets init" to create one.`
+
+**Fix:** `cd` into the asset project, pass the folder as an argument (`open-assets render ./marketing`), or point at a different file name with `--config` or `OPEN_ASSETS_CONFIG`. To start fresh, run `open-assets init`.
+
+</Accordion>
+<Accordion title="Error: Invalid JSON in assets.json: ...">
+
+**Cause:** a syntax error in the config, usually a trailing comma or a missing quote. The rest of the message is the JSON parser's error with its position.
+
+**Fix:** correct the JSON. The same message appears for `localizations.json` (`Invalid JSON in .../localizations.json`).
+
+</Accordion>
+<Accordion title="Error: assets.json already exists in this directory.">
+
+**Cause:** `open-assets init` refuses to overwrite an existing project.
+
+**Fix:** run `init` in an empty folder, or use `open-assets add collection` to extend the existing config.
+
+</Accordion>
+<Accordion title="Error: No collections matched collection &quot;x&quot; in config">
+
+**Cause:** `render --collection` or `render --tag` matched nothing. Ids and tags are case sensitive.
+
+**Fix:** run `open-assets list` to see the ids and tags. `list --tag` prints `No collections found with tag "x"` for the same mistake.
+
+</Accordion>
+<Accordion title="Warning: size &quot;x&quot; not found in collection &quot;y&quot;, skipping">
+
+**Cause:** `--size` matches an export's `name` or `label`. Collections without that size are skipped, which is expected when you render several collections at once.
+
+**Fix:** check the export names with `open-assets list`. If every collection is skipped, nothing renders and the run still succeeds.
+
+</Accordion>
+<Accordion title="Warning: locale &quot;x&quot; not found in collection &quot;y&quot;, skipping">
+
+**Cause:** `--locale` is not among the collection's locales (its `locales` list, or every locale in the strings file when `locales` is omitted).
+
+**Fix:** add the locale to the collection's `locales` and to `localizations.json`. `open-assets validate` reports `requests locale "x" but it is not defined` for the config side.
+
+</Accordion>
+<Accordion title="Localizations file not found: ...">
+
+**Cause:** the collection's `localizations` path does not resolve. It is relative to the project folder, not to a template.
+
+**Fix:** fix the path in `assets.json`. `validate` reports the same problem as `localizations file not found`.
+
+</Accordion>
+<Accordion title="validate: &quot;x.html not found&quot; or &quot;has no templates&quot;">
+
+**Cause:** a template was moved or deleted but is still listed, or a collection ended up empty.
+
+**Fix:** run `open-assets validate --fix`. It asks, one by one, whether to remove each missing template and each empty collection, then saves the config. It is interactive, so do not use it in CI.
+
+</Accordion>
+<Accordion title="Error: Collection &quot;x&quot; already exists in the config.">
+
+**Cause:** `add collection` was given an id that is taken. `add template` and `add size` have matching errors (`Template "x" already exists`, `Size "x" already exists`).
+
+**Fix:** pick another name, or edit the existing entry in `assets.json`.
+
+</Accordion>
+<Accordion title="Error: No collections found. Run `open-assets add collection` first.">
+
+**Cause:** `add template` or `add size` needs at least one collection.
+
+**Fix:** run `open-assets add collection` first.
+
+</Accordion>
+<Accordion title="Collection &quot;x&quot; has no templates for Xcode output">
+
+**Cause:** a collection with an `xcode` output has an empty `templates` list. The Xcode output renders the first template.
+
+**Fix:** add the icon template to the collection. See [Xcode app icon](/guides/xcode-app-icon).
+
+</Accordion>
+</Accordions>
+
+## Rendering problems
+
+<Accordions type="single">
+<Accordion title="Chromium fails to launch">
+
+**Cause:** Open Assets launches Puppeteer's Chrome in headless mode with the sandbox on. Typical failures:
+
+- `Could not find Chrome`: the browser download was skipped (for example `PUPPETEER_SKIP_DOWNLOAD` was set) or the cache in `~/.cache/puppeteer` was cleared.
+- `error while loading shared libraries`: a slim Linux image is missing Chrome's system libraries.
+- `No usable sandbox` or `Running as root without --no-sandbox is not supported`: the sandbox cannot start. This happens as root in Docker, and on Ubuntu 23.10 and later (including some GitHub runners) where AppArmor restricts unprivileged user namespaces.
+
+**Fix:** reinstall Chrome with `npx puppeteer browsers install chrome`. For missing libraries and sandbox errors, follow Puppeteer's [troubleshooting guide](https://pptr.dev/troubleshooting). Open Assets does not expose Chrome launch flags, so run as a non-root user rather than trying to pass `--no-sandbox`. See [Other CI and Docker](/ci/other).
+
+</Accordion>
+<Accordion title="Fonts are missing or fall back">
+
+**Cause:** Open Assets waits for `document.fonts.ready` before each screenshot, so fonts that load do appear. Fonts that never load fall back silently: a Google Fonts link without network access, a font name that is not installed on the machine (such as SF Pro on Linux), or a `url()` path that is wrong relative to the CSS file.
+
+**Fix:** self-host font files in `public/` and load them with `@font-face`, check paths in the dev server's network tab, and install the fonts on CI machines. For CJK, Arabic and Hebrew, make sure a font that covers the script is available. See [Fonts](/localization/fonts).
+
+</Accordion>
+<Accordion title="Renders look blurry">
+
+**Cause:** templates are authored at `sourceSize` and scaled up with CSS zoom to each export size (scale is the larger of the width and height ratios). Vector content (text, CSS, SVG) stays sharp. Raster images are upscaled: a 440px wide image in a 440px template becomes three times larger at 1320px.
+
+**Fix:** use images with at least as many pixels as the largest export, set them to a smaller CSS size, or use SVG. A template's source size and export sizes should share the same aspect ratio, or the page is cropped. See [Sizing](/concepts/sizing).
+
+</Accordion>
+<Accordion title="Navigation timeout of 30000 ms exceeded">
+
+**Cause:** a template took longer than the render timeout to fire its `load` event. Remote scripts, large images or a slow CI machine are the usual causes.
+
+**Fix:** raise the timeout with `--render-timeout 60000` or `OPEN_ASSETS_RENDER_TIMEOUT=60000`. The timeout covers page load only. If a render hangs after load (waiting on a font or an image that never decodes), find the resource in the dev server first. Lower memory pressure with `OPEN_ASSETS_CONCURRENCY=1`.
+
+</Accordion>
+<Accordion title="Renders are stale after a change">
+
+**Cause:** `assets.lock` skips a variant when the template's checksum, its size, its output path and its locale are unchanged and the output file exists. The checksum covers the template file and files it references directly through relative `src`, `href` or `url()`. It does not cover:
+
+- `localizations.json` (string changes)
+- files referenced from inside a CSS file, such as images and fonts in `url()` rules
+- images swapped in by script at render time (like the `data-locale-img` pattern)
+- remote resources
+
+**Fix:** run with `--force`, scoped to what changed: `open-assets render --collection screenshots --force`. See [Lockfile](/concepts/lockfile).
+
+</Accordion>
+<Accordion title="Error: Ports 3200–3210 are all in use.">
+
+**Cause:** `open-assets dev` starts on port 3200 and tries the next port when one is busy, up to ten more. It prints this when all of them are taken, usually by old dev servers.
+
+**Fix:** stop the old servers, or pick a free port with `--port 4000` (or `OPEN_ASSETS_PORT`).
+
+</Accordion>
+<Accordion title="Images or CSS load in the dev server but not in renders">
+
+**Cause:** `render` opens each template from disk, so relative paths resolve from the template's folder. A root-relative path like `/public/logo.png` may work in the dev server (which serves `publicDir`) but points at the filesystem root in a render.
+
+**Fix:** use paths relative to the template, such as `../../public/logo.png`, as the examples do. See [The public directory](/concepts/public-dir).
+
+</Accordion>
+<Accordion title="Renders land in the wrong folder">
+
+**Cause:** `--output` (default `./exports`) is resolved from the folder you run the command in, not from the project folder passed as an argument. `outFile` paths are resolved from the project folder.
+
+**Fix:** run `render` from inside the project, or pass an absolute `--output`.
+
+</Accordion>
+</Accordions>

@@ -1,0 +1,57 @@
+---
+title: Changelog
+description: "User-facing changes in each Open Assets release, from 0.2.0 to 0.5.1: localization, the locale picker, faster parallel renders, the plugin, and fixes."
+---
+
+Releases are tagged in the [GitHub repo](https://github.com/Parra-Inc/open-assets/tags) and published to npm as `@open-assets/open-assets`.
+
+## 0.5.1
+
+*2026-07-25*
+
+- Fixed a deadlock where concurrent renders could hang until Chrome's protocol timeout. Each pooled page now gets its own browser context and is kept active and focused, so waits on fonts and image decoding settle.
+
+## 0.5.0
+
+*2026-07-25*
+
+- **`render` exports every configured size by default.** Before, a plain `render` produced only the source size and `--force` was needed for the export sizes. Now `--force` only means "ignore the cache". `--size`, `--width` and `--height` still narrow the selection.
+- **Faster renders.** Each template is loaded once per locale and screenshotted at every size from that one page load, and templates render concurrently. The `--parallel` flag was removed: concurrency is automatic, with `OPEN_ASSETS_CONCURRENCY` as an override.
+- **Deterministic captures.** CSS animations are paused at their first frame, and the renderer waits for fonts and image decoding instead of fixed delays.
+- `--template` renders now land in the same paths as a full render of the collection.
+- **Claude Code plugin.** The repo is now a plugin marketplace: `/plugin marketplace add Parra-Inc/open-assets`, then `/plugin install open-assets@open-assets`.
+- The skill documents when to use targeted renders and recommends committing `assets.lock` and `exports/`.
+- New examples: Tax Days and Thoughtful.
+
+## 0.4.0
+
+*2026-04-11*
+
+- **Locale picker in the dev server.** Localized collections get a locale switcher in the preview. The default locale comes from `defaultLocalization` in `assets.json`, then the strings file's `sourceLanguage`, then `en`.
+
+## 0.3.0
+
+*2026-04-04*
+
+- **Localization.** Collections can point at a `localizations.json` file and list `locales`. Templates use `{{key}}` placeholders and `{{n:1234}}` for locale-aware numbers. Each template renders once per locale, RTL locales get the right text direction, and `render --locale` renders a single language.
+- **`outFile` supports `{locale}`**, alongside `{template}`, so localized renders can go anywhere in your repo.
+- `assets.lock` records a checksum of each export's config (size, `outFile`, locale), so changing an export size or path triggers a re-render.
+
+## 0.2.0
+
+*2026-03-28*
+
+- **`--all` renamed to `--force`** for re-rendering everything regardless of the cache.
+- **Outputs merged into `export`.** Output actions like `xcode` and `copy-source` now live in the collection's `export` array alongside sizes.
+- **Transparent PNGs** by default, unless the collection sets a `background`.
+- The `xcode` output writes `Contents.json` along with the icon, and removes stale images from the icon set.
+- Single-template collections use a flat layout named after the size (for example `exports/logo/1024.png`).
+- `assets.lock` checksums include local files a template references directly (images, stylesheets), not only the template itself.
+- `validate --fix` interactively removes missing templates and empty collections.
+- Added the example projects.
+
+## 0.1.x
+
+*2026-03-24 to 2026-03-25*
+
+Initial releases: the dev server, headless `render`, `list`, `validate`, `init`, the interactive `add` commands, `assets.lock` incremental renders, and the `open-assets skills` command.

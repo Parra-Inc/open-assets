@@ -1,0 +1,101 @@
+---
+title: Screenshots from UI Tests
+description: Capture real app screens with XCTest or Playwright UI tests, save them into public/, and embed them in marketing screenshot templates that Open Assets renders.
+---
+
+Marketing screenshots look best when the phone in the frame shows your real app. The simplest reliable source of those images is a UI test that walks the app and saves a screenshot of each screen. Open Assets does not run your tests. It reads whatever image files your tests leave behind.
+
+## The flow
+
+<Steps>
+<Step>
+**Capture.** A UI test drives the app in a simulator (XCTest) or a browser (Playwright) and saves PNGs into your public directory, for example `public/screenshots/01-home.png`.
+</Step>
+<Step>
+**Reference.** Each marketing template points an `<img>` at one capture.
+</Step>
+<Step>
+**Render.** `npx open-assets render --force` produces the store-sized PNGs with the fresh captures embedded.
+</Step>
+</Steps>
+
+```bash
+# 1. Run UI tests to capture app screenshots into public/screenshots/
+npx playwright test --project=screenshots
+
+# 2. Export marketing screenshots with those captures embedded
+npx open-assets render --force
+```
+
+## Why --force
+
+`assets.lock` stores a checksum of each template. For an HTML template, that checksum also covers local files the template names literally in a `src="..."`, `href="..."` or `url(...)`, so replacing `01-home.png` behind a plain `<img src>` does trigger a re-render. Anything the cache cannot see is missed: images loaded through a stylesheet, images whose path is set by a script (such as the per-locale swap below), and files referenced by other files. Passing `--force` after every capture run is the simple, safe habit. See [Lockfile](/concepts/lockfile).
+
+## Referencing captures in templates
+
+Use a path relative to the template file:
+
+```html title="assets/screenshots/01-hero.html"
+<img src="../../public/screenshots/01-home.png"
+     style="width: 100%; height: 100%; object-fit: cover;" />
+```
+
+Renders open the template with a `file://` URL, so a root-relative path like `/screenshots/01-home.png` resolves to the root of your disk, not to `public/`. The dev server also serves `publicDir`, but only the relative form works in both places. See [The public directory](/concepts/public-dir).
+
+`object-fit: cover` lets a capture fill a phone screen even if its aspect ratio is slightly off. To avoid any crop, match the frame's inner size to the capture's aspect ratio.
+
+## Capturing with XCTest
+
+In an iOS UI test, attach or write a screenshot after navigating to each screen:
+
+```swift title="ScreenshotTests.swift"
+func testCaptureHome() throws {
+    let app = XCUIApplication()
+    app.launch()
+    let png = XCUIScreen.main.screenshot().pngRepresentation
+    let url = URL(fileURLWithPath: "/path/to/repo/assets-project/public/screenshots/01-home.png")
+    try png.write(to: url)
+}
+```
+
+Writing outside the test bundle works in the simulator because the test runner runs on your Mac. Alternatively keep the screenshots as XCTest attachments and export them from the `.xcresult` bundle in a script. Either way, the only contract with Open Assets is the file path.
+
+Tips that make captures consistent:
+
+- Use one simulator model whose screen matches your frame. A 6.9" iPhone capture is 1320x2868, the same aspect ratio as the 440x956 source size.
+- Seed demo data with a launch argument so every run shows the same content.
+- Set the status bar with `xcrun simctl status_bar <device> override --time 9:41` before the run.
+
+## Captures per language
+
+If your templates are localized, capture once per language into a folder per locale and swap the image at render time. During a localized render Open Assets sets `lang` on the `<html>` element before capturing, and the render waits for pending DOM changes and image decodes, so a small script can rewrite `src` from the locale. This is the pattern the Tax Days example uses:
+
+```html
+<img data-locale-img="01_home" src="../../public/screenshots/en/01_home.png" />
+<script>
+  new MutationObserver(function () {
+    var lang = document.documentElement.lang || "en";
+    document.querySelectorAll("[data-locale-img]").forEach(function (img) {
+      img.src = "../../public/screenshots/" + lang + "/" + img.getAttribute("data-locale-img") + ".png";
+    });
+  }).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
+</script>
+```
+
+Make sure a capture exists for every locale you render, because a missing file shows as a broken image without failing the run. See [Localization](/localization).
+
+## Record the command
+
+Store your render command in the manifest so scripts and agents know what to run:
+
+```json title="assets.json"
+{
+  "command": "npx open-assets render"
+}
+```
+
+## Related
+
+- [App Store screenshots](/guides/app-store-screenshots)
+- [Running in GitHub Actions](/ci/github-actions)
+- [Template API](/reference/template-api)

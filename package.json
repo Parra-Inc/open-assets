@@ -41,10 +41,11 @@
   "scripts": {
     "assets": "node bin/open-assets.mjs render --force -o ./public/img",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "check": "npm run build --if-present && npm test",
-    "release": "./scripts/release.sh"
+    "check": "npm run build --if-present && npm test && node scripts/docs-sync.mjs --check",
+    "release": "./scripts/release.sh",
+    "docs:sync": "node scripts/docs-sync.mjs"
   },
-  "homepage": "https://openassets.dev",
+  "homepage": "https://open-assets.dev",
   "dependencies": {
     "commander": "^13.0.0",
     "open": "^10.0.0",

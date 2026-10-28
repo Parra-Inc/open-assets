@@ -1,0 +1,73 @@
+---
+title: Sizing
+description: How Open Assets scales a template from its source size to each export size with CSS zoom in Chromium, what happens when aspect ratios differ, and borderRadius.
+---
+
+Every collection has a **source size**: the dimensions you author templates at. Every sized entry in `export` has an **export size**: the pixel dimensions of the output image. Open Assets renders the template once per export size and scales it to fit.
+
+```json
+{
+  "sourceSize": { "width": 440, "height": 956 },
+  "export": [
+    { "name": "iphone-6.9", "size": { "width": 1320, "height": 2868 } },
+    { "name": "iphone-6.7", "size": { "width": 1290, "height": 2796 } }
+  ]
+}
+```
+
+## How scaling works
+
+For each export size the renderer:
+
+1. Sets the browser viewport to the export width and height, with `deviceScaleFactor: 1`.
+2. Computes `scale = max(exportWidth / sourceWidth, exportHeight / sourceHeight)`.
+3. Sets CSS `zoom` on the root element to that scale (cleared when the scale is 1).
+4. Screenshots the rectangle from `(0, 0)` to the export width and height.
+
+For 440×956 to 1320×2868 the scale is exactly 3. Because it is CSS zoom, not a bitmap resize, text and vectors are laid out and rasterized at full resolution. Bitmaps (PNG, JPG) are upscaled, so give images enough pixels for the largest export size.
+
+The page loads once per template and locale; every export size is captured from that single load.
+
+## When aspect ratios differ
+
+The larger of the two ratios wins, so the scaled page always **covers** the export size. Any extra is cropped from the right or bottom edge, never letterboxed.
+
+| Export | Width ratio | Height ratio | Scale | Effect |
+| --- | --- | --- | --- | --- |
+| 1320×2868 from 440×956 | 3.000 | 3.000 | 3.000 | Exact fit |
+| 1290×2796 from 440×956 | 2.932 | 2.925 | 2.932 | Bottom ~7 px cropped |
+| 2064×2752 (iPad 13") from 440×956 | 4.691 | 2.879 | 4.691 | Bottom ~39% cropped |
+
+iPhone sizes are close enough to share one template. An iPad or Play Store tablet ratio is not: give those their own collection with a matching source size. Note that `open-assets init` puts iPad 13" in the same collection as the iPhone sizes, so check that render before you upload it. Keep important content away from the right and bottom edges if a collection mixes slightly different ratios.
+
+## Choosing a source size
+
+- **Screenshots:** 440×956 is a convention used by `init` and the examples (one third of 1320×2868).
+- **App icons:** 1024×1024. The Xcode output renders at the source size, so it must be 1024×1024 for a valid icon.
+- **OG images:** 1200×630, the export size itself.
+- **Favicons:** author large (512×512) and export small; detail does not survive at 16 px, so simplify.
+
+Small source sizes are faster to edit in the dev server at 100% zoom. See all store sizes in the [Sizes reference](/reference/sizes):
+
+<ExportSizes platform="App Store" />
+
+## Custom sizes on the command line
+
+```bash
+npx open-assets render --width 1242 --height 2688
+```
+
+With both `--width` and `--height`, every selected template renders at that size only, named `<width>x<height>`. `--size iphone-6.9` renders just one configured size (matching `name` or `label`); a collection without that size is skipped with a warning.
+
+## borderRadius
+
+`borderRadius` on a collection rounds the preview frame in the dev server so a screenshot or icon looks the way it will on a device. It is preview only: rendered images always have square corners. The examples use `4` for screenshots and `224` for 1024 px icons.
+
+## Background and transparency
+
+PNG renders omit the browser's default white background, so areas the page does not paint are transparent. Set `background` on the collection to fill them with a color. JPEG output (via an `outFile` ending in `.jpg` or `.jpeg`) has no alpha.
+
+## Related
+
+- [Outputs](/concepts/outputs)
+- [Export sizes reference](/reference/sizes)

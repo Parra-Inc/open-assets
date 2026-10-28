@@ -1,0 +1,33 @@
+{
+  "schema": "audit-seo/v1",
+  "site": "open-assets.dev",
+  "siteId": "open-assets-dev",
+  "capturedAt": "2026-10-28T18:18:07Z",
+  "origin": "https://open-assets-web-production.ian-b42.workers.dev",
+  "canonicalOrigin": "https://open-assets.dev",
+  "rank": null,
+  "coverage": {
+    "audited": 0,
+    "pages": 1,
+    "note": "not in indexnow-seo"
+  },
+  "gscWindow": null,
+  "pagespeed": {
+    "urls": [
+      "/"
+    ],
+    "sampling": "single-page site, the only URL",
+    "strategies": [
+      "mobile"
+    ],
+    "runs": 3
+  },
+  "phases": {
+    "1-crawl": "skipped: not registered",
+    "2-search-console": "skipped: no property",
+    "2b-bing": "skipped: not verified",
+    "3-pagespeed": "ran",
+    "4-standard": "ran",
+    "6-verify": "standard + lighthouse re-run after deploy"
+  }
+}

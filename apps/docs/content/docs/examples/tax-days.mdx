@@ -1,0 +1,36 @@
+---
+title: Tax Days
+description: "The Tax Days example: App Store and Google Play screenshot collections sharing one 38-locale strings file, with phone and tablet sizes written through outFile."
+---
+
+[Tax Days](https://apps.apple.com/us/app/tax-days-residency-tracker/id6761441335?pt=128415653&ct=oa_docs_examples&mt=8) tracks days spent in each country for tax residency. Its asset project shows one strings file feeding both stores.
+
+<ExampleProject slug="tax-days" />
+
+## Techniques
+
+- **Two stores, one strings file.** The `screenshots` collection (440x956 source, four iPhone sizes) and the `screenshots-android` collection (440x978 source, phone plus 7 and 10 inch tablets) both point at the same `localizations.json`. The file defines 38 locales. Each collection picks its own subset with `locales`: `en`, `ar`, `de`, `ja` for iOS and `en`, `de` for Android.
+- **Separate templates per platform.** Android templates live in `assets/screenshots-android/` with their own captures in `public/screenshots-android/`, because the aspect ratio and the device chrome differ.
+- **Per-locale captures.** Like Skimmer, device images use `data-locale-img` and swap to `public/screenshots/<lang>/` when the locale changes.
+- **Tailwind v4 theme.** Gradients, glow orbs and pill badges come from classes defined in `src/styles.css` (`bg-td-gradient`, `glow-orb`, `pill`).
+- **outFile layout.** Renders land in `exports/screenshots/{locale}/<size>/{template}.png` and `exports/screenshots-android/{locale}/<size>/{template}.png`.
+
+## Run it
+
+```bash
+cd examples/tax-days
+npm install
+npm run dev
+npm run render
+```
+
+Render one platform or one language while iterating:
+
+```bash
+npx open-assets render --collection screenshots-android --locale de
+```
+
+## What to copy
+
+- The two-collection layout if you ship on both App Store and Google Play. See [Google Play](/guides/google-play).
+- A single `localizations.json` with per-collection `locales`, so translations are written once.

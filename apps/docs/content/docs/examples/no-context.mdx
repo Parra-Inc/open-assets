@@ -1,0 +1,28 @@
+---
+title: No Context Bot
+description: "The No Context Bot example: a Slack app's Product Hunt gallery, Slack Marketplace images, an X header and an icon, showing Open Assets beyond App Store work."
+---
+
+[No Context Bot](https://nocontextbot.com) is a Slack app, not an iOS app. Its assets show Open Assets for launch and marketplace graphics.
+
+<ExampleProject slug="no-context" />
+
+## Techniques
+
+- **Custom source sizes.** Each collection uses the destination's own dimensions: `slack` at 1600x1000, `x-header` at 1500x500 (exported at 1x and 2x), `product-hunt` at 1270x760.
+- **Shared stories across channels.** The Product Hunt and Slack collections tell the same story (hero, "What's a No Context channel", how it works, art styles, dashboard, pricing) at different sizes, in separate template folders.
+- **Google Fonts and CDN Tailwind.** Templates load Inter from Google Fonts and Tailwind from its CDN, with a serif quote style for sample messages.
+- **Icon from HTML.** A 1024x1024 HTML icon exported at 1024 and 512.
+
+## Run it
+
+```bash
+cd examples/no-context
+npx -p @open-assets/open-assets open-assets dev
+npx -p @open-assets/open-assets open-assets render --force
+```
+
+## What to copy
+
+- The X header collection (1500x500 with a 2x export) for social profiles.
+- The idea of one collection per destination, each at its native size, instead of scaling one design to every shape.

@@ -1,0 +1,27 @@
+{
+  "title": "Open Assets",
+  "pages": [
+    "---Getting started---",
+    "index",
+    "install",
+    "quick-start",
+    "tutorial",
+    "structure",
+    "setup",
+    "---Learn---",
+    "concepts",
+    "localization",
+    "---Guides---",
+    "...guides",
+    "agents",
+    "ci",
+    "---Reference---",
+    "...reference",
+    "---Examples and help---",
+    "examples",
+    "troubleshooting",
+    "faq",
+    "migrate",
+    "changelog"
+  ]
+}

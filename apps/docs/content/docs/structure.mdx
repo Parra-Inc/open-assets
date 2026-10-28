@@ -1,0 +1,108 @@
+---
+title: Project structure
+description: How an Open Assets project is laid out on disk, from assets.json and template folders to public, dist, exports, assets.lock and localizations.json files.
+---
+
+Open Assets only requires one file: `assets.json`. Everything else is a convention you can change, because every path is set in the manifest. This is the layout the README and the [example projects](/examples) use.
+
+<Files>
+  <Folder name="marketing" defaultOpen>
+    <File name="assets.json" />
+    <File name="assets.lock" />
+    <File name="localizations.json" />
+    <File name="package.json" />
+    <File name=".gitignore" />
+    <Folder name="assets" defaultOpen>
+      <File name="icon.html" />
+      <File name="logo.svg" />
+      <Folder name="screenshots" defaultOpen>
+        <File name="01-hero.html" />
+        <File name="02-features.html" />
+        <File name="_shared.css" />
+      </Folder>
+      <Folder name="og">
+        <File name="default.html" />
+      </Folder>
+    </Folder>
+    <Folder name="src">
+      <File name="styles.css" />
+    </Folder>
+    <Folder name="dist">
+      <File name="styles.css" />
+    </Folder>
+    <Folder name="public" defaultOpen>
+      <File name="icon.svg" />
+      <Folder name="screenshots">
+        <File name="01-home.png" />
+      </Folder>
+    </Folder>
+    <Folder name="exports" defaultOpen>
+      <Folder name="screenshots">
+        <Folder name="iphone-6.9">
+          <File name="01-hero.png" />
+        </Folder>
+      </Folder>
+      <Folder name="icon">
+        <File name="1024.png" />
+      </Folder>
+    </Folder>
+  </Folder>
+</Files>
+
+## assets.json
+
+The manifest. It lists [collections](/concepts/collections), their templates and their export sizes. Commands look for it in the project directory (the `[dir]` argument, default `.`). Use `--config <path>` or `OPEN_ASSETS_CONFIG` for a different filename. Full schema: [Manifest reference](/reference/manifest).
+
+## Template folders
+
+Templates are HTML or SVG files. Their location is up to you: each `templates[].src` is a path relative to the project directory. The examples use `assets/`; `open-assets init` scaffolds into `src/`. Either works.
+
+Keep per-collection helper files (like the `_shared.css` that the Skimmer example puts next to its screenshots) beside the templates and link them relatively.
+
+## public/
+
+Shared files referenced by many templates: logos, background photos, fonts, app screenshots captured by UI tests. Set it with the root `publicDir` field. The dev server serves it and watches it for changes. See [The public directory](/concepts/public-dir).
+
+## src/ and dist/ (optional)
+
+Projects that use Tailwind keep the Tailwind input in `src/styles.css` (or `assets/styles.css`) and compile it to `dist/styles.css`, which templates link. Open Assets does not compile CSS itself; run the Tailwind CLI next to it. See [Setup](/setup#packagejson-scripts).
+
+## exports/
+
+Rendered images. `render` writes to `./exports` by default, relative to the directory you run it from; change it with `-o`. Layout:
+
+- One template in a collection: `exports/<collection>/<size>.png`.
+- Two or more templates: `exports/<collection>/<size>/<template>.png`.
+- With localizations, a locale level is inserted: `exports/<collection>/<locale>/...`.
+- Entries with `outFile` write wherever you point them instead.
+
+Details in [Outputs](/concepts/outputs).
+
+## assets.lock
+
+Written by `render`. It stores a checksum per template and per output so unchanged images are skipped next time. Commit it so teammates and CI share the cache. See [The lockfile](/concepts/lockfile).
+
+## localizations.json (optional)
+
+Translated strings for templates that use `{{key}}` placeholders. A collection points to it with its `localizations` field. See [Localization](/localization/strings).
+
+## .gitignore
+
+`open-assets init` writes:
+
+```text title=".gitignore"
+dist/
+exports/
+node_modules/
+```
+
+The example projects ignore the same folders (plus `outputs/`). Ignoring `exports/` treats images as build output that anyone can regenerate. If you would rather review images in pull requests or upload them from the repo, remove `exports/` from the list and commit them. Keep in mind that the lockfile skips an image only when the output file exists on disk, so a fresh clone without committed exports re-renders everything once.
+
+## Monorepo placement
+
+The marketing project usually sits in its own folder (for example `marketing/`) next to your app. Paths like an Xcode output `path` or an `outFile` are resolved from the project directory, so `../MyApp/...` reaches sibling folders.
+
+## Next steps
+
+- [Collections](/concepts/collections)
+- [Shell alias and editor setup](/setup)

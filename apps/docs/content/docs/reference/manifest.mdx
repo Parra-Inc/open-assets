@@ -1,0 +1,149 @@
+---
+title: assets.json reference
+description: The complete assets.json schema for Open Assets, covering root fields, collections, templates, export sizes and outputs, with types, defaults and errors.
+---
+
+`assets.json` lives at the project root (or pass `--config`). It is plain JSON. The CLI does no schema validation when it loads the file: it only checks that the file exists and parses. Fields are read where they are used, and [/reference/cli/validate](/reference/cli/validate) runs the explicit checks.
+
+## Annotated example
+
+```jsonc title="assets.json"
+{
+  "version": 1,                         // written by init; not read by the CLI
+  "name": "Skimmer Assets",             // viewer title; checked by validate
+  "publicDir": "public",                // served at / by the dev server
+  "command": "npx open-assets render",  // for tools and CI; not run by the CLI
+  "defaultLocalization": "en",          // starting locale in the dev viewer
+  "tags": [{ "id": "ios", "label": "iOS" }],
+  "collections": [
+    {
+      "id": "screenshots",              // --collection, output folder name
+      "label": "Screenshots",           // tab label
+      "tags": ["ios"],                  // --tag
+      "sourceSize": { "width": 440, "height": 956 },
+      "borderRadius": 4,                // preview frame only
+      "localizations": "localizations.json",
+      "locales": ["en", "de", "ar"],
+      "templates": [
+        { "src": "src/screenshots/01-hero.html", "name": "01-hero", "label": "Hero" },
+        { "src": "src/screenshots/02-sync.html", "name": "02-sync", "label": "Sync" }
+      ],
+      "export": [
+        { "name": "iphone-6.9", "label": "iPhone 6.9\"", "size": { "width": 1320, "height": 2868 } },
+        { "name": "ipad-13", "label": "iPad 13\"", "size": { "width": 2064, "height": 2752 } }
+      ],
+      "customExport": { "defaultWidth": 1320, "defaultHeight": 2868 }
+    },
+    {
+      "id": "icon",
+      "label": "App Icon",
+      "sourceSize": { "width": 1024, "height": 1024 },
+      "background": "#0b1020",          // opaque PNGs
+      "templates": [{ "src": "src/icon.html", "name": "icon", "label": "App Icon" }],
+      "export": [
+        { "name": "1024", "label": "1024px", "size": { "width": 1024, "height": 1024 } },
+        { "name": "favicon", "label": "Favicon", "size": { "width": 32, "height": 32 }, "outFile": "../web/public/favicon.png" },
+        { "type": "xcode", "path": "../ios/Skimmer/Assets.xcassets/AppIcon.appiconset" }
+      ]
+    }
+  ]
+}
+```
+
+The real file must be strict JSON (no comments).
+
+## Root
+
+<TypeTable
+  type={{
+    version: { type: 'number', description: 'Schema version. init writes 1. Nothing in the CLI reads it.' },
+    name: { type: 'string', description: 'Project name. Shown as the viewer title and the first line of list. validate fails without it.', required: true },
+    collections: { type: 'Collection[]', description: 'The collections. validate fails when missing or empty; render, list and dev expect an array.', required: true },
+    publicDir: { type: 'string', description: 'Folder (relative to the project) served at / by dev and watched for reload. Not used by render, which loads templates from file://.' },
+    command: { type: 'string', description: 'The render command, for automation tools and CI. Not read by the CLI.' },
+    tags: { type: '{ id: string; label: string }[]', description: 'Tag registry. list prints the ids. add collection appends new tags here. Filtering uses collection tags, not this list.' },
+    defaultLocalization: { type: 'string', description: 'Locale the dev viewer starts on, when the collection defines it. Falls back to the file sourceLanguage, then en.' },
+  }}
+/>
+
+## Collection
+
+<TypeTable
+  type={{
+    id: { type: 'string', description: 'Unique id. Used by --collection, ?collection= in the viewer, the exports/{collection} folder and lockfile keys. validate checks presence and uniqueness.', required: true },
+    label: { type: 'string', description: 'Tab label in the viewer and header in list.' },
+    tags: { type: 'string[]', description: 'Tag ids for --tag on render and list.', default: '[]' },
+    sourceSize: { type: '{ width: number; height: number }', description: 'Size the template is authored at, in CSS pixels. Exports are scaled from it. render crashes without it.', required: true },
+    borderRadius: { type: 'number', description: 'Corner radius of the preview frame in the viewer, in px. Does not affect exports.', default: '0' },
+    background: { type: 'string', description: 'CSS color set on the root element before capture. Makes PNGs opaque. Not used by the xcode output or viewer exports.' },
+    templates: { type: 'Template[]', description: 'Source files. validate fails when empty.', required: true },
+    export: { type: 'ExportEntry[]', description: 'Sizes (no type) and outputs (with type), in order.', default: '[]' },
+    localizations: { type: 'string', description: 'Path to a localizations JSON file. Every template renders once per locale. See /localization.' },
+    locales: { type: 'string[]', description: 'Locales to render, in this order. Codes missing from the file are dropped (validate reports them). Omit for every locale, sorted.' },
+    customExport: { type: '{ defaultWidth?: number; defaultHeight?: number }', description: 'Default values for the Custom Size row in the dev export menu.' },
+  }}
+/>
+
+## Template
+
+<TypeTable
+  type={{
+    src: { type: 'string', description: 'Path to an .html or .svg file, relative to the project. Files ending in .svg are treated as SVG.', required: true },
+    name: { type: 'string', description: 'Output filename stem in multi-template collections, the lockfile key, and what --template matches.', required: true },
+    label: { type: 'string', description: 'Display label in the viewer and list. --template also matches it.' },
+  }}
+/>
+
+`name` is not checked by `validate`, but render paths and lock keys use it; a template without one writes `undefined.png`.
+
+## Export entry: size
+
+An entry without `type` is a size.
+
+<TypeTable
+  type={{
+    name: { type: 'string', description: 'Size id. Folder name (multi-template) or file name (single template) under exports/{collection}. Matched by --size.', required: true },
+    label: { type: 'string', description: 'Display label in the viewer and list. --size also matches it.' },
+    size: { type: '{ width: number; height: number }', description: 'Output size in pixels.', required: true },
+    outFile: { type: 'string', description: 'Write here instead of exports/. Relative to the project. Supports {template} and {locale}. A .jpg or .jpeg extension writes JPEG; anything else writes PNG.' },
+  }}
+/>
+
+## Export entry: output
+
+An entry with `type` is a post-render action. Types the code handles:
+
+<TypeTable
+  type={{
+    type: { type: '"xcode" | "copy-source"', description: 'Other values are ignored by render (validate prints Output: <type>).', required: true },
+    path: { type: 'string', description: 'xcode only: the .appiconset folder, relative to the project.' },
+    format: { type: 'string', description: 'copy-source only: extension of sources to copy.', default: '"svg"' },
+    name: { type: 'string', description: 'copy-source only: output file stem when exactly one template in the collection matches format.' },
+  }}
+/>
+
+Behavior of each type is on [/reference/outputs](/reference/outputs).
+
+## Errors
+
+Raised when loading, by every command:
+
+| Message | Cause |
+| --- | --- |
+| `<config> not found in <dir>` | File missing (dev prints this for invalid JSON too, followed by `Run "open-assets init" to create one.`) |
+| `Invalid JSON in <config>: <parser message>` | File does not parse |
+
+Raised while rendering:
+
+| Message | Cause |
+| --- | --- |
+| `No collections matched collection "<id>" in config` | `--collection` matched nothing |
+| `No collections matched tag "<tag>" in config` | `--tag` matched nothing |
+| `size "<name>" not found in collection "<id>", skipping` | Warning, `--size` |
+| `locale "<code>" not found in collection "<id>", skipping` | Warning, `--locale` |
+| `No export sizes found for collection "<id>"` | Log line, collection has no sizes |
+| `Localizations file not found: <path>` | Thrown |
+| `Invalid JSON in <path>: <message>` | Thrown, localizations file |
+| `Collection "<id>" has no templates for Xcode output` | Thrown, xcode output |
+
+The `validate` messages are listed on [/reference/cli/validate](/reference/cli/validate#checks).

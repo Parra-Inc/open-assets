@@ -1,0 +1,287 @@
+---
+title: "Tutorial: your first screenshot set"
+description: Build a three-screenshot App Store set with a shared stylesheet, render it at iPhone 6.9 and 6.7 inch sizes, and write an app icon into an Xcode asset catalog.
+---
+
+In this tutorial you build the marketing assets for an app called Planner:
+
+- Three App Store screenshots that share one stylesheet in `public/`.
+- Each screenshot rendered at iPhone 6.9" (1320×2868) and iPhone 6.7" (1290×2796).
+- An app icon written straight into the app's Xcode asset catalog.
+
+Every file below was rendered with the CLI while writing this page. It assumes a repo where the Xcode project lives in `Planner/` and the marketing project goes next to it in `marketing/`.
+
+<Steps>
+<Step>
+
+### Set up the project
+
+```bash
+mkdir -p marketing/assets/screenshots marketing/public
+cd marketing
+npm init -y
+```
+
+```npm
+npm install --save-dev @open-assets/open-assets
+```
+
+You are writing the files by hand this time instead of running `init`, so you see every piece.
+
+</Step>
+<Step>
+
+### Write the shared stylesheet
+
+Put styles every screenshot uses in `public/`. One stylesheet keeps the set consistent: change a color once and all three screenshots follow.
+
+```css title="public/styles.css"
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 440px; height: 956px; overflow: hidden; }
+body {
+  font-family: -apple-system, system-ui, sans-serif;
+  color: #fff;
+  background: linear-gradient(160deg, #4f46e5, #7c3aed);
+}
+.frame { position: relative; width: 440px; height: 956px; padding: 72px 32px 0; text-align: center; }
+.headline { font-size: 40px; font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; }
+.subhead { margin-top: 16px; font-size: 18px; opacity: 0.85; }
+.device {
+  position: absolute; left: 50%; bottom: -60px;
+  width: 300px; height: 620px; transform: translateX(-50%);
+  border-radius: 48px; background: #0b0b12; border: 10px solid #1f1f2b;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+}
+```
+
+The body is fixed at 440×956. That is the **source size**: you design at this size and Open Assets scales it up for each device. See [Sizing](/concepts/sizing).
+
+</Step>
+<Step>
+
+### Write three screenshot templates
+
+Each template is a plain HTML file that links the shared stylesheet with a **relative** path:
+
+```html title="assets/screenshots/01-hero.html"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="../../public/styles.css" />
+</head>
+<body>
+  <div class="frame">
+    <h1 class="headline">Plan your week in seconds</h1>
+    <p class="subhead">A short supporting line.</p>
+    <div class="device"></div>
+  </div>
+</body>
+</html>
+```
+
+Create `02-search.html` and `03-share.html` the same way with different headlines ("Find anything instantly", "Share with your team").
+
+<Callout type="warn">
+Use `../../public/styles.css`, not `/styles.css`. The dev server would serve `/styles.css` from `publicDir`, but `render` loads templates from disk with a `file://` URL, where `/styles.css` points at the root of your filesystem. Relative paths work in both. See [The public directory](/concepts/public-dir).
+</Callout>
+
+To show your real app inside `.device`, drop captures into `public/screenshots/` and add an `<img src="../../public/screenshots/01-home.png">`. The [UI test screenshots guide](/guides/ui-test-screenshots) covers capturing them.
+
+</Step>
+<Step>
+
+### Write the icon template
+
+App icons are authored at 1024×1024:
+
+```html title="assets/icon.html"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    * { margin: 0; padding: 0; }
+    html, body { width: 1024px; height: 1024px; overflow: hidden; }
+    body {
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      font-family: -apple-system, system-ui, sans-serif;
+    }
+    .glyph { font-size: 560px; font-weight: 900; color: #fff; }
+  </style>
+</head>
+<body>
+  <div class="glyph">P</div>
+</body>
+</html>
+```
+
+Fill the whole square and do not round the corners yourself: iOS applies its own mask.
+
+</Step>
+<Step>
+
+### Write `assets.json`
+
+```json title="assets.json"
+{
+  "version": 1,
+  "name": "Planner",
+  "publicDir": "public",
+  "command": "npx open-assets render",
+  "collections": [
+    {
+      "id": "screenshots",
+      "label": "App Store Screenshots",
+      "sourceSize": { "width": 440, "height": 956 },
+      "borderRadius": 4,
+      "templates": [
+        { "src": "assets/screenshots/01-hero.html", "name": "01-hero", "label": "Hero" },
+        { "src": "assets/screenshots/02-search.html", "name": "02-search", "label": "Search" },
+        { "src": "assets/screenshots/03-share.html", "name": "03-share", "label": "Share" }
+      ],
+      "export": [
+        { "name": "iphone-6.9", "label": "iPhone 6.9\"", "size": { "width": 1320, "height": 2868 } },
+        { "name": "iphone-6.7", "label": "iPhone 6.7\"", "size": { "width": 1290, "height": 2796 } }
+      ]
+    },
+    {
+      "id": "icon",
+      "label": "App Icon",
+      "sourceSize": { "width": 1024, "height": 1024 },
+      "borderRadius": 224,
+      "templates": [
+        { "src": "assets/icon.html", "name": "icon", "label": "App Icon" }
+      ],
+      "export": [
+        { "name": "1024", "label": "1024px", "size": { "width": 1024, "height": 1024 } },
+        { "type": "xcode", "path": "../Planner/Assets.xcassets/AppIcon.appiconset" }
+      ]
+    }
+  ]
+}
+```
+
+- `templates[].src` paths are relative to the project directory.
+- `name` becomes the output filename and is what `--template` and `--size` match.
+- `borderRadius` only rounds the preview frame in the dev server. It does not change the rendered PNG.
+- The entry with `"type": "xcode"` is an output action, not a size. Its `path` is relative to the project directory, so `../Planner/...` reaches the sibling Xcode project. Point it at your real `.appiconset` folder.
+
+Check the file:
+
+```bash
+npx open-assets validate
+```
+
+```text
+  ✓ name: "Planner"
+  ✓ 2 collection(s) defined
+  ✓ Collection "screenshots" sourceSize: 440×956
+  ✓ assets/screenshots/01-hero.html exists
+  ...
+  ✓ Output: xcode
+
+  All checks passed.
+```
+
+</Step>
+<Step>
+
+### Preview
+
+```bash
+npx open-assets dev
+```
+
+Open `http://localhost:3200`. The **App Store Screenshots** tab shows all three templates side by side at 440×956. Edit a headline or `public/styles.css` and the preview reloads.
+
+</Step>
+<Step>
+
+### Render
+
+```bash
+npx open-assets render
+```
+
+```text
+  Rendering 01-hero (2 sizes)...
+    → .../exports/screenshots/iphone-6.9/01-hero.png (1320x2868)
+    → .../exports/screenshots/iphone-6.7/01-hero.png (1290x2796)
+  ...
+  Rendering icon (1 size)...
+    → .../exports/icon/1024.png (1024x1024)
+
+  Exporting to Xcode: ../Planner/Assets.xcassets/AppIcon.appiconset
+Updated: .../Planner/Assets.xcassets/AppIcon.appiconset/AppIcon.png
+
+Done. 8 asset(s) rendered in 4.4s.
+```
+
+You now have:
+
+<Files>
+  <Folder name="Planner" defaultOpen>
+    <Folder name="Assets.xcassets" defaultOpen>
+      <Folder name="AppIcon.appiconset" defaultOpen>
+        <File name="AppIcon.png" />
+        <File name="Contents.json" />
+      </Folder>
+    </Folder>
+  </Folder>
+  <Folder name="marketing" defaultOpen>
+    <File name="assets.json" />
+    <File name="assets.lock" />
+    <Folder name="exports" defaultOpen>
+      <Folder name="screenshots" defaultOpen>
+        <Folder name="iphone-6.9" defaultOpen>
+          <File name="01-hero.png" />
+          <File name="02-search.png" />
+          <File name="03-share.png" />
+        </Folder>
+        <Folder name="iphone-6.7" defaultOpen>
+          <File name="01-hero.png" />
+          <File name="02-search.png" />
+          <File name="03-share.png" />
+        </Folder>
+      </Folder>
+      <Folder name="icon" defaultOpen>
+        <File name="1024.png" />
+      </Folder>
+    </Folder>
+  </Folder>
+</Files>
+
+The screenshots collection has three templates, so its images go in one folder per size. The icon collection has one template, so its sizes sit flat as `icon/1024.png`.
+
+The Xcode output writes `AppIcon.png` and a single-size `Contents.json` (`"idiom": "universal"`, `"platform": "ios"`, `"size": "1024x1024"`), the format Xcode uses for a single-size app icon.
+
+<Callout type="warn">
+The Xcode output deletes every other `.png`, `.jpg` and `.jpeg` in the target folder before writing `AppIcon.png`, and it overwrites `Contents.json`. Point it only at an app icon set you are happy to hand over to Open Assets.
+</Callout>
+
+</Step>
+<Step>
+
+### Iterate
+
+Run `render` again with no changes:
+
+```text
+Done. 1 asset(s) rendered, 7 skipped (unchanged) in 1.2s.
+```
+
+The seven PNGs are skipped by the [lockfile](/concepts/lockfile). The one "rendered" asset is the Xcode output, which runs on every render.
+
+Now edit `public/styles.css` and render again. All six screenshots re-render, because each template links that stylesheet directly and the lockfile hashes files a template references. The icon does not re-render: it does not use the stylesheet.
+
+</Step>
+</Steps>
+
+## Next steps
+
+- [Upload to App Store Connect](/guides/app-store-connect).
+- Add more languages with [Localization](/localization).
+- Add an OG image or favicons to the same project: [OG images](/guides/og-images), [Favicons](/guides/favicons).
+- Read about [outputs](/concepts/outputs) to send sizes anywhere with `outFile`.

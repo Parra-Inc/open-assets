@@ -1,0 +1,82 @@
+---
+title: open-assets add
+description: Add a collection, template or export size to assets.json from interactive presets, with the full preset lists, the files each creates and the duplicate checks.
+---
+
+`add` has three interactive subcommands. Each loads the config, asks questions, writes any new template file and saves the config with two-space indentation. Menus are numbered; an invalid number picks the first option.
+
+## add collection
+
+<CliUsage command="add collection" />
+
+Pick a preset or **Custom**. The preset creates one template file and a collection with tags, source size, border radius and export entries. Each new tag is also added to the root `tags` array (label is the capitalized id).
+
+| Preset | id | Source | Template file | Exports | Tags |
+| --- | --- | --- | --- | --- | --- |
+| App Store Screenshots | `screenshots` | 440×956, radius 4 | `src/screenshots/01-hero.html` | iphone-6.9, iphone-6.7, iphone-6.5, ipad-13 | screenshots |
+| App Icon | `icon` | 1024×1024, radius 224 | `src/icon.html` | 1024, 180, 120, 512, 192, 32 (Favicon 32), 16 (Favicon 16) | icon |
+| Logo | `logo` | 800×800 | `src/logo.svg` | 800, 400, 200, `copy-source` svg | logo, branding |
+| Wordmark | `wordmark` | 1200×400 | `src/wordmark.svg` | 1200x400, 600x200, 300x100, `copy-source` svg | wordmark, branding |
+| Feature Graphic / Google Play | `feature-graphic` | 1024×500 | `src/feature-graphic.html` | 1024x500 | feature-graphic, android |
+| OG Image / Social | `og-image` | 1200×630 | `src/og-image.html` | 1200x630 (OG Image), 1200x675 (Twitter Card) | og-image, web |
+
+**Custom** asks for an id (empty aborts), label (default: capitalized id), source width and height (default 800), border radius (default 0) and format (HTML or SVG). It creates `src/<id>.html` or `src/<id>.svg`, one export entry named `<w>x<h>` at source size, plus `copy-source` svg for SVG. Tags are `[id]`.
+
+The generated template is a gradient placeholder showing the label and "Edit this template to get started", sized to the source size. An existing file at that path is overwritten.
+
+<CliOptions command="add collection" />
+
+Errors (exit 1): `Collection "<id>" already exists in the config.`
+
+## add template
+
+<CliUsage command="add template" />
+
+1. Pick a collection.
+2. Template name, for example `02-features` (empty aborts).
+3. Display label (default: the name).
+4. Format: HTML or SVG. The format of the collection's first template is listed first.
+
+The file goes in the same folder as the collection's first template (or `src/<id>` if it has none), as `<name>.html` or `<name>.svg`, sized to the collection's `sourceSize`. The entry `{ src, name, label }` is appended to `templates`.
+
+<CliOptions command="add template" />
+
+Errors (exit 1): "No collections found. Run `open-assets add collection` first." and `Template "<name>" already exists in collection "<id>".`
+
+## add size
+
+<CliUsage command="add size" />
+
+Pick a collection, then a preset:
+
+| Menu entry | name | Size |
+| --- | --- | --- |
+| iPhone 6.9" | `iphone-6.9` | 1320×2868 |
+| iPhone 6.7" | `iphone-6.7` | 1290×2796 |
+| iPhone 6.5" | `iphone-6.5` | 1284×2778 |
+| iPhone 6.1" | `iphone-6.1` | 1179×2556 |
+| iPad 13" | `ipad-13` | 2064×2752 |
+| iPad 12.9" | `ipad-12.9` | 2048×2732 |
+| Google Play Phone | `phone` | 1080×1920 |
+| Google Play 7" Tablet | `tablet-7` | 1200×1920 |
+| Mac App Store Retina | `mac-retina` | 2880×1800 |
+| OG Image | `1200x630` | 1200×630 |
+| Twitter Card | `1200x675` | 1200×675 |
+| Product Hunt Gallery | `1270x760` | 1270×760 |
+| Custom dimensions | asks for name, label, width, height | |
+
+Custom aborts if the name, width or height is empty. The entry is appended to `export`. It never adds `outFile`; edit the config for that.
+
+<CliOptions command="add size" />
+
+Errors (exit 1): no collections (same message as `add template`), and `Size "<name>" already exists in collection "<id>".`
+
+## Examples
+
+```bash
+open-assets add collection
+open-assets add template ./marketing
+open-assets add size --config assets.staging.json
+```
+
+See [/reference/manifest](/reference/manifest) for every field these commands write.

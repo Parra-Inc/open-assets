@@ -1,0 +1,108 @@
+---
+title: Xcode App Icon
+description: Render your app icon from an HTML or SVG template straight into an Xcode .appiconset with the xcode output type, including what it does to Contents.json.
+---
+
+The `xcode` output type writes your icon directly into an Xcode asset catalog. Edit the template, run `render`, and the next Xcode build picks up the new icon. No export, drag and drop, or resizing step.
+
+## Config
+
+Add an entry with `"type": "xcode"` to the icon collection's `export` array. `path` points at the `.appiconset` folder and is resolved relative to the project directory (the folder that holds `assets.json`).
+
+```json title="assets.json"
+{
+  "id": "icon",
+  "label": "App Icon",
+  "sourceSize": { "width": 1024, "height": 1024 },
+  "borderRadius": 224,
+  "templates": [
+    { "src": "assets/icon/icon.html", "name": "icon", "label": "App Icon" }
+  ],
+  "export": [
+    { "name": "1024", "label": "1024px", "size": { "width": 1024, "height": 1024 } },
+    { "type": "xcode", "path": "../MyApp/Assets.xcassets/AppIcon.appiconset" }
+  ]
+}
+```
+
+Then run:
+
+```bash
+npx open-assets render --collection icon
+```
+
+## What the xcode output does
+
+From `runXcodeOutput` in `lib/renderer.mjs`, on every render of the collection:
+
+1. Creates the `.appiconset` folder if it does not exist.
+2. Deletes every `.png`, `.jpg` and `.jpeg` file in that folder except `AppIcon.png`.
+3. Renders the **first** template in the collection at the collection's `sourceSize` (not at any export size) and writes it to `AppIcon.png`.
+4. Overwrites `Contents.json` with a single universal iOS entry:
+
+```json title="Contents.json"
+{
+  "images": [
+    {
+      "filename": "AppIcon.png",
+      "idiom": "universal",
+      "platform": "ios",
+      "size": "1024x1024"
+    }
+  ],
+  "info": {
+    "author": "xcode",
+    "version": 1
+  }
+}
+```
+
+The `size` value is the collection's source size, so set `sourceSize` to `1024x1024`. This is the single-size app icon format that current Xcode versions use: one 1024px image, with the smaller sizes generated at build time.
+
+<Callout type="warn">
+The output replaces the folder's contents. Any dark, tinted or per-size images you added by hand, and any extra entries in `Contents.json`, are removed on the next render. If you need dark and tinted variants, manage that `.appiconset` by hand and use `outFile` to write the PNGs into it instead (see [Writing files anywhere with outFile](/guides/out-file)).
+</Callout>
+
+Other details:
+
+- The xcode output runs after the collection's sized renders, and it always renders, even when the sized exports were skipped as unchanged.
+- Only the first template is used. Keep icon explorations in a separate collection so they never reach Xcode.
+- The PNG keeps transparency if the template leaves the background unpainted. App Store icons must be opaque, so paint a full-bleed background in the template.
+- Do not round the corners yourself. iOS applies the mask. `borderRadius` in the config only affects the dev preview frame.
+
+## A minimal icon template
+
+```html title="assets/icon/icon.html"
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      html, body { margin: 0; }
+      .icon {
+        width: 1024px;
+        height: 1024px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, #2f6bff, #7b3fe4);
+      }
+      .glyph { font: 700 520px/1 -apple-system, "Helvetica Neue", sans-serif; color: #fff; }
+    </style>
+  </head>
+  <body>
+    <div class="icon"><span class="glyph">A</span></div>
+  </body>
+</html>
+```
+
+An SVG template works the same way. Point `src` at the `.svg` file.
+
+## Commit the result
+
+The `.appiconset` lives in your app project, so commit the updated `AppIcon.png` and `Contents.json` with the template change. In CI, a render followed by `git diff --exit-code` catches an icon that was changed in the template but never rendered.
+
+## Related
+
+- [Output types reference](/reference/outputs)
+- [Favicons and touch icons from the same template](/guides/favicons)
+- [Google Play 512px icon](/guides/google-play)

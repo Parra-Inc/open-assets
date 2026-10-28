@@ -1,0 +1,102 @@
+---
+title: Locales and Output Folders
+description: Which locale codes Open Assets accepts, how the locales list and --locale flag pick what renders, and where each locale's localized screenshots are written.
+---
+
+## Supported locale codes
+
+There is no fixed list. A locale code is any key you use under `localizations` in your strings file. Open Assets uses the code as is for three things:
+
+- the `lang` attribute on `<html>` (fonts, `:lang()` selectors),
+- `Intl.NumberFormat` for [number formatting](/localization/formatting),
+- the folder name in the output.
+
+So use valid BCP 47 language tags that match what your store expects. The Tax Days and Skimmer example strings files use the 38 codes below, which line up with App Store Connect languages:
+
+`ar` `ca` `cs` `da` `de` `el` `en` `en-AU` `en-GB` `es` `es-419` `fi` `fr` `fr-CA` `he` `hi` `hr` `hu` `id` `it` `ja` `ko` `ms` `nb` `nl` `pl` `pt-BR` `pt-PT` `ro` `ru` `sk` `sv` `th` `tr` `uk` `vi` `zh-Hans` `zh-Hant`
+
+Codes are case sensitive when matching: `pt-BR` and `pt-br` are different locales.
+
+## Choosing which locales render
+
+| Config | Locales rendered |
+| --- | --- |
+| No `locales` field | Every locale that appears in any string, sorted alphabetically |
+| `"locales": ["en", "ar", "de", "ja"]` | Those locales, in that order, skipping any not found in the file |
+| `--locale ja` on the CLI | Only `ja`, from whichever set the config selects |
+
+Details from the code:
+
+- A locale counts as present if at least one string has a value for it. Missing strings fall back as described in [Strings](/localization/strings).
+- If `--locale` names a locale the collection does not have, that collection is skipped with a warning.
+- `--locale` does not affect collections without `localizations`. They render normally.
+- `npx open-assets validate` fails when `locales` lists a code that is not in the strings file. `render` skips it silently, so run `validate` in CI.
+
+Both Tax Days and Skimmer keep 38 locales in the strings file and set `"locales": ["en", "ar", "de", "ja"]` to render a representative subset.
+
+## Output folders
+
+A localized collection adds a locale folder directly under the collection:
+
+<Tabs items={['Several templates', 'One template']}>
+<Tab value="Several templates">
+`exports/{collection}/{locale}/{size}/{template}.png`
+
+<Files>
+  <Folder name="exports" defaultOpen>
+    <Folder name="screenshots" defaultOpen>
+      <Folder name="ar" defaultOpen>
+        <Folder name="iphone-6.9" defaultOpen>
+          <File name="01-hero.png" />
+          <File name="02-dashboard.png" />
+        </Folder>
+      </Folder>
+      <Folder name="de">
+        <Folder name="iphone-6.9">
+          <File name="01-hero.png" />
+          <File name="02-dashboard.png" />
+        </Folder>
+      </Folder>
+    </Folder>
+  </Folder>
+</Files>
+</Tab>
+<Tab value="One template">
+`exports/{collection}/{locale}/{size}.png`
+
+<Files>
+  <Folder name="exports" defaultOpen>
+    <Folder name="banner" defaultOpen>
+      <Folder name="de" defaultOpen>
+        <File name="og.png" />
+      </Folder>
+      <Folder name="ja" defaultOpen>
+        <File name="og.png" />
+      </Folder>
+    </Folder>
+  </Folder>
+</Files>
+</Tab>
+</Tabs>
+
+To use a different layout, set `outFile` with the `{locale}` and `{template}` placeholders. The Tax Days example writes the same layout explicitly:
+
+```json
+{
+  "name": "iphone-6.9",
+  "size": { "width": 1320, "height": 2868 },
+  "outFile": "exports/screenshots/{locale}/iphone-6.9/{template}.png"
+}
+```
+
+An `outFile` in a localized collection should always contain `{locale}`, or every locale overwrites the same file. See [outFile](/guides/out-file).
+
+## Caching per locale
+
+Each locale has its own entries in `assets.lock` (keyed as `collection/locale/template`), so adding a locale renders only that locale on the next run, and the rest are skipped as unchanged. Editing `localizations.json` does not by itself invalidate the cache, because the cache tracks template files, not the strings file. Run with `--force` after changing translations.
+
+## Related
+
+- [Localization overview](/localization)
+- [Upload to App Store Connect](/guides/app-store-connect)
+- [render command](/reference/cli/render)

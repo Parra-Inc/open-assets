@@ -1,0 +1,93 @@
+---
+title: Custom Product Pages and A/B Tests
+description: Produce alternate App Store screenshot sets for Custom Product Pages and product page optimization tests using separate collections, tags and outFile paths.
+---
+
+App Store Connect lets you publish more than one set of screenshots for the same app. Custom Product Pages give each audience or ad campaign its own page and URL. Product page optimization runs A/B tests of alternate screenshots, icons or previews against your default page. Both need several complete screenshot sets that stay in sync with your app.
+
+Open Assets has no special mode for this. You model each set as a collection, which gives you per-set renders, folders and caching for free.
+
+## One collection per screenshot set
+
+Give each variant its own collection id and its own template folder. Shared styles and captured app images live in one place so every set uses the same UI.
+
+```json title="assets.json"
+{
+  "version": 1,
+  "name": "My App",
+  "publicDir": "public",
+  "tags": [
+    { "id": "store", "label": "Store" },
+    { "id": "experiment", "label": "Experiment" }
+  ],
+  "collections": [
+    {
+      "id": "screenshots",
+      "label": "Default page",
+      "tags": ["store"],
+      "sourceSize": { "width": 440, "height": 956 },
+      "templates": [
+        { "src": "assets/screenshots/01-hero.html", "name": "01-hero" },
+        { "src": "assets/screenshots/02-plan.html", "name": "02-plan" }
+      ],
+      "export": [
+        { "name": "iphone-6.9", "size": { "width": 1320, "height": 2868 } }
+      ]
+    },
+    {
+      "id": "cpp-students",
+      "label": "Custom page: students",
+      "tags": ["store", "experiment"],
+      "sourceSize": { "width": 440, "height": 956 },
+      "templates": [
+        { "src": "assets/cpp-students/01-hero.html", "name": "01-hero" },
+        { "src": "assets/screenshots/02-plan.html", "name": "02-plan" }
+      ],
+      "export": [
+        { "name": "iphone-6.9", "size": { "width": 1320, "height": 2868 } }
+      ]
+    }
+  ]
+}
+```
+
+Notes:
+
+- A template file can appear in several collections. Above, `02-plan.html` is shared and only the hero differs.
+- Each collection renders into its own folder: `exports/cpp-students/iphone-6.9/01-hero.png`.
+- Collection `tags` reference ids in the root `tags` list. See [Tags](/concepts/tags).
+
+## Render one set or all of them
+
+```bash
+npx open-assets render --collection cpp-students   # one set
+npx open-assets render --tag experiment            # every experimental set
+npx open-assets render --tag store                 # everything that ships to the store
+```
+
+`--tag` keeps collections whose `tags` include the value. If nothing matches, the command reports an error instead of rendering nothing.
+
+## Vary copy without copying templates
+
+If a variant only changes the words, not the layout, keep one template and drive the text from a localizations file. Each collection can point at its own file:
+
+```json title="assets.json (excerpt)"
+[
+  { "id": "screenshots", "localizations": "copy/default.json", "locales": ["en"] },
+  { "id": "test-b", "localizations": "copy/headline-b.json", "locales": ["en"] }
+]
+```
+
+Both collections list the same template files, and `{{hero_title}}` resolves to a different string in each. See [Strings](/localization/strings). This also gives you every language for free: add locales to each file and each variant renders per language.
+
+## Keep variants honest
+
+- Re-render every set when the app UI changes. `npx open-assets render --force --tag store` refreshes all of them after new captures.
+- Keep the same template `name` values across sets when the screenshots are meant to be compared side by side, so file names line up.
+- Apple reviews the content of Custom Product Pages and test treatments. Each set should show your real app.
+
+## Related
+
+- [Collections](/concepts/collections)
+- [Upload to App Store Connect](/guides/app-store-connect)
+- [Localization overview](/localization)

@@ -1,0 +1,9 @@
+node_modules/
+.next/
+out/
+.wrangler/
+.source/
+next-env.d.ts
+*.tsbuildinfo
+# Copied from apps/web/public/img/examples by scripts/docs-sync.mjs
+public/img/examples/

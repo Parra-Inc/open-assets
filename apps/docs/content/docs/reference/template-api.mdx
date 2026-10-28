@@ -1,0 +1,85 @@
+---
+title: Template API
+description: "What an Open Assets template can rely on at render time: placeholders, lang and dir, asset paths, fonts, load waits, scaling, SVG files and transparency."
+---
+
+A template is a plain HTML or SVG file. There is no runtime library and nothing to import. This page lists exactly what the renderer does to it.
+
+## Load sequence
+
+For each (template, locale), `render` does this once, then captures every size from the same page:
+
+1. Sets the viewport to the first size, device scale factor 1.
+2. Navigates to `file://<absolute path>` and waits for the `load` event. `--render-timeout` (default 30000 ms) applies to this step only.
+3. Fills localization placeholders (localized collections only).
+4. Sets the root element's `background-color` if the collection has `background`.
+5. Waits for readiness: one `setTimeout(0)` tick, a forced layout, `document.fonts.ready`, and `decode()` on every `<img>` (decode errors are ignored).
+6. Per size: sets the viewport, sets `zoom` on the root element, pauses every animation at time 0, and captures.
+
+There is no network-idle wait and no fixed sleep. Content that a script adds after `load` must be in the DOM by the end of step 5, or it will be missing.
+
+## Scaling and viewport
+
+- Author at `sourceSize` in CSS pixels. Set `width` and `height` on `body` to match.
+- Scale is `max(exportWidth / sourceWidth, exportHeight / sourceHeight)`, applied as CSS `zoom` on `<html>` (not set at scale 1).
+- Capture is clipped at `0,0,exportWidth,exportHeight`. With a different aspect ratio, the overflowing axis is cropped from the right or bottom.
+- Device scale factor is always 1, so the PNG is exactly the export size.
+
+## Animations
+
+CSS animations and transitions are paused at `currentTime = 0`. Design the first frame as the final state. The dev preview, by contrast, plays them.
+
+## Placeholders
+
+In localized collections, every text node in the document is scanned for `{{key}}`, where the key matches `[a-zA-Z_][\w.]*`.
+
+- Known keys are replaced with the resolved string: exact locale, then base language (`es` for `es-419`), then `sourceLanguage`.
+- Unknown keys are left as written.
+- Values are set as `textContent`, so markup in a value shows as text, not HTML.
+- Inside a value, `{{n:1234.5}}` is formatted with `Intl.NumberFormat(locale)`.
+- Attributes are not touched: `alt`, `src`, `href`, `style` and `content` keep their placeholders.
+- Without localizations nothing is replaced, and `{{key}}` renders literally.
+
+See [/localization/strings](/localization/strings) and [/localization/formatting](/localization/formatting).
+
+## lang and dir
+
+- `<html lang>` is set to the locale code.
+- For right-to-left locales (`ar`, `he`, `fa`, `ur`, `yi`, `ps`, `sd`, `ku`, `dv`, `ug`, and region variants like `ar-SA`), `dir="rtl"` is set on the **parent element of each replaced text node**, not on `<html>`. Your layout is not mirrored. Use `:lang(ar)` or `[lang="ar"]` selectors for locale-specific CSS. See [/localization/rtl](/localization/rtl).
+- No classes or data attributes are added.
+
+## Asset paths
+
+`render` loads templates from `file://`; `dev` serves them over HTTP from the project root, with `publicDir` and `--static-dir` folders mounted at `/`.
+
+| Reference in template | dev preview | render |
+| --- | --- | --- |
+| `../../public/shot.png` (relative) | works | works |
+| `/shot.png` (absolute, file in `publicDir`) | works | broken: resolves to the filesystem root |
+| `https://...` | works | works if the network is up before `load` |
+
+Use relative paths for anything `render` must see. See [/concepts/public-dir](/concepts/public-dir).
+
+Relative `src`, `href` and `url()` references in an HTML template are also hashed into its cache checksum. Files pulled in any other way are not; use `render --force` when they change.
+
+## Fonts
+
+The renderer waits for `document.fonts.ready` after a forced layout, so `@font-face` fonts used by visible text load before capture. Webfonts from a URL need the network. Locally bundled fonts should use relative URLs. See [/localization/fonts](/localization/fonts).
+
+## Background and transparency
+
+- PNG captures omit the default white background, so anything you leave unpainted is transparent.
+- The collection `background` sets `background-color` on `<html>` and turns transparency off.
+- JPEG (via `outFile` `.jpg`) has no alpha.
+
+## SVG templates
+
+- Any `src` ending in `.svg` is an SVG template. It is loaded the same way, as its own document, and scaled with `zoom` on the root `<svg>`.
+- Give it explicit `width` and `height` equal to `sourceSize`.
+- Placeholders work in `<text>` content.
+- In dev it previews as an `<img>` on a checkerboard, so scripts in it do not run there.
+- At export size equal to source size, a copy of the `.svg` is written beside the PNG.
+
+## Browser
+
+Headless Chromium from the installed Puppeteer, with background timer throttling and renderer backgrounding disabled. Each page runs in its own browser context; pages are reused between templates.

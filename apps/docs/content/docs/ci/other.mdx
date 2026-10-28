@@ -1,0 +1,117 @@
+---
+title: Other CI and Docker
+description: "Run Open Assets in GitLab CI, CircleCI or a Docker image: install Chromium dependencies for Puppeteer, render headlessly, and use validate as a required check."
+---
+
+Open Assets needs two things in CI: Node 18 or later, and a Chrome that Puppeteer can launch. The commands are the same on every provider.
+
+```bash
+npm ci
+npx open-assets validate
+npx open-assets render --json --quiet
+```
+
+## Chromium dependencies
+
+Installing the package installs Puppeteer, and Puppeteer downloads its own Chrome build into `~/.cache/puppeteer`. Chrome itself still needs system libraries (fonts, NSS, GTK pieces and so on). Full CI images usually have them. Slim images (`node:22-slim`, Alpine) do not.
+
+Open Assets launches Chrome with Puppeteer's defaults, headless and with the sandbox enabled. It does not pass `--no-sandbox` and there is no option to add launch flags. Two consequences:
+
+- Use an image or package list that Puppeteer supports. Do not guess the list: follow Puppeteer's [troubleshooting guide](https://pptr.dev/troubleshooting) for Linux dependencies, or start from the official `ghcr.io/puppeteer/puppeteer` image.
+- Run as a non-root user. Chrome refuses to start its sandbox as root.
+
+Also install the fonts your templates need (including CJK and Arabic fonts for localized screenshots). A missing font falls back to whatever the image has. See [Fonts](/localization/fonts).
+
+## GitLab CI
+
+```yaml title=".gitlab-ci.yml"
+assets:
+  image: ghcr.io/puppeteer/puppeteer:latest
+  script:
+    - npm ci
+    - npx open-assets validate
+    - npx open-assets render --json --quiet
+  artifacts:
+    paths:
+      - exports/
+  rules:
+    - changes:
+        - assets/**/*
+        - public/**/*
+        - assets.json
+        - localizations.json
+```
+
+The Puppeteer image runs as a non-root user and ships Chrome's dependencies. Pin a specific tag instead of `latest` for reproducible renders.
+
+## CircleCI
+
+```yaml title=".circleci/config.yml"
+version: 2.1
+orbs:
+  browser-tools: circleci/browser-tools@1
+jobs:
+  assets:
+    docker:
+      - image: cimg/node:22.11-browsers
+    steps:
+      - checkout
+      - run: npm ci
+      - run: npx open-assets validate
+      - run: npx open-assets render --json --quiet
+      - store_artifacts:
+          path: exports
+workflows:
+  render:
+    jobs:
+      - assets
+```
+
+The `-browsers` variants of the CircleCI Node images include the libraries Chrome needs.
+
+## Docker
+
+A starting point based on Puppeteer's image:
+
+```dockerfile title="Dockerfile"
+FROM ghcr.io/puppeteer/puppeteer:latest
+WORKDIR /home/pptruser/app
+COPY --chown=pptruser package*.json ./
+RUN npm ci
+COPY --chown=pptruser . .
+CMD ["npx", "open-assets", "render", "--json", "--quiet"]
+```
+
+Mount the project to get the renders out:
+
+```bash
+docker run --rm -v "$PWD/exports:/home/pptruser/app/exports" my-assets
+```
+
+If you build from `node:*-slim` instead, add the Linux packages from Puppeteer's guide and create a non-root user before running `npm ci`.
+
+## validate as a required check
+
+`validate` needs no browser, so it is fast and safe to run on every pull request:
+
+```bash
+npx open-assets validate
+```
+
+It checks the top-level `name`, that `collections` is non-empty, unique collection ids, each `sourceSize`, that every template file exists, that each collection has export sizes, and that `localizations` files exist and define every requested locale. It prints a line per check and exits with code 1 on any error, which fails the job.
+
+Do not pass `--fix` in CI: it asks questions on standard input.
+
+## Render settings from the environment
+
+The CLI reads these variables, which is often easier than editing commands in CI config:
+
+| Variable | Effect |
+| --- | --- |
+| `OPEN_ASSETS_OUTPUT` | Output directory for `render` (default `./exports`) |
+| `OPEN_ASSETS_CONFIG` | Config file name (default `assets.json`) |
+| `OPEN_ASSETS_RENDER_TIMEOUT` | Page load timeout in ms (default 30000) |
+| `OPEN_ASSETS_QUIET` | `true` suppresses progress logs |
+| `OPEN_ASSETS_CONCURRENCY` | Number of templates rendered at once |
+
+See [Environment variables](/reference/env) for the full list.

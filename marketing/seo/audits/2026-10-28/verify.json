@@ -1,0 +1,668 @@
+{
+  "schema": "audit-seo/v1",
+  "layer": "verify",
+  "site": "open-assets.dev",
+  "siteId": "open-assets-dev",
+  "capturedAt": "2026-10-28T18:26:13Z",
+  "deployedVersion": "57dce14e-f686-4829-9da8-5ac20ea8a3ae",
+  "standard": {
+    "before": {
+      "pass": 9,
+      "partial": 4,
+      "fail": 15,
+      "n/a": 10,
+      "manual": 5
+    },
+    "after": {
+      "pass": 16,
+      "partial": 2,
+      "fail": 10,
+      "n/a": 10,
+      "manual": 5
+    },
+    "changes": [
+      {
+        "id": "A3",
+        "before": "fail",
+        "after": "fail",
+        "cleared": false,
+        "afterEvidence": "1/1 fail: / [canonical /]"
+      },
+      {
+        "id": "A4",
+        "before": "fail",
+        "after": "pass",
+        "cleared": true,
+        "afterEvidence": "1/1 in 150 to 160 (min 156, median 156, max 156)"
+      },
+      {
+        "id": "B1",
+        "before": "partial",
+        "after": "pass",
+        "cleared": true,
+        "afterEvidence": "* allows / (0 disallow rules); 25/25 AI crawlers listed; Sitemap: https://open-assets.dev/sitemap.xml"
+      },
+      {
+        "id": "B3",
+        "before": "fail",
+        "after": "fail",
+        "cleared": false,
+        "afterEvidence": "1 URLs in 1 file(s), 0 families; 1 on another host: https://open-assets.dev; hreflang on 0, images on 1"
+      },
+      {
+        "id": "B4",
+        "before": "partial",
+        "after": "partial",
+        "cleared": false,
+        "afterEvidence": "1 distinct dates across 1 URLs; most common 2026-10-28 on 100%"
+      },
+      {
+        "id": "B6",
+        "before": "partial",
+        "after": "pass",
+        "cleared": true,
+        "afterEvidence": "983 bytes, 5 links, 0 em dashes"
+      },
+      {
+        "id": "B7",
+        "before": "fail",
+        "after": "pass",
+        "cleared": true,
+        "afterEvidence": "4955 bytes"
+      },
+      {
+        "id": "B9",
+        "before": "fail",
+        "after": "fail",
+        "cleared": false,
+        "afterEvidence": "no IndexNow step in 1 workflow(s); only the nightly indexnow-sync sweep submits"
+      },
+      {
+        "id": "B11",
+        "before": "fail",
+        "after": "fail",
+        "cleared": false,
+        "afterEvidence": "open-assets-web-production.ian-b42.workers.dev not in /Users/ianmaccallum/Developer/Repos/indexnow-sync/indexnow.config.json"
+      },
+      {
+        "id": "C2",
+        "before": "fail",
+        "after": "pass",
+        "cleared": true,
+        "afterEvidence": "homepage types: Answer, FAQPage, Offer, Organization, Question, SoftwareApplication, WebSite"
+      },
+      {
+        "id": "D1",
+        "before": "fail",
+        "after": "fail",
+        "cleared": false,
+        "afterEvidence": "og:image on 1/1; 1 distinct image(s) across 1 families; broken: /opengraph-image.png 0 ; repo: 2 opengraph-image/twitter-image file(s)"
+      },
+      {
+        "id": "I2",
+        "before": "fail",
+        "after": "pass",
+        "cleared": true,
+        "afterEvidence": "28ck_brflb6e1.css: cache-control \"public, max-age=31536000, immutable\"; security headers: strict-transport-security, x-content-type-options, referrer-policy"
+      },
+      {
+        "id": "J1",
+        "before": "fail",
+        "after": "fail",
+        "cleared": false,
+        "afterEvidence": "App Store links present but no Smart App Banner"
+      },
+      {
+        "id": "J4",
+        "before": "partial",
+        "after": "pass",
+        "cleared": true,
+        "afterEvidence": "8/8 App Store links carry ct (2 distinct)"
+      },
+      {
+        "id": "J6",
+        "before": "fail",
+        "after": "fail",
+        "cleared": false,
+        "afterEvidence": "AASA 404"
+      },
+      {
+        "id": "K1",
+        "before": "fail",
+        "after": "fail",
+        "cleared": false,
+        "afterEvidence": "no GA4 tag in the delivered HTML"
+      },
+      {
+        "id": "M1",
+        "before": "fail",
+        "after": "fail",
+        "cleared": false,
+        "afterEvidence": "no docs/seo/growth-plan*.md"
+      },
+      {
+        "id": "M2",
+        "before": "fail",
+        "after": "fail",
+        "cleared": false,
+        "afterEvidence": "0 page plan(s)"
+      },
+      {
+        "id": "M4",
+        "before": "fail",
+        "after": "partial",
+        "cleared": false,
+        "afterEvidence": "1 dated audit(s), latest 2026-10-28"
+      }
+    ],
+    "afterRaw": {
+      "schema": "audit-seo/v1",
+      "layer": "standard",
+      "site": "open-assets-web-production.ian-b42.workers.dev",
+      "siteId": null,
+      "capturedAt": "2026-10-28T18:25:15.486Z",
+      "origin": "https://open-assets-web-production.ian-b42.workers.dev",
+      "summary": {
+        "pass": 16,
+        "partial": 2,
+        "fail": 10,
+        "n/a": 10,
+        "manual": 5
+      },
+      "checks": [
+        {
+          "id": "A2",
+          "section": "A",
+          "title": "No page canonicalizes to the homepage (no root canonical)",
+          "status": "n/a",
+          "evidence": "0 non-home pages, none canonicalize to the homepage"
+        },
+        {
+          "id": "A3",
+          "section": "A",
+          "title": "Title, description and self canonical on every sampled page",
+          "status": "fail",
+          "evidence": "1/1 fail: / [canonical /]"
+        },
+        {
+          "id": "A4",
+          "section": "A",
+          "title": "Meta descriptions 150 to 160 characters",
+          "status": "pass",
+          "evidence": "1/1 in 150 to 160 (min 156, median 156, max 156)"
+        },
+        {
+          "id": "A5",
+          "section": "A",
+          "title": "No meta keywords",
+          "status": "pass",
+          "evidence": "no meta keywords"
+        },
+        {
+          "id": "A6",
+          "section": "A",
+          "title": "One host: www 301s to the apex",
+          "status": "pass",
+          "evidence": "www.open-assets-web-production.ian-b42.workers.dev does not resolve (ERR_SSL_SSL/TLS_ALERT_HANDSHAKE_FAILURE), so there is no duplicate host"
+        },
+        {
+          "id": "B1",
+          "section": "B",
+          "title": "robots.txt allows / and lists every AI crawler with the * rules",
+          "status": "pass",
+          "evidence": "* allows / (0 disallow rules); 25/25 AI crawlers listed; Sitemap: https://open-assets.dev/sitemap.xml",
+          "data": {
+            "missing": [],
+            "blocked": [],
+            "drift": []
+          }
+        },
+        {
+          "id": "B2",
+          "section": "B",
+          "title": "Sitemap, robots.txt and noindex agree",
+          "status": "pass",
+          "evidence": "1 sitemap URLs all crawlable; no sampled page carries noindex"
+        },
+        {
+          "id": "B3",
+          "section": "B",
+          "title": "Sitemap lists live 200 URLs on this host",
+          "status": "fail",
+          "evidence": "1 URLs in 1 file(s), 0 families; 1 on another host: https://open-assets.dev; hreflang on 0, images on 1"
+        },
+        {
+          "id": "B4",
+          "section": "B",
+          "title": "Sitemap lastmod is a real per-page date",
+          "status": "partial",
+          "evidence": "1 distinct dates across 1 URLs; most common 2026-10-28 on 100%"
+        },
+        {
+          "id": "B5",
+          "section": "B",
+          "title": "HTML sitemap page",
+          "status": "manual",
+          "evidence": "none at /sitemap, /sitemap-html, /site-map, /sitemap.html, /html-sitemap"
+        },
+        {
+          "id": "B6",
+          "section": "B",
+          "title": "llms.txt served as text, no em dashes",
+          "status": "pass",
+          "evidence": "983 bytes, 5 links, 0 em dashes"
+        },
+        {
+          "id": "B7",
+          "section": "B",
+          "title": "llms-full.txt served",
+          "status": "pass",
+          "evidence": "4955 bytes"
+        },
+        {
+          "id": "B8",
+          "section": "B",
+          "title": "IndexNow key file served on the host",
+          "status": "manual",
+          "evidence": "key unknown: the site is not in the indexnow-sync config; find public/<32-hex>.txt in the repo"
+        },
+        {
+          "id": "B9",
+          "section": "B",
+          "title": "IndexNow submit runs after every deploy",
+          "status": "fail",
+          "evidence": "no IndexNow step in 1 workflow(s); only the nightly indexnow-sync sweep submits"
+        },
+        {
+          "id": "B11",
+          "section": "B",
+          "title": "Registered in indexnow-sync",
+          "status": "fail",
+          "evidence": "open-assets-web-production.ian-b42.workers.dev not in /Users/ianmaccallum/Developer/Repos/indexnow-sync/indexnow.config.json"
+        },
+        {
+          "id": "C1",
+          "section": "C",
+          "title": "Valid JSON-LD on every sampled page",
+          "status": "pass",
+          "evidence": "1/1 sampled pages have JSON-LD"
+        },
+        {
+          "id": "C2",
+          "section": "C",
+          "title": "Organization and WebSite on the homepage",
+          "status": "pass",
+          "evidence": "homepage types: Answer, FAQPage, Offer, Organization, Question, SoftwareApplication, WebSite"
+        },
+        {
+          "id": "C3",
+          "section": "C",
+          "title": "App entity with an Offer on the homepage",
+          "status": "pass",
+          "evidence": "app entity on home with Offer"
+        },
+        {
+          "id": "C4",
+          "section": "C",
+          "title": "Tool pages carry WebApplication or SoftwareApplication",
+          "status": "n/a",
+          "evidence": "no tools or calculators family"
+        },
+        {
+          "id": "C5",
+          "section": "C",
+          "title": "BreadcrumbList below home, every item named",
+          "status": "n/a",
+          "evidence": "0/0 family pages carry BreadcrumbList"
+        },
+        {
+          "id": "C6",
+          "section": "C",
+          "title": "FAQPage only where the questions are visible",
+          "status": "pass",
+          "evidence": "1 page(s) with FAQPage, questions visible"
+        },
+        {
+          "id": "C7",
+          "section": "C",
+          "title": "Articles carry author, datePublished, dateModified",
+          "status": "n/a",
+          "evidence": "no Article nodes on sampled pages"
+        },
+        {
+          "id": "C8",
+          "section": "C",
+          "title": "Glossary pages carry DefinedTerm",
+          "status": "n/a",
+          "evidence": "no glossary family"
+        },
+        {
+          "id": "C9",
+          "section": "C",
+          "title": "HowTo only on real procedures",
+          "status": "pass",
+          "evidence": "no HowTo on sampled pages"
+        },
+        {
+          "id": "D1",
+          "section": "D",
+          "title": "Per-page OG images that load",
+          "status": "fail",
+          "evidence": "og:image on 1/1; 1 distinct image(s) across 1 families; broken: /opengraph-image.png 0 ; repo: 2 opengraph-image/twitter-image file(s)",
+          "data": {
+            "images": [
+              {
+                "url": "https://open-assets.dev/opengraph-image.png?opengraph-image.3rkegv6lty-im.png",
+                "status": 0,
+                "type": ""
+              }
+            ]
+          }
+        },
+        {
+          "id": "D2",
+          "section": "D",
+          "title": "Pages that set og:title still carry og:image",
+          "status": "pass",
+          "evidence": "every page with og:title carries og:image"
+        },
+        {
+          "id": "E5",
+          "section": "E",
+          "title": "Every indexable page reaches the sitemap and every family llms.txt",
+          "status": "n/a",
+          "evidence": "0/0 families linked from llms.txt; no indexable unlisted pages among 1 probed links",
+          "data": {
+            "missingFromSitemap": []
+          }
+        },
+        {
+          "id": "F1",
+          "section": "F",
+          "title": "Every page declares <html lang>",
+          "status": "pass",
+          "evidence": "lang set on all 1 (en)"
+        },
+        {
+          "id": "F2",
+          "section": "F",
+          "title": "hreflang sets carry x-default and a self entry",
+          "status": "n/a",
+          "evidence": "no hreflang on sampled pages (single-language site)"
+        },
+        {
+          "id": "G1",
+          "section": "G",
+          "title": "Homepage links every page family",
+          "status": "n/a",
+          "evidence": "0/0 families linked from the homepage"
+        },
+        {
+          "id": "G2",
+          "section": "G",
+          "title": "Family pages link their hub and a sibling",
+          "status": "n/a",
+          "evidence": "0/0 sampled family pages link their hub and a sibling"
+        },
+        {
+          "id": "H3",
+          "section": "H",
+          "title": "Author pages",
+          "status": "manual",
+          "evidence": "no /authors page; check bylines on articles"
+        },
+        {
+          "id": "H4",
+          "section": "H",
+          "title": "Trust pages (about, methodology, editorial policy)",
+          "status": "manual",
+          "evidence": "/about no, /methodology no, /editorial-policy no"
+        },
+        {
+          "id": "I2",
+          "section": "I",
+          "title": "Immutable caching on hashed assets, security headers",
+          "status": "pass",
+          "evidence": "28ck_brflb6e1.css: cache-control \"public, max-age=31536000, immutable\"; security headers: strict-transport-security, x-content-type-options, referrer-policy"
+        },
+        {
+          "id": "J1",
+          "section": "J",
+          "title": "Smart App Banner when the app is live",
+          "status": "fail",
+          "evidence": "App Store links present but no Smart App Banner"
+        },
+        {
+          "id": "J2",
+          "section": "J",
+          "title": "Banner hands the app the page URL with a campaign tag",
+          "status": "n/a",
+          "evidence": "no banner"
+        },
+        {
+          "id": "J4",
+          "section": "J",
+          "title": "App Store links carry page-level ct tokens",
+          "status": "pass",
+          "evidence": "8/8 App Store links carry ct (2 distinct)"
+        },
+        {
+          "id": "J6",
+          "section": "J",
+          "title": "AASA served as JSON",
+          "status": "fail",
+          "evidence": "AASA 404"
+        },
+        {
+          "id": "K1",
+          "section": "K",
+          "title": "GA4 at the edge with a Consent Mode default",
+          "status": "fail",
+          "evidence": "no GA4 tag in the delivered HTML"
+        },
+        {
+          "id": "L1",
+          "section": "L",
+          "title": "Prebuild SEO gates",
+          "status": "manual",
+          "evidence": "no prebuild scripts"
+        },
+        {
+          "id": "M1",
+          "section": "M",
+          "title": "Growth plan in docs/seo",
+          "status": "fail",
+          "evidence": "no docs/seo/growth-plan*.md"
+        },
+        {
+          "id": "M2",
+          "section": "M",
+          "title": "Page plans in docs/seo/page-plans",
+          "status": "fail",
+          "evidence": "0 page plan(s)"
+        },
+        {
+          "id": "M4",
+          "section": "M",
+          "title": "Dated audits with history.md",
+          "status": "partial",
+          "evidence": "1 dated audit(s), latest 2026-10-28"
+        }
+      ],
+      "families": [],
+      "pages": [
+        {
+          "url": "https://open-assets-web-production.ian-b42.workers.dev/",
+          "family": "(home)",
+          "status": 200,
+          "finalUrl": "https://open-assets-web-production.ian-b42.workers.dev/",
+          "lang": "en",
+          "title": "Open Assets: App Store screenshots, app icons and OG images as code",
+          "titleLength": 67,
+          "description": "Open source App Store screenshot and app icon generator. Design marketing assets in HTML and CSS, preview them live, and render every size with one command.",
+          "descriptionLength": 156,
+          "keywords": false,
+          "canonical": "https://open-assets.dev/",
+          "robots": "index, follow",
+          "hreflangs": [],
+          "ogTitle": "Open Assets: App Store screenshots, app icons and OG images as code",
+          "ogImage": "https://open-assets.dev/opengraph-image.png?opengraph-image.3rkegv6lty-im.png",
+          "twitterCard": "summary_large_image",
+          "banner": null,
+          "ld": {
+            "blocks": 1,
+            "errors": [],
+            "types": [
+              "Answer",
+              "FAQPage",
+              "Offer",
+              "Organization",
+              "Question",
+              "SoftwareApplication",
+              "WebSite"
+            ]
+          },
+          "unnamedCrumbs": [],
+          "faqQuestions": 6,
+          "faqVisible": 3,
+          "articles": [],
+          "appStore": [
+            {
+              "ct": "oa_h_showcase",
+              "pt": "128415653"
+            },
+            {
+              "ct": "oa_h_showcase",
+              "pt": "128415653"
+            },
+            {
+              "ct": "oa_h_showcase",
+              "pt": "128415653"
+            },
+            {
+              "ct": "oa_h_showcase",
+              "pt": "128415653"
+            },
+            {
+              "ct": "oa_h_showcase",
+              "pt": "128415653"
+            },
+            {
+              "ct": "oa_h_dev_apps",
+              "pt": "128415653"
+            },
+            {
+              "ct": "oa_h_dev_apps",
+              "pt": "128415653"
+            },
+            {
+              "ct": "oa_h_dev_apps",
+              "pt": "128415653"
+            }
+          ],
+          "ga": null,
+          "consentDefault": false,
+          "hashedAsset": "/_next/static/chunks/28ck_brflb6e1.css",
+          "hub": false,
+          "internalLinks": 2
+        }
+      ],
+      "siteFiles": {
+        "robots": {
+          "status": 200,
+          "type": "text/plain",
+          "groups": 26,
+          "sitemaps": [
+            "https://open-assets.dev/sitemap.xml"
+          ]
+        },
+        "sitemaps": [
+          {
+            "url": "https://open-assets.dev/sitemap.xml",
+            "status": 0,
+            "type": "",
+            "error": "ENOTFOUND"
+          },
+          {
+            "url": "https://open-assets-web-production.ian-b42.workers.dev/sitemap.xml",
+            "status": 200,
+            "type": "application/xml"
+          }
+        ],
+        "llms": {
+          "status": 200,
+          "type": "text/plain",
+          "bytes": 983
+        },
+        "llmsFull": {
+          "status": 200,
+          "type": "text/plain",
+          "bytes": 4955
+        },
+        "aasa": {
+          "status": 404,
+          "type": "text/html",
+          "location": null
+        },
+        "www": {
+          "status": 0,
+          "location": null,
+          "error": "ERR_SSL_SSL/TLS_ALERT_HANDSHAKE_FAILURE"
+        }
+      },
+      "notes": []
+    }
+  },
+  "pagespeed": {
+    "before": {
+      "url": "https://open-assets-web-production.ian-b42.workers.dev/",
+      "strategy": "mobile",
+      "score": 91,
+      "lcp": 3439.2290000000003,
+      "tbt": 13.5,
+      "cls": 0,
+      "fcp": 1102.0175,
+      "ttfb": 97,
+      "si": 1102.0175,
+      "verdicts": {
+        "lcp": "needs-work",
+        "tbt": "good",
+        "cls": "good"
+      },
+      "lcpElement": null,
+      "opportunities": [
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "savingsMs": 450
+        }
+      ],
+      "failedDiagnostics": [
+        "Image elements do not have explicit `width` and `height`"
+      ]
+    },
+    "after": {
+      "url": "https://open-assets-web-production.ian-b42.workers.dev/",
+      "strategy": "mobile",
+      "score": 100,
+      "lcp": 1094.818,
+      "tbt": 26.5,
+      "cls": 0,
+      "fcp": 1094.818,
+      "ttfb": 199,
+      "si": 1139.776,
+      "verdicts": {
+        "lcp": "good",
+        "tbt": "good",
+        "cls": "good"
+      },
+      "lcpElement": null,
+      "opportunities": [],
+      "failedDiagnostics": []
+    },
+    "note": "mobile, median of 3, local Lighthouse 13 against the deployed workers.dev origin. The after run predates the final heading letter-spacing tweak (CSS-only, no new requests)."
+  },
+  "notes": [
+    "Re-runs of seo-standard.mjs and lighthouse.mjs against the live deploy; layers 1, 2, 2b had no coverage to re-check."
+  ]
+}

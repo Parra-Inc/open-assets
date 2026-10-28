@@ -1,0 +1,1 @@
+Open Assets: App Store screenshots, icons and OG images rendered from HTML templates

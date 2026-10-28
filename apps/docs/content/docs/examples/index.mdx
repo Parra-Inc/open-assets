@@ -1,0 +1,32 @@
+---
+title: Examples
+description: Six real Open Assets projects from shipped apps, with App Store screenshots, icons, Product Hunt galleries and social headers you can clone, run and copy from.
+---
+
+Every example is a real asset project from a shipped app, in the [`examples/`](https://github.com/Parra-Inc/open-assets/tree/main/examples) folder of the repo. Each has an `assets.json`, its templates, its `public/` images and its rendered `exports/`.
+
+<ExamplesGallery />
+
+## What each one demonstrates
+
+| Example | Highlights |
+| --- | --- |
+| [Skimmer](/examples/skimmer) | Compiled Tailwind v4 theme, 4 locales with per-locale device captures, full-bleed photo backgrounds, `outFile` per locale |
+| [Tax Days](/examples/tax-days) | Separate App Store and Play Store collections sharing one `localizations.json` with 38 locales, Android tablet sizes |
+| [Only Recipes](/examples/only-recipes) | iOS and Android collections, Tailwind from the CDN, the oversized headline and highlighted keyword patterns |
+| [Thoughtful](/examples/thoughtful) | A warm brand system in a Tailwind theme, decorative flourishes, an SVG icon wrapped in HTML |
+| [Cat IQ Test](/examples/cat-iq-test) | Screenshots, a Product Hunt gallery, an icon and an SVG logo with `copy-source` in one project |
+| [No Context Bot](/examples/no-context) | Non-App Store assets: Product Hunt gallery, Slack Marketplace images and an X header |
+
+## Running any example
+
+```bash
+git clone https://github.com/Parra-Inc/open-assets.git
+cd open-assets/examples/skimmer
+```
+
+Skimmer, Tax Days and Thoughtful have a `package.json`: run `npm install`, then `npm run dev` or `npm run render`. The other three load Tailwind from a CDN and have no `package.json`, so run the CLI directly with `npx -p @open-assets/open-assets open-assets dev`. Each example page has the exact commands.
+
+<Callout type="info">
+The examples commit their `exports/` and (except Cat IQ Test) `assets.lock`, so a plain `render` skips everything. Add `--force` to see a full render.
+</Callout>

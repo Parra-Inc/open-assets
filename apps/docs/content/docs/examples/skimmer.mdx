@@ -1,0 +1,36 @@
+---
+title: Skimmer
+description: "The Skimmer pool care example: eight localized App Store screenshots in four languages with Tailwind v4, photo backgrounds and per-locale device captures."
+---
+
+[Skimmer](https://apps.apple.com/app/id6775022955?pt=128415653&ct=oa_docs_examples&mt=8) is a pool and hot tub maintenance app. Its asset project is the most complete example of localized screenshots.
+
+<ExampleProject slug="skimmer" />
+
+## Techniques
+
+- **Compiled Tailwind v4.** `src/styles.css` imports Tailwind and defines a brand palette in an `@theme` block (`--color-sk-navy`, `--color-sk-sea`, `--color-sk-coral` and so on). Templates link the compiled `../../dist/styles.css`, so renders never touch the network.
+- **A shared stylesheet for the set.** `assets/screenshots/_shared.css` holds the frame, device and headline classes that all eight screenshots use. Because templates reference it with a relative `href`, changes to it count toward each template's checksum in `assets.lock`.
+- **Every string localized.** Headlines are `{{hero_line1}}`, `{{hero_accent}}` and so on, resolved from `localizations.json`. The collection renders `en`, `ar`, `de` and `ja`, even though the file holds more locales.
+- **Per-locale device captures.** The phone image carries `data-locale-img="01_pools_list"`, and a small `MutationObserver` swaps its `src` to `public/screenshots/<lang>/...` when Open Assets sets `lang` on the page. Arabic screenshots show the Arabic app.
+- **Photo backgrounds.** Full-bleed photos from `public/screenshots-bg/` sit under a gradient scrim so white headlines stay readable.
+- **outFile per locale.** Each size writes to `exports/screenshots/{locale}/iphone-6.9/{template}.png`, a layout ready for upload tools.
+
+## Run it
+
+```bash
+cd examples/skimmer
+npm install
+npm run dev      # Tailwind watch + dev server
+npm run render   # build CSS, then render
+```
+
+`npm run render` runs `build:css` first, so the compiled CSS is always current.
+
+## What to copy
+
+- The `package.json` scripts: `dev` with `concurrently`, and `render` that builds CSS before rendering.
+- The `data-locale-img` script, if your screenshots embed real app captures per language.
+- The `_shared.css` split: one file for the system, one HTML file per screenshot.
+
+See [Localization](/localization) and [RTL](/localization/rtl) for the underlying features.

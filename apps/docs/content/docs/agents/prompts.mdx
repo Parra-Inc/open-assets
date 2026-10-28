@@ -1,0 +1,113 @@
+---
+title: Prompts
+description: Prompts that work well with Open Assets in an AI agent, from a full localized screenshot set to fixing one layout, plus how to review what the agent changed.
+---
+
+These prompts assume the agent has the Open Assets skill (see [Claude Code](/agents/claude-code)) or has read the docs (see [Other agents](/agents/other)). Each one names the files, sizes and constraints, which is what gets good results.
+
+## A full localized screenshot set
+
+Start from real app captures. Put them in `public/screenshots/<locale>/` first, then:
+
+```text
+Design 8 App Store screenshots for this app with open-assets.
+- Read docs/marketing.md for the audience and the main benefits.
+- Use the app captures in public/screenshots/en/ inside a phone frame.
+- Headlines: 3 to 6 words, lead with the benefit, highlight one keyword.
+- Screenshot 1 is the hero, screenshot 8 is reviews plus a CTA.
+- Put every visible string in localizations.json and use {{key}} placeholders.
+- Locales: en, de, ja, ar. Swap the device capture per locale.
+- Export iPhone 6.9" and 6.7", then render and show me the English set.
+```
+
+The locale swap refers to the pattern in the [Skimmer](/examples/skimmer) and [Tax Days](/examples/tax-days) examples: a `data-locale-img` attribute and a small script that reacts to the `lang` attribute Open Assets sets on the page.
+
+## An app icon from a brand color
+
+```text
+Add an app icon collection with open-assets: 1024x1024 source, exports at 1024
+and 512, and an xcode output to ios/MyApp/Assets.xcassets/AppIcon.appiconset.
+Brand color #0E3A57 with a lighter gradient. Draw a simple white glyph of a
+water drop, centered, no text. Render it.
+```
+
+See [Xcode app icon](/guides/xcode-app-icon) for what the `xcode` output writes.
+
+## OG cards for every page
+
+```text
+Create an og collection (1200x630) with one template per page of the marketing
+site: home, pricing, blog, docs. Same layout for all: logo top left, page title
+large, a one-line subtitle. Write each export with outFile into
+web/public/og/{template}.png so the site can serve them directly.
+```
+
+`outFile` and the `{template}` and `{locale}` tokens are covered in [Write renders anywhere](/guides/out-file).
+
+## Fix a layout
+
+Be specific about the file and what is wrong:
+
+```text
+In assets/screenshots/03-calendar.html the headline wraps to three lines in
+German and pushes the phone down. Keep it to two lines in every locale: reduce
+the font size only for long strings, do not change the English layout. Render
+just this template for de and en to check.
+```
+
+A good agent will run something like `open-assets render --template 03-calendar --locale de` instead of re-rendering everything.
+
+## Add a locale
+
+```text
+Add French (fr) to the screenshots collection: translate every key in
+localizations.json, add "fr" to the collection's locales, and add the French
+app captures from public/screenshots/fr/. Render only fr.
+```
+
+## Reviewing agent output
+
+Agents can produce something that renders but looks wrong. Check three things.
+
+<Steps>
+<Step>
+
+### Look at it in the dev server
+
+```npm
+npx open-assets dev
+```
+
+The dev server shows every collection as a tab, with a locale picker for localized collections. Click through every template and locale. Long translations and RTL locales are where layouts break.
+
+</Step>
+<Step>
+
+### Read the template diff
+
+Templates are plain HTML, so `git diff` is readable:
+
+```bash
+git diff -- assets.json localizations.json assets/
+```
+
+Watch for hardcoded text that should be a `{{key}}` placeholder, absolute paths that only work on the agent's machine, and new remote resources (fonts or CDN scripts) that make renders depend on the network.
+
+</Step>
+<Step>
+
+### Render and check the files
+
+```npm
+npx open-assets validate
+npx open-assets render
+```
+
+`validate` checks that every template file exists and every requested locale is defined. Then open the PNGs in `exports/` (or wherever `outFile` points). If you commit `exports/`, GitHub shows image diffs in the pull request.
+
+</Step>
+</Steps>
+
+<Callout type="warn">
+`assets.lock` only tracks the template file and the files it references directly. If the agent changed only `localizations.json`, a plain `render` may skip everything. Run `open-assets render --force` (scoped with `--collection` if you like) after string-only changes. See [Lockfile](/concepts/lockfile).
+</Callout>

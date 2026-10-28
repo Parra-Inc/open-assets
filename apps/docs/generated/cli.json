@@ -1,0 +1,315 @@
+[
+  {
+    "command": "dev",
+    "usage": "open-assets dev [options] [dir]",
+    "description": "Start the dev server with live preview and export UI",
+    "arguments": [
+      {
+        "name": "dir",
+        "description": "Project directory containing assets.json",
+        "env": null,
+        "default": "."
+      }
+    ],
+    "options": [
+      {
+        "flags": "-p, --port <port>",
+        "description": "Port to listen on",
+        "env": "OPEN_ASSETS_PORT",
+        "default": "3200"
+      },
+      {
+        "flags": "-H, --host <host>",
+        "description": "Host to bind to",
+        "env": "OPEN_ASSETS_HOST",
+        "default": "localhost"
+      },
+      {
+        "flags": "--no-open",
+        "description": "Don't auto-open the browser",
+        "env": "OPEN_ASSETS_NO_OPEN",
+        "default": null
+      },
+      {
+        "flags": "-q, --quiet",
+        "description": "Suppress server logs",
+        "env": "OPEN_ASSETS_QUIET",
+        "default": "false"
+      },
+      {
+        "flags": "--ci",
+        "description": "CI mode: no browser, quiet logging",
+        "env": "CI",
+        "default": "false"
+      },
+      {
+        "flags": "--config <path>",
+        "description": "Path to config file",
+        "env": "OPEN_ASSETS_CONFIG",
+        "default": "assets.json"
+      },
+      {
+        "flags": "--static-dir <dirs...>",
+        "description": "Additional static directories to serve",
+        "env": null,
+        "default": null
+      },
+      {
+        "flags": "--render-timeout <ms>",
+        "description": "Puppeteer render timeout in ms",
+        "env": "OPEN_ASSETS_RENDER_TIMEOUT",
+        "default": "30000"
+      }
+    ]
+  },
+  {
+    "command": "render",
+    "usage": "open-assets render [options] [dir]",
+    "description": "Render assets headlessly via CLI",
+    "arguments": [
+      {
+        "name": "dir",
+        "description": "Project directory containing assets.json",
+        "env": null,
+        "default": "."
+      }
+    ],
+    "options": [
+      {
+        "flags": "--collection <id>",
+        "description": "Render only the collection with this ID",
+        "env": null,
+        "default": null
+      },
+      {
+        "flags": "--tag <tag>",
+        "description": "Render only collections with this tag",
+        "env": null,
+        "default": null
+      },
+      {
+        "flags": "--template <name>",
+        "description": "Render only the template with this name",
+        "env": null,
+        "default": null
+      },
+      {
+        "flags": "--size <name>",
+        "description": "Use a named export size from config",
+        "env": null,
+        "default": null
+      },
+      {
+        "flags": "--locale <code>",
+        "description": "Render only this locale (e.g. en, ar, ja)",
+        "env": null,
+        "default": null
+      },
+      {
+        "flags": "--width <px>",
+        "description": "Output width in pixels (custom size)",
+        "env": null,
+        "default": null
+      },
+      {
+        "flags": "--height <px>",
+        "description": "Output height in pixels (custom size)",
+        "env": null,
+        "default": null
+      },
+      {
+        "flags": "-f, --force",
+        "description": "Re-render all assets, ignoring the incremental cache",
+        "env": null,
+        "default": null
+      },
+      {
+        "flags": "-o, --output <dir>",
+        "description": "Output directory",
+        "env": "OPEN_ASSETS_OUTPUT",
+        "default": "./exports"
+      },
+      {
+        "flags": "--config <path>",
+        "description": "Path to config file",
+        "env": "OPEN_ASSETS_CONFIG",
+        "default": "assets.json"
+      },
+      {
+        "flags": "--render-timeout <ms>",
+        "description": "Puppeteer render timeout in ms",
+        "env": "OPEN_ASSETS_RENDER_TIMEOUT",
+        "default": "30000"
+      },
+      {
+        "flags": "--json",
+        "description": "Output results as JSON (for CI/scripting)",
+        "env": null,
+        "default": null
+      },
+      {
+        "flags": "-q, --quiet",
+        "description": "Suppress progress logs",
+        "env": "OPEN_ASSETS_QUIET",
+        "default": "false"
+      },
+      {
+        "flags": null,
+        "env": "OPEN_ASSETS_CONCURRENCY",
+        "default": "auto",
+        "description": "Templates rendered at once (see Concurrency)"
+      }
+    ]
+  },
+  {
+    "command": "list",
+    "usage": "open-assets list [options] [dir]",
+    "description": "List all collections and templates defined in the config",
+    "arguments": [
+      {
+        "name": "dir",
+        "description": "Project directory containing assets.json",
+        "env": null,
+        "default": "."
+      }
+    ],
+    "options": [
+      {
+        "flags": "--config <path>",
+        "description": "Path to config file",
+        "env": "OPEN_ASSETS_CONFIG",
+        "default": "assets.json"
+      },
+      {
+        "flags": "--tag <tag>",
+        "description": "List only collections with this tag",
+        "env": null,
+        "default": null
+      },
+      {
+        "flags": "--json",
+        "description": "Output as JSON",
+        "env": null,
+        "default": null
+      }
+    ]
+  },
+  {
+    "command": "validate",
+    "usage": "open-assets validate [options] [dir]",
+    "description": "Validate the assets.json and check that all referenced files exist",
+    "arguments": [
+      {
+        "name": "dir",
+        "description": "Project directory containing assets.json",
+        "env": null,
+        "default": "."
+      }
+    ],
+    "options": [
+      {
+        "flags": "--config <path>",
+        "description": "Path to config file",
+        "env": "OPEN_ASSETS_CONFIG",
+        "default": "assets.json"
+      },
+      {
+        "flags": "--fix",
+        "description": "Interactively fix issues (e.g. remove missing templates)",
+        "env": null,
+        "default": null
+      }
+    ]
+  },
+  {
+    "command": "init",
+    "usage": "open-assets init [options] [dir]",
+    "description": "Scaffold a new assets.json and example assets",
+    "arguments": [
+      {
+        "name": "dir",
+        "description": "Target directory",
+        "env": null,
+        "default": "."
+      }
+    ],
+    "options": []
+  },
+  {
+    "command": "add collection",
+    "usage": "open-assets add collection [options] [dir]",
+    "description": "Add a new asset collection (choose from presets or custom)",
+    "arguments": [
+      {
+        "name": "dir",
+        "description": "Project directory containing assets.json",
+        "env": null,
+        "default": "."
+      }
+    ],
+    "options": [
+      {
+        "flags": "--config <path>",
+        "description": "Path to config file",
+        "env": "OPEN_ASSETS_CONFIG",
+        "default": "assets.json"
+      }
+    ]
+  },
+  {
+    "command": "add template",
+    "usage": "open-assets add template [options] [dir]",
+    "description": "Add a new template to an existing collection (HTML or SVG)",
+    "arguments": [
+      {
+        "name": "dir",
+        "description": "Project directory containing assets.json",
+        "env": null,
+        "default": "."
+      }
+    ],
+    "options": [
+      {
+        "flags": "--config <path>",
+        "description": "Path to config file",
+        "env": "OPEN_ASSETS_CONFIG",
+        "default": "assets.json"
+      }
+    ]
+  },
+  {
+    "command": "add size",
+    "usage": "open-assets add size [options] [dir]",
+    "description": "Add an export size to a collection (choose from presets or custom)",
+    "arguments": [
+      {
+        "name": "dir",
+        "description": "Project directory containing assets.json",
+        "env": null,
+        "default": "."
+      }
+    ],
+    "options": [
+      {
+        "flags": "--config <path>",
+        "description": "Path to config file",
+        "env": "OPEN_ASSETS_CONFIG",
+        "default": "assets.json"
+      }
+    ]
+  },
+  {
+    "command": "skills",
+    "usage": "open-assets skills [options] [dir]",
+    "description": "Install Claude Code skills for open-assets into the current project",
+    "arguments": [
+      {
+        "name": "dir",
+        "description": "Target project directory",
+        "env": null,
+        "default": "."
+      }
+    ],
+    "options": []
+  }
+]

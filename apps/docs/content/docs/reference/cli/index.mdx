@@ -1,0 +1,71 @@
+---
+title: CLI reference
+description: Every open-assets command with its arguments, global flags, exit codes and how the optional dir argument picks the project folder that holds assets.json.
+---
+
+The `open-assets` binary ships in the `@open-assets/open-assets` package. It needs Node 18 or newer.
+
+```npm
+npm install --save-dev @open-assets/open-assets
+```
+
+Run it with `npx open-assets <command>`, or through a package script.
+
+## Commands
+
+<CliCommandList />
+
+`add` is a parent command with three subcommands: `add collection`, `add template` and `add size`. All three are on [/reference/cli/add](/reference/cli/add).
+
+## Global flags
+
+| Flag | Effect |
+| --- | --- |
+| `-V, --version` | Print the installed version (read from the package's `package.json`) and exit. |
+| `-h, --help` | Print help and exit. Works on every command: `open-assets render --help`, `open-assets add size --help`. |
+
+There are no other global flags. Every other option belongs to a single command.
+
+## The `[dir]` argument
+
+Every command takes an optional positional `[dir]`. It defaults to `.`, the current working directory.
+
+- The CLI resolves `dir` to an absolute path and treats it as the project root.
+- The config file is looked up inside it: `dir/assets.json`, or `dir/<--config value>`.
+- Template `src` paths, `localizations`, `publicDir`, `outFile` and `xcode` paths in the config resolve against the project root.
+- `init` and `skills` treat `dir` as the folder to write into.
+
+```bash
+open-assets validate ./marketing
+open-assets render ./marketing --collection screenshots
+```
+
+<Callout type="warn">
+Two paths do **not** resolve against `[dir]`: `render --output` and `dev --static-dir`. Both resolve against the directory you run the command from. `open-assets render ./marketing` writes to `./exports`, not `./marketing/exports`. Pass `-o ./marketing/exports`, or `cd` into the project first. See [/reference/cli/render](/reference/cli/render).
+</Callout>
+
+## Flag and environment precedence
+
+Several options read an environment variable when the flag is absent. The order is: flag, then environment variable, then the built-in default. The full list is on [/reference/env](/reference/env).
+
+## Exit codes
+
+| Code | When |
+| --- | --- |
+| `0` | The command finished. This includes a `render` that skipped every collection because a `--size` or `--locale` did not match (it prints a warning, not an error). |
+| `1` | The config file is missing or is not valid JSON; `render --collection` or `--tag` matched nothing; `list --tag` matched nothing; `validate` found at least one error; `add` hit a duplicate id or name; `init` found an existing `assets.json`; `dev` could not find a free port after 10 retries. |
+| non-zero | An uncaught exception, such as a template that fails to load within the render timeout or a localizations file that is missing at render time. Node prints the stack trace. |
+
+Each command page lists its own exit behavior.
+
+## Command pages
+
+<Cards>
+  <Card title="dev" href="/reference/cli/dev" description="Preview server with live reload and export menu" />
+  <Card title="render" href="/reference/cli/render" description="Headless export of every size, locale and output" />
+  <Card title="list" href="/reference/cli/list" description="Print collections, templates and sizes" />
+  <Card title="validate" href="/reference/cli/validate" description="Check the config and that template files exist" />
+  <Card title="init" href="/reference/cli/init" description="Scaffold assets.json and starter templates" />
+  <Card title="add" href="/reference/cli/add" description="Add a collection, template or export size" />
+  <Card title="skills" href="/reference/cli/skills" description="Copy the Claude Code skill into a project" />
+</Cards>

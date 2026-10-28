@@ -1,0 +1,69 @@
+---
+title: Templates
+description: Templates are HTML or SVG files rendered by headless Chromium. Learn to author them at the source size, reference assets, name them and filter renders.
+---
+
+A **template** is one source file. It renders to one image per export size in its collection.
+
+```json
+{ "src": "assets/screenshots/01-hero.html", "name": "01-hero", "label": "Hero" }
+```
+
+| Field | Purpose |
+| --- | --- |
+| `src` | Path to an `.html` or `.svg` file, relative to the project directory. |
+| `name` | Output filename (without extension) and the value `--template` matches. |
+| `label` | Display name in the dev server. `--template` also matches it. |
+
+## HTML templates
+
+Any HTML page works. Chromium loads it, waits for the `load` event, then waits for web fonts (`document.fonts.ready`) and image decoding before taking the screenshot. Design it at exactly the collection's `sourceSize`:
+
+```html title="assets/screenshots/01-hero.html"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="../../dist/styles.css" />
+  <style>
+    html, body { margin: 0; width: 440px; height: 956px; overflow: hidden; }
+  </style>
+</head>
+<body>
+  <h1>Plan your week in seconds</h1>
+  <img src="../../public/screenshots/01-home.png" />
+</body>
+</html>
+```
+
+Rules of thumb:
+
+- **Fix the body to the source size** and hide overflow. The render clips to the export size starting at the top-left corner.
+- **Reference files with relative paths** (`../../public/...`). `render` opens templates from disk with a `file://` URL, so root-relative paths like `/logo.png` do not resolve there. See [The public directory](/concepts/public-dir).
+- **Animations are frozen.** Before each capture, every animation is paused at time 0, so CSS animations render their first frame.
+- **Scripts run.** Inline scripts execute before the capture. The Skimmer example uses a `MutationObserver` to swap device screenshots per locale.
+- **Remote URLs work** (Google Fonts, CDNs) but slow renders and are not tracked by the lockfile.
+
+## SVG templates
+
+An `.svg` file renders like an image at the source size and scales to each export size. When an export size equals the source size exactly, the `.svg` is also copied next to the PNG (same name, `.svg` extension). For explicit SVG copies, use the [`copy-source` output](/concepts/outputs#copy-source).
+
+In the dev server, SVG templates show on a checkerboard so transparency is visible.
+
+## Naming
+
+`name` becomes the filename, so keep it filesystem safe and sortable. Number screenshots (`01-hero`, `02-search`) so the store order matches the file order. The lockfile key is `<collection>/<name>` (with the locale inserted when localized), so renaming a template re-renders it.
+
+## Rendering one template
+
+```bash
+npx open-assets render --template 01-hero
+```
+
+`--template` matches `name` or `label`. The output layout is decided by the collection's full template list, so a filtered render writes to the same path as a full run.
+
+## Related
+
+- [Sizing](/concepts/sizing)
+- [Template API reference](/reference/template-api)
+- [Localized strings](/localization/strings)

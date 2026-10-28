@@ -1,0 +1,82 @@
+---
+title: The skill file, annotated
+description: A section by section walkthrough of the Open Assets SKILL.md, so you know exactly which commands, rules and design defaults an AI agent follows in your repo.
+---
+
+The skill lives at `skills/open-assets/SKILL.md` in the repo and is copied as-is by every install method. It is about 700 lines of Markdown. This page summarizes each section so you know what the agent will do, and where its defaults may not match your project.
+
+## Frontmatter
+
+```yaml
+name: open-assets
+description: Generate and manage app marketing assets (screenshots, icons, logos) using HTML/Tailwind with open-assets
+user-invocable: true
+```
+
+`user-invocable: true` means you can call it as `/open-assets`. The description is what Claude matches against to load it on its own.
+
+## Running
+
+Lists the commands the agent uses: `open-assets dev`, the Tailwind watch plus dev server pair (run with `concurrently`), and targeted `render` calls. It tells the agent that renders are incremental through `assets.lock`.
+
+## Concepts and assets.json
+
+Defines collection, template, export size, source size and output, then documents the `assets.json` schema: collection fields, the output types (`xcode`, `copy-source`), and example collections for screenshots, icons and SVG logos. This is how the agent knows to put sizes and outputs in one `export` array.
+
+## CLI reference
+
+Every command and every `render` flag, plus how flags compose (`--collection` with `--template` with `--size`). A subsection on performance tells the agent to scope renders while iterating:
+
+> Rule of thumb: plain `render` is the default; it only re-renders what changed.
+
+and to reserve `--force` for "changed shared CSS, changed images in `publicDir`, or a rare global rebuild". It also covers the interactive `add` commands and the output folder layout.
+
+## Creating screenshot HTML files
+
+Five rules for every template: body size equals `sourceSize`, `overflow: hidden`, link the compiled Tailwind CSS, put shared images in `publicDir`, and register the file in `assets.json` (or use `open-assets add template`).
+
+<Callout type="warn">
+Rule 4 says "All paths are relative to the project root". When rendering, Open Assets loads each template from disk, so relative paths resolve from the template's own folder. That is why the examples use `../../dist/styles.css` and `../../public/...`. If an agent writes root-relative paths that break in renders, point it at this.
+</Callout>
+
+## Collections, sizes and version control
+
+How to add a collection, a short table of common export sizes, and a version control policy stated in bold:
+
+> Commit `assets.lock` and `exports/` to the repository. DO NOT gitignore them.
+
+Only `dist/` (compiled Tailwind) is meant to be ignored. If your team prefers not to commit renders, tell the agent so.
+
+## Incremental builds
+
+Explains `assets.lock` and when to use `--force`. See [Lockfile](/concepts/lockfile) for the exact rules.
+
+## Localization
+
+The `localizations.json` format, wiring `localizations` and `locales` on a collection, `{{key}}` placeholders, `{{n:1234}}` number formatting, RTL handling, the output layout per locale, `--locale`, the fallback order, and the locale picker in the dev server. This matches [Localization](/localization).
+
+## File structure convention
+
+The recommended project layout: `assets.json`, `assets.lock`, `localizations.json`, `public/`, `assets/` for templates, `src/` for Tailwind input, `dist/` for compiled CSS, `exports/` for renders.
+
+## Screenshot design best practices
+
+The opinionated part. The agent follows these unless you say otherwise:
+
+- **Copy**: headlines of 3 to 6 words, benefit first, action verbs, the first screenshot as the elevator pitch, the last as a CTA with social proof, one highlighted keyword per headline.
+- **Hierarchy**: oversized headlines (44 to 86px at source size) on the first one or two screenshots.
+- **Layouts**: six named patterns (hero, dual-phone, orbital, feature showcase, review carousel, CTA) with HTML snippets, mixed across 6 to 10 screenshots.
+- **Typography**: Google Fonts pairings or the iOS system font stack.
+- **Resources**: Lucide, Heroicons, Simple Icons, SVG Repo, Unsplash and Pexels.
+
+<Callout type="info">
+Google Fonts and CDN images need network access during renders. If you render offline or in a locked-down CI, ask the agent to self-host fonts in `public/`. See [Fonts](/localization/fonts).
+</Callout>
+
+## Example prompts
+
+Three prompts the skill uses as models: a full screenshot set, a single-screenshot iteration, and adding Play Store sizes. More are on [Prompts](/agents/prompts).
+
+## Changing the skill
+
+If you installed with `npx open-assets skills`, the file is yours: edit `.claude/skills/open-assets/SKILL.md` to add house rules (brand colors, fonts, banned layouts). Re-running the command overwrites your edits, so keep house rules in a separate skill or in your `CLAUDE.md` instead.

@@ -1,0 +1,29 @@
+---
+title: Cat IQ Test
+description: "The Cat IQ Test example: App Store screenshots, a Product Hunt gallery at 1x and 2x, an app icon and an SVG logo exported with copy-source, all in one project."
+---
+
+[Cat IQ Test](https://apps.apple.com/us/app/cat-iq-test/id6759520249?pt=128415653&ct=oa_docs_examples&mt=8) is a playful quiz app. Its asset project covers a whole launch from one `assets.json`.
+
+<ExampleProject slug="cat-iq-test" />
+
+## Techniques
+
+- **Four collections, one project.** `screenshots` (six templates, four iPhone sizes), `product-hunt` (five gallery images at 1270x760 and 2540x1520), `icon` and `logo`.
+- **An SVG template.** The `logo` collection uses `public/logo.svg` directly as a template and renders it at 1024 and 512.
+- **copy-source.** The logo's `export` array includes `{ "name": "logo", "type": "copy-source", "format": "svg" }`, which copies the source SVG next to the PNGs. See [Outputs](/concepts/outputs).
+- **Tailwind from the CDN** with a dark purple theme and IQ-level colors defined inline in `tailwind.config`.
+- **No lockfile.** This example does not commit `assets.lock`, so the first render renders everything.
+
+## Run it
+
+```bash
+cd examples/cat-iq-test
+npx -p @open-assets/open-assets open-assets dev
+npx -p @open-assets/open-assets open-assets render
+```
+
+## What to copy
+
+- The Product Hunt collection with 1x and 2x exports. See [Launch kit](/guides/launch-kit).
+- The SVG logo collection with `copy-source`, when you need both PNG and SVG versions of a mark.

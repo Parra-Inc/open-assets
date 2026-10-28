@@ -1,0 +1,171 @@
+---
+title: open-assets render
+description: Render every template at every export size, with filters, locale folders, outFile targets, Xcode output, JSON results, concurrency and the incremental cache.
+---
+
+<CliUsage command="render" />
+
+`render` loads each template in headless Chromium, screenshots it at every export size, writes the files, runs the collection's output actions and updates `assets.lock`.
+
+## Examples
+
+```bash
+open-assets render                                   # everything
+open-assets render --force                           # ignore the cache
+open-assets render --collection screenshots
+open-assets render --tag ios
+open-assets render --collection screenshots --template 01-hero --size iphone-6.9
+open-assets render --collection screenshots --locale ja
+open-assets render --collection og --width 1600 --height 840
+open-assets render -o ./build/assets
+open-assets render --json --quiet > render.json
+```
+
+## Options
+
+<CliOptions command="render" />
+
+## Selecting what to render
+
+Filters compose. Each one narrows the previous result.
+
+| Filter | Matches | When nothing matches |
+| --- | --- | --- |
+| `--collection <id>` | collection `id` | `Error: No collections matched collection "<id>" in config`, exit 1 |
+| `--tag <tag>` | collections whose `tags` include it | `Error: No collections matched tag "<tag>" in config`, exit 1 (if `--collection` was also given, the message names the collection) |
+| `--template <name>` | template `name` **or** `label` | That collection renders nothing; no warning |
+| `--size <name>` | export entry `name` **or** `label` | `Warning: size "<name>" not found in collection "<id>", skipping`; the collection (and its outputs) is skipped, exit 0 |
+| `--locale <code>` | exact locale code | `Warning: locale "<code>" not found in collection "<id>", skipping`; collection skipped, exit 0 |
+| `--width` + `--height` | replaces all sizes with one size named `<w>x<h>` | needs both; with only one of them the flag is ignored and every size renders |
+
+`--width`/`--height` win over `--size`. Without either, every export entry that has no `type` renders.
+
+## Output layout
+
+Files go under `--output` (default `./exports`). The layout depends on how many templates the collection has (counted before `--template` filtering, so filtered runs land in the same paths) and whether it has localizations.
+
+| Collection | Path |
+| --- | --- |
+| several templates | `exports/{collection}/{size}/{template}.png` |
+| one template | `exports/{collection}/{size}.png` |
+| several templates, localized | `exports/{collection}/{locale}/{size}/{template}.png` |
+| one template, localized | `exports/{collection}/{locale}/{size}.png` |
+
+`{size}` is the export entry `name`. With `--width`/`--height` it is `<w>x<h>`.
+
+<Files>
+  <Folder name="exports" defaultOpen>
+    <Folder name="screenshots" defaultOpen>
+      <Folder name="iphone-6.9" defaultOpen>
+        <File name="01-hero.png" />
+        <File name="02-features.png" />
+      </Folder>
+    </Folder>
+    <Folder name="icon" defaultOpen>
+      <File name="1024.png" />
+      <File name="180.png" />
+    </Folder>
+  </Folder>
+</Files>
+
+An entry with `outFile` skips this layout and writes to that path instead, relative to the project. See [/reference/outputs](/reference/outputs).
+
+<Callout type="warn">
+`--output` resolves against your current working directory, not `[dir]`. `outFile` and `xcode` paths resolve against the project directory.
+</Callout>
+
+## Locales
+
+When a collection sets `localizations`, every template renders once per locale. The locale list is the collection's `locales` (in that order, dropping codes the file does not define) or every locale in the file, sorted. Each run logs `Locale: <code> (ltr|rtl)`. See [/localization](/localization).
+
+## Outputs
+
+After a collection's sizes render, its typed export entries run in order:
+
+- `xcode` renders the first template at source size into `AppIcon.png` and writes `Contents.json`. It runs on every render, cached or not.
+- `copy-source` copies matching source files into `exports/{collection}/`.
+
+Details on [/reference/outputs](/reference/outputs).
+
+## Incremental cache
+
+Before rendering, each (template, locale, size) is checked against `assets.lock` in the project directory. It is skipped when all of these hold:
+
+- the source checksum matches (for `.html` templates this includes local files the HTML references through relative `src`, `href` or `url()`);
+- the export checksum matches (width, height, `outFile` and locale);
+- the lock entry was recorded for the same output path;
+- the output file still exists.
+
+`--force` renders everything. The lockfile is written even when a render fails, so finished work is kept. See [/concepts/lockfile](/concepts/lockfile).
+
+<Callout type="info">
+Files loaded by absolute path, from a CDN, or by script are not in the checksum. When only those change (for example images captured by UI tests, or a Tailwind build), use `--force`.
+</Callout>
+
+## Concurrency
+
+Work is split into units of one (template, locale). A unit loads its page once and screenshots every size from that load. Units run in a small pool.
+
+The pool size is the smallest of: the number of units, CPU cores minus one, and 2. At least 1. Chromium serializes screenshot capture, so a second worker helps (it lays out a page while the first captures) and more workers mostly queue. `OPEN_ASSETS_CONCURRENCY` (a positive integer) overrides this, still capped at the number of units. Raise it only if your templates are slow to lay out compared with how long they take to capture, and measure.
+
+If a unit fails, no new units start, finished files are recorded in the lockfile, Chromium is closed and the error is thrown (non-zero exit with a stack trace). Logs are printed in a stable order regardless of which worker finished first.
+
+## Output format
+
+Default output, one block per unit:
+
+```text
+  Rendering 01-hero (4 sizes)...
+    → /abs/path/exports/screenshots/iphone-6.9/01-hero.png (1320x2868)
+  Skipping 02-features at 1320x2868 (unchanged)
+
+Done. 4 asset(s) rendered, 1 skipped (unchanged) in 3.5s.
+```
+
+`--quiet` hides all of it. The Xcode output always prints `Updated: <path>`, even with `--quiet`.
+
+### `--json`
+
+```json
+{
+  "ok": true,
+  "assets": [
+    {
+      "collection": "screenshots",
+      "template": "01-hero",
+      "path": "/abs/path/exports/screenshots/iphone-6.9/01-hero.png",
+      "width": 1320,
+      "height": 2868,
+      "size": 597117
+    },
+    { "collection": "icon", "type": "xcode", "path": "/abs/path/ios/AppIcon.appiconset/AppIcon.png" },
+    { "collection": "logo", "template": "logo", "type": "copy-svg", "path": "/abs/path/exports/logo/logo.svg" }
+  ],
+  "skipped": 1,
+  "elapsed": "3.5s"
+}
+```
+
+- Rendered images carry `collection`, `template`, `locale` (only when localized), absolute `path`, `width`, `height` and `size` in bytes.
+- `xcode` entries carry `collection`, `type: "xcode"` and `path`.
+- `copy-source` entries carry `collection`, `template`, `type: "copy-<format>"` and `path`.
+- `skipped` is the number of cached size variants. `elapsed` is a string in seconds.
+- Errors are not JSON: they go to stderr as `Error: ...` with exit 1.
+
+<Callout type="warn">
+`--json` does not silence progress lines. Add `--quiet` when you parse stdout. Even then the `xcode` output prints an `Updated:` line before the JSON.
+</Callout>
+
+## Exit codes
+
+| Code | When |
+| --- | --- |
+| 0 | Finished, including runs where a `--size` or `--locale` skipped collections |
+| 1 | Config missing or invalid JSON; `--collection`/`--tag` matched nothing |
+| non-zero | Uncaught error: template load timeout, missing localizations file, missing `sourceSize`, a collection with an `xcode` output but no templates |
+
+## Gotchas
+
+- The render timeout covers page navigation (`load` event). Waiting for fonts and image decoding afterwards has no separate timeout.
+- SVG templates rendered at exactly their source size also get a `.svg` copy next to the PNG.
+- In a multi-template collection, an `outFile` without `{template}` is overwritten by each template in turn. The same applies to `{locale}` in localized collections.

@@ -1,0 +1,35 @@
+{
+  "name": "@open-assets/docs",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev -p 3211",
+    "generate": "node ../../scripts/docs-sync.mjs",
+    "build": "node ../../scripts/docs-sync.mjs && node scripts/check-content.mjs && next build",
+    "preview": "pnpm build && wrangler dev",
+    "deploy": "pnpm build && wrangler deploy",
+    "typecheck": "next typegen && tsc --noEmit",
+    "check:content": "node scripts/check-content.mjs"
+  },
+  "dependencies": {
+    "fumadocs-core": "16.17.9",
+    "fumadocs-mdx": "15.4.10",
+    "fumadocs-ui": "npm:@fumadocs/base-ui@16.17.9",
+    "lucide-react": "^1.61.0",
+    "next": "16.4.2",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/mdx": "^2.0.14",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "postcss": "^8.5.31",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.9.0",
+    "wrangler": "4.151.3"
+  }
+}

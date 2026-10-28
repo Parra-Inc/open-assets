@@ -1,0 +1,45 @@
+---
+title: Export sizes
+description: Common export sizes for the App Store, Mac App Store, Google Play, Product Hunt and the web, with the size name to use in assets.json and notes for each store.
+---
+
+This table is generated from `lib/sizes.mjs`, the same list the README uses. Copy a row into a collection's `export` array as `{ "name", "label", "size": { "width", "height" } }`.
+
+<ExportSizes />
+
+The CLI does not look these names up: any `name` and size you write in `assets.json` works. `add size` offers a similar preset list ([/reference/cli/add](/reference/cli/add#add-size)).
+
+## App Store
+
+<ExportSizes platform="App Store" />
+
+- Pick a source size with the same aspect ratio as your largest export. Open Assets scales by the larger ratio and crops the other axis, so 440×956 fits the 6.9" and 6.7" sizes well.
+- iPad sizes have a different aspect ratio. Use a separate collection with an iPad source size if cropping shows.
+- `app-icon` (1024×1024) must be opaque. Paint the full square, or use the [xcode output](/reference/outputs#xcode).
+- Guides: [/guides/app-store-screenshots](/guides/app-store-screenshots), [/guides/app-store-connect](/guides/app-store-connect), [/guides/xcode-app-icon](/guides/xcode-app-icon).
+
+## Mac App Store
+
+<ExportSizes platform="Mac App Store" />
+
+16:10. Author at 1440×900 to scale by exactly 2.
+
+## Google Play
+
+<ExportSizes platform="Play Store" />
+
+- `feature-graphic` is 1024×500. `play-icon` is 512×512.
+- Phone screenshots: `phone` (9:16) or `phone-tall` (9:20). Match your source aspect to the one you use.
+- Guide: [/guides/google-play](/guides/google-play).
+
+## Product Hunt
+
+<ExportSizes platform="Product Hunt" />
+
+## Web
+
+<ExportSizes platform="Web" />
+
+- Send `og` and `twitter-card` straight into your site with `outFile`. See [/guides/og-images](/guides/og-images).
+- Small icons render best from a template designed near that size. See [/guides/favicons](/guides/favicons).
+- Favicons as `.ico` are not produced; export PNG.

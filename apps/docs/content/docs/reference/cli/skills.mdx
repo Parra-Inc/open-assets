@@ -1,0 +1,44 @@
+---
+title: open-assets skills
+description: Copy the open-assets Claude Code skill into a project's .claude/skills folder so Claude Code can design, preview and render your marketing assets for you.
+---
+
+<CliUsage command="skills" />
+
+`skills` copies the `skills/` folder bundled with the package into `[dir]/.claude/skills/`. Today that is one skill, `open-assets/SKILL.md`.
+
+- Creates `.claude/skills` if needed.
+- Overwrites files with the same name. Other skills in that folder are left alone.
+- Prints `Installed open-assets skills to <dir>/.claude/skills/open-assets`.
+
+## Examples
+
+```bash
+open-assets skills
+open-assets skills ../my-app
+```
+
+Commit `.claude/skills/open-assets` so everyone on the project gets it. Re-run after upgrading the package to pick up skill changes.
+
+## Options
+
+<CliOptions command="skills" />
+
+## Alternatives
+
+```bash
+npx skills add https://github.com/Parra-Inc/open-assets --skill open-assets
+```
+
+Or install it for every project through the Claude Code plugin marketplace:
+
+```text
+/plugin marketplace add Parra-Inc/open-assets
+/plugin install open-assets@open-assets
+```
+
+See [/agents/skill](/agents/skill) and [/agents/claude-code](/agents/claude-code).
+
+## Exit codes
+
+`0` on success. A copy error (for example no write permission) throws and exits non-zero.

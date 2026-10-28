@@ -1,0 +1,74 @@
+---
+title: Fonts for Localized Screenshots
+description: Make Chinese, Japanese, Korean, Arabic and Hebrew text render the same on every machine by bundling webfonts and choosing font stacks per language with :lang().
+---
+
+Open Assets renders with headless Chromium, so text uses whatever fonts Chromium can find: fonts the template loads, then fonts installed on the machine. That is why a screenshot can look right on your Mac and come out with boxes (tofu) or a different typeface in CI.
+
+## Why output differs between machines
+
+- macOS ships fonts for Chinese, Japanese, Korean, Arabic and Hebrew, plus Apple Color Emoji. A template that names no font for these scripts still looks fine locally.
+- A Linux CI runner often has only a few Latin fonts. Missing scripts fall back to whatever is installed, or to empty boxes.
+- System font names such as `-apple-system` and `SF Pro` only exist on Apple platforms.
+
+The fix is to ship the fonts with the template instead of relying on the system.
+
+## Bundle webfonts in your public directory
+
+Put the font files in `public/fonts/` and load them with `@font-face`, using a path relative to the stylesheet or template:
+
+```css title="assets/styles.css"
+@font-face {
+  font-family: "Noto Sans JP";
+  src: url("../public/fonts/NotoSansJP-Bold.woff2") format("woff2");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Noto Sans Arabic";
+  src: url("../public/fonts/NotoSansArabic-Bold.woff2") format("woff2");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Noto Sans Hebrew";
+  src: url("../public/fonts/NotoSansHebrew-Bold.woff2") format("woff2");
+  font-weight: 700;
+}
+```
+
+Before every capture, the renderer forces a layout and waits for `document.fonts.ready`, so fonts that the page uses finish loading before the screenshot. A font declared with `@font-face` but not used by any text is never downloaded, which is fine.
+
+Loading fonts from Google Fonts with a `<link>` also works when the machine has network access, but a local file is faster and does not break when offline. Paths are resolved from the file that references them, because renders load templates with `file://` URLs.
+
+## Pick a font per language with :lang()
+
+Open Assets sets `lang` on `<html>` to the locale being rendered, so `:lang()` selectors switch font stacks:
+
+```css
+body {
+  font-family: "Inter", system-ui, sans-serif;
+}
+:lang(ja) body { font-family: "Inter", "Noto Sans JP", sans-serif; }
+:lang(zh-Hans) body { font-family: "Inter", "Noto Sans SC", sans-serif; }
+:lang(zh-Hant) body { font-family: "Inter", "Noto Sans TC", sans-serif; }
+:lang(ko) body { font-family: "Inter", "Noto Sans KR", sans-serif; }
+:lang(ar) body { font-family: "Noto Sans Arabic", sans-serif; }
+:lang(he) body { font-family: "Noto Sans Hebrew", sans-serif; }
+```
+
+The `lang` attribute also matters for Chinese, Japanese and Korean without any CSS: Han characters are shared across the three, and Chromium picks the right glyph shapes for the declared language when the font supports it.
+
+## Practical advice
+
+- **Headlines grow.** German and Finnish strings run long, and CJK headlines often look heavier at the same size. Leave room, and check every locale's output, not just English.
+- **Line height.** Arabic and Thai need more vertical space than Latin. If ascenders get clipped, raise `line-height` under `:lang()`.
+- **Do not fake bold.** Load the weight you use. A missing bold weight is synthesized and looks smeared at store sizes.
+- **Emoji.** Emoji also come from system fonts. Install an emoji font on CI (for example the Noto Color Emoji package) or replace emoji with images.
+- **File size.** Full CJK fonts are several megabytes. Subset them to the characters in your strings if repository size matters.
+- **Licensing.** Check the license before committing a font. The Noto families are under the SIL Open Font License.
+
+## Related
+
+- [Right-to-left locales](/localization/rtl)
+- [The public directory](/concepts/public-dir)
+- [Running in GitHub Actions](/ci/github-actions)
+- [Troubleshooting](/troubleshooting)

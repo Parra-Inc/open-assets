@@ -1,0 +1,111 @@
+---
+title: Shell alias and editor setup
+description: Shorten the Open Assets command with a shell alias, add npm scripts for dev and render with Tailwind, and set up your editor and gitignore for a smooth loop.
+---
+
+A few minutes of setup makes the daily loop (edit, preview, render) faster.
+
+## Shell alias
+
+Add an alias to your shell profile:
+
+```bash
+echo 'alias oa="npx open-assets"' >> ~/.zshrc && source ~/.zshrc
+```
+
+Use `~/.bashrc` if you use bash. Then:
+
+```bash
+oa dev
+oa render
+oa validate
+```
+
+`npx` resolves the project's local install first, so the alias still uses the version pinned in each project.
+
+## package.json scripts
+
+The example projects wrap the CLI in scripts so nobody has to remember flags. This is the Skimmer example's `package.json`, which compiles Tailwind next to the dev server:
+
+```json title="package.json"
+{
+  "scripts": {
+    "dev": "concurrently \"npx @tailwindcss/cli -i src/styles.css -o dist/styles.css --watch\" \"npx open-assets dev\"",
+    "build:css": "npx @tailwindcss/cli -i src/styles.css -o dist/styles.css --minify",
+    "render": "npm run build:css && npx open-assets render"
+  },
+  "devDependencies": {
+    "@open-assets/open-assets": "^0.5.1",
+    "@tailwindcss/cli": "^4.2.0",
+    "concurrently": "^9",
+    "tailwindcss": "^4"
+  }
+}
+```
+
+Without Tailwind it is simpler:
+
+```json title="package.json"
+{
+  "scripts": {
+    "assets:dev": "open-assets dev",
+    "assets:render": "open-assets render"
+  }
+}
+```
+
+Then point the manifest's `command` field at the script so agents and automation run the same thing:
+
+```json title="assets.json"
+{
+  "command": "npm run render"
+}
+```
+
+`command` is informational: Open Assets never runs it. Tools and agents read it to know how the project renders.
+
+<Callout type="warn">
+The lockfile hashes files a template links directly, such as `dist/styles.css`. Build the CSS **before** `render` (as the `render` script above does), or the cache compares against a stale stylesheet.
+</Callout>
+
+## Useful environment variables
+
+Set these in your shell or CI instead of repeating flags. CLI flags win over environment variables.
+
+| Variable | Used by | Effect |
+| --- | --- | --- |
+| `OPEN_ASSETS_PORT` | `dev` | Port (default `3200`) |
+| `OPEN_ASSETS_HOST` | `dev` | Host (default `localhost`) |
+| `OPEN_ASSETS_NO_OPEN` | `dev` | `true` stops the browser from opening |
+| `OPEN_ASSETS_QUIET` | `dev`, `render` | `true` suppresses logs |
+| `OPEN_ASSETS_CONFIG` | all project commands | Config filename (default `assets.json`) |
+| `OPEN_ASSETS_OUTPUT` | `render` | Output directory (default `./exports`) |
+| `OPEN_ASSETS_RENDER_TIMEOUT` | `dev`, `render` | Page load timeout in ms (default `30000`) |
+| `OPEN_ASSETS_CONCURRENCY` | `render` | Templates rendered at once |
+
+Full list: [Environment variables](/reference/env).
+
+## Preview on your phone
+
+Bind the dev server to all interfaces and open it from a phone on the same network:
+
+```bash
+npx open-assets dev --host 0.0.0.0
+```
+
+Visit `http://<your-computer-ip>:3200`.
+
+## Editor tips
+
+- Templates are ordinary HTML and CSS, so your editor's HTML, CSS and Tailwind tooling works unchanged.
+- Keep the dev server running in a split terminal. It watches the template folders and `publicDir` and reloads the preview on save.
+- Run `open-assets validate` after editing `assets.json` to catch missing template files and broken localization files.
+
+## .gitignore
+
+`open-assets init` writes `dist/`, `exports/` and `node_modules/` to `.gitignore`, and the example projects do the same. Commit `assets.json`, your templates, `public/` and `assets.lock`. See [Project structure](/structure#gitignore) for when you might commit `exports/` instead.
+
+## Next steps
+
+- [Concepts](/concepts/collections)
+- [Claude Code setup](/agents/claude-code)
