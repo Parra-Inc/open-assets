@@ -157,6 +157,7 @@ p code, li code, figcaption code {
 .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 22px; }
 .cta-row.center { justify-content: center; margin-bottom: 0; }
 .meta-line { margin-top: 16px; font-size: 13px; color: var(--text-3); }
+.meta-line .free { color: var(--green); font-weight: 600; }
 
 @media (max-width: 1080px) {
   .hero-inner { grid-template-columns: 1fr; justify-items: center; text-align: center; }

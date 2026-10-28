@@ -129,7 +129,9 @@ export default function Home() {
                 </a>
               </div>
               <CopyCommand command="npx @open-assets/open-assets init" />
-              <p className="meta-line">MIT licensed · Node 18+ · No account, no uploads</p>
+              <p className="meta-line">
+                <strong className="free">Completely free</strong> · MIT licensed · No account, no uploads
+              </p>
             </div>
             <HeroArt />
           </div>
