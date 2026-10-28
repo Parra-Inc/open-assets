@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import { GoogleTag } from '@/components/GoogleTag';
 import { Provider } from '@/components/provider';
 import { appName, siteUrl } from '@/lib/shared';
 import './global.css';
@@ -26,6 +27,9 @@ export const viewport: Viewport = {
 export default function Layout({ children }: LayoutProps<'/'>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <GoogleTag />
+      </head>
       <body className="flex flex-col min-h-screen">
         <Provider>{children}</Provider>
       </body>

@@ -5,6 +5,8 @@ import Tabs from '@/components/Tabs'
 import { faqs, features, installCommands } from '@/data/content'
 import { liveDevApps, showcase } from '@/data/devApps'
 import { site } from '@/data/site'
+import AnalyticsListeners from '@/components/AnalyticsListeners'
+import { trackAttrs } from '@/lib/analytics'
 import { appStoreCampaignUrl, campaignUrl } from '@/lib/campaign'
 
 const jsonLd = [
@@ -80,16 +82,16 @@ export default function Home() {
 
       <header className="nav">
         <div className="container nav-inner">
-          <a href="/" className="brand">
+          <a href="/" className="brand" {...trackAttrs('nav_click', { location: 'header', label: 'logo' })}>
             <img src="/logo-64.png" alt="" width={28} height={28} />
             Open Assets
           </a>
           <nav aria-label="Primary" className="nav-links">
-            <a href="#features">Features</a>
-            <a href="#examples">Examples</a>
-            <a href="#get-started">Get started</a>
-            <a href={site.docs}>Docs</a>
-            <a href={site.github} className="btn btn-ghost btn-sm">
+            <a href="#features" {...trackAttrs('nav_click', { location: 'header', label: 'features' })}>Features</a>
+            <a href="#examples" {...trackAttrs('nav_click', { location: 'header', label: 'examples' })}>Examples</a>
+            <a href="#get-started" {...trackAttrs('nav_click', { location: 'header', label: 'get_started' })}>Get started</a>
+            <a href={site.docs} {...trackAttrs('outbound_click', { location: 'header', label: 'docs' })}>Docs</a>
+            <a href={site.github} className="btn btn-ghost btn-sm" {...trackAttrs('outbound_click', { location: 'header', label: 'github' })}>
               <GitHubIcon />
               GitHub
             </a>
@@ -98,7 +100,7 @@ export default function Home() {
       </header>
 
       <main>
-        <section className="hero">
+        <section className="hero" data-section="hero">
           <div className="hero-bg" aria-hidden="true" />
           <div className="container hero-inner">
             <div className="hero-copy">
@@ -114,21 +116,21 @@ export default function Home() {
                 with one command.
               </p>
               <div className="cta-row">
-                <a href="#get-started" className="btn btn-primary">
+                <a href="#get-started" className="btn btn-primary" {...trackAttrs('cta_click', { location: 'hero', label: 'get_started' })}>
                   Get started
                 </a>
-                <a href={site.docs} className="btn btn-ghost">
+                <a href={site.docs} className="btn btn-ghost" {...trackAttrs('cta_click', { location: 'hero', label: 'read_docs' })}>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5zM4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5" />
                   </svg>
                   Read the docs
                 </a>
-                <a href={site.github} className="btn btn-ghost">
+                <a href={site.github} className="btn btn-ghost" {...trackAttrs('cta_click', { location: 'hero', label: 'star_github' })}>
                   <GitHubIcon />
                   Star on GitHub
                 </a>
               </div>
-              <CopyCommand command="npx @open-assets/open-assets init" />
+              <CopyCommand command="npx @open-assets/open-assets init" location="hero" />
               <p className="meta-line">
                 <strong className="free">Completely free</strong> · MIT licensed · No account, no uploads
               </p>
@@ -138,7 +140,7 @@ export default function Home() {
         </section>
 
         {liveDevApps.length > 0 && (
-          <section className="section sponsors" aria-labelledby="sponsors-title">
+          <section className="section sponsors" aria-labelledby="sponsors-title" data-section="sponsors">
             <div className="container">
               <div className="sponsors-head">
                 <h2 id="sponsors-title">Sponsored by</h2>
@@ -149,6 +151,7 @@ export default function Home() {
                   <li key={app.key}>
                     <a
                       href={appStoreCampaignUrl(app.appStoreUrl, 'sponsors', app.key)}
+                      {...trackAttrs('sponsor_click', { app: app.key })}
                       className="sponsor"
                       aria-label={`${app.title} on the App Store`}
                     >
@@ -168,7 +171,7 @@ export default function Home() {
           </section>
         )}
 
-        <section id="examples" className="section">
+        <section id="examples" className="section" data-section="examples">
           <div className="container">
             <div className="section-head">
               <p className="eyebrow">Built with Open Assets</p>
@@ -177,6 +180,7 @@ export default function Home() {
             </div>
             <Tabs
               label="Example apps"
+              trackGroup="example_app"
               className="showcase"
               tabs={showcase.map((app) => ({
                 key: app.key,
@@ -198,7 +202,7 @@ export default function Home() {
                       />
                     </div>
                     <figcaption>
-                      <a href={campaignUrl(app.url, 'showcase', app.key)}>{app.name}</a> · rendered with <code>npx open-assets render</code>
+                      <a href={campaignUrl(app.url, 'showcase', app.key)} {...trackAttrs('outbound_click', { location: 'examples', label: app.key })}>{app.name}</a> · rendered with <code>npx open-assets render</code>
                     </figcaption>
                   </figure>
                 ),
@@ -207,7 +211,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="features" className="section">
+        <section id="features" className="section" data-section="features">
           <div className="container">
             <div className="section-head">
               <p className="eyebrow">Why Open Assets</p>
@@ -233,7 +237,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section">
+        <section className="section" data-section="how_it_works">
           <div className="container how">
             <div className="section-head">
               <p className="eyebrow">How it works</p>
@@ -304,7 +308,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="get-started" className="section">
+        <section id="get-started" className="section" data-section="get_started">
           <div className="container">
             <div className="section-head">
               <p className="eyebrow">Get started</p>
@@ -317,11 +321,12 @@ export default function Home() {
                 </h3>
                 <Tabs
                   label="Package manager"
+                  trackGroup="package_manager"
                   className="pm-tabs"
                   tabs={installCommands.map((c) => ({
                     key: c.key,
                     label: c.key,
-                    content: <CopyCommand command={c.cmd} />,
+                    content: <CopyCommand command={c.cmd} location="install" />,
                   }))}
                 />
               </div>
@@ -329,14 +334,14 @@ export default function Home() {
                 <h3>
                   <span className="step-num">2</span>Scaffold and preview
                 </h3>
-                <CopyCommand command="npx open-assets init" />
-                <CopyCommand command="npx open-assets dev" />
+                <CopyCommand command="npx open-assets init" location="scaffold" />
+                <CopyCommand command="npx open-assets dev" location="scaffold" />
               </div>
               <div className="card start-card">
                 <h3>
                   <span className="step-num">3</span>Render every size
                 </h3>
-                <CopyCommand command="npx open-assets render" />
+                <CopyCommand command="npx open-assets render" location="render" />
                 <p className="muted">Only changed templates re-render, locally and in CI.</p>
               </div>
               <div className="card start-card agent-card">
@@ -344,14 +349,14 @@ export default function Home() {
                   <span className="sparkle" aria-hidden="true">✦</span>Let Claude Code do it
                 </h3>
                 <p className="muted">Install the skill once and ask your agent for a full localized screenshot set.</p>
-                <CopyCommand command="/plugin marketplace add Parra-Inc/open-assets" />
-                <CopyCommand command="/plugin install open-assets@open-assets" />
+                <CopyCommand command="/plugin marketplace add Parra-Inc/open-assets" location="claude_code" />
+                <CopyCommand command="/plugin install open-assets@open-assets" location="claude_code" />
               </div>
             </div>
           </div>
         </section>
 
-        <section className="section">
+        <section className="section" data-section="faq">
           <div className="container faq">
             <div className="section-head">
               <p className="eyebrow">FAQ</p>
@@ -369,16 +374,16 @@ export default function Home() {
         </section>
 
 
-        <section className="section final-cta">
+        <section className="section final-cta" data-section="final_cta">
           <div className="container">
             <div className="card cta-card">
               <h2>Ship better App Store screenshots tonight</h2>
               <p>Free, local and MIT licensed. Your marketing assets finally live next to your code.</p>
               <div className="cta-row center">
-                <a href="#get-started" className="btn btn-primary">
+                <a href="#get-started" className="btn btn-primary" {...trackAttrs('cta_click', { location: 'final_cta', label: 'get_started' })}>
                   Get started
                 </a>
-                <a href={site.github} className="btn btn-ghost">
+                <a href={site.github} className="btn btn-ghost" {...trackAttrs('cta_click', { location: 'final_cta', label: 'view_github' })}>
                   <GitHubIcon />
                   View on GitHub
                 </a>
@@ -388,17 +393,19 @@ export default function Home() {
         </section>
       </main>
 
+      <AnalyticsListeners />
+
       <footer className="footer">
         <div className="container footer-inner">
-          <a href="/" className="brand">
+          <a href="/" className="brand" {...trackAttrs('nav_click', { location: 'footer', label: 'logo' })}>
             <img src="/logo-64.png" alt="" width={22} height={22} loading="lazy" />
             Open Assets
           </a>
           <nav aria-label="Footer" className="footer-links">
-            <a href={site.github}>GitHub</a>
-            <a href={site.npm}>npm</a>
-            <a href={site.docs}>Docs</a>
-            <a href="/llms.txt">llms.txt</a>
+            <a {...trackAttrs('outbound_click', { location: 'footer', label: 'github' })} href={site.github}>GitHub</a>
+            <a {...trackAttrs('outbound_click', { location: 'footer', label: 'npm' })} href={site.npm}>npm</a>
+            <a {...trackAttrs('outbound_click', { location: 'footer', label: 'docs' })} href={site.docs}>Docs</a>
+            <a {...trackAttrs('nav_click', { location: 'footer', label: 'llms_txt' })} href="/llms.txt">llms.txt</a>
           </nav>
           <p className="muted">MIT License · Made by Parra</p>
         </div>
