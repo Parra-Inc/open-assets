@@ -32,7 +32,7 @@ program
   .option("-H, --host <host>", "Host to bind to (env: OPEN_ASSETS_HOST)", env("OPEN_ASSETS_HOST", "localhost"))
   .option("--no-open", "Don't auto-open the browser (env: OPEN_ASSETS_NO_OPEN)")
   .option("-q, --quiet", "Suppress server logs (env: OPEN_ASSETS_QUIET)", env("OPEN_ASSETS_QUIET") === "true")
-  .option("--ci", "CI mode: no browser, quiet logging", env("CI") === "true")
+  .option("--ci", "CI mode: no browser, quiet logging (env: CI)", env("CI") === "true")
   .option("--config <path>", "Path to config file (env: OPEN_ASSETS_CONFIG)", env("OPEN_ASSETS_CONFIG", "assets.json"))
   .option("--static-dir <dirs...>", "Additional static directories to serve")
   .option("--render-timeout <ms>", "Puppeteer render timeout in ms (env: OPEN_ASSETS_RENDER_TIMEOUT)", env("OPEN_ASSETS_RENDER_TIMEOUT", "30000"))
@@ -95,9 +95,9 @@ program
   .option("-f, --force", "Re-render all assets, ignoring the incremental cache")
   .option("-o, --output <dir>", "Output directory (env: OPEN_ASSETS_OUTPUT)", env("OPEN_ASSETS_OUTPUT", "./exports"))
   .option("--config <path>", "Path to config file (env: OPEN_ASSETS_CONFIG)", env("OPEN_ASSETS_CONFIG", "assets.json"))
-  .option("--render-timeout <ms>", "Puppeteer render timeout in ms", env("OPEN_ASSETS_RENDER_TIMEOUT", "30000"))
+  .option("--render-timeout <ms>", "Puppeteer render timeout in ms (env: OPEN_ASSETS_RENDER_TIMEOUT)", env("OPEN_ASSETS_RENDER_TIMEOUT", "30000"))
   .option("--json", "Output results as JSON (for CI/scripting)")
-  .option("-q, --quiet", "Suppress progress logs", env("OPEN_ASSETS_QUIET") === "true")
+  .option("-q, --quiet", "Suppress progress logs (env: OPEN_ASSETS_QUIET)", env("OPEN_ASSETS_QUIET") === "true")
   .action(async (dir, opts) => {
     const { loadConfig } = await import("../lib/manifest.mjs");
     const { renderAssets } = await import("../lib/render.mjs");
@@ -152,7 +152,7 @@ program
   .command("list")
   .description("List all collections and templates defined in the config")
   .argument("[dir]", "Project directory containing assets.json", ".")
-  .option("--config <path>", "Path to config file", env("OPEN_ASSETS_CONFIG", "assets.json"))
+  .option("--config <path>", "Path to config file (env: OPEN_ASSETS_CONFIG)", env("OPEN_ASSETS_CONFIG", "assets.json"))
   .option("--tag <tag>", "List only collections with this tag")
   .option("--json", "Output as JSON")
   .action(async (dir, opts) => {
@@ -188,7 +188,7 @@ program
   .command("validate")
   .description("Validate the assets.json and check that all referenced files exist")
   .argument("[dir]", "Project directory containing assets.json", ".")
-  .option("--config <path>", "Path to config file", env("OPEN_ASSETS_CONFIG", "assets.json"))
+  .option("--config <path>", "Path to config file (env: OPEN_ASSETS_CONFIG)", env("OPEN_ASSETS_CONFIG", "assets.json"))
   .option("--fix", "Interactively fix issues (e.g. remove missing templates)")
   .action(async (dir, opts) => {
     const { loadConfig, saveConfig } = await import("../lib/manifest.mjs");
@@ -293,7 +293,7 @@ add
   .command("collection")
   .description("Add a new asset collection (choose from presets or custom)")
   .argument("[dir]", "Project directory containing assets.json", ".")
-  .option("--config <path>", "Path to config file", env("OPEN_ASSETS_CONFIG", "assets.json"))
+  .option("--config <path>", "Path to config file (env: OPEN_ASSETS_CONFIG)", env("OPEN_ASSETS_CONFIG", "assets.json"))
   .action(async (dir, opts) => {
     const { addCollection } = await import("../lib/add.mjs");
     await addCollection(resolve(dir), opts.config);
@@ -303,7 +303,7 @@ add
   .command("template")
   .description("Add a new template to an existing collection (HTML or SVG)")
   .argument("[dir]", "Project directory containing assets.json", ".")
-  .option("--config <path>", "Path to config file", env("OPEN_ASSETS_CONFIG", "assets.json"))
+  .option("--config <path>", "Path to config file (env: OPEN_ASSETS_CONFIG)", env("OPEN_ASSETS_CONFIG", "assets.json"))
   .action(async (dir, opts) => {
     const { addTemplate } = await import("../lib/add.mjs");
     await addTemplate(resolve(dir), opts.config);
@@ -313,7 +313,7 @@ add
   .command("size")
   .description("Add an export size to a collection (choose from presets or custom)")
   .argument("[dir]", "Project directory containing assets.json", ".")
-  .option("--config <path>", "Path to config file", env("OPEN_ASSETS_CONFIG", "assets.json"))
+  .option("--config <path>", "Path to config file (env: OPEN_ASSETS_CONFIG)", env("OPEN_ASSETS_CONFIG", "assets.json"))
   .action(async (dir, opts) => {
     const { addSize } = await import("../lib/add.mjs");
     await addSize(resolve(dir), opts.config);

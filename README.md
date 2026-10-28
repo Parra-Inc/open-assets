@@ -14,6 +14,9 @@ Design App Store screenshots, app icons, logos, OG images, and favicons as HTML/
 
 Like Storybook, but for marketing assets. Free, local, MIT licensed, and built for AI coding agents.
 
+<!-- TODO(domain): switch to https://docs.open-assets.dev once the zone exists. -->
+**Documentation:** [open-assets-docs-production.ian-b42.workers.dev](https://open-assets-docs-production.ian-b42.workers.dev) has guides for every store, localization, CI, the full `assets.json` reference and troubleshooting. This README covers everything you need to get going.
+
 ## Why Open Assets
 
 - **One template, every size.** Author a screenshot once at its source size and render it for iPhone 6.9", 6.7", iPad, Play Store, Product Hunt, and any custom dimension. No per-device rework.
@@ -111,8 +114,8 @@ Every entry in a collection's `export` array is either a size or an output actio
 ]
 ```
 
-- Sized entries land in `exports/{collection}/{size}/{template}.png`
-- `outFile` sends a rendered size anywhere in your repo (`.png` or `.jpg`), like your web app's `public/` directory
+- Sized entries land in `exports/{collection}/{size}/{template}.png`, or `exports/{collection}/{size}.png` when the collection has a single template
+- `outFile` sends a rendered size anywhere in your repo, like your web app's `public/` directory. Use `.png` or `.jpg`: any other extension still receives PNG bytes
 - `xcode` fills an Xcode `.appiconset` directly
 - `copy-source` copies SVG sources alongside the rendered PNGs
 
@@ -126,7 +129,7 @@ Change the template once, run `npx open-assets render`, and every destination up
 npx open-assets init
 ```
 
-Creates a `assets.json`, sample HTML templates, and a `public/` directory for shared assets.
+Creates an `assets.json`, sample HTML templates in `src/`, a `public/` directory for shared assets, a `dist/` directory, and a `.gitignore` that ignores `exports/` (it replaces any existing `.gitignore`).
 
 ### 2. Design with Claude Code
 
@@ -178,7 +181,7 @@ Opens a live preview UI at `http://localhost:3200` with zoom/pan controls and ex
 npx open-assets render
 ```
 
-Exports every template at every configured export size into `./exports/`, skipping anything that hasn't changed, organized as `exports/{collection}/{size}/{template}.png`.
+Exports every template at every configured export size into `./exports/`, skipping anything that hasn't changed, organized as `exports/{collection}/{size}/{template}.png` (single-template collections write `exports/{collection}/{size}.png`). `-o` is resolved from your current directory, not the project directory.
 
 ### 5. Upload to App Store Connect / Google Play
 
@@ -193,8 +196,10 @@ Capture real app screenshots via Playwright or XCTest, then use them inside your
 npx playwright test --project=screenshots
 
 # 2. Export marketing screenshots with those captures embedded
-# (--force because captured images aren't checksummed by the cache)
-npx open-assets render --force
+# Captures referenced with a relative <img src> are checksummed, so only templates
+# whose captures changed re-render. Add --force if templates load captures by
+# script or through root-relative (/...) paths, which the cache can't see.
+npx open-assets render
 ```
 
 Reference captured screenshots in your HTML templates:
@@ -248,7 +253,7 @@ Then use the keys in any template:
 What you get:
 
 - **Per-locale exports**: output paths become `exports/{collection}/{locale}/{size}/{template}.png`, ready for App Store Connect's per-language screenshot slots
-- **RTL support**: right-to-left locales (Arabic, Hebrew, Persian, Urdu) automatically render with `dir="rtl"` set on the document
+- **RTL support**: right-to-left locales (Arabic, Hebrew, Persian, Urdu, Yiddish, Pashto, Sindhi, Kurdish, Divehi, Uyghur, including region variants like `ar-SA`) set `lang` on `<html>` and `dir="rtl"` on the parent element of each localized text node. `dir` is not set on the root, so layout outside localized text stays as written: use CSS logical properties or `:dir(rtl)` for mirrored layouts
 - **Locale-aware numbers**: `{{n:1234}}` renders as `1,234` in English and `1.234` in German via `Intl.NumberFormat`
 - **Fallback chain**: exact locale (`es-419`), then base language (`es`), then the source language
 
@@ -278,16 +283,19 @@ open-assets dev --config config.json # Use a custom config filename
 ```
 
 Options:
+
+<!-- docs-sync:cli:dev -->
 | Flag | Env Var | Default | Description |
 |------|---------|---------|-------------|
 | `-p, --port <port>` | `OPEN_ASSETS_PORT` | `3200` | Port to listen on |
 | `-H, --host <host>` | `OPEN_ASSETS_HOST` | `localhost` | Host to bind to |
-| `--no-open` | `OPEN_ASSETS_NO_OPEN` | — | Don't auto-open the browser |
+| `--no-open` | `OPEN_ASSETS_NO_OPEN` | - | Don't auto-open the browser |
 | `-q, --quiet` | `OPEN_ASSETS_QUIET` | `false` | Suppress server logs |
-| `--ci` | `CI` | `false` | CI mode: quiet + no browser |
+| `--ci` | `CI` | `false` | CI mode: no browser, quiet logging |
 | `--config <path>` | `OPEN_ASSETS_CONFIG` | `assets.json` | Path to config file |
-| `--static-dir <dirs...>` | — | — | Additional static directories to serve |
-| `--render-timeout <ms>` | `OPEN_ASSETS_RENDER_TIMEOUT` | `30000` | Puppeteer render timeout |
+| `--static-dir <dirs...>` | - | - | Additional static directories to serve |
+| `--render-timeout <ms>` | `OPEN_ASSETS_RENDER_TIMEOUT` | `30000` | Puppeteer render timeout in ms |
+<!-- /docs-sync -->
 
 ### `open-assets render [dir]`
 
@@ -306,22 +314,25 @@ open-assets render --quiet                      # Suppress progress logs
 ```
 
 Options:
+
+<!-- docs-sync:cli:render -->
 | Flag | Env Var | Default | Description |
 |------|---------|---------|-------------|
-| `--collection <id>` | — | all | Render only the collection with this ID |
-| `--tag <tag>` | — | all | Render only collections with this tag |
-| `--template <name>` | — | all | Render only the template with this name |
-| `--size <name>` | — | — | Use a named export size from config |
-| `--locale <code>` | — | all | Render only this locale (e.g. `en`, `ar`, `ja`) |
-| `--width <px>` | — | — | Custom output width |
-| `--height <px>` | — | — | Custom output height |
-| `-f, --force` | — | — | Re-render everything, ignoring the incremental cache |
+| `--collection <id>` | - | - | Render only the collection with this ID |
+| `--tag <tag>` | - | - | Render only collections with this tag |
+| `--template <name>` | - | - | Render only the template with this name |
+| `--size <name>` | - | - | Use a named export size from config |
+| `--locale <code>` | - | - | Render only this locale (e.g. en, ar, ja) |
+| `--width <px>` | - | - | Output width in pixels (custom size) |
+| `--height <px>` | - | - | Output height in pixels (custom size) |
+| `-f, --force` | - | - | Re-render all assets, ignoring the incremental cache |
 | `-o, --output <dir>` | `OPEN_ASSETS_OUTPUT` | `./exports` | Output directory |
 | `--config <path>` | `OPEN_ASSETS_CONFIG` | `assets.json` | Path to config file |
-| `--render-timeout <ms>` | `OPEN_ASSETS_RENDER_TIMEOUT` | `30000` | Puppeteer render timeout |
-| — | `OPEN_ASSETS_CONCURRENCY` | auto | Templates rendered at once (see below) |
-| `--json` | — | — | Output results as JSON |
+| `--render-timeout <ms>` | `OPEN_ASSETS_RENDER_TIMEOUT` | `30000` | Puppeteer render timeout in ms |
+| `--json` | - | - | Output results as JSON (for CI/scripting) |
 | `-q, --quiet` | `OPEN_ASSETS_QUIET` | `false` | Suppress progress logs |
+| - | `OPEN_ASSETS_CONCURRENCY` | `auto` | Templates rendered at once (see Concurrency) |
+<!-- /docs-sync -->
 
 **Concurrency**: each template is loaded once per locale and screenshotted at
 every export size from that single page load. A couple of templates render at a
@@ -346,25 +357,22 @@ open-assets render --collection screenshots --size iphone-6.9
 open-assets render --collection screenshots --locale ja
 ```
 
-**Output structure**: `exports/{collection}/{size}/{template}.png`
+**Output structure**: `exports/{collection}/{size}/{template}.png` for collections with several templates, `exports/{collection}/{size}.png` for single-template collections, and `exports/{collection}/{locale}/{size}/...` when the collection is localized. `copy-source` files land directly in `exports/{collection}/`.
 ```
 exports/
-  screenshots/
+  screenshots/               # several templates: a folder per size
     iphone-6.9/
       01-hero.png
       02-features.png
     iphone-6.7/
       01-hero.png
       02-features.png
-  icon/
-    1024/
-      icon.png
-    180/
-      icon.png
-  logo/
-    svg/
-      logo.svg
-      logo-dark.svg
+  icon/                      # one template: one file per size
+    1024.png
+    180.png
+  logo/                      # copy-source output sits next to the renders
+    logo.svg
+    logo-dark.svg
     1024/
       logo.png
       logo-dark.png
@@ -379,6 +387,16 @@ open-assets list              # Pretty-print asset tree
 open-assets list --json       # Output as JSON
 ```
 
+Options:
+
+<!-- docs-sync:cli:list -->
+| Flag | Env Var | Default | Description |
+|------|---------|---------|-------------|
+| `--config <path>` | `OPEN_ASSETS_CONFIG` | `assets.json` | Path to config file |
+| `--tag <tag>` | - | - | List only collections with this tag |
+| `--json` | - | - | Output as JSON |
+<!-- /docs-sync -->
+
 ### `open-assets validate [dir]`
 
 Validate the config and check that all referenced source files exist.
@@ -388,7 +406,50 @@ open-assets validate          # Check current directory
 open-assets validate ./assets # Check specific directory
 ```
 
+Options:
+
+<!-- docs-sync:cli:validate -->
+| Flag | Env Var | Default | Description |
+|------|---------|---------|-------------|
+| `--config <path>` | `OPEN_ASSETS_CONFIG` | `assets.json` | Path to config file |
+| `--fix` | - | - | Interactively fix issues (e.g. remove missing templates) |
+<!-- /docs-sync -->
+
 Returns exit code 1 if any errors are found, useful in CI pipelines.
+
+### `open-assets add <collection|template|size> [dir]`
+
+Add to an existing config interactively, choosing from presets or entering custom values.
+
+```bash
+open-assets add collection    # New collection: App Store screenshots, icon, logo, OG image, Play feature graphic, banner, or custom
+open-assets add template      # New HTML or SVG template in an existing collection
+open-assets add size          # New export size (device presets or custom)
+```
+
+`add collection` options:
+
+<!-- docs-sync:cli:add-collection -->
+| Flag | Env Var | Default | Description |
+|------|---------|---------|-------------|
+| `--config <path>` | `OPEN_ASSETS_CONFIG` | `assets.json` | Path to config file |
+<!-- /docs-sync -->
+
+`add template` options:
+
+<!-- docs-sync:cli:add-template -->
+| Flag | Env Var | Default | Description |
+|------|---------|---------|-------------|
+| `--config <path>` | `OPEN_ASSETS_CONFIG` | `assets.json` | Path to config file |
+<!-- /docs-sync -->
+
+`add size` options:
+
+<!-- docs-sync:cli:add-size -->
+| Flag | Env Var | Default | Description |
+|------|---------|---------|-------------|
+| `--config <path>` | `OPEN_ASSETS_CONFIG` | `assets.json` | Path to config file |
+<!-- /docs-sync -->
 
 ### `open-assets skills [dir]`
 
@@ -401,6 +462,12 @@ open-assets skills ./my-app   # Install to a specific project
 # Or using the Skills CLI
 npx skills add https://github.com/Parra-Inc/open-assets --skill open-assets
 ```
+
+Options:
+
+<!-- docs-sync:cli:skills -->
+This command has no options.
+<!-- /docs-sync -->
 
 Prefer a global, per-user install? Use the Claude Code plugin marketplace instead: the skill then works in every project without copying files:
 
@@ -417,6 +484,12 @@ Scaffold a new project with a `assets.json`, sample HTML templates, and a `publi
 open-assets init              # Current directory
 open-assets init ./my-assets  # Specific directory
 ```
+
+Options:
+
+<!-- docs-sync:cli:init -->
+This command has no options.
+<!-- /docs-sync -->
 
 ## Manifest Format
 
@@ -436,12 +509,13 @@ Your project needs a `assets.json` at its root. This file defines the collection
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `version` | number | yes | Manifest schema version (`1`) |
+| `version` | number | no | Manifest schema version (`1`). Recommended; not read by the CLI today |
 | `name` | string | yes | App display name |
 | `publicDir` | string | no | Directory for shared assets (auto-served by dev server) |
 | `command` | string | no | Export command for automation tools and CI |
 | `tags` | array | no | Tag definitions (`{ id, label }`) for grouping collections |
 | `collections` | array | yes | Asset collection definitions |
+| `defaultLocalization` | string | no | Locale the dev server previews first |
 
 ### Collection Schema (Unified)
 
@@ -472,6 +546,7 @@ All collections follow the same structure. No `type` field needed.
 | `tags` | array | Tag ids applied to this collection (filter renders with `--tag`) |
 | `sourceSize` | object | `{ width, height }`: the dimensions templates are authored at |
 | `borderRadius` | number | Border radius for preview frames (px) |
+| `background` | string | Optional CSS background behind the template when rendering with `render` (the dev server's export buttons do not apply it) |
 | `localizations` | string | Path to a localizations JSON file (see [Localization](#localization)) |
 | `locales` | array | Optional locale filter. Omit to render every locale in the localizations file |
 | `templates` | array | Source files to render |
@@ -482,18 +557,18 @@ All collections follow the same structure. No `type` field needed.
 | `export[].name` | string | Size identifier (used by `--size` flag) |
 | `export[].label` | string | Display label |
 | `export[].size` | object | `{ width, height }`: output dimensions in pixels |
-| `export[].outFile` | string | Optional output path for this size (supports .png, .jpg) |
+| `export[].outFile` | string | Optional output path for this size, relative to the project directory (use .png or .jpg; other extensions get PNG bytes) |
 | `export[].type` | string | Output action type (`xcode`, `copy-source`). Entries with `type` are post-render actions, not sizes |
 | `customExport` | object | Optional `{ defaultWidth, defaultHeight }` for custom size UI |
 
 ### Output Types
 
-Export entries with a `type` field are post-render actions that run after every render:
+Export entries with a `type` field are post-render actions. They run after a collection renders, and are skipped when the collection has no size entries or when `--size`/`--locale` filters out the collection. Entries with an unknown `type` are ignored:
 
 | Type | Config | Description |
 |------|--------|-------------|
-| `xcode` | `{ "type": "xcode", "path": "..." }` | Render icon and write to Xcode asset catalog |
-| `copy-source` | `{ "type": "copy-source", "format": "svg" }` | Copy source files to export directory |
+| `xcode` | `{ "type": "xcode", "path": "..." }` | Render the collection's first template at its source size into the `.appiconset`, replacing `Contents.json` with a single universal iOS entry and deleting other PNG/JPG files in that folder. Not cached: it runs on every render |
+| `copy-source` | `{ "type": "copy-source", "format": "svg" }` | Copy source files into `exports/{collection}/` |
 
 ### Example Collections
 
@@ -615,16 +690,14 @@ The `render` command maintains a `assets.lock` file that stores SHA256 checksums
 
 ```
 $ open-assets render
-  Skipping 01-hero at 1320x2868 (unchanged)
-  Rendering 03-new-screen at 1320x2868...
-    → exports/screenshots/iphone-6.9/03-new-screen.png
+  Rendering 03-new-screen (1 size)...
 
 Done. 1 asset(s) rendered, 1 skipped (unchanged) in 1.2s.
 ```
 
 Use `--force` to re-render everything regardless of the cache.
 
-**Limitation**: Only source HTML/SVG files are checksummed. Changes to referenced assets (images in `publicDir`, compiled Tailwind CSS) won't trigger re-renders, so use `--force` when those change.
+**What the cache sees**: each template's checksum covers the template file plus local files it references directly with a relative `src`, `href` or `url()` (so editing a linked `dist/styles.css` re-renders every template that links it). It does not see files referenced from inside those files (images in a stylesheet's `url()`), root-relative (`/...`) or remote URLs, paths set by script, or `localizations.json`. Use `--force` after changing any of those.
 
 Commit `assets.lock` to your repository so teammates and CI benefit from the cache.
 
@@ -646,7 +719,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
       - run: npm ci
       - run: npx open-assets validate
       - run: npx open-assets render --json --quiet
@@ -658,18 +731,27 @@ jobs:
 
 ## Common Export Sizes
 
-| Platform | Label | Width | Height |
-|----------|-------|-------|--------|
-| App Store | iPhone 6.9" | 1320 | 2868 |
-| App Store | iPhone 6.7" | 1290 | 2796 |
-| App Store | iPhone 6.5" | 1284 | 2778 |
-| App Store | iPhone 6.1" | 1179 | 2556 |
-| App Store | iPad 12.9" | 2048 | 2732 |
-| Play Store | Phone | 1080 | 1920 |
-| Play Store | Phone (tall) | 1080 | 2400 |
-| Product Hunt | Gallery | 1270 | 760 |
-| Web | OG Image | 1200 | 630 |
-| Mac App Store | Retina | 2880 | 1800 |
+<!-- docs-sync:sizes -->
+| Platform | Label | Name | Width | Height |
+|----------|-------|------|-------|--------|
+| App Store | iPhone 6.9" | `iphone-6.9` | 1320 | 2868 |
+| App Store | iPhone 6.7" | `iphone-6.7` | 1290 | 2796 |
+| App Store | iPhone 6.5" | `iphone-6.5` | 1284 | 2778 |
+| App Store | iPhone 6.1" | `iphone-6.1` | 1179 | 2556 |
+| App Store | iPad 13" | `ipad-13` | 2064 | 2752 |
+| App Store | iPad 12.9" | `ipad-12.9` | 2048 | 2732 |
+| App Store | App icon | `app-icon` | 1024 | 1024 |
+| Mac App Store | Retina | `mac-retina` | 2880 | 1800 |
+| Play Store | Phone | `phone` | 1080 | 1920 |
+| Play Store | Phone (tall) | `phone-tall` | 1080 | 2400 |
+| Play Store | Feature graphic | `feature-graphic` | 1024 | 500 |
+| Play Store | App icon | `play-icon` | 512 | 512 |
+| Product Hunt | Gallery | `product-hunt` | 1270 | 760 |
+| Web | OG image | `og` | 1200 | 630 |
+| Web | X / Twitter card | `twitter-card` | 1200 | 675 |
+| Web | Apple touch icon | `apple-touch-icon` | 180 | 180 |
+| Web | Favicon | `favicon-32` | 32 | 32 |
+<!-- /docs-sync -->
 
 ## File Structure Convention
 
@@ -698,17 +780,15 @@ project/
       default.html
   dist/
     styles.css               # Compiled Tailwind
-  exports/                   # Rendered output (commit this)
+  exports/                   # Rendered output (gitignored by init; commit it if you want renders reviewed in PRs)
     screenshots/
       iphone-6.9/
         01-hero.png
       iphone-6.7/
     icon/
-      1024/
-        icon.png
+      1024.png
     logo/
-      svg/
-        logo.svg
+      logo.svg
 ```
 
 ## License
