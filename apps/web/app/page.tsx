@@ -88,7 +88,7 @@ export default function Home() {
             <a href="#features">Features</a>
             <a href="#examples">Examples</a>
             <a href="#get-started">Get started</a>
-            <a href={site.readme}>Docs</a>
+            <a href={site.docs}>Docs</a>
             <a href={site.github} className="btn btn-ghost btn-sm">
               <GitHubIcon />
               GitHub
@@ -122,7 +122,7 @@ export default function Home() {
                   Star on GitHub
                 </a>
               </div>
-              <CopyCommand command="npx open-assets init" />
+              <CopyCommand command="npx @open-assets/open-assets init" />
               <p className="meta-line">MIT licensed · Node 18+ · No account, no uploads</p>
             </div>
             <HeroArt />
@@ -387,7 +387,7 @@ export default function Home() {
           <nav aria-label="Footer" className="footer-links">
             <a href={site.github}>GitHub</a>
             <a href={site.npm}>npm</a>
-            <a href={site.readme}>Docs</a>
+            <a href={site.docs}>Docs</a>
             <a href="/llms.txt">llms.txt</a>
           </nav>
           <p className="muted">MIT License · Made by Parra</p>
