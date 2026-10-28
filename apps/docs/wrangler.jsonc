@@ -12,9 +12,9 @@
     "not_found_handling": "404-page",
     "html_handling": "auto-trailing-slash"
   },
-  // Served on workers.dev until open-assets.dev is bought. Once the zone is on
-  // Cloudflare, add the route below and set workers_dev to false:
-  //   "routes": [{ "pattern": "docs.open-assets.dev", "custom_domain": true }],
-  "workers_dev": true,
+  // The Custom Domain creates the DNS record and certificate on deploy.
+  // workers_dev is off so crawlers only ever see the canonical origin.
+  "routes": [{ "pattern": "docs.open-assets.dev", "custom_domain": true }],
+  "workers_dev": false,
   "observability": { "enabled": true }
 }

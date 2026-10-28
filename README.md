@@ -14,8 +14,7 @@ Design App Store screenshots, app icons, logos, OG images, and favicons as HTML/
 
 Like Storybook, but for marketing assets. Free, local, MIT licensed, and built for AI coding agents.
 
-<!-- TODO(domain): switch to https://docs.open-assets.dev once the zone exists. -->
-**Documentation:** [open-assets-docs-production.ian-b42.workers.dev](https://open-assets-docs-production.ian-b42.workers.dev) has guides for every store, localization, CI, the full `assets.json` reference and troubleshooting. This README covers everything you need to get going.
+**Documentation:** [docs.open-assets.dev](https://docs.open-assets.dev) has guides for every store, localization, CI, the full `assets.json` reference and troubleshooting. This README covers everything you need to get going.
 
 ## Why Open Assets
 

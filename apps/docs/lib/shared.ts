@@ -2,8 +2,7 @@ import { createGetUrl } from 'fumadocs-core/source';
 
 export const appName = 'Open Assets';
 export const siteUrl = 'https://docs.open-assets.dev';
-// TODO(domain): switch to https://open-assets.dev once the zone exists.
-export const marketingUrl = 'https://open-assets-web-production.ian-b42.workers.dev';
+export const marketingUrl = 'https://open-assets.dev';
 export const docsRoute = '/';
 export const docsImageRoute = '/og';
 export const docsContentRoute = '/llms.mdx';

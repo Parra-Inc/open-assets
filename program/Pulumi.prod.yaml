@@ -1,0 +1,7 @@
+config:
+  # An input, not an output: the zone was created when the domain was bought
+  # (2026-10-28). See the note at the top of index.ts.
+  open-assets:zoneId: fd9ba4047c901f093cd974d3268c4f30
+  # Cloudflare account ID (same account the cloudflare-account stack manages).
+  open-assets:accountId: b428f294c89acfbe189aa1556f15cc07
+encryptionsalt: v1:3W17C0LUWso=:v1:D9x1hMDFzLQ1U2NS:qMekHQ/JkaTDD23Wja8Oc7biZRF2pQ==

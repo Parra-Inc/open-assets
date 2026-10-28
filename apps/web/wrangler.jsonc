@@ -12,13 +12,14 @@
     "not_found_handling": "404-page",
     "html_handling": "auto-trailing-slash"
   },
-  // Served on workers.dev until open-assets.dev is bought. Once the zone is on
-  // Cloudflare, add the routes below and set workers_dev to false so crawlers
-  // only see the canonical origin:
-  //   "routes": [
-  //     { "pattern": "open-assets.dev", "custom_domain": true },
-  //     { "pattern": "www.open-assets.dev", "custom_domain": true }
-  //   ],
-  "workers_dev": true,
+  // Custom Domains create the DNS records and certificates on deploy. www is
+  // 301'd to the apex by a zone Redirect Rule (program/index.ts, WwwRedirect),
+  // so it must stay attached here. workers_dev is off so crawlers only ever
+  // see the canonical origin.
+  "routes": [
+    { "pattern": "open-assets.dev", "custom_domain": true },
+    { "pattern": "www.open-assets.dev", "custom_domain": true }
+  ],
+  "workers_dev": false,
   "observability": { "enabled": true }
 }
