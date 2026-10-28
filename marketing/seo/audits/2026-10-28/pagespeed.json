@@ -1,0 +1,52 @@
+{
+  "schema": "audit-seo/v1",
+  "site": "open-assets.dev",
+  "siteId": "open-assets-dev",
+  "capturedAt": "2026-10-28T18:18:07Z",
+  "layer": "pagespeed",
+  "calls": [
+    {
+      "tool": "lighthouse.mjs",
+      "params": {
+        "runs": 3,
+        "strategy": "mobile",
+        "urls": [
+          "https://open-assets-web-production.ian-b42.workers.dev/"
+        ]
+      },
+      "ok": true,
+      "result": [
+        {
+          "url": "https://open-assets-web-production.ian-b42.workers.dev/",
+          "strategy": "mobile",
+          "score": 91,
+          "lcp": 3439.2290000000003,
+          "tbt": 13.5,
+          "cls": 0,
+          "fcp": 1102.0175,
+          "ttfb": 97,
+          "si": 1102.0175,
+          "verdicts": {
+            "lcp": "needs-work",
+            "tbt": "good",
+            "cls": "good"
+          },
+          "lcpElement": null,
+          "opportunities": [
+            {
+              "id": "unused-javascript",
+              "title": "Reduce unused JavaScript",
+              "savingsMs": 450
+            }
+          ],
+          "failedDiagnostics": [
+            "Image elements do not have explicit `width` and `height`"
+          ]
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Local lab only, mobile, median of 3. No PSI/CrUX call: a same-day site has no field data."
+  ]
+}

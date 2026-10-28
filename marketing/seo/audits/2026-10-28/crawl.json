@@ -1,0 +1,34 @@
+{
+  "schema": "audit-seo/v1",
+  "site": "open-assets.dev",
+  "siteId": "open-assets-dev",
+  "capturedAt": "2026-10-28T18:18:07Z",
+  "layer": "crawl",
+  "calls": [
+    {
+      "tool": "list_sites",
+      "params": {},
+      "ok": true,
+      "result": "18 sites returned; open-assets.dev and the workers.dev origin are not among them (full list omitted: identical to the fleet registry, no open-assets row)"
+    },
+    {
+      "tool": "audit_report",
+      "params": {
+        "site_id": "open-assets-dev"
+      },
+      "ok": false,
+      "error": "not called: site not registered in indexnow-seo"
+    },
+    {
+      "tool": "recheck",
+      "params": {
+        "site_id": "open-assets-dev"
+      },
+      "ok": false,
+      "error": "not called: site not registered in indexnow-seo"
+    }
+  ],
+  "notes": [
+    "Layer 1 has no coverage: the crawler cannot see the site until open-assets.dev is live and registered in indexnow-sync (B11)."
+  ]
+}

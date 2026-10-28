@@ -1,0 +1,21 @@
+{
+  "schema": "audit-seo/v1",
+  "site": "open-assets.dev",
+  "siteId": "open-assets-dev",
+  "capturedAt": "2026-10-28T18:18:07Z",
+  "layer": "search-console",
+  "calls": [
+    {
+      "tool": "sites_list",
+      "params": {
+        "engine": "all"
+      },
+      "ok": true,
+      "result": "19 Google properties, 19 Bing sites; neither sc-domain:open-assets.dev nor the workers.dev origin is present"
+    }
+  ],
+  "notes": [
+    "No GSC property exists. The domain is not purchased yet (2026-10-28), so a DNS-verified sc-domain property cannot be created. All analytics/seo_audit calls skipped: there is no property to query.",
+    "Site deployed 2026-10-28, zero search history by construction."
+  ]
+}

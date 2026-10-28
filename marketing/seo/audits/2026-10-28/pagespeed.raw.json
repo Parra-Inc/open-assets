@@ -1,0 +1,29 @@
+[
+  {
+    "url": "https://open-assets-web-production.ian-b42.workers.dev/",
+    "strategy": "mobile",
+    "score": 91,
+    "lcp": 3439.2290000000003,
+    "tbt": 13.5,
+    "cls": 0,
+    "fcp": 1102.0175,
+    "ttfb": 97,
+    "si": 1102.0175,
+    "verdicts": {
+      "lcp": "needs-work",
+      "tbt": "good",
+      "cls": "good"
+    },
+    "lcpElement": null,
+    "opportunities": [
+      {
+        "id": "unused-javascript",
+        "title": "Reduce unused JavaScript",
+        "savingsMs": 450
+      }
+    ],
+    "failedDiagnostics": [
+      "Image elements do not have explicit `width` and `height`"
+    ]
+  }
+]
