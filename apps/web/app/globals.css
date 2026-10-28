@@ -488,40 +488,30 @@ p code, li code, figcaption code {
 .faq-item[open] summary::after { transform: rotate(45deg); }
 .faq-item p { color: var(--text-2); padding-bottom: 20px; font-size: 15px; }
 
-/* Developer app ad cards */
-.app-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-@media (max-width: 920px) { .app-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; } }
-.app-ad {
-  position: relative;
+/* Sponsors: an open source style "Sponsored by" strip right under the hero.
+   Quiet on purpose: this audience skips anything that looks like an ad. */
+.section.sponsors { padding: 40px 0 48px; }
+.sponsors-head { display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; margin-bottom: 22px; }
+.sponsors-head h2 { font-family: var(--mono); font-size: 12px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--text-3); }
+.sponsors-head p { color: var(--text-3); font-size: 14px; max-width: 520px; }
+.sponsor-list { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 900px) { .sponsor-list { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; } }
+.sponsor {
   display: flex;
-  gap: 18px;
-  padding: 22px;
-  overflow: hidden;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: background 0.15s ease, border-color 0.15s ease;
 }
-.app-ad::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 70% 90% at 0% 0%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 70%);
-  opacity: 0.55;
-  transition: opacity 0.2s ease;
-  pointer-events: none;
-}
-.app-ad:hover { border-color: color-mix(in srgb, var(--accent) 55%, transparent); transform: translateY(-2px); }
-.app-ad:hover::before { opacity: 1; }
-.app-ad-icon {
-  position: relative;
-  width: 64px;
-  height: 64px;
-  border-radius: 15px;
-  flex-shrink: 0;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.12);
-}
-.app-ad-body { position: relative; display: flex; flex-direction: column; gap: 4px; }
-.app-ad h3 { font-size: 17px; }
-.app-ad p { color: var(--text-2); font-size: 14.5px; line-height: 1.5; flex: 1; }
-.app-ad-cta { margin-top: 8px; font-size: 13px; font-weight: 600; color: var(--accent); }
+.sponsor:hover { background: var(--surface); border-color: var(--border); }
+.sponsor-icon { width: 44px; height: 44px; border-radius: 11px; flex-shrink: 0; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1); }
+.sponsor-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.sponsor-name { display: flex; align-items: baseline; gap: 10px; font-family: var(--mono); font-size: 14px; font-weight: 600; }
+.sponsor-store { font-family: var(--sans); font-size: 12px; font-weight: 500; color: var(--text-3); transition: color 0.15s ease; }
+.sponsor:hover .sponsor-store { color: var(--violet); }
+.sponsor-line { color: var(--text-2); font-size: 13.5px; line-height: 1.45; }
 
 /* Final CTA */
 .cta-card {

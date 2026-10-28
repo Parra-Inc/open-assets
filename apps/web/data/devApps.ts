@@ -22,7 +22,7 @@ export const devApps: DevApp[] = [
   {
     key: 'claude-drops',
     title: 'Claude Drops',
-    tagline: 'Changelog and push alerts so you never fall behind on Claude Code.',
+    tagline: 'A push alert and the changelog the minute a new Claude Code version ships.',
     icon: '/img/apps/claude-drops.png',
     appStoreUrl: 'https://apps.apple.com/app/id6760681118',
     accent: '#d97757',
@@ -31,7 +31,7 @@ export const devApps: DevApp[] = [
   {
     key: 'slash-cards',
     title: '/cards',
-    tagline: 'Flashcards to master every Claude Code slash command.',
+    tagline: 'Flashcards for every Claude Code slash command, so you stop reaching for /help.',
     icon: '/img/apps/cards.png',
     appStoreUrl: 'https://apps.apple.com/app/id6770581039',
     accent: '#d97757',
@@ -40,7 +40,7 @@ export const devApps: DevApp[] = [
   {
     key: 'claude-prep',
     title: 'Claude Prep',
-    tagline: 'Mock exams to pass the Claude Certified Architect exam on the first try.',
+    tagline: 'Practice exams for the Claude Certified Architect certification.',
     icon: '/img/apps/claude-prep.png',
     appStoreUrl: 'https://apps.apple.com/app/id6790151492',
     accent: '#d97757',

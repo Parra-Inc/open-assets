@@ -129,6 +129,37 @@ export default function Home() {
           </div>
         </section>
 
+        {liveDevApps.length > 0 && (
+          <section className="section sponsors" aria-labelledby="sponsors-title">
+            <div className="container">
+              <div className="sponsors-head">
+                <h2 id="sponsors-title">Sponsored by</h2>
+                <p>iPhone apps for Claude Code users, from the team behind Open Assets. They keep this project free.</p>
+              </div>
+              <ul className="sponsor-list">
+                {liveDevApps.map((app) => (
+                  <li key={app.key}>
+                    <a
+                      href={appStoreCampaignUrl(app.appStoreUrl, 'sponsors', app.key)}
+                      className="sponsor"
+                      aria-label={`${app.title} on the App Store`}
+                    >
+                      <img src={app.icon} alt="" width={44} height={44} className="sponsor-icon" />
+                      <span className="sponsor-body">
+                        <span className="sponsor-name">
+                          {app.title}
+                          <span className="sponsor-store">App Store ↗</span>
+                        </span>
+                        <span className="sponsor-line">{app.tagline}</span>
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        )}
+
         <section id="examples" className="section">
           <div className="container">
             <div className="section-head">
@@ -329,35 +360,6 @@ export default function Home() {
           </div>
         </section>
 
-        {liveDevApps.length > 0 && (
-          <section className="section" aria-labelledby="dev-apps-title">
-            <div className="container">
-              <div className="section-head">
-                <p className="eyebrow">From the makers of Open Assets</p>
-                <h2 id="dev-apps-title">iPhone apps for developers</h2>
-                <p>Small tools that keep you current on Claude Code and the AI tools you build with.</p>
-              </div>
-              <div className="app-grid">
-                {liveDevApps.map((app) => (
-                  <a
-                    key={app.key}
-                    href={appStoreCampaignUrl(app.appStoreUrl, 'dev_apps', app.key)}
-                    className="card app-ad"
-                    style={{ '--accent': app.accent } as React.CSSProperties}
-                    aria-label={`Download ${app.title} on the App Store`}
-                  >
-                    <img src={app.icon} alt={`${app.title} app icon`} width={64} height={64} loading="lazy" className="app-ad-icon" />
-                    <div className="app-ad-body">
-                      <h3>{app.title}</h3>
-                      <p>{app.tagline}</p>
-                      <span className="app-ad-cta">Download on the App Store →</span>
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
 
         <section className="section final-cta">
           <div className="container">
