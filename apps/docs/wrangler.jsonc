@@ -1,0 +1,20 @@
+// Cloudflare Workers config for docs.open-assets.dev (Fumadocs).
+//
+// Static assets only: `next build` exports the docs to out/ (search index,
+// OG cards and llms files included) and wrangler uploads it. No worker script.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // Resource naming convention: <project>-<app>-<environment>.
+  "name": "open-assets-docs-production",
+  "compatibility_date": "2025-12-01",
+  "assets": {
+    "directory": "out",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  },
+  // Served on workers.dev until open-assets.dev is bought. Once the zone is on
+  // Cloudflare, add the route below and set workers_dev to false:
+  //   "routes": [{ "pattern": "docs.open-assets.dev", "custom_domain": true }],
+  "workers_dev": true,
+  "observability": { "enabled": true }
+}

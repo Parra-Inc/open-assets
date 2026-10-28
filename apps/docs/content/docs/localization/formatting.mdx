@@ -1,0 +1,67 @@
+---
+title: Number Formatting
+description: Format numbers per locale in localized screenshots with the {{n:1234}} token, built on Intl.NumberFormat, plus what it does not handle, like dates and currency.
+---
+
+A number like 12,500 is written `12,500` in English, `12.500` in German and `12 500` in French. Open Assets formats numbers for each locale so you do not have to hand-write every variant.
+
+## The `{{n:NUMBER}}` token
+
+Put `{{n:...}}` inside a **string value** in `localizations.json`:
+
+```json title="localizations.json"
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "stat_users": {
+      "localizations": {
+        "en": { "value": "Trusted by {{n:12500}} travelers" },
+        "de": { "value": "{{n:12500}} Reisende vertrauen uns" },
+        "fr": { "value": "{{n:12500}} voyageurs nous font confiance" }
+      }
+    }
+  }
+}
+```
+
+With `<p>{{stat_users}}</p>` in the template, this renders as:
+
+| Locale | Output |
+| --- | --- |
+| `en` | Trusted by 12,500 travelers |
+| `de` | 12.500 Reisende vertrauen uns |
+| `fr` | 12 500 voyageurs nous font confiance |
+
+## Exact behavior
+
+From `lib/renderer.mjs`:
+
+- The token is matched by `{{n:` + digits + an optional `.` and more digits + `}}`. So `{{n:1234}}` and `{{n:4.75}}` work.
+- Negative numbers, exponents, thousands separators inside the token, and spaces are not matched. `{{n:-5}}` and `{{n:1,000}}` are left as literal text.
+- The number is formatted with `new Intl.NumberFormat(locale)` using default options, in the Chromium that renders the page. Defaults show up to three fraction digits, so `{{n:4.75}}` becomes `4.75` in English and `4,75` in German, and `{{n:3.14159}}` becomes `3.142`.
+- The locale passed to `Intl` is the locale code you render, such as `de`, `pt-BR` or `ar`. Arabic locales may use Arabic-Indic digits, depending on the locale data in Chromium.
+- Tokens are only processed in values that replace a `{{key}}` placeholder. A `{{n:1234}}` written directly in template HTML is not touched.
+
+## What is not formatted
+
+There is no built-in formatting for dates, currencies, percentages, units or plurals. Write those per locale in the value itself:
+
+```json
+{
+  "price": {
+    "localizations": {
+      "en": { "value": "$4.99 / month" },
+      "de": { "value": "4,99 € / Monat" },
+      "ja": { "value": "月額 ¥600" }
+    }
+  }
+}
+```
+
+If you prefer computed values, a template can run its own script. During a localized render, `document.documentElement.lang` holds the locale before the capture, so a script can call `Intl.DateTimeFormat` with it. The render waits a tick, then for fonts and images, before capturing, which covers synchronous DOM updates and a `MutationObserver` on `lang`.
+
+## Related
+
+- [Strings](/localization/strings)
+- [Fonts](/localization/fonts)
+- [Localization overview](/localization)

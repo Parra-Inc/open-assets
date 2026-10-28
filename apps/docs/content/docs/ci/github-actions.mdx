@@ -1,0 +1,166 @@
+---
+title: GitHub Actions
+description: "Render App Store screenshots and icons in GitHub Actions with Open Assets: validate, render incrementally with assets.lock, then commit or upload the PNGs."
+---
+
+Open Assets runs anywhere Node and Chromium run, so a GitHub Actions job is a few steps: install, validate, render, then keep the output.
+
+## The minimal workflow
+
+This is the workflow from the README. It renders on every push that touches the asset project and uploads the PNGs as a build artifact:
+
+```yaml title=".github/workflows/assets.yml"
+name: Export Marketing Assets
+on:
+  push:
+    paths:
+      - 'marketing/screenshots/**'
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: marketing/screenshots
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npx open-assets validate
+      - run: npx open-assets render --json --quiet
+      - uses: actions/upload-artifact@v4
+        with:
+          name: screenshots
+          path: marketing/screenshots/exports/
+```
+
+The steps:
+
+- `npm ci` installs `@open-assets/open-assets`, which installs Puppeteer, which downloads a matching Chrome build.
+- `validate` exits with code 1 if `assets.json` is invalid, a template file is missing, or a requested locale is not defined. The job fails before any rendering.
+- `render --json --quiet` suppresses progress logs and prints one JSON object at the end. On failure it prints `Error: ...` and exits 1.
+
+<Callout type="info">
+`render` has no `--ci` flag. The `--ci` flag (and the `CI` environment variable) only applies to `open-assets dev`, where it disables the browser and logs. For renders, `--json --quiet` is the CI combination.
+</Callout>
+
+## The JSON output
+
+`render --json` prints:
+
+```json
+{
+  "ok": true,
+  "assets": [
+    {
+      "collection": "screenshots",
+      "template": "01-hero",
+      "locale": "en",
+      "path": "/home/runner/work/app/app/exports/screenshots/en/iphone-6.9/01-hero.png",
+      "width": 1320,
+      "height": 2868,
+      "size": 812345
+    }
+  ],
+  "skipped": 31,
+  "elapsed": "4.2s"
+}
+```
+
+`path` is absolute, `size` is in bytes, and `skipped` counts variants that were unchanged. Pipe it to `jq` to drive later steps, for example `jq '.assets | length'` to see whether anything was rendered.
+
+## Only render what changed
+
+`assets.lock` makes renders incremental in CI too. A variant is skipped when the template's checksum, its export config and its output path all match the lockfile, **and the output file exists**. So the cache only helps in CI if both of these are committed:
+
+- `assets.lock`
+- the rendered files (`exports/`, or wherever `outFile` points)
+
+If you upload artifacts instead of committing renders, every CI run starts with no output files and renders everything. That is correct, just slower.
+
+See [Lockfile](/concepts/lockfile) for what the checksum covers. In short: the template plus files it references directly by relative path. Changes to `localizations.json`, or to images referenced from inside CSS, are not detected. Add a `--force` step when those change, or trigger on them separately.
+
+## Commit renders back to the branch
+
+This workflow renders on pull requests and pushes the results to the PR branch, so reviewers see the new screenshots as image diffs in the "Files changed" tab:
+
+```yaml title=".github/workflows/assets.yml"
+name: Render assets
+on:
+  pull_request:
+    paths:
+      - 'assets/**'
+      - 'public/**'
+      - 'src/**'
+      - 'assets.json'
+      - 'localizations.json'
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Cache Chrome for Puppeteer
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/puppeteer
+          key: puppeteer-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+
+      - run: npm ci
+      - run: npx open-assets validate
+
+      # Tailwind projects: compile CSS first (see the examples' "render" script)
+      - run: npx @tailwindcss/cli -i src/styles.css -o dist/styles.css --minify
+
+      - run: npx open-assets render --json --quiet > render.json
+
+      - name: Commit renders
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets.lock exports/
+          git diff --cached --quiet || git commit -m "chore(assets): render"
+          git push
+```
+
+Notes:
+
+- `~/.cache/puppeteer` is Puppeteer's default download location for Chrome. Caching it saves the download on each run. The key uses the lockfile, so a Puppeteer upgrade gets a fresh browser.
+- The checkout uses the PR branch (`github.head_ref`) so the push lands on it. This works for branches in the same repo, not for forks.
+- If `localizations.json` changed, a plain render skips unchanged templates. Use `render --force` in this workflow if your PRs often change only strings.
+
+## Upload artifacts instead
+
+If you would rather not commit PNGs, upload them and download the artifact from the run page:
+
+```yaml
+- run: npx open-assets render --json --quiet
+- uses: actions/upload-artifact@v4
+  with:
+    name: marketing-assets
+    path: exports/
+```
+
+From there you can hand them to fastlane `deliver` or the App Store Connect API. See [Upload to App Store Connect](/guides/app-store-connect).
+
+## Reviewing screenshot changes in a PR
+
+- Template changes are HTML diffs, which read like any code change.
+- Committed PNGs show as GitHub image diffs, with side-by-side, swipe and onion-skin views.
+- For a quick visual check without committing, open the artifact from the run summary.
+
+## Troubleshooting on runners
+
+If Chrome fails to launch on `ubuntu-latest` with a sandbox error, see [Chromium fails to launch](/troubleshooting). Renders that time out on slow runners can be given more time with `--render-timeout 60000` (or `OPEN_ASSETS_RENDER_TIMEOUT`). Run `OPEN_ASSETS_CONCURRENCY=1` if a runner is short on memory.

@@ -1,0 +1,88 @@
+---
+title: Localization
+description: Render localized App Store screenshots in every language from one set of HTML templates, with string placeholders, fallbacks, number formatting and RTL text.
+---
+
+Your store listing has a screenshot slot for every language you support. Open Assets fills them from the same templates: you write `{{key}}` placeholders in the HTML, put the translations in a JSON file, and every template renders once per locale.
+
+## How it works
+
+<Steps>
+<Step>
+**Write the strings.** A `localizations.json` file holds every string in every language, in a format modeled on Xcode's `.xcstrings`.
+</Step>
+<Step>
+**Point a collection at it.** Add `localizations` (and optionally `locales`) to the collection in `assets.json`.
+</Step>
+<Step>
+**Use keys in templates.** `<h1>{{hero_title}}</h1>`.
+</Step>
+<Step>
+**Render.** `npx open-assets render` produces one set per locale, in a folder per locale.
+</Step>
+</Steps>
+
+## Quick example
+
+```json title="localizations.json"
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "hero_title": {
+      "localizations": {
+        "en": { "value": "Track your tax days" },
+        "de": { "value": "Verfolge deine Steuertage" },
+        "ja": { "value": "税金の日を追跡する" },
+        "ar": { "value": "تتبع أيام الضرائب الخاصة بك" }
+      }
+    }
+  }
+}
+```
+
+```json title="assets.json (collection)"
+{
+  "id": "screenshots",
+  "sourceSize": { "width": 440, "height": 956 },
+  "localizations": "localizations.json",
+  "locales": ["en", "de", "ja", "ar"],
+  "templates": [
+    { "src": "assets/screenshots/01-hero.html", "name": "01-hero" }
+  ],
+  "export": [
+    { "name": "iphone-6.9", "size": { "width": 1320, "height": 2868 } }
+  ]
+}
+```
+
+```html title="assets/screenshots/01-hero.html"
+<h1>{{hero_title}}</h1>
+```
+
+```bash
+npx open-assets render --collection screenshots              # every locale
+npx open-assets render --collection screenshots --locale ja  # just Japanese
+```
+
+The result is `exports/screenshots/{locale}/iphone-6.9/01-hero.png` for each locale (or `exports/screenshots/{locale}/iphone-6.9.png` when the collection has a single template).
+
+## What happens during a localized render
+
+For each locale, Open Assets loads the template once, then before capturing:
+
+1. Sets `lang` on the `<html>` element to the locale code.
+2. Replaces `{{key}}` in every text node with the resolved string, falling back from the exact locale to the base language to the source language.
+3. Formats `{{n:1234}}` tokens inside those strings with the locale's number format.
+4. For right-to-left locales, sets `dir="rtl"` on the element that contains each replaced string.
+5. Waits for fonts and images to finish loading, then screenshots every export size.
+
+## In this section
+
+<Cards>
+  <Card title="Strings" href="/localization/strings" description="The localizations.json format, placeholders, fallbacks and missing keys." />
+  <Card title="Number formatting" href="/localization/formatting" description="Locale-aware numbers with {{n:1234}}." />
+  <Card title="Right-to-left" href="/localization/rtl" description="Arabic, Hebrew and other RTL locales, and how to write direction-agnostic CSS." />
+  <Card title="Fonts" href="/localization/fonts" description="CJK, Arabic and Hebrew fonts that render the same on every machine." />
+  <Card title="Locales and folders" href="/localization/locales" description="Which locale codes work and where each locale's files land." />
+  <Card title="Tax Days example" href="/examples/tax-days" description="Eight screenshots, 38 locales in the strings file, four rendered." />
+</Cards>

@@ -1,0 +1,86 @@
+---
+title: Export entry types
+description: "Exact behavior of every Open Assets export entry type: sized exports, outFile targets with placeholders, the Xcode appiconset writer and copy-source copies."
+---
+
+Each item in a collection's `export` array is one of two kinds:
+
+- **Size**: no `type`. Rendered per template (and per locale).
+- **Output**: has a `type`. Runs after the collection's sizes, in array order.
+
+The code handles two output types, `xcode` and `copy-source`. Any other `type` is skipped by `render`.
+
+## Sized export
+
+```json
+{ "name": "iphone-6.9", "label": "iPhone 6.9\"", "size": { "width": 1320, "height": 2868 } }
+```
+
+- The template loads at `sourceSize`, then is scaled with CSS `zoom` by `max(width / sourceWidth, height / sourceHeight)` and captured from the top-left at `width × height`. If the aspect ratios differ, the overflow on one axis is cropped.
+- PNG, transparent where the template has no background, unless the collection sets `background`.
+- Path: `exports/{collection}/{size}/{template}.png` with several templates, `exports/{collection}/{size}.png` with one. Localized collections insert `{locale}` after `{collection}`. Full rules on [/reference/cli/render](/reference/cli/render#output-layout).
+- Cached in `assets.lock`.
+
+## outFile
+
+```json
+{ "name": "favicon", "size": { "width": 32, "height": 32 }, "outFile": "../web/public/favicon.png" }
+```
+
+- Writes the render to `outFile`, resolved against the project directory, instead of `exports/`. Parent folders are created.
+- `{template}` is replaced with the template `name`. `{locale}` is replaced with the locale in localized collections (left as is otherwise).
+- Extension `.jpg` or `.jpeg` (case-insensitive) writes JPEG at Puppeteer's default quality. Any other extension writes PNG bytes, whatever the extension says.
+- `--output` does not move it.
+- Cached in `assets.lock`; changing `outFile` changes the export checksum and re-renders.
+
+Use `{template}` in multi-template collections and `{locale}` in localized ones, or each render overwrites the last. See [/guides/out-file](/guides/out-file).
+
+## xcode
+
+```json
+{ "type": "xcode", "path": "../ios/MyApp/Assets.xcassets/AppIcon.appiconset" }
+```
+
+1. Creates `path` (relative to the project) if needed.
+2. Deletes every `.png`, `.jpg` and `.jpeg` in it except `AppIcon.png`.
+3. Renders the collection's **first** template at its source size, with no localization, no `background` and the default 30 second timeout, and writes `AppIcon.png`.
+4. Writes `Contents.json`:
+
+```json title="Contents.json"
+{
+  "images": [
+    { "filename": "AppIcon.png", "idiom": "universal", "platform": "ios", "size": "1024x1024" }
+  ],
+  "info": { "author": "xcode", "version": 1 }
+}
+```
+
+`size` is `<sourceWidth>x<sourceHeight>`, so use a 1024×1024 source size. Prints `Updated: <path>`. Runs on every `render` (no cache) and from the dev export menu.
+
+<Callout type="warn">
+The PNG keeps transparency. App Store icons must be opaque, so paint a full-bleed background in the template; the collection `background` is not applied here. Also, `--template` does not change which template is used.
+</Callout>
+
+See [/guides/xcode-app-icon](/guides/xcode-app-icon).
+
+## copy-source
+
+```json
+{ "type": "copy-source", "format": "svg" }
+```
+
+- Copies every template whose `src` ends in `.<format>` (default `svg`) into `exports/{collection}/` (under `--output`).
+- File name: the entry's `name` if set and exactly one template in the collection matches, otherwise the template `name`. Extension is `format`.
+- Respects `--template`. Runs on every render (no cache). Missing source files are skipped silently.
+- Reported in `--json` as `type: "copy-<format>"`.
+- In the dev viewer it adds a download button per matching template.
+
+Separately, any SVG template rendered at exactly its source size also gets a `.svg` copy written beside that PNG, with no `copy-source` entry needed.
+
+## When outputs do not run
+
+Outputs run after the collection's sizes, so they are skipped when:
+
+- the collection has no size entries (`No export sizes found for collection "<id>"`);
+- `--size` or `--locale` did not match in that collection;
+- a size render failed.

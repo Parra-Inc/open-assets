@@ -1,0 +1,100 @@
+---
+title: OG Images and Social Cards
+description: Design Open Graph and X card images as HTML templates, render them at 1200x630 and 1200x675, and write each one straight into your web app's public folder.
+---
+
+Open Graph images are the previews that appear when someone shares your link in Slack, iMessage, LinkedIn or X. With Open Assets you design them in HTML and CSS, keep them in git next to your site, and render them as static files.
+
+## OG image size
+
+<ExportSizes platform="Web" />
+
+The standard Open Graph image is 1200x630. X (Twitter) large summary cards use 1200x675. Both are close to 1.91:1 and 16:9, so one layout can serve both if the important content stays in the middle.
+
+## One template per page
+
+Each page that needs its own card gets its own template. A template's `name` drives its file name, and `{template}` in `outFile` lets one export entry write every page:
+
+```json title="assets.json"
+{
+  "id": "og",
+  "label": "Social Cards",
+  "sourceSize": { "width": 1200, "height": 630 },
+  "templates": [
+    { "src": "assets/og/home.html", "name": "home", "label": "Home" },
+    { "src": "assets/og/pricing.html", "name": "pricing", "label": "Pricing" },
+    { "src": "assets/og/blog.html", "name": "blog", "label": "Blog" }
+  ],
+  "export": [
+    { "name": "og", "label": "OG Image", "size": { "width": 1200, "height": 630 }, "outFile": "../web/public/og/{template}.png" },
+    { "name": "twitter-card", "label": "X card", "size": { "width": 1200, "height": 675 }, "outFile": "../web/public/og/{template}-x.png" }
+  ]
+}
+```
+
+Run `npx open-assets render --collection og` and you get `public/og/home.png`, `public/og/home-x.png` and so on in the web app next door. `outFile` paths resolve from the project directory, so `..` reaches sibling folders in a monorepo. See [outFile](/guides/out-file).
+
+<Callout type="info">
+With a 1200x630 source, the 1200x675 render scales by 675 / 630 (about 1.07) to fill the height and crops about 86px from the right edge. If that cuts into your layout, use a second collection with a 1200x675 source for X, or leave a right margin in the template.
+</Callout>
+
+Templates are static files. Open Assets does not pass per-page data into a template (the only substitution it performs is [localized strings](/localization/strings)). For dozens of pages, generate the HTML files with a small script from your content, list them in `assets.json`, then render. For thousands of dynamic pages such as user profiles, render OG images at request time in your web framework instead.
+
+## A card template
+
+```html title="assets/og/pricing.html"
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      html, body { margin: 0; }
+      .card {
+        width: 1200px;
+        height: 630px;
+        box-sizing: border-box;
+        padding: 80px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background: #0b1020;
+        color: #fff;
+        font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+      }
+      .eyebrow { font-size: 28px; opacity: 0.7; }
+      h1 { font-size: 76px; line-height: 1.05; margin: 0; max-width: 900px; }
+      .brand { display: flex; align-items: center; gap: 16px; font-size: 32px; }
+      .brand img { width: 56px; height: 56px; border-radius: 12px; }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="eyebrow">Pricing</div>
+      <h1>Free for side projects. Fair for teams.</h1>
+      <div class="brand">
+        <img src="../../public/logo.png" />
+        <span>myapp.com</span>
+      </div>
+    </div>
+  </body>
+</html>
+```
+
+Paint a background. PNGs keep transparency where nothing is painted, and social networks show transparent areas in unpredictable colors. To get smaller files, give `outFile` a `.jpg` extension and the size renders as JPEG.
+
+## Wire it into your pages
+
+Reference the files from your page metadata. In Next.js:
+
+```ts title="app/pricing/page.tsx"
+export const metadata = {
+  openGraph: { images: ["/og/pricing.png"] },
+  twitter: { card: "summary_large_image", images: ["/og/pricing-x.png"] },
+};
+```
+
+## Related
+
+- [Favicons and touch icons](/guides/favicons)
+- [Launch kit](/guides/launch-kit)
+- [Writing files anywhere with outFile](/guides/out-file)

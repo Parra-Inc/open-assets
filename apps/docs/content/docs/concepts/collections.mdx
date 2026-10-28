@@ -1,0 +1,75 @@
+---
+title: Collections
+description: A collection groups templates that share one source size and one list of export sizes. Learn its fields, how filtering works and how it maps to dev tabs.
+---
+
+A **collection** is a named group of templates that share a source size and a list of export entries. Screenshots are one collection, the app icon another, OG images a third. In the dev server each collection is a tab.
+
+```json title="assets.json"
+{
+  "version": 1,
+  "name": "My App",
+  "collections": [
+    {
+      "id": "screenshots",
+      "label": "App Store Screenshots",
+      "tags": ["screenshots", "ios"],
+      "sourceSize": { "width": 440, "height": 956 },
+      "borderRadius": 4,
+      "templates": [
+        { "src": "assets/screenshots/01-hero.html", "name": "01-hero", "label": "Hero" }
+      ],
+      "export": [
+        { "name": "iphone-6.9", "label": "iPhone 6.9\"", "size": { "width": 1320, "height": 2868 } }
+      ]
+    }
+  ]
+}
+```
+
+## Fields
+
+| Field | Purpose |
+| --- | --- |
+| `id` | Unique identifier. Used by `--collection`, as the folder name under `exports/` and in lockfile keys. |
+| `label` | Display name in the dev server. |
+| `tags` | Tag ids for `--tag` filtering. See [Tags](/concepts/tags). |
+| `sourceSize` | `{ width, height }` the templates are authored at. See [Sizing](/concepts/sizing). |
+| `borderRadius` | Corner radius of the preview frame in the dev server, in px. Preview only. |
+| `background` | CSS color painted on the page root during `render`. Without it, PNGs keep a transparent background where the page has none. |
+| `templates` | Source files. See [Templates](/concepts/templates). |
+| `export` | Export sizes and output actions. See [Outputs](/concepts/outputs). |
+| `localizations` | Path to a localizations file. See [Localization](/localization/strings). |
+| `locales` | Optional subset of locales to render. |
+| `customExport` | `{ defaultWidth, defaultHeight }` for the custom size inputs in the dev server's export menu. |
+
+The full schema is in the [Manifest reference](/reference/manifest).
+
+## Why group by collection
+
+Everything in a collection is rendered the same way: same source size, same export sizes, same locales. That gives you the N × M model: add a fourth screenshot and it renders at every size; add an iPad size and every screenshot renders at it.
+
+Split into separate collections when templates need a **different source size** (an icon at 1024×1024 and screenshots at 440×956) or a **different set of sizes** (Play Store screenshots vs App Store screenshots). The Tax Days example keeps `screenshots` and `screenshots-android` as two collections for this reason.
+
+## Selecting collections
+
+```bash
+npx open-assets render --collection screenshots
+npx open-assets render --tag ios
+```
+
+If the filter matches nothing, `render` exits with an error such as `No collections matched collection "screenshot" in config`.
+
+## Validation
+
+`open-assets validate` checks that each collection has an `id`, that ids are unique, that `sourceSize` has a width and height, that there is at least one template and that every template file exists. `validate --fix` offers to remove missing templates and empty collections.
+
+## Gotchas
+
+- **The template count changes the output layout.** One template renders flat (`exports/icon/1024.png`); two or more use a folder per size. Adding a second template to a collection moves the files. See [Outputs](/concepts/outputs).
+- **`background` is a CLI render option.** Exports triggered from the dev server UI do not apply it.
+
+## Related
+
+- [Templates](/concepts/templates)
+- [Example project: Skimmer](/examples/skimmer)

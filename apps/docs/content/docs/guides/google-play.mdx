@@ -1,0 +1,86 @@
+---
+title: Google Play Assets
+description: Render Google Play phone screenshots, the 1024x500 feature graphic and the 512px app icon from HTML templates, with a ready to copy collection config.
+---
+
+A Google Play store listing needs three kinds of graphics: phone screenshots, a feature graphic and a high resolution app icon. Each is a collection in Open Assets.
+
+## Google Play sizes
+
+<ExportSizes platform="Play Store" />
+
+Google also accepts tablet and Chromebook screenshots. Add any size you need as an `export` entry. The Tax Days example renders 7" and 10" tablet sizes (1200x1920 and 1600x2560). Check the current requirements in Play Console before you upload.
+
+## Phone screenshots
+
+Android phones are taller than the 440x956 iPhone source. A 1080x2400 screenshot has a 9:20 ratio, so use a source of `440x978` (the Tax Days and Only Recipes examples do). You can usually reuse your iPhone templates' styles and just give the Android templates the taller canvas.
+
+Rendering scales by the larger of the width and height ratios and captures from the top left, so if a source and export ratio differ, the extra is cropped from the right or bottom. That is why the Play Store collection should not share a source size with the iPhone collection.
+
+## Google Play feature graphic size
+
+The feature graphic is 1024x500 and appears at the top of your listing and in promotions. Author it at full size. Keep text away from the edges and center the key message, since Play can crop or overlay it on some surfaces.
+
+## Collection config
+
+```json title="assets.json"
+{
+  "collections": [
+    {
+      "id": "play-screenshots",
+      "label": "Play Store Screenshots",
+      "sourceSize": { "width": 440, "height": 978 },
+      "templates": [
+        { "src": "assets/play/01-hero.html", "name": "01-hero", "label": "Hero" },
+        { "src": "assets/play/02-features.html", "name": "02-features", "label": "Features" }
+      ],
+      "export": [
+        { "name": "phone", "label": "Phone", "size": { "width": 1080, "height": 2400 } }
+      ]
+    },
+    {
+      "id": "feature-graphic",
+      "label": "Feature Graphic",
+      "sourceSize": { "width": 1024, "height": 500 },
+      "templates": [
+        { "src": "assets/play/feature-graphic.html", "name": "feature-graphic" }
+      ],
+      "export": [
+        { "name": "feature-graphic", "size": { "width": 1024, "height": 500 }, "outFile": "exports/play/feature-graphic.jpg" }
+      ]
+    },
+    {
+      "id": "play-icon",
+      "label": "Play Icon",
+      "sourceSize": { "width": 1024, "height": 1024 },
+      "templates": [
+        { "src": "assets/icon/icon.html", "name": "icon" }
+      ],
+      "export": [
+        { "name": "play-icon", "size": { "width": 512, "height": 512 } }
+      ]
+    }
+  ]
+}
+```
+
+What this produces:
+
+- `exports/play-screenshots/phone/01-hero.png` and friends (one folder per size, because the collection has several templates).
+- `exports/play/feature-graphic.jpg`. The feature graphic must not have transparency, and a `.jpg` `outFile` is rendered as JPEG, which has none.
+- `exports/play-icon/play-icon.png`. A single-template collection writes flat files named after the size.
+
+The icon collection reuses the same template as your iOS icon. One source of truth, every store.
+
+You can also start the feature graphic with `npx open-assets add collection` and the "Feature Graphic / Google Play" preset.
+
+## Localized Play listings
+
+Play Console has per-language graphics too. Add `localizations` to the screenshot collection and each locale renders into its own folder: `exports/play-screenshots/de/phone/01-hero.png`. See [Localization](/localization).
+
+## Related
+
+- [App Store screenshots](/guides/app-store-screenshots)
+- [Upload to App Store Connect / Google Play](/guides/app-store-connect)
+- [Sizes reference](/reference/sizes)
+- [Tax Days example](/examples/tax-days)

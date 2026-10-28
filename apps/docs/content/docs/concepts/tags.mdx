@@ -1,0 +1,48 @@
+---
+title: Tags
+description: Tags group collections so you can render or list a subset with --tag. Learn how root tag definitions and collection tags relate, and how init generates them.
+---
+
+Tags let you render or list a group of collections without naming each one. For example, render everything for iOS, or only social images.
+
+```json title="assets.json"
+{
+  "version": 1,
+  "name": "My App",
+  "tags": [
+    { "id": "ios", "label": "iOS" },
+    { "id": "web", "label": "Web" }
+  ],
+  "collections": [
+    { "id": "screenshots", "tags": ["ios"], "...": "..." },
+    { "id": "icon", "tags": ["ios", "web"], "...": "..." },
+    { "id": "og-images", "tags": ["web"], "...": "..." }
+  ]
+}
+```
+
+- **Root `tags`** is a registry of `{ id, label }` definitions. `open-assets list` prints their ids at the top.
+- **Collection `tags`** is an array of tag ids. This is what filtering uses.
+
+## Filtering
+
+```bash
+npx open-assets render --tag ios
+npx open-assets list --tag web
+```
+
+A collection matches when its `tags` array contains the tag exactly (case sensitive). `--tag` combines with `--collection`, `--template`, `--size` and `--locale`. If no collection matches, the command exits with an error (`No collections matched tag "ios" in config` for `render`, `No collections found with tag "ios"` for `list`).
+
+## How init sets tags
+
+`open-assets init` tags each collection with its asset type plus the platforms you picked (for example `["screenshots", "ios"]`), and fills the root registry with every tag used, labelled by capitalizing the id (`ios` becomes `Ios`). Edit the labels freely.
+
+## Gotchas
+
+- Matching uses collection `tags` only. A tag on a collection that is not in the root registry still filters fine, and nothing checks the two lists against each other.
+- The dev server does not filter by tags; it shows every collection.
+
+## Related
+
+- [Collections](/concepts/collections)
+- [`render` reference](/reference/cli/render)

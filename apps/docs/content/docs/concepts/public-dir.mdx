@@ -1,0 +1,73 @@
+---
+title: The public directory
+description: How publicDir holds shared logos, photos, fonts and UI test captures, how the dev server serves and watches it, and how to reference it so render resolves.
+---
+
+`publicDir` names a folder of files that many templates share: logos, background photos, fonts, device frames and app screenshots captured by UI tests.
+
+```json title="assets.json"
+{
+  "version": 1,
+  "name": "My App",
+  "publicDir": "public",
+  "collections": []
+}
+```
+
+The path is relative to the project directory. `open-assets init` sets it to `public` and creates the folder.
+
+## How the dev server uses it
+
+When `publicDir` exists, `open-assets dev`:
+
+- **Serves it at the site root.** `public/logo.svg` is reachable at `http://localhost:3200/logo.svg`.
+- **Watches it.** Saving or replacing a file reloads the preview, just like editing a template.
+
+Requests are resolved in order: `publicDir` first, then any `--static-dir` folders, then the project directory. So `/public/logo.svg` and `/logo.svg` both work in the dev server, and a file in `publicDir` with the same path as a project file wins.
+
+## How render uses it
+
+`render` does not run a server. Chromium opens each template straight from disk with a `file://` URL, so references resolve like files on disk, relative to the template's folder. `publicDir` has no special meaning there.
+
+That makes **relative paths the only kind that works everywhere**:
+
+```html title="assets/screenshots/01-hero.html"
+<!-- Works in dev and render -->
+<link rel="stylesheet" href="../../public/styles.css" />
+<img src="../../public/screenshots/01-home.png" />
+```
+
+```html
+<!-- Works in dev, breaks in render: resolves to file:///logo.png -->
+<img src="/logo.png" />
+```
+
+Every example project follows this pattern: templates in `assets/screenshots/` reference `../../public/...`.
+
+<Callout type="info">
+Relative references also feed the [lockfile](/concepts/lockfile). Replace `public/screenshots/01-home.png` and the templates that link it directly re-render on the next run. Root-relative references are not tracked.
+</Callout>
+
+## What to put in it
+
+- Brand files: `icon.svg`, logos, wordmarks.
+- Photography and backgrounds (the Skimmer example keeps them in `public/screenshots-bg/`).
+- App screenshots from UI tests, one folder per locale: `public/screenshots/en/01-home.png`. See [UI test screenshots](/guides/ui-test-screenshots).
+- Web fonts loaded with `@font-face`. See [Fonts](/localization/fonts).
+
+Compiled CSS usually goes in `dist/` instead, which is not served specially but works the same way through relative paths.
+
+## Extra static folders
+
+To serve more folders in the dev server (for example a design system package elsewhere in a monorepo):
+
+```bash
+npx open-assets dev --static-dir ../shared ../brand
+```
+
+These are served and watched like `publicDir`. They are a dev server feature only: templates still need relative paths for `render`.
+
+## Related
+
+- [Project structure](/structure)
+- [`dev` reference](/reference/cli/dev)

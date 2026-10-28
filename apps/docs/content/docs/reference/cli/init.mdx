@@ -1,0 +1,62 @@
+---
+title: open-assets init
+description: Scaffold an Open Assets project interactively with an assets.json, starter HTML templates for screenshots, icons, logos and more, plus public and src folders.
+---
+
+<CliUsage command="init" />
+
+`init` asks a few questions and writes a starter project into `[dir]`.
+
+## Prompts
+
+1. **Project name**, defaulting to the folder name. The config `name` becomes `<name> Assets`.
+2. **Which assets do you need?** Any of: App Store Screenshots, App Icon, Logo, Wordmark, Feature Graphic (Google Play). Selecting none aborts.
+3. **Which platforms are you targeting?** Asked only if you picked screenshots or the icon: iOS / App Store, Android / Google Play, Web. Selecting none defaults to iOS.
+4. **Proceed?** `Y/n`.
+
+In a terminal the lists are checkboxes (arrow keys, space to toggle, enter to confirm). When stdin is not a TTY, they become numbered lists and you type comma-separated numbers such as `1,2`.
+
+## What it creates
+
+| Path | Contents |
+| --- | --- |
+| `assets.json` | `version: 1`, `name`, `publicDir: "public"`, `command: "npx open-assets render"`, `tags` (every collection tag, labelled with a capitalized id), `collections` |
+| `src/` | Templates for the chosen assets |
+| `public/`, `dist/` | Empty folders |
+| `.gitignore` | `dist/`, `exports/`, `node_modules/` (overwrites an existing one) |
+
+Collections per asset type (all templates are HTML):
+
+| Asset | id | Source size | Template | Export sizes |
+| --- | --- | --- | --- | --- |
+| Screenshots | `screenshots` | 440×956, radius 4 | `src/screenshots/01-hero.html` | iOS: iphone-6.9, iphone-6.7, iphone-6.5, ipad-13. Android: phone 1080×1920, tablet-7 1200×1920, tablet-10 1600×2560. Also `customExport` 1320×2868 |
+| App Icon | `icon` | 1024×1024, radius 224 | `src/icon.html` | iOS: 1024, 180, 120, 87, 80, 60, 40. Android: 512, 192, 144, 96, 72, 48. Web: 512, 192, 180, 32, 16 |
+| Logo | `logo` | 800×800 | `src/logo.html` | 800, 400, 200, 64 |
+| Wordmark | `wordmark` | 1200×400 | `src/wordmark.html` | 1200x400, 600x200, 300x100 |
+| Feature Graphic | `feature-graphic` | 1024×500 | `src/feature-graphic.html` | 1024x500 |
+
+Screenshot and icon collections are tagged with their id plus each chosen platform (`ios`, `android`, `web`).
+
+<Callout type="warn">
+Choosing both Android and Web for the icon adds two sizes named `512` and two named `192`. `--size 512` then matches only the first, and both write to `exports/icon/512.png`. Rename one after `init`.
+</Callout>
+
+## Examples
+
+```bash
+open-assets init
+open-assets init ./marketing
+```
+
+## Options
+
+<CliOptions command="init" />
+
+## Exit codes
+
+| Code | When |
+| --- | --- |
+| 0 | Created, or you aborted |
+| 1 | `assets.json` already exists in `[dir]` (`Error: assets.json already exists in this directory.`) |
+
+Next: [/quick-start](/quick-start).

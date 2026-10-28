@@ -1,0 +1,93 @@
+---
+title: Right-to-Left Locales
+description: How Open Assets handles Arabic, Hebrew and other RTL locales in screenshots, which elements get dir="rtl", and how to mirror layouts with logical CSS rules.
+---
+
+Arabic, Hebrew, Persian and Urdu read right to left. Open Assets detects these locales and makes the translated text flow the right way, while leaving your layout alone unless you opt in to mirroring it.
+
+## Which locales are RTL
+
+A locale is treated as right-to-left when its code, or its base language (the part before the first `-`), is one of:
+
+| Code | Language |
+| --- | --- |
+| `ar` | Arabic |
+| `he` | Hebrew |
+| `fa` | Persian (Farsi) |
+| `ur` | Urdu |
+| `yi` | Yiddish |
+| `ps` | Pashto |
+| `sd` | Sindhi |
+| `ku` | Kurdish (Sorani) |
+| `dv` | Divehi |
+| `ug` | Uyghur |
+
+So `ar`, `ar-SA` and `he-IL` are RTL. The legacy Hebrew code `iw` is not in the list, so use `he`. The CLI log prints the direction it picked for each locale, for example `Locale: ar (rtl)`.
+
+## What Open Assets sets
+
+During a render (`lib/renderer.mjs`):
+
+- `lang` is set on `<html>` for every locale, RTL or not.
+- For RTL locales, `dir="rtl"` is set on the **parent element of each text node that had a placeholder replaced**.
+- `dir` is **not** set on `<html>` or `<body>`. Flipping the root would mirror every flex row, margin and absolutely positioned element, which breaks fixed-pixel marketing layouts.
+
+For example, with `ar`:
+
+```html
+<!-- template -->
+<div class="pill"><span>📍</span><span>{{hero_pill}}</span></div>
+
+<!-- at render time -->
+<html lang="ar">
+  ...
+  <div class="pill"><span>📍</span><span dir="rtl">متتبع الإقامة الضريبية</span></div>
+```
+
+The Arabic text gets correct bidirectional ordering and, if the element is a block, starts from the right. The pill and the emoji stay where you put them.
+
+## Text alignment
+
+A block element with `dir="rtl"` aligns its text to the right by default, because the initial `text-align` value is `start`. If your template sets `text-align: left`, that wins and RTL text hugs the left edge. Use `start` and `end` instead of `left` and `right`:
+
+```css
+.subheadline { text-align: start; }   /* right edge in Arabic, left in English */
+.headline    { text-align: center; }  /* centered text needs no change */
+```
+
+Centered headlines, which most store screenshots use, need nothing at all.
+
+## Mirroring the layout
+
+Sometimes you do want the whole screenshot mirrored, for example a feature list with icons on the leading side. Opt in per template using the `lang` attribute:
+
+```css
+html:is(:lang(ar), :lang(he), :lang(fa), :lang(ur)) body {
+  direction: rtl;
+}
+```
+
+`:lang(ar)` also matches `ar-SA`. Once the direction is set on an ancestor, write the layout with logical properties so it flips automatically:
+
+| Instead of | Use |
+| --- | --- |
+| `margin-left` / `margin-right` | `margin-inline-start` / `margin-inline-end` |
+| `padding-left` / `padding-right` | `padding-inline-start` / `padding-inline-end` |
+| `left: 24px` / `right: 24px` | `inset-inline-start: 24px` / `inset-inline-end: 24px` |
+| `border-left` | `border-inline-start` |
+| `text-align: left` | `text-align: start` |
+| `border-top-left-radius` | `border-start-start-radius` |
+
+Flexbox and grid follow `direction` on their own: a `flex-direction: row` container lays out right to left. With Tailwind, the `ms-*`, `me-*`, `ps-*`, `pe-*`, `start-*` and `end-*` utilities map to these properties, and the `rtl:` variant applies styles under a `dir="rtl"` ancestor.
+
+Keep these unmirrored even in RTL: phone mockups and the app screenshots inside them (the captured UI is already localized), logos, and media controls.
+
+## Images per locale
+
+Placeholders only replace text, so a captured screenshot of your app in Arabic needs its own image file. Swap the `src` using `document.documentElement.lang`, as described in [UI test screenshots](/guides/ui-test-screenshots#captures-per-language).
+
+## Related
+
+- [Fonts for Arabic and Hebrew](/localization/fonts)
+- [Strings](/localization/strings)
+- [Skimmer example](/examples/skimmer)

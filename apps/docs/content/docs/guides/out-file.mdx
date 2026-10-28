@@ -1,0 +1,79 @@
+---
+title: Writing Files Anywhere with outFile
+description: Use outFile to write rendered images anywhere in your repo, such as a Next.js or Vite public folder, with placeholders, path resolution and overwrite rules.
+---
+
+By default every render lands under `exports/`. Add `outFile` to an export size and that size is written to the exact path you choose instead. Use it to put favicons in a web app's `public/` folder, OG images next to pages, or screenshots into a fastlane folder.
+
+## Basic use
+
+```json title="assets.json"
+{
+  "id": "favicon",
+  "sourceSize": { "width": 512, "height": 512 },
+  "templates": [{ "src": "assets/favicon.html", "name": "favicon" }],
+  "export": [
+    { "name": "512", "size": { "width": 512, "height": 512 } },
+    { "name": "apple-touch", "size": { "width": 180, "height": 180 }, "outFile": "public/apple-touch-icon.png" }
+  ]
+}
+```
+
+The `512` size goes to `exports/favicon/512.png`. The `apple-touch` size goes only to `public/apple-touch-icon.png`, not to `exports/` as well.
+
+## Path resolution
+
+From `lib/render.mjs`:
+
+- `outFile` is resolved **relative to the project directory**, the folder that holds `assets.json` (the `[dir]` argument to `render`, or the current directory). It does not depend on where you run the command from, and it ignores `--output`.
+- Absolute paths are used as is.
+- `..` is allowed, so a project in `marketing/` can write to `../apps/web/public/`.
+- Missing parent folders are created.
+
+Compare with `--output` (`-o`), which sets the folder for files without `outFile`. That one is resolved from the **current working directory**, not the project directory.
+
+## Placeholders
+
+| Placeholder | Replaced with |
+| --- | --- |
+| `{template}` | The template's `name` |
+| `{locale}` | The locale code, during a [localized](/localization) render |
+
+```json
+{ "name": "og", "size": { "width": 1200, "height": 630 }, "outFile": "../web/public/og/{template}.png" }
+```
+
+Without `{template}`, every template in the collection writes the same file and the last one wins. Without `{locale}` in a localized collection, every locale writes the same file. If a collection has several templates or locales, include the matching placeholders. `{locale}` is left as literal text when the collection has no localizations.
+
+## Format and overwriting
+
+- The extension picks the format: `.jpg` or `.jpeg` renders JPEG, anything else renders PNG. There is no `.ico`, `.webp` or `.svg` encoder, so those extensions get PNG bytes. See [Favicons](/guides/favicons).
+- Existing files are overwritten without a prompt.
+- Each `outFile` path has its own entry in `assets.lock`, keyed by the path relative to the project. Changing `outFile` makes that size render again on the next run. If you delete a rendered file, the next run renders it again. If you edit a rendered file by hand, the cache does not notice (it only checks that the file exists), so run with `--force` to restore it. See [Lockfile](/concepts/lockfile).
+
+## Next.js and Vite
+
+Both frameworks serve `public/` at the site root, so a file written to `public/og/home.png` is available at `/og/home.png`.
+
+<Tabs items={['Next.js', 'Vite']}>
+<Tab value="Next.js">
+```json
+{ "name": "og", "size": { "width": 1200, "height": 630 }, "outFile": "../web/public/og/{template}.png" }
+```
+You can also target App Router file conventions such as `app/icon.png`, `app/apple-icon.png` and `app/opengraph-image.png`.
+</Tab>
+<Tab value="Vite">
+```json
+{ "name": "32", "size": { "width": 32, "height": 32 }, "outFile": "../site/public/favicon-32.png" }
+```
+</Tab>
+</Tabs>
+
+Commit the generated files with the template change, so the site build never depends on running Open Assets.
+
+## Related
+
+- [Outputs](/concepts/outputs)
+- [Manifest reference](/reference/manifest)
+- [OG images](/guides/og-images)
+- [Upload to App Store Connect](/guides/app-store-connect)

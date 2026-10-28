@@ -1,0 +1,107 @@
+---
+title: Launch Kit
+description: Build a Product Hunt gallery, social banners and launch images as tagged collections, then render the whole launch kit with one command or a single tag filter.
+---
+
+A launch needs a pile of one-off images: a Product Hunt gallery, an X header, a Slack or Discord announcement image, and a few social posts. Keeping them as templates means you can fix a typo or swap a screenshot an hour before launch and re-render everything in seconds.
+
+## Sizes
+
+<ExportSizes platform="Product Hunt" />
+
+The No Context example also renders an X header at 1500x500 and Slack images at 1600x1000. Use whatever sizes each destination asks for, as `export` entries.
+
+## Collections with a shared tag
+
+Give every launch collection the same tag:
+
+```json title="assets.json"
+{
+  "version": 1,
+  "name": "My App",
+  "publicDir": "public",
+  "tags": [{ "id": "launch", "label": "Launch" }],
+  "collections": [
+    {
+      "id": "product-hunt",
+      "label": "Product Hunt Gallery",
+      "tags": ["launch"],
+      "sourceSize": { "width": 1270, "height": 760 },
+      "templates": [
+        { "src": "assets/launch/ph-01-hero.html", "name": "01-hero" },
+        { "src": "assets/launch/ph-02-how.html", "name": "02-how-it-works" },
+        { "src": "assets/launch/ph-03-cta.html", "name": "03-cta" }
+      ],
+      "export": [
+        { "name": "1x", "size": { "width": 1270, "height": 760 } },
+        { "name": "2x", "size": { "width": 2540, "height": 1520 } }
+      ]
+    },
+    {
+      "id": "x-header",
+      "label": "X Header",
+      "tags": ["launch"],
+      "sourceSize": { "width": 1500, "height": 500 },
+      "templates": [{ "src": "assets/launch/x-header.html", "name": "x-header" }],
+      "export": [
+        { "name": "1x", "size": { "width": 1500, "height": 500 } },
+        { "name": "2x", "size": { "width": 3000, "height": 1000 } }
+      ]
+    },
+    {
+      "id": "social",
+      "label": "Social Posts",
+      "tags": ["launch"],
+      "sourceSize": { "width": 1080, "height": 1080 },
+      "templates": [
+        { "src": "assets/launch/post-announce.html", "name": "announce" },
+        { "src": "assets/launch/post-feature.html", "name": "feature" }
+      ],
+      "export": [
+        { "name": "square", "size": { "width": 1080, "height": 1080 } }
+      ]
+    }
+  ]
+}
+```
+
+Render the whole kit:
+
+```bash
+npx open-assets render --tag launch
+```
+
+The output:
+
+<Files>
+  <Folder name="exports" defaultOpen>
+    <Folder name="product-hunt" defaultOpen>
+      <Folder name="1x"><File name="01-hero.png" /><File name="02-how-it-works.png" /><File name="03-cta.png" /></Folder>
+      <Folder name="2x"><File name="01-hero.png" /><File name="02-how-it-works.png" /><File name="03-cta.png" /></Folder>
+    </Folder>
+    <Folder name="x-header" defaultOpen>
+      <File name="1x.png" />
+      <File name="2x.png" />
+    </Folder>
+    <Folder name="social">
+      <Folder name="square"><File name="announce.png" /><File name="feature.png" /></Folder>
+    </Folder>
+  </Folder>
+</Files>
+
+Note the two layouts. A collection with one template (`x-header`) writes flat files named after the size. A collection with several templates writes a folder per size with files named after the template.
+
+## Retina versions
+
+A `2x` entry that doubles the source size renders the same layout at twice the pixel density, because templates scale with CSS `zoom`. Text and SVG stay sharp. Raster images inside the template only stay sharp if they have enough pixels, so use images at least twice their displayed size.
+
+## Reuse your store work
+
+Launch images usually show the same app screens as your store screenshots. Point launch templates at the same captures in `public/screenshots/` and the same shared stylesheet, and an updated capture flows into the store set and the launch kit on the next `render --force`.
+
+## Related
+
+- [Tags](/concepts/tags)
+- [OG images and social cards](/guides/og-images)
+- [No Context example](/examples/no-context)
+- [Cat IQ Test example](/examples/cat-iq-test)

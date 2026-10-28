@@ -1,0 +1,31 @@
+---
+title: Only Recipes
+description: "The Only Recipes example: eight iOS and eight Android screenshots built with CDN Tailwind, oversized headlines, highlighted keywords and real app captures."
+---
+
+[Only Recipes](https://apps.apple.com/us/app/only-recipes-recipe-keeper/id1553858589?pt=128415653&ct=oa_docs_examples&mt=8) is a recipe keeper. Its screenshots are the source of the design patterns in the Open Assets skill.
+
+<ExampleProject slug="only-recipes" />
+
+## Techniques
+
+- **Tailwind from the CDN.** Each template loads `https://cdn.tailwindcss.com` and sets `tailwind.config` inline with the brand colors (`brand-green`, `brand-black`, `star`). No build step, at the cost of needing network access during renders.
+- **The oversized headline.** A huge black word, then a keyword in a filled rounded box: the "Got Recipes?" pattern quoted in [the skill](/agents/skill).
+- **Composed captures.** Some screenshots combine several app captures (`02A.png`, `02B.png`) with arrows and badges from `public/` (`arrow.svg`, `laurel.svg`, `rating.svg`).
+- **iOS and Android.** The `ios` collection (440x956, four iPhone sizes) and the `android` collection (440x978, 1080x2400) use separate template folders with the same eight stories.
+- **Default output layout.** No `outFile`, so renders go to `exports/<collection>/<size>/<template>.png`.
+
+## Run it
+
+There is no `package.json`. Run the CLI from the example folder:
+
+```bash
+cd examples/only-recipes
+npx -p @open-assets/open-assets open-assets dev
+npx -p @open-assets/open-assets open-assets render --force
+```
+
+## What to copy
+
+- The headline and keyword patterns, if you want bold, high-contrast App Store screenshots.
+- The CDN setup for a quick start. Move to compiled Tailwind (as in [Skimmer](/examples/skimmer)) when you want offline, reproducible renders.

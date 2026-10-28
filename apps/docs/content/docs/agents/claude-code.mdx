@@ -1,0 +1,98 @@
+---
+title: Claude Code
+description: Install the Open Assets skill in Claude Code from the plugin marketplace, with npx open-assets skills, or the Skills CLI, and learn what the agent does with it.
+---
+
+Open Assets ships a Claude Code skill. With it installed, Claude knows the `assets.json` schema, the CLI, the localization format and a set of screenshot design rules, so you can ask for a full asset set in plain language.
+
+There are three ways to install it. Pick one.
+
+## Option 1: plugin marketplace (recommended)
+
+The repo is also a Claude Code plugin marketplace. Inside Claude Code, run:
+
+```text
+/plugin marketplace add Parra-Inc/open-assets
+/plugin install open-assets@open-assets
+```
+
+The marketplace is named `open-assets` and it contains one plugin, also named `open-assets` (display name "Open Assets"). That is why the install command reads `open-assets@open-assets`.
+
+A plugin install is per user, not per project: the skill works in every repo you open, and you never copy files into a project.
+
+### Updating
+
+Pull the latest version of the marketplace, then reload:
+
+```text
+/plugin marketplace update open-assets
+```
+
+The plugin version follows the npm package version (both are `0.5.1` at the time of writing), so a plugin update and an npm upgrade go together.
+
+## Option 2: copy the skill into a project
+
+The CLI can copy its bundled skill into a project:
+
+```npm
+npx open-assets skills
+```
+
+This copies the package's `skills/` folder to `.claude/skills/`, so the skill lands at `.claude/skills/open-assets/SKILL.md`. Pass a directory to install somewhere else:
+
+```npm
+npx open-assets skills ./my-app
+```
+
+Commit `.claude/skills/open-assets/` so everyone on the team gets the same skill. The copy is a snapshot: to update it, upgrade the npm package and run `npx open-assets skills` again (it overwrites the files).
+
+See [`open-assets skills`](/reference/cli/skills) for the command reference.
+
+## Option 3: the Skills CLI
+
+The `skills` CLI installs a skill straight from GitHub:
+
+```npm
+npx skills add https://github.com/Parra-Inc/open-assets --skill open-assets
+```
+
+This records the source in a `skills-lock.json` file, so the CLI can update it later.
+
+## Which one to choose
+
+| Method | Scope | Updates |
+| --- | --- | --- |
+| Plugin marketplace | Every project, per user | `/plugin marketplace update open-assets` |
+| `npx open-assets skills` | One project, committed | Re-run after upgrading the package |
+| `npx skills add` | One project | Through the Skills CLI |
+
+Use the marketplace for your own machine. Use a project install when you want teammates (or CI agents) to get the skill from the repo itself.
+
+## What the skill does
+
+The skill is `user-invocable`, so you can call it directly with `/open-assets`, and Claude also loads it on its own when you ask for marketing assets. Once loaded, Claude can:
+
+- Scaffold a project (`open-assets init`) or add collections, templates and sizes to `assets.json`.
+- Write HTML templates at the collection's source size, with Tailwind CSS and assets from `public/`.
+- Add a `localizations.json` file and wire `localizations` and `locales` into a collection.
+- Render with targeted commands (`--template`, `--collection`, `--size`) while iterating, and use `--force` only when the cache must be bypassed.
+- Apply the design rules in the skill: short benefit-led headlines, a hero first screenshot, a call to action last.
+
+The [skill file, annotated](/agents/skill) walks through every section so you know what Claude will do before you ask.
+
+## First prompt
+
+You need Node 18 or later and the package installed (see [Install](/install)). Then try:
+
+```text
+Set up open-assets in this repo and design 6 App Store screenshots for this app.
+Use the screenshots in public/screenshots/ inside phone frames, bold headlines
+with one highlighted keyword each, and a CTA on the last one. Export iPhone 6.9"
+and 6.7".
+```
+
+More prompts, and how to review what the agent produced, are on [Prompts](/agents/prompts).
+
+<Callout type="info">
+Using Cursor, Codex or another agent? The skill is a plain Markdown file, and the docs are available as `llms.txt`. See [Other agents](/agents/other).
+</Callout>

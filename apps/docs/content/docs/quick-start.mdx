@@ -1,0 +1,139 @@
+---
+title: Quick start
+description: Scaffold an Open Assets project with init, preview the templates in the dev server and render every export size to the exports folder in about five minutes.
+---
+
+This page takes you from an empty folder to rendered PNGs. You need Node.js 18 or later (see [Installation](/install)).
+
+<Steps>
+<Step>
+
+### Create a project folder
+
+```bash
+mkdir marketing && cd marketing
+npm init -y
+```
+
+```npm
+npm install --save-dev @open-assets/open-assets
+```
+
+</Step>
+<Step>
+
+### Run `init`
+
+```bash
+npx open-assets init
+```
+
+`init` asks four questions:
+
+1. **Project name.** Defaults to the folder name. The manifest's `name` becomes `<Project name> Assets`.
+2. **Which assets do you need?** Any of App Store Screenshots, App Icon, Logo, Wordmark and Feature Graphic (Google Play).
+3. **Which platforms are you targeting?** iOS / App Store, Android / Google Play, Web. Only asked when you picked screenshots or an app icon. Picking nothing defaults to iOS.
+4. **Proceed?** Confirm to write files.
+
+In an interactive terminal you toggle options with the keyboard. When stdin is not a TTY (for example when an agent drives it), `init` falls back to a numbered list and reads comma-separated numbers such as `1,2`.
+
+<Callout type="warn">
+`init` refuses to run if an `assets.json` already exists in the directory. It exits with `Error: assets.json already exists in this directory.`
+</Callout>
+
+</Step>
+<Step>
+
+### See what `init` created
+
+Choosing **App Store Screenshots** and **App Icon** for **iOS** produces:
+
+<Files>
+  <Folder name="marketing" defaultOpen>
+    <File name="assets.json" />
+    <File name=".gitignore" />
+    <Folder name="src" defaultOpen>
+      <File name="icon.html" />
+      <Folder name="screenshots" defaultOpen>
+        <File name="01-hero.html" />
+      </Folder>
+    </Folder>
+    <Folder name="dist" />
+    <Folder name="public" />
+  </Folder>
+</Files>
+
+- `assets.json` is the manifest. It sets `publicDir` to `public`, `command` to `npx open-assets render`, a `tags` list built from your choices, and one collection per asset type.
+- `src/` holds the starter templates. The screenshot is authored at 440×956 and the icon at 1024×1024.
+- `dist/` is an empty folder for compiled CSS (for example Tailwind output). The starter screenshot already links `../dist/styles.css`; it is harmless if that file does not exist yet.
+- `public/` is the empty [shared assets folder](/concepts/public-dir).
+- `.gitignore` contains `dist/`, `exports/` and `node_modules/`.
+
+The generated screenshots collection exports at iPhone 6.9", 6.7", 6.5" and iPad 13". The icon collection exports at 1024, 180, 120, 87, 80, 60 and 40 px for iOS. Android and Web add their own sizes.
+
+</Step>
+<Step>
+
+### Preview in the dev server
+
+```bash
+npx open-assets dev
+```
+
+The server starts on `http://localhost:3200` (or the next free port) and opens your browser. Each collection is a tab; each template is shown at its source size. Edit `src/screenshots/01-hero.html` and save: the page reloads on its own. You can export single images from the UI as you iterate.
+
+</Step>
+<Step>
+
+### Render every size
+
+Stop the server and run:
+
+```bash
+npx open-assets render
+```
+
+Each collection in this scaffold has one template, so its images land flat in a folder named after the collection, one file per export size:
+
+<Files>
+  <Folder name="exports" defaultOpen>
+    <Folder name="screenshots" defaultOpen>
+      <File name="iphone-6.9.png" />
+      <File name="iphone-6.7.png" />
+      <File name="iphone-6.5.png" />
+      <File name="ipad-13.png" />
+    </Folder>
+    <Folder name="icon" defaultOpen>
+      <File name="1024.png" />
+      <File name="180.png" />
+      <File name="120.png" />
+      <File name="87.png" />
+      <File name="80.png" />
+      <File name="60.png" />
+      <File name="40.png" />
+    </Folder>
+  </Folder>
+</Files>
+
+As soon as a collection has two or more templates, the layout switches to `exports/<collection>/<size>/<template>.png`. See [Outputs](/concepts/outputs).
+
+The render also writes `assets.lock`. Run `render` again and every image is skipped:
+
+```text
+Done. 0 asset(s) rendered, 11 skipped (unchanged) in 0.0s.
+```
+
+Use `--force` to re-render anyway. See [The lockfile](/concepts/lockfile).
+
+</Step>
+</Steps>
+
+<Callout type="info">
+The `exports/` folder is created relative to the directory you run the command from, not the project directory. If you run `open-assets render ./marketing` from the repo root, the images land in `./exports`. Pass `-o` to choose a folder explicitly.
+</Callout>
+
+## Next steps
+
+- [Tutorial: your first screenshot set](/tutorial) builds a real three-screenshot set with a shared stylesheet and an Xcode app icon.
+- [Project structure](/structure) explains every file in a project.
+- [`render` reference](/reference/cli/render) lists every flag.

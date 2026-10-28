@@ -1,0 +1,61 @@
+---
+title: open-assets list
+description: Print every collection in assets.json with its tags, templates, export sizes and outputs, filter the tree by tag, or dump the raw config as JSON for scripts.
+---
+
+<CliUsage command="list" />
+
+`list` reads the config and prints a tree of collections. It does not check that files exist; use [/reference/cli/validate](/reference/cli/validate) for that.
+
+## Examples
+
+```bash
+open-assets list
+open-assets list --tag ios
+open-assets list --json | jq '.collections[].id'
+```
+
+## Options
+
+<CliOptions command="list" />
+
+## Pretty output
+
+```text
+  Tags: screenshots, ios, icon, logo, branding
+
+  Demo Assets
+
+  Screenshots (screenshots) [screenshots, ios] ... 1 template(s), 4 size(s)
+    • Hero → src/screenshots/01-hero.html
+    ↳ iPhone 6.9" (1320×2868)
+    ↳ iPad 13" (2064×2752)
+  App Icon (icon) [icon, ios] ... 1 template(s), 7 size(s)
+    • App Icon → src/icon.html
+    ↳ 1024px (1024×1024)
+    ↳ Xcode: ios/AppIcon.appiconset
+```
+
+The real output separates the collection header from its counts with a long dash; it is shown as `...` here. Line by line:
+
+- `Tags:` lists root `tags` ids. Printed only when the root `tags` array is non-empty.
+- The root `name`.
+- One header per collection: `label (id)`, its `tags` in brackets if any, the template count and the size count (export entries without `type`).
+- `•` one line per template: `label` (or `name`) → `src`.
+- `↳` one line per size: `label (width×height)`.
+- `↳ Xcode: <path>` per `xcode` output and `↳ Copy source: <format>` per `copy-source` output.
+
+## `--json`
+
+Prints the whole config file, parsed and re-serialized with two-space indentation. `--tag` is ignored with `--json`.
+
+## Exit codes
+
+| Code | When |
+| --- | --- |
+| 0 | Printed |
+| 1 | Config missing or invalid JSON (`Error: ...`), or `--tag` matched no collection (`No collections found with tag "<tag>"`) |
+
+## Gotchas
+
+- A collection without a `templates` array crashes the pretty printer. Run `validate` first.

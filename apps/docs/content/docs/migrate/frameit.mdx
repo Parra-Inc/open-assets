@@ -1,0 +1,89 @@
+---
+title: Migrate from frameit
+description: "Move App Store screenshots from fastlane frameit to Open Assets: map frames, Framefile.json titles and strings to templates, collections and localizations."
+---
+
+fastlane frameit takes the raw screenshots from your app (often produced by `snapshot`), puts each one in a device frame, and adds a title and background from a `Framefile.json`, with title text per language from `.strings` files. Open Assets replaces that step with HTML templates you design yourself. Everything before it (capturing screenshots) and after it (uploading with `deliver`) stays.
+
+## How the concepts map
+
+| frameit | Open Assets |
+| --- | --- |
+| Raw screenshots from `snapshot` | Images in `public/screenshots/<locale>/` |
+| A device frame | Whatever you draw: a CSS rounded rectangle, an SVG frame, or no frame |
+| `Framefile.json` defaults (background, font, padding) | Shared CSS (a Tailwind theme or a stylesheet) |
+| One entry per screenshot filter | One HTML template per screenshot |
+| Title and keyword `.strings` per language | `localizations.json` with `{{key}}` placeholders |
+| Output next to the source images | `exports/`, or any path through `outFile` |
+| `deliver` uploads | `deliver` still uploads |
+
+## Steps
+
+<Steps>
+<Step>
+
+### Create the project
+
+```npm
+npx open-assets init
+```
+
+Then set up a screenshots collection with the iPhone sizes you need. See [App Store screenshots](/guides/app-store-screenshots).
+
+</Step>
+<Step>
+
+### Keep capturing raw screenshots
+
+Point your capture step (`snapshot`, an XCUITest, or anything else) at `public/screenshots/<locale>/`. Templates reference them with a relative path. See [UI test screenshots](/guides/ui-test-screenshots).
+
+</Step>
+<Step>
+
+### Move titles into localizations.json
+
+Copy each title and keyword from your `.strings` files into `localizations.json`:
+
+```json title="localizations.json"
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "hero_title": {
+      "localizations": {
+        "en": { "value": "Track every day" },
+        "de": { "value": "Jeden Tag erfassen" }
+      }
+    }
+  }
+}
+```
+
+Use `{{hero_title}}` in the template, and add `"localizations": "localizations.json"` to the collection. See [Strings](/localization/strings).
+
+</Step>
+<Step>
+
+### Rebuild the layout as a template
+
+Write one HTML file per screenshot at the collection's source size: background, title, then the device image. To swap the device image per language, use the `data-locale-img` pattern from the [Skimmer](/examples/skimmer) example.
+
+</Step>
+<Step>
+
+### Render where deliver expects files
+
+`deliver` reads screenshots from per-language folders. Write renders there with `outFile`:
+
+```json
+{ "name": "iphone-6.9", "size": { "width": 1320, "height": 2868 },
+  "outFile": "fastlane/screenshots/{locale}/{template}-iphone-6.9.png" }
+```
+
+Locale codes in `localizations.json` should then match the folder names `deliver` uses. Run `npx open-assets render`, then upload as before.
+
+</Step>
+</Steps>
+
+## What you gain and lose
+
+You gain any layout you can build in HTML, live preview, one template rendered at every size, readable diffs, and the same tool for icons and OG images. You lose ready-made device frames: draw your own, or use device frame images you are licensed to use and put them in `public/`.

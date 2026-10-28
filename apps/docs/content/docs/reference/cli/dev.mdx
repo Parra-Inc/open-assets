@@ -1,0 +1,127 @@
+---
+title: open-assets dev
+description: Start the Open Assets preview server with live reload, a locale picker and an export menu, plus its HTTP endpoints, static folders and every option it accepts.
+---
+
+<CliUsage command="dev" />
+
+`dev` starts a local HTTP server that shows every collection in your config side by side at its source size, reloads previews when files change, and renders PNGs on demand with the same Puppeteer renderer `render` uses.
+
+## What it does
+
+1. Loads the config (`assets.json`, or `--config`) from `[dir]`. If the file is missing or is not valid JSON, it prints `Error: <config> not found in <dir>` and `Run "open-assets init" to create one.`, then exits with code 1. The message says "not found" for invalid JSON too.
+2. Adds `publicDir` (if set and it is a directory) to the front of the static folder list, followed by each `--static-dir`.
+3. Watches the static folders and every folder that contains a template, recursively.
+4. Listens on `--host:--port`. If the port is taken it tries the next one, up to 10 times (3200 to 3210 by default), then exits with `Error: Ports <first>–<last> are all in use.`
+5. Starts Chromium in the background so the first export does not pay the launch cost.
+6. Opens your browser at `http://<host>:<port>` after 500 ms, unless `--no-open`, `--ci` or `OPEN_ASSETS_NO_OPEN=true`. A host of `0.0.0.0` opens as `localhost`.
+
+`Ctrl+C` (SIGINT) or SIGTERM closes watchers, closes Chromium and exits with code 0.
+
+## Examples
+
+```bash
+open-assets dev                         # current directory, port 3200
+open-assets dev ./marketing             # project in another folder
+open-assets dev --port 4000 --no-open
+open-assets dev --host 0.0.0.0          # reachable from your phone over LAN
+open-assets dev --static-dir ../web/public ./fonts
+open-assets dev --ci                    # quiet, no browser
+```
+
+## Options
+
+<CliOptions command="dev" />
+
+`--ci` forces `--quiet` and `--no-open`. `CI=true` in the environment does the same.
+
+## The preview UI
+
+- **Collection tabs**: one per collection, using `label`. The active tab is in the `?collection=<id>` URL parameter.
+- **Canvas**: HTML templates render in iframes at `sourceSize`, SVG templates as `<img>` on a checkerboard. `borderRadius` rounds the frame. Each slot shows the template `label` (or `name`).
+- **Zoom**: toolbar buttons, plus keys `+`/`=` (in), `-` (out), `0` (fit all), `1` (100%).
+- **Locale picker**: shown when the collection has `localizations`. The starting locale is `?locale=`, then the root `defaultLocalization`, then the file's `sourceLanguage`, then the first locale. Placeholders are filled inside the iframe the same way `render` fills them.
+- **Export menu**:
+  - one button per `xcode` output ("Export to Xcode"), which writes the `.appiconset` on disk;
+  - one download button per template matching a `copy-source` format (downloads the source file);
+  - one button per export size: a single PNG (`<template>-<w>x<h>.png`) for one template, or a zip of `<template>.png` files named `<size name>.zip` for several;
+  - a **Custom Size** row. Defaults come from `customExport.defaultWidth` and `defaultHeight`, then the first export size, then the source size. Square collections get one input.
+
+Downloads from the export menu go to your browser, not to `exports/`. They do not touch `assets.lock`. They are rendered with the active locale but without the collection `background`.
+
+## Hot reload
+
+The server pushes a Server-Sent Event for every change in a watched folder. The viewer then:
+
+- reloads any iframe or image whose path matches the changed file;
+- reloads every iframe when the changed file is `.css`, `.js`, `.mjs`, `.json`, `.woff`, `.woff2` or `.ttf`;
+- re-applies the active locale after the reload.
+
+If the SSE connection drops, the viewer reconnects every 2 seconds.
+
+<Callout type="warn">
+The server reads the config once at startup. The viewer page re-reads it on a full refresh, but the server's own copy (used by the API endpoints and by the watch list) does not change. Restart `dev` after adding collections, templates or localizations files.
+</Callout>
+
+<Callout type="warn">
+The viewer always fetches `assets.json` from the project root. If you start `dev` with `--config other.json`, the server uses `other.json` but the page still loads `assets.json` (or fails if it does not exist).
+</Callout>
+
+## Static files
+
+`GET` requests that are not API routes are served in this order:
+
+1. `GET /` returns the viewer page.
+2. Each static folder in order: `publicDir`, then each `--static-dir`. The first folder containing the path wins.
+3. The project directory.
+
+`..` is stripped from request paths. Missing files return `404 Not found`. `--static-dir` paths resolve against the current working directory, not `[dir]`. Content types are set for html, css, js, mjs, json, png, jpg, jpeg, gif, svg, ico, woff, woff2, ttf, otf, webp, mp4 and webm; anything else is `application/octet-stream`.
+
+Because `publicDir` is served at `/`, a template can use `/images/logo.png` in the preview. `render` loads templates from `file://` and will not find it. See [/reference/template-api](/reference/template-api#asset-paths).
+
+## HTTP endpoints
+
+All `/api/*` responses send `Access-Control-Allow-Origin: *`. `OPTIONS` returns 204.
+
+### `POST /api/render-screenshot`
+
+Renders one template and returns `image/png`.
+
+```json title="request body"
+{
+  "file": "src/screenshots/01-hero.html",
+  "width": 1320,
+  "height": 2868,
+  "sourceW": 440,
+  "sourceH": 956,
+  "background": "#ffffff",
+  "localization": { "strings": { "hero_title": "Hallo" }, "locale": "de", "direction": "ltr" }
+}
+```
+
+`file`, `width` and `height` are required (400 with `{"ok":false,"error":"Missing file, width, or height"}` otherwise). `sourceW` and `sourceH` default to `width` and `height`. `background` and `localization` are optional. `--render-timeout` applies. Errors return 500 with `{"ok":false,"error":"..."}`.
+
+```bash
+curl -s -X POST http://localhost:3200/api/render-screenshot \
+  -H 'Content-Type: application/json' \
+  -d '{"file":"src/icon.html","width":512,"height":512,"sourceW":1024,"sourceH":1024}' \
+  -o icon-512.png
+```
+
+### `GET /api/localizations?collection=<id>`
+
+Returns `{ "ok": true, "data": <localizations file>, "locales": [...], "defaultLocale": "en" }`. 400 without `collection`, 404 when the collection has no `localizations`.
+
+### `POST /api/run-output`
+
+Body `{ "collectionId": "icon", "outputIndex": 0 }`. `outputIndex` counts only typed export entries and defaults to 0. Runs an `xcode` output and returns `{ "ok": true, "path": "<AppIcon.png path>" }`. Other output types return 400 `Unsupported output type: <type>`; an unknown collection or index returns 404.
+
+### `GET /api/live-reload`
+
+A `text/event-stream`. Each event is `data: {"file":"<path relative to the watched folder>"}`.
+
+## Gotchas
+
+- `fs.watch` with `recursive` is used. If a platform does not support it, the server prints `Warning: could not watch <dir>` and keeps running without reload for that folder.
+- `--quiet` must be passed, or `OPEN_ASSETS_QUIET` must be exactly `true`. Other values are ignored.
+- `dev` never writes to `exports/` or `assets.lock`. Use [/reference/cli/render](/reference/cli/render) for that.

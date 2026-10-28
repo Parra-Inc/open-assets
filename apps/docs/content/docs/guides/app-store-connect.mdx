@@ -1,0 +1,88 @@
+---
+title: Upload to App Store Connect
+description: Map Open Assets export folders to App Store Connect and Google Play screenshot slots, then upload by hand or automate it with fastlane deliver or an asc CLI.
+---
+
+Open Assets stops at files on disk. It has no built-in upload command. This page shows how the export folders line up with store screenshot slots, and how to hand them to the upload tool you already use.
+
+## How exports are laid out
+
+For a collection with more than one template, each export size gets its own folder, and each template becomes one file named after the template's `name`:
+
+<Files>
+  <Folder name="exports" defaultOpen>
+    <Folder name="screenshots" defaultOpen>
+      <Folder name="iphone-6.9" defaultOpen>
+        <File name="01-hero.png" />
+        <File name="02-features.png" />
+      </Folder>
+      <Folder name="iphone-6.5">
+        <File name="01-hero.png" />
+        <File name="02-features.png" />
+      </Folder>
+    </Folder>
+  </Folder>
+</Files>
+
+With [localization](/localization) turned on, a locale folder sits between the collection and the size: `exports/screenshots/de/iphone-6.9/01-hero.png`. See [Locales and output folders](/localization/locales).
+
+Each size folder maps to one display size in App Store Connect, and each locale folder maps to one language of your product page. Files sort by name, so numeric prefixes keep the upload order.
+
+## Upload by hand
+
+1. In App Store Connect, open your app version and pick a language.
+2. Under Previews and Screenshots, choose the display size (for example iPhone 6.9").
+3. Drag every file from the matching folder, such as `exports/screenshots/en/iphone-6.9/`, into the slot.
+4. Repeat for iPad and for each language.
+
+Google Play Console works the same way: pick the language in the store listing, then drop files from the phone folder and the feature graphic. See [Google Play](/guides/google-play).
+
+## Automate with fastlane deliver
+
+[fastlane deliver](https://docs.fastlane.tools/actions/deliver/) uploads screenshots from a folder per language, and detects the display size from each image's pixel dimensions. Point Open Assets' output straight at that layout with `outFile`:
+
+```json title="assets.json"
+{
+  "id": "screenshots",
+  "sourceSize": { "width": 440, "height": 956 },
+  "localizations": "localizations.json",
+  "locales": ["en-US", "de-DE", "ja"],
+  "templates": [
+    { "src": "assets/screenshots/01-hero.html", "name": "01-hero" },
+    { "src": "assets/screenshots/02-features.html", "name": "02-features" }
+  ],
+  "export": [
+    {
+      "name": "iphone-6.9",
+      "size": { "width": 1320, "height": 2868 },
+      "outFile": "fastlane/screenshots/{locale}/iphone-6.9-{template}.png"
+    }
+  ]
+}
+```
+
+`{locale}` and `{template}` are replaced per file, and the path is resolved relative to the project directory. Then:
+
+```bash
+npx open-assets render
+bundle exec fastlane deliver --skip_binary_upload --skip_metadata --overwrite_screenshots
+```
+
+Use the locale codes your upload tool expects as the keys in `localizations.json`, because Open Assets uses the locale code unchanged as the folder name. Check the deliver docs for its current folder and naming rules.
+
+## Automate with an App Store Connect CLI
+
+Any tool that talks to the App Store Connect API can upload from the export folders: a community `asc` CLI, a script against the API, or your CI provider's integration. Feed it one folder per display size and locale. Because the layout is predictable, a loop over `exports/screenshots/*/*/` usually covers the whole set.
+
+## Before you upload
+
+- Run `npx open-assets render --json` to get every path with its width and height, and compare against the sizes your store asks for.
+- PNGs keep transparency where the template paints nothing. Paint a background so screenshots are opaque.
+- Run with `--force` after replacing captured app images. The cache tracks files a template names directly, but not images set by scripts or loaded through CSS.
+
+## Related
+
+- [App Store screenshots](/guides/app-store-screenshots)
+- [Custom product pages and A/B tests](/guides/custom-product-pages)
+- [Writing files anywhere with outFile](/guides/out-file)
+- [Running in CI](/ci/github-actions)

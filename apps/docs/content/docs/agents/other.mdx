@@ -1,0 +1,71 @@
+---
+title: Other agents
+description: Use Open Assets with Cursor, Codex or any coding agent that runs shell commands, by pointing it at llms.txt, per-page Markdown, or an AGENTS.md snippet.
+---
+
+Open Assets is a CLI, so any agent that can edit files and run shell commands can use it. Agents without Claude Code skills just need the same knowledge in another form. There are three ways to give it to them.
+
+## llms.txt
+
+These docs publish two machine-readable files:
+
+| URL | Contents |
+| --- | --- |
+| `https://docs.open-assets.dev/llms.txt` | An index of every page with a one-line summary |
+| `https://docs.open-assets.dev/llms-full.txt` | Every page's full text in one file |
+
+Give an agent `llms.txt` when it can fetch URLs on demand, and `llms-full.txt` when you want to paste or attach everything at once.
+
+## Per-page Markdown
+
+Every page is also available as Markdown:
+
+- Use the **Copy Markdown** button at the top of a page to copy it to your clipboard.
+- Or fetch it at `/llms.mdx/<path>/content.md`. For example, the manifest reference is at `https://docs.open-assets.dev/llms.mdx/reference/manifest/content.md`.
+
+This is the cheapest way to give an agent one topic, such as [Localization](/localization) or the [manifest reference](/reference/manifest).
+
+## The skill file
+
+The Claude Code skill is plain Markdown with no Claude-specific syntax in the body. You can reuse it directly:
+
+```npm
+npx open-assets skills
+```
+
+This writes `.claude/skills/open-assets/SKILL.md`. Point your agent at that file, or copy it to wherever your agent reads rules from (for example a Cursor rules file). See [the skill, annotated](/agents/skill) for what it contains.
+
+## An AGENTS.md snippet
+
+Many agents (Codex and others) read `AGENTS.md` at the repo root. Paste this in and adjust the paths:
+
+```md title="AGENTS.md"
+## Marketing assets (open-assets)
+
+Screenshots, icons and OG images are HTML/CSS/SVG templates rendered by
+open-assets (npm: @open-assets/open-assets). Docs: https://docs.open-assets.dev/llms.txt
+
+- Config: assets.json (collections, templates, export sizes). Strings: localizations.json.
+- Templates live in assets/. Shared images live in public/. Paths in templates are
+  relative to the template file.
+- Every visible string in a localized template is a {{key}} placeholder.
+- Preview: npx open-assets dev
+- Check config: npx open-assets validate
+- Render while iterating: npx open-assets render --template <name> (or --collection <id>)
+- After changing only localizations.json, CSS or images: add --force.
+- Commit assets.lock. Never hand-edit assets.lock.
+```
+
+## Agent checklist
+
+Whatever the agent, the loop is the same:
+
+1. Read the config with `npx open-assets list --json`.
+2. Edit templates, `assets.json` and `localizations.json`.
+3. Run `npx open-assets validate`. It exits with code 1 when there are errors.
+4. Render with `npx open-assets render --json`, which prints the rendered files as JSON.
+5. Hand back to you to review in the dev server. See [Reviewing agent output](/agents/prompts#reviewing-agent-output).
+
+<Callout type="info">
+`validate --fix` and the `add` commands are interactive and wait for keyboard input. Tell headless agents to edit `assets.json` directly instead.
+</Callout>

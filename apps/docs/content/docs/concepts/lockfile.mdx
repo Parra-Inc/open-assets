@@ -1,0 +1,90 @@
+---
+title: The lockfile
+description: "How assets.lock makes renders incremental: what is checksummed, which changes trigger a re-render, what does not, when to use --force and why to commit it."
+---
+
+`open-assets render` keeps a file called `assets.lock` in the project directory. It records what each output was rendered from, so the next run skips images whose inputs have not changed.
+
+```text
+Done. 0 asset(s) rendered, 11 skipped (unchanged) in 0.0s.
+```
+
+## What is in it
+
+```json title="assets.lock"
+{
+  "version": 1,
+  "assets": {
+    "screenshots/01-hero": {
+      "exports/screenshots/iphone-6.9/01-hero.png": {
+        "sourceChecksum": "sha256:03d1...",
+        "outputPath": "exports/screenshots/iphone-6.9/01-hero.png",
+        "exportedAt": "2026-10-28T18:57:53.222Z",
+        "exportChecksum": "sha256:543e..."
+      }
+    }
+  }
+}
+```
+
+- The asset key is `<collection>/<template>`, or `<collection>/<locale>/<template>` when localized.
+- Each output is keyed by its path, relative to the project directory, so the file is portable across machines.
+- `sourceChecksum` hashes the template and its direct local dependencies.
+- `exportChecksum` hashes the export settings: width, height, `outFile` and locale.
+
+## When an image is skipped
+
+An output is skipped only if all of these hold:
+
+1. The lockfile has an entry for that asset and output path.
+2. The current source checksum matches `sourceChecksum`.
+3. The current export checksum matches `exportChecksum`.
+4. The recorded `outputPath` matches.
+5. The output file exists on disk.
+
+Anything else re-renders it. So a deleted PNG is regenerated, and changing a size or an `outFile` re-renders that size.
+
+## What the source checksum covers
+
+For an `.html` template, the checksum includes the file plus every local file it references directly through `src="..."`, `href="..."` or `url(...)`. A path counts if it resolves, relative to the template's folder, to a file that exists. `http(s)://`, `//`, `data:` and `#` references are ignored.
+
+That means these changes **do** trigger a re-render:
+
+- Editing the template.
+- Editing a stylesheet it links, such as `../../public/styles.css` or `../../dist/styles.css`.
+- Replacing an image it references, such as `../../public/screenshots/01-home.png`.
+
+These **do not**:
+
+- Files referenced from inside a stylesheet (fonts or images in a CSS `url()` in an external `.css` file). Only the template's own text is scanned.
+- Root-relative references like `/logo.png`. They resolve against the filesystem root, not your project.
+- Files a script loads or a URL built at runtime, such as the Skimmer example's locale image swap.
+- Remote assets (Google Fonts, CDNs).
+- `localizations.json`. Changing a string does not invalidate the cache.
+- `sourceSize`, `background` and the renderer's version.
+
+For `.svg` templates only the SVG file itself is hashed.
+
+## --force
+
+```bash
+npx open-assets render --force
+```
+
+Ignores the cache and renders everything selected (it still updates the lockfile). Use it after changing something the checksum does not see: a translation, a font, a nested CSS asset, a `sourceSize`, or after upgrading Open Assets.
+
+## Other behavior
+
+- A missing or invalid `assets.lock` is treated as empty: everything renders and a fresh file is written.
+- The lockfile is saved even when a render fails mid-run, so finished images stay cached.
+- Output actions (`xcode`, `copy-source`) are not cached; they run on every render.
+- The dev server does not read or write the lockfile.
+
+## Commit it
+
+Commit `assets.lock` so teammates and CI share the cache. Remember that condition 5 requires the output file to exist: a fresh checkout where `exports/` is gitignored will render everything once, then stay incremental. `outFile` destinations that you commit (like `public/favicon.png`) are skipped right away.
+
+## Related
+
+- [`render` reference](/reference/cli/render)
+- [CI with GitHub Actions](/ci/github-actions)

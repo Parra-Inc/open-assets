@@ -1,0 +1,82 @@
+---
+title: Favicons and PWA Icons
+description: Generate favicon, apple-touch-icon and PWA manifest icons from one HTML or SVG template, written into public/ with outFile. Covers PNG only output and .ico.
+---
+
+A modern site needs a handful of icon files: a small favicon, a 180px Apple touch icon and 192px and 512px icons for a web app manifest. Render all of them from one template.
+
+## Config
+
+```json title="assets.json"
+{
+  "id": "favicon",
+  "label": "Favicons",
+  "sourceSize": { "width": 512, "height": 512 },
+  "templates": [
+    { "src": "assets/favicon.svg", "name": "favicon", "label": "Favicon" }
+  ],
+  "export": [
+    { "name": "512", "size": { "width": 512, "height": 512 }, "outFile": "public/icon-512.png" },
+    { "name": "192", "size": { "width": 192, "height": 192 }, "outFile": "public/icon-192.png" },
+    { "name": "apple-touch-icon", "size": { "width": 180, "height": 180 }, "outFile": "public/apple-touch-icon.png" },
+    { "name": "32", "size": { "width": 32, "height": 32 }, "outFile": "public/favicon-32.png" },
+    { "name": "16", "size": { "width": 16, "height": 16 }, "outFile": "public/favicon-16.png" }
+  ]
+}
+```
+
+`outFile` is resolved relative to the project directory. If your web app lives elsewhere, use a relative path such as `../web/public/apple-touch-icon.png`. See [outFile](/guides/out-file).
+
+## Format limits
+
+Open Assets renders PNG and JPEG only. The format comes from the `outFile` extension: `.jpg` or `.jpeg` renders JPEG, and **any other extension renders PNG**.
+
+<Callout type="warn">
+There is no `.ico` encoder. An `outFile` ending in `.ico` gets PNG bytes under a `.ico` name. Every current browser accepts PNG favicons, so link a PNG instead. If you need a real multi-size `favicon.ico` for an old client, render the PNGs and convert them with a separate tool (for example ImageMagick: `magick favicon-16.png favicon-32.png favicon.ico`).
+</Callout>
+
+For SVG templates you can also serve the SVG itself as a favicon. When a template is an `.svg`, every size whose dimensions equal `sourceSize` also gets a copy of the source SVG next to the PNG, and a `copy-source` output copies SVG sources into the export folder. See [Output types](/reference/outputs).
+
+## Design for 16px
+
+A detailed mark that looks good at 512px turns to mush at 16px. Options:
+
+- Keep the favicon template simple: one bold shape, no thin strokes or small text.
+- Use a separate template for the tiny sizes. Put it in its own collection so it has its own export list.
+- Fill the canvas. Browser tabs show the image edge to edge.
+
+Apple touch icons should be opaque and square. iOS rounds the corners. A transparent PNG shows black or white behind it on the home screen, so paint a background.
+
+## Link the files
+
+In Next.js, declare them in your root layout metadata (in plain HTML, use the equivalent `<link rel="icon">`, `<link rel="apple-touch-icon">` and `<link rel="manifest">` tags):
+
+```ts title="app/layout.tsx"
+export const metadata = {
+  icons: {
+    icon: [
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/manifest.webmanifest",
+};
+```
+
+```json title="public/manifest.webmanifest"
+{
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
+```
+
+Next.js App Router also picks up `app/icon.png` and `app/apple-icon.png` by file name, so you can point `outFile` there instead.
+
+## Related
+
+- [Xcode app icon](/guides/xcode-app-icon)
+- [OG images](/guides/og-images)
+- [Sizes reference](/reference/sizes)

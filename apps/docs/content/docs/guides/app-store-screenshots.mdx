@@ -1,0 +1,213 @@
+---
+title: App Store Screenshots
+description: Build a full iPhone and iPad App Store screenshot set from HTML templates, with the required sizes, a phone frame layout and a config you can copy and render.
+---
+
+This guide takes you from an empty collection to a folder of App Store screenshots that are ready to upload. You design each screenshot once as an HTML page at a small source size, and Open Assets renders it at every device size Apple accepts.
+
+## App Store screenshot sizes
+
+These are the App Store sizes Open Assets knows about. Apple asks for one set per display class, and smaller iPhone and iPad classes can reuse the largest set, so most apps only need the 6.9" iPhone and 13" iPad sets. Rendering the other sizes costs nothing extra and gives you exact pixel matches if you want them.
+
+<ExportSizes platform="App Store" />
+
+<Callout type="info">
+Apple changes its requirements from time to time. Check the current list in App Store Connect before a release. Adding a new size to Open Assets is one entry in the `export` array (see [Sizing](/concepts/sizing)).
+</Callout>
+
+## Choose a source size
+
+Templates are authored at a small `sourceSize` and scaled up with CSS `zoom` at render time. Pick a source size with the same aspect ratio as your export sizes, so text sizes in CSS read like points on a device.
+
+Every example project uses `440x956` for iPhone, which is the 6.9" screen at one third scale (1320 / 3 = 440, 2868 / 3 = 956).
+
+How scaling works, from `lib/renderer.mjs`:
+
+- The scale factor is `max(exportWidth / sourceWidth, exportHeight / sourceHeight)`.
+- The page is captured from the top left corner at the export size.
+
+So when an export size has a slightly different aspect ratio than the source, the image fills the frame and the overflow is cropped from the **right or bottom** edge. Going from `440x956` to the 6.7" size (1290x2796) scales by 2.932 and trims about 7px from the bottom. Keep important content away from the bottom and right edges by a few pixels and every iPhone size works from one template.
+
+<Callout type="warn">
+Do not put iPad sizes in the same collection as a portrait iPhone source. A `440x956` template rendered at 2064x2752 scales by about 4.69 to fill the width and loses roughly a third of its height. Give iPad its own collection with an iPad-shaped source size, such as `516x688` (13" iPad at one quarter scale). The `add collection` "App Store Screenshots" preset includes an `ipad-13` entry next to the iPhone sizes, so split it out after adding it.
+</Callout>
+
+## Device frame or full bleed
+
+There are two common layouts.
+
+**Device frame.** A headline at the top and a phone mockup that holds a real app screenshot, often running off the bottom edge. This is the layout used by the Tax Days, Skimmer and Thoughtful examples. The frame is plain CSS: a dark rounded box with padding, and an inner rounded box that clips the screenshot.
+
+**Full bleed.** The app screenshot fills the canvas and the headline sits on a gradient or a solid band. This shows more of your UI and has no frame to keep in sync with new hardware. Use it when your interface is the selling point.
+
+Either way, you reference the captured app screenshot with an `<img>`. Use a path relative to the template file, because renders load the template from disk with a `file://` URL. See [The public directory](/concepts/public-dir).
+
+## A complete iPhone template
+
+This template has no build step: plain CSS, one headline, one subhead and a framed screenshot. Save it as `assets/screenshots/01-hero.html` and put a capture at `public/screenshots/01-home.png`.
+
+```html title="assets/screenshots/01-hero.html"
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=440" />
+    <style>
+      html, body { margin: 0; padding: 0; }
+      .screenshot {
+        width: 440px;
+        height: 956px;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: linear-gradient(180deg, #eef4ff 0%, #ffffff 100%);
+        font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+      }
+      .copy { padding: 56px 40px 0; text-align: center; }
+      h1 { font-size: 36px; line-height: 1.1; margin: 0 0 12px; color: #0b1b33; }
+      h1 span { color: #2f6bff; }
+      p { font-size: 15px; line-height: 1.4; margin: 0; color: #4a5568; }
+      .phone {
+        margin-top: 40px;
+        background: #1a1a1a;
+        border-radius: 52px;
+        padding: 6px;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+      }
+      .phone-screen {
+        width: 300px;
+        height: 652px;
+        border-radius: 46px;
+        overflow: hidden;
+        background: #fff;
+      }
+      .phone-screen img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    </style>
+  </head>
+  <body>
+    <div class="screenshot">
+      <div class="copy">
+        <h1>Plan your week <span>in seconds</span></h1>
+        <p>Everything due this week, sorted for you.</p>
+      </div>
+      <div class="phone">
+        <div class="phone-screen">
+          <img src="../../public/screenshots/01-home.png" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+```
+
+A few details that matter:
+
+- The root element is exactly the source size with `overflow: hidden`, so nothing leaks past the canvas.
+- The phone screen (300x652) keeps the 440:956 aspect ratio, so a simulator capture fills it without distortion.
+- The phone is taller than the remaining space and runs off the bottom edge. That is intentional and common in store screenshots.
+
+## The collection config
+
+```json title="assets.json"
+{
+  "version": 1,
+  "name": "My App",
+  "publicDir": "public",
+  "collections": [
+    {
+      "id": "screenshots",
+      "label": "App Store Screenshots",
+      "sourceSize": { "width": 440, "height": 956 },
+      "borderRadius": 4,
+      "templates": [
+        { "src": "assets/screenshots/01-hero.html", "name": "01-hero", "label": "Hero" },
+        { "src": "assets/screenshots/02-features.html", "name": "02-features", "label": "Features" }
+      ],
+      "export": [
+        { "name": "iphone-6.9", "label": "iPhone 6.9\"", "size": { "width": 1320, "height": 2868 } },
+        { "name": "iphone-6.7", "label": "iPhone 6.7\"", "size": { "width": 1290, "height": 2796 } },
+        { "name": "iphone-6.5", "label": "iPhone 6.5\"", "size": { "width": 1284, "height": 2778 } },
+        { "name": "iphone-6.1", "label": "iPhone 6.1\"", "size": { "width": 1179, "height": 2556 } }
+      ]
+    },
+    {
+      "id": "screenshots-ipad",
+      "label": "iPad Screenshots",
+      "sourceSize": { "width": 516, "height": 688 },
+      "templates": [
+        { "src": "assets/screenshots-ipad/01-hero.html", "name": "01-hero", "label": "Hero" }
+      ],
+      "export": [
+        { "name": "ipad-13", "label": "iPad 13\"", "size": { "width": 2064, "height": 2752 } },
+        { "name": "ipad-12.9", "label": "iPad 12.9\"", "size": { "width": 2048, "height": 2732 } }
+      ]
+    }
+  ]
+}
+```
+
+Name templates with a numeric prefix (`01-hero`, `02-features`). The `name` becomes the file name, so the files sort in upload order.
+
+## Render
+
+Preview while you design:
+
+```bash
+npx open-assets dev
+```
+
+Then render every size:
+
+```bash
+npx open-assets render
+```
+
+Narrow the run while iterating:
+
+```bash
+npx open-assets render --collection screenshots --template 01-hero --size iphone-6.9
+```
+
+Unchanged templates are skipped using `assets.lock`. The checksum covers the template plus local files it names directly in `src`, `href` or `url(...)`, but not files those files pull in (such as images inside a compiled stylesheet) or paths set by scripts. After rebuilding CSS or swapping images that way, pass `--force`. See [Lockfile](/concepts/lockfile).
+
+## Check the output
+
+A collection with more than one template writes one folder per size:
+
+<Files>
+  <Folder name="exports" defaultOpen>
+    <Folder name="screenshots" defaultOpen>
+      <Folder name="iphone-6.9" defaultOpen>
+        <File name="01-hero.png" />
+        <File name="02-features.png" />
+      </Folder>
+      <Folder name="iphone-6.7">
+        <File name="01-hero.png" />
+        <File name="02-features.png" />
+      </Folder>
+    </Folder>
+    <Folder name="screenshots-ipad">
+      <Folder name="ipad-13">
+        <File name="01-hero.png" />
+      </Folder>
+    </Folder>
+  </Folder>
+</Files>
+
+Before you upload, check:
+
+- **Dimensions.** `npx open-assets render --json` prints the width and height of every file it wrote.
+- **Edges.** Look at the bottom and right edges of the sizes whose aspect ratio differs from the source.
+- **Missing images.** A wrong `<img>` path renders as a broken image without failing the run. Open the PNGs, not only the dev preview.
+- **Transparency.** PNGs are captured with a transparent background unless the page paints one. Give the root element a background, or set `background` on the collection. App Store screenshots should not have transparency.
+
+## Next steps
+
+<Cards>
+  <Card title="Screenshots from UI tests" href="/guides/ui-test-screenshots" description="Feed real simulator captures into your templates." />
+  <Card title="Localized App Store screenshots" href="/localization" description="Render the same templates in every language." />
+  <Card title="Upload to App Store Connect" href="/guides/app-store-connect" description="Map export folders to display sizes and upload." />
+  <Card title="Tax Days example" href="/examples/tax-days" description="Eight framed screenshots in four languages." />
+</Cards>

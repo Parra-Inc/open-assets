@@ -1,0 +1,30 @@
+---
+title: Thoughtful
+description: "The Thoughtful example: seven App Store screenshots and an icon with a warm Tailwind v4 theme, glow orbs, decorative flourishes and an SVG icon wrapped in HTML."
+---
+
+[Thoughtful](https://apps.apple.com/us/app/thoughtful-grow-relationships/id6762098726?pt=128415653&ct=oa_docs_examples&mt=8) helps you keep in touch with people. Its assets show a soft, warm brand applied consistently across a set.
+
+<ExampleProject slug="thoughtful" />
+
+## Techniques
+
+- **A brand system in the theme.** `src/styles.css` defines the palette and utilities (`bg-tf-gradient`, `bg-tf-coral`, `glow-orb`), so templates stay short.
+- **Decorative flourishes.** Small hearts, dots and sparkles are positioned absolutely with low opacity and a slight rotation, giving texture without competing with the headline.
+- **Per-template styles.** A template can add a small `<style>` block for one-off components (the contact card in `02-send.html`) on top of the shared theme.
+- **An SVG icon in an HTML wrapper.** `assets/icon/icon.html` is a 1024x1024 page that shows `public/icon.svg`. The SVG stays the single source, and the icon collection renders it at 1024 and 512.
+- **English only.** No `localizations` key: a simpler setup when you are not localizing yet.
+
+## Run it
+
+```bash
+cd examples/thoughtful
+npm install
+npm run dev
+npm run render
+```
+
+## What to copy
+
+- The HTML wrapper around an SVG icon, so the icon renders through the same pipeline as everything else.
+- The flourish pattern for adding texture to a plain gradient background.

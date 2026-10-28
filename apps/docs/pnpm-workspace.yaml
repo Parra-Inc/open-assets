@@ -1,0 +1,7 @@
+allowBuilds:
+  esbuild: true
+  workerd: true
+  sharp: true
+minimumReleaseAgeExclude:
+  - '@fumadocs/base-ui@16.17.9'
+  - fumadocs-core@16.17.9

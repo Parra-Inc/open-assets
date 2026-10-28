@@ -1,0 +1,76 @@
+---
+title: open-assets validate
+description: Check assets.json for missing fields, duplicate ids, missing template files and broken localizations, fix them interactively, and fail CI with exit code 1.
+---
+
+<CliUsage command="validate" />
+
+`validate` runs a fixed list of checks against the config and the files it points to, prints a line per check and exits 1 if any failed.
+
+## Examples
+
+```bash
+open-assets validate
+open-assets validate ./marketing --config assets.staging.json
+open-assets validate --fix
+```
+
+## Options
+
+<CliOptions command="validate" />
+
+## Checks
+
+Pass lines start with `✓`, failures with `✗`. Messages are quoted exactly.
+
+| Check | Failure message |
+| --- | --- |
+| Root `name` is set | `Missing top-level 'name' field` |
+| `collections` is a non-empty array | `Missing or empty 'collections' array` (stops here) |
+| Each collection has `id` | `Collection missing 'id' field` (rest of that collection skipped) |
+| Collection ids are unique | `Duplicate collection id: "<id>"` |
+| `sourceSize.width` and `height` are set and non-zero | `Collection "<id>" missing or invalid 'sourceSize'` |
+| `templates` is non-empty | `Collection "<id>" has no templates` |
+| Each template has `src` | `Collection "<id>" has a template without 'src'` |
+| Each `src` exists on disk | `<src> not found` |
+| `localizations` file exists | `Collection "<id>" localizations file not found: <path>` |
+| Localizations file has `sourceLanguage` | `Collection "<id>" localizations missing "sourceLanguage"` |
+| Localizations file has strings | `Collection "<id>" localizations has no strings defined` |
+| Every code in `locales` is defined | `Collection "<id>" requests locale "<code>" but it is not defined in <path>` |
+| Localizations file parses | `Collection "<id>" localizations error: <message>` |
+
+Passing checks also print the export size count and one `Output: <type>` line per typed export entry.
+
+Not checked: `version`, export entry shapes, size values, duplicate template or size names, output config (`xcode.path`, `copy-source.format`), or assets that templates reference.
+
+## Output
+
+```text
+  Validating assets.json...
+
+  ✓ name: "Demo Assets"
+  ✓ 3 collection(s) defined
+  ✓ Collection "screenshots" sourceSize: 440×956
+  ✓ src/screenshots/01-hero.html exists
+  ✓ Collection "screenshots" has 4 export size(s)
+
+  All checks passed.
+```
+
+On failure the last line is `<n> error(s) found.` If any templates are missing or collections are empty, it adds `Run with --fix to remove missing templates and empty collections.`
+
+## `--fix`
+
+With `--fix`, after reporting, it asks one `y/N` question per problem:
+
+1. `Remove template "<src>" from collection "<id>"? (y/N)` for each missing template file.
+2. `Remove empty collection "<id>"? (y/N)` for each collection that was empty, or became empty after step 1.
+
+If you accepted any, it rewrites the config (two-space JSON) and prints `Updated <config> (<n> fix(es) applied).` It only removes entries; it never creates files. The exit code is still 1 for that run. Run `validate` again to confirm.
+
+## Exit codes
+
+| Code | When |
+| --- | --- |
+| 0 | All checks passed |
+| 1 | Config missing or invalid JSON, or at least one check failed (also after `--fix`) |
