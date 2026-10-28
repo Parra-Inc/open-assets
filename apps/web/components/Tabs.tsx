@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, type ReactNode } from 'react'
+import { track } from '@/lib/analytics'
 
 export interface Tab {
   key: string
@@ -9,7 +10,18 @@ export interface Tab {
 }
 
 /** Minimal accessible tab set. Every panel is server-rendered so crawlers see all of it. */
-export default function Tabs({ tabs, label, className = '' }: { tabs: Tab[]; label: string; className?: string }) {
+export default function Tabs({
+  tabs,
+  label,
+  trackGroup,
+  className = '',
+}: {
+  tabs: Tab[]
+  label: string
+  /** tab_select `group` param, e.g. example_app or package_manager. */
+  trackGroup: string
+  className?: string
+}) {
   const [active, setActive] = useState(tabs[0].key)
 
   return (
@@ -24,7 +36,10 @@ export default function Tabs({ tabs, label, className = '' }: { tabs: Tab[]; lab
             aria-selected={active === tab.key}
             aria-controls={`panel-${tab.key}`}
             className="tab"
-            onClick={() => setActive(tab.key)}
+            onClick={() => {
+              setActive(tab.key)
+              track('tab_select', { group: trackGroup, label: tab.key })
+            }}
           >
             {tab.label}
           </button>

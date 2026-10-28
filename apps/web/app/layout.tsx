@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next'
+import { GoogleTag } from '@/components/GoogleTag'
 import { site } from '@/data/site'
 import './globals.css'
 
@@ -30,6 +31,9 @@ export const viewport: Viewport = { themeColor: '#0b081c', colorScheme: 'dark' }
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <GoogleTag />
+      </head>
       <body>{children}</body>
     </html>
   )

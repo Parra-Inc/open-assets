@@ -6,3 +6,8 @@ node_modules/
 # Git worktrees (Claude Code)
 .worktrees/
 .claude/worktrees/
+
+# Local env files: never commit credentials.
+.env
+.env.*
+!.env.example
