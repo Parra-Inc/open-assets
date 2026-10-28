@@ -1,6 +1,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import {
   CLOUDFLARE_ISSUING_CAS,
+  ProjectEmail,
   WafScannerBlock,
   WebAnalytics,
   WwwRedirect,
@@ -44,6 +45,9 @@ new WebAnalytics(domain, { accountId, zoneId });
 // Only Cloudflare's issuers: every hostname's certificate is Cloudflare-managed.
 caaRecords({ zoneId, domain, issuers: [...CLOUDFLARE_ISSUING_CAS] });
 
-// No ProjectEmail: the domain has no mail and none was asked for.
+// The fleet owner mailbox: ian@, hello@, help@, support@, info@, contact@,
+// admin@ and mick@ forwarded with Email Routing. sending: false because
+// neither site sends mail, so no DKIM/DMARC sending records are published.
+new ProjectEmail(domain, { zoneId, domain, sending: false });
 
 export const zoneIdOut = zoneId;
