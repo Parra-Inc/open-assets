@@ -1,0 +1,4 @@
+allowBuilds:
+  puppeteer: true       # downloads the Chrome binary the renderer uses
+  "@parcel/watcher": false
+  unrs-resolver: false
