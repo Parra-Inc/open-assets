@@ -1,0 +1,77 @@
+{
+ "schema": "audit-seo/v1",
+ "layer": "search-console",
+ "site": "open-assets.dev",
+ "siteId": "sc-domain:open-assets.dev",
+ "capturedAt": "2026-10-29T15:40:00Z",
+ "calls": [
+  {
+   "tool": "analytics_query",
+   "params": {
+    "siteUrl": "sc-domain:open-assets.dev",
+    "engine": "google",
+    "startDate": "2026-10-01",
+    "endDate": "2026-10-28",
+    "dimensions": [
+     "page"
+    ]
+   },
+   "ok": true,
+   "result": {
+    "google": []
+   }
+  },
+  {
+   "tool": "sitemaps_list",
+   "params": {
+    "siteUrl": "sc-domain:open-assets.dev",
+    "engine": "google"
+   },
+   "ok": true,
+   "result": {
+    "google": [
+     {
+      "path": "https://docs.open-assets.dev/sitemap.xml",
+      "lastDownloaded": "2026-10-29T03:01:27.256Z",
+      "errors": "0",
+      "warnings": "0",
+      "contents": [
+       {
+        "type": "web",
+        "submitted": "59",
+        "indexed": "0"
+       },
+       {
+        "type": "image",
+        "submitted": "59",
+        "indexed": "0"
+       }
+      ]
+     },
+     {
+      "path": "https://open-assets.dev/sitemap.xml",
+      "lastDownloaded": "2026-10-29T03:01:26.297Z",
+      "errors": "0",
+      "warnings": "0",
+      "contents": [
+       {
+        "type": "web",
+        "submitted": "1",
+        "indexed": "0"
+       },
+       {
+        "type": "image",
+        "submitted": "1",
+        "indexed": "0"
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ],
+ "notes": [
+  "GSC property verified 2026-10-28; no search data yet. Insight calls (striking distance, lost queries, low CTR, cannibalization) skipped: no impressions to derive from.",
+  "Window 2026-10-01..2026-10-28."
+ ]
+}

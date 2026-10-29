@@ -1,0 +1,331 @@
+[
+  {
+    "url": "https://docs.open-assets.dev",
+    "strategy": "mobile",
+    "score": 99,
+    "lcp": 991.318,
+    "tbt": 100,
+    "cls": 0,
+    "fcp": 991.318,
+    "ttfb": 44,
+    "si": 1563.8302437589036,
+    "verdicts": {
+      "lcp": "good",
+      "tbt": "good",
+      "cls": "good"
+    },
+    "lcpElement": null,
+    "opportunities": [],
+    "failedDiagnostics": []
+  },
+  {
+    "url": "https://docs.open-assets.dev/agents/claude-code",
+    "strategy": "mobile",
+    "score": 100,
+    "lcp": 998.7630000000001,
+    "tbt": 65,
+    "cls": 0,
+    "fcp": 998.7630000000001,
+    "ttfb": 55,
+    "si": 1517.1439155062078,
+    "verdicts": {
+      "lcp": "good",
+      "tbt": "good",
+      "cls": "good"
+    },
+    "lcpElement": null,
+    "opportunities": [],
+    "failedDiagnostics": []
+  },
+  {
+    "url": "https://docs.open-assets.dev/changelog",
+    "strategy": "mobile",
+    "score": 100,
+    "lcp": 979.5280000000002,
+    "tbt": 39,
+    "cls": 0,
+    "fcp": 979.5280000000002,
+    "ttfb": 44,
+    "si": 1338.834882632794,
+    "verdicts": {
+      "lcp": "good",
+      "tbt": "good",
+      "cls": "good"
+    },
+    "lcpElement": null,
+    "opportunities": [],
+    "failedDiagnostics": []
+  },
+  {
+    "url": "https://docs.open-assets.dev/ci/github-actions",
+    "strategy": "mobile",
+    "score": 100,
+    "lcp": 999.0119999999998,
+    "tbt": 45,
+    "cls": 0,
+    "fcp": 999.0119999999998,
+    "ttfb": 97,
+    "si": 1526.4617310236667,
+    "verdicts": {
+      "lcp": "good",
+      "tbt": "good",
+      "cls": "good"
+    },
+    "lcpElement": null,
+    "opportunities": [],
+    "failedDiagnostics": []
+  },
+  {
+    "url": "https://docs.open-assets.dev/concepts/collections",
+    "strategy": "mobile",
+    "score": 100,
+    "lcp": 988.79,
+    "tbt": 36,
+    "cls": 0,
+    "fcp": 988.79,
+    "ttfb": 52,
+    "si": 1430.9504061854702,
+    "verdicts": {
+      "lcp": "good",
+      "tbt": "good",
+      "cls": "good"
+    },
+    "lcpElement": null,
+    "opportunities": [],
+    "failedDiagnostics": []
+  },
+  {
+    "url": "https://docs.open-assets.dev/examples",
+    "strategy": "mobile",
+    "score": 84,
+    "lcp": 4517.011,
+    "tbt": 30.5,
+    "cls": 0,
+    "fcp": 974.1739999999999,
+    "ttfb": 51,
+    "si": 1989.0335814832206,
+    "verdicts": {
+      "lcp": "POOR",
+      "tbt": "good",
+      "cls": "good"
+    },
+    "lcpElement": null,
+    "opportunities": [
+      {
+        "id": "unused-javascript",
+        "title": "Reduce unused JavaScript",
+        "savingsMs": 310
+      }
+    ],
+    "failedDiagnostics": []
+  },
+  {
+    "url": "https://docs.open-assets.dev/faq",
+    "strategy": "mobile",
+    "score": 100,
+    "lcp": 972.682,
+    "tbt": 49,
+    "cls": 0,
+    "fcp": 972.682,
+    "ttfb": 56,
+    "si": 1511.89450735405,
+    "verdicts": {
+      "lcp": "good",
+      "tbt": "good",
+      "cls": "good"
+    },
+    "lcpElement": null,
+    "opportunities": [],
+    "failedDiagnostics": []
+  },
+  {
+    "url": "https://docs.open-assets.dev/guides/app-store-connect",
+    "strategy": "mobile",
+    "score": 100,
+    "lcp": 984.7359999999999,
+    "tbt": 50,
+    "cls": 0,
+    "fcp": 984.7359999999999,
+    "ttfb": 56,
+    "si": 1423.7726542580276,
+    "verdicts": {
+      "lcp": "good",
+      "tbt": "good",
+      "cls": "good"
+    },
+    "lcpElement": null,
+    "opportunities": [],
+    "failedDiagnostics": []
+  },
+  {
+    "url": "https://docs.open-assets.dev/install",
+    "strategy": "mobile",
+    "score": 100,
+    "lcp": 998.4710000000001,
+    "tbt": 46,
+    "cls": 0,
+    "fcp": 998.4710000000001,
+    "ttfb": 55,
+    "si": 1555.6434062442736,
+    "verdicts": {
+      "lcp": "good",
+      "tbt": "good",
+      "cls": "good"
+    },
+    "lcpElement": null,
+    "opportunities": [],
+    "failedDiagnostics": []
+  },
+  {
+    "url": "https://docs.open-assets.dev/localization",
+    "strategy": "mobile",
+    "score": 100,
+    "lcp": 1056.0119999999997,
+    "tbt": 49,
+    "cls": 0,
+    "fcp": 1056.0119999999997,
+    "ttfb": 55,
+    "si": 1542.1249585738692,
+    "verdicts": {
+      "lcp": "good",
+      "tbt": "good",
+      "cls": "good"
+    },
+    "lcpElement": null,
+    "opportunities": [],
+    "failedDiagnostics": []
+  },
+  {
+    "url": "https://docs.open-assets.dev/migrate/frameit",
+    "strategy": "mobile",
+    "score": 100,
+    "lcp": 990.9180000000001,
+    "tbt": 46.99999999999977,
+    "cls": 0,
+    "fcp": 990.9180000000001,
+    "ttfb": 34,
+    "si": 1422.2093796980698,
+    "verdicts": {
+      "lcp": "good",
+      "tbt": "good",
+      "cls": "good"
+    },
+    "lcpElement": null,
+    "opportunities": [],
+    "failedDiagnostics": []
+  },
+  {
+    "url": "https://docs.open-assets.dev/quick-start",
+    "strategy": "mobile",
+    "score": 100,
+    "lcp": 983.2170000000001,
+    "tbt": 58,
+    "cls": 0,
+    "fcp": 983.2170000000001,
+    "ttfb": 50,
+    "si": 1404.4441944576188,
+    "verdicts": {
+      "lcp": "good",
+      "tbt": "good",
+      "cls": "good"
+    },
+    "lcpElement": null,
+    "opportunities": [],
+    "failedDiagnostics": []
+  },
+  {
+    "url": "https://docs.open-assets.dev/reference/cli",
+    "strategy": "mobile",
+    "score": 100,
+    "lcp": 986.0309999999998,
+    "tbt": 50,
+    "cls": 0,
+    "fcp": 986.0309999999998,
+    "ttfb": 48,
+    "si": 1421.9042375057024,
+    "verdicts": {
+      "lcp": "good",
+      "tbt": "good",
+      "cls": "good"
+    },
+    "lcpElement": null,
+    "opportunities": [],
+    "failedDiagnostics": []
+  },
+  {
+    "url": "https://docs.open-assets.dev/setup",
+    "strategy": "mobile",
+    "score": 100,
+    "lcp": 993.7740000000001,
+    "tbt": 44,
+    "cls": 0,
+    "fcp": 993.7740000000001,
+    "ttfb": 81,
+    "si": 1455.1112733465184,
+    "verdicts": {
+      "lcp": "good",
+      "tbt": "good",
+      "cls": "good"
+    },
+    "lcpElement": null,
+    "opportunities": [],
+    "failedDiagnostics": []
+  },
+  {
+    "url": "https://docs.open-assets.dev/structure",
+    "strategy": "mobile",
+    "score": 100,
+    "lcp": 990.8059999999999,
+    "tbt": 25,
+    "cls": 0,
+    "fcp": 990.8059999999999,
+    "ttfb": 39,
+    "si": 1443.118327949082,
+    "verdicts": {
+      "lcp": "good",
+      "tbt": "good",
+      "cls": "good"
+    },
+    "lcpElement": null,
+    "opportunities": [],
+    "failedDiagnostics": []
+  },
+  {
+    "url": "https://docs.open-assets.dev/troubleshooting",
+    "strategy": "mobile",
+    "score": 100,
+    "lcp": 994.005,
+    "tbt": 62,
+    "cls": 0,
+    "fcp": 994.005,
+    "ttfb": 83,
+    "si": 1396.8789630185631,
+    "verdicts": {
+      "lcp": "good",
+      "tbt": "good",
+      "cls": "good"
+    },
+    "lcpElement": null,
+    "opportunities": [],
+    "failedDiagnostics": []
+  },
+  {
+    "url": "https://docs.open-assets.dev/tutorial",
+    "strategy": "mobile",
+    "score": 100,
+    "lcp": 1120.1380000000001,
+    "tbt": 60,
+    "cls": 0,
+    "fcp": 1120.1380000000001,
+    "ttfb": 80,
+    "si": 1630.2379589244829,
+    "verdicts": {
+      "lcp": "good",
+      "tbt": "good",
+      "cls": "good"
+    },
+    "lcpElement": null,
+    "opportunities": [],
+    "failedDiagnostics": []
+  }
+]
