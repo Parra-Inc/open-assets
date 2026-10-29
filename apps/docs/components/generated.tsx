@@ -223,9 +223,19 @@ export function ExampleProject({ slug }: { slug: string }) {
 export function ExamplesGallery() {
   return (
     <div className="not-prose grid gap-4 sm:grid-cols-2">
-      {(examples as Example[]).map((ex) => (
+      {(examples as Example[]).map((ex, i) => (
         <a key={ex.slug} href={`/examples/${ex.slug}`} className="group overflow-hidden rounded-xl border bg-fd-card transition hover:border-fd-primary/50">
-          <img src={`/img/examples/${ex.slug}.webp`} alt="" className="h-36 w-full object-cover object-left" loading="lazy" />
+          {/* The first row is above the fold and holds the LCP, so it loads eagerly,
+              and from an 800px card file rather than the 2400px strip. */}
+          <img
+            src={`/img/examples/${ex.slug}-card.webp`}
+            alt=""
+            width={720}
+            height={144}
+            className="h-36 w-full object-cover object-left"
+            loading={i < 2 ? 'eager' : 'lazy'}
+            fetchPriority={i < 2 ? 'high' : 'auto'}
+          />
           <div className="flex items-center gap-3 p-4">
             <img src={`/img/examples/${ex.slug}-icon.png`} alt="" width={32} height={32} className="rounded-lg" />
             <div>
