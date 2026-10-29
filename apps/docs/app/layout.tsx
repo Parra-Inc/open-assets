@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description:
     'Documentation for Open Assets, the open source CLI that renders App Store screenshots, app icons, OG images and favicons from HTML templates at every size.',
   applicationName: appName,
-  icons: { icon: '/icon.png', apple: '/apple-touch-icon.png' },
+  // Icons come from app/favicon.ico, icon.png and apple-icon.png by file name.
   openGraph: { type: 'website', siteName: 'Open Assets Docs' },
   twitter: { card: 'summary_large_image' },
 };

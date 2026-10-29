@@ -10,7 +10,9 @@ export const metadata: Metadata = {
   description: site.description,
   applicationName: site.name,
   // No canonical here (standard A2): the 404 page would inherit it. The card
-  // images come from app/opengraph-image.png and app/twitter-image.png.
+  // images come from app/opengraph-image.png and app/twitter-image.png, and the
+  // icon links from app/favicon.ico, icon.png and apple-icon.png (no `icons`
+  // key, it would replace those file-convention links).
   openGraph: {
     type: 'website',
     siteName: site.name,
@@ -22,7 +24,6 @@ export const metadata: Metadata = {
     title: site.title,
     description: site.description,
   },
-  icons: { icon: '/icon.png', apple: '/apple-touch-icon.png' },
   robots: { index: true, follow: true },
 }
 
