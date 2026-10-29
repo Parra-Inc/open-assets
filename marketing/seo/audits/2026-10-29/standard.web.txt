@@ -1,0 +1,120 @@
+seo-standard: https://open-assets.dev
+sitemap: 1 URLs
+sampling 1 pages across 0 families
+
+A
+  A2   n/a     No page canonicalizes to the homepage (no root canonical)
+              0 non-home pages, none canonicalize to the homepage
+  A3   pass    Title, description and self canonical on every sampled page
+              1/1 sampled pages complete
+  A4   pass    Meta descriptions 150 to 160 characters
+              1/1 in 150 to 160 (min 156, median 156, max 156)
+  A5   pass    No meta keywords
+              no meta keywords
+  A6   pass    One host: www 301s to the apex
+              www.open-assets.dev 301 -> https://open-assets.dev/
+
+B
+  B1   pass    robots.txt allows / and lists every AI crawler with the * rules
+              * allows / (0 disallow rules); 25/25 AI crawlers listed; Sitemap: https://open-assets.dev/sitemap.xml
+  B2   pass    Sitemap, robots.txt and noindex agree
+              1 sitemap URLs all crawlable; no sampled page carries noindex
+  B3   pass    Sitemap lists live 200 URLs on this host
+              1 URLs in 1 file(s), 0 families; hreflang on 0, images on 1
+  B4   PARTIAL Sitemap lastmod is a real per-page date
+              1 distinct dates across 1 URLs; most common 2026-10-28 on 100%
+  B5   manual  HTML sitemap page
+              none at /sitemap, /sitemap-html, /site-map, /sitemap.html, /html-sitemap
+  B6   pass    llms.txt served as text, no em dashes
+              983 bytes, 5 links, 0 em dashes
+  B7   pass    llms-full.txt served
+              4981 bytes
+  B8   pass    IndexNow key file served on the host
+              /3d1b10….txt 200, exact key, no newline
+  B9   FAIL    IndexNow submit runs after every deploy
+              no IndexNow step in 1 workflow(s); only the nightly indexnow-sync sweep submits
+  B11  pass    Registered in indexnow-sync
+              id open-assets-dev, rank 19, google on
+
+C
+  C1   pass    Valid JSON-LD on every sampled page
+              1/1 sampled pages have JSON-LD
+  C2   pass    Organization and WebSite on the homepage
+              homepage types: Answer, FAQPage, Offer, Organization, Question, SoftwareApplication, WebSite
+  C3   pass    App entity with an Offer on the homepage
+              app entity on home with Offer
+  C4   n/a     Tool pages carry WebApplication or SoftwareApplication
+              no tools or calculators family
+  C5   n/a     BreadcrumbList below home, every item named
+              0/0 family pages carry BreadcrumbList
+  C6   pass    FAQPage only where the questions are visible
+              1 page(s) with FAQPage, questions visible
+  C7   n/a     Articles carry author, datePublished, dateModified
+              no Article nodes on sampled pages
+  C8   n/a     Glossary pages carry DefinedTerm
+              no glossary family
+  C9   pass    HowTo only on real procedures
+              no HowTo on sampled pages
+
+D
+  D1   pass    Per-page OG images that load
+              og:image on 1/1; 1 distinct image(s) across 1 families; repo: 2 opengraph-image/twitter-image file(s)
+  D2   pass    Pages that set og:title still carry og:image
+              every page with og:title carries og:image
+
+E
+  E5   n/a     Every indexable page reaches the sitemap and every family llms.txt
+              0/0 families linked from llms.txt; no indexable unlisted pages among 0 probed links
+
+F
+  F1   pass    Every page declares <html lang>
+              lang set on all 1 (en)
+  F2   n/a     hreflang sets carry x-default and a self entry
+              no hreflang on sampled pages (single-language site)
+
+G
+  G1   n/a     Homepage links every page family
+              0/0 families linked from the homepage
+  G2   n/a     Family pages link their hub and a sibling
+              0/0 sampled family pages link their hub and a sibling
+
+H
+  H3   manual  Author pages
+              no /authors page; check bylines on articles
+  H4   manual  Trust pages (about, methodology, editorial policy)
+              /about no, /methodology no, /editorial-policy no
+
+I
+  I2   pass    Immutable caching on hashed assets, security headers
+              1jy6ilfg52qoq.css: cache-control "public, max-age=31536000, immutable"; security headers: strict-transport-security, x-content-type-options, referrer-policy
+
+J
+  J1   FAIL    Smart App Banner when the app is live
+              App Store links present but no Smart App Banner
+  J2   n/a     Banner hands the app the page URL with a campaign tag
+              no banner
+  J4   pass    App Store links carry page-level ct tokens
+              8/8 App Store links carry ct (2 distinct)
+  J6   FAIL    AASA served as JSON
+              AASA 404
+
+K
+  K1   pass    GA4 at the edge with a Consent Mode default
+              GA4 G-W128DQBYJL on 1/1; consent default set
+
+L
+  L1   manual  Prebuild SEO gates
+              no prebuild scripts
+
+M
+  M1   FAIL    Growth plan in docs/seo
+              no docs/seo/growth-plan*.md
+  M2   FAIL    Page plans in docs/seo/page-plans
+              0 page plan(s)
+  M4   pass    Dated audits with history.md
+              2 dated audit(s), latest 2026-10-29
+
+Families
+
+23 pass, 1 partial, 5 fail, 10 n/a, 4 manual
+wrote marketing/seo/audits/2026-10-29/standard.json

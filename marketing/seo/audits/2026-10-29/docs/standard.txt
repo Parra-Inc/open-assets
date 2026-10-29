@@ -1,0 +1,129 @@
+seo-standard: https://docs.open-assets.dev
+sitemap: 59 URLs
+sampling 16 pages across 9 families
+
+A
+  A2   pass    No page canonicalizes to the homepage (no root canonical)
+              15 non-home pages, none canonicalize to the homepage
+  A3   pass    Title, description and self canonical on every sampled page
+              16/16 sampled pages complete
+  A4   pass    Meta descriptions 150 to 160 characters
+              16/16 in 150 to 160 (min 150, median 157, max 160)
+  A5   pass    No meta keywords
+              no meta keywords
+  A6   pass    One host: www 301s to the apex
+              www.docs.open-assets.dev does not resolve (ENOTFOUND), so there is no duplicate host
+
+B
+  B1   pass    robots.txt allows / and lists every AI crawler with the * rules
+              * allows / (0 disallow rules); 25/25 AI crawlers listed; Sitemap: https://docs.open-assets.dev/sitemap.xml
+  B2   pass    Sitemap, robots.txt and noindex agree
+              59 sitemap URLs all crawlable; no sampled page carries noindex
+  B3   pass    Sitemap lists live 200 URLs on this host
+              59 URLs in 1 file(s), 9 families; hreflang on 0, images on 59
+  B4   FAIL    Sitemap lastmod is a real per-page date
+              1 distinct dates across 59 URLs; most common 2026-10-28 on 100%
+  B5   manual  HTML sitemap page
+              none at /sitemap, /sitemap-html, /site-map, /sitemap.html, /html-sitemap
+  B6   pass    llms.txt served as text, no em dashes
+              13662 bytes, 59 links, 0 em dashes
+  B7   pass    llms-full.txt served
+              235482 bytes
+  B8   pass    IndexNow key file served on the host
+              /4dec8e….txt 200, exact key, no newline
+  B9   FAIL    IndexNow submit runs after every deploy
+              no IndexNow step in 1 workflow(s); only the nightly indexnow-sync sweep submits
+  B11  pass    Registered in indexnow-sync
+              id docs-open-assets-dev, rank 20, google on
+
+C
+  C1   pass    Valid JSON-LD on every sampled page
+              16/16 sampled pages have JSON-LD
+  C2   pass    Organization and WebSite on the homepage
+              homepage types: Organization, SoftwareApplication, TechArticle, WebSite
+  C3   PARTIAL App entity with an Offer on the homepage
+              app entity on home without Offer
+  C4   n/a     Tool pages carry WebApplication or SoftwareApplication
+              no tools or calculators family
+  C5   pass    BreadcrumbList below home, every item named
+              15/15 family pages carry BreadcrumbList
+  C6   n/a     FAQPage only where the questions are visible
+              no FAQPage on sampled pages
+  C7   pass    Articles carry author, datePublished, dateModified
+              16 Article node(s) complete
+  C8   n/a     Glossary pages carry DefinedTerm
+              no glossary family
+  C9   pass    HowTo only on real procedures
+              no HowTo on sampled pages
+
+D
+  D1   pass    Per-page OG images that load
+              og:image on 16/16; 16 distinct image(s) across 10 families; repo: 2 opengraph-image/twitter-image file(s)
+  D2   pass    Pages that set og:title still carry og:image
+              every page with og:title carries og:image
+
+E
+  E5   pass    Every indexable page reaches the sitemap and every family llms.txt
+              6/6 families linked from llms.txt; no indexable unlisted pages among 0 probed links
+
+F
+  F1   pass    Every page declares <html lang>
+              lang set on all 16 (en)
+  F2   n/a     hreflang sets carry x-default and a self entry
+              no hreflang on sampled pages (single-language site)
+
+G
+  G1   pass    Homepage links every page family
+              6/6 families linked from the homepage
+  G2   pass    Family pages link their hub and a sibling
+              8/8 sampled family pages link their hub and a sibling
+
+H
+  H3   manual  Author pages
+              no /authors page; check bylines on articles
+  H4   manual  Trust pages (about, methodology, editorial policy)
+              /about no, /methodology no, /editorial-policy no
+
+I
+  I2   pass    Immutable caching on hashed assets, security headers
+              3oge_3rbl13wy.css: cache-control "public, max-age=31536000, immutable"; security headers: strict-transport-security, x-content-type-options, referrer-policy
+
+J
+  J1   FAIL    Smart App Banner when the app is live
+              App Store links present but no Smart App Banner
+  J2   n/a     Banner hands the app the page URL with a campaign tag
+              no banner
+  J4   pass    App Store links carry page-level ct tokens
+              1/1 App Store links carry ct (1 distinct)
+  J6   FAIL    AASA served as JSON
+              AASA 404
+
+K
+  K1   pass    GA4 at the edge with a Consent Mode default
+              GA4 G-W128DQBYJL on 16/16; consent default set
+
+L
+  L1   manual  Prebuild SEO gates
+              no prebuild scripts
+
+M
+  M1   FAIL    Growth plan in docs/seo
+              no docs/seo/growth-plan*.md
+  M2   FAIL    Page plans in docs/seo/page-plans
+              0 page plan(s)
+  M4   pass    Dated audits with history.md
+              2 dated audit(s), latest 2026-10-29
+
+Families
+  /agents                          4 URLs  BreadcrumbList, ListItem, Organization, SoftwareApplication, TechArticle
+  /ci                              2 URLs  BreadcrumbList, ListItem, Organization, SoftwareApplication, TechArticle
+  /concepts                        7 URLs  BreadcrumbList, ListItem, Organization, SoftwareApplication, TechArticle
+  /examples                        7 URLs  BreadcrumbList, ListItem, Organization, SoftwareApplication, TechArticle
+  /guides                         10 URLs  BreadcrumbList, ListItem, Organization, SoftwareApplication, TechArticle
+  /localization                    6 URLs  BreadcrumbList, ListItem, Organization, SoftwareApplication, TechArticle
+  /migrate                         1 URLs  BreadcrumbList, ListItem, Organization, SoftwareApplication, TechArticle
+  /reference                      13 URLs  BreadcrumbList, ListItem, Organization, SoftwareApplication, TechArticle
+  (pages)                          8 URLs  BreadcrumbList, ListItem, Organization, SoftwareApplication, TechArticle
+
+27 pass, 1 partial, 6 fail, 5 n/a, 4 manual
+wrote marketing/seo/audits/2026-10-29/docs/standard.json

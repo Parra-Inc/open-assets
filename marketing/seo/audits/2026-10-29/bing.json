@@ -1,0 +1,17 @@
+{
+ "schema": "audit-seo/v1",
+ "layer": "bing",
+ "site": "open-assets.dev",
+ "siteId": "https://open-assets.dev/",
+ "capturedAt": "2026-10-29T15:40:00Z",
+ "calls": [
+  {
+   "tool": "get_sites",
+   "ok": true,
+   "result": "19 sites listed; open-assets.dev and docs.open-assets.dev absent"
+  }
+ ],
+ "notes": [
+  "Not verified in Bing Webmaster Tools, so every per-site Bing call is skipped. Fix: import from GSC in the Bing dashboard."
+ ]
+}

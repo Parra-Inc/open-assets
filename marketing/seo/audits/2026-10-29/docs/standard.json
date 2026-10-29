@@ -1,0 +1,1338 @@
+{
+  "schema": "audit-seo/v1",
+  "layer": "standard",
+  "site": "docs.open-assets.dev",
+  "siteId": "docs-open-assets-dev",
+  "capturedAt": "2026-10-29T15:34:49.086Z",
+  "origin": "https://docs.open-assets.dev",
+  "summary": {
+    "pass": 27,
+    "partial": 1,
+    "fail": 6,
+    "n/a": 5,
+    "manual": 4
+  },
+  "checks": [
+    {
+      "id": "A2",
+      "section": "A",
+      "title": "No page canonicalizes to the homepage (no root canonical)",
+      "status": "pass",
+      "evidence": "15 non-home pages, none canonicalize to the homepage"
+    },
+    {
+      "id": "A3",
+      "section": "A",
+      "title": "Title, description and self canonical on every sampled page",
+      "status": "pass",
+      "evidence": "16/16 sampled pages complete"
+    },
+    {
+      "id": "A4",
+      "section": "A",
+      "title": "Meta descriptions 150 to 160 characters",
+      "status": "pass",
+      "evidence": "16/16 in 150 to 160 (min 150, median 157, max 160)"
+    },
+    {
+      "id": "A5",
+      "section": "A",
+      "title": "No meta keywords",
+      "status": "pass",
+      "evidence": "no meta keywords"
+    },
+    {
+      "id": "A6",
+      "section": "A",
+      "title": "One host: www 301s to the apex",
+      "status": "pass",
+      "evidence": "www.docs.open-assets.dev does not resolve (ENOTFOUND), so there is no duplicate host"
+    },
+    {
+      "id": "B1",
+      "section": "B",
+      "title": "robots.txt allows / and lists every AI crawler with the * rules",
+      "status": "pass",
+      "evidence": "* allows / (0 disallow rules); 25/25 AI crawlers listed; Sitemap: https://docs.open-assets.dev/sitemap.xml",
+      "data": {
+        "missing": [],
+        "blocked": [],
+        "drift": []
+      }
+    },
+    {
+      "id": "B2",
+      "section": "B",
+      "title": "Sitemap, robots.txt and noindex agree",
+      "status": "pass",
+      "evidence": "59 sitemap URLs all crawlable; no sampled page carries noindex"
+    },
+    {
+      "id": "B3",
+      "section": "B",
+      "title": "Sitemap lists live 200 URLs on this host",
+      "status": "pass",
+      "evidence": "59 URLs in 1 file(s), 9 families; hreflang on 0, images on 59"
+    },
+    {
+      "id": "B4",
+      "section": "B",
+      "title": "Sitemap lastmod is a real per-page date",
+      "status": "fail",
+      "evidence": "1 distinct dates across 59 URLs; most common 2026-10-28 on 100%"
+    },
+    {
+      "id": "B5",
+      "section": "B",
+      "title": "HTML sitemap page",
+      "status": "manual",
+      "evidence": "none at /sitemap, /sitemap-html, /site-map, /sitemap.html, /html-sitemap"
+    },
+    {
+      "id": "B6",
+      "section": "B",
+      "title": "llms.txt served as text, no em dashes",
+      "status": "pass",
+      "evidence": "13662 bytes, 59 links, 0 em dashes"
+    },
+    {
+      "id": "B7",
+      "section": "B",
+      "title": "llms-full.txt served",
+      "status": "pass",
+      "evidence": "235482 bytes"
+    },
+    {
+      "id": "B8",
+      "section": "B",
+      "title": "IndexNow key file served on the host",
+      "status": "pass",
+      "evidence": "/4dec8e….txt 200, exact key, no newline"
+    },
+    {
+      "id": "B9",
+      "section": "B",
+      "title": "IndexNow submit runs after every deploy",
+      "status": "fail",
+      "evidence": "no IndexNow step in 1 workflow(s); only the nightly indexnow-sync sweep submits"
+    },
+    {
+      "id": "B11",
+      "section": "B",
+      "title": "Registered in indexnow-sync",
+      "status": "pass",
+      "evidence": "id docs-open-assets-dev, rank 20, google on"
+    },
+    {
+      "id": "C1",
+      "section": "C",
+      "title": "Valid JSON-LD on every sampled page",
+      "status": "pass",
+      "evidence": "16/16 sampled pages have JSON-LD"
+    },
+    {
+      "id": "C2",
+      "section": "C",
+      "title": "Organization and WebSite on the homepage",
+      "status": "pass",
+      "evidence": "homepage types: Organization, SoftwareApplication, TechArticle, WebSite"
+    },
+    {
+      "id": "C3",
+      "section": "C",
+      "title": "App entity with an Offer on the homepage",
+      "status": "partial",
+      "evidence": "app entity on home without Offer"
+    },
+    {
+      "id": "C4",
+      "section": "C",
+      "title": "Tool pages carry WebApplication or SoftwareApplication",
+      "status": "n/a",
+      "evidence": "no tools or calculators family"
+    },
+    {
+      "id": "C5",
+      "section": "C",
+      "title": "BreadcrumbList below home, every item named",
+      "status": "pass",
+      "evidence": "15/15 family pages carry BreadcrumbList"
+    },
+    {
+      "id": "C6",
+      "section": "C",
+      "title": "FAQPage only where the questions are visible",
+      "status": "n/a",
+      "evidence": "no FAQPage on sampled pages"
+    },
+    {
+      "id": "C7",
+      "section": "C",
+      "title": "Articles carry author, datePublished, dateModified",
+      "status": "pass",
+      "evidence": "16 Article node(s) complete"
+    },
+    {
+      "id": "C8",
+      "section": "C",
+      "title": "Glossary pages carry DefinedTerm",
+      "status": "n/a",
+      "evidence": "no glossary family"
+    },
+    {
+      "id": "C9",
+      "section": "C",
+      "title": "HowTo only on real procedures",
+      "status": "pass",
+      "evidence": "no HowTo on sampled pages"
+    },
+    {
+      "id": "D1",
+      "section": "D",
+      "title": "Per-page OG images that load",
+      "status": "pass",
+      "evidence": "og:image on 16/16; 16 distinct image(s) across 10 families; repo: 2 opengraph-image/twitter-image file(s)",
+      "data": {
+        "images": [
+          {
+            "url": "https://docs.open-assets.dev/og/image.png",
+            "status": 200,
+            "type": "image/png"
+          },
+          {
+            "url": "https://docs.open-assets.dev/og/agents/claude-code/image.png",
+            "status": 200,
+            "type": "image/png"
+          },
+          {
+            "url": "https://docs.open-assets.dev/og/ci/github-actions/image.png",
+            "status": 200,
+            "type": "image/png"
+          },
+          {
+            "url": "https://docs.open-assets.dev/og/concepts/collections/image.png",
+            "status": 200,
+            "type": "image/png"
+          },
+          {
+            "url": "https://docs.open-assets.dev/og/examples/image.png",
+            "status": 200,
+            "type": "image/png"
+          },
+          {
+            "url": "https://docs.open-assets.dev/og/examples/cat-iq-test/image.png",
+            "status": 200,
+            "type": "image/png"
+          },
+          {
+            "url": "https://docs.open-assets.dev/og/guides/app-store-connect/image.png",
+            "status": 200,
+            "type": "image/png"
+          },
+          {
+            "url": "https://docs.open-assets.dev/og/localization/image.png",
+            "status": 200,
+            "type": "image/png"
+          },
+          {
+            "url": "https://docs.open-assets.dev/og/localization/fonts/image.png",
+            "status": 200,
+            "type": "image/png"
+          },
+          {
+            "url": "https://docs.open-assets.dev/og/migrate/frameit/image.png",
+            "status": 200,
+            "type": "image/png"
+          },
+          {
+            "url": "https://docs.open-assets.dev/og/reference/cli/image.png",
+            "status": 200,
+            "type": "image/png"
+          },
+          {
+            "url": "https://docs.open-assets.dev/og/changelog/image.png",
+            "status": 200,
+            "type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "D2",
+      "section": "D",
+      "title": "Pages that set og:title still carry og:image",
+      "status": "pass",
+      "evidence": "every page with og:title carries og:image"
+    },
+    {
+      "id": "E5",
+      "section": "E",
+      "title": "Every indexable page reaches the sitemap and every family llms.txt",
+      "status": "pass",
+      "evidence": "6/6 families linked from llms.txt; no indexable unlisted pages among 0 probed links",
+      "data": {
+        "missingFromSitemap": []
+      }
+    },
+    {
+      "id": "F1",
+      "section": "F",
+      "title": "Every page declares <html lang>",
+      "status": "pass",
+      "evidence": "lang set on all 16 (en)"
+    },
+    {
+      "id": "F2",
+      "section": "F",
+      "title": "hreflang sets carry x-default and a self entry",
+      "status": "n/a",
+      "evidence": "no hreflang on sampled pages (single-language site)"
+    },
+    {
+      "id": "G1",
+      "section": "G",
+      "title": "Homepage links every page family",
+      "status": "pass",
+      "evidence": "6/6 families linked from the homepage"
+    },
+    {
+      "id": "G2",
+      "section": "G",
+      "title": "Family pages link their hub and a sibling",
+      "status": "pass",
+      "evidence": "8/8 sampled family pages link their hub and a sibling"
+    },
+    {
+      "id": "H3",
+      "section": "H",
+      "title": "Author pages",
+      "status": "manual",
+      "evidence": "no /authors page; check bylines on articles"
+    },
+    {
+      "id": "H4",
+      "section": "H",
+      "title": "Trust pages (about, methodology, editorial policy)",
+      "status": "manual",
+      "evidence": "/about no, /methodology no, /editorial-policy no"
+    },
+    {
+      "id": "I2",
+      "section": "I",
+      "title": "Immutable caching on hashed assets, security headers",
+      "status": "pass",
+      "evidence": "3oge_3rbl13wy.css: cache-control \"public, max-age=31536000, immutable\"; security headers: strict-transport-security, x-content-type-options, referrer-policy"
+    },
+    {
+      "id": "J1",
+      "section": "J",
+      "title": "Smart App Banner when the app is live",
+      "status": "fail",
+      "evidence": "App Store links present but no Smart App Banner"
+    },
+    {
+      "id": "J2",
+      "section": "J",
+      "title": "Banner hands the app the page URL with a campaign tag",
+      "status": "n/a",
+      "evidence": "no banner"
+    },
+    {
+      "id": "J4",
+      "section": "J",
+      "title": "App Store links carry page-level ct tokens",
+      "status": "pass",
+      "evidence": "1/1 App Store links carry ct (1 distinct)"
+    },
+    {
+      "id": "J6",
+      "section": "J",
+      "title": "AASA served as JSON",
+      "status": "fail",
+      "evidence": "AASA 404"
+    },
+    {
+      "id": "K1",
+      "section": "K",
+      "title": "GA4 at the edge with a Consent Mode default",
+      "status": "pass",
+      "evidence": "GA4 G-W128DQBYJL on 16/16; consent default set"
+    },
+    {
+      "id": "L1",
+      "section": "L",
+      "title": "Prebuild SEO gates",
+      "status": "manual",
+      "evidence": "no prebuild scripts"
+    },
+    {
+      "id": "M1",
+      "section": "M",
+      "title": "Growth plan in docs/seo",
+      "status": "fail",
+      "evidence": "no docs/seo/growth-plan*.md"
+    },
+    {
+      "id": "M2",
+      "section": "M",
+      "title": "Page plans in docs/seo/page-plans",
+      "status": "fail",
+      "evidence": "0 page plan(s)"
+    },
+    {
+      "id": "M4",
+      "section": "M",
+      "title": "Dated audits with history.md",
+      "status": "pass",
+      "evidence": "2 dated audit(s), latest 2026-10-29"
+    }
+  ],
+  "families": [
+    {
+      "family": "/agents",
+      "urls": 4,
+      "hub": false,
+      "sampled": [
+        "/agents/claude-code"
+      ],
+      "types": [
+        "BreadcrumbList",
+        "ListItem",
+        "Organization",
+        "SoftwareApplication",
+        "TechArticle"
+      ],
+      "ogImage": 1
+    },
+    {
+      "family": "/ci",
+      "urls": 2,
+      "hub": false,
+      "sampled": [
+        "/ci/github-actions"
+      ],
+      "types": [
+        "BreadcrumbList",
+        "ListItem",
+        "Organization",
+        "SoftwareApplication",
+        "TechArticle"
+      ],
+      "ogImage": 1
+    },
+    {
+      "family": "/concepts",
+      "urls": 7,
+      "hub": false,
+      "sampled": [
+        "/concepts/collections"
+      ],
+      "types": [
+        "BreadcrumbList",
+        "ListItem",
+        "Organization",
+        "SoftwareApplication",
+        "TechArticle"
+      ],
+      "ogImage": 1
+    },
+    {
+      "family": "/examples",
+      "urls": 7,
+      "hub": true,
+      "sampled": [
+        "/examples",
+        "/examples/cat-iq-test"
+      ],
+      "types": [
+        "BreadcrumbList",
+        "ListItem",
+        "Organization",
+        "SoftwareApplication",
+        "TechArticle"
+      ],
+      "ogImage": 2
+    },
+    {
+      "family": "/guides",
+      "urls": 10,
+      "hub": false,
+      "sampled": [
+        "/guides/app-store-connect"
+      ],
+      "types": [
+        "BreadcrumbList",
+        "ListItem",
+        "Organization",
+        "SoftwareApplication",
+        "TechArticle"
+      ],
+      "ogImage": 1
+    },
+    {
+      "family": "/localization",
+      "urls": 6,
+      "hub": true,
+      "sampled": [
+        "/localization",
+        "/localization/fonts"
+      ],
+      "types": [
+        "BreadcrumbList",
+        "ListItem",
+        "Organization",
+        "SoftwareApplication",
+        "TechArticle"
+      ],
+      "ogImage": 2
+    },
+    {
+      "family": "/migrate",
+      "urls": 1,
+      "hub": false,
+      "sampled": [
+        "/migrate/frameit"
+      ],
+      "types": [
+        "BreadcrumbList",
+        "ListItem",
+        "Organization",
+        "SoftwareApplication",
+        "TechArticle"
+      ],
+      "ogImage": 1
+    },
+    {
+      "family": "/reference",
+      "urls": 13,
+      "hub": false,
+      "sampled": [
+        "/reference/cli"
+      ],
+      "types": [
+        "BreadcrumbList",
+        "ListItem",
+        "Organization",
+        "SoftwareApplication",
+        "TechArticle"
+      ],
+      "ogImage": 1
+    },
+    {
+      "family": "(pages)",
+      "urls": 8,
+      "hub": false,
+      "sampled": [
+        "/changelog",
+        "/install",
+        "/setup",
+        "/structure",
+        "/tutorial"
+      ],
+      "types": [
+        "BreadcrumbList",
+        "ListItem",
+        "Organization",
+        "SoftwareApplication",
+        "TechArticle"
+      ],
+      "ogImage": 5
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://docs.open-assets.dev/",
+      "family": "(home)",
+      "status": 200,
+      "finalUrl": "https://docs.open-assets.dev/",
+      "lang": "en",
+      "title": "Open Assets Docs: App Store screenshots and icons from HTML",
+      "titleLength": 59,
+      "description": "Open Assets turns HTML, CSS and SVG templates into App Store screenshots, app icons, OG images and favicons, rendered at every size from one local CLI.",
+      "descriptionLength": 151,
+      "keywords": false,
+      "canonical": "https://docs.open-assets.dev/",
+      "robots": null,
+      "hreflangs": [],
+      "ogTitle": "Introduction",
+      "ogImage": "https://docs.open-assets.dev/og/image.png",
+      "twitterCard": "summary_large_image",
+      "banner": null,
+      "ld": {
+        "blocks": 1,
+        "errors": [],
+        "types": [
+          "Organization",
+          "SoftwareApplication",
+          "TechArticle",
+          "WebSite"
+        ]
+      },
+      "unnamedCrumbs": [],
+      "faqQuestions": 0,
+      "faqVisible": 0,
+      "articles": [
+        {
+          "type": "TechArticle",
+          "author": true,
+          "datePublished": true,
+          "dateModified": true
+        }
+      ],
+      "appStore": [],
+      "ga": "G-W128DQBYJL",
+      "consentDefault": true,
+      "hashedAsset": "/_next/static/chunks/3oge_3rbl13wy.css",
+      "hub": false,
+      "internalLinks": 35
+    },
+    {
+      "url": "https://docs.open-assets.dev/agents/claude-code",
+      "family": "agents",
+      "status": 200,
+      "finalUrl": "https://docs.open-assets.dev/agents/claude-code",
+      "lang": "en",
+      "title": "Claude Code | Open Assets Docs",
+      "titleLength": 30,
+      "description": "Install the Open Assets skill in Claude Code from the plugin marketplace, with npx open-assets skills, or the Skills CLI, and learn what the agent does with it.",
+      "descriptionLength": 160,
+      "keywords": false,
+      "canonical": "https://docs.open-assets.dev/agents/claude-code",
+      "robots": null,
+      "hreflangs": [],
+      "ogTitle": "Claude Code",
+      "ogImage": "https://docs.open-assets.dev/og/agents/claude-code/image.png",
+      "twitterCard": "summary_large_image",
+      "banner": null,
+      "ld": {
+        "blocks": 1,
+        "errors": [],
+        "types": [
+          "BreadcrumbList",
+          "ListItem",
+          "Organization",
+          "SoftwareApplication",
+          "TechArticle"
+        ]
+      },
+      "unnamedCrumbs": [],
+      "faqQuestions": 0,
+      "faqVisible": 0,
+      "articles": [
+        {
+          "type": "TechArticle",
+          "author": true,
+          "datePublished": true,
+          "dateModified": true
+        }
+      ],
+      "appStore": [],
+      "ga": "G-W128DQBYJL",
+      "consentDefault": true,
+      "hashedAsset": "/_next/static/chunks/3oge_3rbl13wy.css",
+      "hub": false,
+      "internalLinks": 29
+    },
+    {
+      "url": "https://docs.open-assets.dev/ci/github-actions",
+      "family": "ci",
+      "status": 200,
+      "finalUrl": "https://docs.open-assets.dev/ci/github-actions",
+      "lang": "en",
+      "title": "GitHub Actions | Open Assets Docs",
+      "titleLength": 33,
+      "description": "Render App Store screenshots and icons in GitHub Actions with Open Assets: validate, render incrementally with assets.lock, then commit or upload the PNGs.",
+      "descriptionLength": 155,
+      "keywords": false,
+      "canonical": "https://docs.open-assets.dev/ci/github-actions",
+      "robots": null,
+      "hreflangs": [],
+      "ogTitle": "GitHub Actions",
+      "ogImage": "https://docs.open-assets.dev/og/ci/github-actions/image.png",
+      "twitterCard": "summary_large_image",
+      "banner": null,
+      "ld": {
+        "blocks": 1,
+        "errors": [],
+        "types": [
+          "BreadcrumbList",
+          "ListItem",
+          "Organization",
+          "SoftwareApplication",
+          "TechArticle"
+        ]
+      },
+      "unnamedCrumbs": [],
+      "faqQuestions": 0,
+      "faqVisible": 0,
+      "articles": [
+        {
+          "type": "TechArticle",
+          "author": true,
+          "datePublished": true,
+          "dateModified": true
+        }
+      ],
+      "appStore": [],
+      "ga": "G-W128DQBYJL",
+      "consentDefault": true,
+      "hashedAsset": "/_next/static/chunks/3oge_3rbl13wy.css",
+      "hub": false,
+      "internalLinks": 28
+    },
+    {
+      "url": "https://docs.open-assets.dev/concepts/collections",
+      "family": "concepts",
+      "status": 200,
+      "finalUrl": "https://docs.open-assets.dev/concepts/collections",
+      "lang": "en",
+      "title": "Collections | Open Assets Docs",
+      "titleLength": 30,
+      "description": "A collection groups templates that share one source size and one list of export sizes. Learn its fields, how filtering works and how it maps to dev tabs.",
+      "descriptionLength": 153,
+      "keywords": false,
+      "canonical": "https://docs.open-assets.dev/concepts/collections",
+      "robots": null,
+      "hreflangs": [],
+      "ogTitle": "Collections",
+      "ogImage": "https://docs.open-assets.dev/og/concepts/collections/image.png",
+      "twitterCard": "summary_large_image",
+      "banner": null,
+      "ld": {
+        "blocks": 1,
+        "errors": [],
+        "types": [
+          "BreadcrumbList",
+          "ListItem",
+          "Organization",
+          "SoftwareApplication",
+          "TechArticle"
+        ]
+      },
+      "unnamedCrumbs": [],
+      "faqQuestions": 0,
+      "faqVisible": 0,
+      "articles": [
+        {
+          "type": "TechArticle",
+          "author": true,
+          "datePublished": true,
+          "dateModified": true
+        }
+      ],
+      "appStore": [],
+      "ga": "G-W128DQBYJL",
+      "consentDefault": true,
+      "hashedAsset": "/_next/static/chunks/3oge_3rbl13wy.css",
+      "hub": false,
+      "internalLinks": 33
+    },
+    {
+      "url": "https://docs.open-assets.dev/examples",
+      "family": "examples",
+      "status": 200,
+      "finalUrl": "https://docs.open-assets.dev/examples",
+      "lang": "en",
+      "title": "Examples | Open Assets Docs",
+      "titleLength": 27,
+      "description": "Six real Open Assets projects from shipped apps, with App Store screenshots, icons, Product Hunt galleries and social headers you can clone, run and copy from.",
+      "descriptionLength": 159,
+      "keywords": false,
+      "canonical": "https://docs.open-assets.dev/examples",
+      "robots": null,
+      "hreflangs": [],
+      "ogTitle": "Examples",
+      "ogImage": "https://docs.open-assets.dev/og/examples/image.png",
+      "twitterCard": "summary_large_image",
+      "banner": null,
+      "ld": {
+        "blocks": 1,
+        "errors": [],
+        "types": [
+          "BreadcrumbList",
+          "ListItem",
+          "Organization",
+          "SoftwareApplication",
+          "TechArticle"
+        ]
+      },
+      "unnamedCrumbs": [],
+      "faqQuestions": 0,
+      "faqVisible": 0,
+      "articles": [
+        {
+          "type": "TechArticle",
+          "author": true,
+          "datePublished": true,
+          "dateModified": true
+        }
+      ],
+      "appStore": [],
+      "ga": "G-W128DQBYJL",
+      "consentDefault": true,
+      "hashedAsset": "/_next/static/chunks/3oge_3rbl13wy.css",
+      "hub": true,
+      "internalLinks": 31
+    },
+    {
+      "url": "https://docs.open-assets.dev/examples/cat-iq-test",
+      "family": "examples",
+      "status": 200,
+      "finalUrl": "https://docs.open-assets.dev/examples/cat-iq-test",
+      "lang": "en",
+      "title": "Cat IQ Test | Open Assets Docs",
+      "titleLength": 30,
+      "description": "The Cat IQ Test example: App Store screenshots, a Product Hunt gallery at 1x and 2x, an app icon and an SVG logo exported with copy-source, all in one project.",
+      "descriptionLength": 159,
+      "keywords": false,
+      "canonical": "https://docs.open-assets.dev/examples/cat-iq-test",
+      "robots": null,
+      "hreflangs": [],
+      "ogTitle": "Cat IQ Test",
+      "ogImage": "https://docs.open-assets.dev/og/examples/cat-iq-test/image.png",
+      "twitterCard": "summary_large_image",
+      "banner": null,
+      "ld": {
+        "blocks": 1,
+        "errors": [],
+        "types": [
+          "BreadcrumbList",
+          "ListItem",
+          "Organization",
+          "SoftwareApplication",
+          "TechArticle"
+        ]
+      },
+      "unnamedCrumbs": [],
+      "faqQuestions": 0,
+      "faqVisible": 0,
+      "articles": [
+        {
+          "type": "TechArticle",
+          "author": true,
+          "datePublished": true,
+          "dateModified": true
+        }
+      ],
+      "appStore": [
+        {
+          "ct": "oa_docs_examples",
+          "pt": "128415653"
+        }
+      ],
+      "ga": "G-W128DQBYJL",
+      "consentDefault": true,
+      "hashedAsset": "/_next/static/chunks/3oge_3rbl13wy.css",
+      "hub": false,
+      "internalLinks": 32
+    },
+    {
+      "url": "https://docs.open-assets.dev/guides/app-store-connect",
+      "family": "guides",
+      "status": 200,
+      "finalUrl": "https://docs.open-assets.dev/guides/app-store-connect",
+      "lang": "en",
+      "title": "Upload to App Store Connect | Open Assets Docs",
+      "titleLength": 46,
+      "description": "Map Open Assets export folders to App Store Connect and Google Play screenshot slots, then upload by hand or automate it with fastlane deliver or an asc CLI.",
+      "descriptionLength": 157,
+      "keywords": false,
+      "canonical": "https://docs.open-assets.dev/guides/app-store-connect",
+      "robots": null,
+      "hreflangs": [],
+      "ogTitle": "Upload to App Store Connect",
+      "ogImage": "https://docs.open-assets.dev/og/guides/app-store-connect/image.png",
+      "twitterCard": "summary_large_image",
+      "banner": null,
+      "ld": {
+        "blocks": 1,
+        "errors": [],
+        "types": [
+          "BreadcrumbList",
+          "ListItem",
+          "Organization",
+          "SoftwareApplication",
+          "TechArticle"
+        ]
+      },
+      "unnamedCrumbs": [],
+      "faqQuestions": 0,
+      "faqVisible": 0,
+      "articles": [
+        {
+          "type": "TechArticle",
+          "author": true,
+          "datePublished": true,
+          "dateModified": true
+        }
+      ],
+      "appStore": [],
+      "ga": "G-W128DQBYJL",
+      "consentDefault": true,
+      "hashedAsset": "/_next/static/chunks/3oge_3rbl13wy.css",
+      "hub": false,
+      "internalLinks": 27
+    },
+    {
+      "url": "https://docs.open-assets.dev/localization",
+      "family": "localization",
+      "status": 200,
+      "finalUrl": "https://docs.open-assets.dev/localization",
+      "lang": "en",
+      "title": "Localization | Open Assets Docs",
+      "titleLength": 31,
+      "description": "Render localized App Store screenshots in every language from one set of HTML templates, with string placeholders, fallbacks, number formatting and RTL text.",
+      "descriptionLength": 157,
+      "keywords": false,
+      "canonical": "https://docs.open-assets.dev/localization",
+      "robots": null,
+      "hreflangs": [],
+      "ogTitle": "Localization",
+      "ogImage": "https://docs.open-assets.dev/og/localization/image.png",
+      "twitterCard": "summary_large_image",
+      "banner": null,
+      "ld": {
+        "blocks": 1,
+        "errors": [],
+        "types": [
+          "BreadcrumbList",
+          "ListItem",
+          "Organization",
+          "SoftwareApplication",
+          "TechArticle"
+        ]
+      },
+      "unnamedCrumbs": [],
+      "faqQuestions": 0,
+      "faqVisible": 0,
+      "articles": [
+        {
+          "type": "TechArticle",
+          "author": true,
+          "datePublished": true,
+          "dateModified": true
+        }
+      ],
+      "appStore": [],
+      "ga": "G-W128DQBYJL",
+      "consentDefault": true,
+      "hashedAsset": "/_next/static/chunks/3oge_3rbl13wy.css",
+      "hub": true,
+      "internalLinks": 32
+    },
+    {
+      "url": "https://docs.open-assets.dev/localization/fonts",
+      "family": "localization",
+      "status": 200,
+      "finalUrl": "https://docs.open-assets.dev/localization/fonts",
+      "lang": "en",
+      "title": "Fonts for Localized Screenshots | Open Assets Docs",
+      "titleLength": 50,
+      "description": "Make Chinese, Japanese, Korean, Arabic and Hebrew text render the same on every machine by bundling webfonts and choosing font stacks per language with :lang().",
+      "descriptionLength": 160,
+      "keywords": false,
+      "canonical": "https://docs.open-assets.dev/localization/fonts",
+      "robots": null,
+      "hreflangs": [],
+      "ogTitle": "Fonts for Localized Screenshots",
+      "ogImage": "https://docs.open-assets.dev/og/localization/fonts/image.png",
+      "twitterCard": "summary_large_image",
+      "banner": null,
+      "ld": {
+        "blocks": 1,
+        "errors": [],
+        "types": [
+          "BreadcrumbList",
+          "ListItem",
+          "Organization",
+          "SoftwareApplication",
+          "TechArticle"
+        ]
+      },
+      "unnamedCrumbs": [],
+      "faqQuestions": 0,
+      "faqVisible": 0,
+      "articles": [
+        {
+          "type": "TechArticle",
+          "author": true,
+          "datePublished": true,
+          "dateModified": true
+        }
+      ],
+      "appStore": [],
+      "ga": "G-W128DQBYJL",
+      "consentDefault": true,
+      "hashedAsset": "/_next/static/chunks/3oge_3rbl13wy.css",
+      "hub": false,
+      "internalLinks": 32
+    },
+    {
+      "url": "https://docs.open-assets.dev/migrate/frameit",
+      "family": "migrate",
+      "status": 200,
+      "finalUrl": "https://docs.open-assets.dev/migrate/frameit",
+      "lang": "en",
+      "title": "Migrate from frameit | Open Assets Docs",
+      "titleLength": 39,
+      "description": "Move App Store screenshots from fastlane frameit to Open Assets: map frames, Framefile.json titles and strings to templates, collections and localizations.",
+      "descriptionLength": 155,
+      "keywords": false,
+      "canonical": "https://docs.open-assets.dev/migrate/frameit",
+      "robots": null,
+      "hreflangs": [],
+      "ogTitle": "Migrate from frameit",
+      "ogImage": "https://docs.open-assets.dev/og/migrate/frameit/image.png",
+      "twitterCard": "summary_large_image",
+      "banner": null,
+      "ld": {
+        "blocks": 1,
+        "errors": [],
+        "types": [
+          "BreadcrumbList",
+          "ListItem",
+          "Organization",
+          "SoftwareApplication",
+          "TechArticle"
+        ]
+      },
+      "unnamedCrumbs": [],
+      "faqQuestions": 0,
+      "faqVisible": 0,
+      "articles": [
+        {
+          "type": "TechArticle",
+          "author": true,
+          "datePublished": true,
+          "dateModified": true
+        }
+      ],
+      "appStore": [],
+      "ga": "G-W128DQBYJL",
+      "consentDefault": true,
+      "hashedAsset": "/_next/static/chunks/3oge_3rbl13wy.css",
+      "hub": false,
+      "internalLinks": 27
+    },
+    {
+      "url": "https://docs.open-assets.dev/reference/cli",
+      "family": "reference",
+      "status": 200,
+      "finalUrl": "https://docs.open-assets.dev/reference/cli",
+      "lang": "en",
+      "title": "CLI reference | Open Assets Docs",
+      "titleLength": 32,
+      "description": "Every open-assets command with its arguments, global flags, exit codes and how the optional dir argument picks the project folder that holds assets.json.",
+      "descriptionLength": 153,
+      "keywords": false,
+      "canonical": "https://docs.open-assets.dev/reference/cli",
+      "robots": null,
+      "hreflangs": [],
+      "ogTitle": "CLI reference",
+      "ogImage": "https://docs.open-assets.dev/og/reference/cli/image.png",
+      "twitterCard": "summary_large_image",
+      "banner": null,
+      "ld": {
+        "blocks": 1,
+        "errors": [],
+        "types": [
+          "BreadcrumbList",
+          "ListItem",
+          "Organization",
+          "SoftwareApplication",
+          "TechArticle"
+        ]
+      },
+      "unnamedCrumbs": [],
+      "faqQuestions": 0,
+      "faqVisible": 0,
+      "articles": [
+        {
+          "type": "TechArticle",
+          "author": true,
+          "datePublished": true,
+          "dateModified": true
+        }
+      ],
+      "appStore": [],
+      "ga": "G-W128DQBYJL",
+      "consentDefault": true,
+      "hashedAsset": "/_next/static/chunks/3oge_3rbl13wy.css",
+      "hub": false,
+      "internalLinks": 33
+    },
+    {
+      "url": "https://docs.open-assets.dev/changelog",
+      "family": "(pages)",
+      "status": 200,
+      "finalUrl": "https://docs.open-assets.dev/changelog",
+      "lang": "en",
+      "title": "Changelog | Open Assets Docs",
+      "titleLength": 28,
+      "description": "User-facing changes in each Open Assets release, from 0.2.0 to 0.5.1: localization, the locale picker, faster parallel renders, the plugin, and fixes.",
+      "descriptionLength": 150,
+      "keywords": false,
+      "canonical": "https://docs.open-assets.dev/changelog",
+      "robots": null,
+      "hreflangs": [],
+      "ogTitle": "Changelog",
+      "ogImage": "https://docs.open-assets.dev/og/changelog/image.png",
+      "twitterCard": "summary_large_image",
+      "banner": null,
+      "ld": {
+        "blocks": 1,
+        "errors": [],
+        "types": [
+          "BreadcrumbList",
+          "ListItem",
+          "Organization",
+          "SoftwareApplication",
+          "TechArticle"
+        ]
+      },
+      "unnamedCrumbs": [],
+      "faqQuestions": 0,
+      "faqVisible": 0,
+      "articles": [
+        {
+          "type": "TechArticle",
+          "author": true,
+          "datePublished": true,
+          "dateModified": true
+        }
+      ],
+      "appStore": [],
+      "ga": "G-W128DQBYJL",
+      "consentDefault": true,
+      "hashedAsset": "/_next/static/chunks/3oge_3rbl13wy.css",
+      "hub": false,
+      "internalLinks": 25
+    },
+    {
+      "url": "https://docs.open-assets.dev/install",
+      "family": "(pages)",
+      "status": 200,
+      "finalUrl": "https://docs.open-assets.dev/install",
+      "lang": "en",
+      "title": "Installation | Open Assets Docs",
+      "titleLength": 31,
+      "description": "Install the Open Assets CLI as a dev dependency or run it with npx. Covers the Node version requirement, the Chromium download and how to verify the install.",
+      "descriptionLength": 157,
+      "keywords": false,
+      "canonical": "https://docs.open-assets.dev/install",
+      "robots": null,
+      "hreflangs": [],
+      "ogTitle": "Installation",
+      "ogImage": "https://docs.open-assets.dev/og/install/image.png",
+      "twitterCard": "summary_large_image",
+      "banner": null,
+      "ld": {
+        "blocks": 1,
+        "errors": [],
+        "types": [
+          "BreadcrumbList",
+          "ListItem",
+          "Organization",
+          "SoftwareApplication",
+          "TechArticle"
+        ]
+      },
+      "unnamedCrumbs": [],
+      "faqQuestions": 0,
+      "faqVisible": 0,
+      "articles": [
+        {
+          "type": "TechArticle",
+          "author": true,
+          "datePublished": true,
+          "dateModified": true
+        }
+      ],
+      "appStore": [],
+      "ga": "G-W128DQBYJL",
+      "consentDefault": true,
+      "hashedAsset": "/_next/static/chunks/3oge_3rbl13wy.css",
+      "hub": false,
+      "internalLinks": 25
+    },
+    {
+      "url": "https://docs.open-assets.dev/setup",
+      "family": "(pages)",
+      "status": 200,
+      "finalUrl": "https://docs.open-assets.dev/setup",
+      "lang": "en",
+      "title": "Shell alias and editor setup | Open Assets Docs",
+      "titleLength": 47,
+      "description": "Shorten the Open Assets command with a shell alias, add npm scripts for dev and render with Tailwind, and set up your editor and gitignore for a smooth loop.",
+      "descriptionLength": 157,
+      "keywords": false,
+      "canonical": "https://docs.open-assets.dev/setup",
+      "robots": null,
+      "hreflangs": [],
+      "ogTitle": "Shell alias and editor setup",
+      "ogImage": "https://docs.open-assets.dev/og/setup/image.png",
+      "twitterCard": "summary_large_image",
+      "banner": null,
+      "ld": {
+        "blocks": 1,
+        "errors": [],
+        "types": [
+          "BreadcrumbList",
+          "ListItem",
+          "Organization",
+          "SoftwareApplication",
+          "TechArticle"
+        ]
+      },
+      "unnamedCrumbs": [],
+      "faqQuestions": 0,
+      "faqVisible": 0,
+      "articles": [
+        {
+          "type": "TechArticle",
+          "author": true,
+          "datePublished": true,
+          "dateModified": true
+        }
+      ],
+      "appStore": [],
+      "ga": "G-W128DQBYJL",
+      "consentDefault": true,
+      "hashedAsset": "/_next/static/chunks/3oge_3rbl13wy.css",
+      "hub": false,
+      "internalLinks": 26
+    },
+    {
+      "url": "https://docs.open-assets.dev/structure",
+      "family": "(pages)",
+      "status": 200,
+      "finalUrl": "https://docs.open-assets.dev/structure",
+      "lang": "en",
+      "title": "Project structure | Open Assets Docs",
+      "titleLength": 36,
+      "description": "How an Open Assets project is laid out on disk, from assets.json and template folders to public, dist, exports, assets.lock and localizations.json files.",
+      "descriptionLength": 153,
+      "keywords": false,
+      "canonical": "https://docs.open-assets.dev/structure",
+      "robots": null,
+      "hreflangs": [],
+      "ogTitle": "Project structure",
+      "ogImage": "https://docs.open-assets.dev/og/structure/image.png",
+      "twitterCard": "summary_large_image",
+      "banner": null,
+      "ld": {
+        "blocks": 1,
+        "errors": [],
+        "types": [
+          "BreadcrumbList",
+          "ListItem",
+          "Organization",
+          "SoftwareApplication",
+          "TechArticle"
+        ]
+      },
+      "unnamedCrumbs": [],
+      "faqQuestions": 0,
+      "faqVisible": 0,
+      "articles": [
+        {
+          "type": "TechArticle",
+          "author": true,
+          "datePublished": true,
+          "dateModified": true
+        }
+      ],
+      "appStore": [],
+      "ga": "G-W128DQBYJL",
+      "consentDefault": true,
+      "hashedAsset": "/_next/static/chunks/3oge_3rbl13wy.css",
+      "hub": false,
+      "internalLinks": 30
+    },
+    {
+      "url": "https://docs.open-assets.dev/tutorial",
+      "family": "(pages)",
+      "status": 200,
+      "finalUrl": "https://docs.open-assets.dev/tutorial",
+      "lang": "en",
+      "title": "Tutorial: your first screenshot set | Open Assets Docs",
+      "titleLength": 54,
+      "description": "Build a three-screenshot App Store set with a shared stylesheet, render it at iPhone 6.9 and 6.7 inch sizes, and write an app icon into an Xcode asset catalog.",
+      "descriptionLength": 159,
+      "keywords": false,
+      "canonical": "https://docs.open-assets.dev/tutorial",
+      "robots": null,
+      "hreflangs": [],
+      "ogTitle": "Tutorial: your first screenshot set",
+      "ogImage": "https://docs.open-assets.dev/og/tutorial/image.png",
+      "twitterCard": "summary_large_image",
+      "banner": null,
+      "ld": {
+        "blocks": 1,
+        "errors": [],
+        "types": [
+          "BreadcrumbList",
+          "ListItem",
+          "Organization",
+          "SoftwareApplication",
+          "TechArticle"
+        ]
+      },
+      "unnamedCrumbs": [],
+      "faqQuestions": 0,
+      "faqVisible": 0,
+      "articles": [
+        {
+          "type": "TechArticle",
+          "author": true,
+          "datePublished": true,
+          "dateModified": true
+        }
+      ],
+      "appStore": [],
+      "ga": "G-W128DQBYJL",
+      "consentDefault": true,
+      "hashedAsset": "/_next/static/chunks/3oge_3rbl13wy.css",
+      "hub": false,
+      "internalLinks": 29
+    }
+  ],
+  "siteFiles": {
+    "robots": {
+      "status": 200,
+      "type": "text/plain",
+      "groups": 26,
+      "sitemaps": [
+        "https://docs.open-assets.dev/sitemap.xml"
+      ]
+    },
+    "sitemaps": [
+      {
+        "url": "https://docs.open-assets.dev/sitemap.xml",
+        "status": 200,
+        "type": "application/xml"
+      }
+    ],
+    "llms": {
+      "status": 200,
+      "type": "text/plain",
+      "bytes": 13662
+    },
+    "llmsFull": {
+      "status": 200,
+      "type": "text/plain",
+      "bytes": 235482
+    },
+    "aasa": {
+      "status": 404,
+      "type": "text/html",
+      "location": null
+    },
+    "www": {
+      "status": 0,
+      "location": null,
+      "error": "ENOTFOUND"
+    }
+  },
+  "notes": []
+}

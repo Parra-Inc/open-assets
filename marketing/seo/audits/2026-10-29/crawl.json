@@ -1,0 +1,179 @@
+{
+ "schema": "audit-seo/v1",
+ "layer": "crawl",
+ "site": "open-assets.dev + docs.open-assets.dev",
+ "siteId": "open-assets-dev,docs-open-assets-dev",
+ "capturedAt": "2026-10-29T15:40:00Z",
+ "calls": [
+  {
+   "tool": "list_sites",
+   "ok": true,
+   "result": {
+    "open-assets-dev": {
+     "rank": 19,
+     "pages": 1,
+     "audited": 0
+    },
+    "docs-open-assets-dev": {
+     "rank": 20,
+     "pages": 59,
+     "audited": 0
+    }
+   }
+  },
+  {
+   "tool": "recheck",
+   "params": {
+    "site_id": "open-assets-dev"
+   },
+   "ok": true,
+   "result": {
+    "queued": 1,
+    "capped": false
+   }
+  },
+  {
+   "tool": "recheck",
+   "params": {
+    "site_id": "docs-open-assets-dev"
+   },
+   "ok": true,
+   "result": {
+    "queued": 59,
+    "capped": false
+   }
+  },
+  {
+   "tool": "audit_report",
+   "params": {
+    "project_id": "Open Assets",
+    "min_severity": "notice"
+   },
+   "ok": true,
+   "result": []
+  },
+  {
+   "tool": "audit_report",
+   "params": {
+    "site_id": "open-assets-dev",
+    "min_severity": "notice"
+   },
+   "ok": true,
+   "result": [
+    {
+     "siteId": "open-assets-dev",
+     "checkId": "page.orphan",
+     "severity": "warning",
+     "count": 1,
+     "pages": 1,
+     "examples": [
+      {
+       "url": "https://open-assets.dev/"
+      }
+     ]
+    },
+    {
+     "siteId": "open-assets-dev",
+     "checkId": "title.too.long",
+     "severity": "warning",
+     "count": 1,
+     "pages": 1,
+     "examples": [
+      {
+       "url": "https://open-assets.dev/",
+       "detail": {
+        "length": 67,
+        "title": "Open Assets: App Store screenshots, app icons and OG images as code"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tool": "audit_report",
+   "params": {
+    "site_id": "docs-open-assets-dev",
+    "min_severity": "notice"
+   },
+   "ok": true,
+   "result": [
+    {
+     "siteId": "docs-open-assets-dev",
+     "checkId": "img.dimensions.missing",
+     "severity": "notice",
+     "count": 18,
+     "pages": 8,
+     "examples": [
+      {
+       "url": "https://docs.open-assets.dev/",
+       "instanceKey": "/img/examples/cat-iq-test.webp"
+      }
+     ]
+    },
+    {
+     "siteId": "docs-open-assets-dev",
+     "checkId": "description.too.long",
+     "severity": "notice",
+     "count": 3,
+     "pages": 3,
+     "examples": [
+      {
+       "url": "https://docs.open-assets.dev/examples/no-context",
+       "detail": {
+        "length": 162
+       }
+      },
+      {
+       "url": "https://docs.open-assets.dev/localization/locales",
+       "detail": {
+        "length": 161
+       }
+      },
+      {
+       "url": "https://docs.open-assets.dev/localization/rtl",
+       "detail": {
+        "length": 166
+       }
+      }
+     ]
+    },
+    {
+     "siteId": "docs-open-assets-dev",
+     "checkId": "heading.skip",
+     "severity": "notice",
+     "count": 3,
+     "pages": 3,
+     "examples": [
+      {
+       "url": "https://docs.open-assets.dev/faq",
+       "detail": {
+        "from": 1,
+        "to": 3
+       }
+      },
+      {
+       "url": "https://docs.open-assets.dev/quick-start",
+       "detail": {
+        "from": 1,
+        "to": 3
+       }
+      },
+      {
+       "url": "https://docs.open-assets.dev/tutorial",
+       "detail": {
+        "from": 1,
+        "to": 3
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "notes": [
+  "First crawl of both sites (audited 0 before recheck). Result stored as returned minus what/why/fix prose.",
+  "description.too.long is a false positive on all 3: rendered lengths 157/156/156, crawler counts encoded &#x27; and &quot;.",
+  "project_id filter returns [] for 'Open Assets'; per-site calls work."
+ ]
+}

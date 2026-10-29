@@ -1,0 +1,27 @@
+[
+  {
+    "url": "https://docs.open-assets.dev/examples",
+    "strategy": "mobile",
+    "score": 82,
+    "lcp": 4995.5419999999995,
+    "tbt": 24.5,
+    "cls": 0,
+    "fcp": 996.842,
+    "ttfb": 48,
+    "si": 2019.0176130869272,
+    "verdicts": {
+      "lcp": "POOR",
+      "tbt": "good",
+      "cls": "good"
+    },
+    "lcpElement": null,
+    "opportunities": [
+      {
+        "id": "unused-javascript",
+        "title": "Reduce unused JavaScript",
+        "savingsMs": 320
+      }
+    ],
+    "failedDiagnostics": []
+  }
+]
