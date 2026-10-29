@@ -12,7 +12,7 @@ import { notFound } from 'next/navigation';
 import { getMDXComponents } from '@/components/mdx';
 import type { Metadata } from 'next';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
-import { getPageImageUrl, getPageMarkdownUrl, gitConfig, siteUrl } from '@/lib/shared';
+import { getPageImageUrl, getPageMarkdownUrl, gitConfig, marketingUrl, siteUrl } from '@/lib/shared';
 import { pageFirstPublished, pageLastModified } from '@/lib/lastModified';
 
 function canonicalPath(url: string) {
@@ -46,7 +46,14 @@ export default async function Page(props: PageProps<'/[[...slug]]'>) {
       dateModified: lastModified.toISOString(),
       author: { '@type': 'Organization', name: 'Parra', url: 'https://parra.io' },
       publisher: { '@type': 'Organization', name: 'Parra', url: 'https://parra.io' },
-      about: { '@type': 'SoftwareApplication', name: 'Open Assets', applicationCategory: 'DeveloperApplication' },
+      about: {
+        '@type': 'SoftwareApplication',
+        name: 'Open Assets',
+        applicationCategory: 'DeveloperApplication',
+        operatingSystem: 'macOS, Linux, Windows',
+        url: marketingUrl,
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+      },
     },
     ...(page.slugs.length === 0
       ? [
