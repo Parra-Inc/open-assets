@@ -2,7 +2,7 @@ export const site = {
   name: 'Open Assets',
   url: 'https://open-assets.dev',
   // Under 60 characters so results never truncate it (crawler title.too.long).
-  title: 'Open Assets: App Store screenshots and app icons as code',
+  title: 'App Store screenshots and app icons as code | Open Assets',
   // 150 to 160 characters (fleet standard A4). Re-measure after any edit.
   description:
     'Open source App Store screenshot and app icon generator. Design marketing assets in HTML and CSS, preview them live, and render every size with one command.',

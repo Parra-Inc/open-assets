@@ -23,12 +23,13 @@
   },
   // Custom Domains create the DNS records and certificates on deploy. www is
   // 301'd to the apex by a zone Redirect Rule (program/index.ts, WwwRedirect),
-  // so it must stay attached here. workers_dev is off so crawlers only ever
+  // so it must stay attached here. workers_dev and preview_urls are off so crawlers only ever
   // see the canonical origin.
   "routes": [
     { "pattern": "open-assets.dev", "custom_domain": true },
     { "pattern": "www.open-assets.dev", "custom_domain": true }
   ],
   "workers_dev": false,
+  "preview_urls": false,
   "observability": { "enabled": true }
 }

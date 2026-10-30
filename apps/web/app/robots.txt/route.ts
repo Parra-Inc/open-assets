@@ -38,8 +38,6 @@ const AI_CRAWLERS = [
   'MistralAI-User',
   'Kagibot',
   'YouBot',
-  'Bytespider',
-  'CCBot',
 ]
 
 const ALLOW = ['/', '/llms.txt', '/llms-full.txt']
