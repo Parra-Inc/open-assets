@@ -31,6 +31,8 @@ export async function asMarkdown(res: Response, ai: MarkdownAi | undefined): Pro
   const [doc] = await ai.toMarkdown([{ name: 'page.html', blob: new Blob([html], { type: 'text/html' }) }])
   const headers = new Headers(res.headers)
   headers.set('content-type', 'text/markdown; charset=utf-8')
+  // Never cacheable: the cache key ignores Accept, so a cached copy would be served to browsers.
+  headers.set("cache-control", "private, no-store");
   headers.set('vary', 'Accept')
   headers.set('x-markdown-tokens', String(doc?.tokens ?? Math.ceil((doc?.data.length ?? 0) / 4)))
   headers.delete('content-length')
