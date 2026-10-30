@@ -1,0 +1,26 @@
+{
+ "site": "open-assets.dev",
+ "capturedAt": "2026-10-30T15:21:15.583Z",
+ "pages": [
+  {
+   "url": "https://open-assets.dev/",
+   "status": 200,
+   "title": "Open Assets: App Store screenshots, app icons and OG images as code",
+   "description": "Open source App Store screenshot and app icon generator. Design marketing assets in HTML and CSS, preview them live, and render every size with one command.",
+   "canonical": "https://open-assets.dev/",
+   "robots": "index, follow",
+   "ogTitle": "Open Assets: App Store screenshots, app icons and OG images as code",
+   "ogImage": "https://open-assets.dev/opengraph-image.png?opengraph-image.3rkegv6lty-im.png",
+   "ld": [
+    "Answer",
+    "FAQPage",
+    "Offer",
+    "Organization",
+    "Question",
+    "SoftwareApplication",
+    "WebSite"
+   ],
+   "hreflangs": []
+  }
+ ]
+}

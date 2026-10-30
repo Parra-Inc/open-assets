@@ -1,0 +1,293 @@
+{
+ "site": "docs.open-assets.dev",
+ "capturedAt": "2026-10-30T15:21:15.555Z",
+ "pages": [
+  {
+   "url": "https://docs.open-assets.dev/",
+   "status": 200,
+   "title": "Open Assets Docs: App Store screenshots and icons from HTML",
+   "description": "Open Assets turns HTML, CSS and SVG templates into App Store screenshots, app icons, OG images and favicons, rendered at every size from one local CLI.",
+   "canonical": "https://docs.open-assets.dev/",
+   "robots": null,
+   "ogTitle": "Introduction",
+   "ogImage": "https://docs.open-assets.dev/og/image.png",
+   "ld": [
+    "Organization",
+    "SoftwareApplication",
+    "TechArticle",
+    "WebSite"
+   ],
+   "hreflangs": []
+  },
+  {
+   "url": "https://docs.open-assets.dev/agents/claude-code",
+   "status": 200,
+   "title": "Claude Code | Open Assets Docs",
+   "description": "Install the Open Assets skill in Claude Code from the plugin marketplace, with npx open-assets skills, or the Skills CLI, and learn what the agent does with it.",
+   "canonical": "https://docs.open-assets.dev/agents/claude-code",
+   "robots": null,
+   "ogTitle": "Claude Code",
+   "ogImage": "https://docs.open-assets.dev/og/agents/claude-code/image.png",
+   "ld": [
+    "BreadcrumbList",
+    "ListItem",
+    "Organization",
+    "SoftwareApplication",
+    "TechArticle"
+   ],
+   "hreflangs": []
+  },
+  {
+   "url": "https://docs.open-assets.dev/ci/github-actions",
+   "status": 200,
+   "title": "GitHub Actions | Open Assets Docs",
+   "description": "Render App Store screenshots and icons in GitHub Actions with Open Assets: validate, render incrementally with assets.lock, then commit or upload the PNGs.",
+   "canonical": "https://docs.open-assets.dev/ci/github-actions",
+   "robots": null,
+   "ogTitle": "GitHub Actions",
+   "ogImage": "https://docs.open-assets.dev/og/ci/github-actions/image.png",
+   "ld": [
+    "BreadcrumbList",
+    "ListItem",
+    "Organization",
+    "SoftwareApplication",
+    "TechArticle"
+   ],
+   "hreflangs": []
+  },
+  {
+   "url": "https://docs.open-assets.dev/concepts/collections",
+   "status": 200,
+   "title": "Collections | Open Assets Docs",
+   "description": "A collection groups templates that share one source size and one list of export sizes. Learn its fields, how filtering works and how it maps to dev tabs.",
+   "canonical": "https://docs.open-assets.dev/concepts/collections",
+   "robots": null,
+   "ogTitle": "Collections",
+   "ogImage": "https://docs.open-assets.dev/og/concepts/collections/image.png",
+   "ld": [
+    "BreadcrumbList",
+    "ListItem",
+    "Organization",
+    "SoftwareApplication",
+    "TechArticle"
+   ],
+   "hreflangs": []
+  },
+  {
+   "url": "https://docs.open-assets.dev/examples",
+   "status": 200,
+   "title": "Examples | Open Assets Docs",
+   "description": "Six real Open Assets projects from shipped apps, with App Store screenshots, icons, Product Hunt galleries and social headers you can clone, run and copy from.",
+   "canonical": "https://docs.open-assets.dev/examples",
+   "robots": null,
+   "ogTitle": "Examples",
+   "ogImage": "https://docs.open-assets.dev/og/examples/image.png",
+   "ld": [
+    "BreadcrumbList",
+    "ListItem",
+    "Organization",
+    "SoftwareApplication",
+    "TechArticle"
+   ],
+   "hreflangs": []
+  },
+  {
+   "url": "https://docs.open-assets.dev/examples/cat-iq-test",
+   "status": 200,
+   "title": "Cat IQ Test | Open Assets Docs",
+   "description": "The Cat IQ Test example: App Store screenshots, a Product Hunt gallery at 1x and 2x, an app icon and an SVG logo exported with copy-source, all in one project.",
+   "canonical": "https://docs.open-assets.dev/examples/cat-iq-test",
+   "robots": null,
+   "ogTitle": "Cat IQ Test",
+   "ogImage": "https://docs.open-assets.dev/og/examples/cat-iq-test/image.png",
+   "ld": [
+    "BreadcrumbList",
+    "ListItem",
+    "Organization",
+    "SoftwareApplication",
+    "TechArticle"
+   ],
+   "hreflangs": []
+  },
+  {
+   "url": "https://docs.open-assets.dev/guides/app-store-connect",
+   "status": 200,
+   "title": "Upload to App Store Connect | Open Assets Docs",
+   "description": "Map Open Assets export folders to App Store Connect and Google Play screenshot slots, then upload by hand or automate it with fastlane deliver or an asc CLI.",
+   "canonical": "https://docs.open-assets.dev/guides/app-store-connect",
+   "robots": null,
+   "ogTitle": "Upload to App Store Connect",
+   "ogImage": "https://docs.open-assets.dev/og/guides/app-store-connect/image.png",
+   "ld": [
+    "BreadcrumbList",
+    "ListItem",
+    "Organization",
+    "SoftwareApplication",
+    "TechArticle"
+   ],
+   "hreflangs": []
+  },
+  {
+   "url": "https://docs.open-assets.dev/localization",
+   "status": 200,
+   "title": "Localization | Open Assets Docs",
+   "description": "Render localized App Store screenshots in every language from one set of HTML templates, with string placeholders, fallbacks, number formatting and RTL text.",
+   "canonical": "https://docs.open-assets.dev/localization",
+   "robots": null,
+   "ogTitle": "Localization",
+   "ogImage": "https://docs.open-assets.dev/og/localization/image.png",
+   "ld": [
+    "BreadcrumbList",
+    "ListItem",
+    "Organization",
+    "SoftwareApplication",
+    "TechArticle"
+   ],
+   "hreflangs": []
+  },
+  {
+   "url": "https://docs.open-assets.dev/localization/fonts",
+   "status": 200,
+   "title": "Fonts for Localized Screenshots | Open Assets Docs",
+   "description": "Make Chinese, Japanese, Korean, Arabic and Hebrew text render the same on every machine by bundling webfonts and choosing font stacks per language with :lang().",
+   "canonical": "https://docs.open-assets.dev/localization/fonts",
+   "robots": null,
+   "ogTitle": "Fonts for Localized Screenshots",
+   "ogImage": "https://docs.open-assets.dev/og/localization/fonts/image.png",
+   "ld": [
+    "BreadcrumbList",
+    "ListItem",
+    "Organization",
+    "SoftwareApplication",
+    "TechArticle"
+   ],
+   "hreflangs": []
+  },
+  {
+   "url": "https://docs.open-assets.dev/migrate/frameit",
+   "status": 200,
+   "title": "Migrate from frameit | Open Assets Docs",
+   "description": "Move App Store screenshots from fastlane frameit to Open Assets: map frames, Framefile.json titles and strings to templates, collections and localizations.",
+   "canonical": "https://docs.open-assets.dev/migrate/frameit",
+   "robots": null,
+   "ogTitle": "Migrate from frameit",
+   "ogImage": "https://docs.open-assets.dev/og/migrate/frameit/image.png",
+   "ld": [
+    "BreadcrumbList",
+    "ListItem",
+    "Organization",
+    "SoftwareApplication",
+    "TechArticle"
+   ],
+   "hreflangs": []
+  },
+  {
+   "url": "https://docs.open-assets.dev/reference/cli",
+   "status": 200,
+   "title": "CLI reference | Open Assets Docs",
+   "description": "Every open-assets command with its arguments, global flags, exit codes and how the optional dir argument picks the project folder that holds assets.json.",
+   "canonical": "https://docs.open-assets.dev/reference/cli",
+   "robots": null,
+   "ogTitle": "CLI reference",
+   "ogImage": "https://docs.open-assets.dev/og/reference/cli/image.png",
+   "ld": [
+    "BreadcrumbList",
+    "ListItem",
+    "Organization",
+    "SoftwareApplication",
+    "TechArticle"
+   ],
+   "hreflangs": []
+  },
+  {
+   "url": "https://docs.open-assets.dev/changelog",
+   "status": 200,
+   "title": "Changelog | Open Assets Docs",
+   "description": "User-facing changes in each Open Assets release, from 0.2.0 to 0.5.1: localization, the locale picker, faster parallel renders, the plugin, and fixes.",
+   "canonical": "https://docs.open-assets.dev/changelog",
+   "robots": null,
+   "ogTitle": "Changelog",
+   "ogImage": "https://docs.open-assets.dev/og/changelog/image.png",
+   "ld": [
+    "BreadcrumbList",
+    "ListItem",
+    "Organization",
+    "SoftwareApplication",
+    "TechArticle"
+   ],
+   "hreflangs": []
+  },
+  {
+   "url": "https://docs.open-assets.dev/install",
+   "status": 200,
+   "title": "Installation | Open Assets Docs",
+   "description": "Install the Open Assets CLI as a dev dependency or run it with npx. Covers the Node version requirement, the Chromium download and how to verify the install.",
+   "canonical": "https://docs.open-assets.dev/install",
+   "robots": null,
+   "ogTitle": "Installation",
+   "ogImage": "https://docs.open-assets.dev/og/install/image.png",
+   "ld": [
+    "BreadcrumbList",
+    "ListItem",
+    "Organization",
+    "SoftwareApplication",
+    "TechArticle"
+   ],
+   "hreflangs": []
+  },
+  {
+   "url": "https://docs.open-assets.dev/setup",
+   "status": 200,
+   "title": "Shell alias and editor setup | Open Assets Docs",
+   "description": "Shorten the Open Assets command with a shell alias, add npm scripts for dev and render with Tailwind, and set up your editor and gitignore for a smooth loop.",
+   "canonical": "https://docs.open-assets.dev/setup",
+   "robots": null,
+   "ogTitle": "Shell alias and editor setup",
+   "ogImage": "https://docs.open-assets.dev/og/setup/image.png",
+   "ld": [
+    "BreadcrumbList",
+    "ListItem",
+    "Organization",
+    "SoftwareApplication",
+    "TechArticle"
+   ],
+   "hreflangs": []
+  },
+  {
+   "url": "https://docs.open-assets.dev/structure",
+   "status": 200,
+   "title": "Project structure | Open Assets Docs",
+   "description": "How an Open Assets project is laid out on disk, from assets.json and template folders to public, dist, exports, assets.lock and localizations.json files.",
+   "canonical": "https://docs.open-assets.dev/structure",
+   "robots": null,
+   "ogTitle": "Project structure",
+   "ogImage": "https://docs.open-assets.dev/og/structure/image.png",
+   "ld": [
+    "BreadcrumbList",
+    "ListItem",
+    "Organization",
+    "SoftwareApplication",
+    "TechArticle"
+   ],
+   "hreflangs": []
+  },
+  {
+   "url": "https://docs.open-assets.dev/tutorial",
+   "status": 200,
+   "title": "Tutorial: your first screenshot set | Open Assets Docs",
+   "description": "Build a three-screenshot App Store set with a shared stylesheet, render it at iPhone 6.9 and 6.7 inch sizes, and write an app icon into an Xcode asset catalog.",
+   "canonical": "https://docs.open-assets.dev/tutorial",
+   "robots": null,
+   "ogTitle": "Tutorial: your first screenshot set",
+   "ogImage": "https://docs.open-assets.dev/og/tutorial/image.png",
+   "ld": [
+    "BreadcrumbList",
+    "ListItem",
+    "Organization",
+    "SoftwareApplication",
+    "TechArticle"
+   ],
+   "hreflangs": []
+  }
+ ]
+}
