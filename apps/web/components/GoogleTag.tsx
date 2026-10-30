@@ -10,6 +10,9 @@
  *     stays one session
  *   - an app_store_click key event on every App Store or Google Play link
  *
+ * Only production builds served from a production host load it, so `next dev`,
+ * a local preview and any non-canonical host never send hits to the property.
+ *
  * Identical copies live in apps/web and apps/docs. Change both.
  */
 
@@ -26,7 +29,11 @@ const CONSENT_DENIED_REGIONS = [
 
 const STORE_LINK_PATTERN = 'apps\\.apple\\.com|itunes\\.apple\\.com|play\\.google\\.com\\/store\\/apps';
 
+// The gtag.js loader is injected by the inline script, after the host check.
 const inline =
+  `if(${JSON.stringify(LINKER_DOMAINS)}.indexOf(location.hostname)!==-1){` +
+  `var s=document.createElement('script');s.async=true;` +
+  `s.src='https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}';document.head.appendChild(s);` +
   `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}` +
   `gtag('consent','default',{'ad_storage':'granted','ad_user_data':'granted','ad_personalization':'granted','analytics_storage':'granted'});` +
   `gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied','region':${JSON.stringify(CONSENT_DENIED_REGIONS)}});` +
@@ -39,13 +46,9 @@ const inline =
   `var h=a.href;if(!/${STORE_LINK_PATTERN}/.test(h))return;` +
   `gtag('event','app_store_click',{'store':/play\\.google/.test(h)?'google_play':'app_store',` +
   `'link_url':h,'link_text':(a.textContent||a.getAttribute('aria-label')||'').trim().slice(0,100),` +
-  `'transport_type':'beacon'});},true);`;
+  `'transport_type':'beacon'});},true);}`;
 
 export function GoogleTag() {
-  return (
-    <>
-      <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} />
-      <script dangerouslySetInnerHTML={{ __html: inline }} />
-    </>
-  );
+  if (process.env.NODE_ENV !== 'production') return null;
+  return <script dangerouslySetInnerHTML={{ __html: inline }} />;
 }
