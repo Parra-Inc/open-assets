@@ -1,3 +1,4 @@
+import * as path from "path";
 import * as pulumi from "@pulumi/pulumi";
 import {
   CLOUDFLARE_ISSUING_CAS,
@@ -7,6 +8,7 @@ import {
   WwwRedirect,
   ZoneSecurity,
   caaRecords,
+  nextApiRoutePrefixes,
 } from "@parra/cloudflare-pulumi";
 
 /**
@@ -32,8 +34,22 @@ const domain = "open-assets.dev";
 // zone so crawlers never see two hostnames serving the same page.
 new WwwRedirect({ zoneId, domain });
 
-// Scanner probes, freeloader crawlers and forged user agents die at the edge.
-new WafScannerBlock(domain, { zoneId });
+// /api prefixes the two Next apps really serve, read from their route trees.
+// Both are static exports, so the list is tiny: apps/web has no /api routes
+// at all and apps/docs serves only /api/search (the prerendered Fumadocs
+// search index its client fetches). Every other /api path is a scanner probe.
+const apiRoutes = nextApiRoutePrefixes([
+  path.join(__dirname, "../apps/web/app"),
+  path.join(__dirname, "../apps/docs/app"),
+]);
+
+// Scanner probes, freeloader crawlers and forged user agents die at the edge,
+// as do /api paths no app serves (all three hostnames are these two apps).
+new WafScannerBlock(domain, {
+  zoneId,
+  knownApiPrefixes: apiRoutes,
+  apiHosts: [domain, `www.${domain}`, `docs.${domain}`],
+});
 
 // TLS 1.2 minimum, HTTPS, HSTS: the fleet zone baseline. The zone was on the
 // defaults (TLS 1.0, HTTPS not forced) before this.
