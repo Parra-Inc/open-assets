@@ -1,14 +1,24 @@
 // Cloudflare Workers config for docs.open-assets.dev (Fumadocs).
 //
 // Static assets only: `next build` exports the docs to out/ (search index,
-// OG cards and llms files included) and wrangler uploads it. No worker script.
+// OG cards and llms files included) and wrangler uploads it. A thin Worker
+// (custom-worker.ts) sits in front for agent markdown negotiation.
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   // Resource naming convention: <project>-<app>-<environment>.
   "name": "open-assets-docs-production",
+  // Thin Worker in front of the static export, only for agents: markdown
+  // negotiation and the discovery Link header (custom-worker.ts).
+  "main": "custom-worker.ts",
   "compatibility_date": "2025-12-01",
+  // Workers AI, only for toMarkdown (free for HTML conversion).
+  "ai": { "binding": "AI" },
   "assets": {
     "directory": "out",
+    "binding": "ASSETS",
+    // Every page path runs the Worker first so Accept: text/markdown can be
+    // honoured; content-hashed bundles and images skip it.
+    "run_worker_first": ["/*", "!/_next/static/*", "!/img/*"],
     "not_found_handling": "404-page",
     "html_handling": "auto-trailing-slash"
   },

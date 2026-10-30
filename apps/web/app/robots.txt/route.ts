@@ -1,4 +1,3 @@
-import type { MetadataRoute } from 'next'
 import { site } from '@/data/site'
 
 export const dynamic = 'force-static'
@@ -45,10 +44,16 @@ const AI_CRAWLERS = [
 
 const ALLOW = ['/', '/llms.txt', '/llms-full.txt']
 
-export default function robots(): MetadataRoute.Robots {
-  return {
-    rules: [{ userAgent: '*', allow: ALLOW }, ...AI_CRAWLERS.map((userAgent) => ({ userAgent, allow: ALLOW }))],
-    sitemap: `${site.url}/sitemap.xml`,
-    host: site.url,
-  }
+// Cloudflare Content Signals (contentsignals.org): search and answer engines
+// may use the pages, model training may not. Every group carries the line,
+// because a bot that matches a named group ignores `*`.
+const CONTENT_SIGNAL = 'search=yes, ai-input=yes, ai-train=no'
+
+// A route handler rather than app/robots.ts: MetadataRoute.Robots cannot emit
+// Content-Signal. Nothing is disallowed, so /.well-known/ stays reachable.
+export function GET(): Response {
+  const group = (ua: string) =>
+    [`User-agent: ${ua}`, `Content-Signal: ${CONTENT_SIGNAL}`, ...ALLOW.map((p) => `Allow: ${p}`)].join('\n')
+  const body = [group('*'), ...AI_CRAWLERS.map(group), `Sitemap: ${site.url}/sitemap.xml\nHost: ${site.url}`].join('\n\n')
+  return new Response(`${body}\n`, { headers: { 'content-type': 'text/plain; charset=utf-8' } })
 }
