@@ -33,6 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0b081c" />
         <GoogleTag />
       </head>
       <body>{children}</body>

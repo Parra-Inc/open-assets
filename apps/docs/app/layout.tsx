@@ -28,6 +28,7 @@ export default function Layout({ children }: LayoutProps<'/'>) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0b081c" />
         <GoogleTag />
       </head>
       <body className="flex flex-col min-h-screen">
