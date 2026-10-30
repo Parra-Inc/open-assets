@@ -3,7 +3,7 @@
   "private": true,
   "main": "index.ts",
   "dependencies": {
-    "@parra/cloudflare-pulumi": "github:Parra-Inc/cloudflare-infra#v1.19.1",
+    "@parra/cloudflare-pulumi": "github:Parra-Inc/cloudflare-infra#v1.20.0",
     "@pulumi/cloudflare": "^5.49.0",
     "@pulumi/pulumi": "^3.140.0"
   },

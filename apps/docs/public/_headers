@@ -10,3 +10,11 @@
   X-Frame-Options: DENY
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+# Agent discovery (RFC 8288). custom-worker.ts sets the same Link header,
+# because _headers is not guaranteed on responses that pass through a Worker.
+/
+  Link: </llms.txt>; rel="describedby"; type="text/markdown", </sitemap.xml>; rel="sitemap", </.well-known/agent-skills/index.json>; rel="describedby"; type="application/json"
+
+/.well-known/*
+  Access-Control-Allow-Origin: *

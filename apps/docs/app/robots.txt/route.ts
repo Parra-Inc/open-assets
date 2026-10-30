@@ -1,4 +1,3 @@
-import type { MetadataRoute } from 'next'
 import { siteUrl } from '@/lib/shared'
 
 export const dynamic = 'force-static'
@@ -7,7 +6,7 @@ export const dynamic = 'force-static'
 // open source tool wins installs by being cited when someone asks an assistant
 // how to make App Store screenshots. An agent with its own group ignores `*`,
 // so each group repeats the same rules.
-// Copied from apps/web/app/robots.ts: keep the two lists identical.
+// Copied from apps/web/app/robots.txt/route.ts: keep the two lists identical.
 const AI_CRAWLERS = [
   // OpenAI. OAI-AdsBot is named so a future tightening of `*` cannot silently
   // disable ChatGPT Ads.
@@ -46,10 +45,16 @@ const AI_CRAWLERS = [
 
 const ALLOW = ['/', '/llms.txt', '/llms-full.txt']
 
-export default function robots(): MetadataRoute.Robots {
-  return {
-    rules: [{ userAgent: '*', allow: ALLOW }, ...AI_CRAWLERS.map((userAgent) => ({ userAgent, allow: ALLOW }))],
-    sitemap: `${siteUrl}/sitemap.xml`,
-    host: siteUrl,
-  }
+// Cloudflare Content Signals (contentsignals.org): search and answer engines
+// may use the pages, model training may not. Every group carries the line,
+// because a bot that matches a named group ignores `*`.
+const CONTENT_SIGNAL = 'search=yes, ai-input=yes, ai-train=no'
+
+// A route handler rather than app/robots.ts: MetadataRoute.Robots cannot emit
+// Content-Signal. Nothing is disallowed, so /.well-known/ stays reachable.
+export function GET(): Response {
+  const group = (ua: string) =>
+    [`User-agent: ${ua}`, `Content-Signal: ${CONTENT_SIGNAL}`, ...ALLOW.map((p) => `Allow: ${p}`)].join('\n')
+  const body = [group('*'), ...AI_CRAWLERS.map(group), `Sitemap: ${siteUrl}/sitemap.xml\nHost: ${siteUrl}`].join('\n\n')
+  return new Response(`${body}\n`, { headers: { 'content-type': 'text/plain; charset=utf-8' } })
 }

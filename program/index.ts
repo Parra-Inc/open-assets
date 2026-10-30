@@ -1,6 +1,7 @@
 import * as path from "path";
 import * as pulumi from "@pulumi/pulumi";
 import {
+  AgentDiscovery,
   CLOUDFLARE_ISSUING_CAS,
   ProjectEmail,
   WafScannerBlock,
@@ -60,6 +61,12 @@ new WebAnalytics(domain, { accountId, zoneId });
 
 // Only Cloudflare's issuers: every hostname's certificate is Cloudflare-managed.
 caaRecords({ zoneId, domain, issuers: [...CLOUDFLARE_ISSUING_CAS] });
+
+// DNS-AID (SVCB at _index._agents) plus DNSSEC, for agent discovery. One for
+// the zone, covering docs.open-assets.dev too. No mcpHost: there is no MCP
+// server. DNSSEC validates once the DS is at the registrar (Cloudflare
+// Registrar publishes it automatically).
+new AgentDiscovery({ zoneId, domain });
 
 // The fleet owner mailbox: ian@, hello@, help@, support@, info@, contact@,
 // admin@ and mick@ forwarded with Email Routing. sending: false because
