@@ -44,9 +44,9 @@ const AI_CRAWLERS = [
 const ALLOW = ['/', '/llms.txt', '/llms-full.txt']
 
 // Cloudflare Content Signals (contentsignals.org): search and answer engines
-// may use the pages, model training may not. Every group carries the line,
+// and model training may all use the pages. Every group carries the line,
 // because a bot that matches a named group ignores `*`.
-const CONTENT_SIGNAL = 'search=yes, ai-input=yes, ai-train=no'
+const CONTENT_SIGNAL = 'search=yes, ai-input=yes, ai-train=yes'
 
 // A route handler rather than app/robots.ts: MetadataRoute.Robots cannot emit
 // Content-Signal. Nothing is disallowed, so /.well-known/ stays reachable.
