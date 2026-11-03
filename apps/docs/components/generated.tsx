@@ -170,6 +170,16 @@ type Example = {
 
 const github = 'https://github.com/Parra-Inc/open-assets/tree/main/examples';
 
+/** Intrinsic size of each public/img/examples/<slug>.webp strip, so the browser reserves its box. */
+const stripSize: Record<string, [number, number]> = {
+  'cat-iq-test': [2400, 869],
+  'no-context': [2400, 957],
+  'only-recipes': [2400, 652],
+  skimmer: [2400, 652],
+  'tax-days': [2400, 652],
+  thoughtful: [2400, 745],
+};
+
 /** The rendered screenshot strip and collection breakdown for one example project. */
 export function ExampleProject({ slug }: { slug: string }) {
   const ex = (examples as Example[]).find((e) => e.slug === slug);
@@ -180,7 +190,9 @@ export function ExampleProject({ slug }: { slug: string }) {
         <img
           src={`/img/examples/${slug}.webp`}
           alt={`${ex.name} App Store screenshots rendered with Open Assets`}
-          className="min-w-[720px] rounded-lg"
+          width={stripSize[slug]?.[0]}
+          height={stripSize[slug]?.[1]}
+          className="h-auto min-w-[720px] rounded-lg"
           loading="lazy"
         />
       </figure>
