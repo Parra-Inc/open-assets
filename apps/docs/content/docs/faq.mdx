@@ -3,6 +3,8 @@ title: FAQ
 description: "Answers about Open Assets: MIT license and price, offline use, Figma and frameit comparisons, Android, Mac, Windows, transparency, JPEG output and file size."
 ---
 
+## Price and comparisons
+
 <Accordions type="multiple">
 <Accordion title="How much does it cost?">
 
@@ -24,6 +26,11 @@ Figma is a visual design tool. Open Assets is code: templates are HTML and CSS i
 frameit puts device frames around screenshots and adds titles from a config file. Open Assets renders any HTML layout, so the frame, background and text are whatever you design. It also produces icons, OG images and launch graphics. It does not upload to App Store Connect: keep fastlane `deliver` for that. See [Migrate from frameit](/migrate/frameit).
 
 </Accordion>
+</Accordions>
+
+## Platforms and requirements
+
+<Accordions type="multiple">
 <Accordion title="Can I use it for Android and Google Play?">
 
 Yes. Export sizes are just dimensions. The built-in presets include Play Store phone sizes, the feature graphic (1024x500) and the 512x512 icon. See [Google Play](/guides/google-play) and the [Tax Days](/examples/tax-days) example.
@@ -44,6 +51,11 @@ Open Assets is plain Node and Puppeteer, and Puppeteer supports Windows. The pro
 Node 18 or later, per the package's `engines` field. Use a current LTS release.
 
 </Accordion>
+</Accordions>
+
+## Output
+
+<Accordions type="multiple">
 <Accordion title="Can it make App Preview videos?">
 
 No. Open Assets renders still images (PNG and JPEG). CSS animations are paused at their first frame before each screenshot so renders are deterministic.
@@ -64,6 +76,11 @@ Yes. Give an export an `outFile` ending in `.jpg` or `.jpeg` and it is rendered 
 Full-resolution PNGs of photographic screenshots are often 1 to 3 MB each. App Store Connect accepts them. For the web, export OG images as `.jpg` through `outFile`, or run the PNGs through an optimizer after rendering. The `--json` output of `render` reports each file's size in bytes.
 
 </Accordion>
+</Accordions>
+
+## Workflow
+
+<Accordions type="multiple">
 <Accordion title="Do I have to use Tailwind?">
 
 No. Templates are any HTML, CSS or SVG. Tailwind is a convention in the examples and the skill, either compiled (`@tailwindcss/cli`) or from the CDN.

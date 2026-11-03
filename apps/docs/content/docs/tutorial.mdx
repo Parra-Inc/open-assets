@@ -14,7 +14,7 @@ Every file below was rendered with the CLI while writing this page. It assumes a
 <Steps>
 <Step>
 
-### Set up the project
+## Set up the project
 
 ```bash
 mkdir -p marketing/assets/screenshots marketing/public
@@ -31,7 +31,7 @@ You are writing the files by hand this time instead of running `init`, so you se
 </Step>
 <Step>
 
-### Write the shared stylesheet
+## Write the shared stylesheet
 
 Put styles every screenshot uses in `public/`. One stylesheet keeps the set consistent: change a color once and all three screenshots follow.
 
@@ -59,7 +59,7 @@ The body is fixed at 440×956. That is the **source size**: you design at this s
 </Step>
 <Step>
 
-### Write three screenshot templates
+## Write three screenshot templates
 
 Each template is a plain HTML file that links the shared stylesheet with a **relative** path:
 
@@ -91,7 +91,7 @@ To show your real app inside `.device`, drop captures into `public/screenshots/`
 </Step>
 <Step>
 
-### Write the icon template
+## Write the icon template
 
 App icons are authored at 1024×1024:
 
@@ -122,7 +122,7 @@ Fill the whole square and do not round the corners yourself: iOS applies its own
 </Step>
 <Step>
 
-### Write `assets.json`
+## Write `assets.json`
 
 ```json title="assets.json"
 {
@@ -188,7 +188,7 @@ npx open-assets validate
 </Step>
 <Step>
 
-### Preview
+## Preview
 
 ```bash
 npx open-assets dev
@@ -199,7 +199,7 @@ Open `http://localhost:3200`. The **App Store Screenshots** tab shows all three 
 </Step>
 <Step>
 
-### Render
+## Render
 
 ```bash
 npx open-assets render
@@ -264,7 +264,7 @@ The Xcode output deletes every other `.png`, `.jpg` and `.jpeg` in the target fo
 </Step>
 <Step>
 
-### Iterate
+## Iterate
 
 Run `render` again with no changes:
 
