@@ -3,7 +3,16 @@ title: Localization
 description: Render localized App Store screenshots in every language from one set of HTML templates, with string placeholders, fallbacks, number formatting and RTL text.
 ---
 
-Your store listing has a screenshot slot for every language you support. Open Assets fills them from the same templates: you write `{{key}}` placeholders in the HTML, put the translations in a JSON file, and every template renders once per locale.
+To localize App Store screenshots from the command line or CI, put `{{key}}` placeholders in your HTML templates, add the translations to a `localizations.json` file (modeled on Xcode's `.xcstrings`), and run `npx open-assets render`: every template renders once per locale into `exports/<collection>/<locale>/`. It is one free, MIT-licensed npm command, so the same step runs in a GitHub Actions job (see [CI with GitHub Actions](/ci/github-actions)).
+
+| Question | Answer |
+| --- | --- |
+| Command | `npx open-assets render` (all locales) or `--locale ja` (one) |
+| Strings file | `localizations.json`, `.xcstrings`-style, with fallback from exact locale to base language to source language |
+| Numbers | `{{n:1234}}` formatted per locale |
+| Right-to-left | `dir="rtl"` set automatically for Arabic, Hebrew and other RTL locales |
+| Output | One folder per locale, one PNG per template and export size |
+| Price and license | Free, MIT |
 
 ## How it works
 
