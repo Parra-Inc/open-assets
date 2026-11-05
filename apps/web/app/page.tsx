@@ -407,7 +407,7 @@ export default function Home() {
             <a {...trackAttrs('outbound_click', { location: 'footer', label: 'docs' })} href={site.docs}>Docs</a>
             <a {...trackAttrs('nav_click', { location: 'footer', label: 'llms_txt' })} href="/llms.txt">llms.txt</a>
           </nav>
-          <p className="muted">MIT License · Made by Parra</p>
+          <p className="muted">MIT License · <a {...trackAttrs('outbound_click', { location: 'footer', label: 'parra' })} href="https://parra.io">A Parra product</a></p>
         </div>
       </footer>
     </>
