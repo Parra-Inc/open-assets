@@ -75,6 +75,20 @@ export const metadata = {
 
 Next.js App Router also picks up `app/icon.png` and `app/apple-icon.png` by file name, so you can point `outFile` there instead.
 
+## One template for the app icon, favicons and social cards
+
+The [Xcode app icon](/guides/xcode-app-icon), the [favicons and PWA icons](/guides/favicons) and the [OG images](/guides/og-images) all live in the same `assets.json` and render with the same `npx open-assets render` command. One square icon template can feed both the `xcode` output and every favicon size, because a collection's `export` array accepts `xcode` entries and `outFile` sizes side by side:
+
+```json title="assets.json (icon collection)"
+"export": [
+  { "type": "xcode", "path": "../MyApp/Assets.xcassets/AppIcon.appiconset" },
+  { "name": "apple-touch-icon", "size": { "width": 180, "height": 180 }, "outFile": "public/apple-touch-icon.png" },
+  { "name": "32", "size": { "width": 32, "height": 32 }, "outFile": "public/favicon-32.png" }
+]
+```
+
+The 1200x630 OG card is a second collection in the same file, so when the templates share a stylesheet, one color change updates the icon, the favicons and the share card in one render.
+
 ## Related
 
 - [Xcode app icon](/guides/xcode-app-icon)

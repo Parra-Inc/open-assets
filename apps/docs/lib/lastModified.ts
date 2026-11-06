@@ -27,8 +27,12 @@ export function pageLastModified(pagePath: string): Date {
     const out = execFileSync('git', ['log', '-1', '--format=%cI', '--', join('content/docs', pagePath)], {
       encoding: 'utf8',
     }).trim();
-    return out ? new Date(out) : FALLBACK;
+    if (out) return new Date(out);
   } catch {
-    return FALLBACK;
+    // fall through
   }
+  // A full-history build is required for real per-page lastmod. Say so loudly
+  // instead of silently stamping every sitemap URL with the same date.
+  console.warn(`lastModified: no git history for ${pagePath}, using fallback date`);
+  return FALLBACK;
 }
