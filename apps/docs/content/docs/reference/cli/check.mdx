@@ -1,0 +1,57 @@
+---
+title: open-assets check
+description: Fail CI when assets.lock no longer matches your templates, strings and captures. Recomputes every render key without rendering, so it needs no browser.
+---
+
+<CliUsage command="check" />
+
+`check` recomputes the render key of every output from the current inputs and compares it with `assets.lock`. It reads files and hashes them; it never renders and never launches Chromium, so it finishes in seconds on any runner.
+
+## Examples
+
+```bash
+open-assets check
+open-assets check ./marketing --collection screenshots
+open-assets check --require-outputs
+open-assets check --json
+```
+
+## Options
+
+<CliOptions command="check" />
+
+## What fails
+
+| Problem | Message |
+| --- | --- |
+| An input changed without a re-render | The reasons, e.g. `strings[de].hero_title changed` or `public/screenshots/fr/01.png changed` |
+| An output is not in the lock | `not in assets.lock (new output)` |
+| An output file differs from the hash in the lock | `output file differs from assets.lock (edited by hand?)` |
+| An output file is missing (only with `--require-outputs`) | `output file is missing` |
+| No lock | `No assets.lock in <dir>. Run open-assets render and commit assets.lock.` |
+| Lock from an older Open Assets | `assets.lock is lockfile v1; this open-assets writes v2. It needs upgrading: ...` |
+| Lock from a newer Open Assets | `assets.lock was written by open-assets <version> ...` |
+
+Missing output files pass by default, since most projects gitignore `exports/`. Set `--require-outputs` when you commit your exports.
+
+## Output
+
+```text
+✗ 2 output(s) are out of date with assets.lock
+  exports/screenshots/de/iphone-6.9/01-hero.png   strings[de].hero_title changed
+  exports/screenshots/de/iphone-6.7/01-hero.png   strings[de].hero_title changed
+Run `npx open-assets render` and commit assets.lock.
+```
+
+On success: `✓ 720 output(s) match assets.lock`. With `--json` it prints `{ ok, problems: [{ path, reasons }], checked, message? }`.
+
+## Exit codes
+
+| Code | When |
+| --- | --- |
+| 0 | Every output matches the lock |
+| 1 | Any problem above, or the config is missing or invalid |
+
+## In CI
+
+The shared workflow runs `check` for you. See [GitHub Actions](/ci/github-actions#fail-prs-that-forget-to-re-render).

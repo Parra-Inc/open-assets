@@ -1,9 +1,33 @@
 ---
 title: GitHub Actions
-description: "Render App Store screenshots and icons in GitHub Actions with Open Assets: validate, render incrementally with assets.lock, then commit or upload the PNGs."
+description: "Run Open Assets in GitHub Actions: fail PRs that forget to re-render with the shared drift job, render incrementally with assets.lock, commit or upload PNGs."
 ---
 
-Open Assets runs anywhere Node and Chromium run, so a GitHub Actions job is a few steps: install, validate, render, then keep the output.
+Open Assets runs anywhere Node and Chromium run, so a GitHub Actions job is a few steps: install, validate, render, then keep the output. A separate drift job keeps `assets.lock` honest on every pull request.
+
+## Fail PRs that forget to re-render
+
+Open Assets ships a reusable workflow that runs [`open-assets check`](/reference/cli/check). It fails when a template, stylesheet, font, per-locale capture or localized string changed without a re-render, when an output was edited by hand, or when `assets.lock` was written by an older or newer Open Assets. It hashes files only: no Chromium, a few seconds per run.
+
+```yaml title=".github/workflows/assets-drift.yml"
+name: Assets drift
+on:
+  pull_request:
+    paths: ["assets/**", "**/assets.json", "**/assets.lock", "**/localizations.json"]
+jobs:
+  drift:
+    uses: Parra-Inc/open-assets/.github/workflows/drift.yml@v1
+    with:
+      working-directory: assets   # where assets.json lives
+```
+
+| Input | Default | Meaning |
+| --- | --- | --- |
+| `working-directory` | `.` | Folder with `assets.json` and `assets.lock` |
+| `version` | `latest` | Open Assets version to run. Pin it to upgrade lockfiles on your own schedule |
+| `require-outputs` | `false` | Also fail on missing output files, for repos that commit their exports |
+
+Pinning the caller to `@v1` lets the job improve without changes in your repo. Widen the `paths` filter to whatever your templates load (for example `public/screenshots/**`).
 
 ## The minimal workflow
 
@@ -64,22 +88,23 @@ The steps:
     }
   ],
   "skipped": 31,
+  "copied": 0,
   "elapsed": "4.2s"
 }
 ```
 
-`path` is absolute, `size` is in bytes, and `skipped` counts variants that were unchanged. Pipe it to `jq` to drive later steps, for example `jq '.assets | length'` to see whether anything was rendered.
+`path` is absolute, `size` is in bytes, `skipped` counts outputs that were unchanged, and `copied` counts outputs copied from an identical render in another locale. Pipe it to `jq` to drive later steps, for example `jq '.assets | length'` to see whether anything was rendered.
 
 ## Only render what changed
 
-`assets.lock` makes renders incremental in CI too. A variant is skipped when the template's checksum, its export config and its output path all match the lockfile, **and the output file exists**. So the cache only helps in CI if both of these are committed:
+`assets.lock` makes renders incremental in CI too. An output is skipped when its render key matches the lock **and the file exists with the recorded hash**. So the cache only helps in CI if both of these are committed:
 
 - `assets.lock`
 - the rendered files (`exports/`, or wherever `outFile` points)
 
 If you upload artifacts instead of committing renders, every CI run starts with no output files and renders everything. That is correct, just slower.
 
-See [Lockfile](/concepts/lockfile) for what the checksum covers. In short: the template plus files it references directly by relative path. Changes to `localizations.json`, or to images referenced from inside CSS, are not detected. Add a `--force` step when those change, or trigger on them separately.
+The key covers the template and everything it pulls in, the strings it uses in each locale, per-locale captures, and the export settings. See [Lockfile](/concepts/lockfile).
 
 ## Commit renders back to the branch
 
@@ -139,7 +164,7 @@ Notes:
 
 - `~/.cache/puppeteer` is Puppeteer's default download location for Chrome. Caching it saves the download on each run. The key uses the lockfile, so a Puppeteer upgrade gets a fresh browser.
 - The checkout uses the PR branch (`github.head_ref`) so the push lands on it. This works for branches in the same repo, not for forks.
-- If `localizations.json` changed, a plain render skips unchanged templates. Use `render --force` in this workflow if your PRs often change only strings.
+- String changes are part of the render key, so a plain `render` re-renders exactly the affected locales.
 
 ## Upload artifacts instead
 

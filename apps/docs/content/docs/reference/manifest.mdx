@@ -81,6 +81,8 @@ The real file must be strict JSON (no comments).
     localizations: { type: 'string', description: 'Path to a localizations JSON file. Every template renders once per locale. See /localization.' },
     locales: { type: 'string[]', description: 'Locales to render, in this order. Codes missing from the file are dropped (validate reports them). Omit for every locale, sorted.' },
     customExport: { type: '{ defaultWidth?: number; defaultHeight?: number }', description: 'Default values for the Custom Size row in the dev export menu.' },
+    inputs: { type: 'string[]', description: 'Extra files that change a render, relative to the project, with {locale} and {template} placeholders. Use for files a script loads that the cache cannot see. See /concepts/lockfile.' },
+    dedupeLocales: { type: 'boolean', description: 'When two locales resolve to the same strings and files, render once and copy. Set false if your template scripts read the exact locale.', default: 'true' },
   }}
 />
 
@@ -89,12 +91,12 @@ The real file must be strict JSON (no comments).
 <TypeTable
   type={{
     src: { type: 'string', description: 'Path to an .html or .svg file, relative to the project. Files ending in .svg are treated as SVG.', required: true },
-    name: { type: 'string', description: 'Output filename stem in multi-template collections, the lockfile key, and what --template matches.', required: true },
+    name: { type: 'string', description: 'Output filename stem in multi-template collections, recorded in each lockfile entry, and what --template matches.', required: true },
     label: { type: 'string', description: 'Display label in the viewer and list. --template also matches it.' },
   }}
 />
 
-`name` is not checked by `validate`, but render paths and lock keys use it; a template without one writes `undefined.png`.
+`name` is not checked by `validate`, but render paths and lock entries use it; a template without one writes `undefined.png`.
 
 ## Export entry: size
 

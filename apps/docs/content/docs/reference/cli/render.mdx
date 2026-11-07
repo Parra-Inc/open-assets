@@ -82,24 +82,21 @@ When a collection sets `localizations`, every template renders once per locale. 
 
 After a collection's sizes render, its typed export entries run in order:
 
-- `xcode` renders the first template at source size into `AppIcon.png` and writes `Contents.json`. It runs on every render, cached or not.
+- `xcode` renders the first template at source size into `AppIcon.png` and writes `Contents.json`. It is cached like any image: skipped when the template and `AppIcon.png` match the lock.
 - `copy-source` copies matching source files into `exports/{collection}/`.
 
 Details on [/reference/outputs](/reference/outputs).
 
 ## Incremental cache
 
-Before rendering, each (template, locale, size) is checked against `assets.lock` in the project directory. It is skipped when all of these hold:
+Before rendering, every output gets a render key covering the template and every file it pulls in (to any depth), the strings it uses in that locale, per-locale captures, the export settings and the renderer version. An output is skipped when its key matches `assets.lock` and its file exists with the hash recorded when it was written.
 
-- the source checksum matches (for `.html` templates this includes local files the HTML references through relative `src`, `href` or `url()`);
-- the export checksum matches (width, height, `outFile` and locale);
-- the lock entry was recorded for the same output path;
-- the output file still exists.
+Locales that resolve to identical strings and files render once; the others are copied (`copied` in `--json`). `--explain` prints why each remaining output renders. `--force` renders everything.
 
-`--force` renders everything. The lockfile is written even when a render fails, so finished work is kept. See [/concepts/lockfile](/concepts/lockfile).
+The lock is saved after every finished unit, so a failed run keeps its progress. An older lock is upgraded; one from a newer Open Assets stops the run. See [/concepts/lockfile](/concepts/lockfile).
 
 <Callout type="info">
-Files loaded by absolute path, from a CDN, or by script are not in the checksum. When only those change (for example images captured by UI tests, or a Tailwind build), use `--force`.
+Remote assets, root-relative paths and files a script loads outside the per-locale convention are not in the key. List such files in the collection's `inputs`, or use `--force`.
 </Callout>
 
 ## Concurrency
@@ -107,6 +104,13 @@ Files loaded by absolute path, from a CDN, or by script are not in the checksum.
 Work is split into units of one (template, locale). A unit loads its page once and screenshots every size from that load. Units run in a small pool.
 
 The pool size is the smallest of: the number of units, CPU cores minus one, and 2. At least 1. Chromium serializes screenshot capture, so a second worker helps (it lays out a page while the first captures) and more workers mostly queue. `OPEN_ASSETS_CONCURRENCY` (a positive integer) overrides this, still capped at the number of units. Raise it only if your templates are slow to lay out compared with how long they take to capture, and measure.
+
+Two opt-in settings go further, both checked against fresh renders pixel for pixel in the test suite:
+
+- `OPEN_ASSETS_BROWSERS=3` runs three Chromium processes, each with its own capture pipeline, and scales the pool to match.
+- `OPEN_ASSETS_REUSE_PAGES=1` renders the next locale of a template in the already-loaded page instead of navigating again. Leave it off if a template's scripts do one-time work at load, such as fitting text to a box.
+
+On the 36-locale × 10-template × 2-size benchmark (`node scripts/bench-render.mjs`, one run each on a 10-core Mac) a cold render took 64 s by default, 59 s with three browsers and 46 s with both settings. Measure on your own templates before keeping them.
 
 If a unit fails, no new units start, finished files are recorded in the lockfile, Chromium is closed and the error is thrown (non-zero exit with a stack trace). Logs are printed in a stable order regardless of which worker finished first.
 
@@ -119,10 +123,10 @@ Default output, one block per unit:
     → /abs/path/exports/screenshots/iphone-6.9/01-hero.png (1320x2868)
   Skipping 02-features at 1320x2868 (unchanged)
 
-Done. 4 asset(s) rendered, 1 skipped (unchanged) in 3.5s.
+Done. 4 asset(s) rendered, 2 copied (identical render), 1 skipped (unchanged) in 3.5s.
 ```
 
-`--quiet` hides all of it. The Xcode output always prints `Updated: <path>`, even with `--quiet`.
+`--quiet` hides all of it, and `--json` implies it. The Xcode output prints `Updated: <path>` whenever it renders, even with `--quiet`.
 
 ### `--json`
 

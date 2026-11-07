@@ -142,6 +142,12 @@
         "default": "30000"
       },
       {
+        "flags": "--explain",
+        "description": "Print why each output is re-rendered (which file or string changed)",
+        "env": null,
+        "default": null
+      },
+      {
         "flags": "--json",
         "description": "Output results as JSON (for CI/scripting)",
         "env": null,
@@ -158,6 +164,24 @@
         "env": "OPEN_ASSETS_CONCURRENCY",
         "default": "auto",
         "description": "Templates rendered at once (see Concurrency)"
+      },
+      {
+        "flags": null,
+        "env": "OPEN_ASSETS_BROWSERS",
+        "default": "1",
+        "description": "Chromium processes to render with (see Concurrency)"
+      },
+      {
+        "flags": null,
+        "env": "OPEN_ASSETS_REUSE_PAGES",
+        "default": "-",
+        "description": "Set to 1 to swap locales in a loaded page instead of reloading it"
+      },
+      {
+        "flags": null,
+        "env": "OPEN_ASSETS_NO_DEDUPE",
+        "default": "-",
+        "description": "Set to 1 to render every locale even when two would be identical"
       }
     ]
   },
@@ -216,6 +240,57 @@
       {
         "flags": "--fix",
         "description": "Interactively fix issues (e.g. remove missing templates)",
+        "env": null,
+        "default": null
+      }
+    ]
+  },
+  {
+    "command": "check",
+    "usage": "open-assets check [options] [dir]",
+    "description": "Fail if any asset is out of date with assets.lock, without rendering (for CI)",
+    "arguments": [
+      {
+        "name": "dir",
+        "description": "Project directory containing assets.json",
+        "env": null,
+        "default": "."
+      }
+    ],
+    "options": [
+      {
+        "flags": "--collection <id>",
+        "description": "Check only the collection with this ID",
+        "env": null,
+        "default": null
+      },
+      {
+        "flags": "--tag <tag>",
+        "description": "Check only collections with this tag",
+        "env": null,
+        "default": null
+      },
+      {
+        "flags": "--require-outputs",
+        "description": "Also fail when an output file is missing (for committed exports)",
+        "env": null,
+        "default": null
+      },
+      {
+        "flags": "-o, --output <dir>",
+        "description": "Output directory used by render",
+        "env": "OPEN_ASSETS_OUTPUT",
+        "default": "./exports"
+      },
+      {
+        "flags": "--config <path>",
+        "description": "Path to config file",
+        "env": "OPEN_ASSETS_CONFIG",
+        "default": "assets.json"
+      },
+      {
+        "flags": "--json",
+        "description": "Output results as JSON",
         "env": null,
         "default": null
       }
