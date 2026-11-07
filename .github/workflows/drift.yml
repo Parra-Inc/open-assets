@@ -65,10 +65,12 @@ jobs:
         env:
           OA_CLI: ${{ inputs.cli }}
           OA_VERSION: ${{ inputs.version }}
-          OA_REQUIRE: ${{ inputs.require-outputs && '--require-outputs' || '' }}
+          OA_REQUIRE: ${{ inputs.require-outputs }}
         run: |
+          set -- check .
+          if [ "$OA_REQUIRE" = "true" ]; then set -- "$@" --require-outputs; fi
           if [ -n "$OA_CLI" ]; then
-            node "$GITHUB_WORKSPACE/$OA_CLI" check . $OA_REQUIRE
+            node "$GITHUB_WORKSPACE/$OA_CLI" "$@"
           else
-            npx -y "@open-assets/open-assets@$OA_VERSION" check . $OA_REQUIRE
+            npx -y "@open-assets/open-assets@$OA_VERSION" "$@"
           fi

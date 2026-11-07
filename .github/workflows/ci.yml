@@ -17,6 +17,9 @@ jobs:
         with:
           node-version: "24"
           package-manager-cache: false
+      # Ubuntu 23.10+ blocks the unprivileged user namespaces Chromium's
+      # sandbox needs, so Chrome aborts (signal 6) without this.
+      - run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
       - run: npm install --no-audit --no-fund
       - run: npm test
       - run: node scripts/docs-sync.mjs --check
