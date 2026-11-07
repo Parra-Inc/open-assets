@@ -4,3 +4,5 @@
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-28 | 0/1 (not crawled, pre-domain) | 9/4/15 to 16/2/10 | no GSC property | 3.44s to 1.10s / | 9 (J4 campaign tokens, LCP, A4, B1, B6, B7, C2, I2, A2 canonical) |
 | 2026-10-29 | web 1/1, docs 59/59 (first crawl) | web 23/1/5, docs 27/1/6 | 0 (no impressions) | docs /examples 5.0s, web 1.10s | 4 (icon set both sites, title, docs Offer, examples LCP) |
+| 2026-11-06 | open-assets.dev | 1/1 | 0 / 1 | 3 | 25/1/3 | Submit sitemap to Google Search Console and Bing |
+| 2026-11-06 | docs.open-assets.dev | 59/59 | 0 / 0 | 0 | 30/0/4 | Register docs.open-assets.dev in GSC and Bing Webmaster |

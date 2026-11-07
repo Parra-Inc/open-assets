@@ -1,0 +1,37 @@
+{
+  "schema": "audit-seo/v1",
+  "layer": "search-console",
+  "site": "docs.open-assets.dev",
+  "siteId": "docs-open-assets-dev",
+  "capturedAt": "2026-11-06",
+  "calls": [
+    {
+      "tool": "mcp__search-console__analytics_query",
+      "params": {
+        "siteUrl": "sc-domain:docs.open-assets.dev",
+        "startDate": "2026-10-07",
+        "endDate": "2026-11-03",
+        "dimensions": [],
+        "engine": "google"
+      },
+      "ok": false,
+      "error": "User does not have sufficient permission for site 'sc-domain:docs.open-assets.dev'. See also: https://support.google.com/webmasters/answer/2451999."
+    },
+    {
+      "tool": "mcp__search-console__analytics_query",
+      "params": {
+        "siteUrl": "https://docs.open-assets.dev/",
+        "startDate": "2026-10-07",
+        "endDate": "2026-11-03",
+        "dimensions": [],
+        "engine": "google"
+      },
+      "ok": false,
+      "error": "User does not have sufficient permission for site 'https://docs.open-assets.dev/'. See also: https://support.google.com/webmasters/answer/2451999."
+    }
+  ],
+  "notes": [
+    "28d window 2026-10-07..2026-11-03",
+    "Service account has no GSC permission on either property form; remaining GSC calls (health, sitemaps, seo_audit x8, inspection) skipped as they would fail identically"
+  ]
+}

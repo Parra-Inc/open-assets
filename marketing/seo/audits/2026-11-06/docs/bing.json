@@ -1,0 +1,42 @@
+{
+  "schema": "audit-seo/v1",
+  "layer": "bing",
+  "site": "docs.open-assets.dev",
+  "siteId": "docs-open-assets-dev",
+  "capturedAt": "2026-11-06",
+  "calls": [
+    {
+      "tool": "mcp__bing-webmaster__get_sites",
+      "params": {},
+      "ok": true,
+      "result": "20 sites; https://docs.open-assets.dev/ NOT present (https://open-assets.dev/ is)"
+    },
+    {
+      "tool": "mcp__bing-webmaster__get_crawl_issues",
+      "params": {
+        "site_url": "https://docs.open-assets.dev/"
+      },
+      "ok": true,
+      "result": []
+    },
+    {
+      "tool": "mcp__bing-webmaster__get_feeds",
+      "params": {
+        "site_url": "https://docs.open-assets.dev/"
+      },
+      "ok": true,
+      "result": []
+    },
+    {
+      "tool": "mcp__bing-webmaster__get_rank_and_traffic_stats",
+      "params": {
+        "site_url": "https://docs.open-assets.dev/"
+      },
+      "ok": false,
+      "error": "1 validation error for get_rank_and_traffic_statsOutput result Input should be a valid dictionary [type=dict_type, input_value=[], input_type=list]"
+    }
+  ],
+  "notes": [
+    "docs subdomain not registered in Bing Webmaster; empty results reflect missing site, not health. Other Bing calls skipped."
+  ]
+}

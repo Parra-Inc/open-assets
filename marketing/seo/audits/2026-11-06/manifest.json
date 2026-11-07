@@ -1,0 +1,16 @@
+{
+ "schema": "audit-seo/v1",
+ "site": "open-assets.dev",
+ "siteId": "open-assets-dev",
+ "capturedAt": "2026-11-06",
+ "rank": 19,
+ "depth": "triage",
+ "files": [
+  "crawl.json",
+  "search-console.json",
+  "bing.json",
+  "standard.json",
+  "pagespeed.json",
+  "suggestions.json"
+ ]
+}

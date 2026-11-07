@@ -1,0 +1,175 @@
+{
+ "schema": "audit-seo/v1",
+ "layer": "search-console",
+ "site": "open-assets.dev",
+ "siteId": "open-assets-dev",
+ "capturedAt": "2026-11-06",
+ "calls": [
+  {
+   "tool": "analytics_query",
+   "params": {
+    "siteUrl": "sc-domain:open-assets.dev",
+    "startDate": "2026-10-06",
+    "endDate": "2026-11-02",
+    "dimensions": [],
+    "engine": "google"
+   },
+   "ok": true,
+   "result": {
+    "google": [
+     {
+      "clicks": 3,
+      "impressions": 71,
+      "ctr": 0.04225352112676056,
+      "position": 16.690140845070424
+     }
+    ]
+   }
+  },
+  {
+   "tool": "site_health_check",
+   "params": {
+    "siteUrl": "sc-domain:open-assets.dev",
+    "level": "full",
+    "engine": "all"
+   },
+   "ok": true,
+   "result": {
+    "google": [
+     {
+      "siteUrl": "sc-domain:open-assets.dev",
+      "status": "warning",
+      "permissionLevel": "siteOwner",
+      "performance": {
+       "current": {
+        "clicks": 3,
+        "impressions": 78,
+        "ctr": 0.038461538461538464,
+        "position": 16.96153846153846,
+        "startDate": "2026-10-27",
+        "endDate": "2026-11-03"
+       },
+       "previous": {
+        "clicks": 0,
+        "impressions": 0,
+        "ctr": 0,
+        "position": 0,
+        "startDate": "2026-10-19",
+        "endDate": "2026-10-26"
+       }
+      },
+      "sitemaps": {
+       "total": 0,
+       "withErrors": 0,
+       "withWarnings": 0,
+       "details": []
+      },
+      "anomalies": [],
+      "issues": [
+       "Average position worsened by 17.0 positions",
+       "No sitemaps submitted \u2014 consider submitting a sitemap for better crawling"
+      ]
+     }
+    ],
+    "bing": {
+     "error": "Bing API error (GetRankAndTrafficStats): 400 {\"ErrorCode\":7,\"Message\":\"ERROR!!! InvalidUrl\"}"
+    }
+   }
+  },
+  {
+   "tool": "sitemaps_list",
+   "params": {
+    "siteUrl": "sc-domain:open-assets.dev",
+    "engine": "all"
+   },
+   "ok": true,
+   "result": {
+    "google": [],
+    "bing": {
+     "error": "Bing API error (GetFeeds): 400 {\"ErrorCode\":7,\"Message\":\"ERROR!!! InvalidUrl\"}"
+    }
+   }
+  },
+  {
+   "tool": "seo_audit",
+   "params": {
+    "type": "striking_distance",
+    "engine": "google"
+   },
+   "ok": true,
+   "result": {
+    "google": [
+     {
+      "query": "1024/180",
+      "page": "https://docs.open-assets.dev/reference/cli/add",
+      "position": 10,
+      "impressions": 1,
+      "clicks": 0
+     }
+    ]
+   }
+  },
+  {
+   "tool": "seo_audit",
+   "params": {
+    "type": "recommendations",
+    "engine": "google"
+   },
+   "ok": true,
+   "result": {
+    "google": []
+   }
+  },
+  {
+   "tool": "seo_audit",
+   "params": {
+    "type": "lost_queries",
+    "engine": "google"
+   },
+   "ok": true,
+   "result": {
+    "google": []
+   }
+  },
+  {
+   "tool": "seo_audit",
+   "params": {
+    "type": "brand_vs_nonbrand",
+    "engine": "google",
+    "brandKeywords": [
+     "open assets",
+     "open-assets",
+     "openassets"
+    ]
+   },
+   "ok": true,
+   "result": {
+    "google": [
+     {
+      "segment": "Brand",
+      "clicks": 0,
+      "impressions": 0,
+      "ctr": 0,
+      "position": 0,
+      "queryCount": 0
+     },
+     {
+      "segment": "Non-Brand",
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 68.55555555555556,
+      "queryCount": 4
+     }
+    ]
+   }
+  }
+ ],
+ "notes": [
+  "28d window 2026-10-06 to 2026-11-02 (Google).",
+  "site_health_check numbers are 7d.",
+  "Not run (triage time budget): site_health_check crawl_issues bing, seo_audit quick_wins, low_hanging_fruit, low_ctr, cannibalization, inspection_inspect.",
+  "Property is domain-level, so docs.open-assets.dev data is mixed in.",
+  "Bing errors here are the MCP passing sc-domain: to Bing; direct bing-webmaster calls work."
+ ]
+}
