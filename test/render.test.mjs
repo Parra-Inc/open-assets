@@ -1,11 +1,27 @@
 import { jest } from "@jest/globals";
+import { emptyLock, sha256, RENDERER_VERSION } from "../lib/cache.mjs";
 import { renderAssets, resolveConcurrency } from "../lib/render.mjs";
 import { createTmpProject } from "./helpers/tmp-project.mjs";
 import { validManifest, multiPlatformManifest, templateHtml, templateSvg } from "./helpers/fixtures.mjs";
-import { existsSync, readFileSync } from "fs";
+import { existsSync, readFileSync, writeFileSync, mkdirSync } from "fs";
 import { join } from "path";
 
 const FAKE_PNG = Buffer.from("fake-png-data");
+
+// In-memory assets.lock so tests can inspect what a run recorded.
+function memoryLock(initial = null) {
+  const store = { lock: initial };
+  return {
+    store,
+    loadLock: jest.fn((dir, version) =>
+      store.lock ? { lock: structuredClone(store.lock), from: null } : { lock: emptyLock(version), from: null }
+    ),
+    saveLock: jest.fn((dir, lock) => {
+      store.lock = structuredClone(lock);
+    }),
+  };
+}
+
 
 // Sum of all size variants across every renderVariants call
 function totalVariants(deps) {
@@ -15,13 +31,16 @@ function totalVariants(deps) {
 function createMockDeps(overrides = {}) {
   return {
     renderVariants: jest.fn(async (projDir, src, sw, sh, variants) => variants.map(() => FAKE_PNG)),
-    runXcodeOutput: jest.fn(async (projDir, col, output) => join(projDir, output.path, "AppIcon.png")),
+    runXcodeOutput: jest.fn(async (projDir, col, output) => {
+      const path = join(projDir, output.path, "AppIcon.png");
+      mkdirSync(join(projDir, output.path), { recursive: true });
+      writeFileSync(path, FAKE_PNG);
+      return path;
+    }),
     closeBrowser: jest.fn(async () => {}),
-    readLockfile: jest.fn(() => ({ version: 1, assets: {} })),
-    writeLockfile: jest.fn(),
-    computeChecksum: jest.fn(() => "sha256:abc123"),
-    isUpToDate: jest.fn(() => false),
-    recordExport: jest.fn(),
+    ...memoryLock(),
+    persistStatCache: false,
+    toolVersion: "0.0.0-test",
     ...overrides,
   };
 }
@@ -199,48 +218,77 @@ describe("renderAssets", () => {
   });
 
   test("respects cache by default, --force ignores it", async () => {
-    // Without force: unchanged assets are skipped via the lockfile
-    const deps = createMockDeps({
-      isUpToDate: jest.fn(() => true),
-    });
+    const deps = createMockDeps();
     const outputDir = join(tmpDir, "exports");
-    const resultNoForce = await renderAssets(tmpDir, validManifest, {
-      output: outputDir, collection: "icon",
-    }, deps);
-    // 4 sizes x 2 templates all skipped; only the xcode output runs
-    expect(resultNoForce.skipped).toBe(8);
-    expect(deps.renderVariants).not.toHaveBeenCalled();
-    expect(resultNoForce.results.filter((r) => r.type !== "xcode")).toHaveLength(0);
+    const opts = { output: outputDir, collection: "icon" };
+    await renderAssets(tmpDir, validManifest, opts, deps);
+    expect(totalVariants(deps)).toBe(8);
 
-    // With force: re-renders everything, ignoring the cache
-    const deps2 = createMockDeps({
-      isUpToDate: jest.fn(() => true),
-    });
-    const outputDir2 = join(tmpDir, "exports2");
-    const result = await renderAssets(tmpDir, validManifest, {
-      output: outputDir2, collection: "icon", force: true,
-    }, deps2);
+    // Second run reuses the lock the first run wrote: nothing renders
+    const deps2 = createMockDeps({ ...memoryLock(deps.store.lock) });
+    const again = await renderAssets(tmpDir, validManifest, opts, deps2);
+    expect(again.skipped).toBe(9); // 8 images + the xcode icon
+    expect(deps2.renderVariants).not.toHaveBeenCalled();
+    expect(deps2.runXcodeOutput).not.toHaveBeenCalled();
 
-    // 4 sizes x 2 templates = 8 renders + 1 xcode output = 9 results
-    expect(deps2.renderVariants).toHaveBeenCalledTimes(2);
-    expect(totalVariants(deps2)).toBe(8);
-    expect(result.skipped).toBe(0);
-    expect(result.results).toHaveLength(9);
+    // --force re-renders everything regardless
+    const deps3 = createMockDeps({ ...memoryLock(deps.store.lock) });
+    const forced = await renderAssets(tmpDir, validManifest, { ...opts, force: true }, deps3);
+    expect(totalVariants(deps3)).toBe(8);
+    expect(forced.skipped).toBe(0);
+    expect(forced.results).toHaveLength(9);
   });
 
-  test("skips unchanged assets via lockfile", async () => {
-    const deps = createMockDeps({
-      isUpToDate: jest.fn((lockData, assetKey) => assetKey === "icon/icon"), // only icon/icon is up to date
-    });
+  test("re-renders only the template whose source changed", async () => {
+    const deps = createMockDeps();
     const outputDir = join(tmpDir, "exports");
-    const result = await renderAssets(tmpDir, validManifest, {
-      output: outputDir, collection: "icon",
-    }, deps);
+    const opts = { output: outputDir, collection: "icon" };
+    await renderAssets(tmpDir, validManifest, opts, deps);
 
-    // icon skipped at all 4 sizes; icon-alt rendered at all 4 sizes + xcode output
-    expect(result.skipped).toBe(4);
-    expect(result.results).toHaveLength(5);
-    expect(result.results.every((r) => r.template === "icon-alt" || r.type === "xcode")).toBe(true);
+    writeFileSync(join(tmpDir, "src/icon-alt.html"), templateHtml + "<!-- edit -->");
+    const deps2 = createMockDeps({ ...memoryLock(deps.store.lock) });
+    const result = await renderAssets(tmpDir, validManifest, opts, deps2);
+    expect(deps2.renderVariants).toHaveBeenCalledTimes(1);
+    expect(deps2.renderVariants.mock.calls[0][1]).toBe("src/icon-alt.html");
+    expect(result.skipped).toBe(5); // icon at 4 sizes + xcode (built from icon)
+  });
+
+  test("re-renders when export config changes even if source unchanged", async () => {
+    const deps = createMockDeps();
+    const outputDir = join(tmpDir, "exports");
+    const opts = { output: outputDir, collection: "icon" };
+    await renderAssets(tmpDir, validManifest, opts, deps);
+
+    const changed = structuredClone(validManifest);
+    changed.collections.find((c) => c.id === "icon").background = "#ff0000";
+    const deps2 = createMockDeps({ ...memoryLock(deps.store.lock) });
+    const result = await renderAssets(tmpDir, changed, opts, deps2);
+    expect(totalVariants(deps2)).toBe(8);
+    expect(result.skipped).toBe(1); // xcode icon ignores background
+  });
+
+  test("records every rendered output in the lock with its png hash", async () => {
+    const deps = createMockDeps();
+    const outputDir = join(tmpDir, "exports");
+    await renderAssets(tmpDir, validManifest, { output: outputDir, collection: "icon" }, deps);
+
+    const outputs = deps.store.lock.outputs;
+    const images = Object.entries(outputs).filter(([, o]) => o.collection === "icon" && !o.template.startsWith("xcode"));
+    expect(images.length).toBeGreaterThanOrEqual(8);
+    const entry = outputs["exports/icon/1024/icon.png"];
+    expect(entry.key).toMatch(/^sha256:/);
+    expect(entry.png).toBe(sha256(FAKE_PNG));
+    expect(entry.renderer).toBe(RENDERER_VERSION);
+    expect(deps.store.lock.lockfileVersion).toBe(2);
+    expect(deps.store.lock.files["src/icon.html"]).toMatch(/^sha256:/);
+  });
+
+  test("saves the lock after every unit so a killed run keeps its progress", async () => {
+    const deps = createMockDeps();
+    const outputDir = join(tmpDir, "exports");
+    await renderAssets(tmpDir, validManifest, { output: outputDir, collection: "icon" }, deps);
+    // 2 units + final save
+    expect(deps.saveLock.mock.calls.length).toBeGreaterThanOrEqual(3);
   });
 
   test("returns error when collection filter matches nothing", async () => {
@@ -303,55 +351,6 @@ describe("renderAssets", () => {
     } finally {
       tmp.cleanup();
     }
-  });
-
-  test("re-renders when export config changes even if source unchanged", async () => {
-    // Simulate lockfile with old export checksum — source matches but export config changed
-    const deps = createMockDeps({
-      isUpToDate: jest.fn((lockData, assetKey, variantKey, checksum, outPath, exportChecksum) => {
-        // Source matches but export checksum differs
-        return false;
-      }),
-    });
-    const outputDir = join(tmpDir, "exports");
-    const result = await renderAssets(tmpDir, validManifest, {
-      output: outputDir, collection: "icon",
-    }, deps);
-
-    // Should render, not skip
-    expect(result.skipped).toBe(0);
-    expect(totalVariants(deps)).toBe(8);
-    // recordExport should be called with 6 args (including exportChecksum)
-    expect(deps.recordExport).toHaveBeenCalledTimes(8);
-    for (const call of deps.recordExport.mock.calls) {
-      expect(call).toHaveLength(6);
-      expect(call[5]).toMatch(/^sha256:/); // exportChecksum
-    }
-  });
-
-  test("passes exportChecksum to isUpToDate", async () => {
-    const deps = createMockDeps();
-    const outputDir = join(tmpDir, "exports");
-    await renderAssets(tmpDir, validManifest, {
-      output: outputDir, collection: "icon",
-    }, deps);
-
-    for (const call of deps.isUpToDate.mock.calls) {
-      expect(call).toHaveLength(7);
-      expect(call[5]).toMatch(/^sha256:/); // exportChecksum
-      expect(call[6]).toBe(tmpDir); // projectDir
-    }
-  });
-
-  test("records exports in lockfile", async () => {
-    const deps = createMockDeps();
-    const outputDir = join(tmpDir, "exports");
-    await renderAssets(tmpDir, validManifest, {
-      output: outputDir, collection: "icon",
-    }, deps);
-
-    expect(deps.recordExport).toHaveBeenCalledTimes(8);
-    expect(deps.writeLockfile).toHaveBeenCalledTimes(1);
   });
 
   test("closes browser when done", async () => {
@@ -424,20 +423,6 @@ describe("renderAssets", () => {
     } finally {
       tmp.cleanup();
     }
-  });
-
-  test("does not record export when checksum is null", async () => {
-    const deps = createMockDeps({
-      computeChecksum: jest.fn(() => null),
-    });
-    const outputDir = join(tmpDir, "exports");
-    await renderAssets(tmpDir, validManifest, {
-      output: outputDir, collection: "icon",
-    }, deps);
-
-    expect(deps.recordExport).not.toHaveBeenCalled();
-    // But still renders
-    expect(totalVariants(deps)).toBe(8);
   });
 
   test("outFile with {template} renders all templates to individual paths", async () => {

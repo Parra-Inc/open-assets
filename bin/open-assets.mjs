@@ -2,6 +2,7 @@
 import { Command } from "commander";
 import { resolve, join } from "path";
 import { readFileSync } from "fs";
+import { execFileSync } from "child_process";
 
 /**
  * Resolve an option value with env var fallback.
@@ -96,13 +97,13 @@ program
   .option("-o, --output <dir>", "Output directory (env: OPEN_ASSETS_OUTPUT)", env("OPEN_ASSETS_OUTPUT", "./exports"))
   .option("--config <path>", "Path to config file (env: OPEN_ASSETS_CONFIG)", env("OPEN_ASSETS_CONFIG", "assets.json"))
   .option("--render-timeout <ms>", "Puppeteer render timeout in ms (env: OPEN_ASSETS_RENDER_TIMEOUT)", env("OPEN_ASSETS_RENDER_TIMEOUT", "30000"))
+  .option("--explain", "Print why each output is re-rendered (which file or string changed)")
   .option("--json", "Output results as JSON (for CI/scripting)")
   .option("-q, --quiet", "Suppress progress logs (env: OPEN_ASSETS_QUIET)", env("OPEN_ASSETS_QUIET") === "true")
   .action(async (dir, opts) => {
     const { loadConfig } = await import("../lib/manifest.mjs");
     const { renderAssets } = await import("../lib/render.mjs");
     const renderer = await import("../lib/renderer.mjs");
-    const lockfile = await import("../lib/lockfile.mjs");
 
     const projectDir = resolve(dir);
     let manifest;
@@ -113,16 +114,13 @@ program
       process.exit(1);
     }
 
-    const log = opts.quiet ? undefined : (msg) => console.log(msg);
+    // --json owns stdout, so progress logs would corrupt it
+    const log = opts.quiet || opts.json ? undefined : (msg) => console.log(msg);
     const deps = {
       renderVariants: renderer.renderVariants,
       runXcodeOutput: renderer.runXcodeOutput,
       closeBrowser: renderer.closeBrowser,
-      readLockfile: lockfile.readLockfile,
-      writeLockfile: lockfile.writeLockfile,
-      computeChecksum: lockfile.computeChecksum,
-      isUpToDate: lockfile.isUpToDate,
-      recordExport: lockfile.recordExport,
+      toolVersion: pkg.version,
     };
 
     const result = await renderAssets(projectDir, manifest, opts, deps, log);
@@ -132,19 +130,76 @@ program
       process.exit(1);
     }
 
+    warnIfLockIgnored(projectDir, opts.quiet || opts.json);
+
     if (opts.json) {
       console.log(JSON.stringify({
         ok: true,
         assets: result.results,
         skipped: result.skipped,
+        copied: result.copied,
+        migratedFrom: result.migratedFrom,
         elapsed: result.elapsed,
       }, null, 2));
     } else if (!opts.quiet) {
-      const parts = [`${result.results.length} asset(s) rendered`];
+      const rendered = result.results.filter((r) => !r.copiedFrom && !String(r.type || "").startsWith("copy-")).length;
+      const parts = [`${rendered} asset(s) rendered`];
+      if (result.copied > 0) parts.push(`${result.copied} copied (identical render)`);
       if (result.skipped > 0) parts.push(`${result.skipped} skipped (unchanged)`);
       console.log(`\nDone. ${parts.join(", ")} in ${result.elapsed}.`);
+      if (result.migratedFrom) {
+        console.log(`Upgraded assets.lock v${result.migratedFrom} → v2, commit it.`);
+      }
     }
   });
+
+// ── check ────────────────────────────────────────────────────────────────────
+
+program
+  .command("check")
+  .description("Fail if any asset is out of date with assets.lock, without rendering (for CI)")
+  .argument("[dir]", "Project directory containing assets.json", ".")
+  .option("--collection <id>", "Check only the collection with this ID")
+  .option("--tag <tag>", "Check only collections with this tag")
+  .option("--require-outputs", "Also fail when an output file is missing (for committed exports)")
+  .option("-o, --output <dir>", "Output directory used by render (env: OPEN_ASSETS_OUTPUT)", env("OPEN_ASSETS_OUTPUT", "./exports"))
+  .option("--config <path>", "Path to config file (env: OPEN_ASSETS_CONFIG)", env("OPEN_ASSETS_CONFIG", "assets.json"))
+  .option("--json", "Output results as JSON")
+  .action(async (dir, opts) => {
+    const { loadConfig } = await import("../lib/manifest.mjs");
+    const { checkAssets, formatCheck } = await import("../lib/check.mjs");
+
+    const projectDir = resolve(dir);
+    let manifest;
+    try {
+      manifest = loadConfig(projectDir, opts.config);
+    } catch (err) {
+      console.error(`Error: ${err.message}`);
+      process.exit(1);
+    }
+
+    const result = checkAssets(projectDir, manifest, opts, pkg.version);
+    if (opts.json) {
+      console.log(JSON.stringify(result, null, 2));
+    } else {
+      (result.ok ? console.log : console.error)(formatCheck(result));
+    }
+    process.exit(result.ok ? 0 : 1);
+  });
+
+/**
+ * assets.lock is meant to be committed: it is what lets every machine and CI
+ * skip unchanged renders. Warn once per run when git ignores it.
+ */
+function warnIfLockIgnored(projectDir, quiet) {
+  if (quiet) return;
+  try {
+    execFileSync("git", ["check-ignore", "-q", "assets.lock"], { cwd: projectDir, stdio: "ignore" });
+    console.warn("Warning: assets.lock is gitignored. Commit it so other machines and CI can skip unchanged renders.");
+  } catch {
+    // Exit status 1 (not ignored) or not a git repo: nothing to say.
+  }
+}
 
 // ── list ─────────────────────────────────────────────────────────────────────
 

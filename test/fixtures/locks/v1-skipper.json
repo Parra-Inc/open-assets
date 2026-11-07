@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "assets": {
+    "icon/icon": {
+      "1024": {
+        "sourceChecksum": "sha256:980314e75da8aa1671abf3a4d5695cebd8d71a45c1e742feba42d2e205aa83ed",
+        "outputPath": "/home/dev/skipper/assets/exports/icon/1024.png",
+        "exportedAt": "2026-05-20T06:58:53.155Z",
+        "exportChecksum": "sha256:34fbda550402d1e0180c418018efe3c7d0f2abf5461cd5eb76c6841fb481e724"
+      },
+      "1024x1024": {
+        "sourceChecksum": "sha256:dcf714aafe2abc55668a1ec590392209dbbf53a9d3e10414c2c99c32cbb5c10b",
+        "outputPath": "/home/dev/skipper/assets/exports/icon/icon.png",
+        "exportedAt": "2026-05-27T04:26:30.040Z"
+      }
+    },
+    "logo/logo": {
+      "logo-2x": {
+        "sourceChecksum": "sha256:84c248a5a130f4160be862bee5cc84d2d91fe4a6cf76374a31b5ea7aca8239ec",
+        "outputPath": "/home/dev/skipper/assets/exports/logo/logo-2x/logo.png",
+        "exportedAt": "2026-05-20T06:58:56.101Z",
+        "exportChecksum": "sha256:5467b165ac73ff0b99bb3af06200601625b86863482ce83d4cac40fd785d609b"
+      }
+    },
+    "logo/wordmark": {
+      "logo-2x": {
+        "sourceChecksum": "sha256:bcb106299676c6888898b4dffb4a1aa52bf8f31e090211319087fca7623e98a0",
+        "outputPath": "/home/dev/skipper/assets/exports/logo/logo-2x/wordmark.png",
+        "exportedAt": "2026-05-20T06:58:57.627Z",
+        "exportChecksum": "sha256:5467b165ac73ff0b99bb3af06200601625b86863482ce83d4cac40fd785d609b"
+      }
+    },
+    "screenshots/en/01-hero": {
+      "exports/screenshots/en/6.9/01-hero.png": {
+        "sourceChecksum": "sha256:6ee6b520f2c0e5eea9b7efca53119250c48a40ba4c866cc9c373ad22404ade33",
+        "outputPath": "exports/screenshots/en/6.9/01-hero.png",
+        "exportedAt": "2026-07-17T01:15:46.723Z",
+        "exportChecksum": "sha256:ffb750aec0ba57f441808a890f43db987463434c3d9b3706e6b3df29a7f80c33"
+      }
+    }
+  }
+}

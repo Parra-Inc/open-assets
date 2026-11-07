@@ -1,0 +1,14 @@
+{
+  "lockfileVersion": 2,
+  "renderer": 1,
+  "tool": "0.6.0",
+  "fingerprint": null,
+  "files": {},
+  "strings": {},
+  "outputs": {
+    "exports/screenshots/en/6.9/01-hero.png": {
+      "key": null,
+      "migratedFrom": 1
+    }
+  }
+}
