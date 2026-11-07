@@ -1,9 +1,18 @@
 ---
 title: Changelog
-description: "User-facing changes in each Open Assets release, from 0.2.0 to 0.6.0: incremental lockfile v2, drift checks, localization, parallel renders, the plugin."
+description: "User-facing changes in each Open Assets release, from 0.2.0 to 0.6.1: incremental lockfile v2, drift checks, localization, parallel renders, the plugin."
 ---
 
 Releases are tagged in the [GitHub repo](https://github.com/Parra-Inc/open-assets/tags) and published to npm as `@open-assets/open-assets`.
+
+## 0.6.1
+
+*2026-11-07*
+
+- **Adopt instead of re-render.** Upgrading a v1 lock keeps outputs whose v1 checksums still match. `render --accept-existing` records the files on disk as current without rendering, for projects whose images come from inputs not in the repo.
+- **Committed PNGs keep their bytes** when a re-render produces identical pixels.
+- **`check` works with gitignored inputs**: inputs the lock recorded but the checkout lacks are trusted at their recorded hash.
+- `render --dry-run` shows what would render, copy or be kept.
 
 ## 0.6.0
 

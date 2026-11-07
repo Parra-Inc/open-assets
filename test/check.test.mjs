@@ -89,6 +89,30 @@ describe("checkAssets", () => {
     expect(check().message).toMatch(/written by open-assets 9\.9\.9/);
   });
 
+  test("passes when gitignored inputs are absent, trusting their recorded hashes", async () => {
+    const { rmSync } = await import("fs");
+    // Captures and the font two imports deep (behind fonts.css) are gone, as
+    // in a CI checkout where they are gitignored
+    rmSync(join(dir, "public"), { recursive: true });
+    rmSync(join(dir, "src/fonts.css"));
+    rmSync(join(dir, "src/fonts"), { recursive: true });
+    const result = check();
+    expect(result.ok).toBe(true);
+    expect(result.trusted).toEqual(
+      ["public/screens/en/a.png", "public/screens/fr/a.png", "src/fonts.css", "src/fonts/f.woff2"].sort()
+    );
+    expect(formatCheck(result)).toMatch(/4 input file\(s\) are not in this checkout/);
+  });
+
+  test("still fails on inputs that are present and changed while others are absent", async () => {
+    const { rmSync } = await import("fs");
+    rmSync(join(dir, "public/screens/fr"), { recursive: true });
+    writeFileSync(join(dir, "src/b.html"), "<p>{{cta}} changed</p>");
+    const result = check();
+    expect(result.ok).toBe(false);
+    expect(result.problems.every((p) => p.path.endsWith("/b.png"))).toBe(true);
+  });
+
   test("fails when there is no lock", () => {
     unlinkSync(join(dir, "assets.lock"));
     expect(check().message).toMatch(/No assets\.lock/);

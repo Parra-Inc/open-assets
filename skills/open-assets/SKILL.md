@@ -363,6 +363,8 @@ Alternatively, add a new object to the `collections` array in `assets.json` manu
 - Files a script loads outside the per-locale convention go in the collection's `inputs` (with `{locale}` and `{template}`), so the cache can see them.
 - The lock is versioned: an older one is upgraded on the next render (commit it); one from a newer Open Assets is refused.
 - `.open-assets/` is a local stat cache: gitignore it.
+- Re-renders with identical pixels keep the existing PNG, so committed images only change when the picture does.
+- To adopt the lock in a project whose images come from gitignored captures, run `open-assets render --accept-existing` (records current files, renders nothing). Never re-render such a project just to migrate: it would swap in whatever captures are on the machine.
 
 ## Localization (i18n)
 

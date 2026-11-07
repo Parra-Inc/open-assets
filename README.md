@@ -309,6 +309,8 @@ open-assets render --size iphone-6.9            # Use a named export size
 open-assets render --width 1320 --height 2868   # Custom size
 open-assets render -o ./build                   # Custom output directory
 open-assets render --explain                    # Say why each output re-renders
+open-assets render --dry-run                    # Show what would render, without rendering
+open-assets render --accept-existing            # Adopt the lock: record current files, render nothing
 open-assets render --json                       # Output results as JSON (for CI)
 open-assets render --quiet                      # Suppress progress logs
 ```
@@ -330,6 +332,8 @@ Options:
 | `--config <path>` | `OPEN_ASSETS_CONFIG` | `assets.json` | Path to config file |
 | `--render-timeout <ms>` | `OPEN_ASSETS_RENDER_TIMEOUT` | `30000` | Puppeteer render timeout in ms |
 | `--explain` | - | - | Print why each output is re-rendered (which file or string changed) |
+| `--dry-run` | - | - | Show what would render, copy or be kept, without rendering or writing anything |
+| `--accept-existing` | - | - | Record the output files on disk as current without rendering (adopt the lockfile without changing images) |
 | `--json` | - | - | Output results as JSON (for CI/scripting) |
 | `-q, --quiet` | `OPEN_ASSETS_QUIET` | `false` | Suppress progress logs |
 | - | `OPEN_ASSETS_CONCURRENCY` | `auto` | Templates rendered at once (see Concurrency) |
@@ -744,13 +748,17 @@ Done. 2 asset(s) rendered, 718 skipped (unchanged) in 1.5s.
 
 **See why something re-renders**: `open-assets render --explain` prints the reason for each output, such as `strings[de].hero_title changed` or `assets/fonts/Inter.woff2 changed`.
 
+**Committed images stay put**: when a re-render produces the same pixels as the PNG already on disk, the existing file is kept untouched, so committed images change only when the picture does, not when Chrome or the PNG encoder does.
+
+**Adopting the lock in an existing project**: upgrading from a v1 lock keeps every output whose v1 checksums still match, without rendering. If your images come from inputs that are not in the repo (UI-test captures, say) and must not change, run `open-assets render --accept-existing` once: it records the files on disk as current, renders nothing and changes only `assets.lock`. Preview either with `--dry-run`.
+
 **Versioned**: the lock records `lockfileVersion`, `renderer` and the `tool` version that wrote it. An older lock is upgraded on the next `render` (commit the result). A lock written by a newer Open Assets is refused with a message to upgrade, and never overwritten.
 
 **Commit it**. The lock is deterministic (sorted, no timestamps), so its diff shows exactly what changed. `.open-assets/` holds a local file-stat cache and should be gitignored (`init` does this).
 
 ## CI/CD with GitHub Actions
 
-**Fail PRs that forget to re-render**: the shared drift workflow runs `open-assets check`, which recomputes every key and fails when an input changed without a re-render, an output was edited by hand, or the lock is from an older or newer Open Assets. It only hashes files, so it needs no Chromium and takes seconds.
+**Fail PRs that forget to re-render**: the shared drift workflow runs `open-assets check`, which recomputes every key and fails when an input changed without a re-render, an output was edited by hand, or the lock is from an older or newer Open Assets. It only hashes files, so it needs no Chromium and takes seconds. Gitignored inputs (captures, a built stylesheet) that are absent from the CI checkout are taken from the hashes recorded in the lock.
 
 ```yaml
 # .github/workflows/assets-drift.yml

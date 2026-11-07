@@ -148,6 +148,18 @@
         "default": null
       },
       {
+        "flags": "--dry-run",
+        "description": "Show what would render, copy or be kept, without rendering or writing anything",
+        "env": null,
+        "default": null
+      },
+      {
+        "flags": "--accept-existing",
+        "description": "Record the output files on disk as current without rendering (adopt the lockfile without changing images)",
+        "env": null,
+        "default": null
+      },
+      {
         "flags": "--json",
         "description": "Output results as JSON (for CI/scripting)",
         "env": null,

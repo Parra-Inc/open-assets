@@ -229,7 +229,14 @@ describe("lockfile versioning", () => {
       const { lock, from } = loadLock(dir, "0.6.0");
       expect(from).toBe(1);
       expect(lock.lockfileVersion).toBe(LOCKFILE_VERSION);
-      expect(lock.outputs["exports/screenshots/en/6.9/01-hero.png"]).toEqual({ key: null, migratedFrom: 1 });
+      expect(lock.outputs["exports/screenshots/en/6.9/01-hero.png"]).toEqual({
+        key: null,
+        migratedFrom: 1,
+        v1: {
+          source: "sha256:6ee6b520f2c0e5eea9b7efca53119250c48a40ba4c866cc9c373ad22404ade33",
+          export: "sha256:ffb750aec0ba57f441808a890f43db987463434c3d9b3706e6b3df29a7f80c33",
+        },
+      });
     } finally {
       cleanup();
     }
