@@ -1,0 +1,47 @@
+{
+ "schema": "audit-seo/v1",
+ "layer": "pagespeed",
+ "site": "open-assets.dev",
+ "siteId": "open-assets-dev",
+ "capturedAt": "2026-11-06",
+ "calls": [
+  {
+   "tool": "pagespeed_analyze",
+   "params": {
+    "url": "https://open-assets.dev",
+    "strategy": "mobile",
+    "cwvOnly": true
+   },
+   "ok": true,
+   "result": {
+    "mobile": {
+     "performanceScore": 100,
+     "accessibilityScore": 97,
+     "seoScore": 100,
+     "coreWebVitals": {
+      "largestContentfulPaint": 965.0,
+      "cumulativeLayoutShift": 0,
+      "totalBlockingTime": 12.5,
+      "firstContentfulPaint": 965.0,
+      "timeToInteractive": 3291.5
+     },
+     "loadingExperience": {
+      "overallCategory": null,
+      "metrics": {}
+     }
+    },
+    "desktop": {
+     "performanceScore": 100,
+     "coreWebVitals": {
+      "largestContentfulPaint": 307.0,
+      "cumulativeLayoutShift": 0,
+      "totalBlockingTime": 44.0
+     }
+    }
+   }
+  }
+ ],
+ "notes": [
+  "Lab only; no CrUX field data. Speed is not the constraint."
+ ]
+}

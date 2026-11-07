@@ -1,0 +1,24 @@
+{
+  "schema": "audit-seo/v1",
+  "layer": "crawl",
+  "site": "docs.open-assets.dev",
+  "siteId": "docs-open-assets-dev",
+  "capturedAt": "2026-11-06",
+  "notes": [
+    "TRIAGE-depth SEO + AEO audit of docs.open-assets.dev (Open Assets docs, rank 20 of 20). Read + persist-data only: no code changes, git, deploys, or wrangler were run; only the seven audit JSON artifacts were written.",
+    "Repo: /Users/ianmaccallum/Developer/Repos/open-assets. Docs app: apps/docs (Next.js 16 + Fumadocs, static export on Cloudflare Workers).",
+    "Artifacts in this directory: manifest.json, crawl.json, search-console.json, bing.json, standard.json, pagespeed.json, suggestions.json.",
+    "Coverage: 59/59 pages crawled (recheck, capped:false). 0 errors, 0 warnings, 9 notices.",
+    "Verdict: technically pristine, demand-starved. No indexability contradiction, no CWV problem, 30/34 standard checks pass. Binding constraints are (a) ~2 clicks/28d of actual demand and (b) absence from Bing Webmaster Tools. The 4 standard fails (B4 sitemap lastmod, B9 per-deploy IndexNow, M1 growth-plan, M2 page-plans) are low-impact; B4 is a benign bulk-commit artifact rather than a bug.",
+    "Data-source caveats (full detail in each file): GSC has no sc-domain:docs.open-assets.dev or host property (both permission-denied, recorded ok:false); all GSC reads used the parent domain property sc-domain:open-assets.dev filtered to the docs subdomain. Bing has no registration for the docs host at all."
+  ],
+  "phases": [
+    { "phase": "A", "layer": "crawl", "tools": ["recheck", "list_sites", "audit_report"], "file": "crawl.json", "ok": true },
+    { "phase": "B", "layer": "search-console", "tools": ["analytics_query", "site_health_check", "sitemaps_list", "seo_audit x8", "inspection_inspect"], "file": "search-console.json", "ok": "partial", "note": "Target property inaccessible; parent domain property used as fallback." },
+    { "phase": "B2", "layer": "bing", "tools": ["get_sites", "get_crawl_issues", "get_crawl_stats", "get_feeds", "get_blocked_urls", "get_query_parameters", "get_rank_and_traffic_stats", "get_page_stats", "get_link_counts", "get_url_info"], "file": "bing.json", "ok": "partial", "note": "Docs host not registered in Bing; all data empty." },
+    { "phase": "C", "layer": "standard", "tools": ["seo-standard.mjs", "manual grading", "AEO checklist"], "file": "standard.json", "ok": true },
+    { "phase": "D", "layer": "pagespeed", "tools": ["pagespeed_analyze"], "file": "pagespeed.json", "ok": true },
+    { "phase": "E", "layer": "standard", "tools": ["correlate", "rank"], "file": "suggestions.json", "ok": true }
+  ],
+  "calls": []
+}

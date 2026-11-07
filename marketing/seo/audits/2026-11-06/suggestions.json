@@ -1,0 +1,54 @@
+{
+ "schema": "audit-seo/v1",
+ "layer": "suggestions",
+ "site": "open-assets.dev",
+ "siteId": "open-assets-dev",
+ "capturedAt": "2026-11-06",
+ "suggestions": [
+  {
+   "title": "Submit sitemap to Google Search Console and Bing",
+   "dimension": "SEO",
+   "impact": "med",
+   "effort": "5 min",
+   "repoFile": "apps/web/app/sitemap.ts",
+   "fix": "sitemaps_submit https://open-assets.dev/sitemap.xml (and docs sitemap) in GSC + Bing; no code change",
+   "evidence": "GSC sitemaps total 0; Bing get_feeds []"
+  },
+  {
+   "title": "Run IndexNow submit after every deploy",
+   "dimension": "SEO",
+   "impact": "low",
+   "effort": "15 min",
+   "repoFile": ".github/workflows (deploy workflow)",
+   "fix": "Add IndexNow post-deploy step using key file apps/web/public/3d1b104150a1576e6f2fb3f398cc2b9f.txt",
+   "evidence": "standard B9 fail"
+  },
+  {
+   "title": "Point llms.txt Documentation link at docs.open-assets.dev and list key doc pages",
+   "dimension": "AEO",
+   "impact": "med",
+   "effort": "10 min",
+   "repoFile": "apps/web/app/llms.txt",
+   "fix": "Replace GitHub README doc link with https://docs.open-assets.dev plus CLI reference / getting-started URLs",
+   "evidence": "live llms.txt Documentation -> github.com/...#readme"
+  },
+  {
+   "title": "Use real lastmod in sitemap",
+   "dimension": "SEO",
+   "impact": "low",
+   "effort": "10 min",
+   "repoFile": "apps/web/app/sitemap.ts",
+   "fix": "Derive lastmod from build/git date instead of a hard-coded 2026-10-30",
+   "evidence": "standard B4 partial"
+  },
+  {
+   "title": "Write docs/seo growth plan and page plans",
+   "dimension": "SEO",
+   "impact": "low",
+   "effort": "1 h",
+   "repoFile": "docs/seo/growth-plan.md",
+   "fix": "Create growth plan + page plans (e.g. App Store screenshot generator, app icon generator landing pages)",
+   "evidence": "standard M1/M2 fail; non-brand position 68.6"
+  }
+ ]
+}

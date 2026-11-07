@@ -1,0 +1,56 @@
+{
+  "schema": "audit-seo/v1",
+  "layer": "suggestions",
+  "site": "docs.open-assets.dev",
+  "siteId": "docs-open-assets-dev",
+  "capturedAt": "2026-11-06",
+  "calls": [],
+  "notes": [],
+  "suggestions": [
+    {
+      "title": "Register docs.open-assets.dev in GSC + Bing",
+      "dimension": "SEO",
+      "impact": "high",
+      "effort": "S",
+      "repoFile": "unlocated (account config)",
+      "fix": "Add sc-domain property access for the SA and add site in Bing Webmaster",
+      "evidence": "search-console.json permission errors; bing.json get_sites"
+    },
+    {
+      "title": "Real per-page sitemap lastmod",
+      "dimension": "SEO",
+      "impact": "med",
+      "effort": "S",
+      "repoFile": "apps/docs/app/sitemap.ts",
+      "fix": "Derive lastModified from each MDX file git date",
+      "evidence": "standard B4: 1 date on 59 URLs"
+    },
+    {
+      "title": "IndexNow submit after deploy",
+      "dimension": "SEO",
+      "impact": "med",
+      "effort": "S",
+      "repoFile": ".github/workflows/publish.yml",
+      "fix": "Add IndexNow post-deploy step for changed docs URLs",
+      "evidence": "standard B9"
+    },
+    {
+      "title": "Block AI training bots per fleet policy",
+      "dimension": "AEO",
+      "impact": "low",
+      "effort": "S",
+      "repoFile": "apps/docs/app/robots.txt/route.ts",
+      "fix": "Set ai-train=no and Disallow GPTBot/CCBot/Google-Extended/anthropic-ai etc, keep search/user bots",
+      "evidence": "live robots.txt ai-train=yes for all agents"
+    },
+    {
+      "title": "SEO growth plan + page plans",
+      "dimension": "SEO",
+      "impact": "low",
+      "effort": "M",
+      "repoFile": "docs/seo/growth-plan.md",
+      "fix": "Write growth plan and page plans",
+      "evidence": "standard M1/M2"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+ "schema": "audit-seo/v1",
+ "layer": "crawl",
+ "site": "open-assets.dev",
+ "siteId": "open-assets-dev",
+ "capturedAt": "2026-11-06",
+ "calls": [
+  {
+   "tool": "indexnow-seo.recheck",
+   "params": {
+    "site_id": "open-assets-dev"
+   },
+   "ok": true,
+   "result": {
+    "queued": 1,
+    "site_id": "open-assets-dev",
+    "capped": false
+   }
+  },
+  {
+   "tool": "indexnow-seo.audit_report",
+   "params": {
+    "site_id": "open-assets-dev",
+    "min_severity": "warning"
+   },
+   "ok": true,
+   "result": [
+    {
+     "siteId": "open-assets-dev",
+     "checkId": "page.orphan",
+     "severity": "warning",
+     "what": "Page is in the sitemap but no other page on the site links to it.",
+     "why": "Engines weight internal links heavily. An orphan is discoverable only via the sitemap and usually ranks accordingly.",
+     "fix": "Link to it from a relevant page, a hub, or the nav.",
+     "count": 1,
+     "pages": 1,
+     "firstSeen": "2026-10-29T15:34:49.508Z",
+     "examples": [
+      {
+       "url": "https://open-assets.dev/",
+       "instanceKey": "",
+       "detail": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tool": "text-length.mjs",
+   "params": {
+    "sitemap": "https://open-assets.dev/sitemap.xml"
+   },
+   "ok": true,
+   "result": "title 57 desc 156 https://open-assets.dev; 0 of 1 outside title <= 60, description 150 to 160."
+  }
+ ],
+ "notes": [
+  "page.orphan on the homepage of a 1-page site is a false positive (homepage is the root; nothing else to link from).",
+  "Crawl coverage 1/1 pages; docs.open-assets.dev is a separate site not in this crawl."
+ ]
+}

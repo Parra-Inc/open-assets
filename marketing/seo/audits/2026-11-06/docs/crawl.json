@@ -1,0 +1,42 @@
+{
+  "schema": "audit-seo/v1",
+  "layer": "crawl",
+  "site": "docs.open-assets.dev",
+  "siteId": "docs-open-assets-dev",
+  "capturedAt": "2026-11-06",
+  "calls": [
+    {
+      "tool": "mcp__indexnow-seo__recheck",
+      "params": {
+        "site_id": "docs-open-assets-dev"
+      },
+      "ok": true,
+      "result": {
+        "queued": 59,
+        "site_id": "docs-open-assets-dev",
+        "capped": false
+      }
+    },
+    {
+      "tool": "mcp__indexnow-seo__audit_report",
+      "params": {
+        "site_id": "docs-open-assets-dev",
+        "min_severity": "warning"
+      },
+      "ok": true,
+      "result": []
+    },
+    {
+      "tool": "text-length.mjs",
+      "params": {
+        "sitemap": "https://docs.open-assets.dev/sitemap.xml"
+      },
+      "ok": true,
+      "result": "0 of 59 outside title <= 60, description 150 to 160."
+    }
+  ],
+  "notes": [
+    "audit_report read shortly after recheck queued 59 pages; empty = no errors/warnings",
+    "Rendered title/description lengths all in range"
+  ]
+}
