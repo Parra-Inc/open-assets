@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "name": "Drift fixture",
+  "collections": [
+    {
+      "id": "screenshots",
+      "label": "Screenshots",
+      "sourceSize": { "width": 220, "height": 478 },
+      "localizations": "localizations.json",
+      "templates": [
+        { "src": "src/01-track.html", "name": "01-track", "label": "Track" },
+        { "src": "src/02-remind.html", "name": "02-remind", "label": "Remind" }
+      ],
+      "export": [
+        { "name": "small", "label": "Small", "size": { "width": 220, "height": 478 } }
+      ]
+    }
+  ]
+}

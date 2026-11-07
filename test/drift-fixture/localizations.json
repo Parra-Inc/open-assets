@@ -1,0 +1,17 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "title": {
+      "localizations": {
+        "en": { "value": "Track your plants" },
+        "fr": { "value": "Suivez vos plantes" }
+      }
+    },
+    "reminder": {
+      "localizations": {
+        "en": { "value": "Never miss a watering" },
+        "fr": { "value": "N'oubliez plus l'arrosage" }
+      }
+    }
+  }
+}

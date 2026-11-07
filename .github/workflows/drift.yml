@@ -1,0 +1,74 @@
+# Reusable drift check for any repo that uses open-assets.
+#
+# Fails the calling job when assets.lock no longer matches the inputs: a
+# template, CSS file, font, per-locale capture or localized string changed
+# without a re-render, a committed output was edited by hand, or the lock was
+# written by an older or newer open-assets. Hashes files only: no Chromium,
+# runs in seconds.
+#
+# Caller (.github/workflows/assets-drift.yml in your repo):
+#
+#   name: Assets drift
+#   on:
+#     pull_request:
+#       paths: ["assets/**", "**/assets.json", "**/assets.lock", "**/localizations.json"]
+#   jobs:
+#     drift:
+#       uses: Parra-Inc/open-assets/.github/workflows/drift.yml@v1
+#       with:
+#         working-directory: assets   # where assets.json lives
+name: open-assets drift
+
+on:
+  workflow_call:
+    inputs:
+      working-directory:
+        description: Directory containing assets.json and assets.lock
+        type: string
+        default: "."
+      version:
+        description: open-assets version to run (npm dist-tag or exact version)
+        type: string
+        default: latest
+      require-outputs:
+        description: Also fail when an output file is missing (set when exports are committed)
+        type: boolean
+        default: false
+      cli:
+        description: Path to a CLI script in this repo to run instead of the npm package (used by open-assets' own CI)
+        type: string
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  drift:
+    name: assets.lock matches inputs
+    runs-on: ubuntu-latest
+    env:
+      PUPPETEER_SKIP_DOWNLOAD: "1"
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          package-manager-cache: false
+
+      - name: Install local CLI dependencies
+        if: inputs.cli != ''
+        run: npm install --ignore-scripts --no-audit --no-fund
+
+      - name: open-assets check
+        working-directory: ${{ inputs.working-directory }}
+        env:
+          OA_CLI: ${{ inputs.cli }}
+          OA_VERSION: ${{ inputs.version }}
+          OA_REQUIRE: ${{ inputs.require-outputs && '--require-outputs' || '' }}
+        run: |
+          if [ -n "$OA_CLI" ]; then
+            node "$GITHUB_WORKSPACE/$OA_CLI" check . $OA_REQUIRE
+          else
+            npx -y "@open-assets/open-assets@$OA_VERSION" check . $OA_REQUIRE
+          fi
