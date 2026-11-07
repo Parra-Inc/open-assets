@@ -32,6 +32,8 @@ open-assets check --json
 | Lock from an older Open Assets | `assets.lock is lockfile v1; this open-assets writes v2. It needs upgrading: ...` |
 | Lock from a newer Open Assets | `assets.lock was written by open-assets <version> ...` |
 
+Inputs that the lock recorded but the checkout lacks (gitignored captures, a built stylesheet) are taken from the lock's hashes, and the output notes how many. Inputs that are present are always verified.
+
 Missing output files pass by default, since most projects gitignore `exports/`. Set `--require-outputs` when you commit your exports.
 
 ## Output

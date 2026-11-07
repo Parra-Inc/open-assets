@@ -91,6 +91,8 @@ Details on [/reference/outputs](/reference/outputs).
 
 Before rendering, every output gets a render key covering the template and every file it pulls in (to any depth), the strings it uses in that locale, per-locale captures, the export settings and the renderer version. An output is skipped when its key matches `assets.lock` and its file exists with the hash recorded when it was written.
 
+A re-render that produces the same pixels as the existing PNG keeps the existing file. `--dry-run` previews the plan; `--accept-existing` records the files on disk as current without rendering (see [adopting the lock](/concepts/lockfile#adopting-the-lock-in-an-existing-project)).
+
 Locales that resolve to identical strings and files render once; the others are copied (`copied` in `--json`). `--explain` prints why each remaining output renders. `--force` renders everything.
 
 The lock is saved after every finished unit, so a failed run keeps its progress. An older lock is upgraded; one from a newer Open Assets stops the run. See [/concepts/lockfile](/concepts/lockfile).

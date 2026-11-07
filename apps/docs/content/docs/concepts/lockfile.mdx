@@ -116,6 +116,22 @@ npx open-assets render --explain
 - Each output stores its `key`, the `png` hash it wrote, and the four parts of the key so a mismatch can be explained.
 - Paths are relative to the project, keys are sorted, and there are no timestamps. Two runs on the same inputs write identical bytes.
 
+## Committed images stay put
+
+When a re-render produces exactly the pixels already in the PNG on disk, the existing file is kept: same bytes, same modification time. Committed screenshots change only when the picture changes, not when a Chrome or encoder upgrade re-encodes them.
+
+## Adopting the lock in an existing project
+
+Upgrading from a v1 lock keeps every output whose v1 checksums still match, without rendering it. Outputs that v1 would also have re-rendered are rendered.
+
+If your images are rendered from inputs that are not in the repo, such as captures from UI tests that are gitignored, a re-render uses whatever captures are on that machine. To adopt the lock without touching your images, run once:
+
+```bash
+npx open-assets render --accept-existing
+```
+
+It records the files on disk as current, renders nothing, and changes only `assets.lock`. Missing outputs are recorded too and are produced by the next plain `render`. Preview any of this with `--dry-run`.
+
 ## Versioning
 
 Three numbers, because they change for different reasons:
@@ -132,7 +148,7 @@ A lock written by a newer Open Assets stops the run without touching the file:
 Error: assets.lock was written by open-assets 0.8.0 (lockfile v3). This is open-assets 0.6.0, which reads up to v2. Run npx @open-assets/open-assets@latest.
 ```
 
-Upgrading from a v1 lock (Open Assets 0.5 and earlier) re-renders everything once, because v1 checksums did not cover strings or per-locale files. `render` prints `Upgraded assets.lock v1 → v2, commit it.`
+Upgrading from a v1 lock (Open Assets 0.5 and earlier) adopts outputs whose v1 checksums still match and renders the rest (see above). `render` prints `Upgraded assets.lock v1 → v2, commit it.`
 
 A lock that is not valid JSON (for example after a merge conflict) is an error, never silently discarded.
 

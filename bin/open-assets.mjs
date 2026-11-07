@@ -98,6 +98,8 @@ program
   .option("--config <path>", "Path to config file (env: OPEN_ASSETS_CONFIG)", env("OPEN_ASSETS_CONFIG", "assets.json"))
   .option("--render-timeout <ms>", "Puppeteer render timeout in ms (env: OPEN_ASSETS_RENDER_TIMEOUT)", env("OPEN_ASSETS_RENDER_TIMEOUT", "30000"))
   .option("--explain", "Print why each output is re-rendered (which file or string changed)")
+  .option("--dry-run", "Show what would render, copy or be kept, without rendering or writing anything")
+  .option("--accept-existing", "Record the output files on disk as current without rendering (adopt the lockfile without changing images)")
   .option("--json", "Output results as JSON (for CI/scripting)")
   .option("-q, --quiet", "Suppress progress logs (env: OPEN_ASSETS_QUIET)", env("OPEN_ASSETS_QUIET") === "true")
   .action(async (dir, opts) => {
@@ -132,20 +134,33 @@ program
 
     warnIfLockIgnored(projectDir, opts.quiet || opts.json);
 
+    if (result.dryRun) {
+      if (opts.json) {
+        console.log(JSON.stringify({ ok: true, ...result }, null, 2));
+      } else if (!opts.quiet) {
+        console.log(`\nDry run: ${result.wouldRender} would render, ${result.wouldCopy} would copy, ${result.skipped} unchanged, ${result.adopted} kept from the v1 lock.`);
+      }
+      return;
+    }
+
     if (opts.json) {
       console.log(JSON.stringify({
         ok: true,
         assets: result.results,
         skipped: result.skipped,
         copied: result.copied,
+        adopted: result.adopted,
+        unchanged: result.unchanged,
         migratedFrom: result.migratedFrom,
         elapsed: result.elapsed,
       }, null, 2));
     } else if (!opts.quiet) {
-      const rendered = result.results.filter((r) => !r.copiedFrom && !String(r.type || "").startsWith("copy-")).length;
+      const rendered = result.results.filter((r) => !r.copiedFrom && !r.unchanged && !String(r.type || "").startsWith("copy-")).length;
       const parts = [`${rendered} asset(s) rendered`];
+      if (result.unchanged > 0) parts.push(`${result.unchanged} re-rendered with identical pixels (files kept)`);
       if (result.copied > 0) parts.push(`${result.copied} copied (identical render)`);
       if (result.skipped > 0) parts.push(`${result.skipped} skipped (unchanged)`);
+      if (result.adopted > 0) parts.push(`${result.adopted} kept without re-rendering`);
       console.log(`\nDone. ${parts.join(", ")} in ${result.elapsed}.`);
       if (result.migratedFrom) {
         console.log(`Upgraded assets.lock v${result.migratedFrom} → v2, commit it.`);
