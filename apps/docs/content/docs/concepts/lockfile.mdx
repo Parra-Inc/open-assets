@@ -1,90 +1,155 @@
 ---
 title: The lockfile
-description: "How assets.lock makes renders incremental: what is checksummed, which changes trigger a re-render, what does not, when to use --force and why to commit it."
+description: "How assets.lock makes renders incremental: render keys, per-locale strings and captures, identical-locale copies, versioning, --explain, and why to commit it."
 ---
 
-`open-assets render` keeps a file called `assets.lock` in the project directory. It records what each output was rendered from, so the next run skips images whose inputs have not changed.
+`open-assets render` keeps a file called `assets.lock` in the project directory. It records a render key for every output: a hash of everything that can change that image's pixels. The next run skips every output whose key still matches.
 
 ```text
-Done. 0 asset(s) rendered, 11 skipped (unchanged) in 0.0s.
+Done. 2 asset(s) rendered, 718 skipped (unchanged) in 1.5s.
+```
+
+When nothing changed, no browser is launched at all.
+
+## What the render key covers
+
+| Input | Example change | What re-renders |
+| --- | --- | --- |
+| The template file | Edit `01-hero.html` | That template, every locale and size |
+| Files it pulls in, at any depth | Edit `shared.css`, a font it `@import`s, an image in a CSS `url()` | Every template that uses the file |
+| Strings the template uses, in that locale | Fix one German headline | Only the German images of templates that use that key |
+| A source-language string | Fix an English string that `en-GB` falls back to | English, plus every locale that falls back to it |
+| Per-locale files | Replace `public/screenshots/fr/01.png` | That template, French only |
+| Export settings | Change a size, `background` or `sourceSize` | The affected outputs |
+| Renderer version | An Open Assets release that changes pixels | Everything, once |
+
+Strings are hashed after fallback (`pt-BR` → `pt` → source language), and only for the `{{keys}}` the template contains. Editing a string no template uses re-renders nothing.
+
+### Per-locale files
+
+Templates usually reference the source-language capture literally and swap it at runtime:
+
+```html
+<img data-locale-img="01-home" src="../../public/screenshots/en/01-home.png" />
+```
+
+Any dependency with a path segment equal to the source language (`en` here) also tracks the same path under each locale, `public/screenshots/fr/01-home.png`, falling back to the base language the way the swap script would. For files the cache cannot discover this way, list them in the collection's `inputs` with `{locale}` and `{template}` placeholders:
+
+```json
+{ "inputs": ["captures/{locale}/{template}.png"] }
+```
+
+### Not covered
+
+- Remote assets (Google Fonts, CDNs) and root-relative paths like `/logo.png`.
+- Files a script builds a path to that match neither the convention above nor `inputs`.
+
+Use `--force` after changing one of those.
+
+## Identical locales render once
+
+Locales that resolve to the same strings and the same files share a render key. `en-GB` and `en-AU` falling back to `en` is the common case: one render, copied to the others.
+
+```text
+    → exports/screenshots/en-GB/iphone-6.9/01-hero.png (copied from exports/screenshots/en/iphone-6.9/01-hero.png, identical render)
+```
+
+The `lang` attribute still differs between them, so the key keeps locales apart where it can change pixels: different base languages, Chinese scripts (`zh-Hans` and `zh-Hant`), and any template using `{{n:}}` number formatting. If your template scripts read the exact locale for anything else, set `"dedupeLocales": false` on the collection (or `OPEN_ASSETS_NO_DEDUPE=1`).
+
+## When an output is skipped
+
+All of these must hold:
+
+1. The lock has an entry for that output path.
+2. The entry's key equals the key computed from the current inputs.
+3. The file exists and its hash equals the one recorded when it was written.
+
+So a deleted PNG is regenerated, and a PNG edited by hand is overwritten.
+
+## See why something re-renders
+
+```bash
+npx open-assets render --explain
+```
+
+```text
+  render exports/screenshots/de/iphone-6.9/01-hero.png: strings[de].hero_title changed
+  render exports/screenshots/fr/iphone-6.9/02-sync.png: public/screenshots/fr/02-sync.png changed
+  copy   exports/screenshots/en-GB/iphone-6.9/01-hero.png: strings[en-GB].hero_title changed
 ```
 
 ## What is in it
 
 ```json title="assets.lock"
 {
-  "version": 1,
-  "assets": {
-    "screenshots/01-hero": {
-      "exports/screenshots/iphone-6.9/01-hero.png": {
-        "sourceChecksum": "sha256:03d1...",
-        "outputPath": "exports/screenshots/iphone-6.9/01-hero.png",
-        "exportedAt": "2026-10-28T18:57:53.222Z",
-        "exportChecksum": "sha256:543e..."
-      }
+  "lockfileVersion": 2,
+  "renderer": 1,
+  "tool": "0.6.0",
+  "fingerprint": "sha256:9c1e...",
+  "files": {
+    "assets/screenshots/01-hero.html": "sha256:6ee6...",
+    "assets/screenshots/_shared.css": "sha256:a01f...",
+    "public/screenshots/de/01-home.png": "sha256:c3d0..."
+  },
+  "strings": {
+    "screenshots": { "de": { "hero_title": "41aa09b3c2f1" } }
+  },
+  "outputs": {
+    "exports/screenshots/de/iphone-6.9/01-hero.png": {
+      "collection": "screenshots",
+      "template": "01-hero",
+      "locale": "de",
+      "key": "sha256:e81c...",
+      "png": "sha256:5cfa...",
+      "renderer": 1,
+      "source": "sha256:...",
+      "strings": "sha256:...",
+      "assets": "sha256:...",
+      "config": "sha256:..."
     }
   }
 }
 ```
 
-- The asset key is `<collection>/<template>`, or `<collection>/<locale>/<template>` when localized.
-- Each output is keyed by its path, relative to the project directory, so the file is portable across machines.
-- `sourceChecksum` hashes the template and its direct local dependencies.
-- `exportChecksum` hashes the export settings: width, height, `outFile` and locale.
+- `files` holds every input file's hash once, not per output.
+- `strings` holds short per-key digests, used by `--explain` and `check` to name the key that changed.
+- Each output stores its `key`, the `png` hash it wrote, and the four parts of the key so a mismatch can be explained.
+- Paths are relative to the project, keys are sorted, and there are no timestamps. Two runs on the same inputs write identical bytes.
 
-## When an image is skipped
+## Versioning
 
-An output is skipped only if all of these hold:
+Three numbers, because they change for different reasons:
 
-1. The lockfile has an entry for that asset and output path.
-2. The current source checksum matches `sourceChecksum`.
-3. The current export checksum matches `exportChecksum`.
-4. The recorded `outputPath` matches.
-5. The output file exists on disk.
+| Field | Changes when | On mismatch |
+| --- | --- | --- |
+| `lockfileVersion` | The file's layout changes | Older: upgraded on the next `render` (commit it). Newer: refused. |
+| `renderer` | A release changes rendered pixels | Every key changes, everything re-renders once |
+| `tool` | Every release | Nothing. A patch upgrade re-renders nothing. |
 
-Anything else re-renders it. So a deleted PNG is regenerated, and changing a size or an `outFile` re-renders that size.
+A lock written by a newer Open Assets stops the run without touching the file:
 
-## What the source checksum covers
-
-For an `.html` template, the checksum includes the file plus every local file it references directly through `src="..."`, `href="..."` or `url(...)`. A path counts if it resolves, relative to the template's folder, to a file that exists. `http(s)://`, `//`, `data:` and `#` references are ignored.
-
-That means these changes **do** trigger a re-render:
-
-- Editing the template.
-- Editing a stylesheet it links, such as `../../public/styles.css` or `../../dist/styles.css`.
-- Replacing an image it references, such as `../../public/screenshots/01-home.png`.
-
-These **do not**:
-
-- Files referenced from inside a stylesheet (fonts or images in a CSS `url()` in an external `.css` file). Only the template's own text is scanned.
-- Root-relative references like `/logo.png`. They resolve against the filesystem root, not your project.
-- Files a script loads or a URL built at runtime, such as the Skimmer example's locale image swap.
-- Remote assets (Google Fonts, CDNs).
-- `localizations.json`. Changing a string does not invalidate the cache.
-- `sourceSize`, `background` and the renderer's version.
-
-For `.svg` templates only the SVG file itself is hashed.
-
-## --force
-
-```bash
-npx open-assets render --force
+```text
+Error: assets.lock was written by open-assets 0.8.0 (lockfile v3). This is open-assets 0.6.0, which reads up to v2. Run npx @open-assets/open-assets@latest.
 ```
 
-Ignores the cache and renders everything selected (it still updates the lockfile). Use it after changing something the checksum does not see: a translation, a font, a nested CSS asset, a `sourceSize`, or after upgrading Open Assets.
+Upgrading from a v1 lock (Open Assets 0.5 and earlier) re-renders everything once, because v1 checksums did not cover strings or per-locale files. `render` prints `Upgraded assets.lock v1 → v2, commit it.`
+
+A lock that is not valid JSON (for example after a merge conflict) is an error, never silently discarded.
 
 ## Other behavior
 
-- A missing or invalid `assets.lock` is treated as empty: everything renders and a fresh file is written.
-- The lockfile is saved even when a render fails mid-run, so finished images stay cached.
-- Output actions (`xcode`, `copy-source`) are not cached; they run on every render.
+- The lock is saved after every finished unit and again at the end, written atomically, so a killed or failed run keeps its progress.
+- Filtered runs (`--locale`, `--template`, ...) update only their outputs. A full run also drops entries for outputs the project no longer produces.
+- `xcode` outputs are cached like images. `copy-source` runs every time (it is a file copy).
+- `.open-assets/cache.json` remembers file hashes by modification time and size, so unchanged files are not re-read. It is local: gitignore it (`init` does).
 - The dev server does not read or write the lockfile.
 
 ## Commit it
 
-Commit `assets.lock` so teammates and CI share the cache. Remember that condition 5 requires the output file to exist: a fresh checkout where `exports/` is gitignored will render everything once, then stay incremental. `outFile` destinations that you commit (like `public/favicon.png`) are skipped right away.
+Commit `assets.lock` so teammates and CI share it. `render` warns when git ignores it. With `exports/` gitignored, a fresh checkout renders once and is incremental from then on; `outFile` destinations you commit are skipped right away. Run [`open-assets check`](/reference/cli/check) in CI to fail pull requests that change inputs without re-rendering.
 
 ## Related
 
 - [`render` reference](/reference/cli/render)
+- [`check` reference](/reference/cli/check)
 - [CI with GitHub Actions](/ci/github-actions)

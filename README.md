@@ -308,6 +308,7 @@ open-assets render --template 01-hero           # Render a single template
 open-assets render --size iphone-6.9            # Use a named export size
 open-assets render --width 1320 --height 2868   # Custom size
 open-assets render -o ./build                   # Custom output directory
+open-assets render --explain                    # Say why each output re-renders
 open-assets render --json                       # Output results as JSON (for CI)
 open-assets render --quiet                      # Suppress progress logs
 ```
@@ -328,9 +329,13 @@ Options:
 | `-o, --output <dir>` | `OPEN_ASSETS_OUTPUT` | `./exports` | Output directory |
 | `--config <path>` | `OPEN_ASSETS_CONFIG` | `assets.json` | Path to config file |
 | `--render-timeout <ms>` | `OPEN_ASSETS_RENDER_TIMEOUT` | `30000` | Puppeteer render timeout in ms |
+| `--explain` | - | - | Print why each output is re-rendered (which file or string changed) |
 | `--json` | - | - | Output results as JSON (for CI/scripting) |
 | `-q, --quiet` | `OPEN_ASSETS_QUIET` | `false` | Suppress progress logs |
 | - | `OPEN_ASSETS_CONCURRENCY` | `auto` | Templates rendered at once (see Concurrency) |
+| - | `OPEN_ASSETS_BROWSERS` | `1` | Chromium processes to render with (see Concurrency) |
+| - | `OPEN_ASSETS_REUSE_PAGES` | `-` | Set to 1 to swap locales in a loaded page instead of reloading it |
+| - | `OPEN_ASSETS_NO_DEDUPE` | `-` | Set to 1 to render every locale even when two would be identical |
 <!-- /docs-sync -->
 
 **Concurrency**: each template is loaded once per locale and screenshotted at
@@ -340,6 +345,12 @@ capture path, so extra workers queue behind each other instead of adding speed.
 The default is `min(cores - 1, 2)`. Raise `OPEN_ASSETS_CONCURRENCY` only if your
 templates are unusually slow to lay out relative to how long they take to
 capture, and measure before keeping the change.
+
+Two opt-in settings go further: `OPEN_ASSETS_BROWSERS=3` runs several Chromium
+processes, and `OPEN_ASSETS_REUSE_PAGES=1` renders the next locale of a template
+in the already-loaded page instead of reloading it (leave it off if template
+scripts do one-time work at load). On a 36-locale × 10-template benchmark
+(`node scripts/bench-render.mjs`) a cold render went from 64 s to 46 s with both.
 
 **Selective export**: flags compose naturally:
 ```bash
@@ -415,6 +426,31 @@ Options:
 <!-- /docs-sync -->
 
 Returns exit code 1 if any errors are found, useful in CI pipelines.
+
+### `open-assets check [dir]`
+
+Fail if any asset is out of date with `assets.lock`, without rendering. Recomputes every render key from the inputs and compares it with the lock, so it needs no browser and takes seconds. This is what the shared drift workflow runs in CI (see [CI/CD with GitHub Actions](#cicd-with-github-actions)).
+
+```bash
+open-assets check                    # exit 0 when every output matches the lock
+open-assets check --require-outputs  # also fail on missing output files (committed exports)
+open-assets check --json             # machine-readable problems list
+```
+
+Options:
+
+<!-- docs-sync:cli:check -->
+| Flag | Env Var | Default | Description |
+|------|---------|---------|-------------|
+| `--collection <id>` | - | - | Check only the collection with this ID |
+| `--tag <tag>` | - | - | Check only collections with this tag |
+| `--require-outputs` | - | - | Also fail when an output file is missing (for committed exports) |
+| `-o, --output <dir>` | `OPEN_ASSETS_OUTPUT` | `./exports` | Output directory used by render |
+| `--config <path>` | `OPEN_ASSETS_CONFIG` | `assets.json` | Path to config file |
+| `--json` | - | - | Output results as JSON |
+<!-- /docs-sync -->
+
+Exits 1 when an input changed without a re-render, an output is not in the lock, an output file differs from the hash in the lock, or the lock was written by an older or newer Open Assets. Missing output files are fine unless `--require-outputs` is set, since `exports/` is usually gitignored.
 
 ### `open-assets add <collection|template|size> [dir]`
 
@@ -559,6 +595,8 @@ All collections follow the same structure. No `type` field needed.
 | `export[].outFile` | string | Optional output path for this size, relative to the project directory (use .png or .jpg; other extensions get PNG bytes) |
 | `export[].type` | string | Output action type (`xcode`, `copy-source`). Entries with `type` are post-render actions, not sizes |
 | `customExport` | object | Optional `{ defaultWidth, defaultHeight }` for custom size UI |
+| `inputs` | array | Extra files that change a render (paths with `{locale}` and `{template}` placeholders), for files a script loads that the cache cannot see |
+| `dedupeLocales` | boolean | Default `true`: locales that resolve to the same strings and files render once and are copied. Set `false` if template scripts read the exact locale |
 
 ### Output Types
 
@@ -685,24 +723,60 @@ Export entries with a `type` field are post-render actions. They run after a col
 
 ## Incremental Builds with assets.lock
 
-The `render` command maintains a `assets.lock` file that stores SHA256 checksums of each source HTML/SVG file. On subsequent renders, unchanged assets are skipped automatically:
+`render` writes `assets.lock`, which records a render key for every output: a hash of everything that can change its pixels. On the next run, outputs whose key matches and whose file on disk is the one recorded are skipped. Nothing changed means no browser is launched at all.
 
 ```
 $ open-assets render
-  Rendering 03-new-screen (1 size)...
+  Rendering 01-hero [de] (2 sizes)...
 
-Done. 1 asset(s) rendered, 1 skipped (unchanged) in 1.2s.
+Done. 2 asset(s) rendered, 718 skipped (unchanged) in 1.5s.
 ```
 
-Use `--force` to re-render everything regardless of the cache.
+**What the key covers**:
 
-**What the cache sees**: each template's checksum covers the template file plus local files it references directly with a relative `src`, `href` or `url()` (so editing a linked `dist/styles.css` re-renders every template that links it). It does not see files referenced from inside those files (images in a stylesheet's `url()`), root-relative (`/...`) or remote URLs, paths set by script, or `localizations.json`. Use `--force` after changing any of those.
+- the template and every local file it pulls in, followed to any depth (stylesheets, `@import`, fonts and images in CSS `url()`, nested SVG);
+- the localized strings the template actually uses, after fallback, in that locale only. Editing one German headline re-renders only the German images of templates that use that key;
+- per-locale files: a reference to the source-language capture (for example `public/screenshots/en/01.png`) also tracks `public/screenshots/<locale>/01.png`, matching the `data-locale-img` swap. Declare anything else in the collection's `inputs`;
+- the export size, format, `background` and `sourceSize`;
+- the renderer version, which only changes when an Open Assets release changes pixels.
 
-Commit `assets.lock` to your repository so teammates and CI benefit from the cache.
+**Identical locales render once**: locales that resolve to the same strings and files (en-GB and en-AU falling back to en, say) share a key, so one render is copied to the others. Set `"dedupeLocales": false` on a collection to turn this off.
+
+**See why something re-renders**: `open-assets render --explain` prints the reason for each output, such as `strings[de].hero_title changed` or `assets/fonts/Inter.woff2 changed`.
+
+**Versioned**: the lock records `lockfileVersion`, `renderer` and the `tool` version that wrote it. An older lock is upgraded on the next `render` (commit the result). A lock written by a newer Open Assets is refused with a message to upgrade, and never overwritten.
+
+**Commit it**. The lock is deterministic (sorted, no timestamps), so its diff shows exactly what changed. `.open-assets/` holds a local file-stat cache and should be gitignored (`init` does this).
 
 ## CI/CD with GitHub Actions
 
-Automatically export screenshots on push:
+**Fail PRs that forget to re-render**: the shared drift workflow runs `open-assets check`, which recomputes every key and fails when an input changed without a re-render, an output was edited by hand, or the lock is from an older or newer Open Assets. It only hashes files, so it needs no Chromium and takes seconds.
+
+```yaml
+# .github/workflows/assets-drift.yml
+name: Assets drift
+on:
+  pull_request:
+    paths: ["assets/**", "**/assets.json", "**/assets.lock", "**/localizations.json"]
+jobs:
+  drift:
+    uses: Parra-Inc/open-assets/.github/workflows/drift.yml@v1
+    with:
+      working-directory: assets   # where assets.json lives
+```
+
+A failure names each stale output and why:
+
+```
+✗ 2 output(s) are out of date with assets.lock
+  exports/screenshots/de/iphone-6.9/01-hero.png   strings[de].hero_title changed
+  exports/screenshots/de/iphone-6.7/01-hero.png   strings[de].hero_title changed
+Run `npx open-assets render` and commit assets.lock.
+```
+
+Inputs: `version` (default `latest`), and `require-outputs: true` if you commit your exports and want missing files to fail too.
+
+**Export screenshots on push**:
 
 ```yaml
 name: Export Marketing Assets

@@ -1,0 +1,65 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          package-manager-cache: false
+      # Ubuntu 23.10+ blocks the unprivileged user namespaces Chromium's
+      # sandbox needs, so Chrome aborts (signal 6) without this.
+      - run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+      - run: npm install --no-audit --no-fund
+      - run: npm test
+      - run: node scripts/docs-sync.mjs --check
+
+  # The shared drift job, run from this checkout against a committed fixture.
+  drift-clean:
+    uses: ./.github/workflows/drift.yml
+    with:
+      working-directory: test/drift-fixture
+      cli: bin/open-assets.mjs
+
+  # The same check must fail once an input drifts from the lock.
+  drift-detects-stale:
+    runs-on: ubuntu-latest
+    env:
+      PUPPETEER_SKIP_DOWNLOAD: "1"
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          package-manager-cache: false
+      - run: npm install --ignore-scripts --no-audit --no-fund
+      - name: Edit a French string without re-rendering
+        working-directory: test/drift-fixture
+        run: sed -i 's/Suivez vos plantes/Suivez toutes vos plantes/' localizations.json
+      - name: check must fail and name the string
+        working-directory: test/drift-fixture
+        run: |
+          set +e
+          out=$(node "$GITHUB_WORKSPACE/bin/open-assets.mjs" check . 2>&1)
+          code=$?
+          echo "$out"
+          [ "$code" -eq 1 ] || { echo "expected exit 1, got $code"; exit 1; }
+          echo "$out" | grep -q 'strings\[fr\]\.title changed' || { echo "missing explanation"; exit 1; }
+
+  actionlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: docker://rhysd/actionlint:1.7.7
+        with:
+          args: -color

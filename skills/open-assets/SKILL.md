@@ -223,7 +223,7 @@ open-assets render --collection ui-icons
 open-assets render --force
 ```
 
-Rule of thumb: plain `render` is the default; it only re-renders what changed. Add `--template <name>` or `--collection <id>` to scope further. Reserve `--force` for when the cache must be bypassed: changed shared CSS, changed images in `publicDir`, or a rare global rebuild.
+Rule of thumb: plain `render` is the default; it only re-renders what changed. Add `--template <name>` or `--collection <id>` to scope further. The cache sees shared CSS, nested fonts and images, per-locale captures and localized strings, so `--force` is rarely needed: reserve it for remote assets or a deliberate global rebuild. Run `open-assets render --explain` to see why each output re-renders.
 
 ### add commands
 
@@ -356,9 +356,13 @@ Alternatively, add a new object to the `collections` array in `assets.json` manu
 
 ## Incremental Builds (assets.lock)
 
-The `render` command maintains a `assets.lock` file with SHA256 checksums of source files. On subsequent renders, unchanged assets are skipped automatically. Use `--force` to re-render everything.
+`render` records a render key per output in `assets.lock`: the template and everything it pulls in (CSS, `@import`, fonts, images, at any depth), the localized strings it uses in that locale, per-locale captures (a reference to `.../en/x.png` also tracks `.../<locale>/x.png`), the export settings and the renderer version. Unchanged outputs are skipped; nothing changed means no browser launch. Locales that resolve to identical strings and files render once and are copied.
 
-Note: only source HTML/SVG files are checksummed. Changes to referenced assets (images in publicDir, compiled CSS) will not trigger re-renders — use `--force` when those change.
+- `open-assets render --explain` says why each output re-renders.
+- `open-assets check` fails when the lock is stale, without rendering. Use it in CI via the shared workflow `Parra-Inc/open-assets/.github/workflows/drift.yml@v1`.
+- Files a script loads outside the per-locale convention go in the collection's `inputs` (with `{locale}` and `{template}`), so the cache can see them.
+- The lock is versioned: an older one is upgraded on the next render (commit it); one from a newer Open Assets is refused.
+- `.open-assets/` is a local stat cache: gitignore it.
 
 ## Localization (i18n)
 

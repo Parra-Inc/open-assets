@@ -137,6 +137,7 @@ describe("renderScreenshot", () => {
     try {
       await renderScreenshot(dir, "test.html", 300, 400, 600, 800);
       expect(mockPage.screenshot).toHaveBeenCalledWith({
+        optimizeForSpeed: true,
         type: "png",
         clip: { x: 0, y: 0, width: 300, height: 400 },
         omitBackground: true,
@@ -151,6 +152,7 @@ describe("renderScreenshot", () => {
     try {
       await renderScreenshot(dir, "test.html", 300, 400, 600, 800, { background: "#fff" });
       expect(mockPage.screenshot).toHaveBeenCalledWith({
+        optimizeForSpeed: true,
         type: "png",
         clip: { x: 0, y: 0, width: 300, height: 400 },
       });
@@ -189,11 +191,13 @@ describe("renderVariants", () => {
 
       // Each variant gets its own clip
       expect(mockPage.screenshot).toHaveBeenCalledWith({
+        optimizeForSpeed: true,
         type: "png",
         clip: { x: 0, y: 0, width: 1024, height: 1024 },
         omitBackground: true,
       });
       expect(mockPage.screenshot).toHaveBeenCalledWith({
+        optimizeForSpeed: true,
         type: "png",
         clip: { x: 0, y: 0, width: 512, height: 512 },
         omitBackground: true,
@@ -214,6 +218,7 @@ describe("renderVariants", () => {
         { width: 512, height: 512, format: "jpeg", quality: 80 },
       ]);
       expect(mockPage.screenshot).toHaveBeenCalledWith({
+        optimizeForSpeed: true,
         type: "jpeg",
         clip: { x: 0, y: 0, width: 512, height: 512 },
         quality: 80,

@@ -5,6 +5,15 @@ description: "User-facing changes in each Open Assets release, from 0.2.0 to 0.5
 
 Releases are tagged in the [GitHub repo](https://github.com/Parra-Inc/open-assets/tags) and published to npm as `@open-assets/open-assets`.
 
+## Unreleased
+
+- **Render keys in `assets.lock`.** Each output's key covers the template and everything it pulls in (to any depth), the localized strings it uses in its locale, per-locale captures, export settings and the renderer version. String edits, new captures, nested CSS assets, `background` and `sourceSize` changes are now detected; before, they needed `--force`. Editing one German string re-renders only those images.
+- **Lockfile v2**: deterministic (no timestamps), versioned (`lockfileVersion`, `renderer`, `tool`), saved after every unit. v1 locks upgrade on the next render, which re-renders once. Locks from newer releases are refused.
+- **`open-assets check`** and a shared GitHub workflow (`Parra-Inc/open-assets/.github/workflows/drift.yml@v1`) fail PRs whose lock is stale, without a browser.
+- `render --explain` says why each output re-renders. Identical locales render once and are copied. Xcode icons are cached.
+- PNG capture is faster (`optimizeForSpeed`, pixel-identical). Opt-in `OPEN_ASSETS_BROWSERS` and `OPEN_ASSETS_REUSE_PAGES`.
+- `--json` no longer mixes progress logs into stdout.
+
 ## 0.5.1
 
 *2026-07-25*

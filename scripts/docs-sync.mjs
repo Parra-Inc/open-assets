@@ -30,6 +30,7 @@ export const COMMANDS = [
   ["render"],
   ["list"],
   ["validate"],
+  ["check"],
   ["init"],
   ["add", "collection"],
   ["add", "template"],
@@ -41,6 +42,9 @@ export const COMMANDS = [
 const ENV_ONLY = {
   render: [
     { flags: null, env: "OPEN_ASSETS_CONCURRENCY", default: "auto", description: "Templates rendered at once (see Concurrency)" },
+    { flags: null, env: "OPEN_ASSETS_BROWSERS", default: "1", description: "Chromium processes to render with (see Concurrency)" },
+    { flags: null, env: "OPEN_ASSETS_REUSE_PAGES", default: "-", description: "Set to 1 to swap locales in a loaded page instead of reloading it" },
+    { flags: null, env: "OPEN_ASSETS_NO_DEDUPE", default: "-", description: "Set to 1 to render every locale even when two would be identical" },
   ],
 };
 

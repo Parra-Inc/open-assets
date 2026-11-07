@@ -1,4 +1,5 @@
 import { jest } from "@jest/globals";
+import { emptyLock } from "../lib/cache.mjs";
 import { renderAssets } from "../lib/render.mjs";
 import { createTmpProject } from "./helpers/tmp-project.mjs";
 import { templateHtml } from "./helpers/fixtures.mjs";
@@ -7,16 +8,29 @@ import { join } from "path";
 
 const FAKE_PNG = Buffer.from("fake-png-data");
 
+// In-memory assets.lock so tests can inspect what a run recorded.
+function memoryLock(initial = null) {
+  const store = { lock: initial };
+  return {
+    store,
+    loadLock: jest.fn((dir, version) =>
+      store.lock ? { lock: structuredClone(store.lock), from: null } : { lock: emptyLock(version), from: null }
+    ),
+    saveLock: jest.fn((dir, lock) => {
+      store.lock = structuredClone(lock);
+    }),
+  };
+}
+
+
 function createMockDeps(overrides = {}) {
   return {
     renderVariants: jest.fn(async (projDir, src, sw, sh, variants) => variants.map(() => FAKE_PNG)),
     runXcodeOutput: jest.fn(async (projDir, col, output) => join(projDir, output.path, "AppIcon.png")),
     closeBrowser: jest.fn(async () => {}),
-    readLockfile: jest.fn(() => ({ version: 1, assets: {} })),
-    writeLockfile: jest.fn(),
-    computeChecksum: jest.fn(() => "sha256:abc123"),
-    isUpToDate: jest.fn(() => false),
-    recordExport: jest.fn(),
+    ...memoryLock(),
+    persistStatCache: false,
+    toolVersion: "0.0.0-test",
     ...overrides,
   };
 }
@@ -200,11 +214,11 @@ describe("renderAssets with localizations", () => {
     const outputDir = join(tmpDir, "exports");
     await renderAssets(tmpDir, localizedManifest, { output: outputDir, force: true }, deps);
 
-    // Each locale should have its own asset key
-    const assetKeys = deps.recordExport.mock.calls.map((call) => call[1]);
-    expect(assetKeys).toContain("screenshots/en/hero");
-    expect(assetKeys).toContain("screenshots/ar/hero");
-    expect(assetKeys).toContain("screenshots/ja/hero");
+    // Each locale gets its own lock entry
+    const locales = Object.values(deps.store.lock.outputs).map((o) => o.locale);
+    expect(locales).toContain("en");
+    expect(locales).toContain("ar");
+    expect(locales).toContain("ja");
   });
 
   test("renders multi-template multi-size with locales", async () => {
