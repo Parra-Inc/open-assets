@@ -186,8 +186,8 @@
       {
         "flags": null,
         "env": "OPEN_ASSETS_REUSE_PAGES",
-        "default": "-",
-        "description": "Set to 1 to swap locales in a loaded page instead of reloading it"
+        "default": "auto",
+        "description": "0 always reloads the page per locale, 1 always reuses it; default reuses it for templates detected as safe"
       },
       {
         "flags": null,

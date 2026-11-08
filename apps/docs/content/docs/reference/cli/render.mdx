@@ -107,12 +107,9 @@ Work is split into units of one (template, locale). A unit loads its page once a
 
 The pool size is the smallest of: the number of units, CPU cores minus one, and 2. At least 1. Chromium serializes screenshot capture, so a second worker helps (it lays out a page while the first captures) and more workers mostly queue. `OPEN_ASSETS_CONCURRENCY` (a positive integer) overrides this, still capped at the number of units. Raise it only if your templates are slow to lay out compared with how long they take to capture, and measure.
 
-Two opt-in settings go further, both checked against fresh renders pixel for pixel in the test suite:
+Localized templates reuse their loaded page for the next locale when that is safe: templates with no scripts, or only a `lang` MutationObserver. Templates with external scripts or work that runs once at load reload for each locale. `OPEN_ASSETS_REUSE_PAGES=0` always reloads and `=1` always reuses.
 
-- `OPEN_ASSETS_BROWSERS=3` runs three Chromium processes, each with its own capture pipeline, and scales the pool to match.
-- `OPEN_ASSETS_REUSE_PAGES=1` renders the next locale of a template in the already-loaded page instead of navigating again. Leave it off if a template's scripts do one-time work at load, such as fitting text to a box.
-
-On the 36-locale × 10-template × 2-size benchmark (`node scripts/bench-render.mjs`, one run each on a 10-core Mac) a cold render took 64 s by default, 59 s with three browsers and 46 s with both settings. Measure on your own templates before keeping them.
+On the 36-locale × 10-template × 2-size benchmark (`node scripts/bench-render.mjs`, median of 3 on a 10-core Mac), page reuse took a cold render from 55 s to 43 s. `OPEN_ASSETS_BROWSERS` runs several Chromium processes, but took 44 to 48 s there, so the default stays at one.
 
 If a unit fails, no new units start, finished files are recorded in the lockfile, Chromium is closed and the error is thrown (non-zero exit with a stack trace). Logs are printed in a stable order regardless of which worker finished first.
 
