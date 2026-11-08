@@ -11,6 +11,7 @@ import {
   collectDeps,
   emptyLock,
   extractKeys,
+  isReusableTemplate,
   loadLock,
   localeAssets,
   localeClass,
@@ -298,5 +299,21 @@ describe("serializeLock", () => {
     } finally {
       cleanup();
     }
+  });
+});
+
+describe("isReusableTemplate", () => {
+  const observer = `<script>
+    // swap captures
+    new MutationObserver(function () { var l = document.documentElement.lang; }).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+  </script>`;
+  test("no scripts, or only a lang observer, is reusable", () => {
+    expect(isReusableTemplate(["<h1>{{a}}</h1>"])).toBe(true);
+    expect(isReusableTemplate([observer])).toBe(true);
+  });
+  test("external scripts and load-time work are not", () => {
+    expect(isReusableTemplate(['<script src="tailwind.js"></script>'])).toBe(false);
+    expect(isReusableTemplate(["<script>fitText();</script>"])).toBe(false);
+    expect(isReusableTemplate([observer.replace("<script>", "<script>fitText();")])).toBe(false);
   });
 });

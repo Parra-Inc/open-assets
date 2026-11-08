@@ -338,7 +338,7 @@ Options:
 | `-q, --quiet` | `OPEN_ASSETS_QUIET` | `false` | Suppress progress logs |
 | - | `OPEN_ASSETS_CONCURRENCY` | `auto` | Templates rendered at once (see Concurrency) |
 | - | `OPEN_ASSETS_BROWSERS` | `1` | Chromium processes to render with (see Concurrency) |
-| - | `OPEN_ASSETS_REUSE_PAGES` | `-` | Set to 1 to swap locales in a loaded page instead of reloading it |
+| - | `OPEN_ASSETS_REUSE_PAGES` | `auto` | 0 always reloads the page per locale, 1 always reuses it; default reuses it for templates detected as safe |
 | - | `OPEN_ASSETS_NO_DEDUPE` | `-` | Set to 1 to render every locale even when two would be identical |
 <!-- /docs-sync -->
 
@@ -350,11 +350,12 @@ The default is `min(cores - 1, 2)`. Raise `OPEN_ASSETS_CONCURRENCY` only if your
 templates are unusually slow to lay out relative to how long they take to
 capture, and measure before keeping the change.
 
-Two opt-in settings go further: `OPEN_ASSETS_BROWSERS=3` runs several Chromium
-processes, and `OPEN_ASSETS_REUSE_PAGES=1` renders the next locale of a template
-in the already-loaded page instead of reloading it (leave it off if template
-scripts do one-time work at load). On a 36-locale × 10-template benchmark
-(`node scripts/bench-render.mjs`) a cold render went from 64 s to 46 s with both.
+Localized templates reuse their loaded page for the next locale when that is
+safe: templates with no scripts, or only a `lang` MutationObserver. Others reload
+per locale. Set `OPEN_ASSETS_REUSE_PAGES=0` to always reload or `=1` to always
+reuse. On a 36-locale × 10-template benchmark (`node scripts/bench-render.mjs`,
+median of 3) this took a cold render from 55 s to 43 s. `OPEN_ASSETS_BROWSERS`
+runs several Chromium processes, but did not help on that benchmark (44 to 48 s).
 
 **Selective export**: flags compose naturally:
 ```bash
