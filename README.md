@@ -308,6 +308,7 @@ open-assets render --template 01-hero           # Render a single template
 open-assets render --size iphone-6.9            # Use a named export size
 open-assets render --width 1320 --height 2868   # Custom size
 open-assets render -o ./build                   # Custom output directory
+open-assets render --fast                       # Quicker captures, larger PNGs
 open-assets render --explain                    # Say why each output re-renders
 open-assets render --dry-run                    # Show what would render, without rendering
 open-assets render --accept-existing            # Adopt the lock: record current files, render nothing
@@ -331,13 +332,13 @@ Options:
 | `-o, --output <dir>` | `OPEN_ASSETS_OUTPUT` | `./exports` | Output directory |
 | `--config <path>` | `OPEN_ASSETS_CONFIG` | `assets.json` | Path to config file |
 | `--render-timeout <ms>` | `OPEN_ASSETS_RENDER_TIMEOUT` | `30000` | Puppeteer render timeout in ms |
+| `--fast` | - | - | Faster PNG compression: about 2.5x quicker captures, about 50% larger files, identical pixels |
 | `--explain` | - | - | Print why each output is re-rendered (which file or string changed) |
 | `--dry-run` | - | - | Show what would render, copy or be kept, without rendering or writing anything |
 | `--accept-existing` | - | - | Record the output files on disk as current without rendering (adopt the lockfile without changing images) |
 | `--json` | - | - | Output results as JSON (for CI/scripting) |
 | `-q, --quiet` | `OPEN_ASSETS_QUIET` | `false` | Suppress progress logs |
 | - | `OPEN_ASSETS_CONCURRENCY` | `auto` | Templates rendered at once (see Concurrency) |
-| - | `OPEN_ASSETS_BROWSERS` | `1` | Chromium processes to render with (see Concurrency) |
 | - | `OPEN_ASSETS_REUSE_PAGES` | `auto` | 0 always reloads the page per locale, 1 always reuses it; default reuses it for templates detected as safe |
 | - | `OPEN_ASSETS_NO_DEDUPE` | `-` | Set to 1 to render every locale even when two would be identical |
 <!-- /docs-sync -->
@@ -354,8 +355,9 @@ Localized templates reuse their loaded page for the next locale when that is
 safe: templates with no scripts, or only a `lang` MutationObserver. Others reload
 per locale. Set `OPEN_ASSETS_REUSE_PAGES=0` to always reload or `=1` to always
 reuse. On a 36-locale × 10-template benchmark (`node scripts/bench-render.mjs`,
-median of 3) this took a cold render from 55 s to 43 s. `OPEN_ASSETS_BROWSERS`
-runs several Chromium processes, but did not help on that benchmark (44 to 48 s).
+median of 3) this took a cold render from 55 s to 43 s.
+
+**Fast mode**: `--fast` uses Chrome's faster PNG compression. Captures take about 2.5x less time and files are about 50% larger; pixels are identical. On that benchmark a cold render took 42 s with `--fast` and 104 s without. Use it while iterating, and render without it for files you commit or serve on the web. Re-rendering without `--fast` replaces a PNG with identical pixels only when the new file is at least 10% smaller, so `--fast` files shrink but small encoder differences do not rewrite committed images.
 
 **Selective export**: flags compose naturally:
 ```bash

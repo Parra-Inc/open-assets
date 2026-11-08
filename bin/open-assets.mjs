@@ -97,6 +97,7 @@ program
   .option("-o, --output <dir>", "Output directory (env: OPEN_ASSETS_OUTPUT)", env("OPEN_ASSETS_OUTPUT", "./exports"))
   .option("--config <path>", "Path to config file (env: OPEN_ASSETS_CONFIG)", env("OPEN_ASSETS_CONFIG", "assets.json"))
   .option("--render-timeout <ms>", "Puppeteer render timeout in ms (env: OPEN_ASSETS_RENDER_TIMEOUT)", env("OPEN_ASSETS_RENDER_TIMEOUT", "30000"))
+  .option("--fast", "Faster PNG compression: about 2.5x quicker captures, about 50% larger files, identical pixels")
   .option("--explain", "Print why each output is re-rendered (which file or string changed)")
   .option("--dry-run", "Show what would render, copy or be kept, without rendering or writing anything")
   .option("--accept-existing", "Record the output files on disk as current without rendering (adopt the lockfile without changing images)")

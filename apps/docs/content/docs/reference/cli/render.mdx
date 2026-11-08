@@ -109,9 +109,13 @@ The pool size is the smallest of: the number of units, CPU cores minus one, and 
 
 Localized templates reuse their loaded page for the next locale when that is safe: templates with no scripts, or only a `lang` MutationObserver. Templates with external scripts or work that runs once at load reload for each locale. `OPEN_ASSETS_REUSE_PAGES=0` always reloads and `=1` always reuses.
 
-On the 36-locale × 10-template × 2-size benchmark (`node scripts/bench-render.mjs`, median of 3 on a 10-core Mac), page reuse took a cold render from 55 s to 43 s. `OPEN_ASSETS_BROWSERS` runs several Chromium processes, but took 44 to 48 s there, so the default stays at one.
+On the 36-locale × 10-template × 2-size benchmark (`node scripts/bench-render.mjs`, median of 3 on a 10-core Mac), page reuse took a cold render from 55 s to 43 s.
 
 If a unit fails, no new units start, finished files are recorded in the lockfile, Chromium is closed and the error is thrown (non-zero exit with a stack trace). Logs are printed in a stable order regardless of which worker finished first.
+
+## --fast
+
+`--fast` uses Chrome's faster PNG compression. Captures take about 2.5x less time and files are about 50% larger; pixels are identical. On that benchmark a cold render took 42 s with `--fast` and 104 s without. Use it while iterating, and render without it for files you commit or serve on the web. Re-rendering without `--fast` replaces a PNG with identical pixels only when the new file is at least 10% smaller, so `--fast` files shrink but small encoder differences do not rewrite committed images.
 
 ## Output format
 

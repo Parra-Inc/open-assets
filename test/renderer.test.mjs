@@ -137,7 +137,6 @@ describe("renderScreenshot", () => {
     try {
       await renderScreenshot(dir, "test.html", 300, 400, 600, 800);
       expect(mockPage.screenshot).toHaveBeenCalledWith({
-        optimizeForSpeed: true,
         type: "png",
         clip: { x: 0, y: 0, width: 300, height: 400 },
         omitBackground: true,
@@ -152,7 +151,6 @@ describe("renderScreenshot", () => {
     try {
       await renderScreenshot(dir, "test.html", 300, 400, 600, 800, { background: "#fff" });
       expect(mockPage.screenshot).toHaveBeenCalledWith({
-        optimizeForSpeed: true,
         type: "png",
         clip: { x: 0, y: 0, width: 300, height: 400 },
       });
@@ -191,13 +189,11 @@ describe("renderVariants", () => {
 
       // Each variant gets its own clip
       expect(mockPage.screenshot).toHaveBeenCalledWith({
-        optimizeForSpeed: true,
         type: "png",
         clip: { x: 0, y: 0, width: 1024, height: 1024 },
         omitBackground: true,
       });
       expect(mockPage.screenshot).toHaveBeenCalledWith({
-        optimizeForSpeed: true,
         type: "png",
         clip: { x: 0, y: 0, width: 512, height: 512 },
         omitBackground: true,
@@ -218,7 +214,6 @@ describe("renderVariants", () => {
         { width: 512, height: 512, format: "jpeg", quality: 80 },
       ]);
       expect(mockPage.screenshot).toHaveBeenCalledWith({
-        optimizeForSpeed: true,
         type: "jpeg",
         clip: { x: 0, y: 0, width: 512, height: 512 },
         quality: 80,
@@ -250,6 +245,20 @@ describe("closeBrowser", () => {
       await closeBrowser();
       await renderScreenshot(dir, "test.html", 512, 512, 1024, 1024);
       expect(mockBrowser).not.toBe(firstBrowser);
+    } finally {
+      cleanup();
+    }
+  });
+});
+
+describe("--fast", () => {
+  test("only asks Chromium for fast PNG encoding when set", async () => {
+    const { dir, cleanup } = createTmpProject(null, { "t.html": templateHtml });
+    try {
+      await renderScreenshot(dir, "t.html", 10, 10, 10, 10);
+      expect(mockPage.screenshot.mock.lastCall[0].optimizeForSpeed).toBeUndefined();
+      await renderScreenshot(dir, "t.html", 10, 10, 10, 10, { fast: true });
+      expect(mockPage.screenshot.mock.lastCall[0].optimizeForSpeed).toBe(true);
     } finally {
       cleanup();
     }

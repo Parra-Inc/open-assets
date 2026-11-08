@@ -13,7 +13,7 @@
  * Usage:
  *   node scripts/bench-render.mjs [--locales 36] [--templates 10] [--runs 1]
  *
- * Renderer env vars (OPEN_ASSETS_BROWSERS, OPEN_ASSETS_CONCURRENCY,
+ * Renderer env vars (OPEN_ASSETS_CONCURRENCY,
  * OPEN_ASSETS_REUSE_PAGES) pass through, so compare settings by running the
  * script once per setting.
  */
@@ -107,7 +107,7 @@ function buildProject() {
 
 function time(dir) {
   const start = process.hrtime.bigint();
-  const out = execFileSync("node", [CLI, "render", ".", "--json"], { cwd: dir, env: process.env, maxBuffer: 64 << 20 });
+  const out = execFileSync("node", [CLI, "render", ".", "--json", ...(args.includes("--fast") ? ["--fast"] : [])], { cwd: dir, env: process.env, maxBuffer: 64 << 20 });
   const ms = Number(process.hrtime.bigint() - start) / 1e6;
   const r = JSON.parse(out.toString());
   const rendered = r.assets.filter((a) => a.width && !a.copiedFrom).length;
@@ -133,7 +133,7 @@ for (let run = 0; run < RUNS; run++) {
   }
 }
 
-const env = ["OPEN_ASSETS_BROWSERS", "OPEN_ASSETS_CONCURRENCY", "OPEN_ASSETS_REUSE_PAGES"]
+const env = ["OPEN_ASSETS_CONCURRENCY", "OPEN_ASSETS_REUSE_PAGES"]
   .filter((k) => process.env[k])
   .map((k) => `${k}=${process.env[k]}`)
   .join(" ");

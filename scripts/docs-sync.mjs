@@ -42,7 +42,6 @@ export const COMMANDS = [
 const ENV_ONLY = {
   render: [
     { flags: null, env: "OPEN_ASSETS_CONCURRENCY", default: "auto", description: "Templates rendered at once (see Concurrency)" },
-    { flags: null, env: "OPEN_ASSETS_BROWSERS", default: "1", description: "Chromium processes to render with (see Concurrency)" },
     { flags: null, env: "OPEN_ASSETS_REUSE_PAGES", default: "auto", description: "0 always reloads the page per locale, 1 always reuses it; default reuses it for templates detected as safe" },
     { flags: null, env: "OPEN_ASSETS_NO_DEDUPE", default: "-", description: "Set to 1 to render every locale even when two would be identical" },
   ],

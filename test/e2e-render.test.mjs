@@ -93,7 +93,7 @@ run("renderer speedups match fresh renders (real Chromium)", () => {
       "img/ar/badge.svg": badge("#a00"),
       "img/de/badge.svg": badge("#00a"),
     }));
-    for (const k of ["OPEN_ASSETS_REUSE_PAGES", "OPEN_ASSETS_BROWSERS"]) saved[k] = process.env[k];
+    for (const k of ["OPEN_ASSETS_REUSE_PAGES"]) saved[k] = process.env[k];
   });
 
   afterEach(async () => {
@@ -125,18 +125,6 @@ run("renderer speedups match fresh renders (real Chromium)", () => {
     }
     // Sanity: locales really differ, so the comparison can fail
     expect(await samePixels(fresh[0][0], fresh[1][0])).toBe(false);
-  }, 120000);
-
-  test("several browser processes produce the same pixels", async () => {
-    const one = await renderAll(dir);
-    await closeBrowser();
-    process.env.OPEN_ASSETS_BROWSERS = "2";
-    const two = await Promise.all(
-      LOCALES.map((localization) => renderVariants(dir, "t.html", 200, 300, SIZES, { localization }))
-    );
-    for (let l = 0; l < LOCALES.length; l++) {
-      for (let s = 0; s < SIZES.length; s++) expect(await samePixels(one[l][s], two[l][s])).toBe(true);
-    }
   }, 120000);
 
   test("optimizeForSpeed PNGs decode to the same pixels as default encoding", async () => {

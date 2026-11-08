@@ -130,7 +130,7 @@ describe("renderAssets", () => {
         { width: 512, height: 512, format: "png" },
         { width: 192, height: 192, format: "png" },
       ],
-      { reusable: true }
+      { reusable: true, fast: false }
     );
     // Screenshot templates render every display size from one navigation
     expect(deps.renderVariants).toHaveBeenCalledWith(
@@ -140,7 +140,7 @@ describe("renderAssets", () => {
         { width: 1290, height: 2796, format: "png" },
         { width: 1080, height: 1920, format: "png" },
       ],
-      { reusable: true }
+      { reusable: true, fast: false }
     );
   });
 
