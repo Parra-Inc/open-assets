@@ -1,7 +1,7 @@
 {
   "name": "open-assets",
   "displayName": "Open Assets",
-  "version": "0.6.5",
+  "version": "0.6.6",
   "description": "Generate and manage app marketing assets (screenshots, icons, logos) using HTML/Tailwind with open-assets",
   "author": {
     "name": "Parra Inc",
