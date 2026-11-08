@@ -128,7 +128,7 @@ Default output, one block per unit:
 Done. 4 asset(s) rendered, 2 copied (identical render), 1 skipped (unchanged) in 3.5s.
 ```
 
-`--quiet` hides all of it, and `--json` implies it. The Xcode output prints `Updated: <path>` whenever it renders, even with `--quiet`.
+`--quiet` hides all of it, and `--json` implies it. The Xcode output prints `Updated: <path>` to stderr whenever it renders, even with `--quiet`, and keeps the existing `AppIcon.png` when the pixels are identical.
 
 ### `--json`
 

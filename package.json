@@ -9,7 +9,8 @@
   "files": [
     "bin/",
     "lib/",
-    "public/",
+    "public/viewer.html",
+    "public/img/icon/",
     "skills/",
     "README.md",
     "LICENSE"

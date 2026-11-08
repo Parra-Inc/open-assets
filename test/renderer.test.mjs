@@ -1,6 +1,6 @@
 import { jest } from "@jest/globals";
 import { join } from "path";
-import { existsSync, readFileSync, mkdirSync, writeFileSync } from "fs";
+import { existsSync, readFileSync, mkdirSync, writeFileSync, utimesSync, statSync } from "fs";
 import { createTmpProject } from "./helpers/tmp-project.mjs";
 import { templateHtml } from "./helpers/fixtures.mjs";
 
@@ -257,6 +257,31 @@ describe("closeBrowser", () => {
 });
 
 describe("runXcodeOutput", () => {
+  test("keeps an AppIcon.png with identical pixels and logs to stderr, not stdout", async () => {
+    const { dir, cleanup } = createTmpProject(null, { "src/icon.html": templateHtml });
+    const log = jest.spyOn(console, "log").mockImplementation(() => {});
+    const err = jest.spyOn(console, "error").mockImplementation(() => {});
+    try {
+      const collection = {
+        id: "icon",
+        sourceSize: { width: 1024, height: 1024 },
+        templates: [{ src: "src/icon.html", name: "icon" }],
+      };
+      const outputConfig = { type: "xcode", path: "output/xcassets" };
+      const path = await runXcodeOutput(dir, collection, outputConfig);
+      const old = new Date(Date.now() - 60000);
+      utimesSync(path, old, old);
+      await runXcodeOutput(dir, collection, outputConfig);
+      expect(statSync(path).mtimeMs).toBe(old.getTime());
+      expect(log).not.toHaveBeenCalled();
+      expect(err).toHaveBeenCalledWith(expect.stringContaining("Updated:"));
+    } finally {
+      log.mockRestore();
+      err.mockRestore();
+      cleanup();
+    }
+  });
+
   test("renders at source size and writes AppIcon.png", async () => {
     const { dir, cleanup } = createTmpProject(null, { "src/icon.html": templateHtml });
     try {

@@ -1,9 +1,17 @@
 ---
 title: Changelog
-description: "User-facing changes in each Open Assets release, from 0.2.0 to 0.6.3: incremental lockfile v2, drift checks, localization, parallel renders, the plugin."
+description: "User-facing changes in each Open Assets release, from 0.2.0 to 0.6.4: incremental lockfile v2, drift checks, localization, parallel renders, the plugin."
 ---
 
 Releases are tagged in the [GitHub repo](https://github.com/Parra-Inc/open-assets/tags) and published to npm as `@open-assets/open-assets`.
+
+## 0.6.4
+
+*2026-11-08*
+
+- `render --json` stays valid when an Xcode icon renders: `Updated:` now goes to stderr.
+- Xcode icons keep the existing `AppIcon.png` when the pixels are identical.
+- The npm package drops the README example images, from 48 MB to well under 5 MB.
 
 ## 0.6.3
 
