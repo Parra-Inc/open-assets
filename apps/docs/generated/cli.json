@@ -142,6 +142,12 @@
         "default": "30000"
       },
       {
+        "flags": "--fast",
+        "description": "Faster PNG compression: about 2.5x quicker captures, about 50% larger files, identical pixels",
+        "env": null,
+        "default": null
+      },
+      {
         "flags": "--explain",
         "description": "Print why each output is re-rendered (which file or string changed)",
         "env": null,
@@ -176,12 +182,6 @@
         "env": "OPEN_ASSETS_CONCURRENCY",
         "default": "auto",
         "description": "Templates rendered at once (see Concurrency)"
-      },
-      {
-        "flags": null,
-        "env": "OPEN_ASSETS_BROWSERS",
-        "default": "1",
-        "description": "Chromium processes to render with (see Concurrency)"
       },
       {
         "flags": null,

@@ -1,14 +1,19 @@
 ---
 title: Changelog
-description: "User-facing changes in each Open Assets release, from 0.2.0 to 0.6.5: incremental lockfile v2, drift checks, localization, parallel renders, the plugin."
+description: "User-facing changes in each Open Assets release, from 0.2.0 to 0.6.6: incremental lockfile v2, drift checks, localization, parallel renders, the plugin."
 ---
 
 Releases are tagged in the [GitHub repo](https://github.com/Parra-Inc/open-assets/tags) and published to npm as `@open-assets/open-assets`.
 
-## Unreleased
+## 0.6.6
+
+*2026-11-08*
 
 - Localized templates that are safe to re-localize reuse their loaded page, about 22% faster on a cold render of the benchmark project.
 - Runs that render nothing no longer load Puppeteer.
+- **`--fast` is now opt-in.** A plain `render` uses smaller PNGs again, which is slower on images that need rendering (104 s vs 42 s on the benchmark's cold render). Pass `--fast` while iterating. Non-fast renders replace an identical PNG only when at least 10% smaller.
+- PNG comparison runs on worker threads.
+- Removed `OPEN_ASSETS_BROWSERS`: more browser processes were no faster.
 
 ## 0.6.5
 

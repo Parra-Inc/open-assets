@@ -4,6 +4,7 @@ import { deflateSync } from "zlib";
 import { renderAssets } from "../lib/render.mjs";
 import { v1SourceChecksum, v1ExportChecksum, loadLock, saveLock } from "../lib/cache.mjs";
 import { decodePng, samePngPixels } from "../lib/png.mjs";
+import { PngPool, keepExisting } from "../lib/png-pool.mjs";
 import { createSkipProject, skipManifest, skipDeps, renderedPaths, out } from "./helpers/skip-fixture.mjs";
 
 // ── PNG helpers ─────────────────────────────────────────────────────────────
@@ -284,5 +285,30 @@ describe("--accept-existing", () => {
     // A later plain render produces only the missing file
     const next = await renderAssets(dir, skipManifest, {}, skipDeps({ lock: null }, realLockStore(dir)));
     expect(renderedPaths(dir, next)).toEqual([out("fr", "small", "c")]);
+  });
+});
+
+describe("PNG size rule", () => {
+  const big = Buffer.alloc(1000), smaller = Buffer.alloc(950), small = Buffer.alloc(800);
+  test("identical pixels keep the file unless a normal render is 10% smaller", () => {
+    expect(keepExisting(big, smaller, true, false)).toBe(true);
+    expect(keepExisting(big, small, true, false)).toBe(false);
+    expect(keepExisting(big, small, true, true)).toBe(true);
+    expect(keepExisting(big, big, false, false)).toBe(false);
+  });
+});
+
+describe("PngPool", () => {
+  test("compares on worker threads", async () => {
+    const pool = new PngPool();
+    const px = gradient(17, 9);
+    const changed = Buffer.from(px);
+    changed[8] ^= 1;
+    const [same, diff] = await Promise.all([
+      pool.same(encodePng(17, 9, px, { level: 1 }), encodePng(17, 9, px, { level: 9, filter: 4 })),
+      pool.same(encodePng(17, 9, px), encodePng(17, 9, changed)),
+    ]);
+    await pool.close();
+    expect([same, diff]).toEqual([true, false]);
   });
 });
