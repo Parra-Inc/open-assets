@@ -1,4 +1,5 @@
 import * as path from "path";
+import * as cloudflare from "@pulumi/cloudflare";
 import * as pulumi from "@pulumi/pulumi";
 import {
   AgentDiscovery,
@@ -72,5 +73,27 @@ new AgentDiscovery({ zoneId, domain });
 // admin@ and mick@ forwarded with Email Routing. sending: false because
 // neither site sends mail, so no DKIM/DMARC sending records are published.
 new ProjectEmail(domain, { zoneId, domain, sending: false });
+
+// Search Console ownership TXT, added by hand in the dashboard on 2026-10-28
+// and adopted here so code owns it. Values match the live record exactly
+// (quoted content as the API stores it, ttl 3600, no comment) so the import
+// is a no-op; the fleet pattern uses ttl 1 plus a comment, but changing either
+// would be a live edit, not an adoption. The `import` option can be removed
+// after the first `pulumi up` records it in state. Preview shows the import
+// followed by an "update" adding content/allowOverwrite: the v5 provider's
+// import read leaves those inputs out of the preview state, and the content
+// is byte-identical to live, so the update writes the same value back.
+new cloudflare.Record(
+  `${domain}-google-site-verification`,
+  {
+    zoneId,
+    name: domain,
+    type: "TXT",
+    content:
+      '"google-site-verification=z6Xdp09-fomW8vSMGdgYfjE6hUlBP4VjwRGKnaSnJNk"',
+    ttl: 3600,
+  },
+  { import: `${zoneId}/991421374f0586fe309d217293171cf2` },
+);
 
 export const zoneIdOut = zoneId;
