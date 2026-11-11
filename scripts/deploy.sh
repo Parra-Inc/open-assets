@@ -669,15 +669,23 @@ if [ "$DO_MIGRATE" -eq 1 ]; then
     prisma)
       MIGRATE_URL="${HYPERDRIVE_ORIGIN:-${DATABASE_URL:-}}"
       [ -n "$MIGRATE_URL" ] || die "No DATABASE_URL or HYPERDRIVE_ORIGIN; cannot migrate. Pass --skip-migrate to deploy without it."
+      # Prisma resolves its schema and config from the working directory, so run
+      # it where they live. DATABASE_DIRECT_URL is set too: a prisma.config that
+      # prefers it could otherwise pick up a local value from the app's .env.
+      PRISMA_DIR="$ROOT"
+      if compgen -G "$APP/prisma/schema.prisma" >/dev/null 2>&1 \
+        || compgen -G "$APP/prisma/schema/*.prisma" >/dev/null 2>&1; then
+        PRISMA_DIR="$APP"
+      fi
       # `migrate status` exits non-zero when migrations are pending, which is
       # the normal case here, so it must not trip `set -e`.
-      PENDING=$(DATABASE_URL="$MIGRATE_URL" npx prisma migrate status 2>&1 || true)
+      PENDING=$(cd "$PRISMA_DIR" && DATABASE_URL="$MIGRATE_URL" DATABASE_DIRECT_URL="$MIGRATE_URL" npx prisma migrate status 2>&1 || true)
       echo "$PENDING" | sed 's/^/    /'
       if echo "$PENDING" | grep -q "Database schema is up to date"; then
         echo "  No pending migrations."
       else
         confirm "IRREVERSIBLE: apply the pending migration(s) to production?"
-        DATABASE_URL="$MIGRATE_URL" PRISMA_SCHEMA_DISABLE_ADVISORY_LOCK=1 npx prisma migrate deploy
+        (cd "$PRISMA_DIR" && DATABASE_URL="$MIGRATE_URL" DATABASE_DIRECT_URL="$MIGRATE_URL" PRISMA_SCHEMA_DISABLE_ADVISORY_LOCK=1 npx prisma migrate deploy)
       fi
       ;;
     d1)

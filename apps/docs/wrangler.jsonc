@@ -10,7 +10,9 @@
   // Thin Worker in front of the static export, only for agents: markdown
   // negotiation and the discovery Link header (custom-worker.ts).
   "main": "custom-worker.ts",
-  "compatibility_date": "2025-12-01",
+  "compatibility_date": "2026-08-01",
+  // No nodejs_compat: custom-worker.ts is a plain fetch handler over static
+  // assets and imports no Node built-ins.
   // Workers AI, only for toMarkdown (free for HTML conversion).
   "ai": { "binding": "AI" },
   "assets": {
@@ -27,5 +29,11 @@
   "routes": [{ "pattern": "docs.open-assets.dev", "custom_domain": true }],
   "workers_dev": false,
   "preview_urls": false,
-  "observability": { "enabled": true }
+  // Logs and traces ship to the fleet Grafana Cloud destinations.
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1,
+    "logs": { "enabled": true, "invocation_logs": true, "destinations": ["grafana-logs"] },
+    "traces": { "enabled": true, "destinations": ["grafana-traces"] }
+  }
 }
