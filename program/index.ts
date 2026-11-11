@@ -2,22 +2,18 @@ import * as path from "path";
 import * as cloudflare from "@pulumi/cloudflare";
 import * as pulumi from "@pulumi/pulumi";
 import {
-  AgentDiscovery,
   CLOUDFLARE_ISSUING_CAS,
+  ManagedZone,
   ProjectEmail,
-  WafScannerBlock,
-  WebAnalytics,
-  WwwRedirect,
-  ZoneSecurity,
+  ZoneBaseline,
   caaRecords,
   nextApiRoutePrefixes,
 } from "@parra/cloudflare-pulumi";
 
 /**
  * open-assets.dev was bought on 2026-10-28 and its zone created by the
- * registrar purchase, so the zone is an INPUT read from config, not a
- * `cloudflare.Zone` this program owns. It had no DNS records and default
- * settings when this was written.
+ * registrar purchase. It is now a ManagedZone (the fleet standard), adopted
+ * with the `import` option below so nothing is recreated.
  *
  * Hostnames are not declared here. Each is a Worker Custom Domain in its
  * wrangler.jsonc, which creates the DNS record and certificate on deploy:
@@ -27,14 +23,20 @@ import {
  */
 
 const cfg = new pulumi.Config();
-const zoneId = cfg.require("zoneId");
 const accountId = cfg.require("accountId");
 
 const domain = "open-assets.dev";
 
-// www is a Custom Domain on the web Worker; this 301s it to the apex at the
-// zone so crawlers never see two hostnames serving the same page.
-new WwwRedirect({ zoneId, domain });
+// The registrar-created zone, adopted by id. The `import` option can be
+// removed after the first `pulumi up` records it in state. ManagedZone also
+// declares the WwwRedirect (www is a Custom Domain on the web Worker; the
+// redirect 301s it to the apex) with the same URN the hand-written
+// `new WwwRedirect(...)` had, so that ruleset is unchanged.
+const zone = new ManagedZone(
+  { accountId, domain },
+  { import: "fd9ba4047c901f093cd974d3268c4f30" },
+);
+const zoneId = zone.id;
 
 // /api prefixes the two Next apps really serve, read from their route trees.
 // Both are static exports, so the list is tiny: apps/web has no /api routes
@@ -45,33 +47,36 @@ const apiRoutes = nextApiRoutePrefixes([
   path.join(__dirname, "../apps/docs/app"),
 ]);
 
-// Scanner probes, freeloader crawlers and forged user agents die at the edge,
-// as do /api paths no app serves (all three hostnames are these two apps).
-new WafScannerBlock(domain, {
+// The fleet edge baseline. Every child aliases the stack-root URN it had when
+// declared on its own, so this is an adoption, not a recreate:
+// - ZoneSecurity: TLS 1.2 minimum, HTTPS, HSTS.
+// - WafScannerBlock: scanner probes, freeloader crawlers, forged user agents
+//   and /api paths no app serves die at the edge.
+// - WebAnalytics: privacy-friendly page views; the sites ship no GA4.
+// - AgentDiscovery: DNS-AID (SVCB at _index._agents) plus DNSSEC. No mcpHost,
+//   there is no MCP server.
+new ZoneBaseline(domain, {
+  accountId,
   zoneId,
-  knownApiPrefixes: apiRoutes,
-  apiHosts: [domain, `www.${domain}`, `docs.${domain}`],
+  domain,
+  scannerBlock: {
+    knownApiPrefixes: apiRoutes,
+    apiHosts: [domain, `www.${domain}`, `docs.${domain}`],
+  },
+  skip: {
+    wwwRedirect: "declared by ManagedZone",
+    rateLimit:
+      "both sites are static exports with no forms and no API beyond the prerendered search index",
+  },
 });
-
-// TLS 1.2 minimum, HTTPS, HSTS: the fleet zone baseline. The zone was on the
-// defaults (TLS 1.0, HTTPS not forced) before this.
-new ZoneSecurity({ zoneId, domain });
-
-// Privacy-friendly page views for both sites; the sites ship no GA4.
-new WebAnalytics(domain, { accountId, zoneId });
 
 // Only Cloudflare's issuers: every hostname's certificate is Cloudflare-managed.
 caaRecords({ zoneId, domain, issuers: [...CLOUDFLARE_ISSUING_CAS] });
 
-// DNS-AID (SVCB at _index._agents) plus DNSSEC, for agent discovery. One for
-// the zone, covering docs.open-assets.dev too. No mcpHost: there is no MCP
-// server. DNSSEC validates once the DS is at the registrar (Cloudflare
-// Registrar publishes it automatically).
-new AgentDiscovery({ zoneId, domain });
-
 // The fleet owner mailbox: ian@, hello@, help@, support@, info@, contact@,
 // admin@ and mick@ forwarded with Email Routing. sending: false because
-// neither site sends mail, so no DKIM/DMARC sending records are published.
+// neither site sends mail. DMARC is the library default, p=reject: nothing
+// legitimate sends as open-assets.dev, so all spoofed mail is rejected.
 new ProjectEmail(domain, { zoneId, domain, sending: false });
 
 // Search Console ownership TXT, added by hand in the dashboard on 2026-10-28
@@ -93,7 +98,7 @@ new cloudflare.Record(
       '"google-site-verification=z6Xdp09-fomW8vSMGdgYfjE6hUlBP4VjwRGKnaSnJNk"',
     ttl: 3600,
   },
-  { import: `${zoneId}/991421374f0586fe309d217293171cf2` },
+  { import: "fd9ba4047c901f093cd974d3268c4f30/991421374f0586fe309d217293171cf2" },
 );
 
 export const zoneIdOut = zoneId;

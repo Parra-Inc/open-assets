@@ -1,0 +1,28 @@
+name: Infra
+
+# Pulumi for program/ (the open-assets.dev zone): preview on pull requests,
+# up on pushes to main, via the fleet's shared workflow pinned to a release
+# tag. Bump this tag together with #v1.24.0 in program/package.json.
+on:
+  pull_request:
+    paths: ["program/**", "apps/*/app/**", ".github/workflows/infra.yml"]
+  push:
+    branches: [main]
+    paths: ["program/**", "apps/*/app/**", ".github/workflows/infra.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  infra:
+    uses: Parra-Inc/cloudflare-infra/.github/workflows/pulumi.yml@v1.24.0
+    # The preview diff is posted as a PR comment, which needs this grant on
+    # the calling job (a called workflow cannot widen its permissions).
+    permissions:
+      contents: read
+      pull-requests: write
+    with:
+      working-directory: program
+      node-version: "24"
+    secrets: inherit
