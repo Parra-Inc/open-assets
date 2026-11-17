@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import DocsAnalytics from '@/components/DocsAnalytics';
 import { GoogleTag } from '@/components/GoogleTag';
 import { Provider } from '@/components/provider';
 import { appName, siteUrl } from '@/lib/shared';
@@ -33,6 +34,7 @@ export default function Layout({ children }: LayoutProps<'/'>) {
       </head>
       <body className="flex flex-col min-h-screen">
         <Provider>{children}</Provider>
+        <DocsAnalytics />
       </body>
     </html>
   );
