@@ -3,13 +3,59 @@ title: Google Play Assets
 description: Render Google Play phone screenshots, the 1024x500 feature graphic and the 512px app icon from HTML templates, with a ready to copy collection config.
 ---
 
+Google Play phone screenshots are usually 1080x1920 or 1080x2400, the feature graphic is 1024x500 and the app icon is 512x512. Open Assets renders all of them, plus 7" and 10" tablet screenshots, from HTML templates.
+
 A Google Play store listing needs three kinds of graphics: phone screenshots, a feature graphic and a high resolution app icon. Each is a collection in Open Assets.
 
 ## Google Play sizes
 
 <ExportSizes platform="Play Store" />
 
-Google also accepts tablet and Chromebook screenshots. Add any size you need as an `export` entry. The Tax Days example renders 7" and 10" tablet sizes (1200x1920 and 1600x2560). Check the current requirements in Play Console before you upload.
+<LastVerified date="2026-11-17" source="Google's Play Console help on preview assets" />
+
+As of 2026-11-17, Google's rules are:
+
+| Asset | Rule |
+| --- | --- |
+| Screenshots | JPEG or 24-bit PNG (no alpha), 320px to 3840px per side, long side at most twice the short side, up to 8 per device type |
+| Promotion eligibility | At least 4 screenshots at 1080px or more (1080x1920 portrait) for apps |
+| Tablets and Chromebooks | At least 4 screenshots, 1080px to 7680px, 16:9 or 9:16 |
+| Feature graphic | 1024x500, JPEG or 24-bit PNG (no alpha) |
+| App icon | 512x512, 32-bit PNG with alpha, up to 1024 KB |
+
+## Example output
+
+<GuideImage
+  src="/img/guides/play-phone.webp"
+  alt="The first Tax Days Google Play phone screenshot rendered by Open Assets at 1080 by 2400"
+  width={440}
+  height={978}
+  maxWidth={280}
+  caption="Tax Days phone screenshot, 1080x2400 (shown scaled down), from examples/tax-days."
+/>
+
+## Tablet screenshots (7" and 10") [#tablets]
+
+Add tablet sizes as `export` entries. The Tax Days example renders 7" and 10" tablet sizes (1200x1920 and 1600x2560) from its phone templates:
+
+```json title="assets.json (from examples/tax-days)"
+"export": [
+  { "name": "phone", "size": { "width": 1080, "height": 2400 } },
+  { "name": "tablet-7", "size": { "width": 1200, "height": 1920 } },
+  { "name": "tablet-10", "size": { "width": 1600, "height": 2560 } }
+]
+```
+
+From a `440x978` phone source the tablet renders scale to fill the width and crop the bottom, as below. That works for a framed phone layout; for a tablet first layout give tablets their own collection with a 10:16 source such as `400x640`.
+
+<GuideImage
+  src="/img/guides/play-tablet-10.webp"
+  alt="The first Tax Days 10 inch tablet screenshot rendered by Open Assets at 1600 by 2560, with the phone frame cropped at the bottom"
+  width={640}
+  height={1024}
+  maxWidth={320}
+  caption="Tax Days tablet-10, 1600x2560 (shown scaled down)."
+/>
 
 ## Phone screenshots
 
@@ -17,9 +63,9 @@ Android phones are taller than the 440x956 iPhone source. A 1080x2400 screenshot
 
 Rendering scales by the larger of the width and height ratios and captures from the top left, so if a source and export ratio differ, the extra is cropped from the right or bottom. That is why the Play Store collection should not share a source size with the iPhone collection.
 
-## Google Play feature graphic size
+## Google Play feature graphic size [#feature-graphic]
 
-The feature graphic is 1024x500 and appears at the top of your listing and in promotions. Author it at full size. Keep text away from the edges and center the key message, since Play can crop or overlay it on some surfaces.
+The feature graphic is 1024x500 and appears at the top of your listing and in promotions. Author it at full size. Keep text away from the edges and center the key message, since Play can crop or overlay it on some surfaces. The [feature graphic guide](/guides/google-play-feature-graphic) has a full walkthrough.
 
 ## Collection config
 
@@ -78,9 +124,46 @@ You can also start the feature graphic with `npx open-assets add collection` and
 
 Play Console has per-language graphics too. Add `localizations` to the screenshot collection and each locale renders into its own folder: `exports/play-screenshots/de/phone/01-hero.png`. See [Localization](/localization).
 
+## Steps
+
+1. Capture your Android app (or reuse iPhone captures) into `public/`.
+2. Add a `play-screenshots` collection with a `440x978` source and the phone and tablet sizes you need.
+3. Add the feature graphic and icon collections from the config above.
+4. Run `npx open-assets render`.
+5. Upload in Play Console (see [Upload to the stores](/guides/app-store-connect)).
+
+## FAQ
+
+<Accordions>
+<Accordion title="What size are Google Play screenshots?">
+Any size from 320px to 3840px per side with the long side at most twice the short side. 1080x1920 or 1080x2400 portrait is the common choice and meets the 1080px promotion minimum.
+</Accordion>
+<Accordion title="How many screenshots does Google Play allow?">
+Up to 8 per device type, as of 2026-11-17.
+</Accordion>
+<Accordion title="Do I need tablet screenshots?">
+Only if you want your listing to show on large screens; Google asks for at least 4 there. Add `tablet-7` and `tablet-10` export entries.
+</Accordion>
+<Accordion title="Can Google Play screenshots have transparency?">
+No. Use 24-bit PNG without alpha or JPEG.
+</Accordion>
+<Accordion title="Does Open Assets make Android adaptive icons?">
+No. It renders the 512px store icon only, not drawable or mipmap resources.
+</Accordion>
+</Accordions>
+
+<GuideCta href="/guides/google-play-feature-graphic" label="Next: the Google Play feature graphic" />
+
 ## Related
 
-- [App Store screenshots](/guides/app-store-screenshots)
-- [Upload to App Store Connect / Google Play](/guides/app-store-connect)
-- [Sizes reference](/reference/sizes)
-- [Tax Days example](/examples/tax-days)
+<RelatedLinks
+  template="google-play-screenshots"
+  size="google-play-screenshots"
+  links={[
+    { href: '/guides/google-play-feature-graphic', label: 'Google Play feature graphic' },
+    { href: '/guides/app-store-screenshots', label: 'App Store screenshots' },
+    { href: '/guides/app-store-connect', label: 'Upload to App Store Connect and Google Play' },
+    { href: '/reference/sizes', label: 'Sizes reference' },
+    { href: '/examples/tax-days', label: 'Tax Days example' },
+  ]}
+/>

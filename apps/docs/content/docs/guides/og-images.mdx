@@ -3,11 +3,42 @@ title: OG Images and Social Cards
 description: Design Open Graph and X card images as HTML templates, render them at 1200x630 and 1200x675, and write each one straight into your web app's public folder.
 ---
 
+The standard Open Graph (OG) image size is 1200x630 pixels, a 1.91:1 ratio, and X large cards look best at 1200x675. Open Assets renders both from one HTML template into your web app's `public/` folder.
+
 Open Graph images are the previews that appear when someone shares your link in Slack, iMessage, LinkedIn or X. With Open Assets you design them in HTML and CSS, keep them in git next to your site, and render them as static files.
 
 ## OG image size
 
-<ExportSizes platform="Web" />
+<ExportSizes platform="Web" names="og,twitter-card" />
+
+<LastVerified date="2026-11-17" source="Meta and LinkedIn sharing documentation" />
+
+### Platform sizes and limits
+
+| Platform | Recommended | Rules (as of 2026-11-17) |
+| --- | --- | --- |
+| Facebook | 1200x630 | At least 1200x630 for high resolution displays, 1.91:1, minimum 200x200, file under 8 MB (Meta sharing docs) |
+| LinkedIn | 1200x627 or larger | Minimum 1200x627, 1.91:1, max 5 MB; under 401px wide shows as a thumbnail (LinkedIn help) |
+| X (Twitter) | 1200x675 | See [X and Twitter card images](/guides/twitter-cards) |
+| Slack, Discord, iMessage | 1200x630 | Read the same `og:image`; no separate size is needed |
+
+## Example output
+
+<GuideImage
+  src="/img/guides/og-image.webp"
+  alt="A 1200 by 630 Open Graph image for Tax Days rendered by Open Assets, with the app icon, a headline and a phone screen"
+  width={1200}
+  height={630}
+  caption="1200x630 render built from the Tax Days example captures."
+/>
+
+## Command
+
+```bash
+npx open-assets add collection   # pick "OG Image / Social (1200x630, HTML)"
+npx open-assets render --collection og
+npx open-assets check            # in CI
+```
 
 The standard Open Graph image is 1200x630. X (Twitter) large summary cards use 1200x675. Both are close to 1.91:1 and 16:9, so one layout can serve both if the important content stays in the middle.
 
@@ -84,7 +115,7 @@ Paint a background. PNGs keep transparency where nothing is painted, and social 
 
 ## Wire it into your pages
 
-Reference the files from your page metadata. In Next.js:
+A single site wide card can live at `public/og.jpg` (set `"outFile": "../web/public/og.jpg"`). Reference the files from your page metadata. In Next.js:
 
 ```ts title="app/pricing/page.tsx"
 export const metadata = {
@@ -107,8 +138,46 @@ The [Xcode app icon](/guides/xcode-app-icon), the [favicons and PWA icons](/guid
 
 The 1200x630 OG card is a second collection in the same file, so when the templates share a stylesheet, one color change updates the icon, the favicons and the share card in one render.
 
+## Steps
+
+1. Run `npx open-assets add collection` and pick the OG Image preset, or paste the config above.
+2. Design the card at 1200x630 with a painted background.
+3. Point `outFile` at your web app's `public/` folder.
+4. Run `npx open-assets render --collection og`.
+5. Add the image to your page metadata and test the link in a share debugger.
+
+## FAQ
+
+<Accordions>
+<Accordion title="What size should an OG image be?">
+1200x630 pixels (1.91:1). Meta recommends at least that size and LinkedIn asks for a minimum of 1200x627.
+</Accordion>
+<Accordion title="What is the maximum OG image file size?">
+As of 2026-11-17, Meta allows up to 8 MB and LinkedIn up to 5 MB. Rendering to `.jpg` usually keeps cards well under 300 KB.
+</Accordion>
+<Accordion title="Can Open Assets generate an OG image per page?">
+Yes, one template per page with `{template}` in `outFile`. For thousands of dynamic pages, render at request time in your framework instead.
+</Accordion>
+<Accordion title="PNG or JPEG for OG images?">
+Both work. A `.jpg` outFile renders JPEG, which is smaller and never transparent.
+</Accordion>
+<Accordion title="Does it write a favicon too?">
+Yes, from a separate collection in the same `assets.json`. See [Favicons](/guides/favicons).
+</Accordion>
+</Accordions>
+
+<GuideCta href="/guides/twitter-cards" label="Next: X and Twitter card images" />
+
 ## Related
 
-- [Favicons and touch icons](/guides/favicons)
-- [Launch kit](/guides/launch-kit)
-- [Writing files anywhere with outFile](/guides/out-file)
+<RelatedLinks
+  template="og-image"
+  size="og-image"
+  links={[
+    { href: '/guides/twitter-cards', label: 'X and Twitter card images' },
+    { href: '/guides/favicons', label: 'Favicons and touch icons' },
+    { href: '/guides/launch-kit', label: 'Launch kit' },
+    { href: '/guides/out-file', label: 'Writing files anywhere with outFile' },
+    { href: '/agents/prompts', label: 'Prompts for your coding agent' },
+  ]}
+/>
