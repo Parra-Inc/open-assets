@@ -19,7 +19,7 @@
  *   template_view_variant  template, variant           variant picker on a template page
  *   template_copy_prompt   template                    "Copy prompt" on a template page (key event)
  *   template_copy_config   template                    "Copy assets.json" on a template page
- *   size_copy              size_name, location         copy button on a SizeTable row
+ *   size_copy              size_name, location         SizeTable row copy, exports snippet, anchored pixel copy
  *   size_row_click         size_name, location, link_url  a SizeTable row linking to its size page
  *   alternative_cta        competitor, location, label CTA on an alternatives page (key event)
  *   alternative_compare_toggle  competitor, state      "Only differences" toggle on the feature table

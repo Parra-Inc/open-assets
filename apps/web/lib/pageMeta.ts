@@ -1,6 +1,14 @@
 import type { Metadata } from 'next'
 import { site } from '@/data/site'
 
+/** The root share image. A page-level openGraph drops the file-convention image, so it is set again here. */
+const SHARE_IMAGE = {
+  url: '/opengraph-image.png',
+  width: 1200,
+  height: 630,
+  alt: 'Open Assets: App Store screenshots, icons and OG images rendered from HTML templates',
+}
+
 /**
  * Metadata for a non-home apex page. A page-level openGraph replaces the
  * layout's object (standard D2), so every field is repeated here.
@@ -20,8 +28,8 @@ export function pageMetadata({
     title: { absolute: title },
     description,
     alternates: { canonical: path },
-    openGraph: { type: 'website', url: path, siteName: site.name, title, description },
-    twitter: { card: 'summary_large_image', title, description },
+    openGraph: { type: 'website', url: path, siteName: site.name, title, description, images: [SHARE_IMAGE] },
+    twitter: { card: 'summary_large_image', title, description, images: [SHARE_IMAGE] },
     robots: index ? { index: true, follow: true } : { index: false, follow: true },
   }
 }
