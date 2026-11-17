@@ -828,6 +828,8 @@ jobs:
 | Mac App Store | Retina | `mac-retina` | 2880 | 1800 |
 | Play Store | Phone | `phone` | 1080 | 1920 |
 | Play Store | Phone (tall) | `phone-tall` | 1080 | 2400 |
+| Play Store | 7" Tablet | `tablet-7` | 1200 | 1920 |
+| Play Store | 10" Tablet | `tablet-10` | 1600 | 2560 |
 | Play Store | Feature graphic | `feature-graphic` | 1024 | 500 |
 | Play Store | App icon | `play-icon` | 512 | 512 |
 | Product Hunt | Gallery | `product-hunt` | 1270 | 760 |
@@ -835,6 +837,7 @@ jobs:
 | Web | X / Twitter card | `twitter-card` | 1200 | 675 |
 | Web | Apple touch icon | `apple-touch-icon` | 180 | 180 |
 | Web | Favicon | `favicon-32` | 32 | 32 |
+| Web | Favicon (small) | `favicon-16` | 16 | 16 |
 <!-- /docs-sync -->
 
 ## File Structure Convention
