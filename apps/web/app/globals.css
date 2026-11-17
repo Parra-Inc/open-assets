@@ -533,3 +533,32 @@ p code, li code, figcaption code {
 /* 404 */
 .not-found { min-height: 80vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; text-align: center; }
 .not-found h1 { font-size: clamp(30px, 4vw, 44px); letter-spacing: -0.03em; }
+
+/* Multi-page families (templates, sizes, alternatives) */
+.page-head { padding-top: 40px; padding-bottom: 8px; }
+.page-head h1 { font-size: clamp(30px, 4.4vw, 46px); font-weight: 800; letter-spacing: -0.022em; line-height: 1.1; margin-bottom: 16px; }
+.page-head .lede { max-width: 720px; }
+.page-head .lede p + p { margin-top: 12px; }
+.breadcrumbs ol { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; padding: 0; margin: 0 0 20px; font-size: 13px; color: var(--text-3); }
+.breadcrumbs li + li::before { content: '/'; margin-right: 6px; opacity: 0.6; }
+.breadcrumbs a:hover { color: var(--text); }
+.page .section { padding: 48px 0; }
+.page-block { margin-top: 32px; }
+.page-block h2, .related h2 { font-size: 22px; font-weight: 700; margin-bottom: 14px; }
+.page-list { padding-left: 20px; color: var(--text-2); display: grid; gap: 6px; }
+.split { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+.code-block { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; overflow-x: auto; font-family: var(--mono); font-size: 13px; margin-bottom: 12px; white-space: pre; }
+.table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; margin: 16px 0; }
+.size-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.size-table caption { text-align: left; padding: 12px 14px; color: var(--text-3); }
+.size-table th, .size-table td { padding: 10px 14px; text-align: left; border-top: 1px solid var(--border); }
+.size-table thead th { border-top: 0; color: var(--text-3); font-weight: 600; }
+.size-table a { color: var(--violet); }
+.related-grid { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+.related-card { display: flex; flex-direction: column; gap: 6px; height: 100%; }
+.related-label { font-weight: 600; color: var(--text); }
+.toc { margin-bottom: 24px; }
+.toc ol { display: flex; flex-wrap: wrap; gap: 14px; list-style: none; padding: 0; font-size: 14px; color: var(--text-2); }
+.toggle { display: inline-flex; gap: 8px; align-items: center; font-size: 14px; color: var(--text-2); margin-top: 20px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media (max-width: 640px) { .container { padding: 0 16px; } }

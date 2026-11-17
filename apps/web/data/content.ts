@@ -60,6 +60,24 @@ export const faqs = [
     q: 'How is this different from Figma or a screenshot builder website?',
     a: 'Your assets live as code next to your app. They are diffable in pull requests, rendered in CI, reproducible on any machine, and easy for an AI coding agent like Claude Code to edit.',
   },
+  {
+    q: 'Do I need a designer or a paid tool?',
+    a: 'No. Open Assets is free, and the starter templates from npx open-assets init are ready to edit. A coding agent can write the HTML for you from a prompt, so you can ship a full App Store screenshot set without a designer or a subscription.',
+  },
+  {
+    q: 'Is Open Assets related to the Open Assets Protocol?',
+    a: 'No. Open Assets (open-assets.dev, the @open-assets/open-assets npm package) is a CLI for App Store screenshots and app marketing assets. It has no connection to the Open Assets Protocol for colored coins on Bitcoin or to its libraries.',
+  },
+]
+
+/** Docs guides linked from the homepage and footer (cross-site linking, plan fix 7). */
+export const docsGuides = [
+  { key: 'app_store_screenshots', short: 'Screenshot guide', title: 'Generate App Store screenshots from HTML', body: 'Every iPhone and iPad size from one template.', href: `${site.docs}/guides/app-store-screenshots` },
+  { key: 'og_images', short: 'OG image guide', title: 'Generate OG images', body: 'Static social cards rendered with full CSS.', href: `${site.docs}/guides/og-images` },
+  { key: 'xcode_app_icon', short: 'App icon guide', title: 'Fill an Xcode app icon set', body: 'Render AppIcon.appiconset from one design.', href: `${site.docs}/guides/xcode-app-icon` },
+  { key: 'google_play', short: 'Google Play guide', title: 'Google Play screenshots and feature graphic', body: 'Phone, tablet and the 1024 x 500 graphic.', href: `${site.docs}/guides/google-play` },
+  { key: 'compare', short: 'Compare tools', title: 'Compare screenshot tools', body: 'How it stacks up against Koubou, frameit and others.', href: `${site.docs}/compare` },
+  { key: 'migrate_frameit', short: 'Migrate from frameit', title: 'Migrate from fastlane frameit', body: 'Move a frameit setup to HTML templates.', href: `${site.docs}/migrate/frameit` },
 ]
 
 export const installCommands = [
