@@ -29,6 +29,7 @@ export default async function AlternativePage({ params }: { params: Promise<{ sl
   const c = find((await params).slug)
   if (!c) notFound()
   const hub = hubs.alternatives
+  const vendors = c.vendors ?? [{ name: c.name, url: c.vendorUrl }]
   return (
     <PageShell
       crumbs={[{ name: hub.label, path: hub.path }, { name: c.name, path: `${hub.path}/${c.slug}` }]}
@@ -42,22 +43,43 @@ export default async function AlternativePage({ params }: { params: Promise<{ sl
             <a href={`${site.docs}/quick-start`} className="btn btn-primary" {...trackAttrs('alternative_cta', { competitor: c.slug, location: 'top', label: 'quick_start' })}>
               Try Open Assets free
             </a>
-            <a href={c.vendorUrl} className="btn btn-ghost" {...trackAttrs('outbound_click', { location: 'alternative_top', label: c.slug })} rel="nofollow">
-              Visit {c.name}
-            </a>
+            {vendors.map((v) => (
+              <a
+                key={v.url}
+                href={v.url}
+                className="btn btn-ghost"
+                rel="nofollow noopener"
+                {...trackAttrs('outbound_click', { location: 'alternative_top', label: c.slug, link_url: v.url })}
+              >
+                Visit {v.name}
+              </a>
+            ))}
           </div>
-          <CompareTable competitor={c.slug} name={c.name} rows={c.rows} />
+          <CompareTable competitor={c.slug} names={vendors.map((v) => v.name)} rows={c.rows} />
           <p className="muted">
-            Vendor details from {c.name}&apos;s own pages as of {c.asOf}.
+            Vendor details come from each vendor&apos;s own page as of {c.asOf}:{' '}
+            {vendors.map((v, i) => (
+              <span key={v.url}>
+                {i > 0 && ', '}
+                <a href={v.url} rel="nofollow noopener" {...trackAttrs('outbound_click', { location: 'alternative_source', label: c.slug, link_url: v.url })}>
+                  {v.name}
+                </a>
+              </span>
+            ))}
+            . &quot;Not mentioned&quot; means the vendor page did not say, not that the feature is missing.
             {c.price && (
               <>
-                {' '}Pricing: {c.price.text} (<a href={c.price.source}>source</a>).
+                {' '}Pricing: {c.price.text} (
+                <a href={c.price.source} rel="nofollow noopener" {...trackAttrs('outbound_click', { location: 'alternative_price', label: c.slug, link_url: c.price.source })}>
+                  source
+                </a>
+                ), their published rate as of {c.asOf}; confirm the current price on their site before buying.
               </>
             )}
           </p>
           <div className="page-block split">
             <div>
-              <h2>When to choose {c.name}</h2>
+              <h2>When to choose {c.vendors ? 'each skill' : c.name}</h2>
               <ul className="page-list">{c.chooseThem.map((x) => <li key={x}>{x}</li>)}</ul>
             </div>
             <div>
