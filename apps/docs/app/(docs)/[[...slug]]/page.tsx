@@ -13,6 +13,7 @@ import { getMDXComponents } from '@/components/mdx';
 import type { Metadata } from 'next';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
 import { getPageImageUrl, getPageMarkdownUrl, gitConfig, marketingUrl, siteUrl } from '@/lib/shared';
+import { ApexCta } from '@/components/ApexCta';
 import { pageFirstPublished, pageLastModified } from '@/lib/lastModified';
 
 function canonicalPath(url: string) {
@@ -93,6 +94,7 @@ export default async function Page(props: PageProps<'/[[...slug]]'>) {
           })}
         />
       </DocsBody>
+      <ApexCta />
       <PageLastUpdate date={lastModified} />
     </DocsPage>
   );
@@ -109,19 +111,22 @@ export async function generateMetadata(props: PageProps<'/[[...slug]]'>): Promis
 
   const image = getPageImageUrl(page).url;
   const isHome = page.slugs.length === 0;
+  const homeTitle = 'Open Assets Docs: App Store screenshots and icons from HTML';
+  // Social cards repeat the <title> (the template adds "| Open Assets Docs").
+  const ogTitle = isHome ? homeTitle : `${page.data.title} | Open Assets Docs`;
   return {
-    title: isHome ? { absolute: 'Open Assets Docs: App Store screenshots and icons from HTML' } : page.data.title,
+    title: isHome ? { absolute: homeTitle } : page.data.title,
     description: page.data.description,
     alternates: { canonical: canonicalPath(page.url) },
     // A page-level openGraph replaces the layout's (standard D2): repeat it all.
     openGraph: {
-      type: 'article',
+      type: isHome ? 'website' : 'article',
       siteName: 'Open Assets Docs',
       url: page.url,
-      title: page.data.title,
+      title: ogTitle,
       description: page.data.description,
       images: image,
     },
-    twitter: { card: 'summary_large_image', title: page.data.title, description: page.data.description, images: image },
+    twitter: { card: 'summary_large_image', title: ogTitle, description: page.data.description, images: image },
   };
 }
