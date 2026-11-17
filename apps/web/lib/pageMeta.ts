@@ -5,6 +5,14 @@ import { site } from '@/data/site'
  * Metadata for a non-home apex page. A page-level openGraph replaces the
  * layout's object (standard D2), so every field is repeated here.
  */
+/** Site-wide share card (app/opengraph-image.png). A page-level openGraph drops the layout's image, so it is set again here. */
+const DEFAULT_IMAGE = {
+  url: '/opengraph-image.png',
+  width: 1200,
+  height: 630,
+  alt: 'Open Assets: App Store screenshots, icons and OG images rendered from HTML templates',
+}
+
 export function pageMetadata({
   path,
   title,
@@ -20,8 +28,8 @@ export function pageMetadata({
     title: { absolute: title },
     description,
     alternates: { canonical: path },
-    openGraph: { type: 'website', url: path, siteName: site.name, title, description },
-    twitter: { card: 'summary_large_image', title, description },
+    openGraph: { type: 'website', url: path, siteName: site.name, title, description, images: [DEFAULT_IMAGE] },
+    twitter: { card: 'summary_large_image', title, description, images: [DEFAULT_IMAGE] },
     robots: index ? { index: true, follow: true } : { index: false, follow: true },
   }
 }
