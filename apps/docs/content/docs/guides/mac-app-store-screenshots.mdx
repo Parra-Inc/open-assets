@@ -1,0 +1,93 @@
+---
+title: Mac App Store Screenshots
+description: Render 2880x1800 Mac App Store screenshots from HTML templates with Open Assets, using a 16:10 source size, plus the other Mac sizes Apple accepts today.
+---
+
+Mac App Store screenshots use a 16:10 ratio, and 2880x1800 is the largest size Apple accepts. Open Assets renders it from an HTML template authored at `1440x900`, so one template gives you a crisp Retina file and any smaller Mac size you want.
+
+## Mac screenshot sizes
+
+<ExportSizes platform="Mac App Store" />
+
+<LastVerified date="2026-11-17" source="Apple's App Store Connect screenshot specifications" />
+
+As of 2026-11-17, Apple accepts 1280x800, 1440x900, 2560x1600 and 2880x1800 for Mac apps, up to 10 per size, PNG or JPEG without transparency.
+
+## Command and config
+
+```bash
+npx open-assets add collection   # pick "Custom", source 1440x900
+npx open-assets render --collection mac
+npx open-assets check
+```
+
+```json title="assets.json"
+{
+  "id": "mac",
+  "label": "Mac App Store",
+  "sourceSize": { "width": 1440, "height": 900 },
+  "templates": [
+    { "src": "assets/mac/01-hero.html", "name": "01-hero", "label": "Hero" }
+  ],
+  "export": [
+    { "name": "mac-retina", "label": "Retina", "size": { "width": 2880, "height": 1800 } },
+    { "name": "mac-1440", "label": "1440x900", "size": { "width": 1440, "height": 900 } }
+  ]
+}
+```
+
+Every accepted Mac size is 16:10, so all of them render from one source without cropping.
+
+## Example output
+
+<GuideImage
+  src="/img/guides/mac-retina.webp"
+  alt="A 2880 by 1800 Mac App Store screenshot for Tax Days rendered by Open Assets, with a headline on the left and two app screens on the right"
+  width={1440}
+  height={900}
+  caption="2880x1800 render (shown scaled down), built from the Tax Days example captures."
+/>
+
+## Steps
+
+1. Capture your Mac app windows, or the iOS screens of an app that runs on Mac, into `public/`.
+2. Add a `mac` collection with a 16:10 source such as `1440x900`.
+3. Lay out each screenshot in HTML. Window chrome is plain CSS: a rounded box with a title bar.
+4. Run `npx open-assets render --collection mac`.
+5. Upload the set in App Store Connect under the macOS platform.
+
+## Gotchas
+
+- **The ratio is fixed.** Anything that is not 16:10 is rejected, so do not reuse iPad or iPhone sources.
+- **No alpha.** Paint a full background, or write `.jpg` with `outFile`.
+- **iPad apps on Mac.** If your iPad app runs on Apple silicon Macs, its Mac listing reuses iPad metadata; check App Store Connect to see whether it asks for Mac screenshots.
+
+## FAQ
+
+<Accordions>
+<Accordion title="What size are Mac App Store screenshots?">
+2880x1800 at most, with 2560x1600, 1440x900 and 1280x800 also accepted. All are 16:10.
+</Accordion>
+<Accordion title="Do I need every Mac size?">
+No. One accepted size is enough; 2880x1800 looks sharpest.
+</Accordion>
+<Accordion title="Can I localize Mac screenshots?">
+Yes, the same way as iOS screenshots: add `localizations` and each locale renders into its own folder. See [Localization](/localization).
+</Accordion>
+<Accordion title="Is there a preset for Mac?">
+No, use the Custom option in `add collection` or paste the config above. The `mac-retina` size is in the [sizes reference](/reference/sizes).
+</Accordion>
+</Accordions>
+
+<GuideCta href="/guides/app-store-screenshots" label="Read the App Store screenshots guide" />
+
+## Related
+
+<RelatedLinks
+  template="mac-app-store-screenshots"
+  links={[
+    { href: '/guides/app-store-screenshots', label: 'App Store screenshots (iPhone)' },
+    { href: '/guides/ipad-screenshots', label: 'iPad App Store screenshots' },
+    { href: '/guides/app-store-connect', label: 'Upload to App Store Connect' },
+  ]}
+/>

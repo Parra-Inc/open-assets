@@ -1,0 +1,92 @@
+---
+title: Product Hunt Gallery Images
+description: Build a Product Hunt gallery at 1270x760 with retina 2540x1520 copies from HTML templates with Open Assets, as used by the Cat IQ Test and No Context examples.
+---
+
+Product Hunt gallery images are 1270x760 in Open Assets, with a 2x copy at 2540x1520 for sharp display. Two example projects, Cat IQ Test and No Context, ship real Product Hunt galleries built this way: one HTML template per slide, rendered at both scales with one command.
+
+## Gallery size
+
+<ExportSizes platform="Product Hunt" />
+
+<LastVerified date="2026-11-17" />
+
+Product Hunt's help center did not list gallery dimensions on 2026-11-17. 1270x760 is the size both example projects use; check the upload screen when you post.
+
+## Command and config
+
+```bash
+npx open-assets render --collection product-hunt
+```
+
+```json title="assets.json (from examples/cat-iq-test)"
+{
+  "id": "product-hunt",
+  "label": "Product Hunt Gallery",
+  "sourceSize": { "width": 1270, "height": 760 },
+  "templates": [
+    { "src": "assets/product-hunt/01-hero.html", "name": "01-hero" },
+    { "src": "assets/product-hunt/02-how-it-works.html", "name": "02-how-it-works" }
+  ],
+  "export": [
+    { "name": "1x", "size": { "width": 1270, "height": 760 } },
+    { "name": "2x", "size": { "width": 2540, "height": 1520 } }
+  ]
+}
+```
+
+## Example output
+
+<GuideImage
+  src="/img/guides/product-hunt.webp"
+  alt="The first Product Hunt gallery slide for Cat IQ Test rendered by Open Assets at 1270 by 760"
+  width={1270}
+  height={760}
+  caption="First gallery slide from examples/cat-iq-test, 1270x760."
+/>
+
+## Steps
+
+1. Add a `product-hunt` collection at `1270x760` and tag it `launch` so the whole launch kit renders together.
+2. Write one template per slide: hero, the core feature, how it works, pricing, call to action.
+3. Reuse your App Store captures inside the slides from `public/`.
+4. Run `npx open-assets render --collection product-hunt` (or `--tag launch`).
+5. Upload the `2x` folder in order. Names like `01-hero` keep the order obvious.
+
+## Gotchas
+
+- **Order by file name.** Prefix templates with numbers.
+- **Fix late.** Typos found an hour before launch are one edit and one render.
+- **Thumbnail.** The gallery is separate from the square product thumbnail; render that from your icon collection.
+
+## FAQ
+
+<Accordions>
+<Accordion title="What size are Product Hunt gallery images?">
+Open Assets uses 1270x760, plus a 2540x1520 retina copy. Confirm on Product Hunt's upload screen.
+</Accordion>
+<Accordion title="How many gallery images should I make?">
+The examples ship five (Cat IQ Test) and seven (No Context) slides.
+</Accordion>
+<Accordion title="Can I render the X header and Slack image at the same time?">
+Yes, tag every launch collection `launch` and run `npx open-assets render --tag launch`. See [Launch kit](/guides/launch-kit).
+</Accordion>
+<Accordion title="Can my agent write the slides?">
+Yes. The [Claude Code skill](/agents/skill) knows the config format; give it your positioning and screenshots.
+</Accordion>
+</Accordions>
+
+<GuideCta href="/guides/launch-kit" label="Read the launch kit guide" />
+
+## Related
+
+<RelatedLinks
+  template="product-hunt-gallery"
+  size="product-hunt-gallery"
+  links={[
+    { href: '/guides/launch-kit', label: 'Launch kit' },
+    { href: '/guides/social-headers', label: 'X headers and Slack images' },
+    { href: '/examples/cat-iq-test', label: 'Cat IQ Test example' },
+    { href: '/examples/no-context', label: 'No Context example' },
+  ]}
+/>

@@ -1,0 +1,93 @@
+---
+title: Google Play Feature Graphic
+description: Make the 1024x500 Google Play feature graphic from an HTML template with Open Assets, rendered as a JPEG with no transparency so Play Console accepts it.
+---
+
+The Google Play feature graphic is 1024x500 pixels, JPEG or 24-bit PNG with no alpha. Open Assets ships a "Feature Graphic / Google Play" collection preset at exactly that size, so you design it in HTML once and re-render it whenever your listing changes.
+
+## Feature graphic size
+
+<ExportSizes platform="Play Store" names="feature-graphic" />
+
+<LastVerified date="2026-11-17" source="Google's Play Console help on preview assets" />
+
+As of 2026-11-17, Google's Play Console help lists the feature graphic as 1024px by 500px, JPEG or 24-bit PNG without alpha.
+
+## Command and config
+
+```bash
+npx open-assets add collection   # pick "Feature Graphic / Google Play (1024x500, HTML)"
+npx open-assets render --collection feature-graphic
+npx open-assets check
+```
+
+```json title="assets.json"
+{
+  "id": "feature-graphic",
+  "label": "Feature Graphic",
+  "sourceSize": { "width": 1024, "height": 500 },
+  "templates": [
+    { "src": "src/feature-graphic.html", "name": "feature-graphic", "label": "Feature Graphic" }
+  ],
+  "export": [
+    { "name": "feature-graphic", "size": { "width": 1024, "height": 500 }, "outFile": "exports/play/feature-graphic.jpg" }
+  ]
+}
+```
+
+The `.jpg` `outFile` makes the render a JPEG, which has no alpha channel, so Play Console never rejects it for transparency.
+
+## Example output
+
+<GuideImage
+  src="/img/guides/play-feature-graphic.webp"
+  alt="A 1024 by 500 Google Play feature graphic for Tax Days rendered by Open Assets, with the app icon, name and tagline on the left and a phone screen on the right"
+  width={1024}
+  height={500}
+  caption="1024x500 render built from the Tax Days example captures."
+/>
+
+## Steps
+
+1. Run `npx open-assets add collection` and choose the feature graphic preset. It writes `src/feature-graphic.html` and the collection entry.
+2. Design at full size. The source and export are both 1024x500, so there is no scaling.
+3. Add an `outFile` ending in `.jpg` so the file is opaque.
+4. Run `npx open-assets render --collection feature-graphic`.
+5. Upload it under Main store listing in Play Console (see [Upload to the stores](/guides/app-store-connect)).
+
+## Gotchas
+
+- **Keep the middle clear of fine detail.** Play can show the graphic small or with overlays on some surfaces, so put the key message near the center and keep text large.
+- **Paint the whole canvas.** A PNG with unpainted areas has alpha; use JPEG or a solid background.
+- **One per listing language.** Add `localizations` to the collection to render a feature graphic per locale (see [Localization](/localization)).
+
+## FAQ
+
+<Accordions>
+<Accordion title="What size is the Google Play feature graphic?">
+1024 by 500 pixels.
+</Accordion>
+<Accordion title="Can the feature graphic be a PNG?">
+Yes, a 24-bit PNG without alpha. A `.jpg` outFile is the simplest way to guarantee no alpha.
+</Accordion>
+<Accordion title="Can I reuse my app icon template?">
+You can reference the same icon file or SVG inside the feature graphic template, so a color change updates both on the next render.
+</Accordion>
+<Accordion title="Does Open Assets upload it to Play Console?">
+No. It writes the file; upload it in Play Console or with your own Play Developer API tooling.
+</Accordion>
+</Accordions>
+
+<GuideCta href="/guides/google-play" label="Read the full Google Play assets guide" />
+
+## Related
+
+<RelatedLinks
+  template="play-feature-graphic"
+  size="google-play-feature-graphic"
+  links={[
+    { href: '/guides/google-play', label: 'Google Play screenshots and icon' },
+    { href: '/guides/og-images', label: 'OG images and social cards' },
+    { href: '/guides/out-file', label: 'Writing files anywhere with outFile' },
+  ]}
+/>
