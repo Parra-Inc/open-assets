@@ -120,6 +120,20 @@
   },
   {
     "platform": "Web",
+    "name": "pwa-512",
+    "label": "PWA icon (large)",
+    "width": 512,
+    "height": 512
+  },
+  {
+    "platform": "Web",
+    "name": "pwa-192",
+    "label": "PWA icon",
+    "width": 192,
+    "height": 192
+  },
+  {
+    "platform": "Web",
     "name": "apple-touch-icon",
     "label": "Apple touch icon",
     "width": 180,
