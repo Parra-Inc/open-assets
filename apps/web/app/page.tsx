@@ -5,6 +5,7 @@ import Tabs from '@/components/Tabs'
 import { docsGuides, faqs, features, installCommands } from '@/data/content'
 import { liveDevApps, showcase } from '@/data/devApps'
 import { site } from '@/data/site'
+import { homeTemplates } from '@/data/templates'
 import Faq from '@/components/Faq'
 import { GitHubIcon } from '@/components/Icons'
 import SiteFooter from '@/components/SiteFooter'
@@ -178,6 +179,39 @@ export default function Home() {
                 ),
               }))}
             />
+          </div>
+        </section>
+
+        <section id="templates" className="section" data-section="template_gallery">
+          <div className="container">
+            <div className="section-head">
+              <p className="eyebrow">Templates</p>
+              <h2>Start from a template</h2>
+              <p>HTML templates for store screenshots, banners and social images, each rendered with Open Assets.</p>
+            </div>
+            <ul className="template-grid">
+              {homeTemplates.slice(0, 6).map((t) => {
+                const v = t.variants[0]
+                return (
+                  <li key={t.slug}>
+                    <a
+                      href={`/templates/${t.slug}`}
+                      className="card template-card"
+                      {...trackAttrs('related_click', { location: 'home_templates', label: t.slug })}
+                    >
+                      <img src={v.image} alt={v.alt} width={v.width} height={v.height} loading="lazy" />
+                      <span className="related-label">{t.h1}</span>
+                      <span className="muted">{t.summary}</span>
+                    </a>
+                  </li>
+                )
+              })}
+            </ul>
+            <p className="page-block">
+              <a href="/templates" className="btn btn-ghost" {...trackAttrs('related_click', { location: 'home_templates', label: 'all_templates' })}>
+                See all templates
+              </a>
+            </p>
           </div>
         </section>
 

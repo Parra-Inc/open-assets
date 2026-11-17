@@ -562,3 +562,8 @@ p code, li code, figcaption code {
 .toggle { display: inline-flex; gap: 8px; align-items: center; font-size: 14px; color: var(--text-2); margin-top: 20px; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 @media (max-width: 640px) { .container { padding: 0 16px; } }
+
+/* Homepage template gallery */
+.template-grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.template-card { display: flex; flex-direction: column; gap: 8px; height: 100%; text-decoration: none; color: inherit; }
+.template-card img { width: 100%; height: 180px; object-fit: cover; object-position: top center; border-radius: 10px; background: var(--surface); }
