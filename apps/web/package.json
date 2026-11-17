@@ -5,10 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "next dev -p 3210",
-    "build": "next build",
+    "build": "next build && node scripts/seo-gate.mjs",
     "preview": "next build && wrangler dev",
     "deploy": "next build && wrangler deploy",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "seo:gate": "node scripts/seo-gate.mjs",
+    "indexnow": "node scripts/indexnow-submit.mjs"
   },
   "dependencies": {
     "next": "16.4.2",

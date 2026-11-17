@@ -9,6 +9,14 @@
  *   - linker across both domains, so landing on the site and reading the docs
  *     stays one session
  *   - an app_store_click key event on every App Store or Google Play link
+ *   - page grouping on every hit, set before config so it rides on page_view
+ *     and every later event: content_group (home, templates, sizes,
+ *     alternatives, or the docs section such as guides or reference),
+ *     page_type (home, hub, template, size, alternative, docs, docs_home) and
+ *     site_host (open-assets.dev or docs.open-assets.dev). Both hosts share one
+ *     stream, so site_host is what tells apex and docs paths apart in reports.
+ *     pushState and popstate re-set them, so client-side navigations (the docs
+ *     app) and GA's history page_view carry the new page's group.
  *
  * Only production builds served from a production host load it, so `next dev`,
  * a local preview and any non-canonical host never send hits to the property.
@@ -29,6 +37,16 @@ const CONSENT_DENIED_REGIONS = [
 
 const STORE_LINK_PATTERN = 'apps\\.apple\\.com|itunes\\.apple\\.com|play\\.google\\.com\\/store\\/apps';
 
+// Mirrors pageGroup() in lib/analytics.ts; keep the two in step.
+const PAGE_GROUP =
+  `function oaGroup(){var h=location.hostname,p=location.pathname.split('/'),s=p[1]||'',r=p[2]||'';` +
+  `if(h.indexOf('docs.')===0)return{'content_group':s||'home','page_type':s?'docs':'docs_home','site_host':h};` +
+  `var f={'templates':'template','sizes':'size','alternatives':'alternative'}[s];` +
+  `return{'content_group':s||'home','page_type':!s?'home':f?(r?f:'hub'):'other','site_host':h};}` +
+  `function oaSet(){gtag('set',oaGroup());}` +
+  `['pushState','replaceState'].forEach(function(m){var o=history[m];history[m]=function(){var x=o.apply(this,arguments);oaSet();return x;};});` +
+  `addEventListener('popstate',oaSet);`;
+
 // The gtag.js loader is injected by the inline script, after the host check.
 const inline =
   `if(${JSON.stringify(LINKER_DOMAINS)}.indexOf(location.hostname)!==-1){` +
@@ -38,6 +56,8 @@ const inline =
   `gtag('consent','default',{'ad_storage':'granted','ad_user_data':'granted','ad_personalization':'granted','analytics_storage':'granted'});` +
   `gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied','region':${JSON.stringify(CONSENT_DENIED_REGIONS)}});` +
   `gtag('js',new Date());` +
+  PAGE_GROUP +
+  `oaSet();` +
   `gtag('config','${GA_MEASUREMENT_ID}',{'linker':{'domains':${JSON.stringify(LINKER_DOMAINS)}}});` +
   // Capture phase, so it runs even if a handler stops propagation; beacon
   // transport, so the hit survives navigating away to the store.

@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next'
+import AnalyticsListeners from '@/components/AnalyticsListeners'
 import { GoogleTag } from '@/components/GoogleTag'
 import { site } from '@/data/site'
 import './globals.css'
@@ -36,7 +37,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0b081c" />
         <GoogleTag />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <AnalyticsListeners />
+      </body>
     </html>
   )
 }

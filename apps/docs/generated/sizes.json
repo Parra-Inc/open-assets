@@ -71,6 +71,20 @@
   },
   {
     "platform": "Play Store",
+    "name": "tablet-7",
+    "label": "7\" Tablet",
+    "width": 1200,
+    "height": 1920
+  },
+  {
+    "platform": "Play Store",
+    "name": "tablet-10",
+    "label": "10\" Tablet",
+    "width": 1600,
+    "height": 2560
+  },
+  {
+    "platform": "Play Store",
     "name": "feature-graphic",
     "label": "Feature graphic",
     "width": 1024,
@@ -106,6 +120,20 @@
   },
   {
     "platform": "Web",
+    "name": "pwa-512",
+    "label": "PWA icon (large)",
+    "width": 512,
+    "height": 512
+  },
+  {
+    "platform": "Web",
+    "name": "pwa-192",
+    "label": "PWA icon",
+    "width": 192,
+    "height": 192
+  },
+  {
+    "platform": "Web",
     "name": "apple-touch-icon",
     "label": "Apple touch icon",
     "width": 180,
@@ -117,5 +145,12 @@
     "label": "Favicon",
     "width": 32,
     "height": 32
+  },
+  {
+    "platform": "Web",
+    "name": "favicon-16",
+    "label": "Favicon (small)",
+    "width": 16,
+    "height": 16
   }
 ]
