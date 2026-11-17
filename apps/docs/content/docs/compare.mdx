@@ -1,27 +1,19 @@
 ---
 title: Compare App Store Screenshot Tools
-description: Open Assets compared with Koubou, Shotcraft, fastlane frameit and AppMockUp on price, license, CLI, agent skill and screenshot localization, from their pages.
+description: A short summary of how Open Assets compares with fastlane frameit, Koubou, AppLaunchpad, Screenshots.pro, AppScreen and App Store screenshot agent skills.
 ---
 
-Open Assets, Koubou and fastlane frameit are free, open source command line tools that can localize App Store screenshots; Open Assets and Koubou also ship an AI coding agent skill. AppMockUp is a free web editor with no CLI, and Shotcraft is an MIT-licensed CLI plus hosted web UI whose public pages do not mention localization.
+Open Assets renders App Store screenshots, app icons and web images from HTML and CSS templates with a free, MIT licensed CLI. The full comparisons, with sourced feature tables and an honest "when to choose them" section for each tool, live on [open-assets.dev/alternatives](https://open-assets.dev/alternatives).
 
-| Tool | Price | License | CLI | Agent skill | Localization |
-| --- | --- | --- | --- | --- | --- |
-| Open Assets | Free | MIT | Yes (`npx open-assets`) | Yes, Claude Code skill | Yes, `localizations.json` with fallbacks, number formatting and RTL |
-| [Koubou](https://pypi.org/project/koubou/) | Not stated (open source, pip or Homebrew) | MIT | Yes (`kou generate`) | Yes (`kou install-skills`) | Yes, `.xcstrings` with a folder per language |
-| [Shotcraft](https://www.producthunt.com/products/shotcraft) | Not stated | MIT | Yes, plus a hosted web UI | Not mentioned | Not mentioned |
-| [fastlane frameit](https://docs.fastlane.tools/actions/frameit/) | Not stated (open source) | Not named on the frameit page | Yes (`fastlane frameit`) | Not mentioned | Yes, titles from `.strings` files |
-| [AppMockUp](https://app-mockup.com/) | Free, no account | Not stated | No, web based | Not mentioned | Not mentioned |
-
-"Not stated" and "Not mentioned" mean the tool's public page did not say, not that the feature is missing. Facts were read from the linked pages in November 2026. Several unrelated apps share the Shotcraft name; this row is the open source one listed on Product Hunt.
-
-## How they differ
-
-- **Open Assets** renders HTML and CSS templates with headless Chrome, so a screenshot, an [app icon](/guides/xcode-app-icon), [favicons](/guides/favicons) and [OG images](/guides/og-images) come from the same `assets.json`. Localization is covered in [Localization](/localization).
-- **Koubou** generates screenshots from a configuration file and has a live preview mode (`kou live`).
-- **fastlane frameit** puts existing screenshots into device frames and adds titles. If you use it today, see [Migrate from frameit](/migrate/frameit).
-- **AppMockUp** is an in-browser editor, which suits one-off designs more than a repeatable CI step.
+| Tool | Kind | In short |
+| --- | --- | --- |
+| [fastlane frameit](https://open-assets.dev/alternatives/fastlane-frameit) | Open source CLI | Frames existing screenshots and adds titles from `.strings`. Moving over? See [Migrate from frameit](/migrate/frameit). |
+| [Koubou](https://open-assets.dev/alternatives/koubou) | Open source CLI | YAML config, bundled device frames, `.xcstrings` localization and an agent skill. |
+| [AppLaunchpad](https://open-assets.dev/alternatives/applaunchpad) | Hosted editor | Browser editor with a large template library. |
+| [Screenshots.pro](https://open-assets.dev/alternatives/screenshots-pro) | Hosted editor | Browser editor; localization and an API on paid plans. |
+| [AppScreen](https://open-assets.dev/alternatives/appscreen) | Open source web app | Browser editor with a 3D iPhone and AI translation. |
+| [Agent skills](https://open-assets.dev/alternatives/agent-skills) | Agent skills | ParthJadhav and framara screenshot skills next to the Open Assets skill. |
 
 ## Which one for CLI or CI localization
 
-If you need every language rendered by a command in CI, the candidates are Open Assets, Koubou and fastlane frameit. Open Assets also renders the app icon and web assets from the same templates. See [CI with GitHub Actions](/ci/github-actions).
+If you need every language rendered by a command in CI, the candidates are Open Assets, Koubou and fastlane frameit. Open Assets also renders the app icon and web assets from the same templates. See [Localization](/localization) and [CI with GitHub Actions](/ci/github-actions).

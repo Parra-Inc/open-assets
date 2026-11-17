@@ -343,6 +343,21 @@ export default function Home() {
                 </li>
               ))}
             </ul>
+            <p className="muted page-block">
+              Coming from another tool? See how Open Assets compares with{' '}
+              <a href="/alternatives/fastlane-frameit" {...trackAttrs('related_click', { location: 'home_alternatives', label: 'fastlane-frameit' })}>
+                fastlane frameit
+              </a>
+              ,{' '}
+              <a href="/alternatives/koubou" {...trackAttrs('related_click', { location: 'home_alternatives', label: 'koubou' })}>
+                Koubou
+              </a>{' '}
+              and{' '}
+              <a href="/alternatives" {...trackAttrs('related_click', { location: 'home_alternatives', label: 'hub' })}>
+                other screenshot tools
+              </a>
+              .
+            </p>
           </div>
         </section>
 
