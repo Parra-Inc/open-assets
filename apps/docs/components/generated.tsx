@@ -121,9 +121,12 @@ export function CliCommandList() {
 
 type Size = { platform: string; name: string; label: string; width: number; height: number };
 
-/** Common export sizes, optionally filtered to one platform. */
-export function ExportSizes({ platform }: { platform?: string }) {
-  const rows = (sizes as Size[]).filter((s) => !platform || s.platform === platform);
+/** Common export sizes, optionally filtered to one platform and/or a comma separated list of size names. */
+export function ExportSizes({ platform, names }: { platform?: string; names?: string }) {
+  const only = names?.split(',').map((n) => n.trim());
+  const rows = (sizes as Size[]).filter(
+    (s) => (!platform || s.platform === platform) && (!only || only.includes(s.name)),
+  );
   return (
     <div className="overflow-x-auto">
       <table>

@@ -3,7 +3,34 @@ title: Xcode App Icon
 description: Render your app icon from an HTML or SVG template straight into an Xcode .appiconset with the xcode output type, including what it does to Contents.json.
 ---
 
+An iOS app icon is one 1024x1024 PNG in current Xcode, which generates the smaller sizes at build time. Open Assets renders that file from an HTML or SVG template straight into your `.appiconset`.
+
 The `xcode` output type writes your icon directly into an Xcode asset catalog. Edit the template, run `render`, and the next Xcode build picks up the new icon. No export, drag and drop, or resizing step.
+
+## App icon sizes
+
+| Size | Pixels | Where |
+| --- | --- | --- |
+| App Store and Xcode | 1024x1024 | `AppIcon.png` written by the `xcode` output |
+| Apple touch icon (web) | 180x180 | `outFile` entry, see [Favicons](/guides/favicons) |
+| Google Play icon | 512x512 | `play-icon` export, see [Google Play](/guides/google-play) |
+
+<LastVerified date="2026-11-17" source="lib/renderer.mjs" />
+
+<Callout type="warn">
+Open Assets does not generate Android adaptive icons or drawable and mipmap sets. It renders the 512px Play Store icon only.
+</Callout>
+
+## Example output
+
+<GuideImage
+  src="/img/guides/app-icon.webp"
+  alt="The Tax Days app icon rendered by Open Assets at 1024 by 1024, a green calendar showing 83 days"
+  width={512}
+  height={512}
+  maxWidth={256}
+  caption="Tax Days icon, 1024x1024 (shown at 256px), from examples/tax-days."
+/>
 
 ## Config
 
@@ -115,8 +142,41 @@ The [Xcode app icon](/guides/xcode-app-icon), the [favicons and PWA icons](/guid
 
 The 1200x630 OG card is a second collection in the same file, so when the templates share a stylesheet, one color change updates the icon, the favicons and the share card in one render.
 
+## Steps
+
+1. Write the icon template at `1024x1024` (HTML or SVG). Do not round the corners; iOS masks them.
+2. Add the `xcode` export entry with the path to your `.appiconset`.
+3. Run `npx open-assets render --collection icon`.
+4. Build in Xcode and commit the changed `AppIcon.png` and `Contents.json`.
+
+## FAQ
+
+<Accordions>
+<Accordion title="What size is an iOS app icon?">
+1024x1024 pixels. Current Xcode takes that single image and generates the other sizes.
+</Accordion>
+<Accordion title="Should the icon have rounded corners or transparency?">
+No. Paint the full square; iOS applies the mask. The `borderRadius` in `assets.json` only affects the dev preview.
+</Accordion>
+<Accordion title="Does it update Contents.json?">
+Yes, it overwrites it with one universal 1024 entry and removes other PNGs in the folder.
+</Accordion>
+<Accordion title="Can it make Android launcher icons?">
+No. Android adaptive icons and drawable sets are not supported; only the 512px Play Store icon.
+</Accordion>
+</Accordions>
+
+<GuideCta href="/guides/favicons" label="Next: favicons from the same template" />
+
 ## Related
 
-- [Output types reference](/reference/outputs)
-- [Favicons and touch icons from the same template](/guides/favicons)
-- [Google Play 512px icon](/guides/google-play)
+<RelatedLinks
+  template="app-icon"
+  size="app-icon-ios"
+  links={[
+    { href: '/reference/outputs', label: 'Output types reference' },
+    { href: '/guides/favicons', label: 'Favicons and touch icons from the same template' },
+    { href: '/guides/google-play', label: 'Google Play 512px icon' },
+    { href: '/guides/logos', label: 'Logo exports from SVG' },
+  ]}
+/>

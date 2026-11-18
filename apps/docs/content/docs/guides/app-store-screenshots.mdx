@@ -3,6 +3,8 @@ title: App Store Screenshots
 description: Build a full iPhone and iPad App Store screenshot set from HTML templates, with the required sizes, a phone frame layout and a config you can copy and render.
 ---
 
+App Store iPhone screenshots are 1320x2868 for the 6.9" display, and Apple also accepts 1290x2796, 1284x2778 and 1179x2556 for smaller classes. Open Assets renders every one of them from a single HTML template authored at `440x956`.
+
 This guide takes you from an empty collection to a folder of App Store screenshots that are ready to upload. You design each screenshot once as an HTML page at a small source size, and Open Assets renders it at every device size Apple accepts.
 
 ## App Store screenshot sizes
@@ -10,6 +12,41 @@ This guide takes you from an empty collection to a folder of App Store screensho
 These are the App Store sizes Open Assets knows about. Apple asks for one set per display class, and smaller iPhone and iPad classes can reuse the largest set, so most apps only need the 6.9" iPhone and 13" iPad sets. Rendering the other sizes costs nothing extra and gives you exact pixel matches if you want them.
 
 <ExportSizes platform="App Store" />
+
+<LastVerified date="2026-11-17" source="Apple's App Store Connect screenshot specifications" />
+
+As of 2026-11-17, Apple accepts up to 10 screenshots per display size, as PNG or JPEG, with no transparency.
+
+### iPhone 6.9" (1320x2868) [#iphone-69]
+
+The largest iPhone class and the one to design for. `440x956` is exactly one third of it, so the 6.9" render never crops. Apple's 6.9" class also accepts 1290x2796 and 1260x2736.
+
+### iPhone 6.7" (1290x2796) [#iphone-67]
+
+Scales 2.932x from `440x956` and trims about 7px from the bottom.
+
+### iPhone 6.5" (1284x2778) [#iphone-65]
+
+The older large Face ID class. Apple scales a 6.9" set down when you skip it, so render it only if you want pixel exact files.
+
+### iPhone 6.1" (1179x2556) [#iphone-61]
+
+The medium iPhone class. Scales 2.68x from the source with a trim of a few pixels at the bottom.
+
+### Why 440x956
+
+`1320 / 3 = 440` and `2868 / 3 = 956`, so the source is the 6.9" screen in points. CSS sizes then read like iOS point sizes, and every iPhone export is a near exact scale.
+
+## Example output
+
+<GuideImage
+  src="/img/guides/app-store-iphone.webp"
+  alt="The first Tax Days App Store screenshot rendered by Open Assets, a headline above a framed iPhone showing the home screen"
+  width={440}
+  height={956}
+  maxWidth={300}
+  caption="Tax Days 01-hero at 1320x2868 (shown scaled down), from examples/tax-days."
+/>
 
 <Callout type="info">
 Apple changes its requirements from time to time. Check the current list in App Store Connect before a release. Adding a new size to Open Assets is one entry in the `export` array (see [Sizing](/concepts/sizing)).
@@ -202,6 +239,42 @@ Before you upload, check:
 - **Edges.** Look at the bottom and right edges of the sizes whose aspect ratio differs from the source.
 - **Missing images.** A wrong `<img>` path renders as a broken image without failing the run. Open the PNGs, not only the dev preview.
 - **Transparency.** PNGs are captured with a transparent background unless the page paints one. Give the root element a background, or set `background` on the collection. App Store screenshots should not have transparency.
+
+## FAQ
+
+<Accordions>
+<Accordion title="What size are App Store screenshots?">
+1320x2868 for the 6.9" iPhone class, plus 2064x2752 for 13" iPad if your app runs on iPad. Smaller classes accept the sizes in the table above.
+</Accordion>
+<Accordion title="How many App Store screenshots can I upload?">
+Up to 10 per display size, as of 2026-11-17.
+</Accordion>
+<Accordion title="Do I need every iPhone size?">
+No. Apple scales your largest set down for smaller classes. Rendering every size is free, so the examples do it anyway.
+</Accordion>
+<Accordion title="Can App Store screenshots have transparency?">
+No. Paint a full background or render JPEG with a `.jpg` outFile.
+</Accordion>
+<Accordion title="Where do iPad screenshots go?">
+In their own collection with a 3:4 source. See [iPad screenshots](/guides/ipad-screenshots).
+</Accordion>
+</Accordions>
+
+<GuideCta href="/guides/ipad-screenshots" label="Next: iPad App Store screenshots" />
+
+## Related
+
+<RelatedLinks
+  template="app-store-screenshots"
+  size="app-store-screenshots"
+  links={[
+    { href: '/guides/ipad-screenshots', label: 'iPad App Store screenshots' },
+    { href: '/guides/mac-app-store-screenshots', label: 'Mac App Store screenshots' },
+    { href: '/guides/custom-product-pages', label: 'Custom Product Pages' },
+    { href: '/agents/prompts', label: 'Prompts for your coding agent' },
+    { href: '/migrate/frameit', label: 'Migrate from fastlane frameit' },
+  ]}
+/>
 
 ## Next steps
 

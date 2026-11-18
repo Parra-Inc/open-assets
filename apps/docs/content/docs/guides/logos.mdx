@@ -1,0 +1,95 @@
+---
+title: Logo Exports from SVG
+description: Export an app logo from one SVG source to 1024 and 512 pixel PNGs plus a copy of the SVG itself with the Open Assets copy-source output, as in Cat IQ Test.
+---
+
+Open Assets turns one SVG logo into PNGs at any size plus a copy of the original SVG, using the `copy-source` output type. The Cat IQ Test example renders its 940x940 logo at 1024 and 512 pixels and copies `logo.svg` next to them in one command.
+
+## Logo sizes
+
+| Output | Pixels | Source |
+| --- | --- | --- |
+| `logo-1024.png` | 1024x1024 | `examples/cat-iq-test` |
+| `logo-512.png` | 512x512 | `examples/cat-iq-test` |
+| `logo.svg` | vector | `copy-source` output |
+| Preset "Logo" | 800, 400, 200 + SVG | `npx open-assets add collection` |
+| Preset "Wordmark" | 1200x400, 600x200, 300x100 + SVG | `npx open-assets add collection` |
+
+<LastVerified date="2026-11-17" source="lib/add.mjs and examples/cat-iq-test/assets.json" />
+
+## Command and config
+
+```bash
+npx open-assets add collection   # pick "Logo (800x800, SVG)" or "Wordmark (1200x400, SVG)"
+npx open-assets render --collection logo
+```
+
+```json title="assets.json (from examples/cat-iq-test)"
+{
+  "id": "logo",
+  "label": "Logo",
+  "sourceSize": { "width": 940, "height": 940 },
+  "templates": [{ "src": "public/logo.svg", "name": "logo" }],
+  "export": [
+    { "name": "logo-1024", "size": { "width": 1024, "height": 1024 } },
+    { "name": "logo-512", "size": { "width": 512, "height": 512 } },
+    { "name": "logo", "type": "copy-source", "format": "svg" }
+  ]
+}
+```
+
+## Example output
+
+<GuideImage
+  src="/img/guides/logo.webp"
+  alt="The Cat IQ Test logo rendered from SVG by Open Assets at 512 pixels"
+  width={512}
+  height={512}
+  maxWidth={256}
+  caption="logo-1024.png from examples/cat-iq-test (shown at 256px)."
+/>
+
+## Steps
+
+1. Put your logo SVG in the project, for example `public/logo.svg`, with a `viewBox` that matches `sourceSize`.
+2. Add a `logo` collection (preset or the config above).
+3. Add PNG sizes as export entries and one `copy-source` entry for the SVG.
+4. Run `npx open-assets render --collection logo`.
+5. Point press kits, README badges and social profiles at the exports.
+
+## Gotchas
+
+- **Transparent by default.** PNGs keep transparency where the SVG paints nothing. Add a background rect for platforms that need an opaque logo.
+- **Fonts in SVG.** Convert text to paths, or the render uses whatever font the headless browser finds.
+- **Copy-source only copies.** It does not optimize the SVG; run SVGO yourself if size matters. See [Output types](/reference/outputs).
+- **No adaptive Android icons.** Open Assets does not produce Android drawable or mipmap sets.
+
+## FAQ
+
+<Accordions>
+<Accordion title="Can Open Assets export an SVG logo?">
+Yes. A `copy-source` output with `"format": "svg"` copies the SVG source into the export folder next to the PNGs.
+</Accordion>
+<Accordion title="What sizes should I export a logo at?">
+Common picks are 1024 and 512 pixels square, plus the SVG. The Logo preset uses 800, 400 and 200.
+</Accordion>
+<Accordion title="Can I use an HTML template for a logo?">
+Yes, but you lose the SVG copy. Use SVG when you need a vector file.
+</Accordion>
+<Accordion title="Can the logo and app icon share artwork?">
+Yes. Reference the same SVG from the icon template so both update on the next render. See [Xcode app icon](/guides/xcode-app-icon).
+</Accordion>
+</Accordions>
+
+<GuideCta href="/reference/outputs" label="See every output type" />
+
+## Related
+
+<RelatedLinks
+  template="app-logo"
+  links={[
+    { href: '/guides/xcode-app-icon', label: 'Xcode app icon' },
+    { href: '/guides/favicons', label: 'Favicons and PWA icons' },
+    { href: '/examples/cat-iq-test', label: 'Cat IQ Test example' },
+  ]}
+/>

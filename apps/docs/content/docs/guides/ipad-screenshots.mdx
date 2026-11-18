@@ -1,0 +1,100 @@
+---
+title: iPad App Store Screenshots
+description: Generate 13 inch iPad App Store screenshots (2064x2752 and 2048x2732) from HTML templates with Open Assets, using an iPad shaped source size and one render.
+---
+
+iPad App Store screenshots are 2064x2752 for the 13" display class, and Apple also accepts 2048x2732 there. Open Assets renders both from one HTML template: give iPad its own collection with an iPad shaped `sourceSize`, run `npx open-assets render`, and upload the folder.
+
+## iPad screenshot sizes
+
+<ExportSizes platform="App Store" names="ipad-13,ipad-12.9" />
+
+<LastVerified date="2026-11-17" source="Apple's App Store Connect screenshot specifications" />
+
+As of 2026-11-17, Apple's screenshot specifications list 2064x2752 and 2048x2732 (portrait, or the landscape equivalents) for the 13" iPad class, and say App Store Connect needs iPad screenshots when your app runs on iPad. You can upload up to 10 per size, as PNG or JPEG, without transparency.
+
+## Command and config
+
+```bash
+npx open-assets add collection   # pick "Custom", source 1032x1376
+npx open-assets render --collection ipad
+npx open-assets check            # in CI: fail when a render is stale
+```
+
+```json title="assets.json"
+{
+  "id": "ipad",
+  "label": "iPad Screenshots",
+  "sourceSize": { "width": 1032, "height": 1376 },
+  "templates": [
+    { "src": "assets/ipad/01-calendar.html", "name": "01-calendar", "label": "Calendar" }
+  ],
+  "export": [
+    { "name": "ipad-13", "label": "iPad 13\"", "size": { "width": 2064, "height": 2752 } },
+    { "name": "ipad-12.9", "label": "iPad 12.9\"", "size": { "width": 2048, "height": 2732 } }
+  ]
+}
+```
+
+`1032x1376` is the 13" screen at half scale, so CSS pixels read like points. A smaller source such as `516x688` (quarter scale) works too.
+
+## Example output
+
+<GuideImage
+  src="/img/guides/ipad-13.webp"
+  alt="A 13 inch iPad App Store screenshot for Tax Days rendered by Open Assets, with a headline above two app screens showing a calendar and stats"
+  width={800}
+  height={1067}
+  maxWidth={420}
+  caption="2064x2752 render, built from the Tax Days example captures (shown scaled down)."
+/>
+
+## Steps
+
+1. Capture your app on an iPad simulator, or reuse iPhone captures inside a wider layout like the one above. Save them under `public/`.
+2. Add an `ipad` collection with a 3:4 source size. Do not reuse the iPhone collection.
+3. Write one HTML template per screenshot. Reference captures with relative paths, since renders load templates from disk.
+4. Run `npx open-assets render --collection ipad`. Files land in `exports/ipad/ipad-13/` and `exports/ipad/ipad-12.9/`.
+5. Upload the 13" set in App Store Connect (see [App Store Connect](/guides/app-store-connect)).
+
+## Gotchas
+
+- **Do not share a source with iPhone.** A `440x956` iPhone template rendered at 2064x2752 scales about 4.69x to fill the width and loses roughly a third of its height. Rendering scales by the larger ratio and crops the right or bottom edge (see [Sizing](/concepts/sizing)).
+- **2048x2732 vs 2064x2752.** The ratios differ slightly. From a `1032x1376` source the 2048 render trims a few pixels off the bottom; keep text away from the edges.
+- **No alpha.** Paint a full background. For a guaranteed opaque file, give the export an `outFile` ending in `.jpg`.
+- **The `add collection` preset.** The "App Store Screenshots" preset puts `ipad-13` beside the iPhone sizes on a `440x956` source. Move it into its own collection before you design.
+
+## FAQ
+
+<Accordions>
+<Accordion title="What size are iPad App Store screenshots?">
+2064x2752 pixels in portrait for the 13" class, with 2048x2732 also accepted. Landscape is the same numbers swapped.
+</Accordion>
+<Accordion title="Do I need 12.9 inch iPad screenshots too?">
+Apple lists 2048x2732 within the 13" class, so one set covers both. Rendering the 12.9" size as well costs one extra export entry if you want an exact match.
+</Accordion>
+<Accordion title="Can I make iPad screenshots from my iPhone templates?">
+Not by resizing them. Make an iPad collection with a 3:4 source and reuse your styles and captures inside a wider layout.
+</Accordion>
+<Accordion title="Can I render landscape iPad screenshots?">
+Yes. Set the source to `1376x1032` and the export sizes to `2752x2064` and `2732x2048`.
+</Accordion>
+<Accordion title="Can my agent build these?">
+Yes. Install the [Claude Code skill](/agents/skill) and ask it to add an iPad collection; the [prompts page](/agents/prompts) has a starting prompt.
+</Accordion>
+</Accordions>
+
+<GuideCta href="/guides/app-store-screenshots" label="Read the full App Store screenshots guide" />
+
+## Related
+
+<RelatedLinks
+  template="ipad-screenshots"
+  size="ipad-13"
+  links={[
+    { href: '/guides/app-store-screenshots', label: 'App Store screenshots (iPhone)' },
+    { href: '/guides/mac-app-store-screenshots', label: 'Mac App Store screenshots' },
+    { href: '/concepts/sizing', label: 'How sizing and cropping work' },
+    { href: '/reference/sizes', label: 'All export sizes' },
+  ]}
+/>

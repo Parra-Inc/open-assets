@@ -1,0 +1,71 @@
+/*
+ * Shared styles for the Open Assets template gallery (open-assets.dev/templates).
+ * Plain CSS, system fonts, no network: every template renders offline.
+ * Swap the brand tokens below to restyle every template at once.
+ */
+:root {
+  --brand: #4f46e5;
+  --brand-2: #06b6d4;
+  --ink: #0f172a;
+  --muted: #475569;
+  --paper: #f8fafc;
+  --card: #ffffff;
+  --line: #e2e8f0;
+  --night: #0b1020;
+  --night-2: #151b33;
+  --font: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { font-family: var(--font); color: var(--ink); overflow: hidden; -webkit-font-smoothing: antialiased; }
+
+.canvas { position: relative; overflow: hidden; }
+.bg-brand { background: linear-gradient(135deg, var(--brand) 0%, #7c3aed 55%, var(--brand-2) 130%); color: #fff; }
+.bg-paper { background: var(--paper); }
+.bg-night { background: radial-gradient(120% 90% at 20% 0%, #1e2a5a 0%, var(--night) 60%); color: #fff; }
+
+.glow { position: absolute; border-radius: 50%; filter: blur(60px); opacity: 0.55; pointer-events: none; }
+
+.eyebrow { font-size: 0.8em; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.8; }
+.headline { font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin: 0; }
+.sub { font-weight: 500; line-height: 1.4; margin: 0; opacity: 0.85; }
+.pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; font-weight: 600; }
+
+/* App logo mark: rounded square with a spark glyph. */
+.mark { display: inline-grid; place-items: center; border-radius: 22%; background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: #fff; box-shadow: 0 10px 30px rgba(79, 70, 229, 0.35); }
+.mark svg { width: 58%; height: 58%; }
+
+/* ── Fake app UI, used inside device frames ──────────────────────────── */
+.ui { background: var(--paper); color: var(--ink); width: 100%; height: 100%; display: flex; font-size: 13px; }
+.ui.dark { background: #0f1424; color: #e2e8f0; --line: #273049; --card: #161d33; --muted: #94a3b8; }
+.ui-side { width: 30%; border-right: 1px solid var(--line); padding: 18px 12px; display: flex; flex-direction: column; gap: 4px; }
+.ui-side .item { padding: 8px 10px; border-radius: 8px; color: var(--muted); font-weight: 500; }
+.ui-side .item.on { background: rgba(79, 70, 229, 0.12); color: var(--brand); font-weight: 700; }
+.ui.dark .ui-side .item.on { color: #a5b4fc; }
+.ui-main { flex: 1; padding: 22px 22px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.ui-title { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; }
+.ui-card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px; }
+.ui-row { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.ui-row:last-child { border-bottom: 0; }
+.ui-dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+.ui-line { height: 8px; border-radius: 4px; background: var(--line); }
+.ui-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.ui-stat { font-size: 24px; font-weight: 800; }
+.ui-label { color: var(--muted); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+.bars { display: flex; align-items: flex-end; gap: 8px; height: 120px; }
+.bars span { flex: 1; border-radius: 6px 6px 2px 2px; background: linear-gradient(180deg, var(--brand-2), var(--brand)); }
+
+/* ── Device frames (CSS only) ────────────────────────────────────────── */
+.ipad { background: #1c1c1e; border-radius: 44px; padding: 18px; box-shadow: 0 40px 80px rgba(15, 23, 42, 0.35), inset 0 0 0 2px #3a3a3c; }
+.ipad .screen { border-radius: 28px; overflow: hidden; width: 100%; height: 100%; }
+.mac { display: flex; flex-direction: column; align-items: center; }
+.mac .lid { background: #1c1c1e; border-radius: 22px 22px 0 0; padding: 14px 14px 18px; box-shadow: 0 40px 80px rgba(15, 23, 42, 0.35), inset 0 0 0 2px #3a3a3c; }
+.mac .screen { border-radius: 8px; overflow: hidden; width: 100%; height: 100%; }
+.mac .base { height: 18px; background: linear-gradient(180deg, #d4d4d8, #a1a1aa); border-radius: 0 0 18px 18px; }
+.window { border-radius: 14px; overflow: hidden; box-shadow: 0 30px 70px rgba(15, 23, 42, 0.3); border: 1px solid rgba(15, 23, 42, 0.12); }
+.window .bar { height: 34px; background: #eef2f7; display: flex; align-items: center; gap: 8px; padding: 0 14px; border-bottom: 1px solid var(--line); }
+.window .bar i { width: 12px; height: 12px; border-radius: 50%; display: block; }
+.phone { background: #111; border-radius: 40px; padding: 10px; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35); }
+.phone .screen { border-radius: 30px; overflow: hidden; width: 100%; height: 100%; }
+.phone .screen .ui { flex-direction: column; }

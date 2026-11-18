@@ -1,0 +1,95 @@
+---
+title: X and Twitter Card Images
+description: Render X (Twitter) summary_large_image cards at 1200x675 and Open Graph cards at 1200x630 from one HTML template with Open Assets, and wire them into Next.js.
+---
+
+An X (Twitter) large summary card image is usually rendered at 1200x675 (16:9), while the Open Graph image other networks read is 1200x630 (1.91:1). Open Assets renders both from one HTML template: the "OG Image / Social" preset already exports `1200x630` and `1200x675`.
+
+## Card sizes
+
+<ExportSizes platform="Web" names="og,twitter-card" />
+
+<LastVerified date="2026-11-17" />
+
+X's developer card pages were not reachable on 2026-11-17 (the request returned HTTP 402), so check the current `summary_large_image` rules there before relying on exact limits. 1200x675 is the size Open Assets uses for X.
+
+## Command and config
+
+```bash
+npx open-assets add collection   # pick "OG Image / Social (1200x630, HTML)"
+npx open-assets render --collection og-image
+```
+
+```json title="assets.json"
+{
+  "id": "og-image",
+  "label": "OG Image",
+  "sourceSize": { "width": 1200, "height": 630 },
+  "templates": [{ "src": "src/og-image.html", "name": "og-image" }],
+  "export": [
+    { "name": "1200x630", "label": "OG Image", "size": { "width": 1200, "height": 630 }, "outFile": "../web/public/og.png" },
+    { "name": "1200x675", "label": "Twitter Card", "size": { "width": 1200, "height": 675 }, "outFile": "../web/public/og-x.png" }
+  ]
+}
+```
+
+## Example output
+
+<GuideImage
+  src="/img/guides/twitter-card.webp"
+  alt="A 1200 by 675 X card for Tax Days rendered by Open Assets from a 1200 by 630 template, with a headline on the left and a phone screen on the right"
+  width={1200}
+  height={675}
+  caption="1200x675 render of a 1200x630 template. The right edge is cropped by about 86px."
+/>
+
+## Steps
+
+1. Add the preset, or paste the config above.
+2. Design at 1200x630 and leave about 90px of empty space on the right, because the 1200x675 render scales up 1.07x and crops the right edge.
+3. Render with `npx open-assets render --collection og-image`.
+4. Point your page metadata at the files (below).
+
+```ts title="app/layout.tsx"
+export const metadata = {
+  openGraph: { images: [{ url: "/og.png", width: 1200, height: 630 }] },
+  twitter: { card: "summary_large_image", images: ["/og-x.png"] },
+};
+```
+
+## Gotchas
+
+- **One source, two ratios.** If the crop hurts your layout, add a second collection with a `1200x675` source for X.
+- **Paint a background.** Transparent PNG areas show in unpredictable colors.
+- **Cache.** X and other networks cache card images; a new file name forces a refresh.
+
+## FAQ
+
+<Accordions>
+<Accordion title="What size should an X (Twitter) card image be?">
+Open Assets renders X cards at 1200x675 (16:9). Many sites send the 1200x630 Open Graph image and let X crop it; a dedicated 16:9 file avoids the crop.
+</Accordion>
+<Accordion title="Do I need separate OG and Twitter images?">
+No, `twitter:image` falls back to `og:image`. A separate 1200x675 file just fits X's 16:9 preview better.
+</Accordion>
+<Accordion title="Can I generate a card per blog post?">
+Yes, one template per page, or generate the HTML files with a script and list them. See [OG images](/guides/og-images).
+</Accordion>
+<Accordion title="JPEG or PNG?">
+Either. A `.jpg` outFile gives a smaller file; PNG keeps text sharper.
+</Accordion>
+</Accordions>
+
+<GuideCta href="/guides/og-images" label="Read the OG images guide" />
+
+## Related
+
+<RelatedLinks
+  template="twitter-card"
+  size="og-image"
+  links={[
+    { href: '/guides/og-images', label: 'OG images and social cards' },
+    { href: '/guides/social-headers', label: 'X headers and Slack images' },
+    { href: '/guides/launch-kit', label: 'Launch kit' },
+  ]}
+/>

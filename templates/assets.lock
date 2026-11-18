@@ -1,0 +1,329 @@
+{
+  "lockfileVersion": 2,
+  "renderer": 1,
+  "tool": "0.6.6",
+  "fingerprint": "sha256:b8009edda620580ccd68266b3bfbf89e6e10795b180ee25e684904dc3abaade8",
+  "files": {
+    "assets/favicon/icon.svg": "sha256:baa248437fd7c7c8bd2e8bebd87a0ced63d8e36e67dc8129b94801378d7b7188",
+    "assets/feature-graphic/01-centered.html": "sha256:ea579881a71480353c4bc265c23b99cccbac8baa9928f6953bbc59f9c2441d97",
+    "assets/feature-graphic/02-device.html": "sha256:38ddace03b3b57f80f8fcf6af66ef300add979ab72d1c7d147391caf09bee796",
+    "assets/feature-graphic/03-dark.html": "sha256:db737dfad86bfb110dcd6442bbf87274f8fb6bece039845a2ae37e637821d5f5",
+    "assets/ipad/01-hero.html": "sha256:a581223e16075599813a6dcb7fbcc3b15abe34c493384b6f1692720bfd9bed79",
+    "assets/ipad/02-split.html": "sha256:2c774ed7d9bea1f7385871008a87efd6f3a8def392170c8ade940a3058db17c1",
+    "assets/ipad/03-dark.html": "sha256:a85d2e29073ffc2947a9c136fd5a33a7d274035ec3c09ddff927744d0a36fece",
+    "assets/mac/01-hero.html": "sha256:dceb228df2fed8d43028197d4834ba90da3b6912b3a5589ab1858091845e45d2",
+    "assets/mac/02-keyboard.html": "sha256:cf4e4f3c56f42c0cae60b25baf7658b4bffb0a6a19a55fa5ea23a4402b5a653f",
+    "assets/mac/03-dark.html": "sha256:0fba9e6ab55c9274fc608918df6d112506ed1917cac605c885f6e422d87428b5",
+    "assets/og/01-centered.html": "sha256:4352cbff2fbb9db668bc9710767ac70aa8fdc388c594753dcaac89a27c678f79",
+    "assets/og/02-blog.html": "sha256:71f24aeb07d6e7f817bc85af450ad59e433337370f02247fe129ea49d43171f1",
+    "assets/og/03-docs.html": "sha256:30a9318175e315110a0c63611d5f658b0fcaa574c3d8d66c9bd9c1ec8ec61bd4",
+    "assets/styles.css": "sha256:3ca671ed6e641c042c92e2d42d4edd56284e7bf26b6f32d190d421fc0c7a0a12",
+    "assets/twitter/01-launch.html": "sha256:dac5ad925f81474aa1c0d7de685d8f65fd179f6127102a78b1f7bda4a78e672e",
+    "assets/twitter/02-quote.html": "sha256:d88793d4c79aff308f75e893d87c0fb5e57a6fbfac170d320b488ef2dc95f17e",
+    "assets/twitter/03-milestone.html": "sha256:34f952631695b80b6da844b64e98d2b11e835129c1ba316ef9407f0fb818b068"
+  },
+  "templates": {
+    "assets/favicon/icon.svg": [],
+    "assets/feature-graphic/01-centered.html": [
+      "assets/styles.css"
+    ],
+    "assets/feature-graphic/02-device.html": [
+      "assets/styles.css"
+    ],
+    "assets/feature-graphic/03-dark.html": [
+      "assets/styles.css"
+    ],
+    "assets/ipad/01-hero.html": [
+      "assets/styles.css"
+    ],
+    "assets/ipad/02-split.html": [
+      "assets/styles.css"
+    ],
+    "assets/ipad/03-dark.html": [
+      "assets/styles.css"
+    ],
+    "assets/mac/01-hero.html": [
+      "assets/styles.css"
+    ],
+    "assets/mac/02-keyboard.html": [
+      "assets/styles.css"
+    ],
+    "assets/mac/03-dark.html": [
+      "assets/styles.css"
+    ],
+    "assets/og/01-centered.html": [
+      "assets/styles.css"
+    ],
+    "assets/og/02-blog.html": [
+      "assets/styles.css"
+    ],
+    "assets/og/03-docs.html": [
+      "assets/styles.css"
+    ],
+    "assets/twitter/01-launch.html": [
+      "assets/styles.css"
+    ],
+    "assets/twitter/02-quote.html": [
+      "assets/styles.css"
+    ],
+    "assets/twitter/03-milestone.html": [
+      "assets/styles.css"
+    ]
+  },
+  "strings": {},
+  "outputs": {
+    "exports/favicon/apple-touch-icon.png": {
+      "assets": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "collection": "favicon",
+      "config": "sha256:5c9e7974b78a02b7672bee8ecb4868c5e52bfc20e6bc9465fd660d65c1e2672c",
+      "key": "sha256:2faf3311f3bb07020bf43175e619d193b95686a73a482b8aa559bae82b324da7",
+      "png": "sha256:36104b9638d1d954438ea045e9104773eb1bbc0ec43b9c27dc4b93d7bc8fc447",
+      "renderer": 1,
+      "source": "sha256:f7585bdf0ea23ffa4fa1ab5154739958916c863ee837f83894f6fba7aa16a4c8",
+      "strings": null,
+      "template": "icon"
+    },
+    "exports/favicon/favicon-16.png": {
+      "assets": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "collection": "favicon",
+      "config": "sha256:cf9a81af4ce9fb8cd1003c35791c4830da5dfbf9aa40e5fd07b40ff8e3d5df37",
+      "key": "sha256:4e54ab3b083818fb8d41b9599277188a8375ac11d5de3ca64ba1fe85a9d0f5b9",
+      "png": "sha256:9908156d970e6effaffa8cd01abfd9f13830d0caa6ee6bb6c1ee93c87abd817f",
+      "renderer": 1,
+      "source": "sha256:f7585bdf0ea23ffa4fa1ab5154739958916c863ee837f83894f6fba7aa16a4c8",
+      "strings": null,
+      "template": "icon"
+    },
+    "exports/favicon/favicon-32.png": {
+      "assets": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "collection": "favicon",
+      "config": "sha256:e45a1e4f98175ebef68f163e21187179a752aaf0a3ab594443161a1be12e0dc7",
+      "key": "sha256:ceeecca165b428cb5a55c322f1df3183ca324bdf660eb73a7ee9a190a8aff25d",
+      "png": "sha256:fe95271cefeee31287979557bcc1965f92557c4f577351a63b53fb4b9106168b",
+      "renderer": 1,
+      "source": "sha256:f7585bdf0ea23ffa4fa1ab5154739958916c863ee837f83894f6fba7aa16a4c8",
+      "strings": null,
+      "template": "icon"
+    },
+    "exports/favicon/pwa-192.png": {
+      "assets": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "collection": "favicon",
+      "config": "sha256:20741016f577d2fec64c18b4bf7e7f2de4393ed7a0eeb5f9a4281c5f97ab1a44",
+      "key": "sha256:55d86537ec0347a3a3127491688560a662faf5d84973f2c64a2f633533a8b9f7",
+      "png": "sha256:607969b64fcb392c09ac1244fac50cd6eafa48341421cf1819a2e8eed146bd91",
+      "renderer": 1,
+      "source": "sha256:f7585bdf0ea23ffa4fa1ab5154739958916c863ee837f83894f6fba7aa16a4c8",
+      "strings": null,
+      "template": "icon"
+    },
+    "exports/favicon/pwa-512.png": {
+      "assets": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "collection": "favicon",
+      "config": "sha256:3dccd1cfca185d567f750e4e703788bea0645c4126f94b0448868efa756585ef",
+      "key": "sha256:61941e5f8a572be88b82e912e9e7bad66924874751f2adb8196ce37c70153e26",
+      "png": "sha256:fa64e9fd9a403ebe85ea350fd205ccdedbdf1bc7ab950908b22a5a946667e53c",
+      "renderer": 1,
+      "source": "sha256:f7585bdf0ea23ffa4fa1ab5154739958916c863ee837f83894f6fba7aa16a4c8",
+      "strings": null,
+      "template": "icon"
+    },
+    "exports/ipad-screenshots/ipad-12.9/01-hero.png": {
+      "assets": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "collection": "ipad-screenshots",
+      "config": "sha256:47e2e2c2ff233d0c054aebd4c1666d297c1e359ce6059c6e6ce76878bdd16401",
+      "key": "sha256:ab6df5137aaaf32e737991a14a26a76fa0ed5666fcfa970abf4d649be4185bfe",
+      "png": "sha256:6d8f51f995d44e3780a5cc5020a5be8c5139e37b07f78d59af0326563de475a1",
+      "renderer": 1,
+      "source": "sha256:03256d7ebcee77efbeb038bc026d3a141e87cd7bb37b6385032312d3e5de6310",
+      "strings": null,
+      "template": "01-hero"
+    },
+    "exports/ipad-screenshots/ipad-12.9/02-split.png": {
+      "assets": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "collection": "ipad-screenshots",
+      "config": "sha256:47e2e2c2ff233d0c054aebd4c1666d297c1e359ce6059c6e6ce76878bdd16401",
+      "key": "sha256:e2642bace94770266a005b5a340004b1f18bef4fb739df79a54841d27d941c2b",
+      "png": "sha256:10b6aa0a309538d877bb84b8ce1192966093491cfc25801836a1339c50b758e0",
+      "renderer": 1,
+      "source": "sha256:a82fbd63658cd169a1c71a23084b4d07b9646e0ef51d744eba90e9065ca82751",
+      "strings": null,
+      "template": "02-split"
+    },
+    "exports/ipad-screenshots/ipad-12.9/03-dark.png": {
+      "assets": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "collection": "ipad-screenshots",
+      "config": "sha256:47e2e2c2ff233d0c054aebd4c1666d297c1e359ce6059c6e6ce76878bdd16401",
+      "key": "sha256:56ffb640704ae2c81a7919777a9e8fd00becfafb8adc2f97adb128ae70a7b184",
+      "png": "sha256:76c34ca37962641f0521cadf3544f89b2f7e7ae94210cd7bb1fc349d6582ed8d",
+      "renderer": 1,
+      "source": "sha256:9f1412d3b0c4c01914d08230b16349d8a8f60ec376865305a8127a5b810aeec1",
+      "strings": null,
+      "template": "03-dark"
+    },
+    "exports/ipad-screenshots/ipad-13/01-hero.png": {
+      "assets": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "collection": "ipad-screenshots",
+      "config": "sha256:3223b8c485afc360f9ffee24354870707b21e7ddc06c2f5824df5d612f695153",
+      "key": "sha256:de1abfb32b120333e59efda291f8872c21c15054efd8b6bd19b1661504ab42fd",
+      "png": "sha256:279601b52f24c8564de6a8e2cd1c0e961488570c3654da23c332991e4ffcbdb2",
+      "renderer": 1,
+      "source": "sha256:03256d7ebcee77efbeb038bc026d3a141e87cd7bb37b6385032312d3e5de6310",
+      "strings": null,
+      "template": "01-hero"
+    },
+    "exports/ipad-screenshots/ipad-13/02-split.png": {
+      "assets": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "collection": "ipad-screenshots",
+      "config": "sha256:3223b8c485afc360f9ffee24354870707b21e7ddc06c2f5824df5d612f695153",
+      "key": "sha256:7157727de61dd446f13a04395c3b2f5be26de551a071b284ad1b1f9001e598ec",
+      "png": "sha256:2a73574300e22961557b932d68dcb537116e12a1dae7b73db9a57ac2285f2be5",
+      "renderer": 1,
+      "source": "sha256:a82fbd63658cd169a1c71a23084b4d07b9646e0ef51d744eba90e9065ca82751",
+      "strings": null,
+      "template": "02-split"
+    },
+    "exports/ipad-screenshots/ipad-13/03-dark.png": {
+      "assets": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "collection": "ipad-screenshots",
+      "config": "sha256:3223b8c485afc360f9ffee24354870707b21e7ddc06c2f5824df5d612f695153",
+      "key": "sha256:2cc61e2d7788e2992d53dd003ed7b2004338286a8eb2acbf5cf00aba76ffd793",
+      "png": "sha256:92b81d355c1b474bb45b761e754ee7d8571c1029352d2a714d646fca85c45b3e",
+      "renderer": 1,
+      "source": "sha256:9f1412d3b0c4c01914d08230b16349d8a8f60ec376865305a8127a5b810aeec1",
+      "strings": null,
+      "template": "03-dark"
+    },
+    "exports/mac-screenshots/mac-retina/01-hero.png": {
+      "assets": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "collection": "mac-screenshots",
+      "config": "sha256:bad18a68dd093fa221d49998b99c9cd0d4dd8dcbf3c5f85ea2edb4f885fb77ca",
+      "key": "sha256:ef975ea8511ec192c8ae373050dad3bd3aed549f7a1aa458dc77f9a5619f4526",
+      "png": "sha256:b50e90d573e07784b5e480f1dac2f2eb763f2a17c48547b43c91bfac567082cc",
+      "renderer": 1,
+      "source": "sha256:e3e78fa01a2b8b4ea7138c8ee2182ac4eefe2cd088ffa9189004470db4b8be3d",
+      "strings": null,
+      "template": "01-hero"
+    },
+    "exports/mac-screenshots/mac-retina/02-keyboard.png": {
+      "assets": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "collection": "mac-screenshots",
+      "config": "sha256:bad18a68dd093fa221d49998b99c9cd0d4dd8dcbf3c5f85ea2edb4f885fb77ca",
+      "key": "sha256:d1444eb951e76ee9ac62178da3c7e85697693bbda122794045160f7cf34ab8d5",
+      "png": "sha256:b0c6fbc04eca0879d85bc3db4916a2a4894e0d36bc6beac92b7a70ce078d382f",
+      "renderer": 1,
+      "source": "sha256:dac3a3143c3f8166dc2797cc8a62f5f4ea7f1338d751319644ebdbce44cfaaba",
+      "strings": null,
+      "template": "02-keyboard"
+    },
+    "exports/mac-screenshots/mac-retina/03-dark.png": {
+      "assets": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "collection": "mac-screenshots",
+      "config": "sha256:bad18a68dd093fa221d49998b99c9cd0d4dd8dcbf3c5f85ea2edb4f885fb77ca",
+      "key": "sha256:31000a9e10dd1cb5c56617077fd0bfb1763b42087784df51d94fe223409acf57",
+      "png": "sha256:44a522500034d43b78db84df283def4adc744a6c272dd21bb0af074dd4b57d45",
+      "renderer": 1,
+      "source": "sha256:4cf34e05cbf9ee6aad66f71e00134839aa1fe7889dbc1df993a2fb0c950db6fa",
+      "strings": null,
+      "template": "03-dark"
+    },
+    "exports/og-image/og/01-centered.png": {
+      "assets": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "collection": "og-image",
+      "config": "sha256:8106d06861c9f4c7fb0efb55997742e4177e4c64ed5c181e67f4dfbc3bb3cb8e",
+      "key": "sha256:11ea0b2f53205fd28a334f61b48ed3039059e7d56f08034ae9ab1485d673f182",
+      "png": "sha256:a6ba31066d063718c7a571c2309afdf6a399dc5f58a12375d1f414e6b56ca6b6",
+      "renderer": 1,
+      "source": "sha256:43dac18473154119aa4ad13cfa27d50d69a5e3bcc7b8c6fb81383a5b769a7d81",
+      "strings": null,
+      "template": "01-centered"
+    },
+    "exports/og-image/og/02-blog.png": {
+      "assets": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "collection": "og-image",
+      "config": "sha256:8106d06861c9f4c7fb0efb55997742e4177e4c64ed5c181e67f4dfbc3bb3cb8e",
+      "key": "sha256:972700bbdd8895b673bae63832a4ec4e9bacfda5cc2ecc7508d87f233ffc3685",
+      "png": "sha256:c44b57f243160087be5215d77c70b815a1b31d41d0055c6ea6f8bdec161b07f1",
+      "renderer": 1,
+      "source": "sha256:3e1e18bb29275b46f2c4e1c8cb7e5d72578c890a563c0d66591392917dbd00a4",
+      "strings": null,
+      "template": "02-blog"
+    },
+    "exports/og-image/og/03-docs.png": {
+      "assets": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "collection": "og-image",
+      "config": "sha256:8106d06861c9f4c7fb0efb55997742e4177e4c64ed5c181e67f4dfbc3bb3cb8e",
+      "key": "sha256:f32576f9843c323477c218ca7fa1621f7d662d63449338960381c521f541d839",
+      "png": "sha256:1846838bb3bfb9ef80131860fb715288a7ab9fb5252f59e7513353b822c95980",
+      "renderer": 1,
+      "source": "sha256:7a39f8a8a3d2d0caafffe1c185346b7cd6b52600212712f32dd6ad63d801cac4",
+      "strings": null,
+      "template": "03-docs"
+    },
+    "exports/play-feature-graphic/feature-graphic/01-centered.png": {
+      "assets": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "collection": "play-feature-graphic",
+      "config": "sha256:c179481dde55f64b1f665c5a46b97c9b0a4aa932fcd30626a854e5f44afb9904",
+      "key": "sha256:2b51313e9377bd586a6e817bb75e4cb683881f431537591196c8e86b1129f47e",
+      "png": "sha256:c6836819ec3e273555f7200a489d511ef7345d2431e6f83b4214f89da60b9a23",
+      "renderer": 1,
+      "source": "sha256:a6d53e35cbefe9b0c54d6333bf591042f9d25eaf8aec159bfbf0fc91b460fc63",
+      "strings": null,
+      "template": "01-centered"
+    },
+    "exports/play-feature-graphic/feature-graphic/02-device.png": {
+      "assets": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "collection": "play-feature-graphic",
+      "config": "sha256:c179481dde55f64b1f665c5a46b97c9b0a4aa932fcd30626a854e5f44afb9904",
+      "key": "sha256:106469bdf4fab05814c9bc9f0bf0d3a8685f84f7968d42fb5e2a77a9c200e18c",
+      "png": "sha256:c6c4829479f6801eab347fdb690d639ae183eec6c3bba4ff433c4bbef9966a2c",
+      "renderer": 1,
+      "source": "sha256:9c2d97c004aaef4670fbacce08e435184d0e7907c6172a8141ae2a89358314f5",
+      "strings": null,
+      "template": "02-device"
+    },
+    "exports/play-feature-graphic/feature-graphic/03-dark.png": {
+      "assets": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "collection": "play-feature-graphic",
+      "config": "sha256:c179481dde55f64b1f665c5a46b97c9b0a4aa932fcd30626a854e5f44afb9904",
+      "key": "sha256:b030db729ae077a812e05f9535b7ac567417ea97ed4f563434819301d3c1eaf0",
+      "png": "sha256:33c1579598417f254a51136b0b809d2d934f8ad0490ce94e350734ba6260e55d",
+      "renderer": 1,
+      "source": "sha256:ce945719b474f71fa8d4b8e32bdb3436930573dc8151a01e4bcac15fc20ee2b7",
+      "strings": null,
+      "template": "03-dark"
+    },
+    "exports/twitter-card/twitter-card/01-launch.png": {
+      "assets": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "collection": "twitter-card",
+      "config": "sha256:6ad9454eff79b5740c6cf2b5d13b93600a1d364ef427273074331229b4e77497",
+      "key": "sha256:6956fc2f087f36efa39f729edddb82c31277ae5ecfadd60bcc53a7ae5eef77a6",
+      "png": "sha256:8f3f7baabb51422465d15430ef5a947f9a62f544954d04b36ad4491b0f8c3cd7",
+      "renderer": 1,
+      "source": "sha256:3397dd47e68139f8b3eded68ee91a11ff3df4df1e986f5e9b021cebe854a33db",
+      "strings": null,
+      "template": "01-launch"
+    },
+    "exports/twitter-card/twitter-card/02-quote.png": {
+      "assets": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "collection": "twitter-card",
+      "config": "sha256:6ad9454eff79b5740c6cf2b5d13b93600a1d364ef427273074331229b4e77497",
+      "key": "sha256:e1b669dab99a4560fba357c4d981f3e694ebfad9a119700fd0dbba0b83d55e5c",
+      "png": "sha256:91124ad527a258b700a35fe55a4383f5b2689b8b1aabbeed26135fb6fdd51e6b",
+      "renderer": 1,
+      "source": "sha256:1e9a2544187ab6e1bcc3803f4c69cfb98834f50a0e6d60ef87823f0399f66c31",
+      "strings": null,
+      "template": "02-quote"
+    },
+    "exports/twitter-card/twitter-card/03-milestone.png": {
+      "assets": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "collection": "twitter-card",
+      "config": "sha256:6ad9454eff79b5740c6cf2b5d13b93600a1d364ef427273074331229b4e77497",
+      "key": "sha256:b0da22c50a64ffebd17fd0e673dab052163ab1faf5e64dedcc3462887c526354",
+      "png": "sha256:63fc6f277084d6726e8dff9b3f7542592bb0202f87c3df560ab6547e249a97a0",
+      "renderer": 1,
+      "source": "sha256:b1c6afa5571c5f929a84a7a43ec6126d4c443bdbc7b37a073477390bb2952fdf",
+      "strings": null,
+      "template": "03-milestone"
+    }
+  }
+}
