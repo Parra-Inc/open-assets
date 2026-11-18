@@ -22,7 +22,7 @@
     {
       "binding": "DB",
       "database_name": "open-assets-web-db-production",
-      "database_id": "00000000-0000-0000-0000-000000000000",
+      "database_id": "c5b25e16-fdf0-47a9-828b-cfc169a6a303",
       "migrations_dir": "migrations"
     }
   ],
