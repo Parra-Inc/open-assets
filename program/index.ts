@@ -42,10 +42,15 @@ const zoneId = zone.id;
 // Both are static exports, so the list is tiny: apps/web has no /api routes
 // at all and apps/docs serves only /api/search (the prerendered Fumadocs
 // search index its client fetches). Every other /api path is a scanner probe.
-const apiRoutes = nextApiRoutePrefixes([
+//
+// The newsletter endpoints are served by apps/web's custom Worker
+// (custom-worker.ts), not by a Next route, so they are added by hand.
+const NEWSLETTER_API_PREFIX = "/api/newsletter";
+const scannedApiRoutes = nextApiRoutePrefixes([
   path.join(__dirname, "../apps/web/app"),
   path.join(__dirname, "../apps/docs/app"),
 ]);
+const apiRoutes = scannedApiRoutes && [...scannedApiRoutes, NEWSLETTER_API_PREFIX];
 
 // The fleet edge baseline. Every child aliases the stack-root URN it had when
 // declared on its own, so this is an adoption, not a recreate:
@@ -63,12 +68,30 @@ new ZoneBaseline(domain, {
     knownApiPrefixes: apiRoutes,
     apiHosts: [domain, `www.${domain}`, `docs.${domain}`],
   },
+  // The zone's one rate-limit rule (free plan) guards the newsletter POSTs.
+  // The Worker's in-memory limiter is per isolate, so this is the real limit.
+  rateLimit: {
+    expression:
+      '(http.request.method eq "POST" and http.request.uri.path in {"/api/newsletter/subscribe" "/api/newsletter/unsubscribe"})',
+    description: "Newsletter subscribe and unsubscribe",
+    requestsPerPeriod: 5,
+  },
   skip: {
     wwwRedirect: "declared by ManagedZone",
-    rateLimit:
-      "both sites are static exports with no forms and no API beyond the prerendered search index",
   },
 });
+
+// D1 for apps/web's newsletter signups: the DB binding in
+// apps/web/wrangler.jsonc. Protected because it holds subscriber data.
+// Schema is in apps/web/migrations, applied with
+// `wrangler d1 migrations apply DB --remote`; this declares the database only.
+// After the first `pulumi up`, copy newsletterDbId into wrangler.jsonc.
+const newsletterDb = new cloudflare.D1Database(
+  "open-assets-web-db-production",
+  { accountId, name: "open-assets-web-db-production" },
+  { protect: true },
+);
+export const newsletterDbId = newsletterDb.id;
 
 // Only Cloudflare's issuers: every hostname's certificate is Cloudflare-managed.
 caaRecords({ zoneId, domain, issuers: [...CLOUDFLARE_ISSUING_CAS] });

@@ -14,6 +14,18 @@
   // assets and imports no Node built-ins.
   // Workers AI, only for toMarkdown (free for HTML conversion).
   "ai": { "binding": "AI" },
+  // Newsletter subscribers (lib/newsletter-api.ts). The database is declared
+  // in program/index.ts (NewsletterDb); after its first `pulumi up`, replace
+  // this placeholder id with the `newsletterDbId` stack output. Schema lives in
+  // migrations/, applied with `wrangler d1 migrations apply DB --remote`.
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "open-assets-web-db-production",
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "migrations"
+    }
+  ],
   "assets": {
     "directory": "out",
     "binding": "ASSETS",
