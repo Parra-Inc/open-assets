@@ -1,0 +1,23 @@
+Open Assets competitor pulls, 2026-11-11 (primary sources)
+
+Our scale: @open-assets/open-assets v0.5.1, 46 GitHub stars (Parra-Inc/open-assets, public, created 2026-03), 543 npm downloads last 30 days. Marketing site open-assets.dev sitemap = 1 URL (homepage only). docs.open-assets.dev = 61 URLs. Web search for "open-assets" app store screenshots returns NOTHING = not discoverable/indexed.
+
+fastlane (fastlane/fastlane): 42,384 GitHub stars, actively maintained (pushed today). frameit = device frames via one command (ImageMagick); snapshot = capture real app screens via XCUITest. Known weaknesses (from our marketing.md + search): 1 screenshot per frame, dated output, broken RTL, Ruby. Huge installed base = incumbent. OA already ships migrate/frameit.mdx guide.
+
+Previewed (previewed.app/pricing): Lite $0 (unlimited 2D 720p, CC-attribution license), Plus $9.99 one-time (10 exports 1080p+, 3D, 30fps video, commercial), Pro $19/mo billed $228/yr (unlimited, 60fps video). 3D device mockups + 3D animations + App Promo Video (MP4). Annual saves 35%.
+
+Screenshots Pro (screenshots.pro): Basic $0, Standard $19/mo (3D angles, template storage, custom fonts, localization), Extended $49/mo (REST API access - labeled alpha - for CI/CD, charge end clients). 23 device frames, multi-device export, autosave cloud sync, translates to any App Store/Play language. No Fastlane, no CLI.
+
+AppLaunchpad (theapplaunchpad.com): 1000+ templates, device frames (latest iPhone/iPad/Android), localization (duplicate + translate), auto-scaled to store sizes. Free + paid tiers (prices behind /pricing). No App Preview video mentioned, no template marketplace.
+
+Shots.so: free browser mockup generator, device frames + 3D scenes + gradient backgrounds, video export + watermark removal are paid (~$8-12/mo or $99/yr, varies). Very popular, huge "vs" comparison footprint on toolradar.com.
+
+Rotato: Mac app, best-in-class 3D animation, one-time ~$59-119. Heavy, no CI/batch, no source-controlled output.
+Bannerbear: $49-249/mo, API for ad/social creative (not App Store specific), cloud-only.
+AppMockUp Studio: web, template packs $7.97-199, massive library, no git/programmatic control.
+
+@vercel/og (npm): 11,214,097 downloads/month - the OG-image generation standard (JSX->PNG via Satori). OA renders OG images too but via Puppeteer/full HTML/CSS. puppeteer itself: 55M downloads/mo.
+
+Ecosystem OA is MISSING FROM: alternativeto.net (Fastlane Frameit/AppMockUp/Previewed/Screenshots Pro pages), toolradar.com/compare "X vs Y" pages, awesome-ios, awesome-nodejs, "best App Store screenshot generator 2026" listicles (rapidnative, appscreenshotstudio), Claude skill directories (skills.cat, playbooks.com, claude-plugins.dev) where fastlane skills already appear.
+
+ScreenshotWhale: closed-source SaaS Claude skill, same AI-agent wedge as OA (our only agent-native rival). OA is free + local + MIT.

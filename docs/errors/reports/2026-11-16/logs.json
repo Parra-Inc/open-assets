@@ -1,0 +1,38 @@
+{
+  "schema": "error-audit/v2",
+  "layer": "logs",
+  "account": "b428f294c89acfbe189aa1556f15cc07",
+  "window": {
+    "from": "2026-11-13T17:57:29Z",
+    "to": "2026-11-16T17:57:29Z",
+    "days": 3
+  },
+  "capturedAt": "2026-11-16T17:57:29Z",
+  "scope": [
+    "open-assets-docs-production",
+    "open-assets-web-production"
+  ],
+  "ok": true,
+  "groups": [],
+  "byWorker": {},
+  "errorEventsEstimate": {},
+  "blind": [],
+  "truncated": false,
+  "effectiveFrom": "2026-11-13T17:57:29Z",
+  "exact": true,
+  "slices": {
+    "kept": 4,
+    "steps": [
+      "window",
+      "360m",
+      "60m",
+      "15m"
+    ],
+    "querySampled": 0,
+    "storedSampled": 0,
+    "sampledWindows": []
+  },
+  "scoped": true,
+  "groupCapped": false,
+  "warnings": []
+}
