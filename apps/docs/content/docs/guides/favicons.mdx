@@ -3,7 +3,33 @@ title: Favicons and PWA Icons
 description: Generate favicon, apple-touch-icon and PWA manifest icons from one HTML or SVG template, written into public/ with outFile. Covers PNG only output and .ico.
 ---
 
+Favicons are 16x16 and 32x32 PNGs, the Apple touch icon is 180x180, and PWA manifest icons are 192x192 and 512x512. Open Assets renders all five from one template; it does not write `.ico` files.
+
 A modern site needs a handful of icon files: a small favicon, a 180px Apple touch icon and 192px and 512px icons for a web app manifest. Render all of them from one template.
+
+## Favicon sizes
+
+<ExportSizes platform="Web" names="pwa-512,pwa-192,apple-touch-icon,favicon-32,favicon-16" />
+
+<LastVerified date="2026-11-17" source="web.dev's web app manifest guidance (192 and 512 are required by Chromium)" />
+
+## Command
+
+```bash
+npx open-assets add collection   # pick "App Icon (1024x1024, HTML)": it includes 512, 192, 180, 32 and 16
+npx open-assets render --collection favicon
+```
+
+## Example output
+
+<GuideImage
+  src="/img/guides/app-icon.webp"
+  alt="The Tax Days icon rendered by Open Assets, the same artwork used for its favicon and touch icon sizes"
+  width={512}
+  height={512}
+  maxWidth={192}
+  caption="One icon template feeds every favicon size (Tax Days, from examples/tax-days)."
+/>
 
 ## Config
 
@@ -89,8 +115,41 @@ The [Xcode app icon](/guides/xcode-app-icon), the [favicons and PWA icons](/guid
 
 The 1200x630 OG card is a second collection in the same file, so when the templates share a stylesheet, one color change updates the icon, the favicons and the share card in one render.
 
+## Steps
+
+1. Draw the icon once as SVG or HTML at 512x512 (or reuse your 1024 app icon template).
+2. Add one `outFile` export per size, pointing into `public/`.
+3. Run `npx open-assets render --collection favicon`.
+4. Add the `<link>` tags and manifest entries shown above.
+
+## FAQ
+
+<Accordions>
+<Accordion title="What favicon sizes do I need?">
+32x32 and 16x16 for browser tabs, 180x180 for the Apple touch icon, and 192x192 plus 512x512 for a web app manifest.
+</Accordion>
+<Accordion title="Can Open Assets make favicon.ico?">
+No. It writes PNG or JPEG only. Link PNG favicons, or convert with ImageMagick if you need a real `.ico`.
+</Accordion>
+<Accordion title="Can I use an SVG favicon?">
+Yes. With an SVG template, a `copy-source` output copies the SVG you can link as `rel="icon" type="image/svg+xml"`.
+</Accordion>
+<Accordion title="Can the favicon share the app icon template?">
+Yes, add the favicon sizes to the icon collection's `export` array next to the `xcode` entry.
+</Accordion>
+</Accordions>
+
+<GuideCta href="/guides/og-images" label="Next: OG images" />
+
 ## Related
 
-- [Xcode app icon](/guides/xcode-app-icon)
-- [OG images](/guides/og-images)
-- [Sizes reference](/reference/sizes)
+<RelatedLinks
+  template="favicon"
+  size="favicon"
+  links={[
+    { href: '/guides/xcode-app-icon', label: 'Xcode app icon' },
+    { href: '/guides/og-images', label: 'OG images' },
+    { href: '/guides/logos', label: 'Logo exports from SVG' },
+    { href: '/reference/sizes', label: 'Sizes reference' },
+  ]}
+/>

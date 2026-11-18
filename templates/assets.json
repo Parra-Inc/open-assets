@@ -1,0 +1,241 @@
+{
+  "version": 1,
+  "name": "Open Assets template gallery",
+  "publicDir": "public",
+  "command": "npx open-assets render",
+  "collections": [
+    {
+      "id": "play-feature-graphic",
+      "label": "Play feature graphic",
+      "sourceSize": {
+        "width": 1024,
+        "height": 500
+      },
+      "templates": [
+        {
+          "src": "assets/feature-graphic/01-centered.html",
+          "name": "01-centered",
+          "label": "Centered"
+        },
+        {
+          "src": "assets/feature-graphic/02-device.html",
+          "name": "02-device",
+          "label": "Device"
+        },
+        {
+          "src": "assets/feature-graphic/03-dark.html",
+          "name": "03-dark",
+          "label": "Dark"
+        }
+      ],
+      "export": [
+        {
+          "name": "feature-graphic",
+          "size": {
+            "width": 1024,
+            "height": 500
+          }
+        }
+      ]
+    },
+    {
+      "id": "ipad-screenshots",
+      "label": "iPad screenshots",
+      "sourceSize": {
+        "width": 1032,
+        "height": 1376
+      },
+      "templates": [
+        {
+          "src": "assets/ipad/01-hero.html",
+          "name": "01-hero",
+          "label": "Hero"
+        },
+        {
+          "src": "assets/ipad/02-split.html",
+          "name": "02-split",
+          "label": "Split"
+        },
+        {
+          "src": "assets/ipad/03-dark.html",
+          "name": "03-dark",
+          "label": "Dark"
+        }
+      ],
+      "export": [
+        {
+          "name": "ipad-13",
+          "size": {
+            "width": 2064,
+            "height": 2752
+          }
+        },
+        {
+          "name": "ipad-12.9",
+          "size": {
+            "width": 2048,
+            "height": 2732
+          }
+        }
+      ]
+    },
+    {
+      "id": "og-image",
+      "label": "OG image",
+      "sourceSize": {
+        "width": 1200,
+        "height": 630
+      },
+      "templates": [
+        {
+          "src": "assets/og/01-centered.html",
+          "name": "01-centered",
+          "label": "Centered"
+        },
+        {
+          "src": "assets/og/02-blog.html",
+          "name": "02-blog",
+          "label": "Blog"
+        },
+        {
+          "src": "assets/og/03-docs.html",
+          "name": "03-docs",
+          "label": "Docs"
+        }
+      ],
+      "export": [
+        {
+          "name": "og",
+          "size": {
+            "width": 1200,
+            "height": 630
+          }
+        }
+      ]
+    },
+    {
+      "id": "mac-screenshots",
+      "label": "Mac App Store screenshots",
+      "sourceSize": {
+        "width": 1440,
+        "height": 900
+      },
+      "templates": [
+        {
+          "src": "assets/mac/01-hero.html",
+          "name": "01-hero",
+          "label": "Hero"
+        },
+        {
+          "src": "assets/mac/02-keyboard.html",
+          "name": "02-keyboard",
+          "label": "Keyboard"
+        },
+        {
+          "src": "assets/mac/03-dark.html",
+          "name": "03-dark",
+          "label": "Dark"
+        }
+      ],
+      "export": [
+        {
+          "name": "mac-retina",
+          "size": {
+            "width": 2880,
+            "height": 1800
+          }
+        }
+      ]
+    },
+    {
+      "id": "twitter-card",
+      "label": "X / Twitter card",
+      "sourceSize": {
+        "width": 1200,
+        "height": 675
+      },
+      "templates": [
+        {
+          "src": "assets/twitter/01-launch.html",
+          "name": "01-launch",
+          "label": "Launch"
+        },
+        {
+          "src": "assets/twitter/02-quote.html",
+          "name": "02-quote",
+          "label": "Quote"
+        },
+        {
+          "src": "assets/twitter/03-milestone.html",
+          "name": "03-milestone",
+          "label": "Milestone"
+        }
+      ],
+      "export": [
+        {
+          "name": "twitter-card",
+          "size": {
+            "width": 1200,
+            "height": 675
+          }
+        }
+      ]
+    },
+    {
+      "id": "favicon",
+      "label": "Favicon set",
+      "sourceSize": {
+        "width": 512,
+        "height": 512
+      },
+      "templates": [
+        {
+          "src": "assets/favicon/icon.svg",
+          "name": "icon",
+          "label": "Icon"
+        }
+      ],
+      "export": [
+        {
+          "name": "pwa-512",
+          "size": {
+            "width": 512,
+            "height": 512
+          }
+        },
+        {
+          "name": "pwa-192",
+          "size": {
+            "width": 192,
+            "height": 192
+          }
+        },
+        {
+          "name": "apple-touch-icon",
+          "size": {
+            "width": 180,
+            "height": 180
+          }
+        },
+        {
+          "name": "favicon-32",
+          "size": {
+            "width": 32,
+            "height": 32
+          }
+        },
+        {
+          "name": "favicon-16",
+          "size": {
+            "width": 16,
+            "height": 16
+          }
+        },
+        {
+          "type": "copy-source",
+          "format": "svg"
+        }
+      ]
+    }
+  ]
+}

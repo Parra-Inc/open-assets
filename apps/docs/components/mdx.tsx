@@ -14,6 +14,7 @@ import {
   ExamplesGallery,
   ExportSizes,
 } from './generated';
+import { GuideCta, GuideImage, LastVerified, RelatedLinks } from './guide';
 
 export function getMDXComponents(components?: MDXComponents) {
   return {
@@ -35,6 +36,10 @@ export function getMDXComponents(components?: MDXComponents) {
     ExampleProject,
     ExamplesGallery,
     ExportSizes,
+    GuideCta,
+    GuideImage,
+    LastVerified,
+    RelatedLinks,
     ...components,
   } satisfies MDXComponents;
 }

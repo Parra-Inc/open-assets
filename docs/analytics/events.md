@@ -19,7 +19,7 @@ Set by `components/GoogleTag.tsx` in both apps with `gtag('set', ...)` before `c
 | `page_view` | content_group, page_type, site_host | every page load (gtag config) | |
 | `cta_click` | location, label | hero and final CTA buttons | |
 | `nav_click` | location, label | header, footer, breadcrumb links | |
-| `outbound_click` | location, label, link_url | tagged external links, and automatically any external link without its own tag | |
+| `outbound_click` | location, label, link_url | tagged external links, and automatically any external link without its own tag. Template pages tag the example repo button as `location=template_<slug>`, `label=example_repo` | |
 | `sponsor_click` | app | Sponsored by strip | |
 | `copy_command` | location, command | install command copy buttons | |
 | `tab_select` | group, label | example apps and package manager tabs | |
@@ -27,12 +27,12 @@ Set by `components/GoogleTag.tsx` in both apps with `gtag('set', ...)` before `c
 | `section_view` | section | each `[data-section]` scrolled into view, once | |
 | `scroll_depth` | percent (25, 50, 75, 100) | once each per page view | |
 | `guide_cta_click` | location, label | homepage guides grid, footer guide links, guide buttons on family pages, RelatedLinks cards pointing at docs guides | |
-| `related_click` | location, label | RelatedLinks cards, hub cards | |
+| `related_click` | location, label | RelatedLinks cards, hub cards, the template link on `/sizes/<slug>` (location `size_template`), and the homepage template gallery (`location=home_templates`, label = template slug or `all_templates`) | |
 | `toc_click` | label | "On this page" links (template pages) | |
 | `template_view_variant` | template, variant | variant picker on `/templates/<slug>` | |
 | `template_copy_prompt` | template | "Copy prompt" on `/templates/<slug>` | yes |
 | `template_copy_config` | template | "Copy assets.json" on `/templates/<slug>` | |
-| `size_copy` | size_name, location | SizeTable row copy button, exports snippet on `/sizes/<slug>` | |
+| `size_copy` | size_name, location | SizeTable row copy button (location `size_<slug>` or `sizes_hub`), exports snippet (`snippet_<slug>`, size_name is the page slug), per-size pixel copy on anchored sections such as `/sizes/iphone#iphone-6-9` (`anchor_<slug>`) | |
 | `size_row_click` | size_name, location | SizeTable row linking to its size page | |
 | `alternative_cta` | competitor, location, label | "Try Open Assets" buttons on `/alternatives/<slug>` | yes |
 | `alternative_compare_toggle` | competitor, state | "Only show differences" toggle | |

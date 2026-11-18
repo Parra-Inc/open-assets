@@ -1,0 +1,109 @@
+---
+title: X Header and Slack Listing Images
+description: Render an X (Twitter) profile header at 1500x500 and Slack or Discord listing images at 1600x1000 from HTML templates with Open Assets, as in No Context.
+---
+
+An X (Twitter) profile header is rendered at 1500x500 (3:1) in Open Assets, and Slack or Discord app listing images at 1600x1000. The No Context example ships both: a header template with a 3000x1000 retina copy and six Slack listing slides, all rendered by one command.
+
+## Sizes
+
+| Asset | Pixels | Used by |
+| --- | --- | --- |
+| X header | 1500x500 (2x: 3000x1000) | `examples/no-context`, `x-header` collection |
+| Slack / Discord listing image | 1600x1000 | `examples/no-context`, `slack` collection |
+
+<LastVerified date="2026-11-17" />
+
+X's help center blocked automated requests on 2026-11-17 (HTTP 403), so these are the sizes the example project uses rather than quoted platform limits. Check each platform's upload screen.
+
+## Command and config
+
+```bash
+npx open-assets render --collection x-header
+npx open-assets render --collection slack
+```
+
+```json title="assets.json (from examples/no-context)"
+{
+  "collections": [
+    {
+      "id": "x-header",
+      "label": "X Header",
+      "sourceSize": { "width": 1500, "height": 500 },
+      "templates": [{ "src": "assets/x-header/01-header.html", "name": "01-header" }],
+      "export": [
+        { "name": "1x", "size": { "width": 1500, "height": 500 } },
+        { "name": "2x", "size": { "width": 3000, "height": 1000 } }
+      ]
+    },
+    {
+      "id": "slack",
+      "label": "Slack App Directory",
+      "sourceSize": { "width": 1600, "height": 1000 },
+      "templates": [{ "src": "assets/apps/slack/01-hero.html", "name": "01-hero" }],
+      "export": [{ "name": "1x", "size": { "width": 1600, "height": 1000 } }]
+    }
+  ]
+}
+```
+
+## Example output
+
+<GuideImage
+  src="/img/guides/x-header.webp"
+  alt="The No Context X profile header rendered by Open Assets at 1500 by 500"
+  width={1500}
+  height={500}
+  caption="X header from examples/no-context, 1500x500."
+/>
+
+<GuideImage
+  src="/img/guides/slack.webp"
+  alt="The first No Context Slack app directory image rendered by Open Assets at 1600 by 1000"
+  width={1600}
+  height={1000}
+  caption="First Slack listing slide from examples/no-context, 1600x1000."
+/>
+
+## Steps
+
+1. Add one collection per destination, each at its own source size.
+2. Keep headers sparse: X overlays your avatar near the bottom left and crops differently on phones and desktop.
+3. Reuse slides: the No Context Slack slides share content with its Product Hunt gallery, with layouts resized for 16:10.
+4. Render with `npx open-assets render --collection x-header` and `--collection slack`, or tag both `launch`.
+
+## Gotchas
+
+- **Avatar overlap.** Leave the lower left of an X header free of text.
+- **Center the message.** Headers are cropped to different widths on mobile; keep text in the middle third.
+- **2x output.** Render a 2x copy for high density screens when the platform accepts larger uploads.
+
+## FAQ
+
+<Accordions>
+<Accordion title="What size is an X (Twitter) header image?">
+Open Assets renders it at 1500x500, plus a 3000x1000 retina copy. Check X's upload screen for current limits.
+</Accordion>
+<Accordion title="What size are Slack app directory images?">
+The No Context example renders them at 1600x1000. Confirm in your Slack app's listing settings.
+</Accordion>
+<Accordion title="Can I use the same template for LinkedIn?">
+Add an export entry at the LinkedIn size, or a second collection if the ratio differs, since rendering crops the right or bottom edge.
+</Accordion>
+<Accordion title="How do I render the whole launch set at once?">
+Tag the collections and run `npx open-assets render --tag launch`. See [Launch kit](/guides/launch-kit).
+</Accordion>
+</Accordions>
+
+<GuideCta href="/guides/launch-kit" label="Read the launch kit guide" />
+
+## Related
+
+<RelatedLinks
+  template="social-header"
+  links={[
+    { href: '/guides/product-hunt-gallery', label: 'Product Hunt gallery images' },
+    { href: '/guides/twitter-cards', label: 'X and Twitter card images' },
+    { href: '/examples/no-context', label: 'No Context example' },
+  ]}
+/>

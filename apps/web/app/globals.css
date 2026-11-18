@@ -527,7 +527,7 @@ p code, li code, figcaption code {
 /* Footer */
 .footer { border-top: 1px solid rgba(255, 255, 255, 0.06); padding: 36px 0 48px; }
 .footer-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; }
-.footer-links { display: flex; gap: 22px; font-size: 14px; color: var(--text-2); }
+.footer-links { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 14px; color: var(--text-2); }
 .footer-links a:hover { color: var(--text); }
 
 /* 404 */

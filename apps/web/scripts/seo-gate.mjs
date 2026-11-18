@@ -9,6 +9,9 @@
  * - at least one internal link on every page (no orphans or dead ends)
  * - no em dash in any page title or description
  * - every sitemap URL exists as a built page
+ * - every /templates/<slug> page passes the thin-content guard (plan section
+ *   5): at least 400 words outside code blocks, at least 3 variant images or
+ *   a size table, and an FAQ
  *
  * Exits 1 with a list of failures, so a page cannot ship without them.
  */
@@ -54,6 +57,23 @@ for (const path of all) {
     (m) => m[1] !== path,
   )
   if (path !== '/' && internal.length === 0) fail(path, 'no internal link inside <main>')
+
+  if (/^\/templates\/[^/]+$/.test(path)) {
+    const body = main.split('</main>')[0]
+    const text = decode(
+      body
+        .replace(/<script[\s\S]*?<\/script>/g, ' ')
+        .replace(/<pre[\s\S]*?<\/pre>/g, ' ')
+        .replace(/<table[\s\S]*?<\/table>/g, ' ')
+        .replace(/<[^>]+>/g, ' '),
+    )
+    const words = text.split(/\s+/).filter((w) => /[A-Za-z0-9]/.test(w)).length
+    const variants = (body.match(/role="tab"/g) ?? []).length
+    const hasTable = body.includes('<table')
+    if (words < 400) fail(path, `thin content: ${words} words outside code (min 400)`)
+    if (variants < 3 && !hasTable) fail(path, `thin content: ${variants} variants and no size table`)
+    if (!body.includes('data-section="faq"')) fail(path, 'thin content: no FAQ')
+  }
 }
 
 if (failures.length > 0) {

@@ -5,6 +5,7 @@ import RelatedLinks from '@/components/RelatedLinks'
 import SizeTable from '@/components/SizeTable'
 import { hubs } from '@/data/pages'
 import { sizePages } from '@/data/size-pages'
+import { templates } from '@/data/templates'
 import { trackAttrs } from '@/lib/analytics'
 import { pageMetadata, staticSlugs } from '@/lib/pageMeta'
 import { exportEntry, sizeByName } from '@/lib/sizes'
@@ -50,6 +51,25 @@ export default async function SizePage({ params }: { params: Promise<{ slug: str
             ))}
             .
           </p>
+          {p.anchors?.map((a) => {
+            const s = sizeByName(a.sizeName)
+            const px = `${s.width}×${s.height}`
+            return (
+              <div className="page-block" id={a.id} key={a.id}>
+                <h2>
+                  {a.heading}: {px}
+                </h2>
+                <p>{a.body}</p>
+                <CopyButton
+                  text={px}
+                  event="size_copy"
+                  params={{ size_name: s.name, location: `anchor_${p.slug}` }}
+                  label={`Copy ${px}`}
+                  className="btn btn-ghost btn-sm"
+                />
+              </div>
+            )
+          })}
           {p.notes.length > 0 && (
             <div className="page-block">
               <h2>Rules to know</h2>
@@ -61,13 +81,34 @@ export default async function SizePage({ params }: { params: Promise<{ slug: str
           <div className="page-block">
             <h2>Render every size with Open Assets</h2>
             <pre className="code-block"><code>{snippet}</code></pre>
-            <CopyButton text={snippet} event="size_copy" params={{ size_name: p.slug, location: 'snippet' }} label="Copy exports" className="btn btn-ghost btn-sm" />
+            <CopyButton text={snippet} event="size_copy" params={{ size_name: p.slug, location: `snippet_${p.slug}` }} label="Copy exports" className="btn btn-ghost btn-sm" />
           </div>
           {p.guide && (
             <p className="page-block">
               <a href={p.guide.href} className="btn btn-primary" {...trackAttrs('guide_cta_click', { location: 'size', label: p.guide.label })}>
                 {p.guide.label}
               </a>
+            </p>
+          )}
+          {p.template && (
+            <p className="page-block">
+              {templates.some((t) => t.slug === p.template!.slug) ? (
+                <a
+                  href={`/templates/${p.template.slug}`}
+                  className="btn btn-ghost"
+                  {...trackAttrs('related_click', { location: 'size_template', label: p.template.label })}
+                >
+                  {p.template.label}
+                </a>
+              ) : (
+                <a
+                  href={p.template.fallback.href}
+                  className="btn btn-ghost"
+                  {...trackAttrs('related_click', { location: 'size_template', label: p.template.fallback.label })}
+                >
+                  {p.template.fallback.label}
+                </a>
+              )}
             </p>
           )}
         </div>
