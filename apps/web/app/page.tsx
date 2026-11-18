@@ -9,6 +9,7 @@ import { homeTemplates } from '@/data/templates'
 import Faq from '@/components/Faq'
 import { GitHubIcon } from '@/components/Icons'
 import SiteFooter from '@/components/SiteFooter'
+import NewsletterForm, { NEWSLETTER_DESCRIPTION, NEWSLETTER_TITLE } from '@/components/NewsletterForm'
 import SiteHeader from '@/components/SiteHeader'
 import { trackAttrs } from '@/lib/analytics'
 import { appStoreCampaignUrl, campaignUrl } from '@/lib/campaign'
@@ -411,6 +412,21 @@ export default function Home() {
                   <GitHubIcon />
                   View on GitHub
                 </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section newsletter-section" aria-labelledby="newsletter-title" data-section="newsletter">
+          <div className="container">
+            <div className="newsletter-band">
+              <div>
+                <h2 id="newsletter-title">{NEWSLETTER_TITLE}</h2>
+                <p>{NEWSLETTER_DESCRIPTION}</p>
+              </div>
+              <div>
+                <NewsletterForm source="home" />
+                <p className="muted newsletter-note">Unsubscribe anytime.</p>
               </div>
             </div>
           </div>
