@@ -1,0 +1,2541 @@
+{
+  "schema": "error-audit/v2",
+  "layer": "invocations",
+  "account": "b428f294c89acfbe189aa1556f15cc07",
+  "window": {
+    "from": "2026-11-13T17:57:29Z",
+    "to": "2026-11-16T17:57:29Z",
+    "days": 3
+  },
+  "capturedAt": "2026-11-16T17:57:29Z",
+  "scope": [
+    "open-assets-docs-production",
+    "open-assets-web-production"
+  ],
+  "ok": true,
+  "rows": [
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-og-production",
+        "scriptVersion": "3e100f39-8572-4325-8b18-e03d34ccbf7c",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 66
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "84e520fd-a837-4ded-9496-45c0f16203f1",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 186
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-front-production",
+        "scriptVersion": "2b3b7546-e817-4634-a344-777bbc2a1dcc",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 33
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "fb113d49-5478-4f32-931c-b2dadf8809a2",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2048
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-marketing-production",
+        "scriptVersion": "d4929345-daf9-44d8-a1a7-d23e5ca36211",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "skipper-web-production",
+        "scriptVersion": "11161bba-c6b5-419c-85eb-5a3220ee3c06",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 17
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-admin-production",
+        "scriptVersion": "1a706974-e41d-4a69-b708-28284bad5bd7",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "obs-collector",
+        "scriptVersion": "088f2d53-b62c-4234-ba38-aaad15e84f26",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 14
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "fantasy-draft-order-web-production",
+        "scriptVersion": "9c60080d-26a4-47e6-a78b-63fbe78dcea6",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "bleeping-swift-web-production",
+        "scriptVersion": "409fda45-e25d-40d8-8267-59e761cf280e",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 33499
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "car-notes-web-production",
+        "scriptVersion": "96b8877a-b7e8-42c7-b152-71adc91bf489",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 838
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-marketing-production",
+        "scriptVersion": "87e64533-2b4b-4eed-9fcf-7fc2ad4dcb0f",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "244fcaaf-9529-4aef-bd39-e438fc17cf0c",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 173
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "no-context-web-production",
+        "scriptVersion": "ee0ad73e-44db-4af6-a10c-5ce6348f669a",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 6965
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "parra-web-production",
+        "scriptVersion": "9dfbff50-bf3b-4771-9488-6cb566a47929",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 15282
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "hostbird-mcp-production",
+        "scriptVersion": "249d2654-6d4d-4a67-8ee2-f29337e4def0",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 17
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-production",
+        "scriptVersion": "8cf45f56-9115-4a6f-b16f-0b1097a49fcd",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 15
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-production",
+        "scriptVersion": "78536ef8-23d2-4e76-ba75-638130977d0e",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 11266
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-app-production",
+        "scriptVersion": "002fde4c-3c3f-49cc-b92f-c9bd252fe5e1",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "better-header-web-production",
+        "scriptVersion": "72c70792-cf60-4150-b814-8f89d4d53ede",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 4
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "hostbird-sites-production",
+        "scriptVersion": "c2102a40-6977-4829-872d-c6d68e84b33a",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 227
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "1c046f3f-bfa4-4fbe-8a65-7a65ef40e5db",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 158
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "notifi-web-production",
+        "scriptVersion": "bc0baf67-faf5-489e-9254-5fc2f7c2a678",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 12
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-marketing-production",
+        "scriptVersion": "d4929345-daf9-44d8-a1a7-d23e5ca36211",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 222
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "revenue-hog-marketing-production",
+        "scriptVersion": "86f33b1e-4dbe-466f-95c3-aba4c19e341c",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 11
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "f7c6afaf-8671-4fa9-a80d-562e8d7cae14",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 7
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "firearm-maintenance-log-web-production",
+        "scriptVersion": "b8fe7c05-4e7a-4fc0-9562-bc3af742d279",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 375
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-marketing-production",
+        "scriptVersion": "94a9c4d5-0698-4cfb-8cb3-4952ab223fab",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 62
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-og-production",
+        "scriptVersion": "1fb2ba75-5a2f-4a41-a8a4-f49f1a54e464",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "notifi-web-production",
+        "scriptVersion": "bc0baf67-faf5-489e-9254-5fc2f7c2a678",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 9830
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "hostbird-mcp-production",
+        "scriptVersion": "b3b33fc3-f4a5-461b-a2e1-977efed7b896",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 679
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-email-production",
+        "scriptVersion": "d66ee08b-9a5c-4e0a-8a56-911dcc86d03b",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "f7c6afaf-8671-4fa9-a80d-562e8d7cae14",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 982
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-app-production",
+        "scriptVersion": "794425f2-5982-4a1a-8c19-c4e2b18af4c5",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-admin-production",
+        "scriptVersion": "ed5d67df-1390-4514-9082-59ff04f8cb9d",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 13
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "revenue-hog-docs-production",
+        "scriptVersion": "0d79483d-4c3d-4f3e-9ce0-9f672b4ee79a",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1873
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "hostbird-webhooks-production",
+        "scriptVersion": "6ab73050-eab0-4491-9b24-6343d2a1b107",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 350
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "b5e10e89-7fe7-4118-818f-8f36e28aaa21",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 13
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "244fb9dd-44ed-4d7a-b628-bb603967ebd9",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 3
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "obs-collector",
+        "scriptVersion": "992426d7-a3ed-4d7e-9551-a571e44d7f95",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 275
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "the-playbook-web-production",
+        "scriptVersion": "8826360e-d57e-493a-a8c2-8f0a12236b59",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 556
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-front-production",
+        "scriptVersion": "9c023a09-ccaf-43cc-81c3-fb4f1e98249d",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 11
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "hostbird-sites-production",
+        "scriptVersion": "a81773f0-7789-43a5-b972-a87ccef9007c",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-production",
+        "scriptVersion": "9a78632f-ce2f-4905-a47d-cde65dfbdf9a",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1086
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-production",
+        "scriptVersion": "562e349b-9634-445d-a503-fc779f0df0e6",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 28262
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-front-production",
+        "scriptVersion": "8f28b37b-09ee-4086-9da7-03d642acf821",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "hostbird-marketing-production",
+        "scriptVersion": "327e870d-a0db-4f9e-85da-f23931cbfdd8",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2709
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-admin-production",
+        "scriptVersion": "ed5d67df-1390-4514-9082-59ff04f8cb9d",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 5
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "bleeping-swift-web-production",
+        "scriptVersion": "409fda45-e25d-40d8-8267-59e761cf280e",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 87
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-og-production",
+        "scriptVersion": "1fb2ba75-5a2f-4a41-a8a4-f49f1a54e464",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 121
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "revenue-hog-web-production",
+        "scriptVersion": "cb8390b8-9ed6-47fa-825a-dec7f5dc9c78",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-production",
+        "scriptVersion": "9a78632f-ce2f-4905-a47d-cde65dfbdf9a",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 3
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "334dc349-3dea-4aa8-95b5-65214ba61909",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 224
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "hostbird-notifications-production",
+        "scriptVersion": "4bace484-ee2f-4cdc-ac95-94f08c0c1908",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 17
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "claude-drops-web-production",
+        "scriptVersion": "9b878299-fe4a-4b49-b07f-01c6cc0c453c",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1482
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-admin-production",
+        "scriptVersion": "28f9d1f0-0995-4e00-8b48-c7439d053659",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 468
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-og-production",
+        "scriptVersion": "fad769c8-91b1-454d-ac6e-d2df8df93906",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 98
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "keep-norvell-web-production",
+        "scriptVersion": "66d0b942-c01f-4bd9-a756-036c0b05f415",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1612
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "4fad059c-2112-4139-bb2a-a66c64b6bf81",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 572
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-production",
+        "scriptVersion": "5b5273b0-5b20-400e-88e1-ba28a81196c1",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 28095
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-admin-production",
+        "scriptVersion": "e9bff3d0-2f0d-439c-8101-16a9e2a78e70",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-og-production",
+        "scriptVersion": "bc5ecee8-0d67-422c-8049-f2172d5cd6a1",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 3
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "fee04455-b1e2-4a78-91f1-0773adcb303f",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 4
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "tax-days-web-production",
+        "scriptVersion": "",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 5
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "parra-web-production",
+        "scriptVersion": "9dfbff50-bf3b-4771-9488-6cb566a47929",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 56
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "open-assets-docs-production",
+        "scriptVersion": "0e853839-38ff-47ff-a782-49eee1836571",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1925
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "claude-drops-web-production",
+        "scriptVersion": "af7248d1-047c-4760-b2d9-90c34b67391c",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 692
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "6b610945-3c79-44c7-a00c-630b79b6e29c",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 16
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "revenue-hog-marketing-production",
+        "scriptVersion": "",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "__unknown__",
+        "scriptVersion": "",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 19615
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "71d932fa-b91d-4411-a6a1-a4c5e42fa180",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 34
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "fee04455-b1e2-4a78-91f1-0773adcb303f",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 127
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "better-header-web-production",
+        "scriptVersion": "ccfce3af-949a-489a-ba1c-1710ba6181aa",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 188
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "girl-math-web-production",
+        "scriptVersion": "2db99c0c-811c-428e-ba01-bd2191c0c54e",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 448
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-production",
+        "scriptVersion": "bb234883-e22e-4439-b73a-42d89bcbb9d8",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 33001
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "tax-days-web-production",
+        "scriptVersion": "86f9e100-8122-46df-97ee-3171d1dbd8c4",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 8
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "cf-error-watch",
+        "scriptVersion": "00ae7203-29be-489b-ad0b-779115df5bf8",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 288
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-app-production",
+        "scriptVersion": "9ec7b2dc-e3c5-4dfe-8745-7950adb8ac5c",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "equipment-maintenance-log-web-production",
+        "scriptVersion": "2f9a19e2-40e8-47f2-8c28-658073345883",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 472
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "better-header-web-production",
+        "scriptVersion": "72c70792-cf60-4150-b814-8f89d4d53ede",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 3350
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "fantasy-draft-order-web-production",
+        "scriptVersion": "",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "claude-drops-web-production",
+        "scriptVersion": "90e5524b-4123-4660-9a83-3cb873a8ce98",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 887
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-admin-production",
+        "scriptVersion": "e9bff3d0-2f0d-439c-8101-16a9e2a78e70",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 188
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-email-production",
+        "scriptVersion": "bf85b9a4-4c85-4fbd-abfa-c34f8ede95d4",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-production",
+        "scriptVersion": "8b81cca2-2276-4914-ae13-1c4845fa350f",
+        "status": "exceededMemory"
+      },
+      "sum": {
+        "errors": 1,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "thoughtful-web-production",
+        "scriptVersion": "3fb521b1-ad78-418e-ac86-30bf8daf29b4",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 18
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "the-playbook-web-production",
+        "scriptVersion": "a95181b1-6e4a-4a0a-b287-e45aa727452d",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 12
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-front-production",
+        "scriptVersion": "6817b1ae-1ef9-496b-bb68-929980cc2a44",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 17703
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "skimmer-web-production",
+        "scriptVersion": "d3dba341-437f-47c0-9aad-191eef11bbaf",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 8618
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "indexnow-sync-web-production",
+        "scriptVersion": "1891ee10-c4ac-451e-a50f-b9de6bcf34c7",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 637
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "fcf0dd47-8e21-4675-a0be-399c0f82fb91",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 376
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "hostbird-notifications-production",
+        "scriptVersion": "61f1f679-fd2a-4395-8d73-3fe55e52ab80",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 47
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-og-production",
+        "scriptVersion": "b2cd0cfd-3071-4f9c-8354-6e588f3d0bee",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "hostbird-app-production",
+        "scriptVersion": "a74bc6b5-7078-417b-b7aa-55b3b61040f1",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 854
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "bbde42e0-c470-483a-ac49-39e3a426fdf4",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "revenue-hog-web-production",
+        "scriptVersion": "cb8390b8-9ed6-47fa-825a-dec7f5dc9c78",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 4065
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "revenue-hog-app-production",
+        "scriptVersion": "5863aae1-e252-4650-b755-e59cbfba0c32",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 41
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "the-playbook-web-production",
+        "scriptVersion": "8826360e-d57e-493a-a8c2-8f0a12236b59",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "open-assets-web-production",
+        "scriptVersion": "d3454148-d62f-4c95-9168-e9e88fbcc649",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1701
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "hostbird-app-production",
+        "scriptVersion": "26972e67-be9a-41cd-9757-c822b0b03bfa",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 288
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-front-production",
+        "scriptVersion": "6817b1ae-1ef9-496b-bb68-929980cc2a44",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 94
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-app-production",
+        "scriptVersion": "697296b2-c292-453b-b420-1b751e6324b3",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 90
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "c961104c-50f6-473e-8642-6179809e6818",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "hostbird-app-production",
+        "scriptVersion": "d678d250-9944-46bd-8fc8-ca2db522134e",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 337
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-email-production",
+        "scriptVersion": "28e034e9-856c-4b9c-83e1-f8cd7804478f",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 4
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-production",
+        "scriptVersion": "bb234883-e22e-4439-b73a-42d89bcbb9d8",
+        "status": "exceededMemory"
+      },
+      "sum": {
+        "errors": 16,
+        "requests": 16
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "docker-web-production",
+        "scriptVersion": "9874b133-c9d8-4ad7-873b-5e9edb157ea9",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 148
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-admin-production",
+        "scriptVersion": "9a5ce322-81eb-4760-8eb3-325e8e85107c",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 9
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-images-production",
+        "scriptVersion": "ef2396ea-b850-4969-ba8f-c8c223cecaf0",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 33
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-production",
+        "scriptVersion": "5b5273b0-5b20-400e-88e1-ba28a81196c1",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 459
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "revenue-hog-marketing-production",
+        "scriptVersion": "86f33b1e-4dbe-466f-95c3-aba4c19e341c",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 4340
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "car-notes-web-production",
+        "scriptVersion": "96b8877a-b7e8-42c7-b152-71adc91bf489",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 25
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-front-production",
+        "scriptVersion": "05ebfaf9-865c-4055-9fc9-97974e079d68",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 707
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-marketing-production",
+        "scriptVersion": "87e64533-2b4b-4eed-9fcf-7fc2ad4dcb0f",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 325
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "5b0dcdb1-38fb-473d-b6e3-cb49495d44cd",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 245
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-admin-production",
+        "scriptVersion": "916a228d-b649-4c90-8cdd-7d11fc2c5bb2",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-marketing-production",
+        "scriptVersion": "94a9c4d5-0698-4cfb-8cb3-4952ab223fab",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 9933
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "cigar-journal-web-production",
+        "scriptVersion": "2e80df2e-dc44-42cb-a60a-afd2f7bac8e2",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 457
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "glp-done-web-production",
+        "scriptVersion": "43de6dfe-f4c1-43f2-9f2a-2387a8c2719b",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 36
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "claude-drops-web-production",
+        "scriptVersion": "90e5524b-4123-4660-9a83-3cb873a8ce98",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 57260
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-og-production",
+        "scriptVersion": "b2cd0cfd-3071-4f9c-8354-6e588f3d0bee",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 71
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-marketing-production",
+        "scriptVersion": "d2e97d37-fdf0-499c-bc5a-77507f91e910",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 17
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "244fcaaf-9529-4aef-bd39-e438fc17cf0c",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 6
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "tax-days-web-production",
+        "scriptVersion": "86f9e100-8122-46df-97ee-3171d1dbd8c4",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 36826
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "bbde42e0-c470-483a-ac49-39e3a426fdf4",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 288
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "claude-drops-web-production",
+        "scriptVersion": "481e236d-c17b-4f32-9076-6f05cbf1c0ed",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 4
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "4fad059c-2112-4139-bb2a-a66c64b6bf81",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 24
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-email-production",
+        "scriptVersion": "e9f5a26f-c07d-48f1-9f4b-9ebb70d640dd",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 16
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "notifi-web-production",
+        "scriptVersion": "",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-production",
+        "scriptVersion": "562e349b-9634-445d-a503-fc779f0df0e6",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 98
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "5b0dcdb1-38fb-473d-b6e3-cb49495d44cd",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 15
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-images-production",
+        "scriptVersion": "3ee8fcb8-ed7b-45e7-92c8-b74cc13f3402",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 43
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "skipper-web-production",
+        "scriptVersion": "83c2cef9-b368-4f9e-a85a-85ed0173ed73",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 711
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "revenue-hog-web-production",
+        "scriptVersion": "aae31e74-7326-4315-ba90-f80fa2792186",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 145
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "1cc2fbfe-953e-45a1-99b6-1797355a5a56",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 310
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-front-production",
+        "scriptVersion": "12be13fb-9855-40ab-afb3-0b67d657c6f9",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 32
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-app-production",
+        "scriptVersion": "f956e4ce-fe48-43af-97ef-37cc3165ea50",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 13
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-front-production",
+        "scriptVersion": "2b3b7546-e817-4634-a344-777bbc2a1dcc",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 18703
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-marketing-production",
+        "scriptVersion": "f00c74ed-811a-4b9b-872d-18df99d5c410",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 16
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "glp-done-web-production",
+        "scriptVersion": "43de6dfe-f4c1-43f2-9f2a-2387a8c2719b",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 5264
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-marketing-production",
+        "scriptVersion": "",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 5
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-og-production",
+        "scriptVersion": "f695711b-f1c3-49d4-9b5b-e0e5b67b4305",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 3
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "revenue-hog-docs-production",
+        "scriptVersion": "0d79483d-4c3d-4f3e-9ce0-9f672b4ee79a",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "revenue-hog-app-production",
+        "scriptVersion": "f5678c57-4507-4f2a-913e-fdaa564611b9",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1816
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "notifi-web-production",
+        "scriptVersion": "c8d741ae-4491-4276-ac74-1b5ecb601e32",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1666
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "hostbird-notifications-production",
+        "scriptVersion": "5f254684-a1bd-40a1-bbe1-d36561da4ce3",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 148
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "fb113d49-5478-4f32-931c-b2dadf8809a2",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 19
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-app-production",
+        "scriptVersion": "9123a994-d031-4f08-a17e-cad3c9fd50fc",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 11
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "livestock-tracker-web-production",
+        "scriptVersion": "0922353d-92a3-4afb-8999-d115f9b508b3",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 469
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "encore-web-production",
+        "scriptVersion": "a074d787-95cc-449f-a433-913c689d2847",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 4110
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "hostbird-processor-production",
+        "scriptVersion": "610f929a-239e-4821-bd18-334cb9a526b7",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 12
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-marketing-production",
+        "scriptVersion": "1a2360f6-df7d-447f-adf0-30e679757057",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 270
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "fantasy-draft-order-web-production",
+        "scriptVersion": "859ab291-36ab-452a-81c2-f2af8fa42138",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 4175
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-production",
+        "scriptVersion": "562e349b-9634-445d-a503-fc779f0df0e6",
+        "status": "exceededMemory"
+      },
+      "sum": {
+        "errors": 7,
+        "requests": 7
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "4c408b2c-9d93-4b01-8422-50589a0ebe5e",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 80
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "026422b8-da11-4a80-88e1-45c8d49e76aa",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 75
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "read-pr-web-production",
+        "scriptVersion": "61d4eb72-3fc5-45ae-9db3-2983d78076a4",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 3935
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "perdido-peas-web-production",
+        "scriptVersion": "340ca2eb-5d2a-41b5-8b4c-5170a1a5af7b",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 6
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "skimmer-web-production",
+        "scriptVersion": "d3dba341-437f-47c0-9aad-191eef11bbaf",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 49
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "fb113d49-5478-4f32-931c-b2dadf8809a2",
+        "status": "exceededMemory"
+      },
+      "sum": {
+        "errors": 5,
+        "requests": 5
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "revenue-hog-app-production",
+        "scriptVersion": "",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-production",
+        "scriptVersion": "78536ef8-23d2-4e76-ba75-638130977d0e",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 204
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-images-production",
+        "scriptVersion": "8035b65d-2de6-44f8-99d9-be57a4817bb6",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 62
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "girl-math-web-production",
+        "scriptVersion": "2db99c0c-811c-428e-ba01-bd2191c0c54e",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 50
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "deductibee-web-production",
+        "scriptVersion": "9f92ab79-6ff3-4314-a56f-9787530884ce",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 9073
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-front-production",
+        "scriptVersion": "9c023a09-ccaf-43cc-81c3-fb4f1e98249d",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 7163
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "claude-drops-web-production",
+        "scriptVersion": "",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "fantasy-draft-order-web-production",
+        "scriptVersion": "859ab291-36ab-452a-81c2-f2af8fa42138",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 7
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "tax-days-web-production",
+        "scriptVersion": "bb89ccca-4614-4e94-bf97-758fd32df4b8",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2348
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "6b610945-3c79-44c7-a00c-630b79b6e29c",
+        "status": "exceededMemory"
+      },
+      "sum": {
+        "errors": 6,
+        "requests": 6
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "1cc2fbfe-953e-45a1-99b6-1797355a5a56",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 18
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-production",
+        "scriptVersion": "8b81cca2-2276-4914-ae13-1c4845fa350f",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 5864
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-front-production",
+        "scriptVersion": "a04869e8-44c4-42a9-b483-ca7bb0cc5909",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 3225
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "better-header-web-production",
+        "scriptVersion": "",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "keep-norvell-web-production",
+        "scriptVersion": "66d0b942-c01f-4bd9-a756-036c0b05f415",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-front-production",
+        "scriptVersion": "8f28b37b-09ee-4086-9da7-03d642acf821",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 4243
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "hostbird-marketing-production",
+        "scriptVersion": "27cd3193-3930-4a1a-a31e-8ca969c8ccfe",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 6
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-marketing-production",
+        "scriptVersion": "d2e97d37-fdf0-499c-bc5a-77507f91e910",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1302
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-front-production",
+        "scriptVersion": "12be13fb-9855-40ab-afb3-0b67d657c6f9",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 35900
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-admin-production",
+        "scriptVersion": "a507923a-2f76-49b5-b26d-a55cbdc7ec00",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "f7c6afaf-8671-4fa9-a80d-562e8d7cae14",
+        "status": "exceededMemory"
+      },
+      "sum": {
+        "errors": 1,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "244fb9dd-44ed-4d7a-b628-bb603967ebd9",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 158
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "claude-drops-web-production",
+        "scriptVersion": "481e236d-c17b-4f32-9076-6f05cbf1c0ed",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 305
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-marketing-production",
+        "scriptVersion": "1a2360f6-df7d-447f-adf0-30e679757057",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 34478
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "no-context-web-production",
+        "scriptVersion": "",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "hostbird-sites-production",
+        "scriptVersion": "2ee34e71-f7db-40eb-86c3-ea5f6a1ac866",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 5
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "revenue-hog-marketing-production",
+        "scriptVersion": "37136d34-371a-4553-84f8-020d40878151",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 106
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-images-production",
+        "scriptVersion": "bcb9f68a-aab6-409a-87f7-c6ad63c46aa0",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 26
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "hostbird-app-production",
+        "scriptVersion": "8b53ad53-f931-4325-81bd-8173afecccee",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 12
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "0a20398b-96c5-4f2a-9945-cd4368858b12",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 42
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "334dc349-3dea-4aa8-95b5-65214ba61909",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "girl-math-web-production",
+        "scriptVersion": "499d0829-2e66-456b-8e0a-d2a727b32aa6",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 11
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "6b610945-3c79-44c7-a00c-630b79b6e29c",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1974
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-front-production",
+        "scriptVersion": "05ebfaf9-865c-4055-9fc9-97974e079d68",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-production",
+        "scriptVersion": "8cf45f56-9115-4a6f-b16f-0b1097a49fcd",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 3463
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-app-production",
+        "scriptVersion": "21198eb0-d681-4d79-bd4c-5f40ee34ffcc",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 187
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "hostbird-marketing-production",
+        "scriptVersion": "327e870d-a0db-4f9e-85da-f23931cbfdd8",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 16
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-production",
+        "scriptVersion": "",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 12
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "hostbird-app-production",
+        "scriptVersion": "fdb0aec1-ea0d-4d21-8523-3458cb288373",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 5
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-marketing-production",
+        "scriptVersion": "f00c74ed-811a-4b9b-872d-18df99d5c410",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1209
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "bbde42e0-c470-483a-ac49-39e3a426fdf4",
+        "status": "exceededMemory"
+      },
+      "sum": {
+        "errors": 1,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-email-production",
+        "scriptVersion": "909f882a-b8c3-4fb4-8656-e823629bf80c",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-production",
+        "scriptVersion": "8b81cca2-2276-4914-ae13-1c4845fa350f",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 19
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-production",
+        "scriptVersion": "78536ef8-23d2-4e76-ba75-638130977d0e",
+        "status": "exceededMemory"
+      },
+      "sum": {
+        "errors": 17,
+        "requests": 17
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-admin-production",
+        "scriptVersion": "c7addd30-a4b7-4d27-8ad8-4310052e0a84",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 213
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "4fad059c-2112-4139-bb2a-a66c64b6bf81",
+        "status": "exceededMemory"
+      },
+      "sum": {
+        "errors": 3,
+        "requests": 3
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "read-pr-web-production",
+        "scriptVersion": "61d4eb72-3fc5-45ae-9db3-2983d78076a4",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 27
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "73516518-da5e-419e-bfbb-2ee4c9f72bcf",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 37
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "aircraft-maintenance-log-web-production",
+        "scriptVersion": "5537fb5d-06d7-4197-abb9-77ab3bc4061c",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 364
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "hostbird-marketing-production",
+        "scriptVersion": "",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "fantasy-draft-order-web-production",
+        "scriptVersion": "9c60080d-26a4-47e6-a78b-63fbe78dcea6",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 110
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "hostbird-sites-production",
+        "scriptVersion": "c2102a40-6977-4829-872d-c6d68e84b33a",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 31
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-admin-production",
+        "scriptVersion": "c7addd30-a4b7-4d27-8ad8-4310052e0a84",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "no-context-web-production",
+        "scriptVersion": "ee0ad73e-44db-4af6-a10c-5ce6348f669a",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 21
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-production",
+        "scriptVersion": "5b5273b0-5b20-400e-88e1-ba28a81196c1",
+        "status": "exceededMemory"
+      },
+      "sum": {
+        "errors": 6,
+        "requests": 6
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 19
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "claude-drops-web-production",
+        "scriptVersion": "af7248d1-047c-4760-b2d9-90c34b67391c",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 13
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "claude-drops-web-production",
+        "scriptVersion": "9b878299-fe4a-4b49-b07f-01c6cc0c453c",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 29
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "revenue-hog-ingest-production",
+        "scriptVersion": "e34172fe-a133-47d7-aa98-72939a6c4b62",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "hostbird-processor-production",
+        "scriptVersion": "517cd4cd-b2a5-4ea8-a9a7-ee9556094bb5",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 154
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "thoughtful-web-production",
+        "scriptVersion": "3fb521b1-ad78-418e-ac86-30bf8daf29b4",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1002
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "blueprint-web-production",
+        "scriptVersion": "c961104c-50f6-473e-8642-6179809e6818",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 162
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "only-recipes-web-production",
+        "scriptVersion": "bb234883-e22e-4439-b73a-42d89bcbb9d8",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 323
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "otel-ads",
+        "scriptVersion": "89d19c0e-1881-4179-bd9b-10c8587fec2b",
+        "status": "success"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 287
+      }
+    },
+    {
+      "dimensions": {
+        "scriptName": "encore-web-production",
+        "scriptVersion": "a074d787-95cc-449f-a433-913c689d2847",
+        "status": "clientDisconnected"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 34
+      }
+    }
+  ],
+  "workers": [
+    {
+      "worker": "open-assets-docs-production",
+      "requests": 1925,
+      "errors": 0,
+      "statuses": {
+        "success": 1925
+      },
+      "versions": {
+        "0e853839-38ff-47ff-a782-49eee1836571": {
+          "requests": 1925,
+          "errors": 0
+        }
+      },
+      "versionless": {
+        "requests": 0,
+        "errors": 0,
+        "statuses": {},
+        "failingStatuses": {},
+        "onlyTraffic": false
+      },
+      "errorRate": 0,
+      "failingStatuses": {}
+    },
+    {
+      "worker": "open-assets-web-production",
+      "requests": 1701,
+      "errors": 0,
+      "statuses": {
+        "success": 1701
+      },
+      "versions": {
+        "d3454148-d62f-4c95-9168-e9e88fbcc649": {
+          "requests": 1701,
+          "errors": 0
+        }
+      },
+      "versionless": {
+        "requests": 0,
+        "errors": 0,
+        "statuses": {},
+        "failingStatuses": {},
+        "onlyTraffic": false
+      },
+      "errorRate": 0,
+      "failingStatuses": {}
+    }
+  ]
+}
