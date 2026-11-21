@@ -1,0 +1,5469 @@
+{
+  "schema": "grafana-audit/v1",
+  "grafana": "https://parra.grafana.net",
+  "window": {
+    "from": "2026-11-18T03:12:12Z",
+    "to": "2026-11-21T03:12:12Z",
+    "seconds": 259200
+  },
+  "scope": {
+    "services": [
+      "open-assets-docs-production",
+      "open-assets-web-production"
+    ],
+    "repos": [
+      "/Users/ianmaccallum/Developer/Repos/open-assets"
+    ]
+  },
+  "datasources": {
+    "ok": true,
+    "uids": {
+      "loki": "grafanacloud-logs",
+      "prom": "grafanacloud-prom",
+      "tempo": "grafanacloud-traces"
+    }
+  },
+  "alerts": {
+    "ok": true,
+    "folders": {
+      "AI Drops": {
+        "total": 9,
+        "firing": 0,
+        "pending": 0,
+        "unhealthy": 0
+      },
+      "Better Header": {
+        "total": 13,
+        "firing": 0,
+        "pending": 0,
+        "unhealthy": 0
+      },
+      "Bleeping Swift": {
+        "total": 4,
+        "firing": 0,
+        "pending": 0,
+        "unhealthy": 0
+      },
+      "Blueprint": {
+        "total": 22,
+        "firing": 0,
+        "pending": 0,
+        "unhealthy": 0
+      },
+      "Car Notes": {
+        "total": 1,
+        "firing": 0,
+        "pending": 0,
+        "unhealthy": 0
+      },
+      "DeductiBee": {
+        "total": 4,
+        "firing": 0,
+        "pending": 0,
+        "unhealthy": 0
+      },
+      "Docker": {
+        "total": 3,
+        "firing": 0,
+        "pending": 0,
+        "unhealthy": 0
+      },
+      "Encore": {
+        "total": 11,
+        "firing": 0,
+        "pending": 0,
+        "unhealthy": 0
+      },
+      "Equipment Maintenance Log": {
+        "total": 4,
+        "firing": 0,
+        "pending": 0,
+        "unhealthy": 0
+      },
+      "Fantasy Draft Order": {
+        "total": 4,
+        "firing": 0,
+        "pending": 0,
+        "unhealthy": 0
+      },
+      "Firearm Maintenance Log": {
+        "total": 4,
+        "firing": 0,
+        "pending": 0,
+        "unhealthy": 0
+      },
+      "Fleet": {
+        "total": 29,
+        "firing": 0,
+        "pending": 0,
+        "unhealthy": 0
+      },
+      "Football Arrests": {
+        "total": 1,
+        "firing": 0,
+        "pending": 0,
+        "unhealthy": 0
+      },
+      "GLP Done": {
+        "total": 4,
+        "firing": 0,
+        "pending": 0,
+        "unhealthy": 0
+      },
+      "Girl Math": {
+        "total": 1,
+        "firing": 0,
+        "pending": 0,
+        "unhealthy": 0
+      },
+      "Grafana Synthetic Monitoring": {
+        "total": 2,
+        "firing": 0,
+        "pending": 0,
+        "unhealthy": 0
+      },
+      "HostBird": {
+        "total": 29,
+        "firing": 0,
+        "pending": 0,
+        "unhealthy": 0
+      },
+      "IndexNow Sync": {
+        "total": 5,
+        "firing": 0,
+        "pending": 0,
+        "unhealthy": 0
+      },
+      "Livestock Tracker": {
+        "total": 4,
+        "firing": 0,
+        "pending": 0,
+        "unhealthy": 0
+      },
+      "No Context": {
+        "total": 14,
+        "firing": 0,
+        "pending": 0,
+        "unhealthy": 0
+      },
+      "NotiFi": {
+        "total": 36,
+        "firing": 0,
+        "pending": 0,
+        "unhealthy": 0
+      },
+      "Only Recipes": {
+        "total": 33,
+        "firing": 0,
+        "pending": 0,
+        "unhealthy": 0
+      },
+      "Open Animal Shelter": {
+        "total": 3,
+        "firing": 0,
+        "pending": 0,
+        "unhealthy": 0
+      },
+      "Parra": {
+        "total": 3,
+        "firing": 0,
+        "pending": 0,
+        "unhealthy": 0
+      },
+      "Perdido Peas": {
+        "total": 1,
+        "firing": 0,
+        "pending": 0,
+        "unhealthy": 0
+      },
+      "Portfolio": {
+        "total": 1,
+        "firing": 0,
+        "pending": 0,
+        "unhealthy": 0
+      },
+      "ReadPR": {
+        "total": 6,
+        "firing": 0,
+        "pending": 0,
+        "unhealthy": 0
+      },
+      "RevenueHog": {
+        "total": 27,
+        "firing": 0,
+        "pending": 0,
+        "unhealthy": 0
+      },
+      "Skimmer": {
+        "total": 4,
+        "firing": 0,
+        "pending": 0,
+        "unhealthy": 0
+      },
+      "Skipper": {
+        "total": 1,
+        "firing": 0,
+        "pending": 0,
+        "unhealthy": 0
+      },
+      "Tailgator": {
+        "total": 10,
+        "firing": 0,
+        "pending": 0,
+        "unhealthy": 0
+      },
+      "Tax Days": {
+        "total": 5,
+        "firing": 0,
+        "pending": 0,
+        "unhealthy": 0
+      },
+      "The Playbook": {
+        "total": 1,
+        "firing": 0,
+        "pending": 0,
+        "unhealthy": 0
+      },
+      "Thoughtful": {
+        "total": 10,
+        "firing": 0,
+        "pending": 0,
+        "unhealthy": 0
+      },
+      "cf-error-watch": {
+        "total": 6,
+        "firing": 0,
+        "pending": 0,
+        "unhealthy": 0
+      }
+    },
+    "rules": []
+  },
+  "logs": {
+    "ok": true,
+    "groupLimit": 300,
+    "notes": [],
+    "services": {
+      "open-assets-docs-production": {
+        "lines": 1207,
+        "levels": {
+          "info": 1207
+        },
+        "requests": 1207,
+        "fivexx": 0,
+        "firstSeen": "2026-11-18T02:00:00Z",
+        "lastSeen": "2026-11-21T03:00:00Z"
+      },
+      "open-assets-web-production": {
+        "lines": 1391,
+        "levels": {
+          "info": 1391
+        },
+        "requests": 1391,
+        "fivexx": 0,
+        "firstSeen": "2026-11-18T02:00:00Z",
+        "lastSeen": "2026-11-21T03:00:00Z"
+      }
+    },
+    "errorGroups": [],
+    "fivexx": []
+  },
+  "traces": {
+    "ok": true,
+    "spanmetrics": [
+      {
+        "service": "open-assets-web-production",
+        "kind": "client",
+        "span": "fetch",
+        "calls": 1386,
+        "errors": 807,
+        "rate": 0.5822510822510822
+      },
+      {
+        "service": "open-assets-docs-production",
+        "kind": "client",
+        "span": "fetch",
+        "calls": 1202,
+        "errors": 444,
+        "rate": 0.36938435940099834
+      },
+      {
+        "service": "open-assets-docs-production",
+        "kind": "server",
+        "span": "HEAD",
+        "calls": 8,
+        "errors": 0,
+        "rate": 0
+      },
+      {
+        "service": "open-assets-web-production",
+        "kind": "server",
+        "span": "POST",
+        "calls": 9,
+        "errors": 0,
+        "rate": 0
+      },
+      {
+        "service": "open-assets-docs-production",
+        "kind": "server",
+        "span": "GET",
+        "calls": 1194,
+        "errors": 0,
+        "rate": 0
+      },
+      {
+        "service": "open-assets-web-production",
+        "kind": "server",
+        "span": "GET",
+        "calls": 1375,
+        "errors": 0,
+        "rate": 0
+      },
+      {
+        "service": "open-assets-web-production",
+        "kind": "server",
+        "span": "HEAD",
+        "calls": 4,
+        "errors": 0,
+        "rate": 0
+      }
+    ],
+    "errorSpans": [
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/app/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 8,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/backend/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 8,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/src/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 6,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/_profiler/phpinfo",
+        "outcome": "",
+        "status": "404",
+        "events": 5,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/admin/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 5,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/backup/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 5,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/cms/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 5,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/config/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 5,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/core/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 5,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/dev/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 5,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/frontend/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 5,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/laravel/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 5,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/old/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 5,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/phpinfo",
+        "outcome": "",
+        "status": "404",
+        "events": 5,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/project/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 5,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/public/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 5,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/server/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 5,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/site/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 5,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/sizes/ipad-13",
+        "outcome": "",
+        "status": "404",
+        "events": 5,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/staging/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 5,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/templates/app-logo",
+        "outcome": "",
+        "status": "404",
+        "events": 5,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/templates/social-header",
+        "outcome": "",
+        "status": "404",
+        "events": 5,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/v1/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 5,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/v2/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 5,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/web/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 5,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/guides/app-store-screenshots%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 4,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/guides/xcode-app-icon%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 4,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.kube/config",
+        "outcome": "",
+        "status": "404",
+        "events": 4,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.netrc",
+        "outcome": "",
+        "status": "404",
+        "events": 4,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.npmrc",
+        "outcome": "",
+        "status": "404",
+        "events": 4,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.pypirc",
+        "outcome": "",
+        "status": "404",
+        "events": 4,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/actuator/configprops",
+        "outcome": "",
+        "status": "404",
+        "events": 4,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/actuator/env",
+        "outcome": "",
+        "status": "404",
+        "events": 4,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/ai.txt",
+        "outcome": "",
+        "status": "404",
+        "events": 4,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/application/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 4,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/media/system/js/core.js",
+        "outcome": "",
+        "status": "404",
+        "events": 4,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/production/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 4,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/server-status",
+        "outcome": "",
+        "status": "404",
+        "events": 4,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/sizes/product-hunt-gallery",
+        "outcome": "",
+        "status": "404",
+        "events": 4,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/test/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 4,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.DS_Store",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.amplifyrc",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.boto",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.bzr/branch/branch.conf",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.cache/huggingface/token",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.cargo/credentials.toml",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.claude/settings.json",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.claude/settings.local.json",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.codeium/windsurf/mcp_config.json",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.codex/auth.json",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.config/configstore/",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.config/huggingface/token",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.config/llm/credentials",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.config/rclone/rclone.conf",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.config/shell_gpt/.sgptrc",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.cursor/mcp.json",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.docker/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.docker/laravel/app/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.dockercfg",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.gem/credentials",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.gemini/settings.json",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.hg/hgrc",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.hg/requires",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.htaccess",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.htpasswd",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.huggingface/token",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.idea/dataSources.xml",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.idea/deployment.xml",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.idea/workspace.xml",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.kube/config",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.llm/credentials",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.my.cnf",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.netrc",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.npmrc",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.oci/config",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.pg_service.conf",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.pgpass",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.pypirc",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.s3cfg",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.sentryclirc",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.streamlit/secrets.toml",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.svn/entries",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.terraform/terraform.tfstate",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.vscode/ftp-sync.json",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.vscode/settings.json",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.vscode/sftp.json",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/DataFiles/env.js",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/Dockerfile",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/Jenkinsfile",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/__ENV.js",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/_profiler/phpinfo",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/actuator/beans",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/actuator/configprops",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/actuator/env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/actuator/heapdump",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/admin-api/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/admin/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/api-backend/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/app.config.js",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/app.js",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/app/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/app/etc/local.xml",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/application/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/auth.json",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/aws-exports.js",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/back/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/backend/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/backup/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/cms/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/composer.json",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/config.js",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/config/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/config/config.js",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/configuration.php.old",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/core/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/credentials",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/demo/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/dev/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/elmah.axd",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/env-config.js",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/env.js",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/env.txt",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/frontend/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/guides/og-images%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/index.js",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/js/config.js",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/laravel/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/media/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/metrics",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/netlify.toml",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/new/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/old/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/phpinfo",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/production/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/project/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/public/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/runtime-config.js",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/sentry.properties",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/server-info",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/server-status",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/server/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/settings.json",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/site/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/src/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/staging/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/symfony/_profiler/phpinfo",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/terraform.tfstate",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/terraform.tfstate.backup",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/terraform.tfvars",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/test/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/v1/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/v2/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/v2/_catalog",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/vendor/composer/installed.json",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/vercel.json",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/web/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/wp-config.txt",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.DS_Store",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.amplifyrc",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.boto",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.bzr/branch/branch.conf",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.cache/huggingface/token",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.cargo/credentials.toml",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.claude/settings.json",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.claude/settings.local.json",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.codeium/windsurf/mcp_config.json",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.codex/auth.json",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.config/configstore/",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.config/huggingface/token",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.config/llm/credentials",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.config/rclone/rclone.conf",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.config/shell_gpt/.sgptrc",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.cursor/mcp.json",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.docker/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.docker/laravel/app/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.dockercfg",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.gem/credentials",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.gemini/settings.json",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.hg/hgrc",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.hg/requires",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.htaccess",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.htpasswd",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.huggingface/token",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.idea/dataSources.xml",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.idea/deployment.xml",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.idea/workspace.xml",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.llm/credentials",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.my.cnf",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.oci/config",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.pg_service.conf",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.pgpass",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.s3cfg",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.sentryclirc",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.streamlit/secrets.toml",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.svn/entries",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.terraform/terraform.tfstate",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.vscode/ftp-sync.json",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.vscode/settings.json",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.vscode/sftp.json",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.zshrc",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/AGENT.md",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/DataFiles/env.js",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/Dockerfile",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/Jenkinsfile",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/__ENV.js",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/actuator/beans",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/actuator/heapdump",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/admin-api/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/alternatives%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/api-backend/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/app.config.js",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/app.js",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/app/etc/local.xml",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/auth.json",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/aws-exports.js",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/back/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/composer.json",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/config.js",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/config/config.js",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/configuration.php.old",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/credentials",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/demo/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/elmah.axd",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/env-config.js",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/env.js",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/env.txt",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/index.js",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/js/config.js",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/media/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/metrics",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/netlify.toml",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/new/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/runtime-config.js",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/sentry.properties",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/server-info",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/settings.json",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/sizes%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/sizes/app-store-screenshots%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/sizes/google-play-screenshots",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/symfony/_profiler/phpinfo",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/templates%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/templates%5C%5C%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/templates/app-store-screenshots%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/templates/app-store-screenshots%5C%5C%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/templates/google-play-screenshots%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/templates/ipad-screenshots%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/templates/og-image%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/templates/play-feature-graphic%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/templates/product-hunt-gallery%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/terraform.tfstate",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/terraform.tfstate.backup",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/terraform.tfvars",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/v2/_catalog",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/vendor/composer/installed.json",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/vercel.json",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/wp-config.txt",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/static/chunks/2wct4zvmv1379.js",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/static/chunks/3bcj47hl5y513.js",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/static/chunks/3d2xcop5vkcp5.js",
+        "outcome": "",
+        "status": "404",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/",
+        "outcome": "",
+        "status": "405",
+        "events": 3,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/agents",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/ai.txt",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/images/logo.png",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/public/logo.png",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/web/public/apple-touch-icon.png",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/web/public/favicon.png",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/AGENTS.md",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.config/Claude/claude_desktop_config.json",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.config/fabric/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.config/gemini/settings.json",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.config/zed/settings.json",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.gemini/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.windsurf/mcp_config.json",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/OAI_CONFIG_LIST",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/claude_desktop_config.json",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/oai_config_list.json",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.config/Claude/claude_desktop_config.json",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.config/fabric/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.config/gemini/settings.json",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.config/zed/settings.json",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.gemini/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.windsurf/mcp_config.json",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/OAI_CONFIG_LIST",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/apple-touch-icon.png",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/claude_desktop_config.json",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/oai_config_list.json",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/templates/static/chunks/2wct4zvmv1379.js",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/templates/static/chunks/3bcj47hl5y513.js",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/templates/static/chunks/3d2xcop5vkcp5.js",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/_environment",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/administrator/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/apps/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/assets/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/backups/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/brevo/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/build/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/bulk/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/campaign/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/client/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/core/app/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/crm/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/cron/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/cronlab/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/current/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/dashboard/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/database/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/deploy/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/dist/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/drupal/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/email/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/en/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/erp/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/exapi/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/express/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/gateway/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/graphql/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/htdocs/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/html/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/info",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/internal/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/joomla/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/lab/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/lib/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/live/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/magento/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/mail/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/mailer/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/mailgun/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/mailing/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/mailjet/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/mandrill/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/microservice/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/nest/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/newsletter/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/next/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/node/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/notifications/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/notify/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/nuxt/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/panel/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/portal/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/postmark/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/prestashop/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/private/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/prod/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/psnlink/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/public_html/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/release/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/releases/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/resources/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/rest/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/saas/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/scripts/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/sender/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/sendgrid/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/service/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/ses/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/shared/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/shop/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/shopify/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/sitemaps/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/sizes/google-play-feature-graphic",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/smtp/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/sparkpost/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/storage/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/store/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/symfony/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/temp/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/tmp/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/tools/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/transactional/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/uploads/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/v3/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/vendor/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/webroot/index.php/_environment",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/wordpress/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/wp/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/www/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 2,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/agents/claude-code%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/apple-touch-icon.png",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/concepts/collections%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/examples%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/examples/cat-iq-test%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/examples/no-context%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/examples/only-recipes%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/examples/skimmer%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/examples/tax-days%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/examples/thoughtful%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/guides/app-store-connect%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/guides/custom-product-pages%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/guides/google-play%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/guides/google-play-feature-graphic%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/guides/ipad-screenshots%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/guides/mac-app-store-screenshots%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/guides/ui-test-screenshots%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/localization%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/localization/locales%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/logo.svg",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/public/screenshots/en/01_home.png",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/quick-start%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/reference/cli/render%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/reference/cli/skills%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/reference/env%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/reference/manifest%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/reference/outputs%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/reference/sizes%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/reference/template-api%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/static/chunks/1fnf292h0utzz.js",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/static/chunks/1hy_20y62tpiy.js",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/static/chunks/2asjz354swrg9.js",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/static/chunks/3_obd0m7w8b1p.js",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/tutorial%5C",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.well-known/",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.well-known/file.php/",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.well-known/security.txt",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.well-known/traffic-advice",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/QWEN.md",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/ads.txt",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/blog/wp-includes/js/json2.js",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/bug-bounty",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/bugbounty",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/chosen",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/new/wp-includes/js/json2.js",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/old/wp-includes/js/json2.js",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/randkeyword.PhP8",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/responsible-disclosure",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/search/label/PHP-Shells",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/security",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/security-policy",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/site/wp-admin/",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/sitemap_index.xml",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/static/chunks/1f26fodgmllxd.js",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/static/chunks/2kzxbxz49bs8i.js",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/static/chunks/3gx8l6nacgnzr.js",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/templates/static/chunks/1f26fodgmllxd.js",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/templates/static/chunks/2kzxbxz49bs8i.js",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/templates/static/chunks/3gx8l6nacgnzr.js",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/test/wp-includes/js/json2.js",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/wordpress/wp-includes/js/json2.js",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/wp-content/",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/wp-content/plugins/xt",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/wp-content/plugins/xt/",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/wp-content/uploads/",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/wp/wp-includes/js/json2.js",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/screenshots/01-home.png",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.bashrc",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/GEMINI.md",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/ai/credentials",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/apple-touch-icon-precomposed.png",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/bedrock/config.toml",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/foundation-models",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/llm/credentials",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/rest/api/1.0/application-properties",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.ansible/vault_pass.txt",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.b2_account_info",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.buildkite/buildkite-agent.cfg",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.gradle/gradle.properties",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.m2/settings.xml",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/.vault_pass.txt",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/ci",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/client.ovpn",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/definitions.json",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/etc/dovecot/dovecot-sql.conf",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/gradle.properties",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/media/system/js/core.js",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/passwd-s3fs",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/rabbitmq.conf",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/redis.conf",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/secrets.pkrvars.hcl",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/settings.xml",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/variables.pkrvars.hcl",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-docs-production",
+        "span": "fetch",
+        "path": "/wg0.conf",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.ansible/vault_pass.txt",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.b2_account_info",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.buildkite/buildkite-agent.cfg",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.gradle/gradle.properties",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.m2/settings.xml",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/.vault_pass.txt",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/CLAUDE.md",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/actions/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/admin-panel/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/angular/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/ansible/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/api",
+        "outcome": "",
+        "status": "405",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/aws/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/azure/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/beta/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/bin/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/bootstrap/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/buildkite/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/cache/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/cakephp/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/cd/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/ci/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/circleci/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/client.ovpn",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/cloud/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/codeigniter/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/config/app/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/control-panel/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/core/Database/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/curl/REDACTED",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/debug/vars",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/definitions.json",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/development/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/docker/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/docs",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/elasticsearch/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/etc/dovecot/dovecot-sql.conf",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/gcp/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/github/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/gitlab/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/gradle.properties",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/infrastructure/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/jenkins/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/job/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/k8s/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/kafka/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/kubernetes/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/laravel5/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/local/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/logs/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/mongodb/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/mysql/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/og",
+        "outcome": "",
+        "status": "405",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/opt/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/passwd-s3fs",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/phpinfo.php.old",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/phpinfo.php.save",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/phpinfo.php~",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/postgres/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/preview/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/qa/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/queue/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/rabbitmq.conf",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/rabbitmq/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/react/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/redis.conf",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/redis/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/sa.json",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/sbin/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/secrets.pkrvars.hcl",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/settings.xml",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/soap",
+        "outcome": "",
+        "status": "405",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/stage/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/svelte/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/svs-path-check-nonexistent",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/terraform/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/travis/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/uat/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/user-panel/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/var/www/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/var/www/html/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/variables.pkrvars.hcl",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/vite/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/vue/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/webhook",
+        "outcome": "",
+        "status": "405",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/wg0.conf",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/worker/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/wp-json/batch/v1",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/xml",
+        "outcome": "",
+        "status": "405",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/yii/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      },
+      {
+        "service": "open-assets-web-production",
+        "span": "fetch",
+        "path": "/zend/.env",
+        "outcome": "",
+        "status": "404",
+        "events": 1,
+        "class": "error"
+      }
+    ],
+    "slices": [
+      {
+        "from": "2026-11-18T03:00:00Z",
+        "to": "2026-11-19T03:00:00Z",
+        "ok": true
+      },
+      {
+        "from": "2026-11-19T03:00:00Z",
+        "to": "2026-11-20T03:00:00Z",
+        "ok": true
+      },
+      {
+        "from": "2026-11-20T03:00:00Z",
+        "to": "2026-11-21T03:00:00Z",
+        "ok": true
+      },
+      {
+        "from": "2026-11-21T03:00:00Z",
+        "to": "2026-11-21T04:00:00Z",
+        "ok": true
+      }
+    ]
+  },
+  "coverage": {
+    "ok": true,
+    "exporting": [
+      "open-assets-docs-production",
+      "open-assets-web-production"
+    ],
+    "notExported": [],
+    "services": {
+      "open-assets-docs-production": {
+        "firstSeen": "2026-11-18T02:00:00Z",
+        "lastSeen": "2026-11-21T03:00:00Z"
+      },
+      "open-assets-web-production": {
+        "firstSeen": "2026-11-18T02:00:00Z",
+        "lastSeen": "2026-11-21T03:00:00Z"
+      }
+    }
+  },
+  "warnings": []
+}
